@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Genetics: The Code That Builds You",
+    "topic": "Genetics",
+    "file": "courses/hs-genetics.json"
+  },
+  {
+    "title": "Simple Machines: Six Ways to Win at Physics",
+    "topic": "The 6 simple machines (lever, wheel and axle, pulley, inclined plane, wedge, screw)",
+    "file": "courses/hs-simple-machines.json"
+  }
+]

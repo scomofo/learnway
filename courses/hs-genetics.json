@@ -1,0 +1,645 @@
+{
+  "meta": {
+    "topic": "Genetics",
+    "level": "highschool",
+    "interests": "sports, music, food, video games",
+    "depth": "standard",
+    "model": "scout-direct",
+    "title": "Genetics: The Code That Builds You",
+    "createdAt": "2026-10-04T01:48:42.909988+00:00",
+    "version": 1
+  },
+  "plan": {
+    "title": "Genetics: The Code That Builds You",
+    "hook": "Every cell in your body carries a 3-billion-letter instruction manual - half from each parent - written in a four-letter alphabet. This course teaches you to read it: how the code is stored, how it becomes you, how it passes to the next generation, and what happens when we start rewriting it.",
+    "objectives": [
+      "Explain how DNA's structure lets it store and copy information",
+      "Describe how a gene becomes a trait via transcription and translation",
+      "Predict offspring trait ratios using Punnett squares",
+      "Distinguish types of mutations and explain where genetic variation comes from",
+      "Evaluate claims about DNA tests and genetic engineering"
+    ],
+    "prerequisites": [
+      "Basic cell biology: what cells and the nucleus are",
+      "Basic chemistry: atoms and molecules",
+      "Basic probability: fractions and percentages"
+    ],
+    "sections": [
+      {
+        "id": "dna-code",
+        "heading": "DNA: The Code of Life",
+        "points": [
+          "DNA's double-helix structure and the base-pairing rule (A-T, C-G)",
+          "Genes as instruction stretches; chromosomes and the scale of the human genome",
+          "How the pairing rule makes DNA copyable: semiconservative replication",
+          "Rosalind Franklin's Photo 51 and the 1953 discovery of the helix"
+        ]
+      },
+      {
+        "id": "gene-to-trait",
+        "heading": "From Gene to Trait: The Central Dogma",
+        "points": [
+          "The central dogma: DNA to RNA to protein",
+          "Transcription: copying a gene into messenger RNA",
+          "Translation: ribosomes reading three-letter codons into amino acids",
+          "Proteins as the workers - enzymes, hemoglobin, keratin, antibodies, muscle",
+          "Traits are what protein work produces, not text in DNA directly"
+        ]
+      },
+      {
+        "id": "inheritance",
+        "heading": "Inheritance: Mendel's Rules",
+        "points": [
+          "Alleles: two copies of each gene, one per parent; dominant vs recessive",
+          "Genotype (the alleles you carry) vs phenotype (the trait you see)",
+          "Punnett squares and the 3:1 ratio from a carrier cross",
+          "Mendel's laws of segregation and independent assortment",
+          "Mendel's pea experiments - the logic of heredity before DNA was known"
+        ]
+      },
+      {
+        "id": "variation",
+        "heading": "Variation and Mutation",
+        "points": [
+          "Mutations: silent, missense, nonsense, and frameshift",
+          "The three shuffling machines: crossing over, independent assortment, random fertilization",
+          "Sex-linked inheritance: why X-linked recessive traits hit males harder",
+          "Polygenic traits and the environment: genes load the dice",
+          "Helpful mutations: adult lactose tolerance"
+        ]
+      },
+      {
+        "id": "genetics-wild",
+        "heading": "Genetics in the Wild",
+        "points": [
+          "Reading DNA: from the $3B Human Genome Project to sub-$1,000 sequencing",
+          "What DNA tests can and cannot tell you: estimates and probabilities, not destinies",
+          "Rewriting DNA: CRISPR-Cas9 as find-and-replace",
+          "Approved CRISPR therapies and other applications",
+          "The ethics: somatic vs germline editing"
+        ]
+      }
+    ]
+  },
+  "reading": {
+    "sections": [
+      {
+        "id": "dna-code",
+        "heading": "DNA: The Code of Life",
+        "body": "Two meters of instruction manual, folded into a speck you cannot see. That is the first surprise: nearly every cell in your body holds about 2 meters of DNA, coiled and packed so tightly it fits inside a nucleus narrower than a dust mote. Unspooled, all the DNA in your body would stretch to the Sun and back dozens of times.\n\nThe second surprise is how simple the code is. DNA is built from just four chemical letters: A, T, C, and G (adenine, thymine, cytosine, guanine). They pair up with strict loyalty: A always pairs with T, and C always pairs with G. Two long strands wind around each other in the famous double helix, a shape revealed in 1953 by James Watson and Francis Crick, building on Rosalind Franklin's X-ray image known as Photo 51, whose X pattern gave the helix away.\n\nThink of it like a video game's save file: a long string of simple symbols that, read in order, rebuilds an entire world. A gene is a stretch of that string carrying the instructions for one job, usually building one protein. Humans have roughly 20,000 protein-coding genes.\n\nGenes live on chromosomes: 46 per cell, arranged in 23 pairs, one set from each parent. All of it together is your genome: about 3 billion letters. And the pairing rule is also a copying trick. When a cell divides, the helix unzips and each strand templates a new partner, A finding T and C finding G, so each daughter cell gets a complete, faithful copy. Biologists call this semiconservative replication: half old, half new, every single time.",
+        "questions": [
+          {
+            "q": "Why does the A-T / C-G pairing rule make DNA easy to copy?",
+            "answer": "Each strand is a template for the other: knowing one side tells you the other side exactly, so unzipping the helix gives two ready-made patterns for building two new strands.",
+            "hint": "If I tell you one side reads A-C-G, what must the other side read?"
+          },
+          {
+            "q": "A body cell has 46 chromosomes. How many did you inherit from your mother?",
+            "answer": "23: one member of each chromosome pair.",
+            "hint": "Chromosomes come in pairs. Where does each member of a pair come from?"
+          }
+        ]
+      },
+      {
+        "id": "gene-to-trait",
+        "heading": "From Gene to Trait: The Central Dogma",
+        "body": "DNA never leaves the nucleus, but the work happens everywhere else. So how do instructions locked in the vault reach the factory floor? The cell uses a copy-and-deliver system biologists call the central dogma: DNA to RNA to protein.\n\nStep one is transcription. An enzyme unzips a gene and builds a disposable copy called messenger RNA, or mRNA. RNA is DNA's close cousin: same four letters, except U (uracil) stands in for T. The mRNA carries the gene's message out of the nucleus to a ribosome, the cell's protein-building machine.\n\nStep two is translation. The ribosome reads the mRNA three letters at a time. Each three-letter word is a codon, and each codon specifies one amino acid, the building blocks of proteins. With four letters and three slots there are 64 possible codons but only 20 amino acids, so the code is redundant: several codons can mean the same amino acid. The codon AUG doubles as the universal signal for start here.\n\nHere is the kitchen analogy: DNA is the master cookbook locked in the chef's office. Transcription photocopies one recipe as mRNA. The ribosome is the cook, amino acids are the ingredients, and the finished protein is the dish. And proteins do nearly everything: enzymes that digest your food, hemoglobin that carries oxygen in your blood, keratin in your hair and nails, antibodies that fight infection, and the actin and myosin that make your muscles contract when you sprint.\n\nThe deepest point of this section: your traits are not in your DNA directly. DNA holds recipes, proteins do the work, and traits are what the work produces. Change the recipe, a mutation, and you may change the dish.",
+        "questions": [
+          {
+            "q": "Why does the cell bother making an mRNA copy instead of using the DNA directly?",
+            "answer": "DNA must stay protected in the nucleus; mRNA is a disposable working copy that can travel to ribosomes, and many copies can be made from a single gene.",
+            "hint": "What would happen to the master cookbook if the cooks handled it directly every time?"
+          },
+          {
+            "q": "A codon is three letters long and there are 4 possible letters. How many codons exist, and why is that more than the 20 amino acids?",
+            "answer": "64 codons exist (4 x 4 x 4). The code is redundant, so most amino acids are specified by more than one codon.",
+            "hint": "4 x 4 x 4 = ? Compare that to 20."
+          }
+        ]
+      },
+      {
+        "id": "inheritance",
+        "heading": "Inheritance: Mendel's Rules",
+        "body": "In the 1860s, an Austrian monk named Gregor Mendel grew 29,000 pea plants and discovered the rules of inheritance, decades before anyone knew DNA existed. He tracked traits like seed color and plant height, and the patterns he found still hold.\n\nMendel's key insight: you carry two copies of each gene, one from each parent. Different versions of a gene are called alleles. For some genes, one allele masks the other: the dominant allele shows its trait even with a single copy, while the recessive allele only shows when you inherit two copies. The textbook example is the simplified story of brown eyes (dominant) versus blue eyes (recessive), though real eye color actually involves many genes.\n\nGenotype is the alleles you carry, written like Aa. Phenotype is the trait you show. An organism with two identical alleles (AA or aa) is homozygous; with two different ones (Aa), heterozygous.\n\nTo predict offspring, biologists use the Punnett square: a grid that pairs every possible allele from one parent with every possible allele from the other. Cross two heterozygous (Aa x Aa) parents and the square gives 1 AA : 2 Aa : 1 aa, a 3:1 ratio of dominant to recessive phenotypes. It is pure probability, the same math as flipping two coins.\n\nMendel also found the law of segregation (the two alleles separate when sperm and eggs form) and the law of independent assortment (genes for different traits shuffle independently, mostly true except for genes sitting close together on the same chromosome). He worked out the logic of inheritance without ever seeing a molecule of DNA.",
+        "questions": [
+          {
+            "q": "Two heterozygous parents (Aa x Aa) have a child. What is the chance the child shows the recessive trait?",
+            "answer": "1 in 4 (25%): only the aa combination shows the recessive trait.",
+            "hint": "Fill the four boxes of the Punnett square. How many boxes are aa?"
+          },
+          {
+            "q": "What is the difference between genotype and phenotype?",
+            "answer": "Genotype is the allele combination you carry; phenotype is the observable trait.",
+            "hint": "One is the recipe, the other is the dish."
+          }
+        ]
+      },
+      {
+        "id": "variation",
+        "heading": "Variation and Mutation",
+        "body": "If Mendel's rules were the whole story, siblings would be far more alike than they are. The missing ingredient is variation, and it comes from three shuffling machines plus the occasional typo.\n\nFirst, the typos: mutations. A point mutation swaps one letter. Sometimes it is silent (same amino acid, thanks to the redundant code), sometimes missense (one wrong amino acid, as in sickle cell disease), sometimes nonsense (a premature stop signal that truncates the protein). Insertions or deletions can shift the entire reading frame, a frameshift, garbling every codon downstream. Most mutations are neutral or harmful; rarely, one helps. Adult lactose tolerance is a famous helpful one: a mutation that keeps the milk-digesting enzyme switched on past childhood.\n\nSecond, the shuffling. When sperm and eggs form, matching chromosomes swap segments (crossing over), chromosomes assort independently (2 to the 23rd power: over 8 million combinations per parent), and fertilization pairs two random gametes. The result: except for identical twins, no two humans have ever had the same genome.\n\nSome traits break Mendel's simple patterns. Sex-linked genes ride on the X or Y chromosome. Color blindness is X-linked recessive, which is why it affects about 1 in 12 men but only 1 in 200 women: men have a single X, so one copy is enough to show the trait. And most traits you care about, height, skin color, athletic potential, are polygenic: dozens or hundreds of genes plus environment. Genes load the dice; they do not guarantee the roll. Even identical twins, who start with the same genome, accumulate their own new mutations over a lifetime and diverge.",
+        "questions": [
+          {
+            "q": "Why is a frameshift mutation usually worse than a single-letter swap?",
+            "answer": "It shifts the three-letter reading frame, changing every codon after the mutation instead of just one amino acid.",
+            "hint": "Delete one letter from THE CAT ATE THE RAT and re-read it in groups of three. What happens?"
+          },
+          {
+            "q": "Why is X-linked color blindness much more common in men than women?",
+            "answer": "Men have one X chromosome, so a single recessive allele on it is enough to show the trait; women need two copies.",
+            "hint": "How many X chromosomes does each sex carry?"
+          }
+        ]
+      },
+      {
+        "id": "genetics-wild",
+        "heading": "Genetics in the Wild",
+        "body": "We can now read the manual, and we are learning to edit it.\n\nReading came first. The Human Genome Project finished the first human genome in 2003: 13 years and $3 billion. Today a genome can be sequenced in a day for under $1,000. That collapse powers consumer DNA testing. Ancestry services compare your variants to reference populations (statistical estimates, not certainties), and medical tests flag variants tied to disease risk. The key caution: most health variants shift probabilities, not destinies. A higher-risk gene is not a diagnosis; lifestyle and luck still deal most of the hand.\n\nEditing is newer. CRISPR-Cas9, borrowed from a bacterial immune system, works like find-and-replace for DNA: a guide RNA leads the Cas9 protein to an exact address, it cuts, and the cell's repair crew can be tricked into writing new text. In 2023 regulators approved the first CRISPR therapies, for sickle cell disease, editing patients' own blood stem cells so they produce healthy hemoglobin.\n\nThe applications sprawl: blight-resistant wheat, malaria-proof mosquitoes, de-extinction headlines. So do the questions. Editing body cells (somatic editing) affects one patient. Editing embryos (germline editing) affects every generation after, and in 2018 a researcher did exactly that, to global condemnation. The technology forces a question no molecule can answer: just because we can rewrite the code, which rewrites should we choose? Medicine is already personalizing: pharmacogenomics matches drugs to patients' variants, and engineered crops carry blight resistance that once took decades of breeding. None of these tools changes the central fact of this course: DNA is information, and information wants careful readers.",
+        "questions": [
+          {
+            "q": "A DNA test says you carry a variant linked to higher heart-disease risk. Does that mean you will get heart disease?",
+            "answer": "No. It shifts probability, not destiny: most such variants are risk factors, not diagnoses.",
+            "hint": "Think loaded dice, not a fixed outcome."
+          },
+          {
+            "q": "Why is germline editing (embryos) treated as far more serious than editing a patient's blood cells?",
+            "answer": "Germline changes are inherited by every future generation and cannot be undone; somatic edits affect only the treated individual.",
+            "hint": "Besides the patient, who else is affected by each kind of edit?"
+          }
+        ]
+      }
+    ]
+  },
+  "quizzes": {
+    "sections": [
+      {
+        "id": "dna-code",
+        "questions": [
+          {
+            "q": "A DNA strand reads A-T-C-G. What does its partner strand read?",
+            "choices": [
+              "T-A-G-C",
+              "A-T-C-G",
+              "U-A-G-C",
+              "T-A-C-G"
+            ],
+            "answer": 0,
+            "explain": "A pairs with T and C pairs with G, so the partner is T-A-G-C. An identical sequence cannot pair with itself (A never pairs with A). U is RNA's letter, not DNA's, and the last option breaks the C-G rule."
+          },
+          {
+            "q": "Skin cells and neurons do very different jobs, but their DNA is...",
+            "choices": [
+              "identical: (almost) every cell carries the same genome",
+              "completely different: each cell type has its own DNA",
+              "similar, but neurons carry extra genes",
+              "only half the genome in each"
+            ],
+            "answer": 0,
+            "explain": "Nearly every cell carries the full genome. Cell types differ in which genes are switched on, not in which genes they hold."
+          },
+          {
+            "q": "During replication, one original strand ends up in each daughter DNA molecule. This is called...",
+            "choices": [
+              "semiconservative replication",
+              "conservative replication",
+              "transcription",
+              "translation"
+            ],
+            "answer": 0,
+            "explain": "Semiconservative: each new helix keeps one old strand and one new one. Transcription and translation make RNA and protein, not DNA."
+          }
+        ]
+      },
+      {
+        "id": "gene-to-trait",
+        "questions": [
+          {
+            "q": "A gene's DNA template strand reads T-A-C. What codon appears on the mRNA?",
+            "choices": [
+              "A-U-G",
+              "A-T-G",
+              "T-A-C",
+              "U-A-C"
+            ],
+            "answer": 0,
+            "explain": "RNA pairs A-U and uses U instead of T: T->A, A->U, C->G gives A-U-G, the start codon. Keeping DNA's T or skipping the pairing rule gives the wrong answers."
+          },
+          {
+            "q": "A mutation changes a codon from GAA to GAG. Both code for glutamic acid. The resulting protein is...",
+            "choices": [
+              "unchanged: a silent mutation",
+              "missing one amino acid",
+              "truncated early",
+              "certain to misfold"
+            ],
+            "answer": 0,
+            "explain": "Same amino acid means the same protein: the code's redundancy absorbs the change. Nothing is deleted or stopped."
+          },
+          {
+            "q": "Which sequence correctly states the central dogma?",
+            "choices": [
+              "DNA -> RNA -> protein",
+              "protein -> RNA -> DNA",
+              "RNA -> DNA -> protein",
+              "DNA -> protein -> RNA"
+            ],
+            "answer": 0,
+            "explain": "Information flows DNA -> RNA (transcription) -> protein (translation). Cells do not normally run this in reverse."
+          }
+        ]
+      },
+      {
+        "id": "inheritance",
+        "questions": [
+          {
+            "q": "In peas, tall (T) is dominant to short (t). A Tt plant is crossed with a tt plant. What fraction of the offspring will be short?",
+            "choices": [
+              "1/2",
+              "1/4",
+              "3/4",
+              "0"
+            ],
+            "answer": 0,
+            "explain": "Tt x tt gives Tt, Tt, tt, tt: half the offspring are tt and show the recessive short trait. 1/4 is the recessive ratio for a carrier x carrier cross instead."
+          },
+          {
+            "q": "A blue-eyed woman (recessive trait, bb) has children with a heterozygous brown-eyed man (Bb). Their child has brown eyes. The child's genotype must be...",
+            "choices": [
+              "Bb",
+              "BB",
+              "bb",
+              "impossible to tell"
+            ],
+            "answer": 0,
+            "explain": "Mom can only contribute b, so a brown-eyed child must have received B from dad: Bb. BB is impossible (mom has no B to give), and bb would show blue eyes."
+          },
+          {
+            "q": "Mendel's law of independent assortment says...",
+            "choices": [
+              "alleles for different genes shuffle independently into gametes",
+              "dominant alleles always travel together",
+              "siblings receive identical gene combinations",
+              "linked genes never separate"
+            ],
+            "answer": 0,
+            "explain": "Genes on different chromosomes assort independently: that is the shuffling. Genes close together on one chromosome are linked, the exception to the rule."
+          }
+        ]
+      },
+      {
+        "id": "variation",
+        "questions": [
+          {
+            "q": "A single-base deletion in a coding region is usually more damaging than a single-base substitution because...",
+            "choices": [
+              "it shifts the reading frame for every downstream codon",
+              "it deletes the entire gene",
+              "it prevents transcription",
+              "it doubles the mutation rate"
+            ],
+            "answer": 0,
+            "explain": "A frameshift garbles every codon after the deletion. A substitution changes at most one amino acid, and is sometimes silent."
+          },
+          {
+            "q": "Two carrier parents (Aa x Aa) for a recessive condition have had three unaffected children. The chance their fourth child is affected is...",
+            "choices": [
+              "1/4: each child is an independent event",
+              "1/16",
+              "near zero: they have used up their luck",
+              "1/2"
+            ],
+            "answer": 0,
+            "explain": "Each fertilization is independent: 1/4 every time. Past children do not change the odds; thinking otherwise is the gambler's fallacy."
+          },
+          {
+            "q": "Height varies continuously across a population instead of falling into two neat groups. This suggests height is...",
+            "choices": [
+              "polygenic: many genes plus environment",
+              "controlled by one dominant gene",
+              "not genetic at all",
+              "sex-linked"
+            ],
+            "answer": 0,
+            "explain": "Continuous variation is the signature of many genes of small effect plus environment. Single-gene traits give discrete categories."
+          }
+        ]
+      },
+      {
+        "id": "genetics-wild",
+        "questions": [
+          {
+            "q": "CRISPR-Cas9 edits DNA by...",
+            "choices": [
+              "using a guide RNA to bring Cas9 to an exact address, where it cuts",
+              "inserting a whole new chromosome",
+              "replacing the entire genome at once",
+              "blocking transcription permanently"
+            ],
+            "answer": 0,
+            "explain": "Guide RNA is the address label, Cas9 is the scissors, and the cell's repair crew writes the edit. It changes one locus, not whole chromosomes or genomes."
+          },
+          {
+            "q": "An ancestry test reports you are '12% Scandinavian.' The most accurate reading is...",
+            "choices": [
+              "a statistical estimate from comparing your variants to reference groups",
+              "proof that one grandparent was Scandinavian",
+              "a medical diagnosis",
+              "an exact and unchanging fact"
+            ],
+            "answer": 0,
+            "explain": "Ancestry percentages are estimates against reference panels, and they shift as panels grow. They say nothing about your health."
+          },
+          {
+            "q": "Which of these raises the deepest ethical concern?",
+            "choices": [
+              "editing an embryo's germline",
+              "editing a consenting adult's blood cells to cure their disease",
+              "sequencing a tumor to choose a drug",
+              "testing crops for a blight-resistance gene"
+            ],
+            "answer": 0,
+            "explain": "Germline edits are inherited by all descendants and cannot be recalled. The others affect one patient, one treatment decision, or plants."
+          }
+        ]
+      }
+    ]
+  },
+  "slides": {
+    "sections": [
+      {
+        "id": "dna-code",
+        "title": "DNA: The Code of Life",
+        "bullets": [
+          "Every cell holds ~2 meters of DNA, packed into a microscopic nucleus",
+          "Four letters: A, T, C, G, with strict pairing (A-T, C-G)",
+          "Double helix: two strands wound together (Franklin's Photo 51 -> Watson and Crick, 1953)",
+          "A gene is a stretch of DNA with instructions for one job, usually one protein",
+          "~20,000 genes on 46 chromosomes (23 pairs) = your genome, ~3 billion letters",
+          "The pairing rule is also a copying trick: each strand templates its partner (semiconservative replication)"
+        ],
+        "notes": "Here is the image to carry: two meters of instruction manual folded into a speck of dust, written in a four-letter alphabet. A always pairs with T, C with G, and that simple loyalty rule is also how DNA copies itself. Unzip the helix and each strand is a ready-made template for a new partner. Genes are the chapters, about twenty thousand of them, sitting on 46 chromosomes in 23 pairs, one set from each parent. Everything you are, biochemically, starts as text in this book."
+      },
+      {
+        "id": "gene-to-trait",
+        "title": "From Gene to Trait",
+        "bullets": [
+          "The problem: DNA never leaves the nucleus, but the work happens outside it",
+          "Central dogma: DNA -> RNA -> protein",
+          "Transcription: a gene is copied into messenger RNA (U replaces T)",
+          "Translation: the ribosome reads mRNA in three-letter codons, building amino acid chains",
+          "64 codons but 20 amino acids: the code is redundant (AUG means start)",
+          "Proteins do everything: enzymes, hemoglobin, keratin, antibodies, muscle",
+          "Traits are not in DNA directly: DNA holds recipes, proteins do the work"
+        ],
+        "notes": "Think of a kitchen. The master cookbook, DNA, is locked in the office. Transcription photocopies one recipe as messenger RNA. The ribosome is the cook, reading the recipe three letters at a time: each three-letter codon calls for one amino acid, and out comes the dish, a protein. Enzymes, hemoglobin, antibodies, the stuff your muscles contract with, all proteins. So your traits are not written in DNA directly. DNA holds the recipes, proteins do the work, and traits are what the work produces."
+      },
+      {
+        "id": "inheritance",
+        "title": "Mendel's Rules",
+        "bullets": [
+          "1860s: Mendel's 29,000 pea plants revealed inheritance before DNA was known",
+          "Two copies of each gene (alleles), one from each parent",
+          "Dominant alleles mask recessive ones; recessive traits need two copies",
+          "Genotype (the alleles, e.g. Aa) vs phenotype (the trait you see)",
+          "Punnett square: pair every allele combination; Aa x Aa gives a 3:1 ratio",
+          "Laws of segregation (alleles separate into gametes) and independent assortment"
+        ],
+        "notes": "An Austrian monk growing peas figured out inheritance decades before anyone knew what DNA was. His rules: you carry two copies of every gene, one per parent. Some versions, dominant alleles, mask the recessive ones. Your genotype is the hand you are holding; your phenotype is how you play it. The Punnett square is probability made visual: cross two carriers and one box in four shows the recessive trait. Mendel nailed the logic of heredity without ever seeing the molecule."
+      },
+      {
+        "id": "variation",
+        "title": "Variation and Mutation",
+        "bullets": [
+          "New variation comes from mutations (typos) plus three shuffling machines",
+          "Point mutations: silent, missense (sickle cell), nonsense (early stop)",
+          "Insertions and deletions cause frameshifts: every downstream codon garbled",
+          "Shuffling: crossing over, independent assortment (2^23 combos), random fertilization",
+          "Sex-linked genes ride the X or Y: X-linked recessive traits hit males harder",
+          "Polygenic traits (height): many genes plus environment; genes load the dice"
+        ],
+        "notes": "Siblings share parents but not genomes, and here is why. First, typos: mutations. Swap one letter and you might change nothing, one amino acid, or, if you insert or delete a letter, shift the entire reading frame and garble everything downstream. Second, three shuffling machines: chromosomes swap segments, assort independently into over eight million combinations per parent, and fertilization pairs two random gametes. Then the exceptions: sex-linked genes ride the X chromosome, so recessive ones show up far more in males. And most traits you care about are polygenic: dozens of genes plus environment. Genes load the dice; they do not guarantee the roll."
+      },
+      {
+        "id": "genetics-wild",
+        "title": "Reading and Rewriting DNA",
+        "bullets": [
+          "2003: first genome took 13 years and $3B; today: a day, under $1,000",
+          "DNA tests: ancestry results are estimates; health variants are probabilities, not destinies",
+          "CRISPR-Cas9: a bacterial immune system turned into find-and-replace for DNA",
+          "Guide RNA aims, Cas9 cuts, the cell's repair crew writes the edit",
+          "2023: first CRISPR therapies approved, for sickle cell disease",
+          "Somatic edits treat one patient; germline edits (embryos) inherit forever",
+          "The open question: which rewrites should we choose?"
+        ],
+        "notes": "In 2003, reading one human genome took thirteen years and three billion dollars. Now it takes a day and under a grand, which is why DNA tests exist, and why you should read them carefully: ancestry percentages are estimates, and most health variants shift probabilities, not destinies. Editing is newer. CRISPR borrows a bacterial immune system: a guide RNA delivers the Cas9 scissors to an exact address, and the cell's own repair crew writes in the change. The first therapies were approved in 2023 for sickle cell disease. Editing an adult's blood cells treats one person. Editing an embryo edits every generation after, which is why that 2018 experiment drew global condemnation. The molecule cannot answer the real question: just because we can rewrite the code, which rewrites should we choose?"
+      }
+    ]
+  },
+  "enrichment": {
+    "audioTitle": "The 3-Billion-Letter Manual",
+    "turns": [
+      {
+        "speaker": "student",
+        "line": "Okay, be honest: is DNA actually a code, or is that just a metaphor teachers like?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "It is the rare metaphor that is also literally true. DNA stores information in a four-letter alphabet, the cell reads it in three-letter words, and those words specify the parts list for building you. It is closer to source code than to poetry."
+      },
+      {
+        "speaker": "student",
+        "line": "If it is 3 billion letters long, why do we only have about 20,000 genes? What is the rest doing?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Great question, and it embarrassed biology for a decade. People called the rest junk DNA. Turns out much of it is regulatory: switches, dimmers, and timers that control when and where genes turn on. The 20,000 genes are the recipes; the rest is largely the kitchen management system."
+      },
+      {
+        "speaker": "student",
+        "line": "So how does a string of letters become something real, like my eye color?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Through the central dogma: DNA to RNA to protein. A gene for eye color is really instructions for building proteins that make pigment. More pigment protein, darker eyes. The letters never become the trait directly; they become the workers, and the workers produce the trait."
+      },
+      {
+        "speaker": "student",
+        "line": "Wait, so every cell has the same DNA but different jobs? My skin cells and brain cells are running the same code?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Exactly the same code, different chapters open. A skin cell and a neuron differ in which genes are switched on, not which genes they carry. That is why you can clone a whole animal from one skin cell: the full manual is in there."
+      },
+      {
+        "speaker": "student",
+        "line": "My brother got Mom's curly hair and I got straight hair. Same parents, same manual, right?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Same two parental manuals, but you each got a different random half of each. Crossing over shuffles the chromosomes, they assort independently into over eight million combinations per parent, and fertilization pairs two random gametes. Siblings are reshuffled decks from the same two decks of cards."
+      },
+      {
+        "speaker": "student",
+        "line": "Are mutations always bad? Like comic-book-villain bad?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Most are neutral, some are harmful, and once in a while one helps. Sickle cell disease comes from a single swapped letter. But adult lactose tolerance, the ability to drink milk after childhood, is also a mutation: one that keeps the milk-digesting enzyme switched on. Without mutations there would be no variation, and without variation, no evolution."
+      },
+      {
+        "speaker": "student",
+        "line": "Could someone edit DNA to make a kid better at sports? Like, soon?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Not honestly, no. Athletic ability is polygenic: hundreds of genes plus training, nutrition, and luck. There is no single sports gene to edit, and anyone selling you that story is selling something else. CRISPR is real medicine for single-gene diseases like sickle cell, not a character-creation screen."
+      },
+      {
+        "speaker": "student",
+        "line": "What about those DNA tests that say I am 12 percent Scandinavian? Should I believe them?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Believe them the way you believe a weather forecast: a decent estimate, not a fact. They compare your variants to reference groups, and the percentages shift as those reference groups grow. And keep health results in the same frame: most variants nudge probabilities, they do not deal destinies."
+      },
+      {
+        "speaker": "student",
+        "line": "Last one. If we can edit DNA now, who decides what counts as an okay edit?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "That is the question the science cannot answer. Treating a consenting patient's blood cells is one thing; editing an embryo changes every generation after it, without their consent. In 2018 a researcher crossed that line and the global scientific community condemned it. The code is ours to read now. What we rewrite, and why, is up to us."
+      }
+    ],
+    "nodes": [
+      {
+        "id": "genetics",
+        "label": "Genetics",
+        "parent": null,
+        "note": "How traits pass from parents to offspring via DNA."
+      },
+      {
+        "id": "dna",
+        "label": "DNA",
+        "parent": "genetics",
+        "note": "Deoxyribonucleic acid: the double-helix molecule storing information in a 4-letter alphabet."
+      },
+      {
+        "id": "base-pairs",
+        "label": "Base pairing (A-T, C-G)",
+        "parent": "dna",
+        "note": "Strict pairing rules that make DNA copyable: each strand templates the other."
+      },
+      {
+        "id": "genes",
+        "label": "Genes",
+        "parent": "dna",
+        "note": "Stretches of DNA with instructions for one job, usually one protein; ~20,000 in humans."
+      },
+      {
+        "id": "chromosomes",
+        "label": "Chromosomes & genome",
+        "parent": "dna",
+        "note": "46 chromosomes in 23 pairs per cell; the genome is all of it, ~3 billion letters."
+      },
+      {
+        "id": "central-dogma",
+        "label": "Central dogma",
+        "parent": "genetics",
+        "note": "DNA -> RNA -> protein: the flow of genetic information."
+      },
+      {
+        "id": "transcription",
+        "label": "Transcription",
+        "parent": "central-dogma",
+        "note": "Copying a gene into messenger RNA inside the nucleus."
+      },
+      {
+        "id": "translation",
+        "label": "Translation",
+        "parent": "central-dogma",
+        "note": "Ribosomes reading mRNA codons to chain amino acids into proteins."
+      },
+      {
+        "id": "proteins",
+        "label": "Proteins",
+        "parent": "central-dogma",
+        "note": "The workers: enzymes, hemoglobin, keratin, antibodies, muscle fibers."
+      },
+      {
+        "id": "alleles",
+        "label": "Alleles",
+        "parent": "genetics",
+        "note": "Different versions of a gene; you carry two copies, one per parent."
+      },
+      {
+        "id": "dominance",
+        "label": "Dominant vs recessive",
+        "parent": "alleles",
+        "note": "Dominant alleles mask recessive ones; recessive traits need two copies."
+      },
+      {
+        "id": "punnett",
+        "label": "Punnett squares",
+        "parent": "alleles",
+        "note": "Grids predicting offspring genotypes; Aa x Aa gives a 3:1 phenotype ratio."
+      },
+      {
+        "id": "sex-linked",
+        "label": "Sex-linked inheritance",
+        "parent": "alleles",
+        "note": "Genes on X/Y chromosomes; X-linked recessive traits affect males more."
+      },
+      {
+        "id": "mutations",
+        "label": "Mutations",
+        "parent": "genetics",
+        "note": "Typos in DNA: silent, missense, nonsense, and frameshift."
+      },
+      {
+        "id": "shuffling",
+        "label": "Genetic shuffling",
+        "parent": "genetics",
+        "note": "Crossing over, independent assortment, random fertilization: why siblings differ."
+      },
+      {
+        "id": "polygenic",
+        "label": "Polygenic traits",
+        "parent": "genetics",
+        "note": "Traits shaped by many genes plus environment, like height."
+      },
+      {
+        "id": "sequencing",
+        "label": "DNA sequencing",
+        "parent": "genetics",
+        "note": "Reading DNA: from $3B in 2003 to under $1,000 today."
+      },
+      {
+        "id": "crispr",
+        "label": "CRISPR-Cas9",
+        "parent": "genetics",
+        "note": "Guide-RNA-targeted gene editing borrowed from bacterial immunity."
+      },
+      {
+        "id": "ethics",
+        "label": "Editing ethics",
+        "parent": "crispr",
+        "note": "Somatic vs germline edits; who decides which rewrites are allowed."
+      }
+    ],
+    "mnemonics": [
+      {
+        "for": "Base pairing (A-T, C-G)",
+        "aid": "Apples in the Tree, Cars in the Garage: A-T, C-G."
+      },
+      {
+        "for": "Central dogma order",
+        "aid": "DNA Makes RNA Makes Protein: the factory line runs one way."
+      },
+      {
+        "for": "Carrier cross (Aa x Aa) ratios",
+        "aid": "One-two-one genotype, three-to-one phenotype: the carrier cross is done."
+      }
+    ]
+  }
+}

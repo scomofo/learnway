@@ -1,0 +1,725 @@
+{
+  "meta": {
+    "topic": "The 6 simple machines (lever, wheel and axle, pulley, inclined plane, wedge, screw)",
+    "level": "highschool",
+    "interests": "sports, music, food, video games",
+    "depth": "standard",
+    "model": "scout-direct",
+    "title": "Simple Machines: Six Ways to Win at Physics",
+    "createdAt": "2026-10-04T01:54:29.369100+00:00",
+    "version": 1
+  },
+  "plan": {
+    "title": "Simple Machines: Six Ways to Win at Physics",
+    "hook": "Every tool you have ever touched, from a bottle opener to a bicycle, is built from six ancient tricks for trading force against distance. Learn the six and you can see through any machine ever made.",
+    "objectives": [
+      "Explain mechanical advantage and the force-distance tradeoff behind all six machines",
+      "Identify each simple machine at work in everyday objects and sports equipment",
+      "Compute ideal mechanical advantage for levers, wheels, pulleys, ramps, wedges, and screws",
+      "Explain why real machines always fall short of ideal (friction and efficiency)",
+      "Analyze a compound machine as a chain of simple machines"
+    ],
+    "prerequisites": [
+      "Basic algebra: ratios and fractions",
+      "An intuitive sense of force: pushes and pulls",
+      "Middle-school physical science: energy is conserved"
+    ],
+    "sections": [
+      {
+        "id": "lever",
+        "heading": "The Lever: Move the World",
+        "points": [
+          "Fulcrum, effort, load; effort arm vs load arm",
+          "Mechanical advantage = effort arm / load arm; force up means distance down",
+          "The three classes, with body and sports examples",
+          "Archimedes and the lever as the ancestor of all machines"
+        ]
+      },
+      {
+        "id": "wheel-axle",
+        "heading": "Wheel and Axle: Rolling Leverage",
+        "points": [
+          "A lever rotating around its center; MA = wheel radius / axle radius",
+          "Doorknobs, steering wheels, screwdrivers, tuning pegs",
+          "Gears as toothed wheels: chaining the force-speed tradeoff",
+          "Bicycle gears as a choose-your-ratio machine"
+        ]
+      },
+      {
+        "id": "pulley",
+        "heading": "The Pulley: Redirecting Force",
+        "points": [
+          "Fixed pulleys change direction only (MA = 1)",
+          "Movable pulleys split the load across rope segments",
+          "Block and tackle: MA equals the number of supporting segments",
+          "Cranes, flagpoles, sailboat rigging, gym cable machines"
+        ]
+      },
+      {
+        "id": "inclined-plane",
+        "heading": "The Inclined Plane: The Long Way Up",
+        "points": [
+          "MA = slope length / height; less force over more distance",
+          "Ramps, switchbacks, wheelchair ramps, loading docks",
+          "The secret identity of the screw and the wedge",
+          "Friction as the ramp's tax"
+        ]
+      },
+      {
+        "id": "wedge",
+        "heading": "The Wedge: Splitting Force",
+        "points": [
+          "Two inclined planes back to back; forward motion becomes sideways force",
+          "Long and thin beats short and thick: knives, axes, chisels, nails",
+          "Wedges in the kitchen and in your mouth",
+          "The compromise: sharper multiplies more but dulls faster"
+        ]
+      },
+      {
+        "id": "screw",
+        "heading": "The Screw: The Twisted Ramp",
+        "points": [
+          "An inclined plane wrapped around a cylinder; pitch and threads",
+          "MA = circumference / pitch; jar lids, bolts, vises, car jacks",
+          "The superpower: friction locks it, so it holds as well as moves",
+          "Capstone: compound machines and the conservation of work"
+        ]
+      }
+    ]
+  },
+  "reading": {
+    "sections": [
+      {
+        "id": "lever",
+        "heading": "The Lever: Move the World",
+        "body": "Give me a place to stand and I will move the Earth. Archimedes' boast, more than 2,300 years old, is a claim about the lever: the simplest machine, and the ancestor of all the rest.\n\nA lever is a rigid bar that pivots around a fixed point called the fulcrum. You apply effort at one point; the load resists at another. What matters is not just how hard you push but where you push: the effort arm (fulcrum to effort) versus the load arm (fulcrum to load). Mechanical advantage is the ratio: MA equals effort arm divided by load arm. Make the effort arm five times the load arm and your push is multiplied fivefold. The price is distance: your hand travels five times farther than the load moves. Force up, distance down, always. No machine in this course escapes that bargain.\n\nLevers come in three classes. Class 1: the fulcrum sits in the middle, like a seesaw or a crowbar prying a nail. Class 2: the load sits in the middle, like a wheelbarrow or a nutcracker; the effort arm always wins here, so class 2 levers always multiply force. Class 3: the effort sits in the middle, like tweezers, a fishing rod, or your forearm curling a dumbbell, with the elbow as fulcrum and the biceps pulling between elbow and weight. Class 3 sacrifices force for speed and range: the load moves farther and faster than your effort does.\n\nYour body is a machine shop of class-3 levers, which is why humans are built for speed and dexterity rather than raw force. A baseball bat is a class-3 lever too: hands near the fulcrum, barrel flying far and fast. And here is the thread that runs through this whole course: every other simple machine is, at heart, a lever in disguise.",
+        "questions": [
+          {
+            "q": "A crowbar's effort arm is 120 cm and its load arm is 30 cm. What is the ideal mechanical advantage, and what does it cost?",
+            "answer": "MA = 4; your push is multiplied 4x but your hand moves 4x farther than the nail.",
+            "hint": "Divide effort arm by load arm. Then remember the bargain: what happens to distance?"
+          },
+          {
+            "q": "Your forearm curling a dumbbell is a class-3 lever. Why did evolution build arms this way instead of as force-multiplying class-2 levers?",
+            "answer": "Class 3 trades force for speed and range of motion, which is what hands are for: dexterity beats raw strength.",
+            "hint": "What do you use your hands for most: crushing things, or fast precise movement?"
+          }
+        ]
+      },
+      {
+        "id": "wheel-axle",
+        "heading": "Wheel and Axle: Rolling Leverage",
+        "body": "A doorknob is a lever that never stops. The wheel and axle is exactly that: a wheel fixed to a smaller axle so the two turn together, which makes it a lever rotating around its center.\n\nPush on the rim of the wheel and the axle turns with multiplied force; drive the axle and the wheel's rim moves with multiplied speed. The mechanical advantage is the ratio of the radii: MA equals wheel radius divided by axle radius. A steering wheel 20 cm in radius driving a 2 cm steering column multiplies your force tenfold, which is why parking without power steering is a workout and with it is a finger exercise.\n\nEveryday examples are everywhere once you look: a screwdriver handle (wide grip turning a thin shaft), a guitar tuning peg, a faucet handle, the crank on a pencil sharpener. A pizza cutter is the reverse arrangement: a small axle driving a large wheel, trading force for speed at the rim so the blade flies.\n\nGears are toothed wheels and axles, and they let you chain the tradeoff. A small gear driving a large gear multiplies force: low gear on a bike, grinding uphill. A large gear driving a small one multiplies speed: high gear, flying on the flat. Your bicycle's shifter is just a choose-your-ratio machine.\n\nThe deep unity: unroll the wheel's circular motion and you get a lever whose effort arm is the radius. All six machines in this course trade force for distance; the wheel and axle simply does it in a circle.",
+        "questions": [
+          {
+            "q": "A steering wheel has radius 20 cm and the steering column has radius 2 cm. What is the ideal mechanical advantage?",
+            "answer": "10: MA = 20 / 2. Your turning force is multiplied tenfold at the column.",
+            "hint": "Divide the wheel radius by the axle radius."
+          },
+          {
+            "q": "Why does a cyclist shift to a low gear (small chainring, large rear cog) on a steep hill?",
+            "answer": "The small-driving-large arrangement multiplies force at the wheel, trading speed for the climbing force needed.",
+            "hint": "Uphill you need force more than speed. Which gear arrangement multiplies force?"
+          }
+        ]
+      },
+      {
+        "id": "pulley",
+        "heading": "The Pulley: Redirecting Force",
+        "body": "A pulley is a lever bent into a circle with a rope over it, and its first trick is redirecting force. A fixed pulley, like the one atop a flagpole, changes only the direction of your pull: you haul down, the flag rises. Mechanical advantage of 1, but enormously useful, because human muscles pull downward far better than they lift upward.\n\nThe real magic starts with the movable pulley, which travels with the load. The load hangs from the pulley, the rope is anchored overhead, and you pull the free end: now two rope segments share the weight, so each carries half. You pull with half the force, but you must pull twice as much rope. Force halved, distance doubled: the eternal bargain, wearing a new costume.\n\nCombine fixed and movable pulleys into a block and tackle and the advantage stacks. Count the rope segments supporting the movable block, and that number is the ideal mechanical advantage. Four supporting segments: one quarter the force, four times the rope. Cranes lift steel beams this way. Sailboats tune their rigging with purchases. The weight stack on a gym cable machine is a pulley system letting you choose your resistance.\n\nWatch for the catch that every machine in this course shares: the force you save, you repay in distance, and friction at every axle skims a little off the top. Count the ropes for the ideal; then remember the real world always rounds down. Elevator counterweights are a pulley trick in disguise: the counterweight offsets the car's weight so the motor only handles the difference, which is why a modest motor can lift a loaded cab.",
+        "questions": [
+          {
+            "q": "A block and tackle has 4 rope segments supporting the movable block. You need to lift 200 N. What is the ideal pulling force, and how much rope must you pull to lift the load 1 m?",
+            "answer": "50 N of force, but 4 m of rope: MA = 4 divides the force and multiplies the distance.",
+            "hint": "MA = number of supporting segments. Force gets divided; distance gets multiplied."
+          },
+          {
+            "q": "Why use a fixed pulley at all if its mechanical advantage is only 1?",
+            "answer": "It changes the direction of the force, letting you pull down with your body weight instead of lifting up.",
+            "hint": "Is it easier for you to pull down or lift up?"
+          }
+        ]
+      },
+      {
+        "id": "inclined-plane",
+        "heading": "The Inclined Plane: The Long Way Up",
+        "body": "The pyramids were raised without cranes, and the ramp is how. An inclined plane, a humble slope, lets you lift a load with less force by pushing it over a longer distance.\n\nThe mechanical advantage is the ratio of the slope's length to its height: MA equals length divided by height. A 10-meter ramp rising 2 meters gives MA 5: one-fifth the lifting force, five times the pushing distance. Moving companies live by this; wheelchair ramps, highway switchbacks, and loading docks are the same idea poured in concrete or cut into mountainsides.\n\nThe inclined plane is also the secret identity of two other machines in this course. Wrap one around a cylinder and you get a screw. Put two back to back and you get a wedge. Learn the ramp and you have learned half the course in advance.\n\nFriction is the ramp's tax. Push a crate up a wooden ramp and some of your effort becomes heat instead of height, which is why real mechanical advantage always falls short of the ideal. Wax the runners, add rollers, and the tax drops: the sled, the dolly, and the conveyor belt are all inclined planes that negotiated friction down. Skateboarders know the physics intuitively: the long mellow bank is easy to climb and slow to descend; the steep one is the reverse. And note the symmetry with the lever: a long effort arm and a long gentle ramp are the same bargain, one drawn straight and one drawn aslope. Airport jet bridges use it too: the gentle slope lets service carts roll equipment up to the plane with a fraction of the lifting crew.",
+        "questions": [
+          {
+            "q": "A ramp is 12 m long and rises 3 m. What is its ideal MA, and why would the real MA be lower?",
+            "answer": "Ideal MA = 4 (12/3). Real MA is lower because friction converts some of your work into heat.",
+            "hint": "Length over height for the ideal. What eats some of your effort on the way up?"
+          },
+          {
+            "q": "A screw is an inclined plane wrapped around a cylinder. What does that tell you about where screws get their mechanical advantage?",
+            "answer": "From the same tradeoff as a ramp: a long, gentle thread (slight slope) multiplies force over many turns of distance.",
+            "hint": "Unwrap the thread in your mind. What familiar shape is it?"
+          }
+        ]
+      },
+      {
+        "id": "wedge",
+        "heading": "The Wedge: Splitting Force",
+        "body": "A knife is two ramps glued together. The wedge is an inclined plane doubled back to back, and it converts forward motion into sideways splitting force.\n\nDrive a wedge forward and its sloping faces push outward with a force multiplied by roughly the ratio of the wedge's length to its width: long and thin beats short and thick. That is why axes are slim, chisels taper, needles pierce, and a doorstop's gentle angle can hold a heavy door. A small input force becomes a large splitting force, and the thinner the wedge, the greater the multiplication.\n\nYour kitchen drawer is a wedge museum: the chef's knife, the pizza wheel (a rolling wedge), the grater, the can opener's cutting wheel. Your mouth is one too: incisors are wedges for slicing, molars are wedges for crushing. Every time you chop vegetables, you are running a physics demonstration.\n\nThe wedge also teaches this course's hard lesson in miniature: the sharper the wedge, the greater the force multiplication, but the thinner the edge, the faster it dulls and the easier it chips. Splitting mauls are blunt on purpose: they trade peak force for an edge that survives firewood. Every machine is a compromise, and the wedge wears its compromise on its edge. Even the humble doorstop is doing the math: its shallow angle multiplies your foot's nudge into a grip that holds the door against drafts and shoulders. Log splitters scale the same idea with hydraulics: a powered wedge that turns a small pump's pressure into tons of splitting force.",
+        "questions": [
+          {
+            "q": "Why is a thin, slim axe better at splitting wood than a thick, blunt one of the same weight?",
+            "answer": "The longer, thinner wedge gives a larger length-to-width ratio, multiplying the sideways splitting force more.",
+            "hint": "Force multiplication follows the wedge's proportions. Which dimension matters?"
+          },
+          {
+            "q": "A splitting maul is deliberately blunter than a carving axe. What tradeoff is being made?",
+            "answer": "Peak splitting force is traded for durability: the thicker edge survives repeated impacts without chipping.",
+            "hint": "What happens to a razor-thin edge when it hits a knot at full swing?"
+          }
+        ]
+      },
+      {
+        "id": "screw",
+        "heading": "The Screw: The Twisted Ramp",
+        "body": "Take an inclined plane, wrap it around a cylinder, and you get the most patient machine ever built: the screw. Each full turn advances it by exactly one thread spacing, the pitch, while your hand travels the entire circumference.\n\nMechanical advantage is circumference divided by pitch: MA equals 2 times pi times radius, divided by pitch. A jar lid a few centimeters across with threads a millimeter apart multiplies your grip enormously, which is why a lid can seal against pressure your hands could never produce directly. Bolts, clamps, vises, and car jacks are the same idea: rotary effort in, crushing linear force out. The longer the wrench handle, the bigger the radius, the bigger the advantage.\n\nThe screw has a superpower the other machines lack: it holds. Friction between the threads locks each advance in place, so a screw is both machine and fastener. That is why wood screws bite and stay put, and why a car jack can hold a car in the air with nobody touching it.\n\nCapstone: real tools are compound machines, chains of simple ones. A bicycle links levers (pedals, brake handles), wheel-and-axle (gears), and screws (every bolt on the frame). A can opener is a wedge, a wheel, and a lever in one handshake. And the conservation law behind all six machines: no machine creates energy. Work in equals work out plus friction's cut. Every mechanical advantage is purchased with distance, friction always takes its fee, and that is the whole game.",
+        "questions": [
+          {
+            "q": "A bolt has a head radius of 2 cm and a thread pitch of 0.2 cm. What is its ideal MA?",
+            "answer": "About 63: circumference (2 x pi x 2 = 12.6 cm) divided by pitch (0.2 cm).",
+            "hint": "MA = circumference / pitch. Circumference = 2 x pi x radius."
+          },
+          {
+            "q": "Why can a car jack hold a car up with no one touching it, while a lever cannot hold its load alone?",
+            "answer": "Thread friction locks the screw's advance in place, making it a fastener as well as a machine; a lever has no locking mechanism.",
+            "hint": "What is different about the screw's threads compared to a smooth lever arm?"
+          }
+        ]
+      }
+    ]
+  },
+  "quizzes": {
+    "sections": [
+      {
+        "id": "lever",
+        "questions": [
+          {
+            "q": "A wheelbarrow's effort arm (handles) is 150 cm and its load arm (wheel to load) is 50 cm. Ideal MA?",
+            "choices": [
+              "3",
+              "1/3",
+              "200",
+              "100"
+            ],
+            "answer": 0,
+            "explain": "MA = effort arm / load arm = 150/50 = 3. Inverting the ratio gives the distance tradeoff, not the MA."
+          },
+          {
+            "q": "A fishing rod is a class-3 lever: the effort is applied between the fulcrum (your hand) and the load (the fish). The tip moves...",
+            "choices": [
+              "farther and faster than your hand, with less force",
+              "with more force than your hand applies",
+              "the same distance as your hand",
+              "only if the fish cooperates"
+            ],
+            "answer": 0,
+            "explain": "Class 3 trades force for speed and range: the load end amplifies motion, not force. That is the point of a rod."
+          },
+          {
+            "q": "Which of these is a class-2 lever?",
+            "choices": [
+              "nutcracker",
+              "seesaw",
+              "tweezers",
+              "fishing rod"
+            ],
+            "answer": 0,
+            "explain": "Nutcracker: load in the middle, fulcrum at the hinge. Seesaw is class 1; tweezers and fishing rods are class 3."
+          }
+        ]
+      },
+      {
+        "id": "wheel-axle",
+        "questions": [
+          {
+            "q": "A doorknob has radius 4 cm and its spindle has radius 1 cm. Ideal MA?",
+            "choices": [
+              "4",
+              "1/4",
+              "5",
+              "16"
+            ],
+            "answer": 0,
+            "explain": "MA = wheel radius / axle radius = 4/1 = 4."
+          },
+          {
+            "q": "On a bicycle, a small front chainring driving a large rear cog is best for...",
+            "choices": [
+              "climbing steep hills",
+              "sprinting on flat ground",
+              "coasting downhill",
+              "standing still"
+            ],
+            "answer": 0,
+            "explain": "Small-driving-large multiplies force at the cost of speed: exactly what a climb demands."
+          },
+          {
+            "q": "A screwdriver with a fat handle turns a screw more easily than one with a thin handle because...",
+            "choices": [
+              "the larger handle radius gives a bigger wheel-to-axle ratio",
+              "fat handles are heavier",
+              "the shaft is shorter",
+              "screws prefer it"
+            ],
+            "answer": 0,
+            "explain": "MA = handle radius / shaft radius. A fatter handle is a bigger wheel on the same axle."
+          }
+        ]
+      },
+      {
+        "id": "pulley",
+        "questions": [
+          {
+            "q": "A fixed pulley is used to lift a 100 N load. Ignoring friction, the pulling force needed is...",
+            "choices": [
+              "100 N",
+              "50 N",
+              "200 N",
+              "0 N"
+            ],
+            "answer": 0,
+            "explain": "A fixed pulley only redirects force: MA = 1. Its value is direction, letting you pull down instead of lifting up."
+          },
+          {
+            "q": "A movable pulley supports a 120 N engine hoist load. Ignoring friction, the free-end force is...",
+            "choices": [
+              "60 N, pulling twice the rope",
+              "120 N, pulling the same rope",
+              "30 N, pulling four times the rope",
+              "240 N"
+            ],
+            "answer": 0,
+            "explain": "Two supporting segments share the load: 60 N each. You repay it in distance: twice the rope for the same lift."
+          },
+          {
+            "q": "A crane's block and tackle has 6 supporting rope segments. To lift a load 2 m, the operator pulls...",
+            "choices": [
+              "12 m of rope",
+              "2 m of rope",
+              "6 m of rope",
+              "1/3 m of rope"
+            ],
+            "answer": 0,
+            "explain": "MA = 6 divides force by 6 and multiplies distance by 6: 2 m x 6 = 12 m of rope."
+          }
+        ]
+      },
+      {
+        "id": "inclined-plane",
+        "questions": [
+          {
+            "q": "Two ramps reach the same 2 m loading dock. Ramp A is 4 m long; ramp B is 10 m long. Which needs less pushing force, and what is its ideal MA?",
+            "choices": [
+              "Ramp B, MA = 5",
+              "Ramp A, MA = 5",
+              "Ramp B, MA = 2",
+              "Both need the same force"
+            ],
+            "answer": 0,
+            "explain": "MA = length/height: B gives 10/2 = 5, A gives 4/2 = 2. The longer, gentler ramp trades more distance for less force."
+          },
+          {
+            "q": "A highway climbs a mountain with switchbacks instead of going straight up. The physics reason is...",
+            "choices": [
+              "each switchback leg is a gentler inclined plane needing less force",
+              "switchbacks shorten the road",
+              "cars cannot steer uphill",
+              "it looks scenic"
+            ],
+            "answer": 0,
+            "explain": "Lengthening the slope lowers the grade: less force over more distance, the inclined plane's whole trick."
+          },
+          {
+            "q": "A worker pushes a crate up a ramp but measures less force saved than the ideal MA predicts. The most likely cause is...",
+            "choices": [
+              "friction converting work into heat",
+              "the ramp being too long",
+              "gravity weakening",
+              "the crate's color"
+            ],
+            "answer": 0,
+            "explain": "Friction is the ramp's tax: some work becomes heat, so real MA always falls short of ideal."
+          }
+        ]
+      },
+      {
+        "id": "wedge",
+        "questions": [
+          {
+            "q": "Wedge X is 20 cm long and 2 cm wide; wedge Y is 10 cm long and 2 cm wide. Which splits with more force?",
+            "choices": [
+              "Wedge X: longer and thinner gives greater multiplication",
+              "Wedge Y: shorter wedges hit harder",
+              "Both identical: width is all that matters",
+              "Neither: wedges do not multiply force"
+            ],
+            "answer": 0,
+            "explain": "Splitting force scales with length-to-width ratio: X is 10:1, Y is 5:1."
+          },
+          {
+            "q": "A chef's knife, a pizza wheel, and a chisel are all...",
+            "choices": [
+              "wedges",
+              "levers",
+              "pulleys",
+              "screws"
+            ],
+            "answer": 0,
+            "explain": "Each drives a thin edge forward to convert motion into sideways splitting force: the wedge's signature."
+          },
+          {
+            "q": "Why are splitting mauls blunter than carving axes?",
+            "choices": [
+              "durability: the thicker edge survives impacts without chipping",
+              "blunt mauls are cheaper",
+              "sharp edges are illegal for firewood",
+              "weight matters more than shape"
+            ],
+            "answer": 0,
+            "explain": "Peak force is traded for an edge that survives: the wedge's built-in compromise."
+          }
+        ]
+      },
+      {
+        "id": "screw",
+        "questions": [
+          {
+            "q": "A jar lid has radius 4 cm and thread pitch 0.25 cm. Its ideal MA is about...",
+            "choices": [
+              "100",
+              "16",
+              "4",
+              "1"
+            ],
+            "answer": 0,
+            "explain": "Circumference = 2 x pi x 4 = 25.1 cm; MA = 25.1 / 0.25 = 100. That is why lids seal so tightly."
+          },
+          {
+            "q": "Unlike the other five machines, the screw can hold its load without continuous effort because...",
+            "choices": [
+              "thread friction locks each advance in place",
+              "screws are made of metal",
+              "it has the highest MA",
+              "gravity pulls sideways on threads"
+            ],
+            "answer": 0,
+            "explain": "Friction between threads makes the screw a fastener as well as a machine: a car jack holds with nobody touching it."
+          },
+          {
+            "q": "A can opener combines a cutting wheel, a turning knob, and a squeezing handle. It is best described as...",
+            "choices": [
+              "a compound machine: wedge + wheel-and-axle + lever",
+              "a single pulley",
+              "not a machine at all",
+              "a class-2 lever only"
+            ],
+            "answer": 0,
+            "explain": "Real tools chain simple machines: the wheel cuts (rolling wedge), the knob drives it (wheel and axle), the handles squeeze (levers)."
+          }
+        ]
+      }
+    ]
+  },
+  "slides": {
+    "sections": [
+      {
+        "id": "lever",
+        "title": "The Lever: Move the World",
+        "bullets": [
+          "Archimedes' boast: a lever multiplies force, given a place to stand",
+          "Fulcrum, effort, load; effort arm vs load arm",
+          "MA = effort arm / load arm; force up means distance down, always",
+          "Class 1: fulcrum middle (seesaw, crowbar)",
+          "Class 2: load middle, always multiplies force (wheelbarrow, nutcracker)",
+          "Class 3: effort middle, trades force for speed (tweezers, forearm, baseball bat)",
+          "Every other machine in this course is a lever in disguise"
+        ],
+        "notes": "Archimedes said give him a place to stand and he would move the Earth, and the lever is why the boast is almost true. A rigid bar on a fulcrum: push far from the pivot, load close to it, and your force is multiplied by the ratio of the arms. The catch, the one you will hear all course long: your hand travels farther than the load by exactly that ratio. Three classes cover everything: fulcrum in the middle, load in the middle, effort in the middle. Your forearm is class three, which is why you are built for speed and dexterity, not for crushing. Keep the lever in mind, because every machine after this one is secretly a lever."
+      },
+      {
+        "id": "wheel-axle",
+        "title": "Wheel and Axle: Rolling Leverage",
+        "bullets": [
+          "A doorknob is a lever that never stops: wheel fixed to axle, turning together",
+          "MA = wheel radius / axle radius",
+          "Steering wheel, screwdriver handle, guitar tuning peg, faucet handle",
+          "Reverse it: small axle driving big wheel trades force for speed (pizza cutter)",
+          "Gears are toothed wheels: chain the tradeoff across stages",
+          "Bike gears: small-driving-large for hills, large-driving-small for speed",
+          "The wheel and axle trades force for distance in a circle"
+        ],
+        "notes": "Take a lever and spin it around its fulcrum forever and you get the wheel and axle. Big wheel, small axle, one rigid piece: push the rim and the axle turns with multiplied force. The ratio of the radii is the whole story. That is why a fat screwdriver handle beats a thin one, why power steering turned parking from a workout into a finger exercise, and why your bike has gears at all. Gears are just toothed wheels, and chaining them lets you pick your tradeoff per hill. Small driving large: force for the climb. Large driving small: speed for the flat."
+      },
+      {
+        "id": "pulley",
+        "title": "The Pulley: Redirecting Force",
+        "bullets": [
+          "A pulley is a lever bent into a circle with a rope over it",
+          "Fixed pulley: direction only, MA = 1 (flagpole)",
+          "Your muscles pull down better than they lift up: direction has value",
+          "Movable pulley: two rope segments share the load, halving the force",
+          "Block and tackle: MA = number of supporting rope segments",
+          "Cranes, sailboat rigging, gym cable machines",
+          "The catch: force saved is repaid in rope pulled, and friction skims the top"
+        ],
+        "notes": "A pulley starts as a direction changer. A fixed pulley gives you nothing in force, mechanical advantage of one, but it lets you pull down with your body weight instead of lifting up, and that alone built flagpoles and wells. Add a movable pulley that travels with the load and the rope splits the weight across two segments: half the force, twice the rope. Stack them into a block and tackle and just count the supporting ropes: four ropes, one quarter the force, four times the pulling distance. Cranes, sailboats, and gym machines all run on this. And the fine print never changes: distance repays force, friction takes its cut."
+      },
+      {
+        "id": "inclined-plane",
+        "title": "The Inclined Plane: The Long Way Up",
+        "bullets": [
+          "The pyramid builder's machine: a slope instead of a lift",
+          "MA = slope length / height",
+          "Ramps, switchbacks, wheelchair ramps, loading docks",
+          "Secret identities: wrap it for a screw, double it for a wedge",
+          "Friction is the ramp's tax: real MA always falls short of ideal",
+          "Wax, rollers, and wheels negotiate the tax down",
+          "Skateboarders feel it: mellow banks climb easy, steep ones do not"
+        ],
+        "notes": "No cranes built the pyramids; ramps did. The inclined plane is the honest trade made visible: push a load up a long gentle slope instead of lifting it straight, and the force drops by the ratio of length to height. Ten meters of ramp for two meters of rise: one fifth the force, five times the distance. It hides inside two other machines, too: wrap a ramp around a cylinder and you have a screw; put two back to back and you have a wedge. Friction is the tax collector here, turning some of your work into heat, which is why the real advantage always falls short of the ideal. Rollers and wax are just tax negotiation."
+      },
+      {
+        "id": "wedge",
+        "title": "The Wedge: Splitting Force",
+        "bullets": [
+          "A knife is two ramps glued together",
+          "Forward motion becomes sideways splitting force",
+          "Long and thin beats short and thick: force scales with length-to-width",
+          "Kitchen museum: chef's knife, pizza wheel, grater; your teeth too",
+          "Nails and needles: wedges in the round",
+          "The compromise: sharper multiplies more but dulls and chips faster",
+          "Splitting mauls stay blunt on purpose"
+        ],
+        "notes": "Glue two ramps back to back and you get the wedge: push it forward and the slopes shove outward with multiplied force. Long and thin is the whole formula, which is why axes are slim and doorstops are gentle. Your kitchen is a wedge museum and your mouth is one too: incisors slice, molars crush. But the wedge teaches the course's hard lesson in miniature. Sharper means more multiplication and a shorter life: a razor edge chips on the first knot. So the splitting maul stays blunt on purpose, trading peak force for an edge that survives firewood. Every machine is a compromise; the wedge wears its compromise on its edge."
+      },
+      {
+        "id": "screw",
+        "title": "The Screw: The Twisted Ramp",
+        "bullets": [
+          "An inclined plane wrapped around a cylinder",
+          "One turn advances one pitch; your hand travels the full circumference",
+          "MA = circumference / pitch: small threads, huge multiplication",
+          "Jar lids, bolts, clamps, vises, car jacks",
+          "Superpower: thread friction locks it, so it holds as well as moves",
+          "Capstone: compound machines chain simple ones (bicycle, can opener)",
+          "The conservation law: work in = work out + friction's cut; no free energy"
+        ],
+        "notes": "Wrap a ramp around a cylinder and you get the most patient machine ever built. One full turn moves the screw forward by a single thread spacing, the pitch, while your hand travels the whole circumference. Divide circumference by pitch and the numbers get silly: a jar lid can multiply your grip a hundredfold, which is why it seals against pressure your hands could never make. And the screw has a superpower: friction between the threads locks every advance, so it holds as well as moves. That is why a car jack stands with nobody touching it. Real tools chain these tricks: a bike is levers plus gears plus screws. And underneath all six machines, one law: work in equals work out plus friction's cut. Force is always purchased with distance."
+      }
+    ]
+  },
+  "enrichment": {
+    "audioTitle": "Six Tricks That Built the World",
+    "turns": [
+      {
+        "speaker": "student",
+        "line": "Six machines for everything? That sounds like one of those oversimplifications teachers love."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Test it. Name a hand tool, any hand tool, and I will find the six inside it. The claim has survived about five thousand years of engineers trying to invent a seventh."
+      },
+      {
+        "speaker": "student",
+        "line": "Okay: a bottle opener. Go."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Class-1 lever: the tip under the cap is the load, your hand is the effort, the rim of the bottle is the fulcrum. One machine, one party trick."
+      },
+      {
+        "speaker": "student",
+        "line": "Fine. But what does mechanical advantage actually mean? Like, in a sentence."
+      },
+      {
+        "speaker": "teacher",
+        "line": "How many times your force gets multiplied. And the one-sentence catch: every multiplication of force is paid for in distance. Twice the force, twice the pulling. Always."
+      },
+      {
+        "speaker": "student",
+        "line": "So machines never actually save you work? That feels like a scam."
+      },
+      {
+        "speaker": "teacher",
+        "line": "They never save you energy, no. Work in equals work out plus friction's cut. What they save you is needing superhuman force in one instant: you trade a force you do not have for a distance you do. The ramp up a loading dock is the whole philosophy in concrete."
+      },
+      {
+        "speaker": "student",
+        "line": "Why is my arm a class-3 lever? That sounds like a bad design: it makes me weaker."
+      },
+      {
+        "speaker": "teacher",
+        "line": "It makes you weaker and much faster. Your biceps pulls close to the elbow, so your hand flies through a huge arc. Evolution bet that speed and dexterity beat raw crushing force, and then it handed you tools for the crushing. Hammers are class-1 levers, by the way: your arm's weakness, outsourced."
+      },
+      {
+        "speaker": "student",
+        "line": "Bike gears, then. When I drop to the easy gear on a hill, what is actually happening?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "You are choosing a small gear to drive a big gear: a wheel-and-axle arrangement that multiplies your pedaling force and divides your speed. Your legs spin fast and easy; the wheel turns slow and strong. On the flat you reverse it for speed."
+      },
+      {
+        "speaker": "student",
+        "line": "Gym cable machines: I pull a handle and the weight stack barely moves. Pulleys?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Pulleys, exactly. The stack is rigged through movable pulleys, so each rope segment carries part of the load. You feel a fraction of the stack's weight and pull a multiple of its travel. The machine is honest about it: the cables tell you the tradeoff if you watch them."
+      },
+      {
+        "speaker": "student",
+        "line": "A wedge just seems like a sharp thing. Where is the machine in a knife?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "In the proportions. Push a thin wedge forward and the slopes convert your push into sideways force multiplied by length over width. The sharper it is, the bigger the multiplication, and the faster it dulls. That is why a splitting maul is blunt on purpose: durability outranks peak force when you are hitting knots."
+      },
+      {
+        "speaker": "student",
+        "line": "And the screw? It just seems like a nail that went to college."
+      },
+      {
+        "speaker": "teacher",
+        "line": "It is a ramp that went to college: an inclined plane wrapped around a cylinder. One turn advances one thread pitch while your hand travels the whole circumference, so the advantage is enormous. Plus the superpower: thread friction locks it. A nail holds by squeezing; a screw holds by refusing to unwind. That is why the car jack stands there with nobody touching it."
+      },
+      {
+        "speaker": "student",
+        "line": "Last one. If I understand the six, can I actually look at something complicated, like an engine, and see through it?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "That is the whole payoff. An engine is levers (valves, rockers), wheel-and-axle (crankshaft, gears), screws (every bolt), and wedges (piston rings) in a trench coat. Learn the six and complicated machines stop being magic and start being sentences you can read."
+      }
+    ],
+    "nodes": [
+      {
+        "id": "simple-machines",
+        "label": "Simple machines",
+        "parent": null,
+        "note": "Six ancient tricks for trading force against distance; every tool is built from them."
+      },
+      {
+        "id": "mechanical-advantage",
+        "label": "Mechanical advantage",
+        "parent": "simple-machines",
+        "note": "Output force over input force: how many times a machine multiplies your effort."
+      },
+      {
+        "id": "work-tradeoff",
+        "label": "Force-distance tradeoff",
+        "parent": "simple-machines",
+        "note": "Force up means distance down, always; work in = work out + friction."
+      },
+      {
+        "id": "friction",
+        "label": "Friction & efficiency",
+        "parent": "work-tradeoff",
+        "note": "Friction converts work to heat, so real MA always falls short of ideal."
+      },
+      {
+        "id": "lever",
+        "label": "Lever",
+        "parent": "simple-machines",
+        "note": "Rigid bar on a fulcrum; MA = effort arm / load arm."
+      },
+      {
+        "id": "fulcrum",
+        "label": "Fulcrum",
+        "parent": "lever",
+        "note": "The pivot point; where you push relative to it decides everything."
+      },
+      {
+        "id": "lever-classes",
+        "label": "Three lever classes",
+        "parent": "lever",
+        "note": "Class 1: fulcrum middle; class 2: load middle; class 3: effort middle."
+      },
+      {
+        "id": "wheel-axle",
+        "label": "Wheel and axle",
+        "parent": "simple-machines",
+        "note": "A lever rotating around its center; MA = wheel radius / axle radius."
+      },
+      {
+        "id": "gears",
+        "label": "Gears",
+        "parent": "wheel-axle",
+        "note": "Toothed wheels chaining the force-speed tradeoff; bicycle shifting."
+      },
+      {
+        "id": "pulley",
+        "label": "Pulley",
+        "parent": "simple-machines",
+        "note": "Rope over a wheel; redirects force and splits loads across segments."
+      },
+      {
+        "id": "fixed-pulley",
+        "label": "Fixed pulley",
+        "parent": "pulley",
+        "note": "Changes direction only, MA = 1; lets you pull down instead of lifting up."
+      },
+      {
+        "id": "movable-pulley",
+        "label": "Movable pulley",
+        "parent": "pulley",
+        "note": "Travels with the load; supporting rope segments share the weight."
+      },
+      {
+        "id": "block-and-tackle",
+        "label": "Block and tackle",
+        "parent": "pulley",
+        "note": "Stacked pulleys; MA equals the number of supporting rope segments."
+      },
+      {
+        "id": "inclined-plane",
+        "label": "Inclined plane",
+        "parent": "simple-machines",
+        "note": "A slope; MA = length / height; the secret identity of the screw and wedge."
+      },
+      {
+        "id": "wedge",
+        "label": "Wedge",
+        "parent": "simple-machines",
+        "note": "Two ramps back to back; forward motion becomes multiplied splitting force."
+      },
+      {
+        "id": "screw",
+        "label": "Screw",
+        "parent": "simple-machines",
+        "note": "Inclined plane wrapped on a cylinder; MA = circumference / pitch."
+      },
+      {
+        "id": "pitch",
+        "label": "Thread pitch",
+        "parent": "screw",
+        "note": "Distance advanced per turn; thread friction locks the screw so it holds."
+      },
+      {
+        "id": "compound-machines",
+        "label": "Compound machines",
+        "parent": "simple-machines",
+        "note": "Chains of simple machines: bicycles, can openers, engines."
+      }
+    ],
+    "mnemonics": [
+      {
+        "for": "Lever classes 1-2-3",
+        "aid": "FLE the middle: Fulcrum, Load, Effort sit in the middle of classes 1, 2, 3."
+      },
+      {
+        "for": "Mechanical advantage",
+        "aid": "MA measures the trade: force down, distance up, friction takes its cut."
+      },
+      {
+        "for": "Screw advance",
+        "aid": "Pitch is the promise: one turn, one pitch forward."
+      }
+    ]
+  }
+}
