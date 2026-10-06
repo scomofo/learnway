@@ -54,7 +54,7 @@ async function callGemini({ apiKey, model, system, user, schema, maxTokens, temp
   if (res.status === 400) {
     const detail = await res.text().catch(() => '');
     if (/api key/i.test(detail)) throw new PipelineError('API key rejected. Check the key in Settings — grab a fresh one from Google AI Studio.', 'bad-key');
-    throw new PipelineError(`Request rejected (${model}). The model name may be wrong or retired — try another in Settings. ${detail.slice(0, 160)}`, 'bad-model');
+    throw new PipelineError(`Request rejected (400): ${detail.slice(0, 300)}`, 'bad-request');
   }
   if (res.status === 401 || res.status === 403) throw new PipelineError('API key rejected. Check the key in Settings — grab a fresh one from Google AI Studio.', 'bad-key');
   if (res.status === 429) throw new PipelineError('Rate limit hit. Wait a minute and try again.', 'rate-limit');
@@ -213,7 +213,7 @@ const SCHEMAS = {
           properties: {
             id: { type: 'string' },
             label: { type: 'string' },
-            parent: { type: ['string', 'null'] },
+            parent: { type: 'string', nullable: true, description: 'Parent node id; null for the single root node.' },
             note: { type: 'string', description: 'One clarifying sentence.' },
           },
           required: ['id', 'label', 'parent', 'note'],
