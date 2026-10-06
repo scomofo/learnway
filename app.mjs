@@ -8,7 +8,13 @@ const $ = sel => document.querySelector(sel);
 
 const store = {
   get(k, d) { try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch { return d; } },
-  set(k, v) { localStorage.setItem(k, JSON.stringify(v)); },
+  // Throws if the write fails or doesn't stick, so the UI can say so
+  // instead of showing a fake "Saved."
+  set(k, v) {
+    const raw = JSON.stringify(v);
+    localStorage.setItem(k, raw);
+    if (localStorage.getItem(k) !== raw) throw new Error('storage write did not stick');
+  },
 };
 
 let state = {
@@ -172,6 +178,7 @@ function viewSettings() {
         <input id="s-key" type="password" value="${esc(key)}" placeholder="AIza…" autocomplete="off">
       </label>
       <p class="muted small">Get one free at <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">Google AI Studio</a>. Stored only in this browser's localStorage — never sent anywhere but Google's API.</p>
+      <p class="muted small">Keys are kept per address — you're at ${esc(location.origin)}, so always open Learnway here. A private window or a browser that clears site data on exit will forget the key.</p>
       <label>Model
         <select id="s-model">${MODELS.map(m => `<option ${m === model ? 'selected' : ''}>${m}</option>`).join('')}</select>
       </label>
@@ -303,9 +310,14 @@ function wire(root) {
     }
 
     if (a === 'save-settings') {
-      store.set(LS.key, $('#s-key').value.trim());
-      store.set(LS.model, $('#s-model').value);
-      $('#set-ok').hidden = false;
+      try {
+        store.set(LS.key, $('#s-key').value.trim());
+        store.set(LS.model, $('#s-model').value);
+        $('#set-ok').hidden = false;
+        $('#set-err').hidden = true;
+      } catch {
+        showErr('set-err', 'Could not save — this browser is blocking site storage. Check privacy settings, or use a normal (non-private) window.');
+      }
       return;
     }
 

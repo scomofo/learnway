@@ -30,6 +30,24 @@ export class PipelineError extends Error {
   constructor(message, code) { super(message); this.code = code; }
 }
 
+/**
+ * Parse model JSON robustly. Models sometimes wrap the payload in markdown
+ * fences or add leading/trailing chatter; try the raw text, then a fenced
+ * block, then the outermost {...} span before giving up.
+ */
+export function parseJsonLoose(text) {
+  const attempts = [() => JSON.parse(text)];
+  const fenced = text.match(/```(?:json)?\s*([\s\S]*?)```/);
+  if (fenced) attempts.push(() => JSON.parse(fenced[1].trim()));
+  const start = text.indexOf('{'), end = text.lastIndexOf('}');
+  if (start !== -1 && end > start) attempts.push(() => JSON.parse(text.slice(start, end + 1)));
+  let last;
+  for (const attempt of attempts) {
+    try { return attempt(); } catch (e) { last = e; }
+  }
+  throw last;
+}
+
 async function callGemini({ apiKey, model, system, user, schema, maxTokens, temperature = 0.7 }) {
   const url = `${API_HOST}/v1beta/models/${encodeURIComponent(model)}:generateContent`;
   let res;
@@ -65,7 +83,7 @@ async function callGemini({ apiKey, model, system, user, schema, maxTokens, temp
   const text = data?.candidates?.[0]?.content?.parts?.map(p => p.text || '').join('');
   if (!text) throw new PipelineError('Empty response from the model. Try again.', 'empty');
   try {
-    return JSON.parse(text);
+    return parseJsonLoose(text);
   } catch {
     throw new PipelineError('Model returned malformed JSON. Try again — this is usually transient.', 'parse');
   }
