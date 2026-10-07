@@ -269,11 +269,13 @@ Design a course on this topic: "${topic}"
 Return exactly ${n} sections that build on each other: open with the core mental model, then mechanism, then depth/edge cases, then connections outward. Objectives must be capabilities ("explain X", "predict Y"), never "understand Z".`,
     schema: SCHEMAS.plan, maxTokens: 2048, temperature: 0.6,
   });
+  requireValidPart('plan', plan);
   return { topic, level, interests, depth, model, plan };
 }
 
 /** Steps 2-5: the full course pack, built on the approved plan. */
 export async function generateCourse(draft, creds, onProgress) {
+  requireValidPart('plan', draft?.plan);
   const { apiKey, model } = creds;
   const { topic, level, interests, depth, plan } = draft;
   const pers = personalization(level, interests, draft.depth);
@@ -293,6 +295,7 @@ ${digest}
 For each section: a narrative body (markdown, 250-450 words) that teaches the points in order, opening with the single most surprising or important idea. Weave in the learner's interests for analogies. End each section with 2 embedded check-in questions (with answers and hints).`,
     schema: SCHEMAS.reading, maxTokens: 16384,
   });
+  requireValidPart('reading', reading, plan);
 
   onProgress?.('Building section quizzes… (2 of 4)');
   const quizzes = await callGemini({
@@ -308,6 +311,7 @@ ${digest}
 For each section: 3 multiple-choice questions that test application and reasoning, not memorized facts. Wrong options must be plausible mistakes a learner could really make. Each needs an explanation of why the right answer is right and what each distractor gets wrong.`,
     schema: SCHEMAS.quizzes, maxTokens: 8192,
   });
+  requireValidPart('quizzes', quizzes, plan);
 
   onProgress?.('Drafting slides and narration… (3 of 4)');
   const slides = await callGemini({
@@ -323,6 +327,7 @@ ${digest}
 For each section: a slide title, 5-7 tight bullets (the skeleton of a 5-minute lecture segment), and speaker notes — the conversational 60-second spoken version of those bullets, as if explaining to a smart friend.`,
     schema: SCHEMAS.slides, maxTokens: 8192,
   });
+  requireValidPart('slides', slides, plan);
 
   onProgress?.('Scripting the audio lesson, mind map and mnemonics… (4 of 4)');
   const enrichment = await callGemini({
@@ -340,8 +345,9 @@ ${digest}
 3. Mnemonics: memory aids for the hardest facts. Skip if nothing genuinely needs one.`,
     schema: SCHEMAS.enrichment, maxTokens: 8192,
   });
+  requireValidPart('enrichment', enrichment);
 
-  return {
+  const course = {
     meta: {
       topic, level, interests, depth, model,
       title: plan.title,
@@ -350,17 +356,129 @@ ${digest}
     },
     plan, reading, quizzes, slides, enrichment,
   };
+  const problems = validateCourse(course);
+  if (problems.length) throw validationError('course', problems);
+  return course;
 }
 
-/** Validate a course object (used for imports and fixtures). */
-export function validateCourse(c) {
-  const problems = [];
-  if (!c || typeof c !== 'object') return ['not an object'];
-  if (!c.meta?.title) problems.push('missing meta.title');
-  for (const [key, arr, sub] of [['reading', 'sections'], ['quizzes', 'sections'], ['slides', 'sections']]) {
-    if (!Array.isArray(c[key]?.[arr])) problems.push(`missing ${key}.${arr}`);
+const isObject = value => value !== null && typeof value === 'object' && !Array.isArray(value);
+
+// Reuse the API schemas at the trust boundary; valid JSON alone is not a course.
+// Unknown fields remain allowed so older exports can carry extra metadata.
+function checkShape(value, schema, path, problems) {
+  if (value === null && schema.nullable) return;
+  const matches = schema.type === 'object' ? isObject(value)
+    : schema.type === 'array' ? Array.isArray(value)
+    : schema.type === 'integer' ? Number.isInteger(value)
+    : typeof value === schema.type;
+  if (!matches) { problems.push(`${path}: expected ${schema.type}`); return; }
+  if (schema.type === 'string' && !value.trim()) problems.push(`${path}: must not be blank`);
+  if (schema.enum && !schema.enum.includes(value)) problems.push(`${path}: unsupported value`);
+  if (schema.type === 'object') {
+    for (const key of schema.required || []) {
+      if (!Object.hasOwn(value, key)) problems.push(`${path}.${key}: missing`);
+    }
+    for (const [key, sub] of Object.entries(schema.properties)) {
+      if (Object.hasOwn(value, key)) checkShape(value[key], sub, `${path}.${key}`, problems);
+    }
+  } else if (schema.type === 'array') {
+    value.forEach((item, i) => checkShape(item, schema.items, `${path}[${i}]`, problems));
   }
-  if (!Array.isArray(c.enrichment?.turns)) problems.push('missing enrichment.turns');
-  if (!Array.isArray(c.enrichment?.nodes)) problems.push('missing enrichment.nodes');
+}
+
+function nonempty(items, path, problems) {
+  if (!items.length) problems.push(`${path}: must not be empty`);
+}
+
+function uniqueIds(items, path, problems) {
+  const seen = new Set();
+  for (const item of items) {
+    if (seen.has(item.id)) problems.push(`${path}: duplicate id "${item.id}"`);
+    seen.add(item.id);
+  }
+}
+
+function checkMindmap(nodes, problems) {
+  const path = 'enrichment.nodes';
+  nonempty(nodes, path, problems);
+  uniqueIds(nodes, path, problems);
+  if (nodes.filter(n => n.parent === null).length !== 1) problems.push(`${path}: must have exactly one root`);
+  const byId = new Map(nodes.map(n => [n.id, n]));
+  const checked = new Set();
+  for (const node of nodes) {
+    if (node.parent !== null && !byId.has(node.parent)) problems.push(`${path}: unknown parent "${node.parent}"`);
+    // Walk parent chains iteratively, including disconnected components. A single
+    // root plus known parents and no cycles proves every node reaches that root.
+    const chain = new Set();
+    let current = node;
+    while (current && !checked.has(current.id)) {
+      if (chain.has(current.id)) { problems.push(`${path}: cycle at "${current.id}"`); break; }
+      chain.add(current.id);
+      current = current.parent === null ? undefined : byId.get(current.parent);
+    }
+    for (const id of chain) checked.add(id);
+  }
+}
+
+function validatePart(kind, value, plan) {
+  const problems = [];
+  checkShape(value, SCHEMAS[kind], kind, problems);
+  // Structural errors must be fixed before reading nested values below.
+  if (problems.length) return problems;
+  if (kind === 'enrichment') {
+    nonempty(value.turns, 'enrichment.turns', problems);
+    checkMindmap(value.nodes, problems);
+    return problems;
+  }
+  nonempty(value.sections, `${kind}.sections`, problems);
+  uniqueIds(value.sections, `${kind}.sections`, problems);
+  if (plan && (value.sections.length !== plan.sections.length ||
+      value.sections.some((section, i) => section.id !== plan.sections[i]?.id))) {
+    problems.push(`${kind}.sections: ids must match the approved plan in order`);
+  }
+  if (kind === 'plan') nonempty(value.objectives, 'plan.objectives', problems);
+  value.sections.forEach((section, i) => {
+    const path = `${kind}.sections[${i}]`;
+    if (kind === 'plan') nonempty(section.points, `${path}.points`, problems);
+    if (kind === 'reading' || kind === 'quizzes') nonempty(section.questions, `${path}.questions`, problems);
+    if (kind === 'slides') nonempty(section.bullets, `${path}.bullets`, problems);
+    if (kind === 'quizzes') section.questions.forEach((q, qi) => {
+      const question = `${path}.questions[${qi}]`;
+      if (q.choices.length < 2 || q.choices.length > 4) problems.push(`${question}.choices: expected 2 to 4 choices`);
+      if (q.answer < 0 || q.answer >= q.choices.length) problems.push(`${question}.answer: must index an existing choice`);
+    });
+  });
   return problems;
 }
+
+function validationError(stage, problems) {
+  return new PipelineError(`The ${stage} is incomplete or inconsistent: ${problems.slice(0, 3).join('; ')}. Try again.`, 'validation');
+}
+
+function requireValidPart(kind, value, plan) {
+  const problems = validatePart(kind, value, plan);
+  if (problems.length) throw validationError(kind, problems);
+}
+
+/** Validate every field consumed by the views, plus cross-view relationships. */
+export function validateCourse(c) {
+  if (!isObject(c)) return ['course: expected object'];
+  const problems = [];
+  if (!isObject(c.meta)) problems.push('meta: expected object');
+  else {
+    for (const field of ['title', 'topic', 'createdAt']) {
+      if (typeof c.meta[field] !== 'string' || !c.meta[field].trim()) problems.push(`meta.${field}: expected nonblank string`);
+    }
+    for (const field of ['level', 'model', 'interests', 'depth']) {
+      if (Object.hasOwn(c.meta, field) && typeof c.meta[field] !== 'string') problems.push(`meta.${field}: expected string`);
+    }
+    if (typeof c.meta.createdAt === 'string' && !Number.isFinite(Date.parse(c.meta.createdAt))) problems.push('meta.createdAt: invalid date');
+  }
+  const planProblems = validatePart('plan', c.plan);
+  problems.push(...planProblems);
+  for (const kind of ['reading', 'quizzes', 'slides', 'enrichment']) {
+    problems.push(...validatePart(kind, c[kind], planProblems.length ? undefined : c.plan));
+  }
+  return problems;
+}
+

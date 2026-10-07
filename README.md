@@ -57,4 +57,30 @@ Run `node --test` (Node 22 or newer). The dependency-free suite checks the full
 generation pipeline with mocked Gemini responses, the nullable enrichment
 schema, model JSON parsing and errors, and Settings storage failures. GitHub
 Actions runs these checks and JavaScript syntax checks on pushes and PRs.
-These checks do not make live Gemini calls or establish real-browser acceptance.
+
+Course validation checks the fields consumed by every view, nonempty learning
+content, unique section IDs in plan order, quiz choices and answer indices, and
+a single rooted mind map without cycles or missing parents. Empty prerequisites
+and mnemonics are allowed. Generation validates each step before requesting the
+next one; invalid imports leave saved courses unchanged. Older incomplete saved
+courses are shown as unavailable without deleting their data.
+
+Desktop browser acceptance runs separately in GitHub Actions with Chromium at
+1440 × 1000. It covers the sample and included courses in all five views, quiz
+interaction, valid/invalid imports, reload, generation failure/retry, one API
+request per action after repeated navigation, and export/reimport. Gemini
+responses are mocked: this proves browser wiring, not live API availability,
+generated lesson accuracy, or audible speech quality.
+
+To run browser acceptance locally, start `node serve.mjs` in one terminal, then:
+
+```sh
+npm install --no-save --package-lock=false playwright@1.62.1
+npx playwright install chromium
+node scripts/browser-acceptance.mjs
+```
+
+`LEARNWAY_URL` overrides the default `http://127.0.0.1:8130` test address.
+`PLAYWRIGHT_MODULE` can point to an existing Playwright installation's `index.mjs`.
+No real API key is needed; the script uses a new isolated browser context.
+
