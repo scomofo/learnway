@@ -23,7 +23,8 @@ await page.route('https://generativelanguage.googleapis.com/**', async route => 
   await route.fulfill({ json: { candidates: [{ content: { parts: [{ text: JSON.stringify(replies.shift() ?? {}) }] } }] } });
 });
 
-const library = () => page.getByRole('button', { name: 'Learnway', exact: true }).click();
+// The brand's CSS ::before contributes a decorative diamond to its accessible name.
+const library = () => page.locator('.topbar').getByRole('button', { name: /Learnway$/ }).click();
 const settings = () => page.getByRole('button', { name: 'Settings', exact: true }).click();
 const storage = () => page.evaluate(() => localStorage.getItem('learnway:courses'));
 const importText = async (text, name = 'course.json') => {
@@ -160,6 +161,9 @@ try {
   assert.deepEqual(errors, [], 'browser must have no uncaught errors or duplicate requests');
   if (process.env.LEARNWAY_SCREENSHOT) await page.screenshot({ path: process.env.LEARNWAY_SCREENSHOT, fullPage: true });
   console.log('PASS: export/reimport/reload, no uncaught browser errors');
+} catch (error) {
+  console.error('Browser page errors:', errors);
+  throw error;
 } finally {
   await context.close();
   await browser.close();
