@@ -310,6 +310,7 @@ function wire(root) {
     }
 
     if (a === 'save-settings') {
+      $('#set-ok').hidden = true;
       try {
         store.set(LS.key, $('#s-key').value.trim());
         store.set(LS.model, $('#s-model').value);

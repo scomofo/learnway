@@ -43,10 +43,18 @@ No build step, no dependencies.
 
 ## Notes
 
-- Default model is `gemini-3.5-flash`; alternatives in Settings. If a model
-  404s (Google retires names), pick another — the error will say so.
+- Default model is `gemini-3.8-flash`; alternatives in Settings. If the API
+  returns 404, try another model in Settings; the error reports the HTTP status.
 - Personalization: every prompt carries your level and interests, so
   analogies come from your world. It never dumbs down — rigor is in the
   system prompt.
 - The audio view uses your browser's built-in speech synthesis. No cost,
   works offline once loaded.
+
+## Regression checks
+
+Run `node --test` (Node 22 or newer). The dependency-free suite checks the full
+generation pipeline with mocked Gemini responses, the nullable enrichment
+schema, model JSON parsing and errors, and Settings storage failures. GitHub
+Actions runs these checks and JavaScript syntax checks on pushes and PRs.
+These checks do not make live Gemini calls or establish real-browser acceptance.

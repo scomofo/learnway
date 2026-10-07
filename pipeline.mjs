@@ -275,7 +275,7 @@ Return exactly ${n} sections that build on each other: open with the core mental
 /** Steps 2-5: the full course pack, built on the approved plan. */
 export async function generateCourse(draft, creds, onProgress) {
   const { apiKey, model } = creds;
-  const { topic, level, interests, plan } = draft;
+  const { topic, level, interests, depth, plan } = draft;
   const pers = personalization(level, interests, draft.depth);
   const digest = sectionDigest(plan);
 
