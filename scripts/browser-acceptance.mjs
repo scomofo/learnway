@@ -102,7 +102,7 @@ try {
   await page.locator('#set-ok:not([hidden])').waitFor();
   await page.locator('.topbar').getByRole('button', { name: 'New course', exact: true }).click();
   await page.getByLabel('Topic', { exact: true }).fill('Desktop generation test');
-  await page.getByLabel('Depth', { exact: true }).selectOption('quick');
+  await page.getByLabel(/^Depth/).selectOption('quick');
   replies.push({ title: 'Incomplete plan' });
   await page.getByRole('button', { name: 'Sketch a plan', exact: true }).click();
   await page.locator('#wiz-err:not([hidden])').waitFor();
