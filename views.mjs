@@ -202,23 +202,31 @@ export function renderMindmap(course) {
   const nodes = course.enrichment.nodes;
   const byParent = new Map();
   for (const n of nodes) {
-    const key = n.parent ?? '__root__';
+    const key = n.parent;
     if (!byParent.has(key)) byParent.set(key, []);
     byParent.get(key).push(n);
   }
-  const roots = byParent.get('__root__') || byParent.get(null) || [];
-  const renderNode = (n, depth) => `
-    <li class="mnode" style="--d:${depth}">
-      <details ${depth < 2 ? 'open' : ''}>
-        <summary><span class="mlabel">${esc(n.label)}</span></summary>
-        <p class="mnote">${esc(n.note)}</p>
-        ${(byParent.get(n.id)?.length) ? `<ul>${byParent.get(n.id).map(c => renderNode(c, depth + 1)).join('')}</ul>` : ''}
-      </details>
-    </li>`;
+  const roots = byParent.get(null) || [];
+  // Avoid a reserved string root id and recursion limits for valid deep trees.
+  const stack = roots.toReversed().map(n => ({ n, depth: 0 }));
+  let tree = '';
+  while (stack.length) {
+    const item = stack.pop();
+    if (typeof item === 'string') { tree += item; continue; }
+    const { n, depth } = item;
+    tree += `<li class="mnode" style="--d:${depth}"><details ${depth < 2 ? 'open' : ''}>
+      <summary><span class="mlabel">${esc(n.label)}</span></summary><p class="mnote">${esc(n.note)}</p>`;
+    stack.push('</details></li>');
+    const children = byParent.get(n.id) || [];
+    if (children.length) {
+      tree += '<ul>';
+      stack.push('</ul>', ...children.toReversed().map(child => ({ n: child, depth: depth + 1 })));
+    }
+  }
   return `<section class="card">
     <div class="sec-kicker">Mind map</div>
     <p class="muted">The whole course on one page. Expand any node for its one-line essence.</p>
-    <ul class="mindmap">${roots.map(r => renderNode(r, 0)).join('')}</ul>
+    <ul class="mindmap">${tree}</ul>
   </section>`;
 }
 
@@ -247,3 +255,4 @@ export function wireView(name, root, course) {
   if (name === 'quiz') wireQuiz(root);
   if (name === 'audio') wireAudio(root, course);
 }
+

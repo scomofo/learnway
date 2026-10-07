@@ -27,13 +27,24 @@ let state = {
 
 /* ---------------- library ---------------- */
 
-function getCourses() { return store.get(LS.courses, []); }
+function getCourses() {
+  const list = store.get(LS.courses, []);
+  return Array.isArray(list) ? list : [];
+}
 function saveCourses(list) { store.set(LS.courses, list); }
 
+function courseKey(course) {
+  const meta = course?.meta;
+  return typeof meta?.topic === 'string' && typeof meta.createdAt === 'string'
+    ? meta.topic + '|' + meta.createdAt : null;
+}
+
 function upsertCourse(course) {
+  const problems = validateCourse(course);
+  if (problems.length) throw new Error('Course failed validation: ' + problems.slice(0, 3).join('; '));
   const list = getCourses();
-  const key = course.meta.topic + '|' + course.meta.createdAt;
-  const i = list.findIndex(c => (c.meta.topic + '|' + c.meta.createdAt) === key);
+  const key = courseKey(course);
+  const i = list.findIndex(c => courseKey(c) === key);
   if (i >= 0) list[i] = course; else list.unshift(course);
   saveCourses(list.slice(0, 50));
 }
@@ -46,7 +57,10 @@ function render() {
   else if (state.screen === 'wizard') app.innerHTML = viewWizard();
   else if (state.screen === 'course') app.innerHTML = viewCourse();
   else if (state.screen === 'settings') app.innerHTML = viewSettings();
-  wire(app);
+  // The shell's delegated handlers are installed once at boot. Only the newly
+  // rendered view needs listeners here; rebinding the shell duplicates API calls.
+  const viewRoot = app.querySelector('#view-root');
+  if (viewRoot && state.screen === 'course') wireView(state.view, viewRoot, state.course);
   window.scrollTo(0, 0);
 }
 
@@ -62,7 +76,11 @@ function header(active) {
 
 function viewLibrary() {
   const courses = getCourses();
-  const cards = courses.map((c, i) => `
+  const cards = courses.map((c, i) => validateCourse(c).length ? `
+    <div class="lib-card">
+      <div class="lib-title">${esc(typeof c?.meta?.title === 'string' ? c.meta.title : 'Incomplete saved course')}</div>
+      <div class="lib-meta">This saved course is incomplete and cannot be opened. Import a complete copy.</div>
+    </div>` : `
     <button class="lib-card" data-open="${i}">
       <div class="lib-title">${esc(c.meta.title)}</div>
       <div class="lib-meta">${esc(c.meta.topic)} · ${esc(levelLabel(c.meta.level))} · ${new Date(c.meta.createdAt).toLocaleDateString()}</div>
@@ -74,6 +92,7 @@ function viewLibrary() {
     </button>`).join('');
   return `${header('library')}
   <main class="wrap">
+    <div class="err" id="library-err" hidden></div>
     <div class="hero">
       <h1>Courses on whatever catches your interest.</h1>
       <p class="muted">Type a topic. Get a reading, quizzes, slides, an audio dialogue, and a mind map — all tuned to your level and interests.</p>
@@ -216,7 +235,10 @@ function wire(root) {
 
     const open = e.target.closest('[data-open]');
     if (open) {
-      state.course = getCourses()[Number(open.dataset.open)];
+      const course = getCourses()[Number(open.dataset.open)];
+      const problems = validateCourse(course);
+      if (problems.length) { showErr('library-err', 'This saved course is incomplete. Import a complete copy.'); return; }
+      state.course = course;
       state.view = 'reading';
       state.screen = 'course';
       render();
@@ -248,7 +270,7 @@ function wire(root) {
         if (problems.length) throw new Error(problems.join('; '));
         state.course = course; state.view = 'reading'; state.screen = 'course';
       } catch {
-        showErr('wiz-err', 'Sample course failed to load.');
+        showErr('library-err', 'Sample course failed to load.');
         return;
       }
       render();
@@ -285,6 +307,7 @@ function wire(root) {
     if (a === 'generate') {
       if (state.generating) return;
       state.generating = true;
+      $('#wiz-err').hidden = true;
       const prog = $('#gen-progress');
       prog.hidden = false;
       const msg = prog.querySelector('.msg');
@@ -305,6 +328,7 @@ function wire(root) {
         action.disabled = false;
       } finally {
         state.generating = false;
+        prog.hidden = true;
       }
       return;
     }
@@ -334,8 +358,8 @@ function wire(root) {
 
     if (a === 'delete' && state.course) {
       if (!confirm('Delete this course?')) return;
-      const key = state.course.meta.topic + '|' + state.course.meta.createdAt;
-      saveCourses(getCourses().filter(c => (c.meta.topic + '|' + c.meta.createdAt) !== key));
+      const key = courseKey(state.course);
+      saveCourses(getCourses().filter(c => courseKey(c) !== key));
       state.course = null; state.screen = 'library';
       render();
       return;
@@ -346,6 +370,8 @@ function wire(root) {
 
   root.addEventListener('change', async e => {
     if (e.target.id === 'import-file' && e.target.files[0]) {
+      $('#set-err').hidden = true;
+      $('#set-ok').hidden = true;
       try {
         const course = JSON.parse(await e.target.files[0].text());
         const problems = validateCourse(course);
@@ -358,10 +384,6 @@ function wire(root) {
       }
     }
   });
-
-  // View-specific interactivity (quiz answering, audio playback).
-  const viewRoot = root.querySelector('#view-root');
-  if (viewRoot && state.screen === 'course') wireView(state.view, viewRoot, state.course);
 }
 
 async function boot() {
@@ -369,7 +391,9 @@ async function boot() {
     const res = await fetch('courses/index.json');
     if (res.ok) state.bundled = await res.json();
   } catch { /* no bundled courses — fine */ }
+  wire($('#app'));
   render();
 }
 
 document.addEventListener('DOMContentLoaded', boot);
+
