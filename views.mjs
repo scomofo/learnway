@@ -43,7 +43,104 @@ function sectionHead(n, heading, kicker) {
 
 /* ---------------- Reading ---------------- */
 
-export function renderReading(course) {
+export function courseToMarkdown(course) {
+  if (!course) return '';
+  const lines = [];
+  lines.push(`# ${course.meta?.title || 'Course'}`);
+  lines.push('');
+  lines.push(`**Topic:** ${course.meta?.topic || ''}  `);
+  if (course.meta?.level) lines.push(`**Level:** ${course.meta.level}  `);
+  if (course.plan?.hook) {
+    lines.push('');
+    lines.push(`> ${course.plan.hook}`);
+    lines.push('');
+  }
+  if (course.plan?.objectives?.length) {
+    lines.push('## Learning Objectives');
+    for (const obj of course.plan.objectives) lines.push(`- ${obj}`);
+    lines.push('');
+  }
+  if (course.plan?.prerequisites?.length) {
+    lines.push('## Prerequisites');
+    for (const p of course.plan.prerequisites) lines.push(`- ${p}`);
+    lines.push('');
+  }
+
+  if (course.reading?.sections?.length) {
+    lines.push('## Course Content');
+    lines.push('');
+    for (const s of course.reading.sections) {
+      lines.push(`### ${s.heading}`);
+      lines.push('');
+      lines.push(s.body);
+      lines.push('');
+      if (s.visual) {
+        lines.push(`*Visual representation:* ${s.visual}`);
+        lines.push('');
+      }
+      if (s.questions?.length) {
+        lines.push('**Check-in Questions:**');
+        for (const q of s.questions) {
+          lines.push(`- **Q:** ${q.q}`);
+          if (q.hint) lines.push(`  - *Hint:* ${q.hint}`);
+          lines.push(`  - **Answer:** ${q.answer}`);
+        }
+        lines.push('');
+      }
+    }
+  }
+
+  if (course.enrichment?.mnemonics?.length) {
+    lines.push('## Memory Aids');
+    for (const m of course.enrichment.mnemonics) {
+      lines.push(`- **${m.for}:** ${m.aid}`);
+    }
+    lines.push('');
+  }
+
+  if (course.quizzes?.sections?.length) {
+    lines.push('## Practice Quizzes');
+    lines.push('');
+    for (const s of course.quizzes.sections) {
+      for (const q of s.questions) {
+        lines.push(`**Q:** ${q.q}`);
+        for (let i = 0; i < q.choices.length; i++) {
+          const marker = i === q.answer ? '[x]' : '[ ]';
+          lines.push(`- ${marker} ${q.choices[i]}`);
+        }
+        lines.push(`*Explanation:* ${q.explain}`);
+        lines.push('');
+      }
+    }
+  }
+
+  if (course.slides?.sections?.length) {
+    lines.push('## Lecture Slides');
+    lines.push('');
+    for (const s of course.slides.sections) {
+      lines.push(`### ${s.title}`);
+      for (const b of s.bullets) lines.push(`- ${b}`);
+      if (s.notes) lines.push(`\n*Speaker Notes:* ${s.notes}`);
+      lines.push('');
+    }
+  }
+
+  if (course.enrichment?.turns?.length) {
+    lines.push('## Audio Dialogue');
+    lines.push('');
+    for (const t of course.enrichment.turns) {
+      const spk = t.speaker === 'teacher' ? 'Teacher' : 'Student';
+      lines.push(`**${spk}:** ${t.line}`);
+      lines.push('');
+    }
+  }
+
+  return lines.join('\n');
+}
+
+/* ---------------- Reading ---------------- */
+
+export function renderReading(course, notesMap = {}) {
   const secs = course.reading.sections.map((s, i) => `
     <section class="card reading-sec" data-sec="${esc(s.id)}">
       ${sectionHead(i + 1, s.heading, 'Reading')}
@@ -63,6 +160,12 @@ export function renderReading(course) {
             </div>
           </details>`).join('')}
       </div>` : ''}
+      <div class="sec-notes">
+        <details class="notes-wrapper" ${notesMap[s.id] ? 'open' : ''}>
+          <summary>My Study Notes ${notesMap[s.id] ? '✏️' : ''}</summary>
+          <textarea class="note-input" data-sec-note="${esc(s.id)}" placeholder="Type your personal section notes here...">${esc(notesMap[s.id] || '')}</textarea>
+        </details>
+      </div>
     </section>`).join('');
   const mn = (course.enrichment.mnemonics?.length) ? `
     <section class="card"><div class="sec-kicker">Memory aids</div>
@@ -70,6 +173,16 @@ export function renderReading(course) {
         <div class="mnemonic"><div class="mn-for">${esc(m.for)}</div><div class="mn-aid">${esc(m.aid)}</div></div>`).join('')}
     </section>` : '';
   return secs + mn;
+}
+
+function wireReading(root, course, onSaveNote) {
+  if (!onSaveNote) return;
+  root.querySelectorAll('[data-sec-note]').forEach(textarea => {
+    textarea.addEventListener('input', () => {
+      const secId = textarea.dataset.secNote;
+      onSaveNote(secId, textarea.value);
+    });
+  });
 }
 
 /* ---------------- Quiz ---------------- */
@@ -238,6 +351,208 @@ export function renderMindmap(course) {
   </section>`;
 }
 
+/* ---------------- Flashcards ---------------- */
+
+export function getFlashcards(course) {
+  const cards = [];
+  if (course?.reading?.sections) {
+    for (const s of course.reading.sections) {
+      if (s.questions) {
+        for (const q of s.questions) {
+          cards.push({
+            front: q.q,
+            back: q.answer,
+            hint: q.hint || '',
+            category: s.heading || 'Check-in'
+          });
+        }
+      }
+    }
+  }
+  if (course?.enrichment?.mnemonics) {
+    for (const m of course.enrichment.mnemonics) {
+      if (m.for && m.aid) {
+        cards.push({
+          front: m.for,
+          back: m.aid,
+          hint: '',
+          category: 'Mnemonic'
+        });
+      }
+    }
+  }
+  if (course?.enrichment?.nodes) {
+    for (const n of course.enrichment.nodes) {
+      if (n.label && n.note) {
+        cards.push({
+          front: `What is ${n.label}?`,
+          back: n.note,
+          hint: '',
+          category: 'Concept'
+        });
+      }
+    }
+  }
+  return cards;
+}
+
+export function renderFlashcards(course) {
+  const cards = getFlashcards(course);
+  if (!cards.length) {
+    return `<section class="card"><p class="muted">No flashcards available for this course.</p></section>`;
+  }
+  return `<section class="card flashcards-card">
+    <div class="fc-head">
+      <div><div class="sec-kicker">Study Mode</div><h3>Flashcards</h3></div>
+      <div class="fc-stats">
+        <span class="fc-counter"><span id="fc-idx">1</span> / ${cards.length}</span>
+        <span class="fc-mastered-tag">Mastered: <span id="fc-mastered-count">0</span>/${cards.length}</span>
+      </div>
+    </div>
+    <div class="fc-stage">
+      <div class="fc-card-container" id="fc-card" tabindex="0" role="button" aria-label="Flashcard. Click to flip.">
+        <div class="fc-card-inner">
+          <div class="fc-card-front">
+            <span class="tag fc-cat" id="fc-cat">${esc(cards[0].category)}</span>
+            <div class="fc-content" id="fc-front">${esc(cards[0].front)}</div>
+            <div class="fc-hint-box" id="fc-hint-box" hidden><span class="tag">Hint</span> <span id="fc-hint-text">${esc(cards[0].hint)}</span></div>
+            <div class="fc-flip-prompt">Click card or press Enter to reveal answer</div>
+          </div>
+          <div class="fc-card-back">
+            <span class="tag good fc-cat">Answer</span>
+            <div class="fc-content" id="fc-back">${esc(cards[0].back)}</div>
+            <div class="fc-flip-prompt">Click card to flip back</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fc-controls">
+      <button class="btn ghost" id="fc-prev" disabled>← Previous</button>
+      ${cards[0].hint ? `<button class="btn ghost" id="fc-hint-btn">Show Hint</button>` : `<button class="btn ghost" id="fc-hint-btn" hidden>Show Hint</button>`}
+      <button class="btn ghost" id="fc-shuffle">Shuffle</button>
+      <button class="btn primary" id="fc-next">Next →</button>
+    </div>
+    <div class="fc-mastery-actions">
+      <button class="btn small danger" id="fc-again-btn">Need Practice ✗</button>
+      <button class="btn small primary" id="fc-mastered-btn">Mastered ✓</button>
+    </div>
+  </section>`;
+}
+
+function wireFlashcards(root, course) {
+  let cards = getFlashcards(course);
+  if (!cards.length) return;
+  let idx = 0;
+  let isFlipped = false;
+  const mastered = new Set();
+
+  const cardEl = root.querySelector('#fc-card');
+  const catEl = root.querySelector('#fc-cat');
+  const frontEl = root.querySelector('#fc-front');
+  const backEl = root.querySelector('#fc-back');
+  const hintBoxEl = root.querySelector('#fc-hint-box');
+  const hintTextEl = root.querySelector('#fc-hint-text');
+  const hintBtn = root.querySelector('#fc-hint-btn');
+  const idxEl = root.querySelector('#fc-idx');
+  const prevBtn = root.querySelector('#fc-prev');
+  const nextBtn = root.querySelector('#fc-next');
+  const shuffleBtn = root.querySelector('#fc-shuffle');
+  const masteredCountEl = root.querySelector('#fc-mastered-count');
+  const againBtn = root.querySelector('#fc-again-btn');
+  const masteredBtn = root.querySelector('#fc-mastered-btn');
+
+  function updateCard() {
+    isFlipped = false;
+    cardEl?.classList.remove('flipped');
+    const card = cards[idx];
+    if (catEl) catEl.textContent = card.category;
+    if (frontEl) frontEl.textContent = card.front;
+    if (backEl) backEl.textContent = card.back;
+    if (idxEl) idxEl.textContent = String(idx + 1);
+
+    if (hintBoxEl) hintBoxEl.hidden = true;
+    if (hintBtn) {
+      if (card.hint) {
+        hintBtn.hidden = false;
+        hintBtn.textContent = 'Show Hint';
+      } else {
+        hintBtn.hidden = true;
+      }
+    }
+    if (hintTextEl) hintTextEl.textContent = card.hint || '';
+
+    if (prevBtn) prevBtn.disabled = idx === 0;
+    if (nextBtn) nextBtn.disabled = idx === cards.length - 1;
+
+    if (masteredBtn) {
+      if (mastered.has(card.front)) {
+        masteredBtn.classList.add('good');
+      } else {
+        masteredBtn.classList.remove('good');
+      }
+    }
+  }
+
+  cardEl?.addEventListener('click', () => {
+    isFlipped = !isFlipped;
+    cardEl.classList.toggle('flipped', isFlipped);
+  });
+
+  cardEl?.addEventListener('keydown', e => {
+    if (e.key === ' ' || e.key === 'Enter') {
+      e.preventDefault();
+      isFlipped = !isFlipped;
+      cardEl.classList.toggle('flipped', isFlipped);
+    }
+  });
+
+  hintBtn?.addEventListener('click', e => {
+    e.stopPropagation();
+    if (!hintBoxEl) return;
+    hintBoxEl.hidden = !hintBoxEl.hidden;
+    hintBtn.textContent = hintBoxEl.hidden ? 'Show Hint' : 'Hide Hint';
+  });
+
+  prevBtn?.addEventListener('click', () => {
+    if (idx > 0) { idx--; updateCard(); }
+  });
+
+  nextBtn?.addEventListener('click', () => {
+    if (idx < cards.length - 1) { idx++; updateCard(); }
+  });
+
+  shuffleBtn?.addEventListener('click', () => {
+    for (let i = cards.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [cards[i], cards[j]] = [cards[j], cards[i]];
+    }
+    idx = 0;
+    updateCard();
+  });
+
+  masteredBtn?.addEventListener('click', () => {
+    const cardId = cards[idx].front;
+    mastered.add(cardId);
+    if (masteredCountEl) masteredCountEl.textContent = String(mastered.size);
+    if (idx < cards.length - 1) {
+      idx++;
+    }
+    updateCard();
+  });
+
+  againBtn?.addEventListener('click', () => {
+    const cardId = cards[idx].front;
+    mastered.delete(cardId);
+    if (masteredCountEl) masteredCountEl.textContent = String(mastered.size);
+    if (idx < cards.length - 1) {
+      idx++;
+    }
+    updateCard();
+  });
+
+  updateCard();
+}
+
 /* ---------------- dispatch ---------------- */
 
 export const VIEWS = [
@@ -246,21 +561,25 @@ export const VIEWS = [
   { id: 'slides', label: 'Slides' },
   { id: 'audio', label: 'Audio' },
   { id: 'mindmap', label: 'Mind map' },
+  { id: 'flashcards', label: 'Flashcards' },
 ];
 
-export function renderView(name, course) {
+export function renderView(name, course, options = {}) {
   switch (name) {
-    case 'reading': return renderReading(course);
+    case 'reading': return renderReading(course, options.notesMap);
     case 'quiz': return renderQuiz(course);
     case 'slides': return renderSlides(course);
     case 'audio': return renderAudio(course);
     case 'mindmap': return renderMindmap(course);
+    case 'flashcards': return renderFlashcards(course);
     default: return '<p class="muted">Unknown view.</p>';
   }
 }
 
-export function wireView(name, root, course) {
+export function wireView(name, root, course, options = {}) {
+  if (name === 'reading') wireReading(root, course, options.onSaveNote);
   if (name === 'quiz') wireQuiz(root);
   if (name === 'audio') wireAudio(root, course);
+  if (name === 'flashcards') wireFlashcards(root, course);
 }
 

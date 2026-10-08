@@ -1,9 +1,9 @@
 // Learnway app shell: library, generation wizard, settings, view switching.
 'use strict';
 import { DEFAULT_MODEL, MODELS, LEVELS, DEPTHS, generatePlan, generateCourse, validateCourse, PipelineError } from './pipeline.mjs';
-import { VIEWS, renderView, wireView, esc } from './views.mjs';
+import { VIEWS, renderView, wireView, courseToMarkdown, esc } from './views.mjs';
 
-const LS = { key: 'learnway:key', model: 'learnway:model', courses: 'learnway:courses' };
+const LS = { key: 'learnway:key', model: 'learnway:model', courses: 'learnway:courses', notes: 'learnway:notes' };
 const $ = sel => document.querySelector(sel);
 
 const store = {
@@ -23,6 +23,8 @@ let state = {
   view: 'reading',
   draft: null,             // approved plan awaiting generation
   generating: false,
+  searchQuery: '',
+  levelFilter: '',
 };
 
 /* ---------------- library ---------------- */
@@ -60,7 +62,12 @@ function render() {
   // The shell's delegated handlers are installed once at boot. Only the newly
   // rendered view needs listeners here; rebinding the shell duplicates API calls.
   const viewRoot = app.querySelector('#view-root');
-  if (viewRoot && state.screen === 'course') wireView(state.view, viewRoot, state.course);
+  if (viewRoot && state.screen === 'course' && state.course) {
+    const key = courseKey(state.course) || state.course.meta.title;
+    wireView(state.view, viewRoot, state.course, {
+      onSaveNote: (secId, text) => saveCourseNote(key, secId, text)
+    });
+  }
   window.scrollTo(0, 0);
 }
 
@@ -74,35 +81,83 @@ function header(active) {
   </header>`;
 }
 
+function depthLabel(id) {
+  return (DEPTHS.find(d => d.id === id) || {}).label || id || 'Standard';
+}
+
 function viewLibrary() {
-  const courses = getCourses();
-  const cards = courses.map((c, i) => validateCourse(c).length ? `
-    <div class="lib-card">
-      <div class="lib-title">${esc(typeof c?.meta?.title === 'string' ? c.meta.title : 'Incomplete saved course')}</div>
-      <div class="lib-meta">This saved course is incomplete and cannot be opened. Import a complete copy.</div>
-    </div>` : `
-    <button class="lib-card" data-open="${i}">
-      <div class="lib-title">${esc(c.meta.title)}</div>
-      <div class="lib-meta">${esc(c.meta.topic)} · ${esc(levelLabel(c.meta.level))} · ${new Date(c.meta.createdAt).toLocaleDateString()}</div>
-    </button>`).join('');
-  const bundledCards = (state.bundled || []).map((b, i) => `
-    <button class="lib-card bundled" data-bundled="${i}">
-      <div class="lib-title">${esc(b.title)}</div>
-      <div class="lib-meta">${esc(b.topic)} · included course</div>
-    </button>`).join('');
+  const allCourses = getCourses();
+  const q = state.searchQuery.trim().toLowerCase();
+  const lFilter = state.levelFilter;
+
+  const filteredCoursesWithIdx = allCourses
+    .map((c, originalIdx) => ({ c, originalIdx }))
+    .filter(({ c }) => {
+      if (lFilter && c?.meta?.level !== lFilter) return false;
+      if (!q) return true;
+      const title = (c?.meta?.title || '').toLowerCase();
+      const topic = (c?.meta?.topic || '').toLowerCase();
+      const interests = (c?.meta?.interests || '').toLowerCase();
+      return title.includes(q) || topic.includes(q) || interests.includes(q);
+    });
+
+  const cards = filteredCoursesWithIdx.map(({ c, originalIdx }) => {
+    if (validateCourse(c).length) {
+      return `
+      <div class="lib-card">
+        <div class="lib-title">${esc(typeof c?.meta?.title === 'string' ? c.meta.title : 'Incomplete saved course')}</div>
+        <div class="lib-meta">This saved course is incomplete and cannot be opened. Import a complete copy.</div>
+      </div>`;
+    }
+    const secCount = c.plan?.sections?.length || 0;
+    return `
+      <button class="lib-card" data-open="${originalIdx}">
+        <div class="lib-title">${esc(c.meta.title)}</div>
+        <div class="lib-badges">
+          <span class="badge level">${esc(levelLabel(c.meta.level))}</span>
+          <span class="badge depth">${esc(depthLabel(c.meta.depth))} (${secCount} secs)</span>
+        </div>
+        <div class="lib-meta">${esc(c.meta.topic)} · ${new Date(c.meta.createdAt).toLocaleDateString()}</div>
+      </button>`;
+  }).join('');
+
+  const bundledCards = (state.bundled || [])
+    .filter(b => {
+      if (lFilter) return false;
+      if (!q) return true;
+      return (b.title || '').toLowerCase().includes(q) || (b.topic || '').toLowerCase().includes(q);
+    })
+    .map((b, i) => `
+      <button class="lib-card bundled" data-bundled="${i}">
+        <div class="lib-title">${esc(b.title)}</div>
+        <div class="lib-badges"><span class="badge bundled-tag">Included</span></div>
+        <div class="lib-meta">${esc(b.topic)}</div>
+      </button>`).join('');
+
+  const searchControls = allCourses.length || state.bundled?.length ? `
+    <div class="lib-filter-bar">
+      <input type="search" id="lib-search" placeholder="Search courses by title or topic..." value="${esc(state.searchQuery)}" autocomplete="off">
+      <select id="lib-level-filter">
+        <option value="">All levels</option>
+        ${LEVELS.map(l => `<option value="${l.id}" ${state.levelFilter === l.id ? 'selected' : ''}>${esc(l.label)}</option>`).join('')}
+      </select>
+    </div>` : '';
+
   return `${header('library')}
   <main class="wrap">
     <div class="err" id="library-err" hidden></div>
     <div class="hero">
       <h1>Courses on whatever catches your interest.</h1>
-      <p class="muted">Type a topic. Get a reading, quizzes, slides, an audio dialogue, and a mind map — all tuned to your level and interests.</p>
+      <p class="muted">Type a topic. Get a reading, quizzes, slides, an audio dialogue, flashcards, and a mind map — all tuned to your level and interests.</p>
       <div class="hero-actions">
         <button class="btn primary" data-nav="wizard">New course</button>
         <button class="btn ghost" data-sample>Try the sample course</button>
       </div>
     </div>
+    ${searchControls}
     ${bundledCards ? `<h2>Included courses</h2><div class="lib-grid">${bundledCards}</div>` : ''}
-    ${courses.length ? `<h2>Your courses</h2><div class="lib-grid">${cards}</div>` : (bundledCards ? '' : `
+    ${allCourses.length ? `<h2>Your courses ${filteredCoursesWithIdx.length < allCourses.length ? `(${filteredCoursesWithIdx.length} of ${allCourses.length})` : ''}</h2>
+      ${cards ? `<div class="lib-grid">${cards}</div>` : '<div class="empty">No courses match your filter.</div>'}` : (bundledCards ? '' : `
       <div class="empty">No courses yet. ${store.get(LS.key, '') ? 'Make your first one.' : 'Add your Gemini API key in Settings first — it takes a minute.'}</div>`)}
   </main>`;
 }
@@ -164,9 +219,29 @@ function viewPlanApproval(d) {
   </main>`;
 }
 
+function getCourseNotes(key) {
+  if (!key) return {};
+  const allNotes = store.get(LS.notes, {});
+  return allNotes[key] || {};
+}
+
+function saveCourseNote(key, secId, noteText) {
+  if (!key) return;
+  const allNotes = store.get(LS.notes, {});
+  if (!allNotes[key]) allNotes[key] = {};
+  if (noteText.trim()) {
+    allNotes[key][secId] = noteText;
+  } else {
+    delete allNotes[key][secId];
+  }
+  store.set(LS.notes, allNotes);
+}
+
 function viewCourse() {
   const c = state.course;
   if (!c) return viewLibrary();
+  const key = courseKey(c) || c.meta.title;
+  const notesMap = getCourseNotes(key);
   const tabs = VIEWS.map(v => `<button class="tab ${state.view === v.id ? 'active' : ''}" data-view="${v.id}">${v.label}</button>`).join('');
   return `${header('course')}
   <main class="wrap">
@@ -176,13 +251,14 @@ function viewCourse() {
       <p class="muted">${esc(c.meta.topic)} · ${esc(levelLabel(c.meta.level))} · ${c.meta.interests ? esc(c.meta.interests) : 'no interests given'} · ${esc(c.meta.model)}</p>
       <div class="course-actions">
         <button class="btn ghost small" data-action="export">Export JSON</button>
+        <button class="btn ghost small" data-action="export-md">Export Markdown</button>
         ${state.course.bundled ? '' : '<button class="btn ghost small danger" data-action="delete">Delete</button>'}
       </div>
     </div>
     <div class="objectives card"><div class="sec-kicker">By the end</div>
       <ul class="tight">${c.plan.objectives.map(o => `<li>${esc(o)}</li>`).join('')}</ul></div>
     <div class="tabs">${tabs}</div>
-    <div id="view-root">${renderView(state.view, c)}</div>
+    <div id="view-root">${renderView(state.view, c, { notesMap })}</div>
   </main>`;
 }
 
@@ -356,6 +432,17 @@ function wire(root) {
       return;
     }
 
+    if (a === 'export-md' && state.course) {
+      const mdContent = courseToMarkdown(state.course);
+      const blob = new Blob([mdContent], { type: 'text/markdown;charset=utf-8' });
+      const aEl = document.createElement('a');
+      aEl.href = URL.createObjectURL(blob);
+      aEl.download = state.course.meta.title.replace(/[^a-z0-9]+/gi, '-').toLowerCase() + '.md';
+      aEl.click();
+      URL.revokeObjectURL(aEl.href);
+      return;
+    }
+
     if (a === 'delete' && state.course) {
       if (!confirm('Delete this course?')) return;
       const key = courseKey(state.course);
@@ -368,7 +455,25 @@ function wire(root) {
     if (a === 'import') { $('#import-file').click(); return; }
   });
 
+  root.addEventListener('input', e => {
+    if (e.target.id === 'lib-search') {
+      state.searchQuery = e.target.value;
+      render();
+      const input = $('#lib-search');
+      if (input) {
+        input.focus();
+        input.setSelectionRange(input.value.length, input.value.length);
+      }
+    }
+  });
+
   root.addEventListener('change', async e => {
+    if (e.target.id === 'lib-level-filter') {
+      state.levelFilter = e.target.value;
+      render();
+      return;
+    }
+
     if (e.target.id === 'import-file' && e.target.files[0]) {
       $('#set-err').hidden = true;
       $('#set-ok').hidden = true;
