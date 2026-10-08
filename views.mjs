@@ -48,6 +48,10 @@ export function renderReading(course) {
     <section class="card reading-sec" data-sec="${esc(s.id)}">
       ${sectionHead(i + 1, s.heading, 'Reading')}
       <div class="prose">${md(s.body)}</div>
+      ${s.visual ? `<figure class="visual">
+        <div class="visual-title">Picture this</div>
+        <div class="visual-body">${md(s.visual)}</div>
+      </figure>` : ''}
       ${s.questions?.length ? `<div class="checkins">
         <div class="checkins-title">Check yourself</div>
         ${s.questions.map((q, qi) => `
@@ -123,6 +127,10 @@ export function renderSlides(course) {
     <section class="card slide">
       <div class="slide-top"><span class="sec-num">${i + 1}</span><h3>${esc(s.title)}</h3></div>
       <ul class="slide-bullets">${s.bullets.map(b => `<li>${esc(b)}</li>`).join('')}</ul>
+      ${s.visual ? `<figure class="visual slide-visual">
+        <div class="visual-title">Picture this</div>
+        <div class="visual-body">${md(s.visual)}</div>
+      </figure>` : ''}
       <details class="notes"><summary>Speaker notes</summary><p>${esc(s.notes)}</p></details>
     </section>`).join('') + `</div>`;
 }

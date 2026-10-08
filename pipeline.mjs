@@ -90,7 +90,7 @@ async function callGemini({ apiKey, model, system, user, schema, maxTokens, temp
 }
 
 const DESIGNER = `You are an expert instructional designer and subject-matter explainer. You build courses that respect the learner's intelligence: technically rigorous, never dumbed down, but always approachable. You follow learning science:
-- Dual coding: pair verbal explanations with concrete visualizable structure.
+- Dual coding, visual-first by default: every lesson carries a concrete visual element — a picture-the-scene analogy, a mental-model sketch, or a simple text diagram — so each key idea is seeable, not just readable.
 - Formative assessment: questions that reveal understanding, never trick questions.
 - Interest-anchored analogies: explain unfamiliar ideas through things the learner already loves.
 - Plain register: short sentences, concrete nouns, every technical term defined on first use unless the level says otherwise.`;
@@ -138,6 +138,7 @@ const SCHEMAS = {
             id: { type: 'string' },
             heading: { type: 'string' },
             body: { type: 'string', description: 'Markdown narrative, 250-450 words. Subheadings allowed. No quiz content here.' },
+            visual: { type: 'string', description: 'Visual explanation for this section: a concrete scene to picture, a visual analogy, or a simple text diagram. 2-4 sentences. Every section should have one.' },
             questions: {
               type: 'array',
               description: '2 embedded check-in questions tied to this section.',
@@ -200,6 +201,7 @@ const SCHEMAS = {
             title: { type: 'string' },
             bullets: { type: 'array', items: { type: 'string' }, description: '5-7 tight bullets, the lecture skeleton.' },
             notes: { type: 'string', description: 'Speaker notes: the 60-second spoken version, conversational.' },
+            visual: { type: 'string', description: 'What the learner should picture with this slide: a scene, diagram, or visual analogy. 1-2 sentences. Every slide should have one.' },
           },
           required: ['id', 'title', 'bullets', 'notes'],
         },
@@ -292,7 +294,8 @@ Follow this approved plan exactly — same section ids, headings, and points:
 
 ${digest}
 
-For each section: a narrative body (markdown, 250-450 words) that teaches the points in order, opening with the single most surprising or important idea. Weave in the learner's interests for analogies. End each section with 2 embedded check-in questions (with answers and hints).`,
+For each section: a narrative body (markdown, 250-450 words) that teaches the points in order, opening with the single most surprising or important idea. Weave in the learner's interests for analogies. End each section with 2 embedded check-in questions (with answers and hints).
+Every section must also include a visual explanation element (the "visual" field): make the section's key idea seeable — a concrete scene to picture, a visual analogy drawn from the learner's interests, or a simple labeled text diagram. Be specific enough to sketch; never a generic "imagine a graph".`,
     schema: SCHEMAS.reading, maxTokens: 16384,
   });
   requireValidPart('reading', reading, plan);
@@ -324,7 +327,8 @@ Sections:
 
 ${digest}
 
-For each section: a slide title, 5-7 tight bullets (the skeleton of a 5-minute lecture segment), and speaker notes — the conversational 60-second spoken version of those bullets, as if explaining to a smart friend.`,
+For each section: a slide title, 5-7 tight bullets (the skeleton of a 5-minute lecture segment), and speaker notes — the conversational 60-second spoken version of those bullets, as if explaining to a smart friend.
+Every slide also carries a "visual" cue: the one scene, diagram, or visual analogy the learner should picture while hearing these bullets.`,
     schema: SCHEMAS.slides, maxTokens: 8192,
   });
   requireValidPart('slides', slides, plan);
