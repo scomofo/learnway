@@ -366,6 +366,7 @@ ${digest}
 }
 
 const isObject = value => value !== null && typeof value === 'object' && !Array.isArray(value);
+const hasOwn = (value, key) => Object.prototype.hasOwnProperty.call(value, key);
 
 // Reuse the API schemas at the trust boundary; valid JSON alone is not a course.
 // Unknown fields remain allowed so older exports can carry extra metadata.
@@ -380,10 +381,10 @@ function checkShape(value, schema, path, problems) {
   if (schema.enum && !schema.enum.includes(value)) problems.push(`${path}: unsupported value`);
   if (schema.type === 'object') {
     for (const key of schema.required || []) {
-      if (!Object.hasOwn(value, key)) problems.push(`${path}.${key}: missing`);
+      if (!hasOwn(value, key)) problems.push(`${path}.${key}: missing`);
     }
     for (const [key, sub] of Object.entries(schema.properties)) {
-      if (Object.hasOwn(value, key)) checkShape(value[key], sub, `${path}.${key}`, problems);
+      if (hasOwn(value, key)) checkShape(value[key], sub, `${path}.${key}`, problems);
     }
   } else if (schema.type === 'array') {
     value.forEach((item, i) => checkShape(item, schema.items, `${path}[${i}]`, problems));
@@ -474,7 +475,7 @@ export function validateCourse(c) {
       if (typeof c.meta[field] !== 'string' || !c.meta[field].trim()) problems.push(`meta.${field}: expected nonblank string`);
     }
     for (const field of ['level', 'model', 'interests', 'depth']) {
-      if (Object.hasOwn(c.meta, field) && typeof c.meta[field] !== 'string') problems.push(`meta.${field}: expected string`);
+      if (hasOwn(c.meta, field) && typeof c.meta[field] !== 'string') problems.push(`meta.${field}: expected string`);
     }
     if (typeof c.meta.createdAt === 'string' && !Number.isFinite(Date.parse(c.meta.createdAt))) problems.push('meta.createdAt: invalid date');
   }
@@ -485,4 +486,3 @@ export function validateCourse(c) {
   }
   return problems;
 }
-
