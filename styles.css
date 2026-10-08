@@ -140,8 +140,55 @@ ul.tight li { margin-bottom: 6px; }
 .mlabel { font-weight: 600; }
 .mnote { color: var(--muted); margin: 6px 0 6px 4px; font-size: 0.92rem; }
 
+/* library filters & badges */
+.lib-filter-bar { display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+.lib-filter-bar input[type="search"] { flex: 1; min-width: 220px; padding: 10px 14px; border-radius: 8px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); font-size: 0.95rem; }
+.lib-filter-bar select { padding: 10px 14px; border-radius: 8px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); font-size: 0.95rem; }
+.lib-badges { display: flex; gap: 6px; margin: 6px 0 8px; flex-wrap: wrap; }
+.badge { font-size: 0.72rem; padding: 2px 8px; border-radius: 4px; font-weight: 600; background: var(--panel2); border: 1px solid var(--line); color: var(--muted); }
+.badge.level { color: var(--accent); border-color: rgba(124,199,255,0.3); }
+.badge.depth { color: var(--accent2); border-color: rgba(179,157,255,0.3); }
+.badge.bundled-tag { color: var(--good); border-color: rgba(126,226,168,0.3); }
+
+/* personal notes */
+.sec-notes { margin-top: 16px; border-top: 1px dashed var(--line); padding-top: 12px; }
+.notes-wrapper summary { cursor: pointer; font-size: 0.9rem; color: var(--accent); font-weight: 600; }
+.note-input { width: 100%; height: 90px; margin-top: 8px; padding: 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--panel2); color: var(--ink); font-family: var(--font); font-size: 0.95rem; resize: vertical; }
+
+/* flashcards */
+.flashcards-card { user-select: none; }
+.fc-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; }
+.fc-stats { display: flex; gap: 16px; align-items: center; font-weight: 650; }
+.fc-counter { font-size: 1.1rem; color: var(--accent); }
+.fc-mastered-tag { font-size: 0.85rem; color: var(--good); }
+
+.fc-stage { perspective: 1000px; margin: 20px 0; min-height: 220px; }
+.fc-card-container { width: 100%; min-height: 220px; cursor: pointer; outline: none; }
+.fc-card-inner { position: relative; width: 100%; min-height: 220px; transition: transform 0.5s; transform-style: preserve-3d; }
+.fc-card-container.flipped .fc-card-inner { transform: rotateY(180deg); }
+
+.fc-card-front, .fc-card-back {
+  position: absolute; width: 100%; min-height: 220px;
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  border-radius: var(--radius); padding: 24px;
+  background: var(--panel2); border: 2px solid var(--line);
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.fc-card-front:hover, .fc-card-back:hover { border-color: var(--accent); }
+.fc-card-back { transform: rotateY(180deg); border-color: var(--accent2); }
+
+.fc-cat { align-self: flex-start; margin-bottom: 12px; }
+.fc-content { font-size: 1.2rem; font-weight: 600; line-height: 1.5; color: var(--ink); margin: 12px 0; }
+.fc-flip-prompt { font-size: 0.8rem; color: var(--muted); font-style: italic; text-align: right; margin-top: 12px; }
+.fc-hint-box { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 10px 14px; margin: 10px 0; font-size: 0.9rem; }
+
+.fc-controls { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 16px; }
+.fc-mastery-actions { display: flex; gap: 12px; justify-content: center; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); }
+
 @media (max-width: 640px) {
   .hero h1 { font-size: 1.5rem; }
   .turn.student { margin-left: 12px; }
   .tabs { top: 57px; }
+  .fc-controls { flex-direction: column; }
+  .fc-controls .btn { width: 100%; }
 }
