@@ -90,6 +90,12 @@ ul.tight li { margin-bottom: 6px; }
 .mnemonic { border-left: 3px solid var(--accent2); padding: 6px 0 6px 14px; margin: 12px 0; }
 .mn-for { font-weight: 650; }
 .mn-aid { color: var(--muted); }
+/* visual explanation elements ("Picture this") */
+.visual { border: 1px dashed var(--accent2); border-radius: var(--radius); padding: 10px 16px; margin: 16px 0; background: rgba(179, 157, 255, 0.06); }
+.visual-title { font-weight: 700; margin-bottom: 4px; color: var(--accent2); }
+.visual-body p { margin: 6px 0; }
+.visual-body p:last-child { margin-bottom: 2px; }
+.slide-visual { margin: 12px 0 4px; }
 
 /* quiz */
 .quiz-scorebar { position: sticky; top: 121px; z-index: 5; background: var(--panel2); border: 1px solid var(--line); border-radius: 8px; padding: 10px 16px; margin-bottom: 16px; font-weight: 650; }
