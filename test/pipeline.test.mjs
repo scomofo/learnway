@@ -8,7 +8,9 @@ const input = { apiKey: 'test-key', model: 'test-model', topic: 'Filters', level
 const response = text => ({ status: 200, ok: true, json: async () => ({ candidates: [{ content: { parts: [{ text }] } }] }) });
 
 test('approved plan generates a complete course and sends a Gemini-compatible nullable schema', async t => {
-  const payloads = [fixture.plan, fixture.reading, fixture.quizzes, fixture.slides, fixture.enrichment];
+  const GOOD_SVG = `<svg viewBox="0 0 400 300"><rect x="10" y="10" width="120" height="60" fill="#7cc7ff"/><text x="20" y="45" font-family="sans-serif" font-size="12" fill="#e8ecf1">Crust</text></svg>`;
+  const diagramPayload = { diagrams: fixture.reading.sections.map(s => ({ id: s.id, svg: GOOD_SVG })) };
+  const payloads = [fixture.plan, fixture.reading, fixture.quizzes, fixture.slides, fixture.enrichment, diagramPayload];
   const requests = [];
   t.mock.method(globalThis, 'fetch', async (url, init) => {
     requests.push(JSON.parse(init.body));
@@ -19,14 +21,21 @@ test('approved plan generates a complete course and sends a Gemini-compatible nu
   const draft = await generatePlan(input);
   const progress = [];
   const course = await generateCourse(draft, input, message => progress.push(message));
-  assert.equal(requests.length, 5);
-  assert.equal(progress.length, 4);
+  assert.equal(requests.length, 6);
+  assert.equal(progress.length, 5);
   assert.equal(course.meta.depth, input.depth);
   assert.equal(course.meta.topic, input.topic);
   assert.equal(course.meta.model, input.model);
   assert.equal(course.meta.title, fixture.plan.title);
   assert.ok(Number.isFinite(Date.parse(course.meta.createdAt)));
-  for (const key of ['plan', 'reading', 'quizzes', 'slides', 'enrichment']) assert.deepEqual(course[key], fixture[key]);
+  for (const key of ['plan', 'quizzes', 'slides', 'enrichment']) assert.deepEqual(course[key], fixture[key]);
+  // Reading sections gain their diagrams from step 5.
+  assert.equal(course.reading.sections.length, fixture.reading.sections.length);
+  course.reading.sections.forEach((s, i) => {
+    const { diagram, ...rest } = s;
+    assert.deepEqual(rest, fixture.reading.sections[i]);
+    assert.equal(diagram, GOOD_SVG);
+  });
   assert.deepEqual(validateCourse(course), []);
   const parent = requests[4].generationConfig.responseSchema.properties.nodes.items.properties.parent;
   assert.equal(parent.type, 'string');

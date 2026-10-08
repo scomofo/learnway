@@ -2,6 +2,8 @@
 // renderView(name, course) -> HTML string. wireView(name, root) attaches interactivity.
 'use strict';
 
+import { sanitizeDiagram } from './pipeline.mjs';
+
 export function esc(s) {
   return String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 }
@@ -76,6 +78,29 @@ function sectionHead(n, heading, kicker) {
   return `<div class="sec-head"><span class="sec-num">${n}</span><div><div class="sec-kicker">${esc(kicker)}</div><h3>${esc(heading)}</h3></div></div>`;
 }
 
+/**
+ * The section's diagram as a figure. The SVG is sanitized at the render
+ * boundary, so imported or hand-edited courses cannot inject scripts.
+ * Falls back to the "Picture this" text card when there is no diagram yet
+ * (older courses), and to nothing when there is neither.
+ */
+export function diagramFigure(s, cls = '') {
+  const svg = sanitizeDiagram(s.diagram || '');
+  const classes = cls ? `diagram ${cls}` : 'diagram';
+  if (svg) {
+    const caption = s.visual ? `<figcaption class="diagram-caption">${md(s.visual)}</figcaption>` : '';
+    return `<figure class="${classes}"><div class="diagram-art">${svg}</div>${caption}</figure>`;
+  }
+  if (s.visual) {
+    const vclasses = cls ? `visual ${cls}` : 'visual';
+    return `<figure class="${vclasses}">
+        <figcaption class="visual-title">Picture this</figcaption>
+        <div class="visual-body">${md(s.visual)}</div>
+      </figure>`;
+  }
+  return '';
+}
+
 /* ---------------- Reading ---------------- */
 
 export function courseToMarkdown(course) {
@@ -111,6 +136,11 @@ export function courseToMarkdown(course) {
       lines.push('');
       if (s.visual) {
         lines.push('*Visual representation:*', '', s.visual);
+        lines.push('');
+      }
+      const cleanSvg = sanitizeDiagram(s.diagram || '');
+      if (cleanSvg) {
+        lines.push(cleanSvg);
         lines.push('');
       }
       if (s.questions?.length) {
@@ -187,10 +217,7 @@ export function renderReading(course, notesMap = {}, unsavedNotes = {}) {
     <section class="card reading-sec" data-sec="${esc(s.id)}">
       ${sectionHead(i + 1, s.heading, 'Reading')}
       <div class="prose">${md(s.body)}</div>
-      ${s.visual ? `<figure class="visual">
-        <figcaption class="visual-title">Picture this</figcaption>
-        <div class="visual-body">${md(s.visual)}</div>
-      </figure>` : ''}
+      ${diagramFigure(s)}
       ${s.questions?.length ? `<div class="checkins">
         <div class="checkins-title">Check yourself</div>
         ${s.questions.map((q, qi) => `
@@ -285,16 +312,18 @@ function wireQuiz(root) {
 /* ---------------- Slides ---------------- */
 
 export function renderSlides(course) {
-  return `<div class="slides">` + course.slides.sections.map((s, i) => `
+  const readingById = new Map((course.reading?.sections || []).map(s => [s.id, s]));
+  return `<div class="slides">` + course.slides.sections.map((s, i) => {
+    const reading = readingById.get(s.id) || {};
+    // The slide shows its reading section's diagram, captioned by the slide's own visual cue.
+    const fig = diagramFigure({ visual: s.visual, diagram: reading.diagram }, 'slide-visual');
+    return `
     <section class="card slide">
       <div class="slide-top"><span class="sec-num">${i + 1}</span><h3>${esc(s.title)}</h3></div>
       <ul class="slide-bullets">${s.bullets.map(b => `<li>${esc(b)}</li>`).join('')}</ul>
-      ${s.visual ? `<figure class="visual slide-visual">
-        <figcaption class="visual-title">Picture this</figcaption>
-        <div class="visual-body">${md(s.visual)}</div>
-      </figure>` : ''}
+      ${fig}
       <details class="notes"><summary>Speaker notes</summary><p>${esc(s.notes)}</p></details>
-    </section>`).join('') + `</div>`;
+    </section>`;}).join('') + `</div>`;
 }
 
 /* ---------------- Audio ---------------- */
@@ -418,10 +447,11 @@ export function getFlashcards(course) {
           });
         }
       }
-      if (s.visual) {
+      if (s.visual || s.diagram) {
         cards.push({
           front: `Picture this: ${s.heading || 'a key idea'}`,
-          back: s.visual,
+          back: s.visual || '',
+          backHtml: diagramFigure(s, 'fc-diagram'),
           hint: '',
           category: 'Visual'
         });
@@ -479,7 +509,7 @@ export function renderFlashcards(course) {
           </div>
           <div class="fc-card-back">
             <span class="tag good fc-cat">Answer</span>
-            <div class="fc-content" id="fc-back">${esc(cards[0].back)}</div>
+            <div class="fc-content" id="fc-back">${cards[0].backHtml || esc(cards[0].back)}</div>
             <div class="fc-flip-prompt">Click card to flip back</div>
           </div>
         </div>
@@ -526,7 +556,11 @@ function wireFlashcards(root, course) {
     const card = cards[idx];
     if (catEl) catEl.textContent = card.category;
     if (frontEl) frontEl.textContent = card.front;
-    if (backEl) backEl.textContent = card.back;
+    if (backEl) {
+      // backHtml is only ever produced by diagramFigure(), whose SVG is sanitized.
+      if (card.backHtml) backEl.innerHTML = card.backHtml;
+      else backEl.textContent = card.back;
+    }
     if (idxEl) idxEl.textContent = String(idx + 1);
 
     if (hintBoxEl) hintBoxEl.hidden = true;
