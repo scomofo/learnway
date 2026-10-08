@@ -1,12 +1,74 @@
 [
   {
+    "title": "AP Biology: Cells, Energy & Inheritance",
+    "topic": "AP Biology",
+    "level": "advanced",
+    "file": "courses/ap-biology-foundations.json"
+  },
+  {
+    "title": "AP Chemistry: Particles, Reactions & Equilibrium",
+    "topic": "AP Chemistry",
+    "level": "advanced",
+    "file": "courses/ap-chemistry-foundations.json"
+  },
+  {
+    "title": "Intro to Rocket Science: Push, Mass & Orbit",
+    "topic": "Intro to Rocket Science",
+    "level": "beginner",
+    "file": "courses/intro-rocket-science.json"
+  },
+  {
+    "title": "How Engines Work: Fuel to Turning Wheels",
+    "topic": "How Engines Work",
+    "level": "beginner",
+    "file": "courses/how-engines-work.json"
+  },
+  {
+    "title": "Electrical Wiring Fundamentals: Circuits & Protection",
+    "topic": "Electrical Wiring Fundamentals",
+    "level": "beginner",
+    "file": "courses/electrical-wiring-fundamentals.json"
+  },
+  {
+    "title": "How GPS Works: Time into Position",
+    "topic": "How GPS Works",
+    "level": "intermediate",
+    "file": "courses/how-gps-works.json"
+  },
+  {
+    "title": "Weather: Air, Clouds & Fronts",
+    "topic": "Weather",
+    "level": "beginner",
+    "file": "courses/weather-fundamentals.json"
+  },
+  {
+    "title": "Plate Tectonics: A Moving Planet",
+    "topic": "Plate Tectonics",
+    "level": "beginner",
+    "file": "courses/plate-tectonics.json"
+  },
+  {
+    "title": "Sound & Music: Waves, Pitch & Resonance",
+    "topic": "Sound & Music",
+    "level": "beginner",
+    "file": "courses/sound-and-music.json"
+  },
+  {
+    "title": "Everyday Probability: Chance & Evidence",
+    "topic": "Everyday Probability",
+    "level": "beginner",
+    "file": "courses/everyday-probability.json"
+  },
+  {
     "title": "Genetics: The Code That Builds You",
     "topic": "Genetics",
+    "level": "highschool",
     "file": "courses/hs-genetics.json"
   },
   {
     "title": "Simple Machines: Six Ways to Win at Physics",
     "topic": "The 6 simple machines (lever, wheel and axle, pulley, inclined plane, wedge, screw)",
+    "level": "highschool",
     "file": "courses/hs-simple-machines.json"
   }
 ]

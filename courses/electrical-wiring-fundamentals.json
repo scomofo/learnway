@@ -1,0 +1,360 @@
+{
+  "meta": {
+    "title": "Electrical Wiring Fundamentals: Circuits & Protection",
+    "topic": "Electrical Wiring Fundamentals",
+    "level": "beginner",
+    "interests": "",
+    "depth": "quick",
+    "model": "Learnway authored starter",
+    "createdAt": "2026-10-08T00:00:04.000Z",
+    "version": 1
+  },
+  "plan": {
+    "title": "Electrical Wiring Fundamentals: Circuits & Protection",
+    "hook": "Learn voltage, current, resistance and protective-device roles. Calculations use simplified low-voltage DC circuits; household wiring discussion is conceptual, not installation guidance.",
+    "objectives": [
+      "Use Ohm’s law with units and assumptions.",
+      "Compare series and parallel circuits.",
+      "Distinguish overcurrent protection, GFCIs and protective bonding."
+    ],
+    "prerequisites": [
+      "Basic multiplication and division"
+    ],
+    "sections": [
+      {
+        "id": "quantities",
+        "heading": "Voltage is not current",
+        "points": [
+          "Voltage is energy per charge; current is charge flow per time.",
+          "In the stated steady DC model, voltage equals current multiplied by resistance.",
+          "I = 12/6 = 2 A. The associated resistor power is 12 × 2 = 24 W."
+        ]
+      },
+      {
+        "id": "paths",
+        "heading": "Series shares current; parallel shares voltage",
+        "points": [
+          "A single steady current path carries the same current through each component.",
+          "Branches share voltage, and their currents add at the supply connection.",
+          "Each branch can draw current at the supply voltage. The shared supply conductors must carry the sum of all branch currents."
+        ]
+      },
+      {
+        "id": "protection",
+        "heading": "Different hazards need different protection",
+        "points": [
+          "Ordinary overcurrent devices and GFCIs respond to different conditions.",
+          "A protective fault path is distinct from a conductor carrying normal return current.",
+          "A current dangerous to a person can be too small to trip that breaker. Other protections and safe work practices remain necessary."
+        ]
+      }
+    ]
+  },
+  "reading": {
+    "sections": [
+      {
+        "id": "quantities",
+        "heading": "Voltage is not current",
+        "body": "Voltage is electric potential difference: energy transferred per unit charge. Current is the rate of charge flow. Resistance describes how a component opposes that flow under stated conditions. Voltage is measured in volts, current in amperes and resistance in ohms.\n\nFor an ideal ohmic resistor in steady DC conditions, V = IR. With 12 V across a 6 Ω resistor, current is I = V/R = 2 A. The resistor's power is P = VI = 24 W. That power calculation matters: a physical component must have an appropriate power rating and thermal arrangement. This arithmetic example is not a build instruction, and a battery capable of high current can still cause burns or fire.\n\nOhm's law in this simple form is a model for an ohmic component, not a universal description of every device. Diodes, motors and AC systems require more context. Keep the model's assumptions attached to its answer.",
+        "visual": "Picture a source providing an energy difference around a closed loop, with charge circulating through a resistor. Mark voltage across the resistor and current through it; they describe different measurements.",
+        "questions": [
+          {
+            "q": "What current flows through 6 Ω with 12 V across it?",
+            "hint": "Rearrange V = IR.",
+            "answer": "I = 12/6 = 2 A. The associated resistor power is 12 × 2 = 24 W."
+          }
+        ]
+      },
+      {
+        "id": "paths",
+        "heading": "Series shares current; parallel shares voltage",
+        "body": "In a simple steady series circuit, components lie on one current path and carry the same current. Their voltage drops add. Two 6 Ω resistors in series have total resistance 12 Ω, so an ideal 12 V source supplies 1 A. Equal resistances each drop 6 V.\n\nParallel branches connect across the same two nodes, so each branch has the same voltage. Put two 6 Ω resistors in parallel across 12 V and each draws 2 A. The source supplies their sum, 4 A. The equivalent resistance is 12/4 = 3 Ω, smaller than either individual branch.\n\nHousehold loads are generally arranged in parallel so they receive their intended supply voltage independently. Adding loads still increases current in shared conductors and can exceed circuit limits. The topology principle is not a household installation diagram: actual wiring must satisfy conductor, protective-device and local-code requirements.",
+        "visual": "Picture one road through two checkpoints for series, then a fork into two roads that rejoin for parallel. Parallel branches share the same endpoints, while their currents add at the junction.",
+        "questions": [
+          {
+            "q": "Why can an extra parallel load overload a circuit without changing its nominal voltage?",
+            "hint": "Add the branch currents.",
+            "answer": "Each branch can draw current at the supply voltage. The shared supply conductors must carry the sum of all branch currents."
+          }
+        ]
+      },
+      {
+        "id": "protection",
+        "heading": "Different hazards need different protection",
+        "body": "A correctly selected fuse or breaker interrupts overcurrent to protect conductors and equipment. It is not complete protection against electric shock: a dangerous current through a person can be far below the trip threshold of an ordinary branch breaker.\n\nA ground-fault circuit interrupter, or GFCI, compares outgoing and returning current. An imbalance can indicate current taking an unintended path, causing the device to interrupt supply. Its purpose differs from ordinary overload protection; neither device makes touching electricity safe.\n\nNeutral and protective bonding conductors also have different jobs. In a typical North American branch circuit, neutral carries normal return current, while protective bonding provides a low-impedance fault path for exposed conductive parts. They are not interchangeable. Their permitted connections depend on installation rules.\n\nUse a qualified electrician and current local requirements for household wiring. Do not open panels or work on energised wiring from this lesson. Wire colour, a switch position or a tripped breaker is not proof that a conductor is safe to touch.",
+        "visual": "Picture two monitors: one watches total current become too large; the other compares what leaves with what returns. Draw a separate protective fault path. These are distinct jobs, not interchangeable protections.",
+        "questions": [
+          {
+            "q": "Why is an ordinary branch breaker not complete shock protection?",
+            "hint": "Compare dangerous body current with normal circuit current.",
+            "answer": "A current dangerous to a person can be too small to trip that breaker. Other protections and safe work practices remain necessary."
+          }
+        ]
+      }
+    ]
+  },
+  "quizzes": {
+    "sections": [
+      {
+        "id": "quantities",
+        "questions": [
+          {
+            "q": "What current does the stated 12 V, 6 Ω ideal resistor draw?",
+            "choices": [
+              "0.5 A",
+              "2 A",
+              "6 A",
+              "72 A"
+            ],
+            "answer": 1,
+            "explain": "I = V/R = 12/6 = 2 A. Multiplying voltage by resistance would not give current."
+          },
+          {
+            "q": "Why is calculating 24 W important before selecting a physical resistor?",
+            "choices": [
+              "It proves every resistor is safe",
+              "It specifies wire colour",
+              "It tells you a power and heat load the component must tolerate",
+              "It makes a fuse unnecessary"
+            ],
+            "answer": 2,
+            "explain": "Electrical power becomes heat in the resistor. Ratings and thermal design matter; low voltage alone is not a complete safety assessment."
+          }
+        ]
+      },
+      {
+        "id": "paths",
+        "questions": [
+          {
+            "q": "Two 6 Ω resistors in parallel across an ideal 12 V source draw what total current?",
+            "choices": [
+              "1 A",
+              "2 A",
+              "12 A",
+              "4 A"
+            ],
+            "answer": 3,
+            "explain": "Each branch draws 12/6 = 2 A. Their currents add to 4 A; the series arrangement would draw 1 A."
+          },
+          {
+            "q": "In a simple steady series circuit, which quantity is the same through both resistors?",
+            "choices": [
+              "Current",
+              "Voltage drop regardless of resistance",
+              "Resistance regardless of component",
+              "Power regardless of resistance"
+            ],
+            "answer": 0,
+            "explain": "A single path carries the same current. Voltage drops and powers can differ when resistances differ."
+          }
+        ]
+      },
+      {
+        "id": "protection",
+        "questions": [
+          {
+            "q": "What does a GFCI primarily look for?",
+            "choices": [
+              "A particular wire colour",
+              "Room temperature",
+              "Only appliance wattage",
+              "An imbalance between outgoing and returning current"
+            ],
+            "answer": 3,
+            "explain": "An imbalance can reveal an unintended current path. Ordinary overload protection addresses a different condition."
+          },
+          {
+            "q": "Which statement about neutral and protective bonding is appropriate?",
+            "choices": [
+              "They always replace one another",
+              "They have distinct functions and must follow applicable installation rules",
+              "Bonding normally carries all appliance current",
+              "Neutral can never be hazardous"
+            ],
+            "answer": 1,
+            "explain": "These conductors are not interchangeable, and neither a name nor a wire colour establishes that touching a conductor is safe."
+          }
+        ]
+      }
+    ]
+  },
+  "slides": {
+    "sections": [
+      {
+        "id": "quantities",
+        "title": "Voltage is not current",
+        "bullets": [
+          "Voltage is energy per charge; current is charge flow per time.",
+          "In the stated steady DC model, voltage equals current multiplied by resistance.",
+          "I = 12/6 = 2 A. The associated resistor power is 12 × 2 = 24 W."
+        ],
+        "notes": "Voltage is electric potential difference: energy transferred per unit charge. Current is the rate of charge flow. Resistance describes how a component opposes that flow under stated conditions. Voltage is measured in volts, current in amperes and resistance in ohms. I = 12/6 = 2 A. The associated resistor power is 12 × 2 = 24 W.",
+        "visual": "Picture a source providing an energy difference around a closed loop, with charge circulating through a resistor. Mark voltage across the resistor and current through it; they describe different measurements."
+      },
+      {
+        "id": "paths",
+        "title": "Series shares current; parallel shares voltage",
+        "bullets": [
+          "A single steady current path carries the same current through each component.",
+          "Branches share voltage, and their currents add at the supply connection.",
+          "Each branch can draw current at the supply voltage. The shared supply conductors must carry the sum of all branch currents."
+        ],
+        "notes": "In a simple steady series circuit, components lie on one current path and carry the same current. Their voltage drops add. Two 6 Ω resistors in series have total resistance 12 Ω, so an ideal 12 V source supplies 1 A. Equal resistances each drop 6 V. Each branch can draw current at the supply voltage. The shared supply conductors must carry the sum of all branch currents.",
+        "visual": "Picture one road through two checkpoints for series, then a fork into two roads that rejoin for parallel. Parallel branches share the same endpoints, while their currents add at the junction."
+      },
+      {
+        "id": "protection",
+        "title": "Different hazards need different protection",
+        "bullets": [
+          "Ordinary overcurrent devices and GFCIs respond to different conditions.",
+          "A protective fault path is distinct from a conductor carrying normal return current.",
+          "A current dangerous to a person can be too small to trip that breaker. Other protections and safe work practices remain necessary."
+        ],
+        "notes": "A correctly selected fuse or breaker interrupts overcurrent to protect conductors and equipment. It is not complete protection against electric shock: a dangerous current through a person can be far below the trip threshold of an ordinary branch breaker. A current dangerous to a person can be too small to trip that breaker. Other protections and safe work practices remain necessary.",
+        "visual": "Picture two monitors: one watches total current become too large; the other compares what leaves with what returns. Draw a separate protective fault path. These are distinct jobs, not interchangeable protections."
+      }
+    ]
+  },
+  "enrichment": {
+    "audioTitle": "Electrical Wiring Fundamentals: Circuits & Protection — a conversation",
+    "turns": [
+      {
+        "speaker": "teacher",
+        "line": "Learn voltage, current, resistance and protective-device roles. Calculations use simplified low-voltage DC circuits; household wiring discussion is conceptual, not installation guidance."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Voltage is not current. Voltage is energy per charge; current is charge flow per time. In the stated steady DC model, voltage equals current multiplied by resistance."
+      },
+      {
+        "speaker": "student",
+        "line": "What current flows through 6 Ω with 12 V across it?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "I = 12/6 = 2 A. The associated resistor power is 12 × 2 = 24 W."
+      },
+      {
+        "speaker": "student",
+        "line": "What current does the stated 12 V, 6 Ω ideal resistor draw?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "2 A. I = V/R = 12/6 = 2 A. Multiplying voltage by resistance would not give current."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Series shares current; parallel shares voltage. A single steady current path carries the same current through each component. Branches share voltage, and their currents add at the supply connection."
+      },
+      {
+        "speaker": "student",
+        "line": "Why can an extra parallel load overload a circuit without changing its nominal voltage?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Each branch can draw current at the supply voltage. The shared supply conductors must carry the sum of all branch currents."
+      },
+      {
+        "speaker": "student",
+        "line": "Two 6 Ω resistors in parallel across an ideal 12 V source draw what total current?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "4 A. Each branch draws 12/6 = 2 A. Their currents add to 4 A; the series arrangement would draw 1 A."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Different hazards need different protection. Ordinary overcurrent devices and GFCIs respond to different conditions. A protective fault path is distinct from a conductor carrying normal return current."
+      },
+      {
+        "speaker": "student",
+        "line": "Why is an ordinary branch breaker not complete shock protection?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "A current dangerous to a person can be too small to trip that breaker. Other protections and safe work practices remain necessary."
+      },
+      {
+        "speaker": "student",
+        "line": "What does a GFCI primarily look for?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "An imbalance between outgoing and returning current. An imbalance can reveal an unintended current path. Ordinary overload protection addresses a different condition."
+      },
+      {
+        "speaker": "teacher",
+        "line": "To review: Use Ohm’s law with units and assumptions. Compare series and parallel circuits. Distinguish overcurrent protection, GFCIs and protective bonding."
+      }
+    ],
+    "nodes": [
+      {
+        "id": "root",
+        "parent": null,
+        "label": "Electrical Wiring Fundamentals: Circuits & Protection",
+        "note": "Learn voltage, current, resistance and protective-device roles. Calculations use simplified low-voltage DC circuits; household wiring discussion is conceptual, not installation guidance."
+      },
+      {
+        "id": "quantities",
+        "parent": "root",
+        "label": "Voltage is not current",
+        "note": "I = 12/6 = 2 A. The associated resistor power is 12 × 2 = 24 W."
+      },
+      {
+        "id": "quantities-concept-1",
+        "parent": "quantities",
+        "label": "Voltage and current",
+        "note": "Voltage is energy per charge; current is charge flow per time."
+      },
+      {
+        "id": "quantities-concept-2",
+        "parent": "quantities",
+        "label": "Ohmic resistor",
+        "note": "In the stated steady DC model, voltage equals current multiplied by resistance."
+      },
+      {
+        "id": "paths",
+        "parent": "root",
+        "label": "Series shares current; parallel shares voltage",
+        "note": "Each branch can draw current at the supply voltage. The shared supply conductors must carry the sum of all branch currents."
+      },
+      {
+        "id": "paths-concept-1",
+        "parent": "paths",
+        "label": "Series circuit",
+        "note": "A single steady current path carries the same current through each component."
+      },
+      {
+        "id": "paths-concept-2",
+        "parent": "paths",
+        "label": "Parallel circuit",
+        "note": "Branches share voltage, and their currents add at the supply connection."
+      },
+      {
+        "id": "protection",
+        "parent": "root",
+        "label": "Different hazards need different protection",
+        "note": "A current dangerous to a person can be too small to trip that breaker. Other protections and safe work practices remain necessary."
+      },
+      {
+        "id": "protection-concept-1",
+        "parent": "protection",
+        "label": "Overcurrent and ground faults",
+        "note": "Ordinary overcurrent devices and GFCIs respond to different conditions."
+      },
+      {
+        "id": "protection-concept-2",
+        "parent": "protection",
+        "label": "Protective bonding",
+        "note": "A protective fault path is distinct from a conductor carrying normal return current."
+      }
+    ],
+    "mnemonics": []
+  },
+  "sources": [
+    {
+      "title": "CCOHS — Electrical safety basics",
+      "url": "https://www.ccohs.ca/oshanswers/safety_haz/electrical.html"
+    }
+  ]
+}

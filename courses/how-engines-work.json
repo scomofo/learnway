@@ -1,0 +1,360 @@
+{
+  "meta": {
+    "title": "How Engines Work: Fuel to Turning Wheels",
+    "topic": "How Engines Work",
+    "level": "beginner",
+    "interests": "",
+    "depth": "quick",
+    "model": "Learnway authored starter",
+    "createdAt": "2026-10-08T00:00:03.000Z",
+    "version": 1
+  },
+  "plan": {
+    "title": "How Engines Work: Fuel to Turning Wheels",
+    "hook": "Trace a four-stroke engine from intake air to rotating output, then connect torque, power and wasted heat.",
+    "objectives": [
+      "Describe the four-stroke cycle.",
+      "Calculate power from torque and rotational speed.",
+      "Explain why cooling and lubrication are necessary."
+    ],
+    "prerequisites": [
+      "Basic force, motion and energy"
+    ],
+    "sections": [
+      {
+        "id": "cycle",
+        "heading": "Four strokes, two crankshaft revolutions",
+        "points": [
+          "One complete intake–compression–power–exhaust cycle uses two crankshaft revolutions.",
+          "Spark ignition and compression ignition initiate combustion in different ways.",
+          "3,000/2 = 1,500 cycles per minute; 1,500/60 = 25 cycles per second."
+        ]
+      },
+      {
+        "id": "output",
+        "heading": "Torque turns; power includes how fast",
+        "points": [
+          "Torque is force times perpendicular lever arm and is measured in newton-metres.",
+          "Power equals torque multiplied by angular speed in radians per second.",
+          "No. Doubling both would quadruple power. A passive ideal gearbox trades torque against speed while conserving power."
+        ]
+      },
+      {
+        "id": "heat",
+        "heading": "Useful work is only part of the energy balance",
+        "points": [
+          "Useful shaft work divided by fuel-energy input gives an engine efficiency for a specified condition.",
+          "Heat control and reduced friction protect components while energy losses remain.",
+          "Cooling protects the engine’s temperature limits. Removing it can overheat components rather than turning rejected heat into shaft work."
+        ]
+      }
+    ]
+  },
+  "reading": {
+    "sections": [
+      {
+        "id": "cycle",
+        "heading": "Four strokes, two crankshaft revolutions",
+        "body": "In a simplified four-stroke spark-ignition engine, the intake stroke admits air and fuel, the compression stroke squeezes the mixture, ignition starts combustion near the end of compression, the power stroke extracts work from expanding gas, and the exhaust stroke removes burned gas. These four piston strokes take two crankshaft revolutions.\n\nThe connecting rod and crankshaft convert reciprocating piston motion into rotation. A flywheel and multiple cylinders help smooth the output because an individual cylinder does not deliver a power stroke on every revolution. At 3,000 revolutions per minute, one four-stroke cylinder completes 1,500 cycles per minute, or 25 cycles per second.\n\nA diesel engine uses compression ignition: compressed air gets hot enough for injected fuel to ignite under suitable conditions. The broad four-stroke sequence can remain, but a spark plug is not the normal ignition source. Real valve timing, injection and boosting add detail beyond this introductory cycle.",
+        "visual": "Picture a piston moving down, up, down and up while a crank turns twice. Mark the four stages intake, compression, power and exhaust, with combustion beginning near the top before the power stroke.",
+        "questions": [
+          {
+            "q": "At 3,000 rpm, how many complete four-stroke cycles does one cylinder perform each second?",
+            "hint": "Divide by two revolutions per cycle, then by 60 seconds per minute.",
+            "answer": "3,000/2 = 1,500 cycles per minute; 1,500/60 = 25 cycles per second."
+          }
+        ]
+      },
+      {
+        "id": "output",
+        "heading": "Torque turns; power includes how fast",
+        "body": "Torque describes a turning effect about an axis. A force of 100 N acting perpendicularly at a 0.20 m lever arm produces 20 N·m of torque. Power is the rate of doing work, so it also depends on how quickly that torque turns the shaft.\n\nFor rotational motion, P = τω: power P in watts equals torque τ in newton-metres times angular speed ω in radians per second. Convert revolutions per minute using ω = rpm × 2π/60. An engine producing 200 N·m at 1,500 rpm therefore delivers about 31,400 W, or 31.4 kW, at that operating point.\n\nGearing can trade rotational speed for torque. An ideal reduction doubles torque when it halves speed, preserving power; real gears also lose some energy. A higher torque number alone therefore does not establish greater power or faster acceleration. Engine speed, gearing, vehicle mass and traction all affect the outcome.",
+        "visual": "Picture two shafts linked by reduction gears. Put a smaller speed arrow and a larger torque arrow on the slower shaft. Their power remains equal in the lossless model because the changes compensate.",
+        "questions": [
+          {
+            "q": "Can an ideal gearbox double both torque and shaft speed without another energy source?",
+            "hint": "Compare input and output power.",
+            "answer": "No. Doubling both would quadruple power. A passive ideal gearbox trades torque against speed while conserving power."
+          }
+        ]
+      },
+      {
+        "id": "heat",
+        "heading": "Useful work is only part of the energy balance",
+        "body": "Fuel brings chemical energy into an engine. Some becomes useful shaft work; the rest leaves through exhaust, cooling and other losses. If an illustrative engine receives 100 J of fuel energy and delivers 30 J of shaft work, its thermal efficiency at that operating point is 30/100 = 30%. The numbers are a teaching example, not a universal engine specification.\n\nCooling keeps components within an operating temperature range despite combustion heat. Lubrication reduces friction and wear and can also carry heat away. Neither system makes the engine lossless. Removing all cooling would not convert all rejected heat into useful work; it could instead damage the engine.\n\nEfficiency depends on design and operating conditions, including load and speed. A hybrid can sometimes improve overall vehicle efficiency by operating the engine differently and recovering braking energy, but a whole-vehicle comparison needs a defined driving cycle. This lesson explains mechanisms and is not an engine-service procedure.",
+        "visual": "Picture a 100-unit energy stream splitting into 30 units of shaft work and 70 units leaving by other routes. Keep every branch accounted for; an unlabelled loss does not mean energy disappeared.",
+        "questions": [
+          {
+            "q": "Why does removing the cooling system not make every joule become useful work?",
+            "hint": "Rejected heat and mechanical work are different energy paths.",
+            "answer": "Cooling protects the engine’s temperature limits. Removing it can overheat components rather than turning rejected heat into shaft work."
+          }
+        ]
+      }
+    ]
+  },
+  "quizzes": {
+    "sections": [
+      {
+        "id": "cycle",
+        "questions": [
+          {
+            "q": "A four-stroke cylinder completes one cycle in how many crankshaft revolutions?",
+            "choices": [
+              "One half",
+              "One",
+              "Two",
+              "Four"
+            ],
+            "answer": 2,
+            "explain": "Four piston strokes correspond to two crankshaft revolutions. A power stroke occurs once per complete cycle for that cylinder."
+          },
+          {
+            "q": "What normally initiates combustion in a diesel engine?",
+            "choices": [
+              "A spark plug firing the whole intake mixture",
+              "Fuel entering sufficiently hot compressed air",
+              "Cold exhaust gas",
+              "The battery directly heating every cylinder wall"
+            ],
+            "answer": 1,
+            "explain": "Diesel combustion uses compression ignition. Auxiliary starting aids do not change that basic operating principle."
+          }
+        ]
+      },
+      {
+        "id": "output",
+        "questions": [
+          {
+            "q": "About how much power is 200 N·m at 1,500 rpm?",
+            "choices": [
+              "300 kW",
+              "31.4 kW",
+              "0.133 kW",
+              "200 kW"
+            ],
+            "answer": 1,
+            "explain": "1,500 rpm is about 157 rad/s. Multiplying by 200 N·m gives approximately 31,400 W."
+          },
+          {
+            "q": "An ideal gearbox halves shaft speed while transmitting the same power. What happens to torque?",
+            "choices": [
+              "It halves",
+              "It stays fixed",
+              "It becomes zero",
+              "It doubles"
+            ],
+            "answer": 3,
+            "explain": "Since P = τω, half the speed requires twice the torque for unchanged power. Real losses reduce the delivered power somewhat."
+          }
+        ]
+      },
+      {
+        "id": "heat",
+        "questions": [
+          {
+            "q": "An engine delivers 30 J of shaft work from 100 J of fuel energy. What is its efficiency?",
+            "choices": [
+              "30%",
+              "70%",
+              "130%",
+              "3.3%"
+            ],
+            "answer": 0,
+            "explain": "Efficiency is useful output/input: 30/100 = 0.30, or 30%. The remaining energy leaves by other routes."
+          },
+          {
+            "q": "Which statement about lubrication is appropriate?",
+            "choices": [
+              "It eliminates all friction",
+              "It replaces every cooling function",
+              "It reduces friction and wear but does not make the engine lossless",
+              "It supplies all engine power"
+            ],
+            "answer": 2,
+            "explain": "Lubrication helps control friction and wear and can transfer heat. It is not a lossless power source or a substitute for the entire cooling system."
+          }
+        ]
+      }
+    ]
+  },
+  "slides": {
+    "sections": [
+      {
+        "id": "cycle",
+        "title": "Four strokes, two crankshaft revolutions",
+        "bullets": [
+          "One complete intake–compression–power–exhaust cycle uses two crankshaft revolutions.",
+          "Spark ignition and compression ignition initiate combustion in different ways.",
+          "3,000/2 = 1,500 cycles per minute; 1,500/60 = 25 cycles per second."
+        ],
+        "notes": "In a simplified four-stroke spark-ignition engine, the intake stroke admits air and fuel, the compression stroke squeezes the mixture, ignition starts combustion near the end of compression, the power stroke extracts work from expanding gas, and the exhaust stroke removes burned gas. These four piston strokes take two crankshaft revolutions. 3,000/2 = 1,500 cycles per minute; 1,500/60 = 25 cycles per second.",
+        "visual": "Picture a piston moving down, up, down and up while a crank turns twice. Mark the four stages intake, compression, power and exhaust, with combustion beginning near the top before the power stroke."
+      },
+      {
+        "id": "output",
+        "title": "Torque turns; power includes how fast",
+        "bullets": [
+          "Torque is force times perpendicular lever arm and is measured in newton-metres.",
+          "Power equals torque multiplied by angular speed in radians per second.",
+          "No. Doubling both would quadruple power. A passive ideal gearbox trades torque against speed while conserving power."
+        ],
+        "notes": "Torque describes a turning effect about an axis. A force of 100 N acting perpendicularly at a 0.20 m lever arm produces 20 N·m of torque. Power is the rate of doing work, so it also depends on how quickly that torque turns the shaft. No. Doubling both would quadruple power. A passive ideal gearbox trades torque against speed while conserving power.",
+        "visual": "Picture two shafts linked by reduction gears. Put a smaller speed arrow and a larger torque arrow on the slower shaft. Their power remains equal in the lossless model because the changes compensate."
+      },
+      {
+        "id": "heat",
+        "title": "Useful work is only part of the energy balance",
+        "bullets": [
+          "Useful shaft work divided by fuel-energy input gives an engine efficiency for a specified condition.",
+          "Heat control and reduced friction protect components while energy losses remain.",
+          "Cooling protects the engine’s temperature limits. Removing it can overheat components rather than turning rejected heat into shaft work."
+        ],
+        "notes": "Fuel brings chemical energy into an engine. Some becomes useful shaft work; the rest leaves through exhaust, cooling and other losses. If an illustrative engine receives 100 J of fuel energy and delivers 30 J of shaft work, its thermal efficiency at that operating point is 30/100 = 30%. The numbers are a teaching example, not a universal engine specification. Cooling protects the engine’s temperature limits. Removing it can overheat components rather than turning rejected heat into shaft work.",
+        "visual": "Picture a 100-unit energy stream splitting into 30 units of shaft work and 70 units leaving by other routes. Keep every branch accounted for; an unlabelled loss does not mean energy disappeared."
+      }
+    ]
+  },
+  "enrichment": {
+    "audioTitle": "How Engines Work: Fuel to Turning Wheels — a conversation",
+    "turns": [
+      {
+        "speaker": "teacher",
+        "line": "Trace a four-stroke engine from intake air to rotating output, then connect torque, power and wasted heat."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Four strokes, two crankshaft revolutions. One complete intake–compression–power–exhaust cycle uses two crankshaft revolutions. Spark ignition and compression ignition initiate combustion in different ways."
+      },
+      {
+        "speaker": "student",
+        "line": "At 3,000 rpm, how many complete four-stroke cycles does one cylinder perform each second?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "3,000/2 = 1,500 cycles per minute; 1,500/60 = 25 cycles per second."
+      },
+      {
+        "speaker": "student",
+        "line": "A four-stroke cylinder completes one cycle in how many crankshaft revolutions?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Two. Four piston strokes correspond to two crankshaft revolutions. A power stroke occurs once per complete cycle for that cylinder."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Torque turns; power includes how fast. Torque is force times perpendicular lever arm and is measured in newton-metres. Power equals torque multiplied by angular speed in radians per second."
+      },
+      {
+        "speaker": "student",
+        "line": "Can an ideal gearbox double both torque and shaft speed without another energy source?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "No. Doubling both would quadruple power. A passive ideal gearbox trades torque against speed while conserving power."
+      },
+      {
+        "speaker": "student",
+        "line": "About how much power is 200 N·m at 1,500 rpm?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "31.4 kW. 1,500 rpm is about 157 rad/s. Multiplying by 200 N·m gives approximately 31,400 W."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Useful work is only part of the energy balance. Useful shaft work divided by fuel-energy input gives an engine efficiency for a specified condition. Heat control and reduced friction protect components while energy losses remain."
+      },
+      {
+        "speaker": "student",
+        "line": "Why does removing the cooling system not make every joule become useful work?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Cooling protects the engine’s temperature limits. Removing it can overheat components rather than turning rejected heat into shaft work."
+      },
+      {
+        "speaker": "student",
+        "line": "An engine delivers 30 J of shaft work from 100 J of fuel energy. What is its efficiency?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "30%. Efficiency is useful output/input: 30/100 = 0.30, or 30%. The remaining energy leaves by other routes."
+      },
+      {
+        "speaker": "teacher",
+        "line": "To review: Describe the four-stroke cycle. Calculate power from torque and rotational speed. Explain why cooling and lubrication are necessary."
+      }
+    ],
+    "nodes": [
+      {
+        "id": "root",
+        "parent": null,
+        "label": "How Engines Work: Fuel to Turning Wheels",
+        "note": "Trace a four-stroke engine from intake air to rotating output, then connect torque, power and wasted heat."
+      },
+      {
+        "id": "cycle",
+        "parent": "root",
+        "label": "Four strokes, two crankshaft revolutions",
+        "note": "3,000/2 = 1,500 cycles per minute; 1,500/60 = 25 cycles per second."
+      },
+      {
+        "id": "cycle-concept-1",
+        "parent": "cycle",
+        "label": "Four-stroke cycle",
+        "note": "One complete intake–compression–power–exhaust cycle uses two crankshaft revolutions."
+      },
+      {
+        "id": "cycle-concept-2",
+        "parent": "cycle",
+        "label": "Ignition",
+        "note": "Spark ignition and compression ignition initiate combustion in different ways."
+      },
+      {
+        "id": "output",
+        "parent": "root",
+        "label": "Torque turns; power includes how fast",
+        "note": "No. Doubling both would quadruple power. A passive ideal gearbox trades torque against speed while conserving power."
+      },
+      {
+        "id": "output-concept-1",
+        "parent": "output",
+        "label": "Torque",
+        "note": "Torque is force times perpendicular lever arm and is measured in newton-metres."
+      },
+      {
+        "id": "output-concept-2",
+        "parent": "output",
+        "label": "Rotational power",
+        "note": "Power equals torque multiplied by angular speed in radians per second."
+      },
+      {
+        "id": "heat",
+        "parent": "root",
+        "label": "Useful work is only part of the energy balance",
+        "note": "Cooling protects the engine’s temperature limits. Removing it can overheat components rather than turning rejected heat into shaft work."
+      },
+      {
+        "id": "heat-concept-1",
+        "parent": "heat",
+        "label": "Thermal efficiency",
+        "note": "Useful shaft work divided by fuel-energy input gives an engine efficiency for a specified condition."
+      },
+      {
+        "id": "heat-concept-2",
+        "parent": "heat",
+        "label": "Cooling and lubrication",
+        "note": "Heat control and reduced friction protect components while energy losses remain."
+      }
+    ],
+    "mnemonics": []
+  },
+  "sources": [
+    {
+      "title": "US Department of Energy — Internal combustion engine basics",
+      "url": "https://www.energy.gov/cmei/vehicles/articles/internal-combustion-engine-basics"
+    }
+  ]
+}

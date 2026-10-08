@@ -1,0 +1,364 @@
+{
+  "meta": {
+    "title": "Weather: Air, Clouds & Fronts",
+    "topic": "Weather",
+    "level": "beginner",
+    "interests": "",
+    "depth": "quick",
+    "model": "Learnway authored starter",
+    "createdAt": "2026-10-08T00:00:06.000Z",
+    "version": 1
+  },
+  "plan": {
+    "title": "Weather: Air, Clouds & Fronts",
+    "hook": "Read the sky as moving air and changing water, then separate what a forecast predicts from what it can promise.",
+    "objectives": [
+      "Explain the pressure-gradient contribution to wind.",
+      "Connect rising air, cooling and cloud formation.",
+      "Interpret fronts without treating them as guaranteed storms."
+    ],
+    "prerequisites": [
+      "Basic temperature and pressure concepts"
+    ],
+    "sections": [
+      {
+        "id": "wind",
+        "heading": "Uneven heating starts a circulation",
+        "points": [
+          "Pressure differences exert a force toward lower pressure.",
+          "Rotation, friction and the pressure gradient jointly shape actual air motion.",
+          "Rotation and friction also affect moving air, so the wind need not point directly along the pressure-gradient force."
+        ]
+      },
+      {
+        "id": "clouds",
+        "heading": "Rising air can make water visible",
+        "points": [
+          "Visible clouds contain liquid droplets or ice crystals rather than visible water vapour.",
+          "Cooling can raise relative humidity even without adding moisture.",
+          "Yes. Cooling lowers saturation vapour pressure, so the same initial vapour amount represents a larger fraction of saturation."
+        ]
+      },
+      {
+        "id": "fronts",
+        "heading": "A front supplies one ingredient",
+        "points": [
+          "A front can lift air, while moisture and stability influence the resulting weather.",
+          "Timing, location and intensity can differ among plausible future outcomes.",
+          "Their moisture, stability and lifting strength can differ. The same boundary category does not guarantee the same cloud or storm development."
+        ]
+      }
+    ]
+  },
+  "reading": {
+    "sections": [
+      {
+        "id": "wind",
+        "heading": "Uneven heating starts a circulation",
+        "body": "Sunlight heats Earth unevenly. Surface type, latitude, season and time of day affect energy absorption. These differences help establish temperature and pressure patterns. A pressure-gradient force pushes air toward lower pressure.\n\nWind does not necessarily blow straight from a high-pressure centre to a low-pressure centre. Earth's rotation deflects moving air relative to the ground, and surface friction also changes its motion. The actual wind reflects these combined influences. Closely spaced pressure contours usually indicate a stronger pressure gradient, though terrain and height matter too.\n\nA daytime sea breeze illustrates a local circulation. Land often warms faster than nearby water, helping establish a flow with cooler marine air moving inland near the surface and return flow aloft. The broader weather pattern can strengthen, alter or overwhelm it. A sea breeze is a useful model, not a guaranteed event at every coast each afternoon.",
+        "visual": "Picture two air columns over land and sea, heated unequally. Trace an inland surface flow and return flow above. On a larger map, imagine pressure contours starting the motion while rotation and friction bend the path.",
+        "questions": [
+          {
+            "q": "Why is “wind always moves directly from high to low pressure” incomplete?",
+            "hint": "Name the influences besides the pressure gradient.",
+            "answer": "Rotation and friction also affect moving air, so the wind need not point directly along the pressure-gradient force."
+          }
+        ]
+      },
+      {
+        "id": "clouds",
+        "heading": "Rising air can make water visible",
+        "body": "Water vapour is an invisible gas. A cloud contains tiny suspended liquid droplets, ice crystals, or both. Cloud visibility is therefore different from the mere presence of water vapour in air.\n\nAn air parcel rising into lower surrounding pressure expands. Without enough heat added to compensate, expansion cools it. If it cools to saturation, water can condense onto small airborne particles. Condensation releases latent heat, so saturated rising air cools differently from unsaturated air.\n\nRelative humidity compares actual water-vapour pressure with saturation vapour pressure at the same temperature. Cooling can increase relative humidity without adding water: the saturation value decreases. A parcel can reach saturation near its dew point with unchanged initial moisture content.\n\nCloud formation does not guarantee rain at the ground. Droplets or crystals must grow enough to fall, and precipitation can evaporate in dry air below. Lifting, moisture and the vertical temperature profile all matter.",
+        "visual": "Picture a rising parcel expanding and cooling until tiny droplets appear. Below the cloud, draw falling drops shrinking in dry air: making a cloud and delivering rain to the ground are separate steps.",
+        "questions": [
+          {
+            "q": "Can relative humidity rise without water being added?",
+            "hint": "Change temperature instead of moisture supply.",
+            "answer": "Yes. Cooling lowers saturation vapour pressure, so the same initial vapour amount represents a larger fraction of saturation."
+          }
+        ]
+      },
+      {
+        "id": "fronts",
+        "heading": "A front supplies one ingredient",
+        "body": "A front is a boundary between air masses with different properties, especially temperature and density. Advancing colder air at a cold front can lift warmer air. At a warm front, warmer air advances over a retreating cooler air mass. Boundary slope, moisture and stability affect the cloud and precipitation pattern.\n\n“Cold front means thunderstorm” is an unreliable shortcut. A front can provide lifting, but deep storms also need suitable moisture and instability. Another cold front may bring mainly a wind shift and temperature change.\n\nForecasts estimate atmospheric evolution from imperfect observations and models. Uncertainty can grow, producing different plausible timings, locations and intensities. Comparing a range of outcomes helps describe that uncertainty rather than pretending it is absent. For an actual outdoor decision, match the forecast to your location and time window and follow current official local alerts for severe weather.",
+        "visual": "Picture a wedge of denser cold air lifting warmer air. Beside it, show several possible future boundary positions: the lifting mechanism can be clear while the exact arrival time remains uncertain.",
+        "questions": [
+          {
+            "q": "Why can two cold fronts bring very different weather?",
+            "hint": "Lifting is only one ingredient.",
+            "answer": "Their moisture, stability and lifting strength can differ. The same boundary category does not guarantee the same cloud or storm development."
+          }
+        ]
+      }
+    ]
+  },
+  "quizzes": {
+    "sections": [
+      {
+        "id": "wind",
+        "questions": [
+          {
+            "q": "Which way does the pressure-gradient force point?",
+            "choices": [
+              "Toward higher pressure",
+              "Toward lower pressure",
+              "Always toward the equator",
+              "Always upward"
+            ],
+            "answer": 1,
+            "explain": "The force points toward lower pressure. The resulting wind also depends on rotation, friction and the flow history."
+          },
+          {
+            "q": "Why might a sea breeze not develop on a particular afternoon?",
+            "choices": [
+              "Water cannot absorb heat",
+              "Every surface heats equally",
+              "A stronger background weather pattern can overwhelm the local circulation",
+              "Air cannot cross coastlines"
+            ],
+            "answer": 2,
+            "explain": "The local heating contrast interacts with the larger pressure and wind pattern. It does not guarantee a daily circulation by itself."
+          }
+        ]
+      },
+      {
+        "id": "clouds",
+        "questions": [
+          {
+            "q": "What makes an ordinary cloud visible?",
+            "choices": [
+              "Only gaseous water molecules",
+              "Pure oxygen",
+              "Smoke in every case",
+              "Liquid droplets or ice crystals"
+            ],
+            "answer": 3,
+            "explain": "The visible particles scatter light. Water vapour itself is invisible."
+          },
+          {
+            "q": "Unsaturated air cools with initially unchanged water-vapour content. What generally happens?",
+            "choices": [
+              "Relative humidity rises toward saturation",
+              "Relative humidity must remain fixed",
+              "All water vanishes",
+              "Rain must immediately reach the ground"
+            ],
+            "answer": 0,
+            "explain": "Saturation vapour pressure decreases with cooling, raising relative humidity. Surface rain still requires further processes."
+          }
+        ]
+      },
+      {
+        "id": "fronts",
+        "questions": [
+          {
+            "q": "Which statement about cold fronts is most reliable?",
+            "choices": [
+              "Every one produces thunder",
+              "None changes wind direction",
+              "They can lift warmer air, with outcomes depending on other conditions",
+              "They exist only over oceans"
+            ],
+            "answer": 2,
+            "explain": "Cold fronts can supply lifting, but storm development also depends on moisture and instability."
+          },
+          {
+            "q": "What does comparing plausible forecast outcomes help you assess?",
+            "choices": [
+              "A guarantee that every model is correct",
+              "Uncertainty in timing, location and intensity",
+              "Whether observations are unnecessary",
+              "Whether old lessons replace current alerts"
+            ],
+            "answer": 1,
+            "explain": "A range of predictions reveals uncertainty. It does not remove the need for updated observations and official alerts."
+          }
+        ]
+      }
+    ]
+  },
+  "slides": {
+    "sections": [
+      {
+        "id": "wind",
+        "title": "Uneven heating starts a circulation",
+        "bullets": [
+          "Pressure differences exert a force toward lower pressure.",
+          "Rotation, friction and the pressure gradient jointly shape actual air motion.",
+          "Rotation and friction also affect moving air, so the wind need not point directly along the pressure-gradient force."
+        ],
+        "notes": "Sunlight heats Earth unevenly. Surface type, latitude, season and time of day affect energy absorption. These differences help establish temperature and pressure patterns. A pressure-gradient force pushes air toward lower pressure. Rotation and friction also affect moving air, so the wind need not point directly along the pressure-gradient force.",
+        "visual": "Picture two air columns over land and sea, heated unequally. Trace an inland surface flow and return flow above. On a larger map, imagine pressure contours starting the motion while rotation and friction bend the path."
+      },
+      {
+        "id": "clouds",
+        "title": "Rising air can make water visible",
+        "bullets": [
+          "Visible clouds contain liquid droplets or ice crystals rather than visible water vapour.",
+          "Cooling can raise relative humidity even without adding moisture.",
+          "Yes. Cooling lowers saturation vapour pressure, so the same initial vapour amount represents a larger fraction of saturation."
+        ],
+        "notes": "Water vapour is an invisible gas. A cloud contains tiny suspended liquid droplets, ice crystals, or both. Cloud visibility is therefore different from the mere presence of water vapour in air. Yes. Cooling lowers saturation vapour pressure, so the same initial vapour amount represents a larger fraction of saturation.",
+        "visual": "Picture a rising parcel expanding and cooling until tiny droplets appear. Below the cloud, draw falling drops shrinking in dry air: making a cloud and delivering rain to the ground are separate steps."
+      },
+      {
+        "id": "fronts",
+        "title": "A front supplies one ingredient",
+        "bullets": [
+          "A front can lift air, while moisture and stability influence the resulting weather.",
+          "Timing, location and intensity can differ among plausible future outcomes.",
+          "Their moisture, stability and lifting strength can differ. The same boundary category does not guarantee the same cloud or storm development."
+        ],
+        "notes": "A front is a boundary between air masses with different properties, especially temperature and density. Advancing colder air at a cold front can lift warmer air. At a warm front, warmer air advances over a retreating cooler air mass. Boundary slope, moisture and stability affect the cloud and precipitation pattern. Their moisture, stability and lifting strength can differ. The same boundary category does not guarantee the same cloud or storm development.",
+        "visual": "Picture a wedge of denser cold air lifting warmer air. Beside it, show several possible future boundary positions: the lifting mechanism can be clear while the exact arrival time remains uncertain."
+      }
+    ]
+  },
+  "enrichment": {
+    "audioTitle": "Weather: Air, Clouds & Fronts — a conversation",
+    "turns": [
+      {
+        "speaker": "teacher",
+        "line": "Read the sky as moving air and changing water, then separate what a forecast predicts from what it can promise."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Uneven heating starts a circulation. Pressure differences exert a force toward lower pressure. Rotation, friction and the pressure gradient jointly shape actual air motion."
+      },
+      {
+        "speaker": "student",
+        "line": "Why is “wind always moves directly from high to low pressure” incomplete?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Rotation and friction also affect moving air, so the wind need not point directly along the pressure-gradient force."
+      },
+      {
+        "speaker": "student",
+        "line": "Which way does the pressure-gradient force point?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Toward lower pressure. The force points toward lower pressure. The resulting wind also depends on rotation, friction and the flow history."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Rising air can make water visible. Visible clouds contain liquid droplets or ice crystals rather than visible water vapour. Cooling can raise relative humidity even without adding moisture."
+      },
+      {
+        "speaker": "student",
+        "line": "Can relative humidity rise without water being added?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Yes. Cooling lowers saturation vapour pressure, so the same initial vapour amount represents a larger fraction of saturation."
+      },
+      {
+        "speaker": "student",
+        "line": "What makes an ordinary cloud visible?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Liquid droplets or ice crystals. The visible particles scatter light. Water vapour itself is invisible."
+      },
+      {
+        "speaker": "teacher",
+        "line": "A front supplies one ingredient. A front can lift air, while moisture and stability influence the resulting weather. Timing, location and intensity can differ among plausible future outcomes."
+      },
+      {
+        "speaker": "student",
+        "line": "Why can two cold fronts bring very different weather?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Their moisture, stability and lifting strength can differ. The same boundary category does not guarantee the same cloud or storm development."
+      },
+      {
+        "speaker": "student",
+        "line": "Which statement about cold fronts is most reliable?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "They can lift warmer air, with outcomes depending on other conditions. Cold fronts can supply lifting, but storm development also depends on moisture and instability."
+      },
+      {
+        "speaker": "teacher",
+        "line": "To review: Explain the pressure-gradient contribution to wind. Connect rising air, cooling and cloud formation. Interpret fronts without treating them as guaranteed storms."
+      }
+    ],
+    "nodes": [
+      {
+        "id": "root",
+        "parent": null,
+        "label": "Weather: Air, Clouds & Fronts",
+        "note": "Read the sky as moving air and changing water, then separate what a forecast predicts from what it can promise."
+      },
+      {
+        "id": "wind",
+        "parent": "root",
+        "label": "Uneven heating starts a circulation",
+        "note": "Rotation and friction also affect moving air, so the wind need not point directly along the pressure-gradient force."
+      },
+      {
+        "id": "wind-concept-1",
+        "parent": "wind",
+        "label": "Pressure gradient",
+        "note": "Pressure differences exert a force toward lower pressure."
+      },
+      {
+        "id": "wind-concept-2",
+        "parent": "wind",
+        "label": "Wind direction",
+        "note": "Rotation, friction and the pressure gradient jointly shape actual air motion."
+      },
+      {
+        "id": "clouds",
+        "parent": "root",
+        "label": "Rising air can make water visible",
+        "note": "Yes. Cooling lowers saturation vapour pressure, so the same initial vapour amount represents a larger fraction of saturation."
+      },
+      {
+        "id": "clouds-concept-1",
+        "parent": "clouds",
+        "label": "Cloud particles",
+        "note": "Visible clouds contain liquid droplets or ice crystals rather than visible water vapour."
+      },
+      {
+        "id": "clouds-concept-2",
+        "parent": "clouds",
+        "label": "Relative humidity",
+        "note": "Cooling can raise relative humidity even without adding moisture."
+      },
+      {
+        "id": "fronts",
+        "parent": "root",
+        "label": "A front supplies one ingredient",
+        "note": "Their moisture, stability and lifting strength can differ. The same boundary category does not guarantee the same cloud or storm development."
+      },
+      {
+        "id": "fronts-concept-1",
+        "parent": "fronts",
+        "label": "Air-mass boundary",
+        "note": "A front can lift air, while moisture and stability influence the resulting weather."
+      },
+      {
+        "id": "fronts-concept-2",
+        "parent": "fronts",
+        "label": "Forecast uncertainty",
+        "note": "Timing, location and intensity can differ among plausible future outcomes."
+      }
+    ],
+    "mnemonics": []
+  },
+  "sources": [
+    {
+      "title": "NOAA — Weather systems and patterns",
+      "url": "https://www.noaa.gov/education/resource-collections/weather-atmosphere/weather-systems-patterns"
+    },
+    {
+      "title": "NOAA — Why does wind blow?",
+      "url": "https://www.nesdis.noaa.gov/about/k-12-education/atmosphere/why-does-wind-blow"
+    }
+  ]
+}

@@ -1,10 +1,13 @@
 // Learnway app shell: library, generation wizard, settings, view switching.
 'use strict';
 import { DEFAULT_MODEL, MODELS, LEVELS, DEPTHS, generatePlan, generateCourse, validateCourse, PipelineError } from './pipeline.mjs';
-import { VIEWS, renderView, wireView, courseToMarkdown, esc } from './views.mjs';
+import { VIEWS, renderView, wireView, courseToMarkdown, renderSources, esc } from './views.mjs';
 
 const LS = { key: 'learnway:key', model: 'learnway:model', courses: 'learnway:courses', notes: 'learnway:notes' };
 const $ = sel => document.querySelector(sel);
+const noteDrafts = new Map();
+const record = value => value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+const searchText = value => typeof value === 'string' ? value.toLowerCase() : '';
 
 const store = {
   get(k, d) { try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch { return d; } },
@@ -95,9 +98,9 @@ function viewLibrary() {
     .filter(({ c }) => {
       if (lFilter && c?.meta?.level !== lFilter) return false;
       if (!q) return true;
-      const title = (c?.meta?.title || '').toLowerCase();
-      const topic = (c?.meta?.topic || '').toLowerCase();
-      const interests = (c?.meta?.interests || '').toLowerCase();
+      const title = searchText(c?.meta?.title);
+      const topic = searchText(c?.meta?.topic);
+      const interests = searchText(c?.meta?.interests);
       return title.includes(q) || topic.includes(q) || interests.includes(q);
     });
 
@@ -122,22 +125,23 @@ function viewLibrary() {
   }).join('');
 
   const bundledCards = (state.bundled || [])
-    .filter(b => {
-      if (lFilter) return false;
+    .map((b, originalIdx) => ({ b, originalIdx }))
+    .filter(({ b }) => {
+      if (lFilter && b.level !== lFilter) return false;
       if (!q) return true;
-      return (b.title || '').toLowerCase().includes(q) || (b.topic || '').toLowerCase().includes(q);
+      return searchText(b.title).includes(q) || searchText(b.topic).includes(q);
     })
-    .map((b, i) => `
-      <button class="lib-card bundled" data-bundled="${i}">
+    .map(({ b, originalIdx }) => `
+      <button class="lib-card bundled" data-bundled="${originalIdx}">
         <div class="lib-title">${esc(b.title)}</div>
-        <div class="lib-badges"><span class="badge bundled-tag">Included</span></div>
+        <div class="lib-badges"><span class="badge bundled-tag">Included</span>${b.level ? `<span class="badge level">${esc(levelLabel(b.level))}</span>` : ''}</div>
         <div class="lib-meta">${esc(b.topic)}</div>
       </button>`).join('');
 
   const searchControls = allCourses.length || state.bundled?.length ? `
     <div class="lib-filter-bar">
-      <input type="search" id="lib-search" placeholder="Search courses by title or topic..." value="${esc(state.searchQuery)}" autocomplete="off">
-      <select id="lib-level-filter">
+      <input type="search" id="lib-search" aria-label="Search courses" placeholder="Search courses by title or topic..." value="${esc(state.searchQuery)}" autocomplete="off">
+      <select id="lib-level-filter" aria-label="Filter by level">
         <option value="">All levels</option>
         ${LEVELS.map(l => `<option value="${l.id}" ${state.levelFilter === l.id ? 'selected' : ''}>${esc(l.label)}</option>`).join('')}
       </select>
@@ -158,7 +162,7 @@ function viewLibrary() {
     ${bundledCards ? `<h2>Included courses</h2><div class="lib-grid">${bundledCards}</div>` : ''}
     ${allCourses.length ? `<h2>Your courses ${filteredCoursesWithIdx.length < allCourses.length ? `(${filteredCoursesWithIdx.length} of ${allCourses.length})` : ''}</h2>
       ${cards ? `<div class="lib-grid">${cards}</div>` : '<div class="empty">No courses match your filter.</div>'}` : (bundledCards ? '' : `
-      <div class="empty">No courses yet. ${store.get(LS.key, '') ? 'Make your first one.' : 'Add your Gemini API key in Settings first — it takes a minute.'}</div>`)}
+      <div class="empty">${q || lFilter ? 'No courses match your filter.' : 'No courses yet. Create one or try the sample course.'}</div>`)}
   </main>`;
 }
 
@@ -221,20 +225,18 @@ function viewPlanApproval(d) {
 
 function getCourseNotes(key) {
   if (!key) return {};
-  const allNotes = store.get(LS.notes, {});
-  return allNotes[key] || {};
+  const allNotes = record(store.get(LS.notes, {}));
+  return { ...record(allNotes[key]), ...noteDrafts.get(key) };
 }
 
 function saveCourseNote(key, secId, noteText) {
   if (!key) return;
-  const allNotes = store.get(LS.notes, {});
-  if (!allNotes[key]) allNotes[key] = {};
-  if (noteText.trim()) {
-    allNotes[key][secId] = noteText;
-  } else {
-    delete allNotes[key][secId];
-  }
-  store.set(LS.notes, allNotes);
+  noteDrafts.set(key, { ...noteDrafts.get(key), [secId]: noteText });
+  const allNotes = record(store.get(LS.notes, {}));
+  const notes = getCourseNotes(key);
+  for (const id of Object.keys(notes)) if (typeof notes[id] !== 'string' || !notes[id].trim()) delete notes[id];
+  store.set(LS.notes, { ...allNotes, [key]: notes });
+  noteDrafts.delete(key);
 }
 
 function viewCourse() {
@@ -255,10 +257,12 @@ function viewCourse() {
         ${state.course.bundled ? '' : '<button class="btn ghost small danger" data-action="delete">Delete</button>'}
       </div>
     </div>
+    <p class="hook">${esc(c.plan.hook)}</p>
     <div class="objectives card"><div class="sec-kicker">By the end</div>
       <ul class="tight">${c.plan.objectives.map(o => `<li>${esc(o)}</li>`).join('')}</ul></div>
     <div class="tabs">${tabs}</div>
-    <div id="view-root">${renderView(state.view, c, { notesMap })}</div>
+    <div id="view-root">${renderView(state.view, c, { notesMap, unsavedNotes: noteDrafts.get(key) })}</div>
+    ${renderSources(c)}
   </main>`;
 }
 
@@ -501,4 +505,3 @@ async function boot() {
 }
 
 document.addEventListener('DOMContentLoaded', boot);
-

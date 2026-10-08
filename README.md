@@ -13,7 +13,8 @@ leaves your machine except to Google.
 node serve.mjs        # serves on http://localhost:8130
 ```
 
-Then open the URL, go to **Settings**, and paste a Gemini API key from
+Open an **Included course** immediately—no key or generation required. To generate
+your own course, go to **Settings**, and paste a Gemini API key from
 [Google AI Studio](https://aistudio.google.com/apikey) (free tier works fine).
 
 No build step, no dependencies.
@@ -27,16 +28,51 @@ No build step, no dependencies.
    - section quizzes (application, not recall; plausible distractors)
    - slides + speaker notes
    - audio-lesson dialogue, mind map, mnemonics
-4. **Five views** — Read, Quiz (interactive scoring), Slides, Audio
-   (read aloud in-browser with two voices), Mind map.
+4. **Six views** — Read, Quiz (interactive scoring), Slides, Audio
+   (read aloud in-browser with two voices), Mind map, Flashcards.
 5. Courses save to the browser's localStorage; export/import as JSON.
+   Export Markdown for a study guide including visuals and further-reading links.
+
+## Included lessons
+
+Ten authored mini-courses join the existing Genetics and Simple Machines courses.
+Each new course has three reading sections, visual mental models, check-in
+questions, six explained quiz questions, slides with notes, an audio dialogue,
+a mind map and automatically derived flashcards. They open from Library without
+an API call. Search and level filters apply to the entire included catalog.
+
+| Lesson | Focus |
+| --- | --- |
+| AP Biology | Membranes, enzyme catalysis, Mendelian inheritance |
+| AP Chemistry | Ions, limiting reactants, dynamic equilibrium |
+| Intro to Rocket Science | Thrust, ideal rocket equation, orbital motion |
+| How Engines Work | Four strokes, torque and power, energy balance |
+| Electrical Wiring Fundamentals | Low-voltage DC models, circuit topology, protection roles |
+| How GPS Works | Signal timing, four unknowns, position quality |
+| Weather | Wind, cloud formation, fronts and uncertainty |
+| Plate Tectonics | Lithosphere, boundary types, earthquakes |
+| Sound & Music | Waves, pitch and timbre, string resonance |
+| Everyday Probability | Outcome counting, combined events, conditional evidence |
+
+The AP lessons are focused introductions, not complete AP courses or official
+College Board resources. Electrical examples are conceptual and do not give
+household installation procedures. Lessons state model assumptions alongside
+worked examples and include further reading from sources such as NASA, NOAA,
+USGS, GPS.gov, OpenStax, CCOHS and the US Department of Energy.
+
+Personal section notes save in this browser. If storage fails, the app shows an
+error and keeps the draft while navigating within the current tab; edit again
+to retry, or copy it before closing/reloading. Notes are separate from course
+JSON and Markdown exports. Flashcard mastery tracks the current study session
+and resets when that view is reopened.
 
 ## Files
 
 - `index.html`, `styles.css` — shell
 - `app.mjs` — library, wizard, settings, navigation
 - `pipeline.mjs` — Gemini client, pedagogy prompts, JSON schemas
-- `views.mjs` — the five renderers + quiz/audio interactivity
+- `views.mjs` — six renderers, study interactions and Markdown export
+- `courses/index.json`, `courses/*.json` — searchable included catalog and course data
 - `sample-course.json` — a fixture course (Moog ladder filter) so you can
   try every view without an API key: Library → "Try the sample course"
 - `serve.mjs` — tiny static server for local use
@@ -66,9 +102,13 @@ next one; invalid imports leave saved courses unchanged. Older incomplete saved
 courses are shown as unavailable without deleting their data.
 
 Desktop browser acceptance runs separately in GitHub Actions with Chromium at
-1440 × 1000. It covers the sample and included courses in all five views, quiz
-interaction, valid/invalid imports, reload, generation failure/retry, one API
-request per action after repeated navigation, and export/reimport. Gemini
+1440 × 1000. It covers the sample and every included course in all six views,
+quiz and flashcard interactions, search result identity, level filtering,
+note-save failure/recovery/reload, Markdown download, valid/invalid imports,
+generation failure/retry, one API request per action after repeated navigation,
+and JSON export/reimport. It also checks fenced diagram whitespace and keyboard
+scrolling with `toReversed` and `Object.hasOwn` disabled. That compatibility
+exercise is not a complete old-browser certification. Gemini
 responses are mocked: this proves browser wiring, not live API availability,
 generated lesson accuracy, or audible speech quality.
 
@@ -83,4 +123,3 @@ node scripts/browser-acceptance.mjs
 `LEARNWAY_URL` overrides the default `http://127.0.0.1:8130` test address.
 `PLAYWRIGHT_MODULE` can point to an existing Playwright installation's `index.mjs`.
 No real API key is needed; the script uses a new isolated browser context.
-

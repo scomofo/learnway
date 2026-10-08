@@ -6,15 +6,49 @@ export function esc(s) {
   return String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 }
 
-/** Minimal markdown: headings, bold, italic, inline code, lists, paragraphs. */
+function courseSources(course) {
+  if (!Array.isArray(course?.sources)) return [];
+  return course.sources.flatMap(source => {
+    if (!source || typeof source.title !== 'string' || !source.title.trim() || typeof source.url !== 'string') return [];
+    try {
+      const url = new URL(source.url);
+      if (!['https:', 'http:'].includes(url.protocol) || url.username || url.password) return [];
+      return [{ title: source.title, url: url.href }];
+    } catch { return []; }
+  });
+}
+
+export function renderSources(course) {
+  const links = courseSources(course).map(source => `<li><a href="${esc(source.url)}" target="_blank" rel="noopener noreferrer">${esc(source.title)}</a></li>`);
+  return links.length ? `<section class="card course-sources" aria-label="Further reading"><h2>Further reading</h2><ul>${links.join('')}</ul></section>` : '';
+}
+
+/** Minimal Markdown, including escaped fenced diagrams with intact spacing. */
 export function md(src) {
-  const lines = String(src ?? '').split('\n');
+  const lines = String(src ?? '').replace(/\r\n?/g, '\n').split('\n');
   let html = '', inList = false;
+  let fence = null, codeLines = [];
+  const emitCode = () => {
+    html += `<pre class="code-block" tabindex="0" role="region" aria-label="Code or diagram"><code>${esc(codeLines.join('\n'))}</code></pre>`;
+    fence = null; codeLines = [];
+  };
   const inline = t => esc(t)
     .replace(/`([^`]+)`/g, '<code>$1</code>')
     .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
     .replace(/\*([^*]+)\*/g, '<em>$1</em>');
   for (const raw of lines) {
+    if (fence) {
+      const end = raw.match(/^ {0,3}(`{3,}|~{3,})\s*$/);
+      if (end && end[1][0] === fence[0] && end[1].length >= fence.length) emitCode();
+      else codeLines.push(raw);
+      continue;
+    }
+    const start = raw.match(/^ {0,3}(`{3,}|~{3,})(.*)$/);
+    if (start) {
+      if (inList) { html += '</ul>'; inList = false; }
+      fence = start[1];
+      continue;
+    }
     const line = raw.trim();
     if (/^#{1,3}\s/.test(line)) {
       if (inList) { html += '</ul>'; inList = false; }
@@ -33,6 +67,7 @@ export function md(src) {
       html += `<p>${inline(line)}</p>`;
     }
   }
+  if (fence) emitCode();
   if (inList) html += '</ul>';
   return html;
 }
@@ -75,7 +110,7 @@ export function courseToMarkdown(course) {
       lines.push(s.body);
       lines.push('');
       if (s.visual) {
-        lines.push(`*Visual representation:* ${s.visual}`);
+        lines.push('*Visual representation:*', '', s.visual);
         lines.push('');
       }
       if (s.questions?.length) {
@@ -121,6 +156,7 @@ export function courseToMarkdown(course) {
       lines.push(`### ${s.title}`);
       for (const b of s.bullets) lines.push(`- ${b}`);
       if (s.notes) lines.push(`\n*Speaker Notes:* ${s.notes}`);
+      if (s.visual) lines.push('', '*Visual representation:*', '', s.visual);
       lines.push('');
     }
   }
@@ -135,18 +171,24 @@ export function courseToMarkdown(course) {
     }
   }
 
+  const sources = courseSources(course);
+  if (sources.length) {
+    lines.push('## Further reading', '');
+    for (const source of sources) lines.push(`- ${source.title.replace(/[\r\n]/g, ' ')}: <${source.url}>`);
+    lines.push('');
+  }
   return lines.join('\n');
 }
 
 /* ---------------- Reading ---------------- */
 
-export function renderReading(course, notesMap = {}) {
+export function renderReading(course, notesMap = {}, unsavedNotes = {}) {
   const secs = course.reading.sections.map((s, i) => `
     <section class="card reading-sec" data-sec="${esc(s.id)}">
       ${sectionHead(i + 1, s.heading, 'Reading')}
       <div class="prose">${md(s.body)}</div>
       ${s.visual ? `<figure class="visual">
-        <div class="visual-title">Picture this</div>
+        <figcaption class="visual-title">Picture this</figcaption>
         <div class="visual-body">${md(s.visual)}</div>
       </figure>` : ''}
       ${s.questions?.length ? `<div class="checkins">
@@ -164,6 +206,7 @@ export function renderReading(course, notesMap = {}) {
         <details class="notes-wrapper" ${notesMap[s.id] ? 'open' : ''}>
           <summary>My Study Notes ${notesMap[s.id] ? '✏️' : ''}</summary>
           <textarea class="note-input" data-sec-note="${esc(s.id)}" placeholder="Type your personal section notes here...">${esc(notesMap[s.id] || '')}</textarea>
+          <p class="note-status muted small" role="status">${Object.prototype.hasOwnProperty.call(unsavedNotes, s.id) ? 'Not saved. Your draft is kept in this tab; edit again to retry or copy it before closing.' : ''}</p>
         </details>
       </div>
     </section>`).join('');
@@ -180,7 +223,13 @@ function wireReading(root, course, onSaveNote) {
   root.querySelectorAll('[data-sec-note]').forEach(textarea => {
     textarea.addEventListener('input', () => {
       const secId = textarea.dataset.secNote;
-      onSaveNote(secId, textarea.value);
+      const status = textarea.parentElement.querySelector('.note-status');
+      try {
+        onSaveNote(secId, textarea.value);
+        if (status) status.textContent = 'Saved in this browser.';
+      } catch {
+        if (status) status.textContent = 'Not saved. Your draft is kept in this tab; edit again to retry or copy it before closing.';
+      }
     });
   });
 }
@@ -241,7 +290,7 @@ export function renderSlides(course) {
       <div class="slide-top"><span class="sec-num">${i + 1}</span><h3>${esc(s.title)}</h3></div>
       <ul class="slide-bullets">${s.bullets.map(b => `<li>${esc(b)}</li>`).join('')}</ul>
       ${s.visual ? `<figure class="visual slide-visual">
-        <div class="visual-title">Picture this</div>
+        <figcaption class="visual-title">Picture this</figcaption>
         <div class="visual-body">${md(s.visual)}</div>
       </figure>` : ''}
       <details class="notes"><summary>Speaker notes</summary><p>${esc(s.notes)}</p></details>
@@ -329,7 +378,8 @@ export function renderMindmap(course) {
   }
   const roots = byParent.get(null) || [];
   // Avoid a reserved string root id and recursion limits for valid deep trees.
-  const stack = roots.toReversed().map(n => ({ n, depth: 0 }));
+  const stack = [];
+  for (let i = roots.length - 1; i >= 0; i--) stack.push({ n: roots[i], depth: 0 });
   let tree = '';
   while (stack.length) {
     const item = stack.pop();
@@ -341,7 +391,8 @@ export function renderMindmap(course) {
     const children = byParent.get(n.id) || [];
     if (children.length) {
       tree += '<ul>';
-      stack.push('</ul>', ...children.toReversed().map(child => ({ n: child, depth: depth + 1 })));
+      stack.push('</ul>');
+      for (let i = children.length - 1; i >= 0; i--) stack.push({ n: children[i], depth: depth + 1 });
     }
   }
   return `<section class="card">
@@ -566,7 +617,7 @@ export const VIEWS = [
 
 export function renderView(name, course, options = {}) {
   switch (name) {
-    case 'reading': return renderReading(course, options.notesMap);
+    case 'reading': return renderReading(course, options.notesMap, options.unsavedNotes);
     case 'quiz': return renderQuiz(course);
     case 'slides': return renderSlides(course);
     case 'audio': return renderAudio(course);
@@ -582,4 +633,3 @@ export function wireView(name, root, course, options = {}) {
   if (name === 'audio') wireAudio(root, course);
   if (name === 'flashcards') wireFlashcards(root, course);
 }
-

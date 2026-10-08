@@ -95,6 +95,9 @@ ul.tight li { margin-bottom: 6px; }
 .visual-title { font-weight: 700; margin-bottom: 4px; color: var(--accent2); }
 .visual-body p { margin: 6px 0; }
 .visual-body p:last-child { margin-bottom: 2px; }
+.code-block { max-width: 100%; overflow-x: auto; white-space: pre; padding: 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel2); color: var(--ink); font: 0.9rem/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; tab-size: 4; }
+.code-block code { padding: 0; background: none; font: inherit; }
+.code-block:focus-visible { outline: 2px solid var(--accent2); outline-offset: 3px; }
 .slide-visual { margin: 12px 0 4px; }
 
 /* quiz */

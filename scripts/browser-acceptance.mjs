@@ -2,12 +2,19 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { validateCourse } from '../pipeline.mjs';
+import { getFlashcards, courseToMarkdown } from '../views.mjs';
 
 const { chromium } = await import(process.env.PLAYWRIGHT_MODULE || 'playwright');
 const fixture = JSON.parse(await readFile(new URL('../sample-course.json', import.meta.url)));
+const visualFixture = structuredClone(fixture);
+const diagram = 'Input    Output\n  A        B\n\n' + 'wide diagram column    '.repeat(30);
+const visualCue = 'Follow the aligned columns.\n```text\n' + diagram + '\n```';
+visualFixture.reading.sections[0].visual = visualCue;
+visualFixture.slides.sections[0].visual = visualCue;
 const bundled = JSON.parse(await readFile(new URL('../courses/index.json', import.meta.url)));
 const browser = await chromium.launch({ headless: true });
 const context = await browser.newContext({ viewport: { width: 1440, height: 1000 } });
+await context.addInitScript(() => { delete Array.prototype.toReversed; delete Object.hasOwn; });
 const page = await context.newPage();
 const errors = [];
 page.on('pageerror', error => errors.push(error.message));
@@ -34,16 +41,43 @@ const importText = async (text, name = 'course.json') => {
 };
 const checkViews = async course => {
   assert.equal(await page.locator('h1').textContent(), course.meta.title);
+  assert.deepEqual(await page.locator('.course-sources a').evaluateAll(links => links.map(link => link.href)), (course.sources || []).map(source => source.url));
   for (const [name, selector, count] of [
     ['Read', '.reading-sec', course.reading.sections.length],
     ['Quiz', '.quiz-sec', course.quizzes.sections.length],
     ['Slides', '.slide', course.slides.sections.length],
     ['Audio', '.turn', course.enrichment.turns.length],
     ['Mind map', '.mnode', course.enrichment.nodes.length],
+    ['Flashcards', '.fc-card-container', 1],
   ]) {
     await page.getByRole('button', { name, exact: true }).click();
     assert.equal(await page.locator(selector).count(), count, name);
+    if (name === 'Read' || name === 'Slides') {
+      const sections = name === 'Read' ? course.reading.sections : course.slides.sections;
+      assert.equal(await page.locator('figure.visual').count(), sections.filter(s => s.visual).length);
+      if (sections.some(s => s.visual === visualCue)) {
+        assert.equal(await page.locator('.code-block code').first().textContent(), diagram);
+        const pre = page.locator('.code-block').first();
+        assert.equal(await pre.evaluate(el => getComputedStyle(el).whiteSpace), 'pre');
+        assert.equal(await pre.evaluate(el => el.scrollWidth > el.clientWidth), true);
+        await pre.press('ArrowRight');
+        await page.waitForFunction(() => document.querySelector('.code-block').scrollLeft > 0);
+        assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+      }
+    }
   }
+  const flashcards = getFlashcards(course);
+  assert.equal(await page.locator('#fc-front').textContent(), flashcards[0].front);
+  await page.locator('#fc-card').press('Enter');
+  assert.match(await page.locator('#fc-card').getAttribute('class'), /flipped/);
+  assert.equal(await page.locator('#fc-back').textContent(), flashcards[0].back);
+  await page.getByRole('button', { name: 'Mastered ✓', exact: true }).click();
+  assert.equal(await page.locator('#fc-mastered-count').textContent(), '1');
+  await page.getByRole('button', { name: '← Previous', exact: true }).click();
+  await page.getByRole('button', { name: 'Need Practice ✗', exact: true }).click();
+  assert.equal(await page.locator('#fc-mastered-count').textContent(), '0');
+  await page.getByRole('button', { name: 'Shuffle', exact: true }).click();
+  assert.equal(await page.locator('#fc-idx').textContent(), '1');
   await page.getByRole('button', { name: 'Quiz', exact: true }).click();
   const first = page.locator('.quiz-q').first();
   await first.locator('.choice').nth(course.quizzes.sections[0].questions[0].answer).click();
@@ -54,9 +88,48 @@ const checkViews = async course => {
 
 try {
   await page.goto(process.env.LEARNWAY_URL || 'http://127.0.0.1:8130');
+  await page.getByRole('searchbox', { name: 'Search courses' }).fill('Six Ways');
+  await page.getByRole('button').filter({ hasText: 'Simple Machines: Six Ways' }).click();
+  await page.locator('h1').filter({ hasText: /^Simple Machines/ }).waitFor();
+  assert.match(await page.locator('h1').textContent(), /^Simple Machines/);
+  await library();
+  await page.getByRole('searchbox', { name: 'Search courses' }).fill('');
+  for (const level of new Set(bundled.map(entry => entry.level))) {
+    await page.getByLabel('Filter by level').selectOption(level);
+    assert.equal(await page.locator('[data-bundled]').count(), bundled.filter(entry => entry.level === level).length);
+  }
+  await page.getByLabel('Filter by level').selectOption('');
   await page.getByRole('button', { name: 'Try the sample course' }).click();
   await page.locator('h1').filter({ hasText: fixture.meta.title }).waitFor();
   await checkViews(fixture);
+  const firstNotes = page.locator('.notes-wrapper').first();
+  await firstNotes.locator('summary').click();
+  await firstNotes.locator('textarea').fill('Saved study note');
+  assert.equal(await firstNotes.locator('.note-status').textContent(), 'Saved in this browser.');
+  await page.evaluate(() => {
+    window.originalStorageWrite = Storage.prototype.setItem;
+    Storage.prototype.setItem = function(key, value) {
+      if (key === 'learnway:notes') throw new Error('Simulated storage quota');
+      return window.originalStorageWrite.call(this, key, value);
+    };
+  });
+  await firstNotes.locator('textarea').fill('Unsaved draft');
+  assert.match(await firstNotes.locator('.note-status').textContent(), /Not saved/);
+  await page.getByRole('button', { name: 'Quiz', exact: true }).click();
+  await page.getByRole('button', { name: 'Read', exact: true }).click();
+  assert.equal(await firstNotes.locator('textarea').inputValue(), 'Unsaved draft');
+  assert.match(await firstNotes.locator('.note-status').textContent(), /Not saved/);
+  await page.evaluate(() => { Storage.prototype.setItem = window.originalStorageWrite; delete window.originalStorageWrite; });
+  await firstNotes.locator('textarea').fill('Recovered study note');
+  await page.reload();
+  await page.getByRole('button', { name: 'Try the sample course' }).click();
+  assert.equal(await page.locator('.note-input').first().inputValue(), 'Recovered study note');
+  const markdownDownload = page.waitForEvent('download');
+  await page.getByRole('button', { name: 'Export Markdown', exact: true }).click();
+  const mdChunks = [];
+  for await (const chunk of await (await markdownDownload).createReadStream()) mdChunks.push(chunk);
+  assert.equal(Buffer.concat(mdChunks).toString(), courseToMarkdown(fixture));
+  console.log('PASS: search identity, included level filters, notes failure/recovery/reload, Markdown download');
   for (const entry of bundled) {
     const course = JSON.parse(await readFile(new URL('../' + entry.file, import.meta.url)));
     await library();
@@ -64,10 +137,11 @@ try {
     await page.locator('h1').filter({ hasText: course.meta.title }).waitFor();
     await checkViews(course);
   }
-  console.log('PASS: sample and both bundled courses, five views and quiz interaction');
+  assert.equal(calls, 0, 'included courses need no Gemini requests');
+  console.log(`PASS: sample and all ${bundled.length} bundled courses in six views, quiz and flashcard interactions, and source links without an API key`);
 
   await settings();
-  await importText(JSON.stringify(fixture));
+  await importText(JSON.stringify(visualFixture));
   await page.locator('h1').filter({ hasText: fixture.meta.title }).waitFor();
   const saved = await storage();
   assert.equal(JSON.parse(saved).length, 1);
@@ -91,7 +165,7 @@ try {
   assert.equal(await storage(), saved);
   await page.reload();
   await page.getByRole('button').filter({ hasText: fixture.meta.title }).click();
-  await checkViews(fixture);
+  await checkViews(visualFixture);
   console.log('PASS: valid import/reload and invalid imports preserve the existing library');
 
   // Repeated rendering must not multiply delegated click handlers.
@@ -121,7 +195,7 @@ try {
   assert.equal(calls, 3, 'invalid reading stops the remaining API calls');
   assert.equal(await storage(), saved);
 
-  replies.push(fixture.reading, fixture.quizzes, fixture.slides, fixture.enrichment);
+  replies.push(visualFixture.reading, fixture.quizzes, visualFixture.slides, fixture.enrichment);
   await page.getByRole('button', { name: 'Looks good — write it' }).click();
   await page.locator('h1').filter({ hasText: plan.title }).waitFor();
   assert.equal(calls, 7, 'one valid plan plus four content calls, with two rejected attempts');
@@ -156,9 +230,11 @@ try {
   await page.reload();
   assert.equal(await page.getByText('This saved course is incomplete and cannot be opened. Import a complete copy.', { exact: true }).count(), 2);
   assert.equal(await storage(), legacyLibrary, 'unreadable saved records must not be deleted');
+  await page.getByRole('searchbox', { name: 'Search courses' }).fill(plan.title);
   await page.getByRole('button').filter({ hasText: plan.title }).click();
   await checkViews(generated);
   assert.deepEqual(errors, [], 'browser must have no uncaught errors or duplicate requests');
+  console.log('PASS: malformed-record search and diagram spacing/keyboard scrolling with recent convenience APIs disabled');
   if (process.env.LEARNWAY_SCREENSHOT) await page.screenshot({ path: process.env.LEARNWAY_SCREENSHOT, fullPage: true });
   console.log('PASS: export/reimport/reload, no uncaught browser errors');
 } catch (error) {

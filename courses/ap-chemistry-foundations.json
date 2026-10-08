@@ -1,0 +1,369 @@
+{
+  "meta": {
+    "title": "AP Chemistry: Particles, Reactions & Equilibrium",
+    "topic": "AP Chemistry",
+    "level": "advanced",
+    "interests": "",
+    "depth": "quick",
+    "model": "Learnway authored starter",
+    "createdAt": "2026-10-08T00:00:01.000Z",
+    "version": 1
+  },
+  "plan": {
+    "title": "AP Chemistry: Particles, Reactions & Equilibrium",
+    "hook": "Connect particle bookkeeping to reaction yield and equilibrium. This focused AP-level sampler is not a complete AP course or an official College Board resource.",
+    "objectives": [
+      "Explain ionic charge using proton and electron counts.",
+      "Identify a limiting reactant using a balanced equation.",
+      "Compare a reaction quotient with an equilibrium constant."
+    ],
+    "prerequisites": [
+      "Atoms and chemical formulas",
+      "Moles and basic algebra"
+    ],
+    "sections": [
+      {
+        "id": "particles",
+        "heading": "Charge counts particles, not atom size",
+        "points": [
+          "Net charge follows the difference between proton and electron counts.",
+          "An ionic formula gives the simplest charge-balanced ratio of constituent ions.",
+          "No. Element identity depends on proton count. Losing two electrons makes Mg²⁺ while leaving the nucleus unchanged."
+        ]
+      },
+      {
+        "id": "stoichiometry",
+        "heading": "A balanced equation is a ratio",
+        "points": [
+          "The limiting reactant runs out first relative to the balanced reaction ratio.",
+          "Percent yield is actual product divided by theoretical product, multiplied by 100%.",
+          "A reaction may require several moles of that reactant per mole of another. Limitation depends on the ratio, not raw mole counts."
+        ]
+      },
+      {
+        "id": "equilibrium",
+        "heading": "Equal rates do not mean equal amounts",
+        "points": [
+          "Equal forward and reverse rates can maintain unequal, constant concentrations.",
+          "Comparing Q with K at the same temperature predicts the direction of net reaction.",
+          "Net forward reaction tends to form more Y and consume X until the ratio reaches its equilibrium value."
+        ]
+      }
+    ]
+  },
+  "reading": {
+    "sections": [
+      {
+        "id": "particles",
+        "heading": "Charge counts particles, not atom size",
+        "body": "The number of protons identifies an element. A neutral atom has the same number of electrons as protons. Losing electrons creates a positive ion; gaining electrons creates a negative ion. Ordinary chemical ion formation changes electron count, not nuclear proton count.\n\nFor example, an ion with 12 protons and 10 electrons has net charge +2 because the twelve positive charges exceed the ten negative charges by two. It remains magnesium because its proton count is still 12. Isotopes of an element instead differ in neutron number.\n\nA chemical formula expresses composition. Magnesium chloride is MgCl₂ because one Mg²⁺ balances two Cl⁻ ions. The subscript belongs to the compound's composition; it is not a coefficient that may be adjusted freely while balancing a reaction. Ionic solids form extended structures, so a formula unit need not represent a separate little molecule.",
+        "visual": "Picture a tally of twelve plus signs and ten minus signs. Pair and cancel opposite charges; two plus signs remain. Beside it, balance one Mg²⁺ tile with two Cl⁻ tiles.",
+        "questions": [
+          {
+            "q": "Does losing two electrons change magnesium into another element?",
+            "hint": "Which particle count defines the element?",
+            "answer": "No. Element identity depends on proton count. Losing two electrons makes Mg²⁺ while leaving the nucleus unchanged."
+          }
+        ]
+      },
+      {
+        "id": "stoichiometry",
+        "heading": "A balanced equation is a ratio",
+        "body": "In 2 H₂ + O₂ → 2 H₂O, the coefficients express particle or mole ratios: two moles of hydrogen react with one mole of oxygen to make two moles of water. They are not mass ratios, because different substances have different molar masses.\n\nSuppose 4 mol H₂ and 1 mol O₂ react completely according to this equation. The oxygen can consume only 2 mol H₂, producing 2 mol H₂O and leaving 2 mol H₂. Oxygen is the limiting reactant: it sets the theoretical maximum product. The substance with fewer moles is not automatically limiting; compare amounts against the coefficients.\n\nConvert any supplied masses to moles before applying the ratio, then convert the product amount back if needed. If an experiment collects 8 g of product when the theoretical yield is 10 g, the percent yield is (8/10) × 100 = 80%. Yield compares actual and theoretical amounts of the same product.",
+        "visual": "Picture each reaction batch needing two hydrogen tokens and one oxygen token. With four hydrogen tokens but one oxygen token, only one complete batch can run; two hydrogen tokens remain unused.",
+        "questions": [
+          {
+            "q": "Why can the reactant with more moles still be limiting?",
+            "hint": "Compare available amounts with required coefficients.",
+            "answer": "A reaction may require several moles of that reactant per mole of another. Limitation depends on the ratio, not raw mole counts."
+          }
+        ]
+      },
+      {
+        "id": "equilibrium",
+        "heading": "Equal rates do not mean equal amounts",
+        "body": "A reversible reaction at equilibrium has equal forward and reverse rates. Both reactions continue, while macroscopic concentrations stay constant in an undisturbed system. The concentrations need not be equal to one another.\n\nFor the simplified reaction X ⇌ Y, define the concentration ratio Qc = [Y]/[X] at the current moment. Square brackets denote molar concentration. At equilibrium and a specified temperature, the corresponding ratio is Kc. A rigorous equilibrium constant uses activities; this concentration model is a useful introductory approximation.\n\nIf Kc = 2 but the current ratio is 0.5, Qc < Kc and net forward reaction tends to increase the ratio toward equilibrium. If Qc > Kc, net reverse reaction tends to lower it. A catalyst accelerates the approach in both directions without changing K at fixed temperature. Changing temperature can change K, so comparisons must refer to the same temperature.",
+        "visual": "Picture two rooms exchanging people at equal rates. The populations stay constant even if one room holds more people. A wider doorway speeds exchange without setting a new population ratio by itself.",
+        "questions": [
+          {
+            "q": "If Qc is below Kc for X ⇌ Y, which net direction is favoured?",
+            "hint": "The ratio [Y]/[X] must rise toward Kc.",
+            "answer": "Net forward reaction tends to form more Y and consume X until the ratio reaches its equilibrium value."
+          }
+        ]
+      }
+    ]
+  },
+  "quizzes": {
+    "sections": [
+      {
+        "id": "particles",
+        "questions": [
+          {
+            "q": "An ion has 12 protons and 10 electrons. What is its charge?",
+            "choices": [
+              "−2",
+              "0",
+              "+2",
+              "+12"
+            ],
+            "answer": 2,
+            "explain": "The net charge is 12 − 10 = +2 in units of elementary charge. Electrons have negative charge."
+          },
+          {
+            "q": "Why is magnesium chloride written MgCl₂?",
+            "choices": [
+              "One Mg²⁺ requires two Cl⁻ ions for charge balance",
+              "Every atom must have two protons",
+              "The equation needs any convenient subscript",
+              "It contains two magnesium atoms per chlorine atom"
+            ],
+            "answer": 0,
+            "explain": "One +2 ion and two −1 ions sum to zero charge. Changing the subscript changes composition, not merely reaction amount."
+          }
+        ]
+      },
+      {
+        "id": "stoichiometry",
+        "questions": [
+          {
+            "q": "With 4 mol H₂ and 1 mol O₂, what is the maximum water yield under the stated reaction?",
+            "choices": [
+              "1 mol",
+              "2 mol",
+              "4 mol",
+              "5 mol"
+            ],
+            "answer": 1,
+            "explain": "One mole of oxygen supports one stoichiometric batch and gives 2 mol water. Hydrogen is in excess."
+          },
+          {
+            "q": "Actual yield is 8 g and theoretical yield is 10 g. What is percent yield?",
+            "choices": [
+              "20%",
+              "125%",
+              "8%",
+              "80%"
+            ],
+            "answer": 3,
+            "explain": "Use actual/theoretical × 100: 8/10 × 100 = 80%. Reversing the ratio would give 125%."
+          }
+        ]
+      },
+      {
+        "id": "equilibrium",
+        "questions": [
+          {
+            "q": "For X ⇌ Y, Kc = 2 and Qc = 0.5 at the same temperature. What is the net tendency?",
+            "choices": [
+              "Reverse reaction",
+              "No molecular reactions",
+              "Forward reaction",
+              "A catalyst must change Kc"
+            ],
+            "answer": 2,
+            "explain": "Qc < Kc, so the current mixture has a smaller product/reactant ratio than at equilibrium. Net forward reaction increases it."
+          },
+          {
+            "q": "At fixed temperature, what does adding a catalyst change?",
+            "choices": [
+              "The speed of approaching equilibrium",
+              "The equilibrium constant",
+              "The balanced coefficients",
+              "The requirement for mass conservation"
+            ],
+            "answer": 0,
+            "explain": "A catalyst speeds the approach to equilibrium without changing its position or equilibrium constant at that temperature."
+          }
+        ]
+      }
+    ]
+  },
+  "slides": {
+    "sections": [
+      {
+        "id": "particles",
+        "title": "Charge counts particles, not atom size",
+        "bullets": [
+          "Net charge follows the difference between proton and electron counts.",
+          "An ionic formula gives the simplest charge-balanced ratio of constituent ions.",
+          "No. Element identity depends on proton count. Losing two electrons makes Mg²⁺ while leaving the nucleus unchanged."
+        ],
+        "notes": "The number of protons identifies an element. A neutral atom has the same number of electrons as protons. Losing electrons creates a positive ion; gaining electrons creates a negative ion. Ordinary chemical ion formation changes electron count, not nuclear proton count. No. Element identity depends on proton count. Losing two electrons makes Mg²⁺ while leaving the nucleus unchanged.",
+        "visual": "Picture a tally of twelve plus signs and ten minus signs. Pair and cancel opposite charges; two plus signs remain. Beside it, balance one Mg²⁺ tile with two Cl⁻ tiles."
+      },
+      {
+        "id": "stoichiometry",
+        "title": "A balanced equation is a ratio",
+        "bullets": [
+          "The limiting reactant runs out first relative to the balanced reaction ratio.",
+          "Percent yield is actual product divided by theoretical product, multiplied by 100%.",
+          "A reaction may require several moles of that reactant per mole of another. Limitation depends on the ratio, not raw mole counts."
+        ],
+        "notes": "In 2 H₂ + O₂ → 2 H₂O, the coefficients express particle or mole ratios: two moles of hydrogen react with one mole of oxygen to make two moles of water. They are not mass ratios, because different substances have different molar masses. A reaction may require several moles of that reactant per mole of another. Limitation depends on the ratio, not raw mole counts.",
+        "visual": "Picture each reaction batch needing two hydrogen tokens and one oxygen token. With four hydrogen tokens but one oxygen token, only one complete batch can run; two hydrogen tokens remain unused."
+      },
+      {
+        "id": "equilibrium",
+        "title": "Equal rates do not mean equal amounts",
+        "bullets": [
+          "Equal forward and reverse rates can maintain unequal, constant concentrations.",
+          "Comparing Q with K at the same temperature predicts the direction of net reaction.",
+          "Net forward reaction tends to form more Y and consume X until the ratio reaches its equilibrium value."
+        ],
+        "notes": "A reversible reaction at equilibrium has equal forward and reverse rates. Both reactions continue, while macroscopic concentrations stay constant in an undisturbed system. The concentrations need not be equal to one another. Net forward reaction tends to form more Y and consume X until the ratio reaches its equilibrium value.",
+        "visual": "Picture two rooms exchanging people at equal rates. The populations stay constant even if one room holds more people. A wider doorway speeds exchange without setting a new population ratio by itself."
+      }
+    ]
+  },
+  "enrichment": {
+    "audioTitle": "AP Chemistry: Particles, Reactions & Equilibrium — a conversation",
+    "turns": [
+      {
+        "speaker": "teacher",
+        "line": "Connect particle bookkeeping to reaction yield and equilibrium. This focused AP-level sampler is not a complete AP course or an official College Board resource."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Charge counts particles, not atom size. Net charge follows the difference between proton and electron counts. An ionic formula gives the simplest charge-balanced ratio of constituent ions."
+      },
+      {
+        "speaker": "student",
+        "line": "Does losing two electrons change magnesium into another element?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "No. Element identity depends on proton count. Losing two electrons makes Mg²⁺ while leaving the nucleus unchanged."
+      },
+      {
+        "speaker": "student",
+        "line": "An ion has 12 protons and 10 electrons. What is its charge?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "+2. The net charge is 12 − 10 = +2 in units of elementary charge. Electrons have negative charge."
+      },
+      {
+        "speaker": "teacher",
+        "line": "A balanced equation is a ratio. The limiting reactant runs out first relative to the balanced reaction ratio. Percent yield is actual product divided by theoretical product, multiplied by 100%."
+      },
+      {
+        "speaker": "student",
+        "line": "Why can the reactant with more moles still be limiting?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "A reaction may require several moles of that reactant per mole of another. Limitation depends on the ratio, not raw mole counts."
+      },
+      {
+        "speaker": "student",
+        "line": "With 4 mol H₂ and 1 mol O₂, what is the maximum water yield under the stated reaction?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "2 mol. One mole of oxygen supports one stoichiometric batch and gives 2 mol water. Hydrogen is in excess."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Equal rates do not mean equal amounts. Equal forward and reverse rates can maintain unequal, constant concentrations. Comparing Q with K at the same temperature predicts the direction of net reaction."
+      },
+      {
+        "speaker": "student",
+        "line": "If Qc is below Kc for X ⇌ Y, which net direction is favoured?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Net forward reaction tends to form more Y and consume X until the ratio reaches its equilibrium value."
+      },
+      {
+        "speaker": "student",
+        "line": "For X ⇌ Y, Kc = 2 and Qc = 0.5 at the same temperature. What is the net tendency?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Forward reaction. Qc < Kc, so the current mixture has a smaller product/reactant ratio than at equilibrium. Net forward reaction increases it."
+      },
+      {
+        "speaker": "teacher",
+        "line": "To review: Explain ionic charge using proton and electron counts. Identify a limiting reactant using a balanced equation. Compare a reaction quotient with an equilibrium constant."
+      }
+    ],
+    "nodes": [
+      {
+        "id": "root",
+        "parent": null,
+        "label": "AP Chemistry: Particles, Reactions & Equilibrium",
+        "note": "Connect particle bookkeeping to reaction yield and equilibrium. This focused AP-level sampler is not a complete AP course or an official College Board resource."
+      },
+      {
+        "id": "particles",
+        "parent": "root",
+        "label": "Charge counts particles, not atom size",
+        "note": "No. Element identity depends on proton count. Losing two electrons makes Mg²⁺ while leaving the nucleus unchanged."
+      },
+      {
+        "id": "particles-concept-1",
+        "parent": "particles",
+        "label": "Ionic charge",
+        "note": "Net charge follows the difference between proton and electron counts."
+      },
+      {
+        "id": "particles-concept-2",
+        "parent": "particles",
+        "label": "Formula unit",
+        "note": "An ionic formula gives the simplest charge-balanced ratio of constituent ions."
+      },
+      {
+        "id": "stoichiometry",
+        "parent": "root",
+        "label": "A balanced equation is a ratio",
+        "note": "A reaction may require several moles of that reactant per mole of another. Limitation depends on the ratio, not raw mole counts."
+      },
+      {
+        "id": "stoichiometry-concept-1",
+        "parent": "stoichiometry",
+        "label": "Limiting reactant",
+        "note": "The limiting reactant runs out first relative to the balanced reaction ratio."
+      },
+      {
+        "id": "stoichiometry-concept-2",
+        "parent": "stoichiometry",
+        "label": "Percent yield",
+        "note": "Percent yield is actual product divided by theoretical product, multiplied by 100%."
+      },
+      {
+        "id": "equilibrium",
+        "parent": "root",
+        "label": "Equal rates do not mean equal amounts",
+        "note": "Net forward reaction tends to form more Y and consume X until the ratio reaches its equilibrium value."
+      },
+      {
+        "id": "equilibrium-concept-1",
+        "parent": "equilibrium",
+        "label": "Dynamic equilibrium",
+        "note": "Equal forward and reverse rates can maintain unequal, constant concentrations."
+      },
+      {
+        "id": "equilibrium-concept-2",
+        "parent": "equilibrium",
+        "label": "Reaction quotient",
+        "note": "Comparing Q with K at the same temperature predicts the direction of net reaction."
+      }
+    ],
+    "mnemonics": []
+  },
+  "sources": [
+    {
+      "title": "College Board — AP Chemistry course scope",
+      "url": "https://apcentral.collegeboard.org/courses/ap-chemistry"
+    },
+    {
+      "title": "OpenStax — Reaction stoichiometry",
+      "url": "https://openstax.org/books/chemistry-2e/pages/4-3-reaction-stoichiometry"
+    },
+    {
+      "title": "OpenStax — Chemical equilibria",
+      "url": "https://openstax.org/books/chemistry-2e/pages/13-1-chemical-equilibria"
+    }
+  ]
+}

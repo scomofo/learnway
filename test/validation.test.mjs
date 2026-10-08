@@ -9,8 +9,9 @@ const input = { apiKey: 'test-key', model: 'test-model', topic: 'Filters', level
 const draft = { ...input, plan: fixture.plan };
 const response = payload => ({ status: 200, ok: true, json: async () => ({ candidates: [{ content: { parts: [{ text: JSON.stringify(payload) }] } }] }) });
 
-test('all shipped courses validate and render in all five views', async () => {
-  for (const file of ['sample-course.json', 'courses/hs-genetics.json', 'courses/hs-simple-machines.json']) {
+test('all shipped courses validate and render in all six views', async () => {
+  const index = JSON.parse(await readFile(new URL('../courses/index.json', import.meta.url)));
+  for (const file of ['sample-course.json', ...index.map(entry => entry.file)]) {
     const course = JSON.parse(await readFile(new URL('../' + file, import.meta.url)));
     assert.deepEqual(validateCourse(course), [], file);
     for (const view of VIEWS) assert.ok(renderView(view.id, course).length > 0, `${file}: ${view.id}`);
