@@ -90,6 +90,7 @@ try {
   await page.goto(process.env.LEARNWAY_URL || 'http://127.0.0.1:8130');
   await page.getByRole('searchbox', { name: 'Search courses' }).fill('Six Ways');
   await page.getByRole('button').filter({ hasText: 'Simple Machines: Six Ways' }).click();
+  await page.locator('h1').filter({ hasText: /^Simple Machines/ }).waitFor();
   assert.match(await page.locator('h1').textContent(), /^Simple Machines/);
   await library();
   await page.getByRole('searchbox', { name: 'Search courses' }).fill('');

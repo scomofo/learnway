@@ -1,0 +1,365 @@
+{
+  "meta": {
+    "title": "Intro to Rocket Science: Push, Mass & Orbit",
+    "topic": "Intro to Rocket Science",
+    "level": "beginner",
+    "interests": "",
+    "depth": "quick",
+    "model": "Learnway authored starter",
+    "createdAt": "2026-10-08T00:00:02.000Z",
+    "version": 1
+  },
+  "plan": {
+    "title": "Intro to Rocket Science: Push, Mass & Orbit",
+    "hook": "Follow the connection between exhaust momentum, changing vehicle mass and the sideways speed needed for orbit.",
+    "objectives": [
+      "Explain rocket thrust without air to push against.",
+      "Use the ideal rocket equation with its assumptions.",
+      "Distinguish reaching altitude from reaching orbit."
+    ],
+    "prerequisites": [
+      "Speed and force",
+      "Ratios; logarithms are introduced in context"
+    ],
+    "sections": [
+      {
+        "id": "thrust",
+        "heading": "Exhaust momentum pushes the vehicle",
+        "points": [
+          "Accelerating exhaust backward produces a forward reaction on the rocket.",
+          "Mass flow rate times exhaust speed gives thrust when the pressure term is zero.",
+          "The rocket pushes on its own exhaust, which carries momentum backward. It does not require surrounding air as a reaction surface."
+        ]
+      },
+      {
+        "id": "mass",
+        "heading": "Propellant changes the mass you accelerate",
+        "points": [
+          "Initial mass divided by final mass includes propellant, structure and payload correctly.",
+          "The rocket equation estimates propulsion capability before external-force losses.",
+          "No. It gives an ideal velocity change in metres per second. Altitude depends on the trajectory, gravity, drag and timing of thrust."
+        ]
+      },
+      {
+        "id": "orbit",
+        "heading": "Orbit is falling with enough sideways speed",
+        "points": [
+          "Orbital weightlessness comes from shared free fall, not absent gravity.",
+          "Sustained orbit requires suitable sideways motion as well as altitude.",
+          "Without enough sideways speed, gravity brings the object back down rather than curving its path around Earth."
+        ]
+      }
+    ]
+  },
+  "reading": {
+    "sections": [
+      {
+        "id": "thrust",
+        "heading": "Exhaust momentum pushes the vehicle",
+        "body": "A rocket accelerates exhaust backward and gains forward momentum. It does not need atmospheric air to push against. A chemical rocket carries fuel and oxidiser, allowing combustion to continue in a vacuum when its engine is designed for those conditions.\n\nIn a simplified case where nozzle exit pressure matches ambient pressure, thrust F equals mass flow rate ṁ times exhaust speed ve relative to the rocket: F = ṁve. Here F is in newtons, ṁ in kilograms per second, and ve in metres per second. Ejecting 5 kg/s at 2,000 m/s gives 10,000 N of thrust. Real nozzle pressure differences add another term.\n\nThrust is only one force on a launching vehicle. Near Earth, gravity pulls downward and atmospheric drag can resist motion. A vertical vehicle initially lifts only if the upward thrust exceeds its weight and other opposing forces; producing thrust alone does not guarantee a successful launch.",
+        "visual": "Picture a skateboard carrying a stack of balls. Throwing balls backward sends the board forward. A rocket substitutes a continuous exhaust stream; the analogy is momentum exchange, not a literal engine design.",
+        "questions": [
+          {
+            "q": "Why can a rocket work in a vacuum?",
+            "hint": "Identify what carries momentum away.",
+            "answer": "The rocket pushes on its own exhaust, which carries momentum backward. It does not require surrounding air as a reaction surface."
+          }
+        ]
+      },
+      {
+        "id": "mass",
+        "heading": "Propellant changes the mass you accelerate",
+        "body": "As a rocket uses propellant, its mass decreases. The ideal rocket equation accounts for that changing mass: Δv = ve ln(m0/mf). Delta-v means the ideal change in velocity; ve is effective exhaust speed, m0 is initial total mass, mf is final total mass, and ln is the natural logarithm. The mass ratio inside the logarithm has no units.\n\nWith ve = 3,000 m/s and m0/mf = 2, Δv is approximately 3,000 × 0.693 = 2,080 m/s. Increasing the ratio to 4 gives approximately 4,160 m/s. Doubling mass ratio does not double the logarithm in general; these values follow the logarithm's specific relationship.\n\nThis ideal model assumes constant effective exhaust speed and omits external-force losses. A real ascent must budget gravity and drag losses plus manoeuvring needs. Final mass includes structure and payload, not just an empty fuel container. Staging helps by discarding structure that no longer contributes to the remaining flight.",
+        "visual": "Picture fuel being removed from a steadily shrinking stack of vehicle mass. The same exhaust can change the velocity of a lighter remaining rocket more effectively. A curve of delta-v against mass ratio rises with diminishing slope.",
+        "questions": [
+          {
+            "q": "Does the ideal rocket equation directly give altitude?",
+            "hint": "Check the units of its output.",
+            "answer": "No. It gives an ideal velocity change in metres per second. Altitude depends on the trajectory, gravity, drag and timing of thrust."
+          }
+        ]
+      },
+      {
+        "id": "orbit",
+        "heading": "Orbit is falling with enough sideways speed",
+        "body": "Reaching a high altitude is different from staying in orbit. An orbiting object is continuously falling under gravity while moving sideways fast enough that its path curves around Earth. Gravity remains substantial in low Earth orbit; astronauts float because they and their spacecraft are in free fall together.\n\nA circular orbit near Earth requires a speed roughly around 7.8 km/s, with the exact value depending on altitude. This is an approximate orbital speed, not a launch vehicle's complete delta-v budget. A straight upward launch without suitable sideways motion can rise high and then fall back.\n\nAn ideal orbit above significant atmospheric drag does not need continuous thrust merely to continue moving. Real spacecraft may perform corrections and compensate for drag. Mission planning must also control orbital plane, altitude and encounter timing. “Get high enough” leaves most of the navigation problem unsolved.",
+        "visual": "Picture a ball thrown sideways from an extremely high mountain on an airless Earth. Greater sideways speed carries each successive fall farther around the curved surface. In an orbit, the fall continues around the planet.",
+        "questions": [
+          {
+            "q": "Why is a very high vertical jump not automatically an orbit?",
+            "hint": "What velocity component is missing?",
+            "answer": "Without enough sideways speed, gravity brings the object back down rather than curving its path around Earth."
+          }
+        ]
+      }
+    ]
+  },
+  "quizzes": {
+    "sections": [
+      {
+        "id": "thrust",
+        "questions": [
+          {
+            "q": "Ignoring the pressure term, 5 kg/s of exhaust at 2,000 m/s gives what thrust?",
+            "choices": [
+              "400 N",
+              "10,000 N",
+              "2,005 N",
+              "10 N"
+            ],
+            "answer": 1,
+            "explain": "F = ṁve = 5 × 2,000 = 10,000 N. The units kg/s × m/s give kg·m/s², or newtons."
+          },
+          {
+            "q": "What does a chemical rocket carry that lets combustion work without atmospheric oxygen?",
+            "choices": [
+              "A stronger wing",
+              "Extra atmospheric drag",
+              "An oxidiser",
+              "A fixed launch tower"
+            ],
+            "answer": 2,
+            "explain": "A chemical rocket carries an oxidiser as well as fuel. Wings and atmospheric drag are not required for its momentum-exchange principle."
+          }
+        ]
+      },
+      {
+        "id": "mass",
+        "questions": [
+          {
+            "q": "At ve = 3,000 m/s and mass ratio 2, what is approximate ideal delta-v?",
+            "choices": [
+              "1,500 m/s",
+              "6,000 m/s",
+              "2 m/s",
+              "2,080 m/s"
+            ],
+            "answer": 3,
+            "explain": "Use 3,000 × ln(2), with ln(2) ≈ 0.693, to obtain about 2,080 m/s."
+          },
+          {
+            "q": "What belongs in the final mass mf?",
+            "choices": [
+              "Remaining structure and payload, plus anything else still carried",
+              "Only propellant already burned",
+              "Zero for every rocket",
+              "Only the launch tower"
+            ],
+            "answer": 0,
+            "explain": "Final mass is what the vehicle still carries after the burn. Treating structure and payload as massless would exaggerate capability."
+          }
+        ]
+      },
+      {
+        "id": "orbit",
+        "questions": [
+          {
+            "q": "Why do astronauts float in an orbiting spacecraft?",
+            "choices": [
+              "Earth has no gravity there",
+              "They and the spacecraft fall together",
+              "Air pressure cancels gravity",
+              "The engine always pushes them upward"
+            ],
+            "answer": 1,
+            "explain": "They share orbital free fall. Gravity is still what bends the path around Earth."
+          },
+          {
+            "q": "What distinguishes a basic orbit from simply reaching a high point?",
+            "choices": [
+              "A painted circular window",
+              "Zero vehicle mass",
+              "Suitable sideways speed and trajectory",
+              "No gravitational force"
+            ],
+            "answer": 2,
+            "explain": "Orbit depends on velocity and trajectory, not altitude alone. Gravity remains essential to the curved motion."
+          }
+        ]
+      }
+    ]
+  },
+  "slides": {
+    "sections": [
+      {
+        "id": "thrust",
+        "title": "Exhaust momentum pushes the vehicle",
+        "bullets": [
+          "Accelerating exhaust backward produces a forward reaction on the rocket.",
+          "Mass flow rate times exhaust speed gives thrust when the pressure term is zero.",
+          "The rocket pushes on its own exhaust, which carries momentum backward. It does not require surrounding air as a reaction surface."
+        ],
+        "notes": "A rocket accelerates exhaust backward and gains forward momentum. It does not need atmospheric air to push against. A chemical rocket carries fuel and oxidiser, allowing combustion to continue in a vacuum when its engine is designed for those conditions. The rocket pushes on its own exhaust, which carries momentum backward. It does not require surrounding air as a reaction surface.",
+        "visual": "Picture a skateboard carrying a stack of balls. Throwing balls backward sends the board forward. A rocket substitutes a continuous exhaust stream; the analogy is momentum exchange, not a literal engine design."
+      },
+      {
+        "id": "mass",
+        "title": "Propellant changes the mass you accelerate",
+        "bullets": [
+          "Initial mass divided by final mass includes propellant, structure and payload correctly.",
+          "The rocket equation estimates propulsion capability before external-force losses.",
+          "No. It gives an ideal velocity change in metres per second. Altitude depends on the trajectory, gravity, drag and timing of thrust."
+        ],
+        "notes": "As a rocket uses propellant, its mass decreases. The ideal rocket equation accounts for that changing mass: Δv = ve ln(m0/mf). Delta-v means the ideal change in velocity; ve is effective exhaust speed, m0 is initial total mass, mf is final total mass, and ln is the natural logarithm. The mass ratio inside the logarithm has no units. No. It gives an ideal velocity change in metres per second. Altitude depends on the trajectory, gravity, drag and timing of thrust.",
+        "visual": "Picture fuel being removed from a steadily shrinking stack of vehicle mass. The same exhaust can change the velocity of a lighter remaining rocket more effectively. A curve of delta-v against mass ratio rises with diminishing slope."
+      },
+      {
+        "id": "orbit",
+        "title": "Orbit is falling with enough sideways speed",
+        "bullets": [
+          "Orbital weightlessness comes from shared free fall, not absent gravity.",
+          "Sustained orbit requires suitable sideways motion as well as altitude.",
+          "Without enough sideways speed, gravity brings the object back down rather than curving its path around Earth."
+        ],
+        "notes": "Reaching a high altitude is different from staying in orbit. An orbiting object is continuously falling under gravity while moving sideways fast enough that its path curves around Earth. Gravity remains substantial in low Earth orbit; astronauts float because they and their spacecraft are in free fall together. Without enough sideways speed, gravity brings the object back down rather than curving its path around Earth.",
+        "visual": "Picture a ball thrown sideways from an extremely high mountain on an airless Earth. Greater sideways speed carries each successive fall farther around the curved surface. In an orbit, the fall continues around the planet."
+      }
+    ]
+  },
+  "enrichment": {
+    "audioTitle": "Intro to Rocket Science: Push, Mass & Orbit — a conversation",
+    "turns": [
+      {
+        "speaker": "teacher",
+        "line": "Follow the connection between exhaust momentum, changing vehicle mass and the sideways speed needed for orbit."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Exhaust momentum pushes the vehicle. Accelerating exhaust backward produces a forward reaction on the rocket. Mass flow rate times exhaust speed gives thrust when the pressure term is zero."
+      },
+      {
+        "speaker": "student",
+        "line": "Why can a rocket work in a vacuum?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "The rocket pushes on its own exhaust, which carries momentum backward. It does not require surrounding air as a reaction surface."
+      },
+      {
+        "speaker": "student",
+        "line": "Ignoring the pressure term, 5 kg/s of exhaust at 2,000 m/s gives what thrust?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "10,000 N. F = ṁve = 5 × 2,000 = 10,000 N. The units kg/s × m/s give kg·m/s², or newtons."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Propellant changes the mass you accelerate. Initial mass divided by final mass includes propellant, structure and payload correctly. The rocket equation estimates propulsion capability before external-force losses."
+      },
+      {
+        "speaker": "student",
+        "line": "Does the ideal rocket equation directly give altitude?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "No. It gives an ideal velocity change in metres per second. Altitude depends on the trajectory, gravity, drag and timing of thrust."
+      },
+      {
+        "speaker": "student",
+        "line": "At ve = 3,000 m/s and mass ratio 2, what is approximate ideal delta-v?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "2,080 m/s. Use 3,000 × ln(2), with ln(2) ≈ 0.693, to obtain about 2,080 m/s."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Orbit is falling with enough sideways speed. Orbital weightlessness comes from shared free fall, not absent gravity. Sustained orbit requires suitable sideways motion as well as altitude."
+      },
+      {
+        "speaker": "student",
+        "line": "Why is a very high vertical jump not automatically an orbit?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Without enough sideways speed, gravity brings the object back down rather than curving its path around Earth."
+      },
+      {
+        "speaker": "student",
+        "line": "Why do astronauts float in an orbiting spacecraft?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "They and the spacecraft fall together. They share orbital free fall. Gravity is still what bends the path around Earth."
+      },
+      {
+        "speaker": "teacher",
+        "line": "To review: Explain rocket thrust without air to push against. Use the ideal rocket equation with its assumptions. Distinguish reaching altitude from reaching orbit."
+      }
+    ],
+    "nodes": [
+      {
+        "id": "root",
+        "parent": null,
+        "label": "Intro to Rocket Science: Push, Mass & Orbit",
+        "note": "Follow the connection between exhaust momentum, changing vehicle mass and the sideways speed needed for orbit."
+      },
+      {
+        "id": "thrust",
+        "parent": "root",
+        "label": "Exhaust momentum pushes the vehicle",
+        "note": "The rocket pushes on its own exhaust, which carries momentum backward. It does not require surrounding air as a reaction surface."
+      },
+      {
+        "id": "thrust-concept-1",
+        "parent": "thrust",
+        "label": "Momentum exchange",
+        "note": "Accelerating exhaust backward produces a forward reaction on the rocket."
+      },
+      {
+        "id": "thrust-concept-2",
+        "parent": "thrust",
+        "label": "Thrust",
+        "note": "Mass flow rate times exhaust speed gives thrust when the pressure term is zero."
+      },
+      {
+        "id": "mass",
+        "parent": "root",
+        "label": "Propellant changes the mass you accelerate",
+        "note": "No. It gives an ideal velocity change in metres per second. Altitude depends on the trajectory, gravity, drag and timing of thrust."
+      },
+      {
+        "id": "mass-concept-1",
+        "parent": "mass",
+        "label": "Mass ratio",
+        "note": "Initial mass divided by final mass includes propellant, structure and payload correctly."
+      },
+      {
+        "id": "mass-concept-2",
+        "parent": "mass",
+        "label": "Ideal delta-v",
+        "note": "The rocket equation estimates propulsion capability before external-force losses."
+      },
+      {
+        "id": "orbit",
+        "parent": "root",
+        "label": "Orbit is falling with enough sideways speed",
+        "note": "Without enough sideways speed, gravity brings the object back down rather than curving its path around Earth."
+      },
+      {
+        "id": "orbit-concept-1",
+        "parent": "orbit",
+        "label": "Free fall",
+        "note": "Orbital weightlessness comes from shared free fall, not absent gravity."
+      },
+      {
+        "id": "orbit-concept-2",
+        "parent": "orbit",
+        "label": "Orbital speed",
+        "note": "Sustained orbit requires suitable sideways motion as well as altitude."
+      }
+    ],
+    "mnemonics": []
+  },
+  "sources": [
+    {
+      "title": "NASA — Rocket thrust equation",
+      "url": "https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/rocket-thrust-equation/"
+    },
+    {
+      "title": "NASA — Ideal rocket equation",
+      "url": "https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/ideal-rocket-equation/"
+    }
+  ]
+}

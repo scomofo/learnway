@@ -1,0 +1,364 @@
+{
+  "meta": {
+    "title": "Sound & Music: Waves, Pitch & Resonance",
+    "topic": "Sound & Music",
+    "level": "beginner",
+    "interests": "",
+    "depth": "quick",
+    "model": "Learnway authored starter",
+    "createdAt": "2026-10-08T00:00:08.000Z",
+    "version": 1
+  },
+  "plan": {
+    "title": "Sound & Music: Waves, Pitch & Resonance",
+    "hook": "Connect vibrating air to musical pitch, sound character and the standing waves selected by an instrument.",
+    "objectives": [
+      "Relate frequency, wavelength and speed.",
+      "Separate pitch, amplitude and timbre.",
+      "Calculate the fundamental frequency of an ideal fixed string."
+    ],
+    "prerequisites": [
+      "Multiplication and division"
+    ],
+    "sections": [
+      {
+        "id": "waves",
+        "heading": "The pattern travels; air oscillates locally",
+        "points": [
+          "Wave speed equals cycles per second multiplied by distance per cycle.",
+          "Sound energy travels through a medium while its particles oscillate locally.",
+          "Wavelength equals v/f, so doubling frequency halves wavelength under the fixed-speed assumption."
+        ]
+      },
+      {
+        "id": "timbre",
+        "heading": "Three different questions about a note",
+        "points": [
+          "An octave corresponds to doubling or halving frequency.",
+          "Spectral content and the time envelope help distinguish instruments at the same pitch.",
+          "Their higher-frequency components, attack and decay differ, producing different timbres even at the same intended pitch."
+        ]
+      },
+      {
+        "id": "resonance",
+        "heading": "Boundaries select a standing pattern",
+        "points": [
+          "Ideal nodes have zero displacement amplitude and antinodes have maximum amplitude.",
+          "The ideal fundamental frequency is wave speed divided by twice the string length.",
+          "Different systems have different boundary conditions and mode patterns. A fixed string’s displacement nodes do not describe every air resonance."
+        ]
+      }
+    ]
+  },
+  "reading": {
+    "sections": [
+      {
+        "id": "waves",
+        "heading": "The pattern travels; air oscillates locally",
+        "body": "Ordinary sound in air is a longitudinal pressure wave. Compressions and rarefactions travel while air parcels oscillate around their local positions. Energy moves from source to listener without the same parcel of air travelling the whole distance.\n\nFrequency f counts cycles per second, measured in hertz. Wavelength λ is the distance between equivalent points on successive cycles. For a steady wave, speed v equals frequency times wavelength: v = fλ. Using 340 m/s as an approximate sound speed, a 170 Hz tone has wavelength λ = v/f = 2 m.\n\nDoubling frequency at fixed speed halves wavelength. Sound speed depends on the medium and its conditions, so 340 m/s is an example value, not a universal constant. Mechanical sound needs a material medium. Light can cross a vacuum, while an ordinary pressure sound wave cannot.",
+        "visual": "Picture a line of air parcels bobbing slightly left and right while a compression travels along the line. Follow one marked parcel to distinguish local motion from the travelling pattern.",
+        "questions": [
+          {
+            "q": "If frequency doubles and speed stays fixed, what happens to wavelength?",
+            "hint": "Rearrange v = fλ.",
+            "answer": "Wavelength equals v/f, so doubling frequency halves wavelength under the fixed-speed assumption."
+          }
+        ]
+      },
+      {
+        "id": "timbre",
+        "heading": "Three different questions about a note",
+        "body": "For a pure tone, frequency strongly influences perceived pitch. A 2:1 frequency ratio corresponds to an octave: 220 Hz and 440 Hz are an octave apart. An octave is a ratio, not a fixed number of added hertz.\n\nAmplitude describes oscillation size. In the simple linear sound-wave model in the same medium, intensity is proportional to pressure amplitude squared. Doubling pressure amplitude gives four times the intensity. Perceived loudness is a human response that also depends on frequency and listening conditions; it does not obey that same simple doubling rule.\n\nTimbre distinguishes sound character. A musical tone often contains a fundamental plus higher-frequency components, and its attack and decay evolve over time. A flute and piano can share a nominal pitch while differing in this mixture and envelope. Increasing recording volume usually changes amplitude without shifting every note up an octave.",
+        "visual": "Picture closer-spaced cycles for higher frequency, taller cycles for greater amplitude, and a changing mixture of components for timbre. Keep these three changes separate.",
+        "questions": [
+          {
+            "q": "Why can a flute and piano sound different on the same note?",
+            "hint": "The fundamental is not the entire sound.",
+            "answer": "Their higher-frequency components, attack and decay differ, producing different timbres even at the same intended pitch."
+          }
+        ]
+      },
+      {
+        "id": "resonance",
+        "heading": "Boundaries select a standing pattern",
+        "body": "Overlapping waves combine by interference. Depending on phase, they reinforce or partly cancel. Oppositely travelling waves can form an ideal standing pattern with displacement nodes that remain still and antinodes with maximum displacement amplitude.\n\nFor an ideal string fixed at both ends, both endpoints are displacement nodes. The fundamental fits half a wavelength along length L, giving f₁ = v/(2L), where v is wave speed on the string. With L = 0.50 m and v = 100 m/s, f₁ = 100/(2 × 0.50) = 100 Hz.\n\nHalving length at fixed wave speed doubles the fundamental. Changing tension or mass per unit length also changes speed, so the assumption matters. Resonance is a strong response to driving near a natural frequency, limited by damping and other effects. Pipes and bottles have different boundary conditions: the fixed-string formula does not automatically apply to them.",
+        "visual": "Picture a string anchored at both ends. In the fundamental, the ends stay still while the centre moves most. Add a higher mode with an internal node and a shorter wavelength.",
+        "questions": [
+          {
+            "q": "Why should you not apply the fixed-string formula directly to every bottle?",
+            "hint": "What physical conditions hold at the boundaries?",
+            "answer": "Different systems have different boundary conditions and mode patterns. A fixed string’s displacement nodes do not describe every air resonance."
+          }
+        ]
+      }
+    ]
+  },
+  "quizzes": {
+    "sections": [
+      {
+        "id": "waves",
+        "questions": [
+          {
+            "q": "At 340 m/s, what wavelength does a 170 Hz tone have?",
+            "choices": [
+              "0.5 m",
+              "170 m",
+              "2 m",
+              "57,800 m"
+            ],
+            "answer": 2,
+            "explain": "Divide speed by frequency: 340/170 = 2 m. The resulting unit is metres."
+          },
+          {
+            "q": "What does an air parcel do in a small passing sound wave?",
+            "choices": [
+              "Travels from speaker to listener",
+              "Oscillates near its local position",
+              "Becomes a light wave",
+              "Never moves"
+            ],
+            "answer": 1,
+            "explain": "Local back-and-forth particle motion supports the travelling pressure disturbance without bulk transport from the source."
+          }
+        ]
+      },
+      {
+        "id": "timbre",
+        "questions": [
+          {
+            "q": "What frequency is one octave above 300 Hz?",
+            "choices": [
+              "600 Hz",
+              "301 Hz",
+              "440 Hz",
+              "150 Hz"
+            ],
+            "answer": 0,
+            "explain": "An octave up doubles frequency, so 300 × 2 = 600 Hz."
+          },
+          {
+            "q": "In the stated linear model, doubling pressure amplitude changes intensity by what factor?",
+            "choices": [
+              "One half",
+              "Two",
+              "Eight",
+              "Four"
+            ],
+            "answer": 3,
+            "explain": "Intensity scales with amplitude squared, giving 2² = 4. This does not mean perceived loudness is four times greater."
+          }
+        ]
+      },
+      {
+        "id": "resonance",
+        "questions": [
+          {
+            "q": "An ideal 0.50 m fixed string has wave speed 100 m/s. What is its fundamental?",
+            "choices": [
+              "25 Hz",
+              "100 Hz",
+              "200 Hz",
+              "50 Hz"
+            ],
+            "answer": 1,
+            "explain": "Use 100/(2 × 0.50) = 100 Hz. Half a wavelength fits along the string in the fundamental."
+          },
+          {
+            "q": "What is displacement amplitude at an ideal node?",
+            "choices": [
+              "The maximum in the pattern",
+              "One wavelength",
+              "Zero",
+              "The wave speed"
+            ],
+            "answer": 2,
+            "explain": "A displacement node remains still in the ideal standing pattern. An antinode has maximum amplitude."
+          }
+        ]
+      }
+    ]
+  },
+  "slides": {
+    "sections": [
+      {
+        "id": "waves",
+        "title": "The pattern travels; air oscillates locally",
+        "bullets": [
+          "Wave speed equals cycles per second multiplied by distance per cycle.",
+          "Sound energy travels through a medium while its particles oscillate locally.",
+          "Wavelength equals v/f, so doubling frequency halves wavelength under the fixed-speed assumption."
+        ],
+        "notes": "Ordinary sound in air is a longitudinal pressure wave. Compressions and rarefactions travel while air parcels oscillate around their local positions. Energy moves from source to listener without the same parcel of air travelling the whole distance. Wavelength equals v/f, so doubling frequency halves wavelength under the fixed-speed assumption.",
+        "visual": "Picture a line of air parcels bobbing slightly left and right while a compression travels along the line. Follow one marked parcel to distinguish local motion from the travelling pattern."
+      },
+      {
+        "id": "timbre",
+        "title": "Three different questions about a note",
+        "bullets": [
+          "An octave corresponds to doubling or halving frequency.",
+          "Spectral content and the time envelope help distinguish instruments at the same pitch.",
+          "Their higher-frequency components, attack and decay differ, producing different timbres even at the same intended pitch."
+        ],
+        "notes": "For a pure tone, frequency strongly influences perceived pitch. A 2:1 frequency ratio corresponds to an octave: 220 Hz and 440 Hz are an octave apart. An octave is a ratio, not a fixed number of added hertz. Their higher-frequency components, attack and decay differ, producing different timbres even at the same intended pitch.",
+        "visual": "Picture closer-spaced cycles for higher frequency, taller cycles for greater amplitude, and a changing mixture of components for timbre. Keep these three changes separate."
+      },
+      {
+        "id": "resonance",
+        "title": "Boundaries select a standing pattern",
+        "bullets": [
+          "Ideal nodes have zero displacement amplitude and antinodes have maximum amplitude.",
+          "The ideal fundamental frequency is wave speed divided by twice the string length.",
+          "Different systems have different boundary conditions and mode patterns. A fixed string’s displacement nodes do not describe every air resonance."
+        ],
+        "notes": "Overlapping waves combine by interference. Depending on phase, they reinforce or partly cancel. Oppositely travelling waves can form an ideal standing pattern with displacement nodes that remain still and antinodes with maximum displacement amplitude. Different systems have different boundary conditions and mode patterns. A fixed string’s displacement nodes do not describe every air resonance.",
+        "visual": "Picture a string anchored at both ends. In the fundamental, the ends stay still while the centre moves most. Add a higher mode with an internal node and a shorter wavelength."
+      }
+    ]
+  },
+  "enrichment": {
+    "audioTitle": "Sound & Music: Waves, Pitch & Resonance — a conversation",
+    "turns": [
+      {
+        "speaker": "teacher",
+        "line": "Connect vibrating air to musical pitch, sound character and the standing waves selected by an instrument."
+      },
+      {
+        "speaker": "teacher",
+        "line": "The pattern travels; air oscillates locally. Wave speed equals cycles per second multiplied by distance per cycle. Sound energy travels through a medium while its particles oscillate locally."
+      },
+      {
+        "speaker": "student",
+        "line": "If frequency doubles and speed stays fixed, what happens to wavelength?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Wavelength equals v/f, so doubling frequency halves wavelength under the fixed-speed assumption."
+      },
+      {
+        "speaker": "student",
+        "line": "At 340 m/s, what wavelength does a 170 Hz tone have?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "2 m. Divide speed by frequency: 340/170 = 2 m. The resulting unit is metres."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Three different questions about a note. An octave corresponds to doubling or halving frequency. Spectral content and the time envelope help distinguish instruments at the same pitch."
+      },
+      {
+        "speaker": "student",
+        "line": "Why can a flute and piano sound different on the same note?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Their higher-frequency components, attack and decay differ, producing different timbres even at the same intended pitch."
+      },
+      {
+        "speaker": "student",
+        "line": "What frequency is one octave above 300 Hz?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "600 Hz. An octave up doubles frequency, so 300 × 2 = 600 Hz."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Boundaries select a standing pattern. Ideal nodes have zero displacement amplitude and antinodes have maximum amplitude. The ideal fundamental frequency is wave speed divided by twice the string length."
+      },
+      {
+        "speaker": "student",
+        "line": "Why should you not apply the fixed-string formula directly to every bottle?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Different systems have different boundary conditions and mode patterns. A fixed string’s displacement nodes do not describe every air resonance."
+      },
+      {
+        "speaker": "student",
+        "line": "An ideal 0.50 m fixed string has wave speed 100 m/s. What is its fundamental?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "100 Hz. Use 100/(2 × 0.50) = 100 Hz. Half a wavelength fits along the string in the fundamental."
+      },
+      {
+        "speaker": "teacher",
+        "line": "To review: Relate frequency, wavelength and speed. Separate pitch, amplitude and timbre. Calculate the fundamental frequency of an ideal fixed string."
+      }
+    ],
+    "nodes": [
+      {
+        "id": "root",
+        "parent": null,
+        "label": "Sound & Music: Waves, Pitch & Resonance",
+        "note": "Connect vibrating air to musical pitch, sound character and the standing waves selected by an instrument."
+      },
+      {
+        "id": "waves",
+        "parent": "root",
+        "label": "The pattern travels; air oscillates locally",
+        "note": "Wavelength equals v/f, so doubling frequency halves wavelength under the fixed-speed assumption."
+      },
+      {
+        "id": "waves-concept-1",
+        "parent": "waves",
+        "label": "Frequency and wavelength",
+        "note": "Wave speed equals cycles per second multiplied by distance per cycle."
+      },
+      {
+        "id": "waves-concept-2",
+        "parent": "waves",
+        "label": "Mechanical wave",
+        "note": "Sound energy travels through a medium while its particles oscillate locally."
+      },
+      {
+        "id": "timbre",
+        "parent": "root",
+        "label": "Three different questions about a note",
+        "note": "Their higher-frequency components, attack and decay differ, producing different timbres even at the same intended pitch."
+      },
+      {
+        "id": "timbre-concept-1",
+        "parent": "timbre",
+        "label": "Pitch",
+        "note": "An octave corresponds to doubling or halving frequency."
+      },
+      {
+        "id": "timbre-concept-2",
+        "parent": "timbre",
+        "label": "Timbre",
+        "note": "Spectral content and the time envelope help distinguish instruments at the same pitch."
+      },
+      {
+        "id": "resonance",
+        "parent": "root",
+        "label": "Boundaries select a standing pattern",
+        "note": "Different systems have different boundary conditions and mode patterns. A fixed string’s displacement nodes do not describe every air resonance."
+      },
+      {
+        "id": "resonance-concept-1",
+        "parent": "resonance",
+        "label": "Standing waves",
+        "note": "Ideal nodes have zero displacement amplitude and antinodes have maximum amplitude."
+      },
+      {
+        "id": "resonance-concept-2",
+        "parent": "resonance",
+        "label": "Fixed-string fundamental",
+        "note": "The ideal fundamental frequency is wave speed divided by twice the string length."
+      }
+    ],
+    "mnemonics": []
+  },
+  "sources": [
+    {
+      "title": "OpenStax — Standing waves and resonance",
+      "url": "https://openstax.org/books/university-physics-volume-1/pages/16-6-standing-waves-and-resonance"
+    },
+    {
+      "title": "OpenStax — Sound interference and resonance",
+      "url": "https://openstax.org/books/college-physics-2e/pages/17-5-sound-interference-and-resonance-standing-waves-in-air-columns"
+    }
+  ]
+}

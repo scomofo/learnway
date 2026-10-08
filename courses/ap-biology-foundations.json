@@ -1,0 +1,365 @@
+{
+  "meta": {
+    "title": "AP Biology: Cells, Energy & Inheritance",
+    "topic": "AP Biology",
+    "level": "advanced",
+    "interests": "",
+    "depth": "quick",
+    "model": "Learnway authored starter",
+    "createdAt": "2026-10-08T00:00:00.000Z",
+    "version": 1
+  },
+  "plan": {
+    "title": "AP Biology: Cells, Energy & Inheritance",
+    "hook": "Connect membrane transport, enzymes and inheritance in a focused AP-level introduction. This sampler is not a complete AP course or an official College Board resource.",
+    "objectives": [
+      "Predict water movement using membrane permeability and pressure.",
+      "Distinguish reaction rate from equilibrium.",
+      "Calculate a genetic probability while stating its assumptions."
+    ],
+    "prerequisites": [
+      "Basic cell structure",
+      "Fractions and simple probability"
+    ],
+    "sections": [
+      {
+        "id": "membranes",
+        "heading": "A boundary that does useful work",
+        "points": [
+          "Which substances can cross determines what gradients a membrane can maintain.",
+          "Water movement depends on pressure and the concentration of solutes that cannot cross.",
+          "No. Random molecular motion continues, while equal opposing flows give no net concentration change."
+        ]
+      },
+      {
+        "id": "enzymes",
+        "heading": "Lower the barrier, keep the destination",
+        "points": [
+          "Enzymes increase reaction rate by providing a lower-barrier pathway.",
+          "The free-energy change of the combined process determines whether ATP coupling can drive it.",
+          "No. Catalysis changes the rate, not the reaction’s overall free-energy difference or equilibrium position."
+        ]
+      },
+      {
+        "id": "inheritance",
+        "heading": "Count alleles before predicting traits",
+        "points": [
+          "An Aa parent contributes A or a with equal probability in the simple Mendelian model.",
+          "Complete dominance gives the heterozygote the dominant phenotype without implying allele frequency or fitness.",
+          "With complete dominance, both AA and Aa show the dominant phenotype. The genotype ratio is 1:2:1."
+        ]
+      }
+    ]
+  },
+  "reading": {
+    "sections": [
+      {
+        "id": "membranes",
+        "heading": "A boundary that does useful work",
+        "body": "A cell membrane is selectively permeable. Small nonpolar molecules can cross its lipid interior readily; ions generally need suitable transport proteins. A boundary is useful because it can maintain different conditions inside and outside a cell.\n\nDiffusion produces net movement down a concentration gradient. Facilitated diffusion uses a channel or carrier to move material down its electrochemical gradient without directly spending cellular energy. A protein-assisted process is not automatically active transport. At equilibrium, molecules still move; opposing flows balance.\n\nOsmosis is water movement across a selectively permeable membrane. With equal initial pressure, water tends to move toward the side with more solute that cannot cross. A cell in a hypertonic solution therefore initially loses water. Pressure and solute permeability matter: “water always follows any solute” is too broad. In a tissue experiment, keep temperature and exposure time fixed while varying the surrounding solution.",
+        "visual": "Picture two rooms joined by water-sized doors. One contains more large particles that cannot cross. Water shifts toward that room until concentration and pressure effects balance; the particles are not pulling water with little ropes.",
+        "questions": [
+          {
+            "q": "Has diffusion stopped when opposing flows become equal?",
+            "hint": "Separate molecular movement from net movement.",
+            "answer": "No. Random molecular motion continues, while equal opposing flows give no net concentration change."
+          }
+        ]
+      },
+      {
+        "id": "enzymes",
+        "heading": "Lower the barrier, keep the destination",
+        "body": "A reaction can be energetically favourable yet slow. Reactants must pass through a transition state, and the activation barrier limits how frequently they succeed. An enzyme supplies a pathway with a lower barrier, increasing reaction rate under suitable conditions.\n\nCatalysis does not change the overall free-energy difference or shift equilibrium. It speeds the approach to equilibrium, and the enzyme is regenerated during each catalytic cycle. Its molecular shape and environment matter: pH or temperature changes can alter activity, and sufficiently disruptive conditions can damage its structure.\n\nATP hydrolysis can help drive another process when the reactions are mechanistically coupled and the combined free-energy change is favourable. Breaking a bond alone costs energy; the energy balance belongs to the complete reaction. Likewise, a flattening rate curve at high substrate concentration can reflect occupied enzyme active sites, not an enzyme that has “run out of energy.”",
+        "visual": "Picture two valleys connected by a high mountain pass. An enzyme opens a lower pass between the same valleys. It changes the barrier along the route without lifting either endpoint.",
+        "questions": [
+          {
+            "q": "Would adding an enzyme make an unfavourable reaction favourable?",
+            "hint": "Compare the barrier with the difference between endpoints.",
+            "answer": "No. Catalysis changes the rate, not the reaction’s overall free-energy difference or equilibrium position."
+          }
+        ]
+      },
+      {
+        "id": "inheritance",
+        "heading": "Count alleles before predicting traits",
+        "body": "At a diploid locus, an individual generally has two alleles, one inherited from each parent. In a simple Mendelian model, an Aa parent produces A and a gametes with equal probability. For an Aa × Aa cross, the four equally likely combinations are AA, Aa, aA and aa.\n\nCombining Aa and aA gives a genotype ratio of 1 AA : 2 Aa : 1 aa. With complete dominance, AA and Aa share the dominant phenotype, producing a 3:1 phenotype ratio. Dominance concerns expression in a heterozygote; it does not mean an allele is common, beneficial or stronger.\n\nFor independent offspring under the same model, the probability that two offspring are both aa is 1/4 × 1/4 = 1/16. A previous outcome does not force the next. Extending multiplication to different genes requires justified independence: linked loci and other biological complications can violate the simplest classroom assumptions.",
+        "visual": "Picture a two-by-two grid with A and a across the top and down the side. Each square combines one allele from each parent. Colour the three dominant-phenotype squares together while keeping their genotypes visible.",
+        "questions": [
+          {
+            "q": "Why does a 3:1 phenotype ratio not mean all dominant-looking offspring are AA?",
+            "hint": "Two different genotypes can have the same phenotype.",
+            "answer": "With complete dominance, both AA and Aa show the dominant phenotype. The genotype ratio is 1:2:1."
+          }
+        ]
+      }
+    ]
+  },
+  "quizzes": {
+    "sections": [
+      {
+        "id": "membranes",
+        "questions": [
+          {
+            "q": "At equal initial pressure, a cell meets a solution with more nonpenetrating solute outside. What is the initial net water movement?",
+            "choices": [
+              "Into the cell",
+              "Out of the cell",
+              "No molecular motion",
+              "Only solute moves"
+            ],
+            "answer": 1,
+            "explain": "Water initially moves outward toward the higher concentration of nonpenetrating solute. Water still moves both ways, but the net flow is outward."
+          },
+          {
+            "q": "A channel lets ions travel down their electrochemical gradient without ATP use. What is this?",
+            "choices": [
+              "Primary active transport",
+              "DNA replication",
+              "Facilitated diffusion",
+              "Movement against the gradient"
+            ],
+            "answer": 2,
+            "explain": "A protein-assisted downhill movement is facilitated diffusion. Protein involvement alone does not make transport active."
+          }
+        ]
+      },
+      {
+        "id": "enzymes",
+        "questions": [
+          {
+            "q": "What changes when an enzyme catalyses a reaction?",
+            "choices": [
+              "The equilibrium constant at fixed temperature",
+              "The identity of every product",
+              "The total free-energy difference",
+              "The activation barrier along the pathway"
+            ],
+            "answer": 3,
+            "explain": "The enzyme provides a lower-barrier route. It does not change the reaction endpoints or equilibrium constant at fixed temperature."
+          },
+          {
+            "q": "Why might reaction rate level off as substrate rises with fixed enzyme concentration?",
+            "choices": [
+              "Most active sites are occupied",
+              "Equilibrium has become impossible",
+              "The enzyme is a consumed fuel",
+              "All molecular motion stops"
+            ],
+            "answer": 0,
+            "explain": "Saturation limits how much additional substrate can increase the rate when available active sites are already occupied."
+          }
+        ]
+      },
+      {
+        "id": "inheritance",
+        "questions": [
+          {
+            "q": "In the stated Aa × Aa model, what fraction of offspring are heterozygous?",
+            "choices": [
+              "1/4",
+              "1/2",
+              "3/4",
+              "All"
+            ],
+            "answer": 1,
+            "explain": "Two of the four equally likely allele combinations are heterozygous. The 3/4 value describes the dominant phenotype, not the heterozygous genotype."
+          },
+          {
+            "q": "Two independent offspring from this cross are both aa with what probability?",
+            "choices": [
+              "1/2",
+              "1/4",
+              "1/8",
+              "1/16"
+            ],
+            "answer": 3,
+            "explain": "Each has probability 1/4 of aa. Independence lets us multiply: 1/4 × 1/4 = 1/16."
+          }
+        ]
+      }
+    ]
+  },
+  "slides": {
+    "sections": [
+      {
+        "id": "membranes",
+        "title": "A boundary that does useful work",
+        "bullets": [
+          "Which substances can cross determines what gradients a membrane can maintain.",
+          "Water movement depends on pressure and the concentration of solutes that cannot cross.",
+          "No. Random molecular motion continues, while equal opposing flows give no net concentration change."
+        ],
+        "notes": "A cell membrane is selectively permeable. Small nonpolar molecules can cross its lipid interior readily; ions generally need suitable transport proteins. A boundary is useful because it can maintain different conditions inside and outside a cell. No. Random molecular motion continues, while equal opposing flows give no net concentration change.",
+        "visual": "Picture two rooms joined by water-sized doors. One contains more large particles that cannot cross. Water shifts toward that room until concentration and pressure effects balance; the particles are not pulling water with little ropes."
+      },
+      {
+        "id": "enzymes",
+        "title": "Lower the barrier, keep the destination",
+        "bullets": [
+          "Enzymes increase reaction rate by providing a lower-barrier pathway.",
+          "The free-energy change of the combined process determines whether ATP coupling can drive it.",
+          "No. Catalysis changes the rate, not the reaction’s overall free-energy difference or equilibrium position."
+        ],
+        "notes": "A reaction can be energetically favourable yet slow. Reactants must pass through a transition state, and the activation barrier limits how frequently they succeed. An enzyme supplies a pathway with a lower barrier, increasing reaction rate under suitable conditions. No. Catalysis changes the rate, not the reaction’s overall free-energy difference or equilibrium position.",
+        "visual": "Picture two valleys connected by a high mountain pass. An enzyme opens a lower pass between the same valleys. It changes the barrier along the route without lifting either endpoint."
+      },
+      {
+        "id": "inheritance",
+        "title": "Count alleles before predicting traits",
+        "bullets": [
+          "An Aa parent contributes A or a with equal probability in the simple Mendelian model.",
+          "Complete dominance gives the heterozygote the dominant phenotype without implying allele frequency or fitness.",
+          "With complete dominance, both AA and Aa show the dominant phenotype. The genotype ratio is 1:2:1."
+        ],
+        "notes": "At a diploid locus, an individual generally has two alleles, one inherited from each parent. In a simple Mendelian model, an Aa parent produces A and a gametes with equal probability. For an Aa × Aa cross, the four equally likely combinations are AA, Aa, aA and aa. With complete dominance, both AA and Aa show the dominant phenotype. The genotype ratio is 1:2:1.",
+        "visual": "Picture a two-by-two grid with A and a across the top and down the side. Each square combines one allele from each parent. Colour the three dominant-phenotype squares together while keeping their genotypes visible."
+      }
+    ]
+  },
+  "enrichment": {
+    "audioTitle": "AP Biology: Cells, Energy & Inheritance — a conversation",
+    "turns": [
+      {
+        "speaker": "teacher",
+        "line": "Connect membrane transport, enzymes and inheritance in a focused AP-level introduction. This sampler is not a complete AP course or an official College Board resource."
+      },
+      {
+        "speaker": "teacher",
+        "line": "A boundary that does useful work. Which substances can cross determines what gradients a membrane can maintain. Water movement depends on pressure and the concentration of solutes that cannot cross."
+      },
+      {
+        "speaker": "student",
+        "line": "Has diffusion stopped when opposing flows become equal?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "No. Random molecular motion continues, while equal opposing flows give no net concentration change."
+      },
+      {
+        "speaker": "student",
+        "line": "At equal initial pressure, a cell meets a solution with more nonpenetrating solute outside. What is the initial net water movement?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Out of the cell. Water initially moves outward toward the higher concentration of nonpenetrating solute. Water still moves both ways, but the net flow is outward."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Lower the barrier, keep the destination. Enzymes increase reaction rate by providing a lower-barrier pathway. The free-energy change of the combined process determines whether ATP coupling can drive it."
+      },
+      {
+        "speaker": "student",
+        "line": "Would adding an enzyme make an unfavourable reaction favourable?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "No. Catalysis changes the rate, not the reaction’s overall free-energy difference or equilibrium position."
+      },
+      {
+        "speaker": "student",
+        "line": "What changes when an enzyme catalyses a reaction?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "The activation barrier along the pathway. The enzyme provides a lower-barrier route. It does not change the reaction endpoints or equilibrium constant at fixed temperature."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Count alleles before predicting traits. An Aa parent contributes A or a with equal probability in the simple Mendelian model. Complete dominance gives the heterozygote the dominant phenotype without implying allele frequency or fitness."
+      },
+      {
+        "speaker": "student",
+        "line": "Why does a 3:1 phenotype ratio not mean all dominant-looking offspring are AA?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "With complete dominance, both AA and Aa show the dominant phenotype. The genotype ratio is 1:2:1."
+      },
+      {
+        "speaker": "student",
+        "line": "In the stated Aa × Aa model, what fraction of offspring are heterozygous?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "1/2. Two of the four equally likely allele combinations are heterozygous. The 3/4 value describes the dominant phenotype, not the heterozygous genotype."
+      },
+      {
+        "speaker": "teacher",
+        "line": "To review: Predict water movement using membrane permeability and pressure. Distinguish reaction rate from equilibrium. Calculate a genetic probability while stating its assumptions."
+      }
+    ],
+    "nodes": [
+      {
+        "id": "root",
+        "parent": null,
+        "label": "AP Biology: Cells, Energy & Inheritance",
+        "note": "Connect membrane transport, enzymes and inheritance in a focused AP-level introduction. This sampler is not a complete AP course or an official College Board resource."
+      },
+      {
+        "id": "membranes",
+        "parent": "root",
+        "label": "A boundary that does useful work",
+        "note": "No. Random molecular motion continues, while equal opposing flows give no net concentration change."
+      },
+      {
+        "id": "membranes-concept-1",
+        "parent": "membranes",
+        "label": "Selective permeability",
+        "note": "Which substances can cross determines what gradients a membrane can maintain."
+      },
+      {
+        "id": "membranes-concept-2",
+        "parent": "membranes",
+        "label": "Osmosis",
+        "note": "Water movement depends on pressure and the concentration of solutes that cannot cross."
+      },
+      {
+        "id": "enzymes",
+        "parent": "root",
+        "label": "Lower the barrier, keep the destination",
+        "note": "No. Catalysis changes the rate, not the reaction’s overall free-energy difference or equilibrium position."
+      },
+      {
+        "id": "enzymes-concept-1",
+        "parent": "enzymes",
+        "label": "Activation barrier",
+        "note": "Enzymes increase reaction rate by providing a lower-barrier pathway."
+      },
+      {
+        "id": "enzymes-concept-2",
+        "parent": "enzymes",
+        "label": "Energy coupling",
+        "note": "The free-energy change of the combined process determines whether ATP coupling can drive it."
+      },
+      {
+        "id": "inheritance",
+        "parent": "root",
+        "label": "Count alleles before predicting traits",
+        "note": "With complete dominance, both AA and Aa show the dominant phenotype. The genotype ratio is 1:2:1."
+      },
+      {
+        "id": "inheritance-concept-1",
+        "parent": "inheritance",
+        "label": "Segregation",
+        "note": "An Aa parent contributes A or a with equal probability in the simple Mendelian model."
+      },
+      {
+        "id": "inheritance-concept-2",
+        "parent": "inheritance",
+        "label": "Dominance",
+        "note": "Complete dominance gives the heterozygote the dominant phenotype without implying allele frequency or fitness."
+      }
+    ],
+    "mnemonics": []
+  },
+  "sources": [
+    {
+      "title": "College Board — AP Biology course scope",
+      "url": "https://apcentral.collegeboard.org/courses/ap-biology"
+    },
+    {
+      "title": "OpenStax — Passive transport",
+      "url": "https://openstax.org/books/biology-2e/pages/5-2-passive-transport"
+    }
+  ]
+}

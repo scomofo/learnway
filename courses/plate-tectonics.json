@@ -1,0 +1,365 @@
+{
+  "meta": {
+    "title": "Plate Tectonics: A Moving Planet",
+    "topic": "Plate Tectonics",
+    "level": "beginner",
+    "interests": "",
+    "depth": "quick",
+    "model": "Learnway authored starter",
+    "createdAt": "2026-10-08T00:00:07.000Z",
+    "version": 1
+  },
+  "plan": {
+    "title": "Plate Tectonics: A Moving Planet",
+    "hook": "Connect slow plate motion to new crust, mountain building and sudden earthquakes.",
+    "objectives": [
+      "Describe what a tectonic plate contains.",
+      "Compare three boundary motions.",
+      "Distinguish earthquake magnitude, intensity and prediction."
+    ],
+    "prerequisites": [
+      "Basic Earth layers",
+      "Distance and time units"
+    ],
+    "sections": [
+      {
+        "id": "plates",
+        "heading": "The moving pieces include more than crust",
+        "points": [
+          "A plate includes crust and rigid uppermost mantle and may carry both ocean and continent.",
+          "Small annual movements accumulate into large displacement over millions of years.",
+          "Lithospheric plates move, and the underlying mantle is mostly solid but slowly deformable. Plate outlines do not simply follow continents."
+        ]
+      },
+      {
+        "id": "boundaries",
+        "heading": "Pull apart, push together, slide past",
+        "points": [
+          "Plates can separate to form crust or converge through subduction or collision.",
+          "Sideways relative motion can generate earthquakes without forming a volcanic arc.",
+          "No. A transform fault can accumulate stress and generate earthquakes without a volcanic arc."
+        ]
+      },
+      {
+        "id": "earthquakes",
+        "heading": "Slow loading can release suddenly",
+        "points": [
+          "Locked faults can store strain before sudden slip releases seismic energy.",
+          "Source size differs from the local shaking effects experienced at different sites.",
+          "Ground conditions and wave paths change shaking, while buildings differ in vulnerability. Equal distance does not guarantee equal effects."
+        ]
+      }
+    ]
+  },
+  "reading": {
+    "sections": [
+      {
+        "id": "plates",
+        "heading": "The moving pieces include more than crust",
+        "body": "A tectonic plate is a piece of lithosphere: crust plus rigid uppermost mantle. It can carry oceanic crust, continental crust, or both. A coastline is therefore not necessarily a plate boundary.\n\nBelow the lithosphere, hotter mantle material can deform and flow over long timescales while remaining mostly solid. Plates do not float on a global ocean of liquid magma. Timescale matters: a material can respond rigidly to a quick disturbance yet deform under sustained stress.\n\nPlate motion reflects gravity and internal heat, including effects associated with sinking dense slabs, elevated ocean ridges and mantle flow. One cartoon conveyor belt cannot describe every detail.\n\nAt a hypothetical steady 3 cm/year, movement over 10 million years is 30 million centimetres, or 300 km. Small annual motion becomes enormous geological displacement. The constant rate and direction are simplifying assumptions, not a claim about every plate through time.",
+        "visual": "Picture a cracked shell whose pieces include both crust and a rigid mantle layer. Beneath it is hot, slowly deforming solid rock. Extend a tiny yearly motion arrow across millions of years.",
+        "questions": [
+          {
+            "q": "Why is “continents floating on liquid magma” misleading?",
+            "hint": "Correct both the moving object and the material below it.",
+            "answer": "Lithospheric plates move, and the underlying mantle is mostly solid but slowly deformable. Plate outlines do not simply follow continents."
+          }
+        ]
+      },
+      {
+        "id": "boundaries",
+        "heading": "Pull apart, push together, slide past",
+        "body": "At a divergent boundary, plates move apart. At mid-ocean ridges, rising mantle can partially melt as pressure decreases, and magma cools to create new oceanic crust. The gap does not expose Earth's core.\n\nAt a convergent boundary, plates approach. Dense oceanic lithosphere can descend at a subduction zone. Water released from the descending slab helps promote melting in the overlying mantle, feeding many volcanic arcs. Continental collision instead can produce extensive shortening and crustal thickening that build mountain ranges.\n\nAt a transform boundary, motion is mainly sideways. This idealised boundary motion does not systematically create or destroy crust, but faults can produce powerful earthquakes. A lack of volcanoes does not establish safety.\n\nReal boundary zones can be broad and complicated. Earthquake depths, volcanic patterns, topography and measured surface motion provide complementary evidence; a single landscape photograph rarely establishes the entire mechanism.",
+        "visual": "Picture three block pairs: separating, converging and sliding sideways. Add new crust at a ridge, a descending slab at one convergent boundary, and a fault along the sideways-moving pair.",
+        "questions": [
+          {
+            "q": "Does the absence of a volcanic chain prove a plate boundary is inactive?",
+            "hint": "Consider transform motion.",
+            "answer": "No. A transform fault can accumulate stress and generate earthquakes without a volcanic arc."
+          }
+        ]
+      },
+      {
+        "id": "earthquakes",
+        "heading": "Slow loading can release suddenly",
+        "body": "Friction can lock a fault while nearby rock slowly deforms under tectonic stress. When part of the fault slips, stored elastic energy is released as seismic waves. Long loading followed by abrupt slip explains how slow plate motion can produce sudden shaking.\n\nThe focus, or hypocentre, is where rupture starts underground. The epicentre is the surface point directly above it. Rupture can spread across a large fault area, so the earthquake is not confined to one mathematical point.\n\nMagnitude describes the earthquake's source size. Intensity describes shaking effects at a particular location. One earthquake can produce different intensities because distance, depth and ground conditions differ; building vulnerability also affects damage.\n\nScientists estimate hazards and probabilities, but cannot reliably predict the exact time, location and magnitude of a future earthquake. Preparedness remains useful despite that limit. A quiet period is neither proof of safety nor an exact countdown to a large event.",
+        "visual": "Picture rough elastic blocks slowly bending while a seam remains stuck. The seam slips and vibrations spread. Mark a starting focus underground and its epicentre directly above.",
+        "questions": [
+          {
+            "q": "Why can one earthquake cause different damage at two nearby places?",
+            "hint": "Separate source size, local shaking and building vulnerability.",
+            "answer": "Ground conditions and wave paths change shaking, while buildings differ in vulnerability. Equal distance does not guarantee equal effects."
+          }
+        ]
+      }
+    ]
+  },
+  "quizzes": {
+    "sections": [
+      {
+        "id": "plates",
+        "questions": [
+          {
+            "q": "What does a lithospheric plate contain?",
+            "choices": [
+              "Crust plus rigid uppermost mantle",
+              "Only dry land",
+              "Only liquid mantle",
+              "Only the ocean"
+            ],
+            "answer": 0,
+            "explain": "The lithosphere includes crust and uppermost rigid mantle; a plate can contain continental and oceanic regions."
+          },
+          {
+            "q": "At a steady 3 cm/year, how far does a plate move in 10 million years?",
+            "choices": [
+              "3 km",
+              "30 km",
+              "3,000 km",
+              "300 km"
+            ],
+            "answer": 3,
+            "explain": "The product is 30,000,000 cm. Dividing by 100,000 cm/km gives 300 km."
+          }
+        ]
+      },
+      {
+        "id": "boundaries",
+        "questions": [
+          {
+            "q": "What defines a transform boundary?",
+            "choices": [
+              "Direct separation",
+              "Mainly sideways relative motion",
+              "A continent evaporating",
+              "Every plate melting completely"
+            ],
+            "answer": 1,
+            "explain": "Transform boundaries accommodate mainly lateral motion. Earthquakes can occur without ridge-like crust production."
+          },
+          {
+            "q": "Which process forms new oceanic crust?",
+            "choices": [
+              "A river depositing beach sand",
+              "Every mountain-building process",
+              "Magma cooling near a spreading mid-ocean ridge",
+              "Any coastline shifting"
+            ],
+            "answer": 2,
+            "explain": "Partial melting beneath ridges supplies magma that can cool into new oceanic crust. Sediment deposition is different."
+          }
+        ]
+      },
+      {
+        "id": "earthquakes",
+        "questions": [
+          {
+            "q": "What is the epicentre?",
+            "choices": [
+              "Every point of a fault",
+              "The deepest mantle point",
+              "A mandatory volcano location",
+              "The surface point directly above the rupture’s start"
+            ],
+            "answer": 3,
+            "explain": "The underground starting location is the focus. The epicentre lies above it at the surface."
+          },
+          {
+            "q": "Which statement best reflects earthquake forecasting limits?",
+            "choices": [
+              "Hazard probabilities are useful, but exact future time, place and magnitude cannot be reliably predicted",
+              "Every fault repeats on an exact calendar",
+              "A quiet month guarantees a safe year",
+              "Intensity is identical everywhere"
+            ],
+            "answer": 0,
+            "explain": "Useful hazard estimates do not require precise event prediction. Fault behaviour and local shaking remain variable."
+          }
+        ]
+      }
+    ]
+  },
+  "slides": {
+    "sections": [
+      {
+        "id": "plates",
+        "title": "The moving pieces include more than crust",
+        "bullets": [
+          "A plate includes crust and rigid uppermost mantle and may carry both ocean and continent.",
+          "Small annual movements accumulate into large displacement over millions of years.",
+          "Lithospheric plates move, and the underlying mantle is mostly solid but slowly deformable. Plate outlines do not simply follow continents."
+        ],
+        "notes": "A tectonic plate is a piece of lithosphere: crust plus rigid uppermost mantle. It can carry oceanic crust, continental crust, or both. A coastline is therefore not necessarily a plate boundary. Lithospheric plates move, and the underlying mantle is mostly solid but slowly deformable. Plate outlines do not simply follow continents.",
+        "visual": "Picture a cracked shell whose pieces include both crust and a rigid mantle layer. Beneath it is hot, slowly deforming solid rock. Extend a tiny yearly motion arrow across millions of years."
+      },
+      {
+        "id": "boundaries",
+        "title": "Pull apart, push together, slide past",
+        "bullets": [
+          "Plates can separate to form crust or converge through subduction or collision.",
+          "Sideways relative motion can generate earthquakes without forming a volcanic arc.",
+          "No. A transform fault can accumulate stress and generate earthquakes without a volcanic arc."
+        ],
+        "notes": "At a divergent boundary, plates move apart. At mid-ocean ridges, rising mantle can partially melt as pressure decreases, and magma cools to create new oceanic crust. The gap does not expose Earth's core. No. A transform fault can accumulate stress and generate earthquakes without a volcanic arc.",
+        "visual": "Picture three block pairs: separating, converging and sliding sideways. Add new crust at a ridge, a descending slab at one convergent boundary, and a fault along the sideways-moving pair."
+      },
+      {
+        "id": "earthquakes",
+        "title": "Slow loading can release suddenly",
+        "bullets": [
+          "Locked faults can store strain before sudden slip releases seismic energy.",
+          "Source size differs from the local shaking effects experienced at different sites.",
+          "Ground conditions and wave paths change shaking, while buildings differ in vulnerability. Equal distance does not guarantee equal effects."
+        ],
+        "notes": "Friction can lock a fault while nearby rock slowly deforms under tectonic stress. When part of the fault slips, stored elastic energy is released as seismic waves. Long loading followed by abrupt slip explains how slow plate motion can produce sudden shaking. Ground conditions and wave paths change shaking, while buildings differ in vulnerability. Equal distance does not guarantee equal effects.",
+        "visual": "Picture rough elastic blocks slowly bending while a seam remains stuck. The seam slips and vibrations spread. Mark a starting focus underground and its epicentre directly above."
+      }
+    ]
+  },
+  "enrichment": {
+    "audioTitle": "Plate Tectonics: A Moving Planet — a conversation",
+    "turns": [
+      {
+        "speaker": "teacher",
+        "line": "Connect slow plate motion to new crust, mountain building and sudden earthquakes."
+      },
+      {
+        "speaker": "teacher",
+        "line": "The moving pieces include more than crust. A plate includes crust and rigid uppermost mantle and may carry both ocean and continent. Small annual movements accumulate into large displacement over millions of years."
+      },
+      {
+        "speaker": "student",
+        "line": "Why is “continents floating on liquid magma” misleading?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Lithospheric plates move, and the underlying mantle is mostly solid but slowly deformable. Plate outlines do not simply follow continents."
+      },
+      {
+        "speaker": "student",
+        "line": "What does a lithospheric plate contain?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Crust plus rigid uppermost mantle. The lithosphere includes crust and uppermost rigid mantle; a plate can contain continental and oceanic regions."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Pull apart, push together, slide past. Plates can separate to form crust or converge through subduction or collision. Sideways relative motion can generate earthquakes without forming a volcanic arc."
+      },
+      {
+        "speaker": "student",
+        "line": "Does the absence of a volcanic chain prove a plate boundary is inactive?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "No. A transform fault can accumulate stress and generate earthquakes without a volcanic arc."
+      },
+      {
+        "speaker": "student",
+        "line": "What defines a transform boundary?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Mainly sideways relative motion. Transform boundaries accommodate mainly lateral motion. Earthquakes can occur without ridge-like crust production."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Slow loading can release suddenly. Locked faults can store strain before sudden slip releases seismic energy. Source size differs from the local shaking effects experienced at different sites."
+      },
+      {
+        "speaker": "student",
+        "line": "Why can one earthquake cause different damage at two nearby places?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Ground conditions and wave paths change shaking, while buildings differ in vulnerability. Equal distance does not guarantee equal effects."
+      },
+      {
+        "speaker": "student",
+        "line": "What is the epicentre?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "The surface point directly above the rupture’s start. The underground starting location is the focus. The epicentre lies above it at the surface."
+      },
+      {
+        "speaker": "teacher",
+        "line": "To review: Describe what a tectonic plate contains. Compare three boundary motions. Distinguish earthquake magnitude, intensity and prediction."
+      }
+    ],
+    "nodes": [
+      {
+        "id": "root",
+        "parent": null,
+        "label": "Plate Tectonics: A Moving Planet",
+        "note": "Connect slow plate motion to new crust, mountain building and sudden earthquakes."
+      },
+      {
+        "id": "plates",
+        "parent": "root",
+        "label": "The moving pieces include more than crust",
+        "note": "Lithospheric plates move, and the underlying mantle is mostly solid but slowly deformable. Plate outlines do not simply follow continents."
+      },
+      {
+        "id": "plates-concept-1",
+        "parent": "plates",
+        "label": "Lithosphere",
+        "note": "A plate includes crust and rigid uppermost mantle and may carry both ocean and continent."
+      },
+      {
+        "id": "plates-concept-2",
+        "parent": "plates",
+        "label": "Geological timescale",
+        "note": "Small annual movements accumulate into large displacement over millions of years."
+      },
+      {
+        "id": "boundaries",
+        "parent": "root",
+        "label": "Pull apart, push together, slide past",
+        "note": "No. A transform fault can accumulate stress and generate earthquakes without a volcanic arc."
+      },
+      {
+        "id": "boundaries-concept-1",
+        "parent": "boundaries",
+        "label": "Divergence and convergence",
+        "note": "Plates can separate to form crust or converge through subduction or collision."
+      },
+      {
+        "id": "boundaries-concept-2",
+        "parent": "boundaries",
+        "label": "Transform boundary",
+        "note": "Sideways relative motion can generate earthquakes without forming a volcanic arc."
+      },
+      {
+        "id": "earthquakes",
+        "parent": "root",
+        "label": "Slow loading can release suddenly",
+        "note": "Ground conditions and wave paths change shaking, while buildings differ in vulnerability. Equal distance does not guarantee equal effects."
+      },
+      {
+        "id": "earthquakes-concept-1",
+        "parent": "earthquakes",
+        "label": "Elastic strain",
+        "note": "Locked faults can store strain before sudden slip releases seismic energy."
+      },
+      {
+        "id": "earthquakes-concept-2",
+        "parent": "earthquakes",
+        "label": "Magnitude and intensity",
+        "note": "Source size differs from the local shaking effects experienced at different sites."
+      }
+    ],
+    "mnemonics": []
+  },
+  "sources": [
+    {
+      "title": "USGS — This Dynamic Planet",
+      "url": "https://pubs.usgs.gov/imap/2800/"
+    },
+    {
+      "title": "USGS — What causes earthquakes?",
+      "url": "https://www.usgs.gov/faqs/what-earthquake-and-what-causes-them-happen"
+    }
+  ]
+}

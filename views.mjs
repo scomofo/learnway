@@ -6,16 +6,20 @@ export function esc(s) {
   return String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 }
 
-export function renderSources(course) {
-  if (!Array.isArray(course?.sources)) return '';
-  const links = course.sources.flatMap(source => {
+function courseSources(course) {
+  if (!Array.isArray(course?.sources)) return [];
+  return course.sources.flatMap(source => {
     if (!source || typeof source.title !== 'string' || !source.title.trim() || typeof source.url !== 'string') return [];
     try {
       const url = new URL(source.url);
       if (!['https:', 'http:'].includes(url.protocol) || url.username || url.password) return [];
-      return [`<li><a href="${esc(url.href)}" target="_blank" rel="noopener noreferrer">${esc(source.title)}</a></li>`];
+      return [{ title: source.title, url: url.href }];
     } catch { return []; }
   });
+}
+
+export function renderSources(course) {
+  const links = courseSources(course).map(source => `<li><a href="${esc(source.url)}" target="_blank" rel="noopener noreferrer">${esc(source.title)}</a></li>`);
   return links.length ? `<section class="card course-sources" aria-label="Further reading"><h2>Further reading</h2><ul>${links.join('')}</ul></section>` : '';
 }
 
@@ -106,7 +110,7 @@ export function courseToMarkdown(course) {
       lines.push(s.body);
       lines.push('');
       if (s.visual) {
-        lines.push(`*Visual representation:* ${s.visual}`);
+        lines.push('*Visual representation:*', '', s.visual);
         lines.push('');
       }
       if (s.questions?.length) {
@@ -152,6 +156,7 @@ export function courseToMarkdown(course) {
       lines.push(`### ${s.title}`);
       for (const b of s.bullets) lines.push(`- ${b}`);
       if (s.notes) lines.push(`\n*Speaker Notes:* ${s.notes}`);
+      if (s.visual) lines.push('', '*Visual representation:*', '', s.visual);
       lines.push('');
     }
   }
@@ -166,6 +171,12 @@ export function courseToMarkdown(course) {
     }
   }
 
+  const sources = courseSources(course);
+  if (sources.length) {
+    lines.push('## Further reading', '');
+    for (const source of sources) lines.push(`- ${source.title.replace(/[\r\n]/g, ' ')}: <${source.url}>`);
+    lines.push('');
+  }
   return lines.join('\n');
 }
 

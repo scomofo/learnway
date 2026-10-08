@@ -295,7 +295,7 @@ Follow this approved plan exactly — same section ids, headings, and points:
 ${digest}
 
 For each section: a narrative body (markdown, 250-450 words) that teaches the points in order, opening with the single most surprising or important idea. Weave in the learner's interests for analogies. End each section with 2 embedded check-in questions (with answers and hints).
-Every section must also include a visual explanation element (the "visual" field): make the section's key idea seeable — a concrete scene to picture, a visual analogy drawn from the learner's interests, or a simple labeled text diagram. Be specific enough to sketch; never a generic "imagine a graph".`,
+Every section must also include a visual explanation element (the "visual" field): make the section's key idea seeable — a concrete scene to picture, a visual analogy drawn from the learner's interests, or a simple labeled text diagram. Be specific enough to sketch; never a generic "imagine a graph". Wrap text diagrams in Markdown fences labelled text to preserve alignment; place explanations outside the fence.`,
     schema: SCHEMAS.reading, maxTokens: 16384,
   });
   requireValidPart('reading', reading, plan);
@@ -328,7 +328,7 @@ Sections:
 ${digest}
 
 For each section: a slide title, 5-7 tight bullets (the skeleton of a 5-minute lecture segment), and speaker notes — the conversational 60-second spoken version of those bullets, as if explaining to a smart friend.
-Every slide also carries a "visual" cue: the one scene, diagram, or visual analogy the learner should picture while hearing these bullets.`,
+Every slide also carries a "visual" cue: the one scene, diagram, or visual analogy the learner should picture while hearing these bullets. Wrap text diagrams in Markdown fences labelled text to preserve alignment; place explanations outside the fence.`,
     schema: SCHEMAS.slides, maxTokens: 8192,
   });
   requireValidPart('slides', slides, plan);
