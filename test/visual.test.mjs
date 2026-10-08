@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { validateCourse } from '../pipeline.mjs';
 import { renderView } from '../views.mjs';
+import { getFlashcards } from '../views.mjs';
 
 const fixture = JSON.parse(await readFile(new URL('../sample-course.json', import.meta.url)));
 
@@ -41,4 +42,20 @@ test('non-string visual fails validation', () => {
   course.reading.sections[0].visual = { text: 'not a string' };
   const problems = validateCourse(course);
   assert.ok(problems.some(p => p.includes('visual')), `expected a visual problem, got: ${problems.join('; ')}`);
+});
+
+test('flashcard deck includes a Visual card for each section visual', () => {
+  const course = JSON.parse(JSON.stringify(fixture));
+  course.reading.sections[0].visual = 'Picture a crowded elevator.';
+  course.reading.sections[0].heading = 'Fields';
+  const cards = getFlashcards(course);
+  const visual = cards.filter(c => c.category === 'Visual');
+  assert.equal(visual.length, 1);
+  assert.ok(visual[0].front.includes('Picture this'), 'front prompts visualization');
+  assert.ok(visual[0].back.includes('crowded elevator'), 'back carries the visual text');
+});
+
+test('flashcard deck has no Visual cards when sections lack visuals', () => {
+  const cards = getFlashcards(fixture);
+  assert.ok(cards.every(c => c.category !== 'Visual'), 'no visual cards without visuals');
 });

@@ -418,6 +418,14 @@ export function getFlashcards(course) {
           });
         }
       }
+      if (s.visual) {
+        cards.push({
+          front: `Picture this: ${s.heading || 'a key idea'}`,
+          back: s.visual,
+          hint: '',
+          category: 'Visual'
+        });
+      }
     }
   }
   if (course?.enrichment?.mnemonics) {
