@@ -76,6 +76,7 @@ async function callGemini({ apiKey, model, system, user, schema, maxTokens, temp
   }
   if (res.status === 401 || res.status === 403) throw new PipelineError('API key rejected. Check the key in Settings — grab a fresh one from Google AI Studio.', 'bad-key');
   if (res.status === 429) throw new PipelineError('Rate limit hit. Wait a minute and try again.', 'rate-limit');
+  if (res.status === 402) throw new PipelineError('Gemini API wants billing (402): enable billing on the Google Cloud project behind your key, or wait for the free quota to reset.', 'billing');
   if (!res.ok) throw new PipelineError(`Gemini API returned ${res.status}. Try again in a bit.`, 'api');
   const data = await res.json();
   const block = data?.promptFeedback?.blockReason;

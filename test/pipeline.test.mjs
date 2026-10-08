@@ -70,3 +70,8 @@ test('HTTP 400 distinguishes request errors from rejected API keys', async t => 
   globalThis.fetch = async () => ({ status: 400, text: async () => 'API key not valid' });
   await assert.rejects(generatePlan(input), error => error.code === 'bad-key');
 });
+
+test('HTTP 402 explains the billing requirement', async t => {
+  t.mock.method(globalThis, 'fetch', async () => ({ status: 402, ok: false }));
+  await assert.rejects(generatePlan(input), error => error instanceof PipelineError && error.code === 'billing' && /billing/i.test(error.message));
+});
