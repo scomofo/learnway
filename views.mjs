@@ -3,6 +3,8 @@
 'use strict';
 
 import { sanitizeDiagram } from './pipeline.mjs';
+import { wireDiagrams } from './diagram-player.mjs';
+export { disposeDiagrams } from './diagram-player.mjs';
 
 export function esc(s) {
   return String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -89,7 +91,17 @@ export function diagramFigure(s, cls = '') {
   const classes = cls ? `diagram ${cls}` : 'diagram';
   if (svg) {
     const caption = s.visual ? `<figcaption class="diagram-caption">${md(s.visual)}</figcaption>` : '';
-    return `<figure class="${classes}"><div class="diagram-art">${svg}</div>${caption}</figure>`;
+    // Cards stay static: controls nested inside the flip button would be invalid.
+    if (cls === 'fc-diagram') return `<figure class="${classes}"><div class="diagram-art">${svg}</div>${caption}</figure>`;
+    const animated = /class="[^"]*\blw-(flow|rotate(?:-reverse-slow)?|orbit|exhaust|wave-ring(?:-late)?|fall|cone|air(?:-\d+)?|string(?:-\d+)?|engine-piston)\b/.test(svg);
+    const motion = animated ? `<div class="diagram-controls">
+      <button type="button" class="btn diagram-play" data-diagram-play aria-pressed="false">Play</button>
+      <label class="diagram-scrub">Inspect motion<input type="range" min="0" max="100" value="0" aria-label="Animation progress" data-diagram-seek></label>
+      <span class="diagram-status" data-diagram-status role="status">Paused · drag to inspect</span>
+    </div>` : '';
+    return `<figure class="${classes}" data-diagram>
+      <div class="diagram-toolbar"><span class="diagram-kind"><span class="diagram-dot" aria-hidden="true"></span>${animated ? 'Motion study' : 'Visual explanation'}</span><button type="button" class="btn ghost diagram-expand" data-diagram-expand aria-label="Enlarge illustration">Enlarge ↗</button></div>
+      <div class="diagram-art">${svg}</div>${motion}${caption}</figure>`;
   }
   if (s.visual) {
     const vclasses = cls ? `visual ${cls}` : 'visual';
@@ -316,7 +328,7 @@ export function renderSlides(course) {
   return `<div class="slides">` + course.slides.sections.map((s, i) => {
     const reading = readingById.get(s.id) || {};
     // The slide shows its reading section's diagram, captioned by the slide's own visual cue.
-    const fig = diagramFigure({ visual: s.visual, diagram: reading.diagram }, 'slide-visual');
+    const fig = diagramFigure({ ...reading, visual: reading.visual || s.visual }, 'slide-visual');
     return `
     <section class="card slide">
       <div class="slide-top"><span class="sec-num">${i + 1}</span><h3>${esc(s.title)}</h3></div>
@@ -674,4 +686,5 @@ export function wireView(name, root, course, options = {}) {
   if (name === 'quiz') wireQuiz(root);
   if (name === 'audio') wireAudio(root, course);
   if (name === 'flashcards') wireFlashcards(root, course);
+  if (name === 'reading' || name === 'slides') wireDiagrams(root);
 }

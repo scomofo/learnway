@@ -31,6 +31,33 @@ test('sanitizeDiagram strips external references and foreign content', () => {
   assert.ok(!clean.includes('href'), 'no hrefs');
 });
 
+test('SVG CSS and SMIL cannot change the app or load remote resources', () => {
+  const dirty = `<svg viewBox="0 0 800 400"><style>@import "https://example.com/track.css"; body{display:none}</style><rect x="5" y="5" width="50" height="50" style="fill:url(https://example.com/x)" fill="url(&#104;ttps://example.com/x)" class="btn lw-flow"/><animate attributeName="href" values="https://example.com/x"/><set attributeName="onload" to="evil()"/></svg>`;
+  const clean = sanitizeDiagram(dirty);
+  assert.ok(clean.includes('<rect'));
+  assert.doesNotMatch(clean, /style|@import|https:|animate|<set|class="btn/);
+  assert.match(clean, /class="lw-flow"/);
+});
+
+test('SVG sanitizer rejects nested roots, trailing markup and mismatched tags', () => {
+  for (const svg of [
+    '<svg><svg><text>x</text></svg></svg>',
+    '<svg><text>x</text></svg><svg></svg>',
+    '<svg><g><rect/></svg>',
+    '<svg><text>x</text></svg><div>outside</div>',
+  ]) assert.equal(sanitizeDiagram(svg), '');
+});
+
+test('viewer controls exist only for motion and never inside a flashcard', () => {
+  const animated = GOOD_SVG.replace('<rect ', '<rect class="lw-engine-piston" ');
+  const html = diagramFigure({ diagram: animated });
+  assert.match(html, /Animation progress/);
+  assert.match(html, /Enlarge illustration/);
+  assert.doesNotMatch(diagramFigure({ diagram: GOOD_SVG }), /data-diagram-play/);
+  const card = diagramFigure({ diagram: animated }, 'fc-diagram');
+  assert.doesNotMatch(card, /<button|<input/);
+});
+
 test('sanitizeDiagram rejects non-SVG, oversized, and javascript: payloads', () => {
   assert.equal(sanitizeDiagram('just a string'), '');
   assert.equal(sanitizeDiagram('<div>nope</div>'), '');
@@ -38,7 +65,7 @@ test('sanitizeDiagram rejects non-SVG, oversized, and javascript: payloads', () 
   // Dangerous hrefs are stripped, leaving safe output behind.
   const delinked = sanitizeDiagram(`<svg viewBox="0 0 1 1"><a href="javascript:alert(1)"><text>x</text></a></svg>`);
   assert.ok(!/javascript:/i.test(delinked), 'no javascript: URLs survive');
-  assert.equal(sanitizeDiagram('<svg viewBox="0 0 1 1">' + 'x'.repeat(12001) + '</svg>'), '');
+  assert.equal(sanitizeDiagram('<svg viewBox="0 0 1 1">' + 'x'.repeat(32001) + '</svg>'), '');
   assert.equal(sanitizeDiagram(null), '');
 });
 

@@ -12,7 +12,7 @@ const visualCue = 'Follow the aligned columns.\n```text\n' + diagram + '\n```';
 visualFixture.reading.sections[0].visual = visualCue;
 visualFixture.slides.sections[0].visual = visualCue;
 const bundled = JSON.parse(await readFile(new URL('../courses/index.json', import.meta.url)));
-const browser = await chromium.launch({ headless: true });
+const browser = await chromium.launch({ headless: true, ...(process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH } : {}) });
 const context = await browser.newContext({ viewport: { width: 1440, height: 1000 } });
 await context.addInitScript(() => { delete Array.prototype.toReversed; delete Object.hasOwn; });
 const page = await context.newPage();
@@ -31,6 +31,7 @@ await page.route('https://generativelanguage.googleapis.com/**', async route => 
 });
 
 // The brand's CSS ::before contributes a decorative diamond to its accessible name.
+const openCourse = title => page.locator('.lib-card').filter({ hasText: title }).getByRole('button', { name: 'Open course', exact: true }).click();
 const library = () => page.locator('.topbar').getByRole('button', { name: /Learnway$/ }).click();
 const settings = () => page.getByRole('button', { name: 'Settings', exact: true }).click();
 const storage = () => page.evaluate(() => localStorage.getItem('learnway:courses'));
@@ -54,7 +55,10 @@ const checkViews = async course => {
     assert.equal(await page.locator(selector).count(), count, name);
     if (name === 'Read' || name === 'Slides') {
       const sections = name === 'Read' ? course.reading.sections : course.slides.sections;
-      assert.equal(await page.locator('figure.visual').count(), sections.filter(s => s.visual).length);
+      const readingById = new Map(course.reading.sections.map(s => [s.id, s]));
+      const withDiagrams = sections.filter(s => name === 'Read' ? s.diagram : readingById.get(s.id)?.diagram);
+      assert.equal(await page.locator('figure.diagram').count(), withDiagrams.length);
+      assert.equal(await page.locator('figure.visual').count(), sections.filter(s => s.visual && !withDiagrams.includes(s)).length);
       if (sections.some(s => s.visual === visualCue)) {
         assert.equal(await page.locator('.code-block code').first().textContent(), diagram);
         const pre = page.locator('.code-block').first();
@@ -89,7 +93,8 @@ const checkViews = async course => {
 try {
   await page.goto(process.env.LEARNWAY_URL || 'http://127.0.0.1:8130');
   await page.getByRole('searchbox', { name: 'Search courses' }).fill('Six Ways');
-  await page.getByRole('button').filter({ hasText: 'Simple Machines: Six Ways' }).click();
+  await page.locator('.lib-card').filter({ hasText: 'Simple Machines: Six Ways' }).getByRole('button', { name: 'Details', exact: true }).click();
+  await page.getByRole('button', { name: 'Open course', exact: true }).click();
   await page.locator('h1').filter({ hasText: /^Simple Machines/ }).waitFor();
   assert.match(await page.locator('h1').textContent(), /^Simple Machines/);
   await library();
@@ -133,7 +138,7 @@ try {
   for (const entry of bundled) {
     const course = JSON.parse(await readFile(new URL('../' + entry.file, import.meta.url)));
     await library();
-    await page.getByRole('button').filter({ hasText: entry.title }).click();
+    await openCourse(entry.title);
     await page.locator('h1').filter({ hasText: course.meta.title }).waitFor();
     await checkViews(course);
   }
@@ -164,7 +169,7 @@ try {
   await page.locator('#set-err:not([hidden])').waitFor();
   assert.equal(await storage(), saved);
   await page.reload();
-  await page.getByRole('button').filter({ hasText: fixture.meta.title }).click();
+  await openCourse(fixture.meta.title);
   await checkViews(visualFixture);
   console.log('PASS: valid import/reload and invalid imports preserve the existing library');
 
@@ -195,10 +200,10 @@ try {
   assert.equal(calls, 3, 'invalid reading stops the remaining API calls');
   assert.equal(await storage(), saved);
 
-  replies.push(visualFixture.reading, fixture.quizzes, visualFixture.slides, fixture.enrichment);
+  replies.push(visualFixture.reading, fixture.quizzes, visualFixture.slides, fixture.enrichment, { diagrams: fixture.reading.sections.map(s => ({ id: s.id, svg: '<svg viewBox="0 0 800 400"><text x="40" y="40" font-size="20">Generated diagram</text><rect x="40" y="80" width="150" height="80" fill="#7cc7ff"/></svg>' })) });
   await page.getByRole('button', { name: 'Looks good — write it' }).click();
   await page.locator('h1').filter({ hasText: plan.title }).waitFor();
-  assert.equal(calls, 7, 'one valid plan plus four content calls, with two rejected attempts');
+  assert.equal(calls, 8, 'one valid plan plus five content calls, with two rejected attempts');
   const courses = JSON.parse(await storage());
   assert.equal(courses.length, 2);
   const generated = courses[0];
@@ -218,7 +223,7 @@ try {
   await page.locator('h1').filter({ hasText: plan.title }).waitFor();
   assert.equal(JSON.parse(await storage()).length, 2, 'reimport replaces the matching course');
   await page.reload();
-  await page.getByRole('button').filter({ hasText: plan.title }).click();
+  await openCourse(plan.title);
   await checkViews(generated);
   // A legacy malformed record must not prevent opening intact saved courses.
   await page.evaluate(() => {
@@ -231,7 +236,7 @@ try {
   assert.equal(await page.getByText('This saved course is incomplete and cannot be opened. Import a complete copy.', { exact: true }).count(), 2);
   assert.equal(await storage(), legacyLibrary, 'unreadable saved records must not be deleted');
   await page.getByRole('searchbox', { name: 'Search courses' }).fill(plan.title);
-  await page.getByRole('button').filter({ hasText: plan.title }).click();
+  await openCourse(plan.title);
   await checkViews(generated);
   assert.deepEqual(errors, [], 'browser must have no uncaught errors or duplicate requests');
   console.log('PASS: malformed-record search and diagram spacing/keyboard scrolling with recent convenience APIs disabled');

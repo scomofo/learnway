@@ -29,16 +29,20 @@ jobs:
       - name: Desktop browser acceptance (mocked Gemini)
         env:
           LEARNWAY_SCREENSHOT: /tmp/learnway-acceptance.png
+          LEARNWAY_VISUAL_OUTPUT: /tmp/learnway-visuals
         run: |
           node serve.mjs > /tmp/learnway-server.log 2>&1 &
           server_pid=$!
           trap 'kill "$server_pid"' EXIT
           node -e 'const url="http://127.0.0.1:8130"; (async()=>{ for(let i=0;i<50;i++){ try{ if((await fetch(url)).ok) return; }catch{} await new Promise(r=>setTimeout(r,100)); } process.exit(1); })();'
           node scripts/browser-acceptance.mjs
+          node scripts/visual-acceptance.mjs
       - name: Upload acceptance screenshot
         if: success()
         uses: actions/upload-artifact@v4
         with:
           name: desktop-acceptance
-          path: /tmp/learnway-acceptance.png
+          path: |
+            /tmp/learnway-acceptance.png
+            /tmp/learnway-visuals
 
