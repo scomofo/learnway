@@ -23,11 +23,12 @@ No build step, no dependencies.
 
 1. **New course** — topic, your level, your interests, depth.
 2. **Plan** — a short outline is generated first. Approve it or redraft.
-3. **Generate** — four generation steps, all as structured JSON:
+3. **Generate** — five generation steps, all as structured JSON:
    - immersive reading with embedded check-in questions
    - section quizzes (application, not recall; plausible distractors)
    - slides + speaker notes
    - audio-lesson dialogue, mind map, mnemonics
+   - labelled SVG illustrations for each section
 4. **Six views** — Read, Quiz (interactive scoring), Slides, Audio
    (read aloud in-browser with two voices), Mind map, Flashcards.
 5. Courses save to the browser's localStorage; export/import as JSON.
@@ -65,6 +66,36 @@ error and keeps the draft while navigating within the current tab; edit again
 to retry, or copy it before closing/reloading. Notes are separate from course
 JSON and Markdown exports. Flashcard mastery tracks the current study session
 and resets when that view is reopened.
+
+## Visual explanations
+
+All 41 included reading sections have authored SVG illustrations, shared with
+their slides and visual flashcards. The 800 × 400 drawings use consistent labels,
+colour roles and model-limit annotations. They show mechanisms and quantities:
+connected pistons and crank pins, supporting pulley strands, orbit vectors,
+oscillating sound particles, reaction counts and probability denominators.
+
+Reading and Slides offer **Enlarge** for a keyboard-accessible focus view. Motion
+studies start paused; **Play** runs one eight-second demonstration, **Pause**
+holds the current state, and the **Inspect motion** slider seeks independently.
+Offscreen or background-tab playback freezes. Reduced-motion preferences pause
+playback; the learner can still explicitly play or scrub. Labels stay still.
+Flashcard illustrations remain static and retain their captions.
+
+SVGs are embedded in course JSON and Markdown exports as complete static
+drawings; Learnway supplies the interactive motion. Older text-only courses
+keep their text fallback. Older embedded SVG CSS is removed at rendering time,
+so old pulse effects stop but the drawings remain. The render boundary allows
+only basic SVG shapes and text; it removes CSS, links, external images, scripts,
+event handlers and SMIL. Generated courses receive the same spacious drawing
+brief, but still require human review for subject accuracy and visual quality.
+
+`node scripts/author-illustrations.mjs` reproducibly rebuilds the included SVGs
+and their matching captions without API calls. To check the drawings and controls
+in Chromium, run `node scripts/visual-acceptance.mjs` against the local server.
+`LEARNWAY_VISUAL_OUTPUT` optionally saves the 41 figure screenshots and a layout
+verdict. Both browser scripts accept `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH` for an
+existing Chromium binary. CI runs both browser suites.
 
 ## Files
 

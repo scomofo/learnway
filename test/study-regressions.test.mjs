@@ -14,7 +14,7 @@ function harness() {
   const values = new Map();
   const status = { textContent: '' };
   const note = { dataset: { secNote: fixture.reading.sections[0].id }, value: '', parentElement: { querySelector: () => status }, addEventListener(type, fn) { this[type] = fn; } };
-  const app = { innerHTML: '', handlers: {}, addEventListener(type, fn) { this.handlers[type] = fn; }, querySelector() { return this.innerHTML.includes('id="view-root"') ? { querySelectorAll: () => [note] } : null; } };
+  const app = { innerHTML: '', handlers: {}, addEventListener(type, fn) { this.handlers[type] = fn; }, querySelector() { return this.innerHTML.includes('id="view-root"') ? { querySelectorAll: selector => selector === '[data-sec-note]' ? [note] : [] } : null; } };
   const storage = { getItem: key => values.get(key) ?? null, setItem: (key, value) => values.set(key, value) };
   const fetched = [];
   const context = vm.createContext({ ...pipeline, ...views,

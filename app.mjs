@@ -1,7 +1,7 @@
 // Learnway app shell: library, generation wizard, settings, view switching.
 'use strict';
 import { DEFAULT_MODEL, MODELS, LEVELS, DEPTHS, generatePlan, generateCourse, validateCourse, PipelineError } from './pipeline.mjs';
-import { VIEWS, renderView, wireView, courseToMarkdown, renderSources, esc } from './views.mjs';
+import { VIEWS, renderView, wireView, courseToMarkdown, renderSources, esc, disposeDiagrams } from './views.mjs';
 
 const LS = { key: 'learnway:key', model: 'learnway:model', courses: 'learnway:courses', notes: 'learnway:notes' };
 const $ = sel => document.querySelector(sel);
@@ -58,6 +58,7 @@ function upsertCourse(course) {
 /* ---------------- rendering ---------------- */
 
 function render() {
+  disposeDiagrams();
   const app = $('#app');
   if (state.screen === 'library') app.innerHTML = viewLibrary();
   else if (state.screen === 'wizard') app.innerHTML = viewWizard();
@@ -238,7 +239,7 @@ function viewWizard() {
       <div class="form-actions">
         <button class="btn primary" data-action="plan">Sketch a plan</button>
       </div>
-      <p class="muted small">First you'll approve a short plan — then the full course gets written (4 generation steps).</p>
+      <p class="muted small">First you'll approve a short plan — then the full course gets written and illustrated (5 generation steps).</p>
       <div class="err" id="wiz-err" hidden></div>
     </div>
   </main>`;
@@ -290,7 +291,7 @@ function viewCourse() {
   const notesMap = getCourseNotes(key);
   const tabs = VIEWS.map(v => `<button class="tab ${state.view === v.id ? 'active' : ''}" data-view="${v.id}">${v.label}</button>`).join('');
   return `${header('course')}
-  <main class="wrap">
+  <main class="wrap course-wrap">
     <div class="course-head">
       <button class="btn ghost small" data-nav="library">← Library</button>
       <h1>${esc(c.meta.title)}</h1>

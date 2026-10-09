@@ -9,6 +9,8 @@ body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--f
 a { color: var(--accent); }
 .wrap { max-width: 860px; margin: 0 auto; padding: 24px 20px 80px; }
 .wrap.narrow { max-width: 620px; }
+.wrap.course-wrap { max-width: 1080px; }
+.reading-sec .prose { max-width: 74ch; font-size: 1.04rem; }
 .muted { color: var(--muted); }
 .small { font-size: 0.85rem; }
 
@@ -101,16 +103,65 @@ ul.tight li { margin-bottom: 6px; }
 .visual-title { font-weight: 700; margin-bottom: 4px; color: var(--accent2); }
 .visual-body p { margin: 6px 0; }
 .visual-body p:last-child { margin-bottom: 2px; }
-.diagram { border: 1px solid var(--line); border-radius: var(--radius); margin: 16px 0; background: var(--panel); overflow: hidden; }
+.diagram { border: 1px solid #344253; border-radius: 16px; margin: 28px 0; background: #101923; overflow: hidden; }
+.diagram-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 20px; border-bottom: 1px solid var(--line); }
+.diagram-kind { display: flex; align-items: center; gap: 9px; color: var(--accent); font-size: .78rem; font-weight: 650; letter-spacing: .1em; text-transform: uppercase; }
+.diagram-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+.diagram-expand { padding: 5px 10px; font-size: .85rem; }
 .diagram-art { padding: 12px 12px 4px; }
-.diagram-art svg { display: block; width: 100%; height: auto; border-radius: 8px; background: #0e1116; }
-.diagram-caption { padding: 4px 16px 12px; color: var(--muted); font-size: 0.92rem; }
+.diagram-art svg { display: block; width: 100%; height: auto; border-radius: 8px; background: #101923; }
+.diagram-caption { padding: 14px 22px 20px; color: #b7c4d5; font-size: .96rem; border-top: 1px solid var(--line); line-height: 1.7; }
 .diagram-caption p { margin: 6px 0; }
+.diagram-controls { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; padding: 12px 22px 18px; }
+.diagram-play { min-width: 84px; padding: 7px 12px; background: #213549; color: var(--accent); }
+.diagram-scrub { display: flex; align-items: center; gap: 12px; flex: 1; color: var(--muted); font-size: .85rem; min-width: 200px; }
+.diagram-scrub input { flex: 1; min-width: 80px; accent-color: var(--accent); cursor: pointer; }
+.diagram-status { color: var(--muted); font-size: .78rem; }
+.diagram button:focus-visible, .diagram input:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.diagram-dialog { width: min(1240px, 94vw); max-height: 92vh; overflow: auto; padding: 16px; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 20px; }
+.diagram-dialog::backdrop { background: rgba(3, 8, 14, .85); backdrop-filter: blur(6px); }
+.diagram-dialog .diagram { margin: 12px 0 0; }
+.diagram-close { display: block; margin-left: auto; }
+/* Motion uses only these local classes. The player's clock pauses and seeks
+   them together; imported SVG cannot introduce CSS selectors or keyframes. */
+.diagram-art path.lw-flow, .diagram-art line.lw-flow { stroke-dasharray: 8 12; animation: diagram-flow .8s linear infinite paused; }
+.diagram-art .lw-rotate { transform-box: fill-box; transform-origin: center; animation: diagram-rotate 4s linear infinite paused; }
+.diagram-art .lw-rotate-reverse-slow { transform-box: fill-box; transform-origin: center; animation: diagram-rotate-reverse 8s linear infinite paused; }
+.diagram-art .lw-orbit { transform-box: view-box; transform-origin: 275px 205px; animation: diagram-rotate 8s linear infinite paused; }
+.diagram-art .lw-exhaust { transform-box: fill-box; transform-origin: right center; animation: diagram-exhaust .8s ease-in-out infinite paused; }
+.diagram-art .lw-wave-ring, .diagram-art .lw-wave-ring-late { transform-box: fill-box; transform-origin: center; animation: diagram-ring 4s linear infinite paused; }
+.diagram-art .lw-wave-ring-late { animation-delay: -2s; }
+.diagram-art .lw-fall { animation: diagram-fall 4s linear infinite paused; }
+.diagram-art .lw-cone { animation: diagram-air 1s ease-in-out infinite paused; }
+.diagram-art .lw-air { animation: diagram-air 1s linear infinite paused; }
+.diagram-art .lw-air-0 { animation-delay: 0s; }
+.diagram-art .lw-air-1 { animation-delay: -.875s; }
+.diagram-art .lw-air-2 { animation-delay: -.75s; }
+.diagram-art .lw-air-3 { animation-delay: -.625s; }
+.diagram-art .lw-air-4 { animation-delay: -.5s; }
+.diagram-art .lw-air-5 { animation-delay: -.375s; }
+.diagram-art .lw-air-6 { animation-delay: -.25s; }
+.diagram-art .lw-air-7 { animation-delay: -.125s; }
+.diagram-art .lw-string { transform-box: view-box; animation: diagram-string 2s ease-in-out infinite paused; }
+.diagram-art .lw-string-1 { transform-origin: 0 161px; }
+.diagram-art .lw-string-2 { transform-origin: 0 257px; animation-duration: 1s; }
+.fc-diagram .diagram-art * { animation: none !important; }
+@keyframes diagram-flow { to { stroke-dashoffset: -20; } }
+@keyframes diagram-rotate { to { transform: rotate(360deg); } }
+@keyframes diagram-rotate-reverse { to { transform: rotate(-360deg); } }
+@keyframes diagram-exhaust { 50% { transform: scaleX(.8); } }
+@keyframes diagram-ring { from { transform: scale(.25); opacity: .8; } to { transform: scale(1.25); opacity: .1; } }
+@keyframes diagram-fall { to { transform: translateY(50px); } }
+@keyframes diagram-air { 0%,100% { transform: translateX(0); } 25% { transform: translateX(15px); } 75% { transform: translateX(-15px); } }
+@keyframes diagram-string { 0%,100% { transform: scaleY(1); } 50% { transform: scaleY(-1); } }
 .slide-visual { margin-top: 12px; }
 .fc-diagram { margin: 0; border: none; background: none; }
 .fc-diagram .diagram-art { padding: 0; }
-.fc-diagram .diagram-art svg { max-height: 200px; width: auto; max-width: 100%; margin: 0 auto; }
-.fc-diagram .diagram-caption { display: none; }
+.fc-diagram .diagram-art svg { width: 100%; max-width: 100%; margin: 0 auto; }
+.fc-diagram .diagram-caption { display: block; padding: 10px 0 0; font-size: .9rem; border: none; }
+.fc-card-container:has(.fc-diagram), .fc-card-container:has(.fc-diagram) .fc-card-inner, .fc-stage:has(.fc-diagram) { min-height: 580px; }
+.fc-card-back:has(.fc-diagram), .fc-card-container:has(.fc-diagram) .fc-card-front { min-height: 580px; }
+@media (prefers-reduced-motion: reduce) { .fc-card-inner { transition: none; } }
 .code-block { max-width: 100%; overflow-x: auto; white-space: pre; padding: 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel2); color: var(--ink); font: 0.9rem/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; tab-size: 4; }
 .code-block code { padding: 0; background: none; font: inherit; }
 .code-block:focus-visible { outline: 2px solid var(--accent2); outline-offset: 3px; }

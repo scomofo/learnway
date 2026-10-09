@@ -96,18 +96,18 @@ const DESIGNER = `You are an expert instructional designer and subject-matter ex
 - Interest-anchored analogies: explain unfamiliar ideas through things the learner already loves.
 - Plain register: short sentences, concrete nouns, every technical term defined on first use unless the level says otherwise.`;
 
-const DIAGRAM_BRIEF = `You are a technical illustrator making clean, flat, minimal diagrams for learners. For each section below, produce ONE inline SVG diagram that makes the section's key idea visible at a glance.
+const DIAGRAM_BRIEF = `You are a technical illustrator making spacious, precise diagrams for learners. For each section below, produce ONE inline SVG diagram that makes the section's key idea visible at a glance.
 
 Hard constraints — a diagram that violates any of these is rejected:
-- Exactly one <svg> element per diagram, with viewBox="0 0 400 300" and NO width or height attributes (it scales to its container).
-- Only these elements: rect, circle, ellipse, line, polyline, polygon, path, text, g. No gradients, filters, masks, clip paths, or animations.
+- Exactly one <svg> element per diagram, with viewBox="0 0 800 400" and NO width or height attributes (it scales to its container). Include a <title> and <desc> explaining the mechanism and the model's limits.
+- Only these elements: rect, circle, ellipse, line, polyline, polygon, path, text, tspan, g, title, desc. No style blocks, CSS, gradients, filters, masks, clip paths, or SVG animations.
 - Flat fills only, from this palette: #161b22 (panel), #7cc7ff (light blue), #b39dff (lavender), #7ee2a8 (green), #ffd479 (amber), #ff9d9d (soft red), #e8ecf1 (off-white), #9aa6b8 (muted gray). Assume a near-black #0e1116 background — never use pure black fills or pure white strokes.
-- At most 15 elements per diagram. Every diagram must include at least one <text> label.
-- Text: font-family="sans-serif", font-size 11-14, fill #e8ecf1 or #9aa6b8, each label under 25 characters. No tiny unreadable text.
+- Use enough shapes to explain the actual mechanism. Draw cylinders and pistons for an engine, connected rope paths for pulleys, or correctly positioned axes for a graph. A row of labelled boxes alone is rarely sufficient.
+- Text: font-family="sans-serif", font-size 17-24, fill #e8ecf1 or #9aa6b8. Keep text clear of shapes and arrows. Use at least 28 units of outer padding and generous gaps. Never animate labels.
 - Absolutely no <script>, no event-handler attributes (onclick etc.), no href/xlink:href, no <foreignObject>, no <image>, no external references of any kind.
-- Keep each SVG under ~6KB. Prefer simple geometric composition over detail: 3-7 shapes that carry the idea beat a busy scene.
+- Keep each SVG under 12KB. Make the primary mechanism large; use supporting labels and quantities only when the section warrants them.
 
-Design guidance: lead with the mechanism, not decoration. Arrows show flow and causality; contrasting colors separate the "before/after" or "this/not-this"; labels name the parts a learner must remember. If the caption describes a process, lay it left-to-right in 3-4 stages. If it describes a structure, draw the structure with its parts labeled.`;
+Design guidance: lead with the mechanism, not decoration. Arrows show flow and causality; contrasting colors separate parts and states. For graphs, label axes and units. For a process, show real intermediate states. State simplifying assumptions in a bottom annotation. Geometry must agree with the caption: conservation, force direction, connected parts and counts matter. Optional class="lw-flow" on a path or line lets the viewer show directional flow. Use it only for a real flow, never merely to decorate. All other generated diagrams should remain static.`;
 
 function personalization(level, interests, depth) {
   const lvl = LEVELS.find(l => l.id === level) || LEVELS[1];
@@ -439,6 +439,8 @@ export async function generateDiagrams({ apiKey, model, sections }, onProgress) 
   for (const id of byId.keys()) {
     if (!ids.has(id)) throw validationError('diagrams', [`diagrams: unknown section id "${id}"`]);
   }
+  const missing = [...ids].filter(id => !byId.has(id));
+  if (missing.length) throw validationError('diagrams', [`diagrams: missing section ids ${missing.join(', ')}`]);
   onProgress?.(`Illustrated ${byId.size} diagram${byId.size === 1 ? '' : 's'}.`);
   return byId;
 }
@@ -503,7 +505,9 @@ function checkMindmap(nodes, problems) {
   }
 }
 
-const DIAGRAM_MAX_LEN = 12000;
+const DIAGRAM_MAX_LEN = 32000;
+const SVG_TAGS = new Set(['svg', 'g', 'rect', 'circle', 'ellipse', 'line', 'polyline', 'polygon', 'path', 'text', 'tspan', 'title', 'desc']);
+const SVG_ATTRS = new Set(['viewBox', 'xmlns', 'x', 'y', 'x1', 'y1', 'x2', 'y2', 'cx', 'cy', 'r', 'rx', 'ry', 'width', 'height', 'd', 'points', 'fill', 'stroke', 'stroke-width', 'stroke-linecap', 'stroke-linejoin', 'stroke-dasharray', 'stroke-dashoffset', 'opacity', 'fill-opacity', 'stroke-opacity', 'font-family', 'font-size', 'font-weight', 'text-anchor', 'dominant-baseline', 'transform', 'class', 'role', 'aria-label']);
 
 /**
  * Scrub an LLM-produced inline SVG down to a safe, self-contained diagram.
@@ -515,20 +519,44 @@ export function sanitizeDiagram(svg) {
   let out = svg.trim();
   if (out.length > DIAGRAM_MAX_LEN) return '';
   if (!/^<svg[\s>]/i.test(out)) return '';
-  // Drop dangerous elements wholesale, with their content.
-  out = out.replace(/<script\b[\s\S]*?(?:<\/script\s*>|$)/gi, '');
-  out = out.replace(/<foreignObject\b[\s\S]*?(?:<\/foreignObject\s*>|$)/gi, '');
-  out = out.replace(/<image\b[\s\S]*?(?:\/>|<\/image\s*>)/gi, '');
-  // Strip event-handler attributes (onclick, onload, …).
-  out = out.replace(/\s+on[a-z]+\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi, '');
-  // Strip link references (href / xlink:href).
-  out = out.replace(/\s+(xlink:)?href\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi, '');
-  // Inline styles that pull remote resources.
-  out = out.replace(/\s+style\s*=\s*("[^"]*url\([^)]*\)[^"]*"|'[^']*url\([^)]*\)[^']*')/gi, '');
-  if (/javascript:/i.test(out)) return '';
-  // Must still be one complete svg element.
-  if (!/^<svg[\s>]/i.test(out) || !/<\/svg\s*>\s*$/i.test(out)) return '';
-  return out;
+  // SVG style blocks used to leak selectors into the entire document. Motion
+  // now comes only from the viewer; imported diagrams never supply CSS or SMIL.
+  out = out.replace(/<(script|style|foreignObject|image|iframe|object)\b[^>]*(?:\/>|>[\s\S]*?(?:<\/\1\s*>|$))/gi, '');
+  if (/<!|<\?|javascript:/i.test(out) || !/<\/svg\s*>\s*$/i.test(out)) return '';
+  const stack = [], result = [];
+  let roots = 0;
+  for (const token of out.match(/<[^>]*>|[^<]+|</g) || []) {
+    if (!token.startsWith('<')) {
+      if (!stack.length && token.trim()) return '';
+      result.push(token); continue;
+    }
+    const match = token.match(/^<(\/?)([a-z][\w:-]*)([\s\S]*?)>$/i);
+    if (!match) return '';
+    const [, closing, rawTag, attrs] = match, tag = rawTag.toLowerCase();
+    if (!SVG_TAGS.has(tag)) continue;
+    if (closing) {
+      if (stack.pop() !== tag) return '';
+      result.push(`</${tag}>`); continue;
+    }
+    if (tag === 'svg' && (++roots !== 1 || stack.length)) return '';
+    if (tag !== 'svg' && !stack.length) return '';
+    const clean = [];
+    for (const attr of attrs.matchAll(/([\w:-]+)\s*=\s*("[^"]*"|'[^']*'|[^\s/>]+)/g)) {
+      const name = attr[1];
+      if (!SVG_ATTRS.has(name)) continue;
+      let value = /^['"]/.test(attr[2]) ? attr[2].slice(1,-1) : attr[2];
+      if (/[<>]/.test(value) || /url\s*\(|javascript:|[\u0000-\u001f]/i.test(value)) continue;
+      if (['fill','stroke'].includes(name) && !/^(none|currentColor|#[a-f\d]{3,8}|[a-z]+)$/i.test(value)) continue;
+      if (name === 'xmlns' && value !== 'http://www.w3.org/2000/svg') continue;
+      if (name === 'class') value = value.split(/\s+/).filter(v => /^lw-[a-z0-9-]+$/.test(v)).join(' ');
+      if (!value) continue;
+      clean.push(`${name}="${value.replace(/"/g,'&quot;')}"`);
+    }
+    const selfClose = /\/\s*$/.test(attrs);
+    result.push(`<${tag}${clean.length ? ' '+clean.join(' ') : ''}${selfClose ? '/' : ''}>`);
+    if (!selfClose) stack.push(tag);
+  }
+  return roots === 1 && !stack.length ? result.join('') : '';
 }
 
 function validatePart(kind, value, plan) {

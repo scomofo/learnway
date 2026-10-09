@@ -28,7 +28,7 @@
         "points": [
           "Net charge follows the difference between proton and electron counts.",
           "An ionic formula gives the simplest charge-balanced ratio of constituent ions.",
-          "No. Element identity depends on proton count. Losing two electrons makes Mg\u00b2\u207a while leaving the nucleus unchanged."
+          "No. Element identity depends on proton count. Losing two electrons makes Mg²⁺ while leaving the nucleus unchanged."
         ]
       },
       {
@@ -56,22 +56,23 @@
       {
         "id": "particles",
         "heading": "Charge counts particles, not atom size",
-        "body": "The number of protons identifies an element. A neutral atom has the same number of electrons as protons. Losing electrons creates a positive ion; gaining electrons creates a negative ion. Ordinary chemical ion formation changes electron count, not nuclear proton count.\n\nFor example, an ion with 12 protons and 10 electrons has net charge +2 because the twelve positive charges exceed the ten negative charges by two. It remains magnesium because its proton count is still 12. Isotopes of an element instead differ in neutron number.\n\nA chemical formula expresses composition. Magnesium chloride is MgCl\u2082 because one Mg\u00b2\u207a balances two Cl\u207b ions. The subscript belongs to the compound's composition; it is not a coefficient that may be adjusted freely while balancing a reaction. Ionic solids form extended structures, so a formula unit need not represent a separate little molecule.",
-        "visual": "Picture a tally of twelve plus signs and ten minus signs. Pair and cancel opposite charges \u2014 the leftover two pluses are the net charge of the ion.",
+        "body": "The number of protons identifies an element. A neutral atom has the same number of electrons as protons. Losing electrons creates a positive ion; gaining electrons creates a negative ion. Ordinary chemical ion formation changes electron count, not nuclear proton count.\n\nFor example, an ion with 12 protons and 10 electrons has net charge +2 because the twelve positive charges exceed the ten negative charges by two. It remains magnesium because its proton count is still 12. Isotopes of an element instead differ in neutron number.\n\nA chemical formula expresses composition. Magnesium chloride is MgCl₂ because one Mg²⁺ balances two Cl⁻ ions. The subscript belongs to the compound's composition; it is not a coefficient that may be adjusted freely while balancing a reaction. Ionic solids form extended structures, so a formula unit need not represent a separate little molecule.",
+        "visual": "Twelve positive proton charges and ten negative electron charges leave a net charge of +2. Changing electrons changes the ion charge; changing protons changes the element.",
         "questions": [
           {
             "q": "Does losing two electrons change magnesium into another element?",
             "hint": "Which particle count defines the element?",
-            "answer": "No. Element identity depends on proton count. Losing two electrons makes Mg\u00b2\u207a while leaving the nucleus unchanged."
+            "answer": "No. Element identity depends on proton count. Losing two electrons makes Mg²⁺ while leaving the nucleus unchanged."
           }
         ],
-        "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><style>\n.lw-a{animation:lw-pulse 1.4s ease-in-out infinite}\n.lw-a2{animation:lw-pulse 1.7s ease-in-out infinite .25s}\n.lw-spin{animation:lw-spin 5s linear infinite;transform-box:fill-box;transform-origin:center}\n.lw-spin-r{animation:lw-spin-r 4s linear infinite;transform-box:fill-box;transform-origin:center}\n.lw-flow{stroke-dasharray:10 7;animation:lw-dash .7s linear infinite}\n.lw-flow2{stroke-dasharray:8 6;animation:lw-dash 1s linear infinite reverse}\n.lw-bob{animation:lw-bob 1.1s ease-in-out infinite}\n.lw-bob2{animation:lw-bob 1.3s ease-in-out infinite .15s}\n.lw-ring{animation:lw-ring 1.6s ease-out infinite}\n.lw-ring2{animation:lw-ring 1.6s ease-out infinite .55s}\n.lw-ring3{animation:lw-ring 1.6s ease-out infinite 1.1s}\n.lw-glow{animation:lw-glow 1.5s ease-in-out infinite}\n.lw-slide{animation:lw-slide 1.4s ease-in-out infinite}\n@keyframes lw-pulse{0%,100%{opacity:1}50%{opacity:.2}}\n@keyframes lw-spin{to{transform:rotate(360deg)}}\n@keyframes lw-spin-r{to{transform:rotate(-360deg)}}\n@keyframes lw-dash{to{stroke-dashoffset:-17}}\n@keyframes lw-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}\n@keyframes lw-ring{0%{opacity:.9}100%{opacity:0}}\n@keyframes lw-glow{0%,100%{opacity:.4}50%{opacity:1}}\n@keyframes lw-slide{0%,100%{transform:translateX(0)}50%{transform:translateX(10px)}}\n@media(prefers-reduced-motion:reduce){.lw-a,.lw-a2,.lw-spin,.lw-spin-r,.lw-flow,.lw-flow2,.lw-bob,.lw-bob2,.lw-ring,.lw-ring2,.lw-ring3,.lw-glow,.lw-slide{animation:none!important}}\n</style>\n  <rect x=\"10\" y=\"10\" width=\"380\" height=\"280\" rx=\"10\" fill=\"#161b22\"/>\n  <circle cx=\"100\" cy=\"90\" r=\"35\" fill=\"#ff9d9d\" opacity=\"0.45\" class=\"lw-a lw-a2\"/>\n  <text x=\"100\" y=\"95\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"14\" fill=\"#e8ecf1\">protons</text>\n  <circle cx=\"220\" cy=\"90\" r=\"35\" fill=\"#7cc7ff\" opacity=\"0.45\"/>\n  <text x=\"220\" y=\"95\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"14\" fill=\"#e8ecf1\">electrons</text>\n  <text x=\"310\" y=\"95\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"16\" fill=\"#ffd479\" class=\"lw-glow\">net</text>\n  <text x=\"200\" y=\"170\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"14\" fill=\"#e8ecf1\">charge = protons \u2212 electrons</text>\n  <text x=\"200\" y=\"210\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#9aa6b8\">element identity = proton count (Z)</text>\n  <text x=\"200\" y=\"245\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#9aa6b8\">ions form when counts are unequal</text>\n</svg>"
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"An ion has unequal proton and electron counts\"><title>An ion has unequal proton and electron counts</title><desc>Twelve positive proton charges and ten negative electron charges leave a net charge of +2. Changing electrons changes the ion charge; changing protons changes the element.</desc><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\" text-anchor=\"start\">An ion has unequal proton and electron counts</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><rect x=\"35\" y=\"83\" width=\"330\" height=\"238\" rx=\"12\" fill=\"#172331\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"53\" y=\"112\" fill=\"#ffd479\" font-size=\"18\" font-family=\"sans-serif\" text-anchor=\"start\">12 protons</text><rect x=\"425\" y=\"83\" width=\"340\" height=\"238\" rx=\"12\" fill=\"#172331\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"443\" y=\"112\" fill=\"#7cc7ff\" font-size=\"18\" font-family=\"sans-serif\" text-anchor=\"start\">10 electrons</text><circle cx=\"78\" cy=\"145\" r=\"17\" fill=\"#172331\" stroke=\"#ffd479\" stroke-width=\"2\"/><text x=\"78\" y=\"151\" fill=\"#ffd479\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">+</text><circle cx=\"154\" cy=\"145\" r=\"17\" fill=\"#172331\" stroke=\"#ffd479\" stroke-width=\"2\"/><text x=\"154\" y=\"151\" fill=\"#ffd479\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">+</text><circle cx=\"230\" cy=\"145\" r=\"17\" fill=\"#172331\" stroke=\"#ffd479\" stroke-width=\"2\"/><text x=\"230\" y=\"151\" fill=\"#ffd479\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">+</text><circle cx=\"306\" cy=\"145\" r=\"17\" fill=\"#172331\" stroke=\"#ffd479\" stroke-width=\"2\"/><text x=\"306\" y=\"151\" fill=\"#ffd479\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">+</text><circle cx=\"78\" cy=\"210\" r=\"17\" fill=\"#172331\" stroke=\"#ffd479\" stroke-width=\"2\"/><text x=\"78\" y=\"216\" fill=\"#ffd479\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">+</text><circle cx=\"154\" cy=\"210\" r=\"17\" fill=\"#172331\" stroke=\"#ffd479\" stroke-width=\"2\"/><text x=\"154\" y=\"216\" fill=\"#ffd479\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">+</text><circle cx=\"230\" cy=\"210\" r=\"17\" fill=\"#172331\" stroke=\"#ffd479\" stroke-width=\"2\"/><text x=\"230\" y=\"216\" fill=\"#ffd479\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">+</text><circle cx=\"306\" cy=\"210\" r=\"17\" fill=\"#172331\" stroke=\"#ffd479\" stroke-width=\"2\"/><text x=\"306\" y=\"216\" fill=\"#ffd479\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">+</text><circle cx=\"78\" cy=\"275\" r=\"17\" fill=\"#172331\" stroke=\"#ffd479\" stroke-width=\"2\"/><text x=\"78\" y=\"281\" fill=\"#ffd479\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">+</text><circle cx=\"154\" cy=\"275\" r=\"17\" fill=\"#172331\" stroke=\"#ffd479\" stroke-width=\"2\"/><text x=\"154\" y=\"281\" fill=\"#ffd479\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">+</text><circle cx=\"230\" cy=\"275\" r=\"17\" fill=\"#172331\" stroke=\"#ffd479\" stroke-width=\"2\"/><text x=\"230\" y=\"281\" fill=\"#ffd479\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">+</text><circle cx=\"306\" cy=\"275\" r=\"17\" fill=\"#172331\" stroke=\"#ffd479\" stroke-width=\"2\"/><text x=\"306\" y=\"281\" fill=\"#ffd479\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">+</text><circle cx=\"475\" cy=\"167\" r=\"17\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"475\" y=\"173\" fill=\"#7cc7ff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">−</text><circle cx=\"533\" cy=\"167\" r=\"17\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"533\" y=\"173\" fill=\"#7cc7ff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">−</text><circle cx=\"591\" cy=\"167\" r=\"17\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"591\" y=\"173\" fill=\"#7cc7ff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">−</text><circle cx=\"649\" cy=\"167\" r=\"17\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"649\" y=\"173\" fill=\"#7cc7ff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">−</text><circle cx=\"707\" cy=\"167\" r=\"17\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"707\" y=\"173\" fill=\"#7cc7ff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">−</text><circle cx=\"475\" cy=\"250\" r=\"17\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"475\" y=\"256\" fill=\"#7cc7ff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">−</text><circle cx=\"533\" cy=\"250\" r=\"17\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"533\" y=\"256\" fill=\"#7cc7ff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">−</text><circle cx=\"591\" cy=\"250\" r=\"17\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"591\" y=\"256\" fill=\"#7cc7ff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">−</text><circle cx=\"649\" cy=\"250\" r=\"17\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"649\" y=\"256\" fill=\"#7cc7ff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">−</text><circle cx=\"707\" cy=\"250\" r=\"17\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"707\" y=\"256\" fill=\"#7cc7ff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">−</text><text x=\"400\" y=\"215\" fill=\"#9aa6b8\" font-size=\"29\" font-family=\"sans-serif\" text-anchor=\"middle\">−</text><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Example: Mg²⁺ • 12 − 10 = +2 elementary charges</text></svg>",
+        "diagramTitle": "An ion has unequal proton and electron counts"
       },
       {
         "id": "stoichiometry",
         "heading": "A balanced equation is a ratio",
-        "body": "In 2 H\u2082 + O\u2082 \u2192 2 H\u2082O, the coefficients express particle or mole ratios: two moles of hydrogen react with one mole of oxygen to make two moles of water. They are not mass ratios, because different substances have different molar masses.\n\nSuppose 4 mol H\u2082 and 1 mol O\u2082 react completely according to this equation. The oxygen can consume only 2 mol H\u2082, producing 2 mol H\u2082O and leaving 2 mol H\u2082. Oxygen is the limiting reactant: it sets the theoretical maximum product. The substance with fewer moles is not automatically limiting; compare amounts against the coefficients.\n\nConvert any supplied masses to moles before applying the ratio, then convert the product amount back if needed. If an experiment collects 8 g of product when the theoretical yield is 10 g, the percent yield is (8/10) \u00d7 100 = 80%. Yield compares actual and theoretical amounts of the same product.",
-        "visual": "Picture each reaction batch needing two hydrogen tokens and one oxygen token. With eight H and three O you can make three batches \u2014 leftover H is excess reactant.",
+        "body": "In 2 H₂ + O₂ → 2 H₂O, the coefficients express particle or mole ratios: two moles of hydrogen react with one mole of oxygen to make two moles of water. They are not mass ratios, because different substances have different molar masses.\n\nSuppose 4 mol H₂ and 1 mol O₂ react completely according to this equation. The oxygen can consume only 2 mol H₂, producing 2 mol H₂O and leaving 2 mol H₂. Oxygen is the limiting reactant: it sets the theoretical maximum product. The substance with fewer moles is not automatically limiting; compare amounts against the coefficients.\n\nConvert any supplied masses to moles before applying the ratio, then convert the product amount back if needed. If an experiment collects 8 g of product when the theoretical yield is 10 g, the percent yield is (8/10) × 100 = 80%. Yield compares actual and theoretical amounts of the same product.",
+        "visual": "The balanced reaction needs two H₂ molecules for each O₂ molecule. Eight H₂ and three O₂ allow three batches: six H₂O molecules form and two H₂ molecules remain.",
         "questions": [
           {
             "q": "Why can the reactant with more moles still be limiting?",
@@ -79,21 +80,23 @@
             "answer": "A reaction may require several moles of that reactant per mole of another. Limitation depends on the ratio, not raw mole counts."
           }
         ],
-        "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><style>\n.lw-a{animation:lw-pulse 1.4s ease-in-out infinite}\n.lw-a2{animation:lw-pulse 1.7s ease-in-out infinite .25s}\n.lw-spin{animation:lw-spin 5s linear infinite;transform-box:fill-box;transform-origin:center}\n.lw-spin-r{animation:lw-spin-r 4s linear infinite;transform-box:fill-box;transform-origin:center}\n.lw-flow{stroke-dasharray:10 7;animation:lw-dash .7s linear infinite}\n.lw-flow2{stroke-dasharray:8 6;animation:lw-dash 1s linear infinite reverse}\n.lw-bob{animation:lw-bob 1.1s ease-in-out infinite}\n.lw-bob2{animation:lw-bob 1.3s ease-in-out infinite .15s}\n.lw-ring{animation:lw-ring 1.6s ease-out infinite}\n.lw-ring2{animation:lw-ring 1.6s ease-out infinite .55s}\n.lw-ring3{animation:lw-ring 1.6s ease-out infinite 1.1s}\n.lw-glow{animation:lw-glow 1.5s ease-in-out infinite}\n.lw-slide{animation:lw-slide 1.4s ease-in-out infinite}\n@keyframes lw-pulse{0%,100%{opacity:1}50%{opacity:.2}}\n@keyframes lw-spin{to{transform:rotate(360deg)}}\n@keyframes lw-spin-r{to{transform:rotate(-360deg)}}\n@keyframes lw-dash{to{stroke-dashoffset:-17}}\n@keyframes lw-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}\n@keyframes lw-ring{0%{opacity:.9}100%{opacity:0}}\n@keyframes lw-glow{0%,100%{opacity:.4}50%{opacity:1}}\n@keyframes lw-slide{0%,100%{transform:translateX(0)}50%{transform:translateX(10px)}}\n@media(prefers-reduced-motion:reduce){.lw-a,.lw-a2,.lw-spin,.lw-spin-r,.lw-flow,.lw-flow2,.lw-bob,.lw-bob2,.lw-ring,.lw-ring2,.lw-ring3,.lw-glow,.lw-slide{animation:none!important}}\n</style>\n  <rect x=\"10\" y=\"10\" width=\"380\" height=\"280\" rx=\"10\" fill=\"#161b22\"/>\n  <text x=\"200\" y=\"50\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"15\" fill=\"#e8ecf1\">2 H\u2082 + O\u2082 \u2192 2 H\u2082O</text>\n  <rect x=\"40\" y=\"80\" width=\"90\" height=\"55\" rx=\"8\" fill=\"#7cc7ff\" opacity=\"0.4\" class=\"lw-a lw-a2 lw-glow\"/>\n  <text x=\"85\" y=\"113\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#e8ecf1\">8 H\u2082</text>\n  <rect x=\"155\" y=\"80\" width=\"90\" height=\"55\" rx=\"8\" fill=\"#ffd479\" opacity=\"0.4\"/>\n  <text x=\"200\" y=\"113\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#e8ecf1\">3 O\u2082</text>\n  <rect x=\"270\" y=\"80\" width=\"90\" height=\"55\" rx=\"8\" fill=\"#7ee2a8\" opacity=\"0.4\" class=\"lw-a\"/>\n  <text x=\"315\" y=\"113\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#e8ecf1\">6 H\u2082O</text>\n  <text x=\"200\" y=\"180\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#ff9d9d\" class=\"lw-a2\">O\u2082 is limiting \u00b7 2 H\u2082 left over</text>\n  <text x=\"200\" y=\"220\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#e8ecf1\">limiting reactant decides yield</text>\n  <text x=\"200\" y=\"255\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#9aa6b8\">convert everything to moles first</text>\n</svg>"
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"The limiting reactant sets the number of batches\"><title>The limiting reactant sets the number of batches</title><desc>The balanced reaction needs two H₂ molecules for each O₂ molecule. Eight H₂ and three O₂ allow three batches: six H₂O molecules form and two H₂ molecules remain.</desc><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\" text-anchor=\"start\">The limiting reactant sets the number of batches</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><rect x=\"28\" y=\"78\" width=\"220\" height=\"253\" rx=\"12\" fill=\"#172331\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"46\" y=\"107\" fill=\"#7cc7ff\" font-size=\"18\" font-family=\"sans-serif\" text-anchor=\"start\">Available reactants</text><rect x=\"284\" y=\"78\" width=\"225\" height=\"253\" rx=\"12\" fill=\"#172331\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"302\" y=\"107\" fill=\"#7ee2a8\" font-size=\"18\" font-family=\"sans-serif\" text-anchor=\"start\">3 complete batches</text><rect x=\"546\" y=\"78\" width=\"226\" height=\"253\" rx=\"12\" fill=\"#172331\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"564\" y=\"107\" fill=\"#ffd479\" font-size=\"18\" font-family=\"sans-serif\" text-anchor=\"start\">Products + excess</text><circle cx=\"65\" cy=\"140\" r=\"17\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"65\" y=\"146\" fill=\"#7cc7ff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">H₂</text><circle cx=\"112\" cy=\"140\" r=\"17\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"112\" y=\"146\" fill=\"#7cc7ff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">H₂</text><circle cx=\"159\" cy=\"140\" r=\"17\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"159\" y=\"146\" fill=\"#7cc7ff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">H₂</text><circle cx=\"206\" cy=\"140\" r=\"17\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"206\" y=\"146\" fill=\"#7cc7ff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">H₂</text><circle cx=\"65\" cy=\"186\" r=\"17\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"65\" y=\"192\" fill=\"#7cc7ff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">H₂</text><circle cx=\"112\" cy=\"186\" r=\"17\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"112\" y=\"192\" fill=\"#7cc7ff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">H₂</text><circle cx=\"159\" cy=\"186\" r=\"17\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"159\" y=\"192\" fill=\"#7cc7ff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">H₂</text><circle cx=\"206\" cy=\"186\" r=\"17\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"206\" y=\"192\" fill=\"#7cc7ff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">H₂</text><circle cx=\"73\" cy=\"251\" r=\"17\" fill=\"#172331\" stroke=\"#b39dff\" stroke-width=\"2\"/><text x=\"73\" y=\"257\" fill=\"#b39dff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">O₂</text><circle cx=\"136\" cy=\"251\" r=\"17\" fill=\"#172331\" stroke=\"#b39dff\" stroke-width=\"2\"/><text x=\"136\" y=\"257\" fill=\"#b39dff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">O₂</text><circle cx=\"199\" cy=\"251\" r=\"17\" fill=\"#172331\" stroke=\"#b39dff\" stroke-width=\"2\"/><text x=\"199\" y=\"257\" fill=\"#b39dff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">O₂</text><text x=\"300\" y=\"147\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\" text-anchor=\"start\">2 H₂ + 1 O₂</text><text x=\"300\" y=\"170\" fill=\"#7ee2a8\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">→ 2 H₂O</text><text x=\"300\" y=\"216\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\" text-anchor=\"start\">2 H₂ + 1 O₂</text><text x=\"300\" y=\"239\" fill=\"#7ee2a8\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">→ 2 H₂O</text><text x=\"300\" y=\"285\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\" text-anchor=\"start\">2 H₂ + 1 O₂</text><text x=\"300\" y=\"308\" fill=\"#7ee2a8\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">→ 2 H₂O</text><text x=\"565\" y=\"154\" fill=\"#7ee2a8\" font-size=\"29\" font-family=\"sans-serif\" text-anchor=\"start\">6 H₂O</text><text x=\"565\" y=\"186\" fill=\"#9aa6b8\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">molecules produced</text><text x=\"565\" y=\"242\" fill=\"#7cc7ff\" font-size=\"20\" font-family=\"sans-serif\" text-anchor=\"start\">2 H₂ left over</text><text x=\"565\" y=\"280\" fill=\"#b39dff\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">O₂ runs out first</text><path d=\"M253 205 L277 205\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M268.1 209.6 L277 205 L268.1 200.4\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M517 205 L539 205\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M530.1 209.6 L539 205 L530.1 200.4\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Particle-count example • 2 H₂ + O₂ → 2 H₂O</text></svg>",
+        "diagramTitle": "The limiting reactant sets the number of batches"
       },
       {
         "id": "equilibrium",
         "heading": "Equal rates do not mean equal amounts",
-        "body": "A reversible reaction at equilibrium has equal forward and reverse rates. Both reactions continue, while macroscopic concentrations stay constant in an undisturbed system. The concentrations need not be equal to one another.\n\nFor the simplified reaction X \u21cc Y, define the concentration ratio Qc = [Y]/[X] at the current moment. Square brackets denote molar concentration. At equilibrium and a specified temperature, the corresponding ratio is Kc. A rigorous equilibrium constant uses activities; this concentration model is a useful introductory approximation.\n\nIf Kc = 2 but the current ratio is 0.5, Qc < Kc and net forward reaction tends to increase the ratio toward equilibrium. If Qc > Kc, net reverse reaction tends to lower it. A catalyst accelerates the approach in both directions without changing K at fixed temperature. Changing temperature can change K, so comparisons must refer to the same temperature.",
-        "visual": "Picture two rooms exchanging people at equal rates. The populations stay constant even though individuals keep moving \u2014 that is dynamic equilibrium.",
+        "body": "A reversible reaction at equilibrium has equal forward and reverse rates. Both reactions continue, while macroscopic concentrations stay constant in an undisturbed system. The concentrations need not be equal to one another.\n\nFor the simplified reaction X ⇌ Y, define the concentration ratio Qc = [Y]/[X] at the current moment. Square brackets denote molar concentration. At equilibrium and a specified temperature, the corresponding ratio is Kc. A rigorous equilibrium constant uses activities; this concentration model is a useful introductory approximation.\n\nIf Kc = 2 but the current ratio is 0.5, Qc < Kc and net forward reaction tends to increase the ratio toward equilibrium. If Qc > Kc, net reverse reaction tends to lower it. A catalyst accelerates the approach in both directions without changing K at fixed temperature. Changing temperature can change K, so comparisons must refer to the same temperature.",
+        "visual": "Reactants become products while products become reactants at the same rate. The amounts remain constant, but the two sides need not contain equal amounts.",
         "questions": [
           {
-            "q": "If Qc is below Kc for X \u21cc Y, which net direction is favoured?",
+            "q": "If Qc is below Kc for X ⇌ Y, which net direction is favoured?",
             "hint": "The ratio [Y]/[X] must rise toward Kc.",
             "answer": "Net forward reaction tends to form more Y and consume X until the ratio reaches its equilibrium value."
           }
         ],
-        "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><style>\n.lw-a{animation:lw-pulse 1.4s ease-in-out infinite}\n.lw-a2{animation:lw-pulse 1.7s ease-in-out infinite .25s}\n.lw-spin{animation:lw-spin 5s linear infinite;transform-box:fill-box;transform-origin:center}\n.lw-spin-r{animation:lw-spin-r 4s linear infinite;transform-box:fill-box;transform-origin:center}\n.lw-flow{stroke-dasharray:10 7;animation:lw-dash .7s linear infinite}\n.lw-flow2{stroke-dasharray:8 6;animation:lw-dash 1s linear infinite reverse}\n.lw-bob{animation:lw-bob 1.1s ease-in-out infinite}\n.lw-bob2{animation:lw-bob 1.3s ease-in-out infinite .15s}\n.lw-ring{animation:lw-ring 1.6s ease-out infinite}\n.lw-ring2{animation:lw-ring 1.6s ease-out infinite .55s}\n.lw-ring3{animation:lw-ring 1.6s ease-out infinite 1.1s}\n.lw-glow{animation:lw-glow 1.5s ease-in-out infinite}\n.lw-slide{animation:lw-slide 1.4s ease-in-out infinite}\n@keyframes lw-pulse{0%,100%{opacity:1}50%{opacity:.2}}\n@keyframes lw-spin{to{transform:rotate(360deg)}}\n@keyframes lw-spin-r{to{transform:rotate(-360deg)}}\n@keyframes lw-dash{to{stroke-dashoffset:-17}}\n@keyframes lw-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}\n@keyframes lw-ring{0%{opacity:.9}100%{opacity:0}}\n@keyframes lw-glow{0%,100%{opacity:.4}50%{opacity:1}}\n@keyframes lw-slide{0%,100%{transform:translateX(0)}50%{transform:translateX(10px)}}\n@media(prefers-reduced-motion:reduce){.lw-a,.lw-a2,.lw-spin,.lw-spin-r,.lw-flow,.lw-flow2,.lw-bob,.lw-bob2,.lw-ring,.lw-ring2,.lw-ring3,.lw-glow,.lw-slide{animation:none!important}}\n</style>\n  <rect x=\"10\" y=\"10\" width=\"380\" height=\"280\" rx=\"10\" fill=\"#161b22\"/>\n  <rect x=\"40\" y=\"60\" width=\"130\" height=\"110\" rx=\"8\" fill=\"#7cc7ff\" opacity=\"0.3\" class=\"lw-a lw-a2\"/>\n  <text x=\"105\" y=\"120\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"14\" fill=\"#e8ecf1\">reactants</text>\n  <rect x=\"230\" y=\"60\" width=\"130\" height=\"110\" rx=\"8\" fill=\"#7ee2a8\" opacity=\"0.3\" class=\"lw-a\"/>\n  <text x=\"295\" y=\"120\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"14\" fill=\"#e8ecf1\">products</text>\n  <line x1=\"170\" y1=\"95\" x2=\"230\" y2=\"95\" stroke=\"#ffd479\" stroke-width=\"3\" class=\"lw-flow\"/>\n  <polygon points=\"230,95 218,88 218,102\" fill=\"#ffd479\"/>\n  <line x1=\"230\" y1=\"135\" x2=\"170\" y2=\"135\" stroke=\"#ffd479\" stroke-width=\"3\" class=\"lw-flow\"/>\n  <polygon points=\"170,135 182,128 182,142\" fill=\"#ffd479\"/>\n  <text x=\"200\" y=\"210\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#e8ecf1\">forward rate = reverse rate</text>\n  <text x=\"200\" y=\"245\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#9aa6b8\">amounts constant \u00b7 still dynamic</text>\n</svg>"
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Dynamic equilibrium keeps moving\"><title>Dynamic equilibrium keeps moving</title><desc>Reactants become products while products become reactants at the same rate. The amounts remain constant, but the two sides need not contain equal amounts.</desc><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\" text-anchor=\"start\">Dynamic equilibrium keeps moving</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><rect x=\"40\" y=\"87\" width=\"235\" height=\"230\" rx=\"12\" fill=\"#172331\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"58\" y=\"116\" fill=\"#7cc7ff\" font-size=\"18\" font-family=\"sans-serif\" text-anchor=\"start\">Reactants</text><rect x=\"525\" y=\"87\" width=\"235\" height=\"230\" rx=\"12\" fill=\"#172331\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"543\" y=\"116\" fill=\"#b39dff\" font-size=\"18\" font-family=\"sans-serif\" text-anchor=\"start\">Products</text><circle cx=\"86\" cy=\"151\" r=\"4\" fill=\"#7cc7ff\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><circle cx=\"156\" cy=\"151\" r=\"4\" fill=\"#7cc7ff\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><circle cx=\"226\" cy=\"151\" r=\"4\" fill=\"#7cc7ff\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><circle cx=\"86\" cy=\"206\" r=\"4\" fill=\"#7cc7ff\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><circle cx=\"156\" cy=\"206\" r=\"4\" fill=\"#7cc7ff\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><circle cx=\"226\" cy=\"206\" r=\"4\" fill=\"#7cc7ff\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><circle cx=\"86\" cy=\"261\" r=\"4\" fill=\"#7cc7ff\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><circle cx=\"156\" cy=\"261\" r=\"4\" fill=\"#7cc7ff\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><circle cx=\"226\" cy=\"261\" r=\"4\" fill=\"#7cc7ff\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><circle cx=\"578\" cy=\"174\" r=\"4\" fill=\"#b39dff\" stroke=\"#b39dff\" stroke-width=\"2\"/><circle cx=\"642\" cy=\"174\" r=\"4\" fill=\"#b39dff\" stroke=\"#b39dff\" stroke-width=\"2\"/><circle cx=\"706\" cy=\"174\" r=\"4\" fill=\"#b39dff\" stroke=\"#b39dff\" stroke-width=\"2\"/><circle cx=\"578\" cy=\"241\" r=\"4\" fill=\"#b39dff\" stroke=\"#b39dff\" stroke-width=\"2\"/><circle cx=\"642\" cy=\"241\" r=\"4\" fill=\"#b39dff\" stroke=\"#b39dff\" stroke-width=\"2\"/><circle cx=\"706\" cy=\"241\" r=\"4\" fill=\"#b39dff\" stroke=\"#b39dff\" stroke-width=\"2\"/><path d=\"M290 173 L510 173\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lw-flow\"/><path d=\"M501.1 177.6 L510 173 L501.1 168.4\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M510 234 L290 234\" fill=\"none\" stroke=\"#b39dff\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lw-flow\"/><path d=\"M298.9 229.4 L290 234 L298.9 238.6\" fill=\"none\" stroke=\"#b39dff\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><text x=\"400\" y=\"151\" fill=\"#7cc7ff\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"middle\">Forward rate</text><text x=\"400\" y=\"264\" fill=\"#b39dff\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"middle\">Reverse rate</text><text x=\"400\" y=\"211\" fill=\"#ffd479\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"middle\">equal</text><text x=\"400\" y=\"335\" fill=\"#e8ecf1\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"middle\">Constant amounts ≠ equal amounts</text><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Closed system at equilibrium • arrows represent reaction rates</text></svg>",
+        "diagramTitle": "Dynamic equilibrium keeps moving"
       }
     ]
   },
@@ -105,24 +108,24 @@
           {
             "q": "An ion has 12 protons and 10 electrons. What is its charge?",
             "choices": [
-              "\u22122",
+              "−2",
               "0",
               "+2",
               "+12"
             ],
             "answer": 2,
-            "explain": "The net charge is 12 \u2212 10 = +2 in units of elementary charge. Electrons have negative charge."
+            "explain": "The net charge is 12 − 10 = +2 in units of elementary charge. Electrons have negative charge."
           },
           {
-            "q": "Why is magnesium chloride written MgCl\u2082?",
+            "q": "Why is magnesium chloride written MgCl₂?",
             "choices": [
-              "One Mg\u00b2\u207a requires two Cl\u207b ions for charge balance",
+              "One Mg²⁺ requires two Cl⁻ ions for charge balance",
               "Every atom must have two protons",
               "The equation needs any convenient subscript",
               "It contains two magnesium atoms per chlorine atom"
             ],
             "answer": 0,
-            "explain": "One +2 ion and two \u22121 ions sum to zero charge. Changing the subscript changes composition, not merely reaction amount."
+            "explain": "One +2 ion and two −1 ions sum to zero charge. Changing the subscript changes composition, not merely reaction amount."
           }
         ]
       },
@@ -130,7 +133,7 @@
         "id": "stoichiometry",
         "questions": [
           {
-            "q": "With 4 mol H\u2082 and 1 mol O\u2082, what is the maximum water yield under the stated reaction?",
+            "q": "With 4 mol H₂ and 1 mol O₂, what is the maximum water yield under the stated reaction?",
             "choices": [
               "1 mol",
               "2 mol",
@@ -149,7 +152,7 @@
               "80%"
             ],
             "answer": 3,
-            "explain": "Use actual/theoretical \u00d7 100: 8/10 \u00d7 100 = 80%. Reversing the ratio would give 125%."
+            "explain": "Use actual/theoretical × 100: 8/10 × 100 = 80%. Reversing the ratio would give 125%."
           }
         ]
       },
@@ -157,7 +160,7 @@
         "id": "equilibrium",
         "questions": [
           {
-            "q": "For X \u21cc Y, Kc = 2 and Qc = 0.5 at the same temperature. What is the net tendency?",
+            "q": "For X ⇌ Y, Kc = 2 and Qc = 0.5 at the same temperature. What is the net tendency?",
             "choices": [
               "Reverse reaction",
               "No molecular reactions",
@@ -190,10 +193,10 @@
         "bullets": [
           "Net charge follows the difference between proton and electron counts.",
           "An ionic formula gives the simplest charge-balanced ratio of constituent ions.",
-          "No. Element identity depends on proton count. Losing two electrons makes Mg\u00b2\u207a while leaving the nucleus unchanged."
+          "No. Element identity depends on proton count. Losing two electrons makes Mg²⁺ while leaving the nucleus unchanged."
         ],
-        "notes": "The number of protons identifies an element. A neutral atom has the same number of electrons as protons. Losing electrons creates a positive ion; gaining electrons creates a negative ion. Ordinary chemical ion formation changes electron count, not nuclear proton count. No. Element identity depends on proton count. Losing two electrons makes Mg\u00b2\u207a while leaving the nucleus unchanged.",
-        "visual": "Picture a tally of twelve plus signs and ten minus signs. Pair and cancel opposite charges \u2014 the leftover two pluses are the net charge of the ion."
+        "notes": "The number of protons identifies an element. A neutral atom has the same number of electrons as protons. Losing electrons creates a positive ion; gaining electrons creates a negative ion. Ordinary chemical ion formation changes electron count, not nuclear proton count. No. Element identity depends on proton count. Losing two electrons makes Mg²⁺ while leaving the nucleus unchanged.",
+        "visual": "Twelve positive proton charges and ten negative electron charges leave a net charge of +2. Changing electrons changes the ion charge; changing protons changes the element."
       },
       {
         "id": "stoichiometry",
@@ -203,8 +206,8 @@
           "Percent yield is actual product divided by theoretical product, multiplied by 100%.",
           "A reaction may require several moles of that reactant per mole of another. Limitation depends on the ratio, not raw mole counts."
         ],
-        "notes": "In 2 H\u2082 + O\u2082 \u2192 2 H\u2082O, the coefficients express particle or mole ratios: two moles of hydrogen react with one mole of oxygen to make two moles of water. They are not mass ratios, because different substances have different molar masses. A reaction may require several moles of that reactant per mole of another. Limitation depends on the ratio, not raw mole counts.",
-        "visual": "Picture each reaction batch needing two hydrogen tokens and one oxygen token. With eight H and three O you can make three batches \u2014 leftover H is excess reactant."
+        "notes": "In 2 H₂ + O₂ → 2 H₂O, the coefficients express particle or mole ratios: two moles of hydrogen react with one mole of oxygen to make two moles of water. They are not mass ratios, because different substances have different molar masses. A reaction may require several moles of that reactant per mole of another. Limitation depends on the ratio, not raw mole counts.",
+        "visual": "The balanced reaction needs two H₂ molecules for each O₂ molecule. Eight H₂ and three O₂ allow three batches: six H₂O molecules form and two H₂ molecules remain."
       },
       {
         "id": "equilibrium",
@@ -215,12 +218,12 @@
           "Net forward reaction tends to form more Y and consume X until the ratio reaches its equilibrium value."
         ],
         "notes": "A reversible reaction at equilibrium has equal forward and reverse rates. Both reactions continue, while macroscopic concentrations stay constant in an undisturbed system. The concentrations need not be equal to one another. Net forward reaction tends to form more Y and consume X until the ratio reaches its equilibrium value.",
-        "visual": "Picture two rooms exchanging people at equal rates. The populations stay constant even though individuals keep moving \u2014 that is dynamic equilibrium."
+        "visual": "Reactants become products while products become reactants at the same rate. The amounts remain constant, but the two sides need not contain equal amounts."
       }
     ]
   },
   "enrichment": {
-    "audioTitle": "AP Chemistry: Particles, Reactions & Equilibrium \u2014 a conversation",
+    "audioTitle": "AP Chemistry: Particles, Reactions & Equilibrium — a conversation",
     "turns": [
       {
         "speaker": "teacher",
@@ -236,7 +239,7 @@
       },
       {
         "speaker": "teacher",
-        "line": "No. Element identity depends on proton count. Losing two electrons makes Mg\u00b2\u207a while leaving the nucleus unchanged."
+        "line": "No. Element identity depends on proton count. Losing two electrons makes Mg²⁺ while leaving the nucleus unchanged."
       },
       {
         "speaker": "student",
@@ -244,7 +247,7 @@
       },
       {
         "speaker": "teacher",
-        "line": "+2. The net charge is 12 \u2212 10 = +2 in units of elementary charge. Electrons have negative charge."
+        "line": "+2. The net charge is 12 − 10 = +2 in units of elementary charge. Electrons have negative charge."
       },
       {
         "speaker": "teacher",
@@ -260,7 +263,7 @@
       },
       {
         "speaker": "student",
-        "line": "With 4 mol H\u2082 and 1 mol O\u2082, what is the maximum water yield under the stated reaction?"
+        "line": "With 4 mol H₂ and 1 mol O₂, what is the maximum water yield under the stated reaction?"
       },
       {
         "speaker": "teacher",
@@ -272,7 +275,7 @@
       },
       {
         "speaker": "student",
-        "line": "If Qc is below Kc for X \u21cc Y, which net direction is favoured?"
+        "line": "If Qc is below Kc for X ⇌ Y, which net direction is favoured?"
       },
       {
         "speaker": "teacher",
@@ -280,7 +283,7 @@
       },
       {
         "speaker": "student",
-        "line": "For X \u21cc Y, Kc = 2 and Qc = 0.5 at the same temperature. What is the net tendency?"
+        "line": "For X ⇌ Y, Kc = 2 and Qc = 0.5 at the same temperature. What is the net tendency?"
       },
       {
         "speaker": "teacher",
@@ -302,7 +305,7 @@
         "id": "particles",
         "parent": "root",
         "label": "Charge counts particles, not atom size",
-        "note": "No. Element identity depends on proton count. Losing two electrons makes Mg\u00b2\u207a while leaving the nucleus unchanged."
+        "note": "No. Element identity depends on proton count. Losing two electrons makes Mg²⁺ while leaving the nucleus unchanged."
       },
       {
         "id": "particles-concept-1",
@@ -357,15 +360,15 @@
   },
   "sources": [
     {
-      "title": "College Board \u2014 AP Chemistry course scope",
+      "title": "College Board — AP Chemistry course scope",
       "url": "https://apcentral.collegeboard.org/courses/ap-chemistry"
     },
     {
-      "title": "OpenStax \u2014 Reaction stoichiometry",
+      "title": "OpenStax — Reaction stoichiometry",
       "url": "https://openstax.org/books/chemistry-2e/pages/4-3-reaction-stoichiometry"
     },
     {
-      "title": "OpenStax \u2014 Chemical equilibria",
+      "title": "OpenStax — Chemical equilibria",
       "url": "https://openstax.org/books/chemistry-2e/pages/13-1-chemical-equilibria"
     }
   ]

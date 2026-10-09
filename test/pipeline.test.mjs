@@ -1,11 +1,16 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { generatePlan, generateCourse, parseJsonLoose, validateCourse, PipelineError } from '../pipeline.mjs';
+import { generatePlan, generateCourse, generateDiagrams, parseJsonLoose, validateCourse, PipelineError } from '../pipeline.mjs';
 
 const fixture = JSON.parse(await readFile(new URL('../sample-course.json', import.meta.url)));
 const input = { apiKey: 'test-key', model: 'test-model', topic: 'Filters', level: 'highschool', interests: 'music', depth: 'quick' };
 const response = text => ({ status: 200, ok: true, json: async () => ({ candidates: [{ content: { parts: [{ text }] } }] }) });
+
+test('the illustration step cannot silently omit an approved section', async t => {
+  t.mock.method(globalThis, 'fetch', async () => response(JSON.stringify({ diagrams: [{ id: 'one', svg: '<svg viewBox="0 0 800 400"><text x="40" y="40">One</text></svg>' }] })));
+  await assert.rejects(generateDiagrams({ ...input, sections: [{id:'one'}, {id:'two'}] }), error => error.code === 'validation' && /missing section ids two/.test(error.message));
+});
 
 test('approved plan generates a complete course and sends a Gemini-compatible nullable schema', async t => {
   const GOOD_SVG = `<svg viewBox="0 0 400 300"><rect x="10" y="10" width="120" height="60" fill="#7cc7ff"/><text x="20" y="45" font-family="sans-serif" font-size="12" fill="#e8ecf1">Crust</text></svg>`;
