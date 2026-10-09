@@ -114,14 +114,15 @@ function viewLibrary() {
     }
     const secCount = c.plan?.sections?.length || 0;
     return `
-      <button class="lib-card" data-open="${originalIdx}">
+      <article class="lib-card" data-open="${originalIdx}">
         <div class="lib-title">${esc(c.meta.title)}</div>
         <div class="lib-badges">
           <span class="badge level">${esc(levelLabel(c.meta.level))}</span>
           <span class="badge depth">${esc(depthLabel(c.meta.depth))} (${secCount} secs)</span>
         </div>
         <div class="lib-meta">${esc(c.meta.topic)} · ${new Date(c.meta.createdAt).toLocaleDateString()}</div>
-      </button>`;
+        <button type="button" class="btn primary small lib-open">Open course</button>
+      </article>`;
   }).join('');
 
   const bundledCards = (state.bundled || [])
@@ -132,11 +133,12 @@ function viewLibrary() {
       return searchText(b.title).includes(q) || searchText(b.topic).includes(q);
     })
     .map(({ b, originalIdx }) => `
-      <button class="lib-card bundled" data-bundled="${originalIdx}">
+      <article class="lib-card bundled" data-bundled="${originalIdx}">
         <div class="lib-title">${esc(b.title)}</div>
         <div class="lib-badges"><span class="badge bundled-tag">Included</span>${b.level ? `<span class="badge level">${esc(levelLabel(b.level))}</span>` : ''}</div>
         <div class="lib-meta">${esc(b.topic)}</div>
-      </button>`).join('');
+        <button type="button" class="btn primary small lib-open">Open course</button>
+      </article>`).join('');
 
   const searchControls = allCourses.length || state.bundled?.length ? `
     <div class="lib-filter-bar">
