@@ -56,40 +56,43 @@
         "id": "wind",
         "heading": "Uneven heating starts a circulation",
         "body": "Sunlight heats Earth unevenly. Surface type, latitude, season and time of day affect energy absorption. These differences help establish temperature and pressure patterns. A pressure-gradient force pushes air toward lower pressure.\n\nWind does not necessarily blow straight from a high-pressure centre to a low-pressure centre. Earth's rotation deflects moving air relative to the ground, and surface friction also changes its motion. The actual wind reflects these combined influences. Closely spaced pressure contours usually indicate a stronger pressure gradient, though terrain and height matter too.\n\nA daytime sea breeze illustrates a local circulation. Land often warms faster than nearby water, helping establish a flow with cooler marine air moving inland near the surface and return flow aloft. The broader weather pattern can strengthen, alter or overwhelm it. A sea breeze is a useful model, not a guaranteed event at every coast each afternoon.",
-        "visual": "Picture two air columns over land and sea, heated unequally. Trace an inland surface flow and return flow above. On a larger map, imagine pressure contours starting the motion while rotation and friction bend the path.",
+        "visual": "Picture two air columns over land and sea, heated unequally. Trace an inland surface flow and return flow above. On a larger scale, pressure differences drive wind toward lower pressure.",
         "questions": [
           {
-            "q": "Why is “wind always moves directly from high to low pressure” incomplete?",
+            "q": "Why is \u201cwind always moves directly from high to low pressure\u201d incomplete?",
             "hint": "Name the influences besides the pressure gradient.",
             "answer": "Rotation and friction also affect moving air, so the wind need not point directly along the pressure-gradient force."
           }
-        ]
+        ],
+        "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><style>\n.lw-a{animation:lw-pulse 1.4s ease-in-out infinite}\n.lw-a2{animation:lw-pulse 1.7s ease-in-out infinite .25s}\n.lw-spin{animation:lw-spin 5s linear infinite;transform-box:fill-box;transform-origin:center}\n.lw-spin-r{animation:lw-spin-r 4s linear infinite;transform-box:fill-box;transform-origin:center}\n.lw-flow{stroke-dasharray:10 7;animation:lw-dash .7s linear infinite}\n.lw-flow2{stroke-dasharray:8 6;animation:lw-dash 1s linear infinite reverse}\n.lw-bob{animation:lw-bob 1.1s ease-in-out infinite}\n.lw-bob2{animation:lw-bob 1.3s ease-in-out infinite .15s}\n.lw-ring{animation:lw-ring 1.6s ease-out infinite}\n.lw-ring2{animation:lw-ring 1.6s ease-out infinite .55s}\n.lw-ring3{animation:lw-ring 1.6s ease-out infinite 1.1s}\n.lw-glow{animation:lw-glow 1.5s ease-in-out infinite}\n.lw-slide{animation:lw-slide 1.4s ease-in-out infinite}\n@keyframes lw-pulse{0%,100%{opacity:1}50%{opacity:.2}}\n@keyframes lw-spin{to{transform:rotate(360deg)}}\n@keyframes lw-spin-r{to{transform:rotate(-360deg)}}\n@keyframes lw-dash{to{stroke-dashoffset:-17}}\n@keyframes lw-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}\n@keyframes lw-ring{0%{opacity:.9}100%{opacity:0}}\n@keyframes lw-glow{0%,100%{opacity:.4}50%{opacity:1}}\n@keyframes lw-slide{0%,100%{transform:translateX(0)}50%{transform:translateX(10px)}}\n@media(prefers-reduced-motion:reduce){.lw-a,.lw-a2,.lw-spin,.lw-spin-r,.lw-flow,.lw-flow2,.lw-bob,.lw-bob2,.lw-ring,.lw-ring2,.lw-ring3,.lw-glow,.lw-slide{animation:none!important}}\n</style>\n  <rect x=\"10\" y=\"10\" width=\"380\" height=\"280\" rx=\"10\" fill=\"#161b22\"/>\n  <rect x=\"40\" y=\"180\" width=\"140\" height=\"50\" fill=\"#ffd479\" class=\"lw-glow\"/>\n  <text x=\"110\" y=\"210\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#161b22\">warm land</text>\n  <rect x=\"220\" y=\"180\" width=\"140\" height=\"50\" fill=\"#7cc7ff\" class=\"lw-a\"/>\n  <text x=\"290\" y=\"210\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#161b22\">cool sea</text>\n  <path d=\"M110,170 C110,90 290,90 290,170\" fill=\"none\" stroke=\"#7ee2a8\" stroke-width=\"3\" stroke-dasharray=\"10 6\" class=\"lw-flow\"/>\n  <polygon points=\"290,170 278,160 298,160\" fill=\"#7ee2a8\" class=\"lw-a\"/>\n  <path d=\"M290,180 C290,140 110,140 110,180\" fill=\"none\" stroke=\"#b39dff\" stroke-width=\"3\" class=\"lw-flow2\"/>\n  <polygon points=\"110,180 122,170 98,170\" fill=\"#b39dff\"/>\n  <text x=\"200\" y=\"70\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#7ee2a8\" class=\"lw-a\">upper return flow</text>\n  <text x=\"200\" y=\"155\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#b39dff\">surface sea breeze</text>\n  <text x=\"200\" y=\"260\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#e8ecf1\">uneven heating \u2192 pressure \u2192 wind</text>\n</svg>"
       },
       {
         "id": "clouds",
         "heading": "Rising air can make water visible",
         "body": "Water vapour is an invisible gas. A cloud contains tiny suspended liquid droplets, ice crystals, or both. Cloud visibility is therefore different from the mere presence of water vapour in air.\n\nAn air parcel rising into lower surrounding pressure expands. Without enough heat added to compensate, expansion cools it. If it cools to saturation, water can condense onto small airborne particles. Condensation releases latent heat, so saturated rising air cools differently from unsaturated air.\n\nRelative humidity compares actual water-vapour pressure with saturation vapour pressure at the same temperature. Cooling can increase relative humidity without adding water: the saturation value decreases. A parcel can reach saturation near its dew point with unchanged initial moisture content.\n\nCloud formation does not guarantee rain at the ground. Droplets or crystals must grow enough to fall, and precipitation can evaporate in dry air below. Lifting, moisture and the vertical temperature profile all matter.",
-        "visual": "Picture a rising parcel expanding and cooling until tiny droplets appear. Below the cloud, draw falling drops shrinking in dry air: making a cloud and delivering rain to the ground are separate steps.",
+        "visual": "Picture a rising parcel expanding and cooling until tiny droplets appear. Below the cloud, draw falling drops shrinking as they evaporate into drier air.",
         "questions": [
           {
             "q": "Can relative humidity rise without water being added?",
             "hint": "Change temperature instead of moisture supply.",
             "answer": "Yes. Cooling lowers saturation vapour pressure, so the same initial vapour amount represents a larger fraction of saturation."
           }
-        ]
+        ],
+        "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><style>\n.lw-a{animation:lw-pulse 1.4s ease-in-out infinite}\n.lw-a2{animation:lw-pulse 1.7s ease-in-out infinite .25s}\n.lw-spin{animation:lw-spin 5s linear infinite;transform-box:fill-box;transform-origin:center}\n.lw-spin-r{animation:lw-spin-r 4s linear infinite;transform-box:fill-box;transform-origin:center}\n.lw-flow{stroke-dasharray:10 7;animation:lw-dash .7s linear infinite}\n.lw-flow2{stroke-dasharray:8 6;animation:lw-dash 1s linear infinite reverse}\n.lw-bob{animation:lw-bob 1.1s ease-in-out infinite}\n.lw-bob2{animation:lw-bob 1.3s ease-in-out infinite .15s}\n.lw-ring{animation:lw-ring 1.6s ease-out infinite}\n.lw-ring2{animation:lw-ring 1.6s ease-out infinite .55s}\n.lw-ring3{animation:lw-ring 1.6s ease-out infinite 1.1s}\n.lw-glow{animation:lw-glow 1.5s ease-in-out infinite}\n.lw-slide{animation:lw-slide 1.4s ease-in-out infinite}\n@keyframes lw-pulse{0%,100%{opacity:1}50%{opacity:.2}}\n@keyframes lw-spin{to{transform:rotate(360deg)}}\n@keyframes lw-spin-r{to{transform:rotate(-360deg)}}\n@keyframes lw-dash{to{stroke-dashoffset:-17}}\n@keyframes lw-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}\n@keyframes lw-ring{0%{opacity:.9}100%{opacity:0}}\n@keyframes lw-glow{0%,100%{opacity:.4}50%{opacity:1}}\n@keyframes lw-slide{0%,100%{transform:translateX(0)}50%{transform:translateX(10px)}}\n@media(prefers-reduced-motion:reduce){.lw-a,.lw-a2,.lw-spin,.lw-spin-r,.lw-flow,.lw-flow2,.lw-bob,.lw-bob2,.lw-ring,.lw-ring2,.lw-ring3,.lw-glow,.lw-slide{animation:none!important}}\n</style>\n  <rect x=\"10\" y=\"10\" width=\"380\" height=\"280\" rx=\"10\" fill=\"#161b22\"/>\n  <ellipse cx=\"200\" cy=\"80\" rx=\"110\" ry=\"40\" fill=\"#e8ecf1\" opacity=\"0.25\" class=\"lw-a\"/>\n  <ellipse cx=\"160\" cy=\"95\" rx=\"55\" ry=\"30\" fill=\"#e8ecf1\" opacity=\"0.35\" class=\"lw-a2\"/>\n  <ellipse cx=\"240\" cy=\"95\" rx=\"55\" ry=\"30\" fill=\"#e8ecf1\" opacity=\"0.35\" class=\"lw-a2\"/>\n  <ellipse cx=\"200\" cy=\"100\" rx=\"40\" ry=\"25\" fill=\"#e8ecf1\" opacity=\"0.3\" class=\"lw-glow\"/>\n  <text x=\"200\" y=\"95\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#e8ecf1\">cloud droplets</text>\n  <line x1=\"200\" y1=\"200\" x2=\"200\" y2=\"140\" stroke=\"#7cc7ff\" stroke-width=\"4\" class=\"lw-flow\"/>\n  <polygon points=\"200,130 190,148 210,148\" fill=\"#7cc7ff\"/>\n  <text x=\"230\" y=\"175\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#7cc7ff\">rising air</text>\n  <text x=\"200\" y=\"230\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#9aa6b8\">expands \u00b7 cools \u00b7 saturates</text>\n  <text x=\"200\" y=\"260\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#e8ecf1\">vapor is invisible \u00b7 cloud is liquid/ice</text>\n</svg>"
       },
       {
         "id": "fronts",
         "heading": "A front supplies one ingredient",
-        "body": "A front is a boundary between air masses with different properties, especially temperature and density. Advancing colder air at a cold front can lift warmer air. At a warm front, warmer air advances over a retreating cooler air mass. Boundary slope, moisture and stability affect the cloud and precipitation pattern.\n\n“Cold front means thunderstorm” is an unreliable shortcut. A front can provide lifting, but deep storms also need suitable moisture and instability. Another cold front may bring mainly a wind shift and temperature change.\n\nForecasts estimate atmospheric evolution from imperfect observations and models. Uncertainty can grow, producing different plausible timings, locations and intensities. Comparing a range of outcomes helps describe that uncertainty rather than pretending it is absent. For an actual outdoor decision, match the forecast to your location and time window and follow current official local alerts for severe weather.",
-        "visual": "Picture a wedge of denser cold air lifting warmer air. Beside it, show several possible future boundary positions: the lifting mechanism can be clear while the exact arrival time remains uncertain.",
+        "body": "A front is a boundary between air masses with different properties, especially temperature and density. Advancing colder air at a cold front can lift warmer air. At a warm front, warmer air advances over a retreating cooler air mass. Boundary slope, moisture and stability affect the cloud and precipitation pattern.\n\n\u201cCold front means thunderstorm\u201d is an unreliable shortcut. A front can provide lifting, but deep storms also need suitable moisture and instability. Another cold front may bring mainly a wind shift and temperature change.\n\nForecasts estimate atmospheric evolution from imperfect observations and models. Uncertainty can grow, producing different plausible timings, locations and intensities. Comparing a range of outcomes helps describe that uncertainty rather than pretending it is absent. For an actual outdoor decision, match the forecast to your location and time window and follow current official local alerts for severe weather.",
+        "visual": "Picture a wedge of denser cold air lifting warmer air. Beside it, show several possible future boundary positions: the same front can produce different weather depending on moisture and stability.",
         "questions": [
           {
             "q": "Why can two cold fronts bring very different weather?",
             "hint": "Lifting is only one ingredient.",
             "answer": "Their moisture, stability and lifting strength can differ. The same boundary category does not guarantee the same cloud or storm development."
           }
-        ]
+        ],
+        "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><style>\n.lw-a{animation:lw-pulse 1.4s ease-in-out infinite}\n.lw-a2{animation:lw-pulse 1.7s ease-in-out infinite .25s}\n.lw-spin{animation:lw-spin 5s linear infinite;transform-box:fill-box;transform-origin:center}\n.lw-spin-r{animation:lw-spin-r 4s linear infinite;transform-box:fill-box;transform-origin:center}\n.lw-flow{stroke-dasharray:10 7;animation:lw-dash .7s linear infinite}\n.lw-flow2{stroke-dasharray:8 6;animation:lw-dash 1s linear infinite reverse}\n.lw-bob{animation:lw-bob 1.1s ease-in-out infinite}\n.lw-bob2{animation:lw-bob 1.3s ease-in-out infinite .15s}\n.lw-ring{animation:lw-ring 1.6s ease-out infinite}\n.lw-ring2{animation:lw-ring 1.6s ease-out infinite .55s}\n.lw-ring3{animation:lw-ring 1.6s ease-out infinite 1.1s}\n.lw-glow{animation:lw-glow 1.5s ease-in-out infinite}\n.lw-slide{animation:lw-slide 1.4s ease-in-out infinite}\n@keyframes lw-pulse{0%,100%{opacity:1}50%{opacity:.2}}\n@keyframes lw-spin{to{transform:rotate(360deg)}}\n@keyframes lw-spin-r{to{transform:rotate(-360deg)}}\n@keyframes lw-dash{to{stroke-dashoffset:-17}}\n@keyframes lw-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}\n@keyframes lw-ring{0%{opacity:.9}100%{opacity:0}}\n@keyframes lw-glow{0%,100%{opacity:.4}50%{opacity:1}}\n@keyframes lw-slide{0%,100%{transform:translateX(0)}50%{transform:translateX(10px)}}\n@media(prefers-reduced-motion:reduce){.lw-a,.lw-a2,.lw-spin,.lw-spin-r,.lw-flow,.lw-flow2,.lw-bob,.lw-bob2,.lw-ring,.lw-ring2,.lw-ring3,.lw-glow,.lw-slide{animation:none!important}}\n</style>\n  <rect x=\"10\" y=\"10\" width=\"380\" height=\"280\" rx=\"10\" fill=\"#161b22\"/>\n  <polygon points=\"30,230 200,230 200,90\" fill=\"#7cc7ff\" opacity=\"0.4\" class=\"lw-a\"/>\n  <text x=\"100\" y=\"195\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#e8ecf1\">cold air</text>\n  <polygon points=\"200,90 370,90 370,230 200,230\" fill=\"#ff9d9d\" opacity=\"0.25\" class=\"lw-a2\"/>\n  <text x=\"290\" y=\"160\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#e8ecf1\">warm air</text>\n  <line x1=\"200\" y1=\"90\" x2=\"200\" y2=\"50\" stroke=\"#ffd479\" stroke-width=\"3\" class=\"lw-flow\"/>\n  <polygon points=\"200,40 190,58 210,58\" fill=\"#ffd479\"/>\n  <text x=\"230\" y=\"65\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#ffd479\">lifted</text>\n  <text x=\"200\" y=\"260\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#e8ecf1\">front = density boundary that lifts air</text>\n</svg>"
       }
     ]
   },
@@ -189,7 +192,7 @@
           "Rotation and friction also affect moving air, so the wind need not point directly along the pressure-gradient force."
         ],
         "notes": "Sunlight heats Earth unevenly. Surface type, latitude, season and time of day affect energy absorption. These differences help establish temperature and pressure patterns. A pressure-gradient force pushes air toward lower pressure. Rotation and friction also affect moving air, so the wind need not point directly along the pressure-gradient force.",
-        "visual": "Picture two air columns over land and sea, heated unequally. Trace an inland surface flow and return flow above. On a larger map, imagine pressure contours starting the motion while rotation and friction bend the path."
+        "visual": "Picture two air columns over land and sea, heated unequally. Trace an inland surface flow and return flow above. On a larger scale, pressure differences drive wind toward lower pressure."
       },
       {
         "id": "clouds",
@@ -200,7 +203,7 @@
           "Yes. Cooling lowers saturation vapour pressure, so the same initial vapour amount represents a larger fraction of saturation."
         ],
         "notes": "Water vapour is an invisible gas. A cloud contains tiny suspended liquid droplets, ice crystals, or both. Cloud visibility is therefore different from the mere presence of water vapour in air. Yes. Cooling lowers saturation vapour pressure, so the same initial vapour amount represents a larger fraction of saturation.",
-        "visual": "Picture a rising parcel expanding and cooling until tiny droplets appear. Below the cloud, draw falling drops shrinking in dry air: making a cloud and delivering rain to the ground are separate steps."
+        "visual": "Picture a rising parcel expanding and cooling until tiny droplets appear. Below the cloud, draw falling drops shrinking as they evaporate into drier air."
       },
       {
         "id": "fronts",
@@ -211,12 +214,12 @@
           "Their moisture, stability and lifting strength can differ. The same boundary category does not guarantee the same cloud or storm development."
         ],
         "notes": "A front is a boundary between air masses with different properties, especially temperature and density. Advancing colder air at a cold front can lift warmer air. At a warm front, warmer air advances over a retreating cooler air mass. Boundary slope, moisture and stability affect the cloud and precipitation pattern. Their moisture, stability and lifting strength can differ. The same boundary category does not guarantee the same cloud or storm development.",
-        "visual": "Picture a wedge of denser cold air lifting warmer air. Beside it, show several possible future boundary positions: the lifting mechanism can be clear while the exact arrival time remains uncertain."
+        "visual": "Picture a wedge of denser cold air lifting warmer air. Beside it, show several possible future boundary positions: the same front can produce different weather depending on moisture and stability."
       }
     ]
   },
   "enrichment": {
-    "audioTitle": "Weather: Air, Clouds & Fronts — a conversation",
+    "audioTitle": "Weather: Air, Clouds & Fronts \u2014 a conversation",
     "turns": [
       {
         "speaker": "teacher",
@@ -228,7 +231,7 @@
       },
       {
         "speaker": "student",
-        "line": "Why is “wind always moves directly from high to low pressure” incomplete?"
+        "line": "Why is \u201cwind always moves directly from high to low pressure\u201d incomplete?"
       },
       {
         "speaker": "teacher",
@@ -353,11 +356,11 @@
   },
   "sources": [
     {
-      "title": "NOAA — Weather systems and patterns",
+      "title": "NOAA \u2014 Weather systems and patterns",
       "url": "https://www.noaa.gov/education/resource-collections/weather-atmosphere/weather-systems-patterns"
     },
     {
-      "title": "NOAA — Why does wind blow?",
+      "title": "NOAA \u2014 Why does wind blow?",
       "url": "https://www.nesdis.noaa.gov/about/k-12-education/atmosphere/why-does-wind-blow"
     }
   ]

@@ -25,7 +25,7 @@
         "id": "cycle",
         "heading": "Four strokes, two crankshaft revolutions",
         "points": [
-          "One complete intake–compression–power–exhaust cycle uses two crankshaft revolutions.",
+          "One complete intake\u2013compression\u2013power\u2013exhaust cycle uses two crankshaft revolutions.",
           "Spark ignition and compression ignition initiate combustion in different ways.",
           "3,000/2 = 1,500 cycles per minute; 1,500/60 = 25 cycles per second."
         ]
@@ -45,7 +45,7 @@
         "points": [
           "Useful shaft work divided by fuel-energy input gives an engine efficiency for a specified condition.",
           "Heat control and reduced friction protect components while energy losses remain.",
-          "Cooling protects the engine’s temperature limits. Removing it can overheat components rather than turning rejected heat into shaft work."
+          "Cooling protects the engine\u2019s temperature limits. Removing it can overheat components rather than turning rejected heat into shaft work."
         ]
       }
     ]
@@ -56,40 +56,43 @@
         "id": "cycle",
         "heading": "Four strokes, two crankshaft revolutions",
         "body": "In a simplified four-stroke spark-ignition engine, the intake stroke admits air and fuel, the compression stroke squeezes the mixture, ignition starts combustion near the end of compression, the power stroke extracts work from expanding gas, and the exhaust stroke removes burned gas. These four piston strokes take two crankshaft revolutions.\n\nThe connecting rod and crankshaft convert reciprocating piston motion into rotation. A flywheel and multiple cylinders help smooth the output because an individual cylinder does not deliver a power stroke on every revolution. At 3,000 revolutions per minute, one four-stroke cylinder completes 1,500 cycles per minute, or 25 cycles per second.\n\nA diesel engine uses compression ignition: compressed air gets hot enough for injected fuel to ignite under suitable conditions. The broad four-stroke sequence can remain, but a spark plug is not the normal ignition source. Real valve timing, injection and boosting add detail beyond this introductory cycle.",
-        "visual": "Picture a piston moving down, up, down and up while a crank turns twice. Mark the four stages intake, compression, power and exhaust, with combustion beginning near the top before the power stroke.",
+        "visual": "Picture a piston moving down, up, down and up while a crank turns twice. Mark the power stroke \u2014 the only one that delivers work \u2014 and the three strokes that prepare or clean up.",
         "questions": [
           {
             "q": "At 3,000 rpm, how many complete four-stroke cycles does one cylinder perform each second?",
             "hint": "Divide by two revolutions per cycle, then by 60 seconds per minute.",
             "answer": "3,000/2 = 1,500 cycles per minute; 1,500/60 = 25 cycles per second."
           }
-        ]
+        ],
+        "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><style>\n.lw-a{animation:lw-pulse 1.4s ease-in-out infinite}\n.lw-a2{animation:lw-pulse 1.7s ease-in-out infinite .25s}\n.lw-spin{animation:lw-spin 5s linear infinite;transform-box:fill-box;transform-origin:center}\n.lw-spin-r{animation:lw-spin-r 4s linear infinite;transform-box:fill-box;transform-origin:center}\n.lw-flow{stroke-dasharray:10 7;animation:lw-dash .7s linear infinite}\n.lw-flow2{stroke-dasharray:8 6;animation:lw-dash 1s linear infinite reverse}\n.lw-bob{animation:lw-bob 1.1s ease-in-out infinite}\n.lw-bob2{animation:lw-bob 1.3s ease-in-out infinite .15s}\n.lw-ring{animation:lw-ring 1.6s ease-out infinite}\n.lw-ring2{animation:lw-ring 1.6s ease-out infinite .55s}\n.lw-ring3{animation:lw-ring 1.6s ease-out infinite 1.1s}\n.lw-glow{animation:lw-glow 1.5s ease-in-out infinite}\n.lw-slide{animation:lw-slide 1.4s ease-in-out infinite}\n@keyframes lw-pulse{0%,100%{opacity:1}50%{opacity:.2}}\n@keyframes lw-spin{to{transform:rotate(360deg)}}\n@keyframes lw-spin-r{to{transform:rotate(-360deg)}}\n@keyframes lw-dash{to{stroke-dashoffset:-17}}\n@keyframes lw-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}\n@keyframes lw-ring{0%{opacity:.9}100%{opacity:0}}\n@keyframes lw-glow{0%,100%{opacity:.4}50%{opacity:1}}\n@keyframes lw-slide{0%,100%{transform:translateX(0)}50%{transform:translateX(10px)}}\n@media(prefers-reduced-motion:reduce){.lw-a,.lw-a2,.lw-spin,.lw-spin-r,.lw-flow,.lw-flow2,.lw-bob,.lw-bob2,.lw-ring,.lw-ring2,.lw-ring3,.lw-glow,.lw-slide{animation:none!important}}\n</style>\n  <rect x=\"10\" y=\"10\" width=\"380\" height=\"280\" rx=\"10\" fill=\"#161b22\"/>\n  <rect x=\"25\" y=\"50\" width=\"85\" height=\"110\" rx=\"6\" fill=\"#7cc7ff\" opacity=\"0.35\" class=\"lw-a lw-a2\"/>\n  <text x=\"67\" y=\"100\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#e8ecf1\">1 Intake</text>\n  <text x=\"67\" y=\"120\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#9aa6b8\">fuel-air in</text>\n  <rect x=\"115\" y=\"50\" width=\"85\" height=\"110\" rx=\"6\" fill=\"#b39dff\" opacity=\"0.35\" class=\"lw-a\"/>\n  <text x=\"157\" y=\"100\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#e8ecf1\">2 Compress</text>\n  <text x=\"157\" y=\"120\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#9aa6b8\">squeeze</text>\n  <rect x=\"205\" y=\"50\" width=\"85\" height=\"110\" rx=\"6\" fill=\"#ffd479\" opacity=\"0.5\" class=\"lw-glow\"/>\n  <text x=\"247\" y=\"100\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#e8ecf1\">3 POWER</text>\n  <text x=\"247\" y=\"120\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#161b22\">spark + expand</text>\n  <rect x=\"295\" y=\"50\" width=\"85\" height=\"110\" rx=\"6\" fill=\"#ff9d9d\" opacity=\"0.35\" class=\"lw-a2\"/>\n  <text x=\"337\" y=\"100\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#e8ecf1\">4 Exhaust</text>\n  <text x=\"337\" y=\"120\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#9aa6b8\">spent gas out</text>\n  <text x=\"200\" y=\"200\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#e8ecf1\">four strokes \u00b7 one power pulse</text>\n  <text x=\"200\" y=\"230\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#9aa6b8\">crank turns twice per cycle</text>\n  <text x=\"200\" y=\"260\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#ffd479\">only stroke 3 delivers work</text>\n</svg>"
       },
       {
         "id": "output",
         "heading": "Torque turns; power includes how fast",
-        "body": "Torque describes a turning effect about an axis. A force of 100 N acting perpendicularly at a 0.20 m lever arm produces 20 N·m of torque. Power is the rate of doing work, so it also depends on how quickly that torque turns the shaft.\n\nFor rotational motion, P = τω: power P in watts equals torque τ in newton-metres times angular speed ω in radians per second. Convert revolutions per minute using ω = rpm × 2π/60. An engine producing 200 N·m at 1,500 rpm therefore delivers about 31,400 W, or 31.4 kW, at that operating point.\n\nGearing can trade rotational speed for torque. An ideal reduction doubles torque when it halves speed, preserving power; real gears also lose some energy. A higher torque number alone therefore does not establish greater power or faster acceleration. Engine speed, gearing, vehicle mass and traction all affect the outcome.",
-        "visual": "Picture two shafts linked by reduction gears. Put a smaller speed arrow and a larger torque arrow on the slower shaft. Their power remains equal in the lossless model because the changes compensate.",
+        "body": "Torque describes a turning effect about an axis. A force of 100 N acting perpendicularly at a 0.20 m lever arm produces 20 N\u00b7m of torque. Power is the rate of doing work, so it also depends on how quickly that torque turns the shaft.\n\nFor rotational motion, P = \u03c4\u03c9: power P in watts equals torque \u03c4 in newton-metres times angular speed \u03c9 in radians per second. Convert revolutions per minute using \u03c9 = rpm \u00d7 2\u03c0/60. An engine producing 200 N\u00b7m at 1,500 rpm therefore delivers about 31,400 W, or 31.4 kW, at that operating point.\n\nGearing can trade rotational speed for torque. An ideal reduction doubles torque when it halves speed, preserving power; real gears also lose some energy. A higher torque number alone therefore does not establish greater power or faster acceleration. Engine speed, gearing, vehicle mass and traction all affect the outcome.",
+        "visual": "Picture two shafts linked by reduction gears. Put a smaller speed arrow and a larger torque arrow on the output side \u2014 gears trade speed for turning force.",
         "questions": [
           {
             "q": "Can an ideal gearbox double both torque and shaft speed without another energy source?",
             "hint": "Compare input and output power.",
             "answer": "No. Doubling both would quadruple power. A passive ideal gearbox trades torque against speed while conserving power."
           }
-        ]
+        ],
+        "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><style>\n.lw-a{animation:lw-pulse 1.4s ease-in-out infinite}\n.lw-a2{animation:lw-pulse 1.7s ease-in-out infinite .25s}\n.lw-spin{animation:lw-spin 5s linear infinite;transform-box:fill-box;transform-origin:center}\n.lw-spin-r{animation:lw-spin-r 4s linear infinite;transform-box:fill-box;transform-origin:center}\n.lw-flow{stroke-dasharray:10 7;animation:lw-dash .7s linear infinite}\n.lw-flow2{stroke-dasharray:8 6;animation:lw-dash 1s linear infinite reverse}\n.lw-bob{animation:lw-bob 1.1s ease-in-out infinite}\n.lw-bob2{animation:lw-bob 1.3s ease-in-out infinite .15s}\n.lw-ring{animation:lw-ring 1.6s ease-out infinite}\n.lw-ring2{animation:lw-ring 1.6s ease-out infinite .55s}\n.lw-ring3{animation:lw-ring 1.6s ease-out infinite 1.1s}\n.lw-glow{animation:lw-glow 1.5s ease-in-out infinite}\n.lw-slide{animation:lw-slide 1.4s ease-in-out infinite}\n@keyframes lw-pulse{0%,100%{opacity:1}50%{opacity:.2}}\n@keyframes lw-spin{to{transform:rotate(360deg)}}\n@keyframes lw-spin-r{to{transform:rotate(-360deg)}}\n@keyframes lw-dash{to{stroke-dashoffset:-17}}\n@keyframes lw-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}\n@keyframes lw-ring{0%{opacity:.9}100%{opacity:0}}\n@keyframes lw-glow{0%,100%{opacity:.4}50%{opacity:1}}\n@keyframes lw-slide{0%,100%{transform:translateX(0)}50%{transform:translateX(10px)}}\n@media(prefers-reduced-motion:reduce){.lw-a,.lw-a2,.lw-spin,.lw-spin-r,.lw-flow,.lw-flow2,.lw-bob,.lw-bob2,.lw-ring,.lw-ring2,.lw-ring3,.lw-glow,.lw-slide{animation:none!important}}\n</style>\n  <rect x=\"10\" y=\"10\" width=\"380\" height=\"280\" rx=\"10\" fill=\"#161b22\"/>\n  <circle cx=\"120\" cy=\"130\" r=\"55\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"10\" class=\"lw-spin\"/>\n  <circle cx=\"120\" cy=\"130\" r=\"18\" fill=\"#ffd479\" class=\"lw-a\"/>\n  <text x=\"120\" y=\"135\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#161b22\">in</text>\n  <circle cx=\"260\" cy=\"130\" r=\"80\" fill=\"none\" stroke=\"#b39dff\" stroke-width=\"10\" class=\"lw-spin-r\"/>\n  <circle cx=\"260\" cy=\"130\" r=\"18\" fill=\"#ffd479\" class=\"lw-a\"/>\n  <text x=\"260\" y=\"135\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#161b22\">out</text>\n  <text x=\"120\" y=\"220\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#7cc7ff\">high rpm \u00b7 low \u03c4</text>\n  <text x=\"260\" y=\"230\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#b39dff\">low rpm \u00b7 high \u03c4</text>\n  <text x=\"200\" y=\"265\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#e8ecf1\">gears trade speed for torque</text>\n</svg>"
       },
       {
         "id": "heat",
         "heading": "Useful work is only part of the energy balance",
         "body": "Fuel brings chemical energy into an engine. Some becomes useful shaft work; the rest leaves through exhaust, cooling and other losses. If an illustrative engine receives 100 J of fuel energy and delivers 30 J of shaft work, its thermal efficiency at that operating point is 30/100 = 30%. The numbers are a teaching example, not a universal engine specification.\n\nCooling keeps components within an operating temperature range despite combustion heat. Lubrication reduces friction and wear and can also carry heat away. Neither system makes the engine lossless. Removing all cooling would not convert all rejected heat into useful work; it could instead damage the engine.\n\nEfficiency depends on design and operating conditions, including load and speed. A hybrid can sometimes improve overall vehicle efficiency by operating the engine differently and recovering braking energy, but a whole-vehicle comparison needs a defined driving cycle. This lesson explains mechanisms and is not an engine-service procedure.",
-        "visual": "Picture a 100-unit energy stream splitting into 30 units of shaft work and 70 units leaving by other routes. Keep every branch accounted for; an unlabelled loss does not mean energy disappeared.",
+        "visual": "Picture a 100-unit energy stream splitting into roughly 30 units of shaft work and 70 units of rejected heat. No heat engine escapes this tax.",
         "questions": [
           {
             "q": "Why does removing the cooling system not make every joule become useful work?",
             "hint": "Rejected heat and mechanical work are different energy paths.",
-            "answer": "Cooling protects the engine’s temperature limits. Removing it can overheat components rather than turning rejected heat into shaft work."
+            "answer": "Cooling protects the engine\u2019s temperature limits. Removing it can overheat components rather than turning rejected heat into shaft work."
           }
-        ]
+        ],
+        "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><style>\n.lw-a{animation:lw-pulse 1.4s ease-in-out infinite}\n.lw-a2{animation:lw-pulse 1.7s ease-in-out infinite .25s}\n.lw-spin{animation:lw-spin 5s linear infinite;transform-box:fill-box;transform-origin:center}\n.lw-spin-r{animation:lw-spin-r 4s linear infinite;transform-box:fill-box;transform-origin:center}\n.lw-flow{stroke-dasharray:10 7;animation:lw-dash .7s linear infinite}\n.lw-flow2{stroke-dasharray:8 6;animation:lw-dash 1s linear infinite reverse}\n.lw-bob{animation:lw-bob 1.1s ease-in-out infinite}\n.lw-bob2{animation:lw-bob 1.3s ease-in-out infinite .15s}\n.lw-ring{animation:lw-ring 1.6s ease-out infinite}\n.lw-ring2{animation:lw-ring 1.6s ease-out infinite .55s}\n.lw-ring3{animation:lw-ring 1.6s ease-out infinite 1.1s}\n.lw-glow{animation:lw-glow 1.5s ease-in-out infinite}\n.lw-slide{animation:lw-slide 1.4s ease-in-out infinite}\n@keyframes lw-pulse{0%,100%{opacity:1}50%{opacity:.2}}\n@keyframes lw-spin{to{transform:rotate(360deg)}}\n@keyframes lw-spin-r{to{transform:rotate(-360deg)}}\n@keyframes lw-dash{to{stroke-dashoffset:-17}}\n@keyframes lw-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}\n@keyframes lw-ring{0%{opacity:.9}100%{opacity:0}}\n@keyframes lw-glow{0%,100%{opacity:.4}50%{opacity:1}}\n@keyframes lw-slide{0%,100%{transform:translateX(0)}50%{transform:translateX(10px)}}\n@media(prefers-reduced-motion:reduce){.lw-a,.lw-a2,.lw-spin,.lw-spin-r,.lw-flow,.lw-flow2,.lw-bob,.lw-bob2,.lw-ring,.lw-ring2,.lw-ring3,.lw-glow,.lw-slide{animation:none!important}}\n</style>\n  <rect x=\"10\" y=\"10\" width=\"380\" height=\"280\" rx=\"10\" fill=\"#161b22\"/>\n  <rect x=\"40\" y=\"40\" width=\"90\" height=\"55\" rx=\"8\" fill=\"#ff9d9d\" class=\"lw-a lw-a2\"/>\n  <text x=\"85\" y=\"72\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"14\" fill=\"#161b22\">100 heat</text>\n  <line x1=\"130\" y1=\"67\" x2=\"165\" y2=\"67\" stroke=\"#e8ecf1\" stroke-width=\"3\" class=\"lw-flow2\"/>\n  <polygon points=\"165,67 153,60 153,74\" fill=\"#e8ecf1\"/>\n  <rect x=\"170\" y=\"40\" width=\"110\" height=\"90\" rx=\"8\" fill=\"#ffd479\" opacity=\"0.45\" class=\"lw-glow\"/>\n  <text x=\"225\" y=\"90\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"14\" fill=\"#e8ecf1\">engine</text>\n  <line x1=\"225\" y1=\"130\" x2=\"225\" y2=\"175\" stroke=\"#7ee2a8\" stroke-width=\"3\" class=\"lw-flow\"/>\n  <polygon points=\"225,185 217,170 233,170\" fill=\"#7ee2a8\" class=\"lw-a\"/>\n  <text x=\"225\" y=\"210\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#7ee2a8\" class=\"lw-a\">~30 work</text>\n  <line x1=\"280\" y1=\"85\" x2=\"320\" y2=\"85\" stroke=\"#e8ecf1\" stroke-width=\"3\" class=\"lw-flow2\"/>\n  <polygon points=\"320,85 308,78 308,92\" fill=\"#e8ecf1\"/>\n  <rect x=\"320\" y=\"55\" width=\"60\" height=\"55\" rx=\"8\" fill=\"#7cc7ff\" class=\"lw-a2\"/>\n  <text x=\"350\" y=\"87\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#161b22\">~70</text>\n  <text x=\"200\" y=\"250\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#e8ecf1\">heat in \u2192 work + heat rejected</text>\n  <text x=\"200\" y=\"275\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#9aa6b8\">no engine is 100% efficient</text>\n</svg>"
       }
     ]
   },
@@ -126,7 +129,7 @@
         "id": "output",
         "questions": [
           {
-            "q": "About how much power is 200 N·m at 1,500 rpm?",
+            "q": "About how much power is 200 N\u00b7m at 1,500 rpm?",
             "choices": [
               "300 kW",
               "31.4 kW",
@@ -134,7 +137,7 @@
               "200 kW"
             ],
             "answer": 1,
-            "explain": "1,500 rpm is about 157 rad/s. Multiplying by 200 N·m gives approximately 31,400 W."
+            "explain": "1,500 rpm is about 157 rad/s. Multiplying by 200 N\u00b7m gives approximately 31,400 W."
           },
           {
             "q": "An ideal gearbox halves shaft speed while transmitting the same power. What happens to torque?",
@@ -145,7 +148,7 @@
               "It doubles"
             ],
             "answer": 3,
-            "explain": "Since P = τω, half the speed requires twice the torque for unchanged power. Real losses reduce the delivered power somewhat."
+            "explain": "Since P = \u03c4\u03c9, half the speed requires twice the torque for unchanged power. Real losses reduce the delivered power somewhat."
           }
         ]
       },
@@ -184,12 +187,12 @@
         "id": "cycle",
         "title": "Four strokes, two crankshaft revolutions",
         "bullets": [
-          "One complete intake–compression–power–exhaust cycle uses two crankshaft revolutions.",
+          "One complete intake\u2013compression\u2013power\u2013exhaust cycle uses two crankshaft revolutions.",
           "Spark ignition and compression ignition initiate combustion in different ways.",
           "3,000/2 = 1,500 cycles per minute; 1,500/60 = 25 cycles per second."
         ],
         "notes": "In a simplified four-stroke spark-ignition engine, the intake stroke admits air and fuel, the compression stroke squeezes the mixture, ignition starts combustion near the end of compression, the power stroke extracts work from expanding gas, and the exhaust stroke removes burned gas. These four piston strokes take two crankshaft revolutions. 3,000/2 = 1,500 cycles per minute; 1,500/60 = 25 cycles per second.",
-        "visual": "Picture a piston moving down, up, down and up while a crank turns twice. Mark the four stages intake, compression, power and exhaust, with combustion beginning near the top before the power stroke."
+        "visual": "Picture a piston moving down, up, down and up while a crank turns twice. Mark the power stroke \u2014 the only one that delivers work \u2014 and the three strokes that prepare or clean up."
       },
       {
         "id": "output",
@@ -199,8 +202,8 @@
           "Power equals torque multiplied by angular speed in radians per second.",
           "No. Doubling both would quadruple power. A passive ideal gearbox trades torque against speed while conserving power."
         ],
-        "notes": "Torque describes a turning effect about an axis. A force of 100 N acting perpendicularly at a 0.20 m lever arm produces 20 N·m of torque. Power is the rate of doing work, so it also depends on how quickly that torque turns the shaft. No. Doubling both would quadruple power. A passive ideal gearbox trades torque against speed while conserving power.",
-        "visual": "Picture two shafts linked by reduction gears. Put a smaller speed arrow and a larger torque arrow on the slower shaft. Their power remains equal in the lossless model because the changes compensate."
+        "notes": "Torque describes a turning effect about an axis. A force of 100 N acting perpendicularly at a 0.20 m lever arm produces 20 N\u00b7m of torque. Power is the rate of doing work, so it also depends on how quickly that torque turns the shaft. No. Doubling both would quadruple power. A passive ideal gearbox trades torque against speed while conserving power.",
+        "visual": "Picture two shafts linked by reduction gears. Put a smaller speed arrow and a larger torque arrow on the output side \u2014 gears trade speed for turning force."
       },
       {
         "id": "heat",
@@ -208,15 +211,15 @@
         "bullets": [
           "Useful shaft work divided by fuel-energy input gives an engine efficiency for a specified condition.",
           "Heat control and reduced friction protect components while energy losses remain.",
-          "Cooling protects the engine’s temperature limits. Removing it can overheat components rather than turning rejected heat into shaft work."
+          "Cooling protects the engine\u2019s temperature limits. Removing it can overheat components rather than turning rejected heat into shaft work."
         ],
-        "notes": "Fuel brings chemical energy into an engine. Some becomes useful shaft work; the rest leaves through exhaust, cooling and other losses. If an illustrative engine receives 100 J of fuel energy and delivers 30 J of shaft work, its thermal efficiency at that operating point is 30/100 = 30%. The numbers are a teaching example, not a universal engine specification. Cooling protects the engine’s temperature limits. Removing it can overheat components rather than turning rejected heat into shaft work.",
-        "visual": "Picture a 100-unit energy stream splitting into 30 units of shaft work and 70 units leaving by other routes. Keep every branch accounted for; an unlabelled loss does not mean energy disappeared."
+        "notes": "Fuel brings chemical energy into an engine. Some becomes useful shaft work; the rest leaves through exhaust, cooling and other losses. If an illustrative engine receives 100 J of fuel energy and delivers 30 J of shaft work, its thermal efficiency at that operating point is 30/100 = 30%. The numbers are a teaching example, not a universal engine specification. Cooling protects the engine\u2019s temperature limits. Removing it can overheat components rather than turning rejected heat into shaft work.",
+        "visual": "Picture a 100-unit energy stream splitting into roughly 30 units of shaft work and 70 units of rejected heat. No heat engine escapes this tax."
       }
     ]
   },
   "enrichment": {
-    "audioTitle": "How Engines Work: Fuel to Turning Wheels — a conversation",
+    "audioTitle": "How Engines Work: Fuel to Turning Wheels \u2014 a conversation",
     "turns": [
       {
         "speaker": "teacher",
@@ -224,7 +227,7 @@
       },
       {
         "speaker": "teacher",
-        "line": "Four strokes, two crankshaft revolutions. One complete intake–compression–power–exhaust cycle uses two crankshaft revolutions. Spark ignition and compression ignition initiate combustion in different ways."
+        "line": "Four strokes, two crankshaft revolutions. One complete intake\u2013compression\u2013power\u2013exhaust cycle uses two crankshaft revolutions. Spark ignition and compression ignition initiate combustion in different ways."
       },
       {
         "speaker": "student",
@@ -256,11 +259,11 @@
       },
       {
         "speaker": "student",
-        "line": "About how much power is 200 N·m at 1,500 rpm?"
+        "line": "About how much power is 200 N\u00b7m at 1,500 rpm?"
       },
       {
         "speaker": "teacher",
-        "line": "31.4 kW. 1,500 rpm is about 157 rad/s. Multiplying by 200 N·m gives approximately 31,400 W."
+        "line": "31.4 kW. 1,500 rpm is about 157 rad/s. Multiplying by 200 N\u00b7m gives approximately 31,400 W."
       },
       {
         "speaker": "teacher",
@@ -272,7 +275,7 @@
       },
       {
         "speaker": "teacher",
-        "line": "Cooling protects the engine’s temperature limits. Removing it can overheat components rather than turning rejected heat into shaft work."
+        "line": "Cooling protects the engine\u2019s temperature limits. Removing it can overheat components rather than turning rejected heat into shaft work."
       },
       {
         "speaker": "student",
@@ -304,7 +307,7 @@
         "id": "cycle-concept-1",
         "parent": "cycle",
         "label": "Four-stroke cycle",
-        "note": "One complete intake–compression–power–exhaust cycle uses two crankshaft revolutions."
+        "note": "One complete intake\u2013compression\u2013power\u2013exhaust cycle uses two crankshaft revolutions."
       },
       {
         "id": "cycle-concept-2",
@@ -334,7 +337,7 @@
         "id": "heat",
         "parent": "root",
         "label": "Useful work is only part of the energy balance",
-        "note": "Cooling protects the engine’s temperature limits. Removing it can overheat components rather than turning rejected heat into shaft work."
+        "note": "Cooling protects the engine\u2019s temperature limits. Removing it can overheat components rather than turning rejected heat into shaft work."
       },
       {
         "id": "heat-concept-1",
@@ -353,7 +356,7 @@
   },
   "sources": [
     {
-      "title": "US Department of Energy — Internal combustion engine basics",
+      "title": "US Department of Energy \u2014 Internal combustion engine basics",
       "url": "https://www.energy.gov/cmei/vehicles/articles/internal-combustion-engine-basics"
     }
   ]

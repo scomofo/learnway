@@ -32,10 +32,10 @@
       },
       {
         "id": "combining",
-        "heading": "“And” and “or” use different rules",
+        "heading": "\u201cAnd\u201d and \u201cor\u201d use different rules",
         "points": [
-          "Add event probabilities and subtract their overlap to calculate inclusive “or.”",
-          "Independent events leave one another’s probability unchanged; exclusivity means they cannot occur together.",
+          "Add event probabilities and subtract their overlap to calculate inclusive \u201cor.\u201d",
+          "Independent events leave one another\u2019s probability unchanged; exclusivity means they cannot occur together.",
           "Knowing the roll is one changes the probability of two from 1/6 to zero. The events are mutually exclusive."
         ]
       },
@@ -44,7 +44,7 @@
         "heading": "Choose the right denominator",
         "points": [
           "The starting frequency of a condition affects how many positive signals are true positives.",
-          "The group after “given” determines the denominator of a conditional probability.",
+          "The group after \u201cgiven\u201d determines the denominator of a conditional probability.",
           "Use all 108 flagged parts. Nine are defective, so the fraction is 9/108, approximately 8.3%."
         ]
       }
@@ -55,41 +55,44 @@
       {
         "id": "outcomes",
         "heading": "Define the possible outcomes first",
-        "body": "A probability from 0 to 1 describes likelihood under a specified model. In a finite elementary model, zero means impossible and one means certain. For equally likely outcomes, divide favourable outcomes by total outcomes.\n\nA fair six-sided die has six equally likely faces. “Greater than four” contains 5 and 6, so its probability is 2/6 = 1/3. Counting faces is insufficient for a biased die: equal likelihood is an assumption doing real work.\n\nAn event's complement contains all outcomes outside it, with probability one minus the event probability. The chance of not rolling a six is therefore 5/6.\n\nProbability does not schedule compensation. After several sixes, an independent fair die does not owe you another result. Long-run proportions tend to stabilise over many trials, but short runs can look uneven without contradicting the model. An unusual real sequence can motivate checking whether fairness and independence are reasonable assumptions.",
-        "visual": "Picture six equal-size tiles labelled with die faces. Shade 5 and 6, then shade the remaining tiles in another colour for the complement. Equal sizes represent equal likelihood.",
+        "body": "A probability from 0 to 1 describes likelihood under a specified model. In a finite elementary model, zero means impossible and one means certain. For equally likely outcomes, divide favourable outcomes by total outcomes.\n\nA fair six-sided die has six equally likely faces. \u201cGreater than four\u201d contains 5 and 6, so its probability is 2/6 = 1/3. Counting faces is insufficient for a biased die: equal likelihood is an assumption doing real work.\n\nAn event's complement contains all outcomes outside it, with probability one minus the event probability. The chance of not rolling a six is therefore 5/6.\n\nProbability does not schedule compensation. After several sixes, an independent fair die does not owe you another result. Long-run proportions tend to stabilise over many trials, but short runs can look uneven without contradicting the model. An unusual real sequence can motivate checking whether fairness and independence are reasonable assumptions.",
+        "visual": "Picture six equal-size tiles labelled with die faces. Shade 5 and 6, then shade only the even numbers \u2014 the overlap is the event 'even and greater than 4'.",
         "questions": [
           {
             "q": "After five sixes, what is the next-roll chance of six for an independent fair die?",
             "hint": "The stated model gives the die no memory.",
             "answer": "It remains 1/6. Earlier outcomes do not change the next-roll probability under the fair, independent model."
           }
-        ]
+        ],
+        "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><style>\n.lw-a{animation:lw-pulse 1.4s ease-in-out infinite}\n.lw-a2{animation:lw-pulse 1.7s ease-in-out infinite .25s}\n.lw-spin{animation:lw-spin 5s linear infinite;transform-box:fill-box;transform-origin:center}\n.lw-spin-r{animation:lw-spin-r 4s linear infinite;transform-box:fill-box;transform-origin:center}\n.lw-flow{stroke-dasharray:10 7;animation:lw-dash .7s linear infinite}\n.lw-flow2{stroke-dasharray:8 6;animation:lw-dash 1s linear infinite reverse}\n.lw-bob{animation:lw-bob 1.1s ease-in-out infinite}\n.lw-bob2{animation:lw-bob 1.3s ease-in-out infinite .15s}\n.lw-ring{animation:lw-ring 1.6s ease-out infinite}\n.lw-ring2{animation:lw-ring 1.6s ease-out infinite .55s}\n.lw-ring3{animation:lw-ring 1.6s ease-out infinite 1.1s}\n.lw-glow{animation:lw-glow 1.5s ease-in-out infinite}\n.lw-slide{animation:lw-slide 1.4s ease-in-out infinite}\n@keyframes lw-pulse{0%,100%{opacity:1}50%{opacity:.2}}\n@keyframes lw-spin{to{transform:rotate(360deg)}}\n@keyframes lw-spin-r{to{transform:rotate(-360deg)}}\n@keyframes lw-dash{to{stroke-dashoffset:-17}}\n@keyframes lw-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}\n@keyframes lw-ring{0%{opacity:.9}100%{opacity:0}}\n@keyframes lw-glow{0%,100%{opacity:.4}50%{opacity:1}}\n@keyframes lw-slide{0%,100%{transform:translateX(0)}50%{transform:translateX(10px)}}\n@media(prefers-reduced-motion:reduce){.lw-a,.lw-a2,.lw-spin,.lw-spin-r,.lw-flow,.lw-flow2,.lw-bob,.lw-bob2,.lw-ring,.lw-ring2,.lw-ring3,.lw-glow,.lw-slide{animation:none!important}}\n</style>\n  <rect x=\"10\" y=\"10\" width=\"380\" height=\"280\" rx=\"10\" fill=\"#161b22\"/>\n  <rect x=\"40\" y=\"60\" width=\"55\" height=\"55\" rx=\"5\" fill=\"#7cc7ff\" opacity=\"0.35\" class=\"lw-a2\"/>\n  <text x=\"67\" y=\"95\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"16\" fill=\"#e8ecf1\">1</text>\n  <rect x=\"105\" y=\"60\" width=\"55\" height=\"55\" rx=\"5\" fill=\"#7cc7ff\" opacity=\"0.35\" class=\"lw-a2\"/>\n  <text x=\"132\" y=\"95\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"16\" fill=\"#e8ecf1\">2</text>\n  <rect x=\"170\" y=\"60\" width=\"55\" height=\"55\" rx=\"5\" fill=\"#7cc7ff\" opacity=\"0.35\" class=\"lw-a2\"/>\n  <text x=\"197\" y=\"95\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"16\" fill=\"#e8ecf1\">3</text>\n  <rect x=\"235\" y=\"60\" width=\"55\" height=\"55\" rx=\"5\" fill=\"#7cc7ff\" opacity=\"0.35\" class=\"lw-a2\"/>\n  <text x=\"262\" y=\"95\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"16\" fill=\"#e8ecf1\">4</text>\n  <rect x=\"300\" y=\"60\" width=\"55\" height=\"55\" rx=\"5\" fill=\"#ffd479\" opacity=\"0.55\" class=\"lw-a\"/>\n  <text x=\"327\" y=\"95\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"16\" fill=\"#e8ecf1\">5</text>\n  <rect x=\"40\" y=\"130\" width=\"55\" height=\"55\" rx=\"5\" fill=\"#ffd479\" opacity=\"0.55\" class=\"lw-a\"/>\n  <text x=\"67\" y=\"165\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"16\" fill=\"#e8ecf1\">6</text>\n  <text x=\"200\" y=\"220\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#ffd479\">shaded = event of interest</text>\n  <text x=\"200\" y=\"255\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#e8ecf1\">equal outcomes \u00b7 probability = count / 6</text>\n</svg>"
       },
       {
         "id": "combining",
-        "heading": "“And” and “or” use different rules",
-        "body": "For two events A and B, P(A or B) = P(A) + P(B) − P(A and B). Here “or” includes both happening. Subtracting the overlap avoids counting those outcomes twice.\n\nOn a fair die, A = “even” contains 2, 4 and 6, while B = “greater than three” contains 4, 5 and 6. Their union contains 2, 4, 5 and 6. Its probability is 3/6 + 3/6 − 2/6 = 4/6.\n\nFor “and,” P(A and B) = P(A) × P(B given A). Independence lets the second factor become P(B). Two independent fair coin tosses are both heads with probability 1/2 × 1/2 = 1/4.\n\nMutually exclusive events cannot occur together. They differ from independent events: on one die roll, learning that “one” occurred makes “two” impossible. For positive-probability events, that information changes the probability rather than leaving it alone.",
-        "visual": "Picture two overlapping circles. Count their shared lens once for “or.” Beside them, draw a two-stage tree whose second branch uses a conditional probability unless independence is justified.",
+        "heading": "\u201cAnd\u201d and \u201cor\u201d use different rules",
+        "body": "For two events A and B, P(A or B) = P(A) + P(B) \u2212 P(A and B). Here \u201cor\u201d includes both happening. Subtracting the overlap avoids counting those outcomes twice.\n\nOn a fair die, A = \u201ceven\u201d contains 2, 4 and 6, while B = \u201cgreater than three\u201d contains 4, 5 and 6. Their union contains 2, 4, 5 and 6. Its probability is 3/6 + 3/6 \u2212 2/6 = 4/6.\n\nFor \u201cand,\u201d P(A and B) = P(A) \u00d7 P(B given A). Independence lets the second factor become P(B). Two independent fair coin tosses are both heads with probability 1/2 \u00d7 1/2 = 1/4.\n\nMutually exclusive events cannot occur together. They differ from independent events: on one die roll, learning that \u201cone\u201d occurred makes \u201ctwo\u201d impossible. For positive-probability events, that information changes the probability rather than leaving it alone.",
+        "visual": "Picture two overlapping circles. Count their shared lens once for 'or.' Beside them, a tree of sequential choices multiplies probabilities along each path.",
         "questions": [
           {
-            "q": "Why are “roll a one” and “roll a two” not independent on the same roll?",
+            "q": "Why are \u201croll a one\u201d and \u201croll a two\u201d not independent on the same roll?",
             "hint": "What does knowing the first do to the second?",
             "answer": "Knowing the roll is one changes the probability of two from 1/6 to zero. The events are mutually exclusive."
           }
-        ]
+        ],
+        "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><style>\n.lw-a{animation:lw-pulse 1.4s ease-in-out infinite}\n.lw-a2{animation:lw-pulse 1.7s ease-in-out infinite .25s}\n.lw-spin{animation:lw-spin 5s linear infinite;transform-box:fill-box;transform-origin:center}\n.lw-spin-r{animation:lw-spin-r 4s linear infinite;transform-box:fill-box;transform-origin:center}\n.lw-flow{stroke-dasharray:10 7;animation:lw-dash .7s linear infinite}\n.lw-flow2{stroke-dasharray:8 6;animation:lw-dash 1s linear infinite reverse}\n.lw-bob{animation:lw-bob 1.1s ease-in-out infinite}\n.lw-bob2{animation:lw-bob 1.3s ease-in-out infinite .15s}\n.lw-ring{animation:lw-ring 1.6s ease-out infinite}\n.lw-ring2{animation:lw-ring 1.6s ease-out infinite .55s}\n.lw-ring3{animation:lw-ring 1.6s ease-out infinite 1.1s}\n.lw-glow{animation:lw-glow 1.5s ease-in-out infinite}\n.lw-slide{animation:lw-slide 1.4s ease-in-out infinite}\n@keyframes lw-pulse{0%,100%{opacity:1}50%{opacity:.2}}\n@keyframes lw-spin{to{transform:rotate(360deg)}}\n@keyframes lw-spin-r{to{transform:rotate(-360deg)}}\n@keyframes lw-dash{to{stroke-dashoffset:-17}}\n@keyframes lw-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}\n@keyframes lw-ring{0%{opacity:.9}100%{opacity:0}}\n@keyframes lw-glow{0%,100%{opacity:.4}50%{opacity:1}}\n@keyframes lw-slide{0%,100%{transform:translateX(0)}50%{transform:translateX(10px)}}\n@media(prefers-reduced-motion:reduce){.lw-a,.lw-a2,.lw-spin,.lw-spin-r,.lw-flow,.lw-flow2,.lw-bob,.lw-bob2,.lw-ring,.lw-ring2,.lw-ring3,.lw-glow,.lw-slide{animation:none!important}}\n</style>\n  <rect x=\"10\" y=\"10\" width=\"380\" height=\"280\" rx=\"10\" fill=\"#161b22\"/>\n  <circle cx=\"140\" cy=\"130\" r=\"70\" fill=\"#7cc7ff\" opacity=\"0.3\" class=\"lw-a\"/>\n  <circle cx=\"210\" cy=\"130\" r=\"70\" fill=\"#b39dff\" opacity=\"0.3\" class=\"lw-a\"/>\n  <text x=\"105\" y=\"135\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"14\" fill=\"#e8ecf1\">A</text>\n  <text x=\"245\" y=\"135\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"14\" fill=\"#e8ecf1\">B</text>\n  <text x=\"175\" y=\"135\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#ffd479\" class=\"lw-glow\">A\u2229B</text>\n  <text x=\"200\" y=\"230\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#e8ecf1\">P(A \u222a B) = P(A) + P(B) \u2212 P(A \u2229 B)</text>\n  <text x=\"200\" y=\"260\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#9aa6b8\">count the overlap only once</text>\n</svg>"
       },
       {
         "id": "evidence",
         "heading": "Choose the right denominator",
         "body": "Imagine 1,000 manufactured parts: 10 defective and 990 sound. A scanner flags 9 defective parts and falsely flags 99 sound parts. These are illustrative round numbers, not measured performance for a real product.\n\nThere are 108 flags in total. Of those, only 9 are true defects, so the defective fraction among flags is 9/108, about 8.3%. The scanner detects 90% of defective parts, yet a randomly selected flagged part is much less than 90% likely to be defective in this batch.\n\nThe conditional questions use different denominators. P(flagged given defective) selects the defective group; P(defective given flagged) selects the flagged group. The low base rate of defects means many sound parts can enter the flagged group despite a moderate false-positive rate.\n\nBefore interpreting a positive signal, identify the starting rate, detection rate and false-positive rate. Counting the relevant group explicitly can make a reversed conditional much easier to reason about.",
-        "visual": "Picture a tray of 1,000 parts with only 10 defects. Move 9 defective and 99 sound parts into a flagged box. To ask “defective given flagged,” count only inside that box: the denominator is 108.",
+        "visual": "Picture a tray of 1,000 parts with only 10 defects. Move 9 defective and 99 sound parts into a 'test positive' bin \u2014 most positives are false when the condition is rare.",
         "questions": [
           {
-            "q": "Which denominator answers “what fraction of flagged parts are defective”?",
+            "q": "Which denominator answers \u201cwhat fraction of flagged parts are defective\u201d?",
             "hint": "First select all flagged parts.",
             "answer": "Use all 108 flagged parts. Nine are defective, so the fraction is 9/108, approximately 8.3%."
           }
-        ]
+        ],
+        "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><style>\n.lw-a{animation:lw-pulse 1.4s ease-in-out infinite}\n.lw-a2{animation:lw-pulse 1.7s ease-in-out infinite .25s}\n.lw-spin{animation:lw-spin 5s linear infinite;transform-box:fill-box;transform-origin:center}\n.lw-spin-r{animation:lw-spin-r 4s linear infinite;transform-box:fill-box;transform-origin:center}\n.lw-flow{stroke-dasharray:10 7;animation:lw-dash .7s linear infinite}\n.lw-flow2{stroke-dasharray:8 6;animation:lw-dash 1s linear infinite reverse}\n.lw-bob{animation:lw-bob 1.1s ease-in-out infinite}\n.lw-bob2{animation:lw-bob 1.3s ease-in-out infinite .15s}\n.lw-ring{animation:lw-ring 1.6s ease-out infinite}\n.lw-ring2{animation:lw-ring 1.6s ease-out infinite .55s}\n.lw-ring3{animation:lw-ring 1.6s ease-out infinite 1.1s}\n.lw-glow{animation:lw-glow 1.5s ease-in-out infinite}\n.lw-slide{animation:lw-slide 1.4s ease-in-out infinite}\n@keyframes lw-pulse{0%,100%{opacity:1}50%{opacity:.2}}\n@keyframes lw-spin{to{transform:rotate(360deg)}}\n@keyframes lw-spin-r{to{transform:rotate(-360deg)}}\n@keyframes lw-dash{to{stroke-dashoffset:-17}}\n@keyframes lw-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}\n@keyframes lw-ring{0%{opacity:.9}100%{opacity:0}}\n@keyframes lw-glow{0%,100%{opacity:.4}50%{opacity:1}}\n@keyframes lw-slide{0%,100%{transform:translateX(0)}50%{transform:translateX(10px)}}\n@media(prefers-reduced-motion:reduce){.lw-a,.lw-a2,.lw-spin,.lw-spin-r,.lw-flow,.lw-flow2,.lw-bob,.lw-bob2,.lw-ring,.lw-ring2,.lw-ring3,.lw-glow,.lw-slide{animation:none!important}}\n</style>\n  <rect x=\"10\" y=\"10\" width=\"380\" height=\"280\" rx=\"10\" fill=\"#161b22\"/>\n  <rect x=\"30\" y=\"50\" width=\"150\" height=\"100\" rx=\"8\" fill=\"#7cc7ff\" opacity=\"0.3\" class=\"lw-a lw-a2\"/>\n  <text x=\"105\" y=\"100\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"14\" fill=\"#e8ecf1\">990 sound</text>\n  <rect x=\"220\" y=\"50\" width=\"150\" height=\"100\" rx=\"8\" fill=\"#ff9d9d\" opacity=\"0.3\" class=\"lw-a2\"/>\n  <text x=\"295\" y=\"100\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"14\" fill=\"#e8ecf1\">10 defective</text>\n  <text x=\"200\" y=\"190\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#ffd479\">rare condition \u2192 false positives dominate</text>\n  <text x=\"200\" y=\"225\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#e8ecf1\">base rate matters</text>\n  <text x=\"200\" y=\"255\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#9aa6b8\">Bayes: update with evidence carefully</text>\n</svg>"
       }
     ]
   },
@@ -118,7 +121,7 @@
               "0.14"
             ],
             "answer": 0,
-            "explain": "Subtract from one: 1 − 0.28 = 0.72."
+            "explain": "Subtract from one: 1 \u2212 0.28 = 0.72."
           }
         ]
       },
@@ -126,7 +129,7 @@
         "id": "combining",
         "questions": [
           {
-            "q": "What is the chance of “even or greater than three” on a fair die?",
+            "q": "What is the chance of \u201ceven or greater than three\u201d on a fair die?",
             "choices": [
               "1",
               "1/3",
@@ -145,7 +148,7 @@
               "3/4"
             ],
             "answer": 1,
-            "explain": "Multiply 1/2 × 1/2 = 1/4. This is both heads, not at least one head."
+            "explain": "Multiply 1/2 \u00d7 1/2 = 1/4. This is both heads, not at least one head."
           }
         ]
       },
@@ -189,34 +192,34 @@
           "It remains 1/6. Earlier outcomes do not change the next-roll probability under the fair, independent model."
         ],
         "notes": "A probability from 0 to 1 describes likelihood under a specified model. In a finite elementary model, zero means impossible and one means certain. For equally likely outcomes, divide favourable outcomes by total outcomes. It remains 1/6. Earlier outcomes do not change the next-roll probability under the fair, independent model.",
-        "visual": "Picture six equal-size tiles labelled with die faces. Shade 5 and 6, then shade the remaining tiles in another colour for the complement. Equal sizes represent equal likelihood."
+        "visual": "Picture six equal-size tiles labelled with die faces. Shade 5 and 6, then shade only the even numbers \u2014 the overlap is the event 'even and greater than 4'."
       },
       {
         "id": "combining",
-        "title": "“And” and “or” use different rules",
+        "title": "\u201cAnd\u201d and \u201cor\u201d use different rules",
         "bullets": [
-          "Add event probabilities and subtract their overlap to calculate inclusive “or.”",
-          "Independent events leave one another’s probability unchanged; exclusivity means they cannot occur together.",
+          "Add event probabilities and subtract their overlap to calculate inclusive \u201cor.\u201d",
+          "Independent events leave one another\u2019s probability unchanged; exclusivity means they cannot occur together.",
           "Knowing the roll is one changes the probability of two from 1/6 to zero. The events are mutually exclusive."
         ],
-        "notes": "For two events A and B, P(A or B) = P(A) + P(B) − P(A and B). Here “or” includes both happening. Subtracting the overlap avoids counting those outcomes twice. Knowing the roll is one changes the probability of two from 1/6 to zero. The events are mutually exclusive.",
-        "visual": "Picture two overlapping circles. Count their shared lens once for “or.” Beside them, draw a two-stage tree whose second branch uses a conditional probability unless independence is justified."
+        "notes": "For two events A and B, P(A or B) = P(A) + P(B) \u2212 P(A and B). Here \u201cor\u201d includes both happening. Subtracting the overlap avoids counting those outcomes twice. Knowing the roll is one changes the probability of two from 1/6 to zero. The events are mutually exclusive.",
+        "visual": "Picture two overlapping circles. Count their shared lens once for 'or.' Beside them, a tree of sequential choices multiplies probabilities along each path."
       },
       {
         "id": "evidence",
         "title": "Choose the right denominator",
         "bullets": [
           "The starting frequency of a condition affects how many positive signals are true positives.",
-          "The group after “given” determines the denominator of a conditional probability.",
+          "The group after \u201cgiven\u201d determines the denominator of a conditional probability.",
           "Use all 108 flagged parts. Nine are defective, so the fraction is 9/108, approximately 8.3%."
         ],
         "notes": "Imagine 1,000 manufactured parts: 10 defective and 990 sound. A scanner flags 9 defective parts and falsely flags 99 sound parts. These are illustrative round numbers, not measured performance for a real product. Use all 108 flagged parts. Nine are defective, so the fraction is 9/108, approximately 8.3%.",
-        "visual": "Picture a tray of 1,000 parts with only 10 defects. Move 9 defective and 99 sound parts into a flagged box. To ask “defective given flagged,” count only inside that box: the denominator is 108."
+        "visual": "Picture a tray of 1,000 parts with only 10 defects. Move 9 defective and 99 sound parts into a 'test positive' bin \u2014 most positives are false when the condition is rare."
       }
     ]
   },
   "enrichment": {
-    "audioTitle": "Everyday Probability: Chance & Evidence — a conversation",
+    "audioTitle": "Everyday Probability: Chance & Evidence \u2014 a conversation",
     "turns": [
       {
         "speaker": "teacher",
@@ -244,11 +247,11 @@
       },
       {
         "speaker": "teacher",
-        "line": "“And” and “or” use different rules. Add event probabilities and subtract their overlap to calculate inclusive “or.” Independent events leave one another’s probability unchanged; exclusivity means they cannot occur together."
+        "line": "\u201cAnd\u201d and \u201cor\u201d use different rules. Add event probabilities and subtract their overlap to calculate inclusive \u201cor.\u201d Independent events leave one another\u2019s probability unchanged; exclusivity means they cannot occur together."
       },
       {
         "speaker": "student",
-        "line": "Why are “roll a one” and “roll a two” not independent on the same roll?"
+        "line": "Why are \u201croll a one\u201d and \u201croll a two\u201d not independent on the same roll?"
       },
       {
         "speaker": "teacher",
@@ -256,7 +259,7 @@
       },
       {
         "speaker": "student",
-        "line": "What is the chance of “even or greater than three” on a fair die?"
+        "line": "What is the chance of \u201ceven or greater than three\u201d on a fair die?"
       },
       {
         "speaker": "teacher",
@@ -264,11 +267,11 @@
       },
       {
         "speaker": "teacher",
-        "line": "Choose the right denominator. The starting frequency of a condition affects how many positive signals are true positives. The group after “given” determines the denominator of a conditional probability."
+        "line": "Choose the right denominator. The starting frequency of a condition affects how many positive signals are true positives. The group after \u201cgiven\u201d determines the denominator of a conditional probability."
       },
       {
         "speaker": "student",
-        "line": "Which denominator answers “what fraction of flagged parts are defective”?"
+        "line": "Which denominator answers \u201cwhat fraction of flagged parts are defective\u201d?"
       },
       {
         "speaker": "teacher",
@@ -315,20 +318,20 @@
       {
         "id": "combining",
         "parent": "root",
-        "label": "“And” and “or” use different rules",
+        "label": "\u201cAnd\u201d and \u201cor\u201d use different rules",
         "note": "Knowing the roll is one changes the probability of two from 1/6 to zero. The events are mutually exclusive."
       },
       {
         "id": "combining-concept-1",
         "parent": "combining",
         "label": "Union and overlap",
-        "note": "Add event probabilities and subtract their overlap to calculate inclusive “or.”"
+        "note": "Add event probabilities and subtract their overlap to calculate inclusive \u201cor.\u201d"
       },
       {
         "id": "combining-concept-2",
         "parent": "combining",
         "label": "Independence",
-        "note": "Independent events leave one another’s probability unchanged; exclusivity means they cannot occur together."
+        "note": "Independent events leave one another\u2019s probability unchanged; exclusivity means they cannot occur together."
       },
       {
         "id": "evidence",
@@ -346,14 +349,14 @@
         "id": "evidence-concept-2",
         "parent": "evidence",
         "label": "Conditional denominator",
-        "note": "The group after “given” determines the denominator of a conditional probability."
+        "note": "The group after \u201cgiven\u201d determines the denominator of a conditional probability."
       }
     ],
     "mnemonics": []
   },
   "sources": [
     {
-      "title": "OpenStax — Two basic rules of probability",
+      "title": "OpenStax \u2014 Two basic rules of probability",
       "url": "https://openstax.org/books/introductory-statistics-2e/pages/3-3-two-basic-rules-of-probability"
     }
   ]

@@ -37,7 +37,7 @@
         "points": [
           "Enzymes increase reaction rate by providing a lower-barrier pathway.",
           "The free-energy change of the combined process determines whether ATP coupling can drive it.",
-          "No. Catalysis changes the rate, not the reaction’s overall free-energy difference or equilibrium position."
+          "No. Catalysis changes the rate, not the reaction\u2019s overall free-energy difference or equilibrium position."
         ]
       },
       {
@@ -56,41 +56,44 @@
       {
         "id": "membranes",
         "heading": "A boundary that does useful work",
-        "body": "A cell membrane is selectively permeable. Small nonpolar molecules can cross its lipid interior readily; ions generally need suitable transport proteins. A boundary is useful because it can maintain different conditions inside and outside a cell.\n\nDiffusion produces net movement down a concentration gradient. Facilitated diffusion uses a channel or carrier to move material down its electrochemical gradient without directly spending cellular energy. A protein-assisted process is not automatically active transport. At equilibrium, molecules still move; opposing flows balance.\n\nOsmosis is water movement across a selectively permeable membrane. With equal initial pressure, water tends to move toward the side with more solute that cannot cross. A cell in a hypertonic solution therefore initially loses water. Pressure and solute permeability matter: “water always follows any solute” is too broad. In a tissue experiment, keep temperature and exposure time fixed while varying the surrounding solution.",
-        "visual": "Picture two rooms joined by water-sized doors. One contains more large particles that cannot cross. Water shifts toward that room until concentration and pressure effects balance; the particles are not pulling water with little ropes.",
+        "body": "A cell membrane is selectively permeable. Small nonpolar molecules can cross its lipid interior readily; ions generally need suitable transport proteins. A boundary is useful because it can maintain different conditions inside and outside a cell.\n\nDiffusion produces net movement down a concentration gradient. Facilitated diffusion uses a channel or carrier to move material down its electrochemical gradient without directly spending cellular energy. A protein-assisted process is not automatically active transport. At equilibrium, molecules still move; opposing flows balance.\n\nOsmosis is water movement across a selectively permeable membrane. With equal initial pressure, water tends to move toward the side with more solute that cannot cross. A cell in a hypertonic solution therefore initially loses water. Pressure and solute permeability matter: \u201cwater always follows any solute\u201d is too broad. In a tissue experiment, keep temperature and exposure time fixed while varying the surrounding solution.",
+        "visual": "Picture two rooms joined by water-sized doors. One contains more large particles that cannot cross. Water shifts toward the particle-rich side until pressures balance.",
         "questions": [
           {
             "q": "Has diffusion stopped when opposing flows become equal?",
             "hint": "Separate molecular movement from net movement.",
             "answer": "No. Random molecular motion continues, while equal opposing flows give no net concentration change."
           }
-        ]
+        ],
+        "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><style>\n.lw-a{animation:lw-pulse 1.4s ease-in-out infinite}\n.lw-a2{animation:lw-pulse 1.7s ease-in-out infinite .25s}\n.lw-spin{animation:lw-spin 5s linear infinite;transform-box:fill-box;transform-origin:center}\n.lw-spin-r{animation:lw-spin-r 4s linear infinite;transform-box:fill-box;transform-origin:center}\n.lw-flow{stroke-dasharray:10 7;animation:lw-dash .7s linear infinite}\n.lw-flow2{stroke-dasharray:8 6;animation:lw-dash 1s linear infinite reverse}\n.lw-bob{animation:lw-bob 1.1s ease-in-out infinite}\n.lw-bob2{animation:lw-bob 1.3s ease-in-out infinite .15s}\n.lw-ring{animation:lw-ring 1.6s ease-out infinite}\n.lw-ring2{animation:lw-ring 1.6s ease-out infinite .55s}\n.lw-ring3{animation:lw-ring 1.6s ease-out infinite 1.1s}\n.lw-glow{animation:lw-glow 1.5s ease-in-out infinite}\n.lw-slide{animation:lw-slide 1.4s ease-in-out infinite}\n@keyframes lw-pulse{0%,100%{opacity:1}50%{opacity:.2}}\n@keyframes lw-spin{to{transform:rotate(360deg)}}\n@keyframes lw-spin-r{to{transform:rotate(-360deg)}}\n@keyframes lw-dash{to{stroke-dashoffset:-17}}\n@keyframes lw-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}\n@keyframes lw-ring{0%{opacity:.9}100%{opacity:0}}\n@keyframes lw-glow{0%,100%{opacity:.4}50%{opacity:1}}\n@keyframes lw-slide{0%,100%{transform:translateX(0)}50%{transform:translateX(10px)}}\n@media(prefers-reduced-motion:reduce){.lw-a,.lw-a2,.lw-spin,.lw-spin-r,.lw-flow,.lw-flow2,.lw-bob,.lw-bob2,.lw-ring,.lw-ring2,.lw-ring3,.lw-glow,.lw-slide{animation:none!important}}\n</style>\n  <rect x=\"10\" y=\"10\" width=\"380\" height=\"280\" rx=\"10\" fill=\"#161b22\"/>\n  <rect x=\"30\" y=\"50\" width=\"150\" height=\"150\" fill=\"#7cc7ff\" opacity=\"0.2\" class=\"lw-a2\"/>\n  <rect x=\"220\" y=\"50\" width=\"150\" height=\"150\" fill=\"#b39dff\" opacity=\"0.2\" class=\"lw-a2\"/>\n  <line x1=\"180\" y1=\"50\" x2=\"180\" y2=\"200\" stroke=\"#ffd479\" stroke-width=\"5\" class=\"lw-glow\"/>\n  <text x=\"180\" y=\"40\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#ffd479\">membrane</text>\n  <circle cx=\"70\" cy=\"90\" r=\"12\" fill=\"#ff9d9d\" class=\"lw-a lw-a2\"/>\n  <circle cx=\"110\" cy=\"120\" r=\"12\" fill=\"#ff9d9d\" class=\"lw-a lw-a2\"/>\n  <circle cx=\"80\" cy=\"150\" r=\"12\" fill=\"#ff9d9d\" class=\"lw-a\"/>\n  <circle cx=\"130\" cy=\"160\" r=\"12\" fill=\"#ff9d9d\" class=\"lw-a\"/>\n  <text x=\"105\" y=\"230\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#9aa6b8\">more solute</text>\n  <text x=\"295\" y=\"230\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#9aa6b8\">less solute</text>\n  <line x1=\"250\" y1=\"120\" x2=\"200\" y2=\"120\" stroke=\"#7ee2a8\" stroke-width=\"3\" class=\"lw-flow\"/>\n  <polygon points=\"200,120 212,112 212,128\" fill=\"#7ee2a8\" class=\"lw-a\"/>\n  <text x=\"200\" y=\"260\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#e8ecf1\">water follows impermeable solute</text>\n</svg>"
       },
       {
         "id": "enzymes",
         "heading": "Lower the barrier, keep the destination",
-        "body": "A reaction can be energetically favourable yet slow. Reactants must pass through a transition state, and the activation barrier limits how frequently they succeed. An enzyme supplies a pathway with a lower barrier, increasing reaction rate under suitable conditions.\n\nCatalysis does not change the overall free-energy difference or shift equilibrium. It speeds the approach to equilibrium, and the enzyme is regenerated during each catalytic cycle. Its molecular shape and environment matter: pH or temperature changes can alter activity, and sufficiently disruptive conditions can damage its structure.\n\nATP hydrolysis can help drive another process when the reactions are mechanistically coupled and the combined free-energy change is favourable. Breaking a bond alone costs energy; the energy balance belongs to the complete reaction. Likewise, a flattening rate curve at high substrate concentration can reflect occupied enzyme active sites, not an enzyme that has “run out of energy.”",
-        "visual": "Picture two valleys connected by a high mountain pass. An enzyme opens a lower pass between the same valleys. It changes the barrier along the route without lifting either endpoint.",
+        "body": "A reaction can be energetically favourable yet slow. Reactants must pass through a transition state, and the activation barrier limits how frequently they succeed. An enzyme supplies a pathway with a lower barrier, increasing reaction rate under suitable conditions.\n\nCatalysis does not change the overall free-energy difference or shift equilibrium. It speeds the approach to equilibrium, and the enzyme is regenerated during each catalytic cycle. Its molecular shape and environment matter: pH or temperature changes can alter activity, and sufficiently disruptive conditions can damage its structure.\n\nATP hydrolysis can help drive another process when the reactions are mechanistically coupled and the combined free-energy change is favourable. Breaking a bond alone costs energy; the energy balance belongs to the complete reaction. Likewise, a flattening rate curve at high substrate concentration can reflect occupied enzyme active sites, not an enzyme that has \u201crun out of energy.\u201d",
+        "visual": "Picture two valleys connected by a high mountain pass. An enzyme opens a lower pass between the same valleys. It changes the rate, not the destination height.",
         "questions": [
           {
             "q": "Would adding an enzyme make an unfavourable reaction favourable?",
             "hint": "Compare the barrier with the difference between endpoints.",
-            "answer": "No. Catalysis changes the rate, not the reaction’s overall free-energy difference or equilibrium position."
+            "answer": "No. Catalysis changes the rate, not the reaction\u2019s overall free-energy difference or equilibrium position."
           }
-        ]
+        ],
+        "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><style>\n.lw-a{animation:lw-pulse 1.4s ease-in-out infinite}\n.lw-a2{animation:lw-pulse 1.7s ease-in-out infinite .25s}\n.lw-spin{animation:lw-spin 5s linear infinite;transform-box:fill-box;transform-origin:center}\n.lw-spin-r{animation:lw-spin-r 4s linear infinite;transform-box:fill-box;transform-origin:center}\n.lw-flow{stroke-dasharray:10 7;animation:lw-dash .7s linear infinite}\n.lw-flow2{stroke-dasharray:8 6;animation:lw-dash 1s linear infinite reverse}\n.lw-bob{animation:lw-bob 1.1s ease-in-out infinite}\n.lw-bob2{animation:lw-bob 1.3s ease-in-out infinite .15s}\n.lw-ring{animation:lw-ring 1.6s ease-out infinite}\n.lw-ring2{animation:lw-ring 1.6s ease-out infinite .55s}\n.lw-ring3{animation:lw-ring 1.6s ease-out infinite 1.1s}\n.lw-glow{animation:lw-glow 1.5s ease-in-out infinite}\n.lw-slide{animation:lw-slide 1.4s ease-in-out infinite}\n@keyframes lw-pulse{0%,100%{opacity:1}50%{opacity:.2}}\n@keyframes lw-spin{to{transform:rotate(360deg)}}\n@keyframes lw-spin-r{to{transform:rotate(-360deg)}}\n@keyframes lw-dash{to{stroke-dashoffset:-17}}\n@keyframes lw-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}\n@keyframes lw-ring{0%{opacity:.9}100%{opacity:0}}\n@keyframes lw-glow{0%,100%{opacity:.4}50%{opacity:1}}\n@keyframes lw-slide{0%,100%{transform:translateX(0)}50%{transform:translateX(10px)}}\n@media(prefers-reduced-motion:reduce){.lw-a,.lw-a2,.lw-spin,.lw-spin-r,.lw-flow,.lw-flow2,.lw-bob,.lw-bob2,.lw-ring,.lw-ring2,.lw-ring3,.lw-glow,.lw-slide{animation:none!important}}\n</style>\n  <rect x=\"10\" y=\"10\" width=\"380\" height=\"280\" rx=\"10\" fill=\"#161b22\"/>\n  <path d=\"M30,210 Q80,210 120,60 Q160,210 220,210 Q260,60 300,210 Q350,210 370,210\" fill=\"none\" stroke=\"#ff9d9d\" stroke-width=\"3\" class=\"lw-a2\"/>\n  <path d=\"M30,210 Q80,210 120,140 Q160,210 220,210\" fill=\"none\" stroke=\"#7ee2a8\" stroke-width=\"3\" stroke-dasharray=\"10 6\" class=\"lw-a\"/>\n  <text x=\"120\" y=\"50\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#ff9d9d\" class=\"lw-a2\">no enzyme</text>\n  <text x=\"120\" y=\"160\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#7ee2a8\" class=\"lw-a\">with enzyme</text>\n  <text x=\"70\" y=\"240\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#9aa6b8\">reactants</text>\n  <text x=\"280\" y=\"240\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#9aa6b8\">products</text>\n  <text x=\"200\" y=\"270\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#e8ecf1\">lower barrier \u00b7 same \u0394G</text>\n</svg>"
       },
       {
         "id": "inheritance",
         "heading": "Count alleles before predicting traits",
-        "body": "At a diploid locus, an individual generally has two alleles, one inherited from each parent. In a simple Mendelian model, an Aa parent produces A and a gametes with equal probability. For an Aa × Aa cross, the four equally likely combinations are AA, Aa, aA and aa.\n\nCombining Aa and aA gives a genotype ratio of 1 AA : 2 Aa : 1 aa. With complete dominance, AA and Aa share the dominant phenotype, producing a 3:1 phenotype ratio. Dominance concerns expression in a heterozygote; it does not mean an allele is common, beneficial or stronger.\n\nFor independent offspring under the same model, the probability that two offspring are both aa is 1/4 × 1/4 = 1/16. A previous outcome does not force the next. Extending multiplication to different genes requires justified independence: linked loci and other biological complications can violate the simplest classroom assumptions.",
-        "visual": "Picture a two-by-two grid with A and a across the top and down the side. Each square combines one allele from each parent. Colour the three dominant-phenotype squares together while keeping their genotypes visible.",
+        "body": "At a diploid locus, an individual generally has two alleles, one inherited from each parent. In a simple Mendelian model, an Aa parent produces A and a gametes with equal probability. For an Aa \u00d7 Aa cross, the four equally likely combinations are AA, Aa, aA and aa.\n\nCombining Aa and aA gives a genotype ratio of 1 AA : 2 Aa : 1 aa. With complete dominance, AA and Aa share the dominant phenotype, producing a 3:1 phenotype ratio. Dominance concerns expression in a heterozygote; it does not mean an allele is common, beneficial or stronger.\n\nFor independent offspring under the same model, the probability that two offspring are both aa is 1/4 \u00d7 1/4 = 1/16. A previous outcome does not force the next. Extending multiplication to different genes requires justified independence: linked loci and other biological complications can violate the simplest classroom assumptions.",
+        "visual": "Picture a two-by-two grid with A and a across the top and down the side. Each square combines one allele from each parent \u2014 the Punnett square.",
         "questions": [
           {
             "q": "Why does a 3:1 phenotype ratio not mean all dominant-looking offspring are AA?",
             "hint": "Two different genotypes can have the same phenotype.",
             "answer": "With complete dominance, both AA and Aa show the dominant phenotype. The genotype ratio is 1:2:1."
           }
-        ]
+        ],
+        "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><style>\n.lw-a{animation:lw-pulse 1.4s ease-in-out infinite}\n.lw-a2{animation:lw-pulse 1.7s ease-in-out infinite .25s}\n.lw-spin{animation:lw-spin 5s linear infinite;transform-box:fill-box;transform-origin:center}\n.lw-spin-r{animation:lw-spin-r 4s linear infinite;transform-box:fill-box;transform-origin:center}\n.lw-flow{stroke-dasharray:10 7;animation:lw-dash .7s linear infinite}\n.lw-flow2{stroke-dasharray:8 6;animation:lw-dash 1s linear infinite reverse}\n.lw-bob{animation:lw-bob 1.1s ease-in-out infinite}\n.lw-bob2{animation:lw-bob 1.3s ease-in-out infinite .15s}\n.lw-ring{animation:lw-ring 1.6s ease-out infinite}\n.lw-ring2{animation:lw-ring 1.6s ease-out infinite .55s}\n.lw-ring3{animation:lw-ring 1.6s ease-out infinite 1.1s}\n.lw-glow{animation:lw-glow 1.5s ease-in-out infinite}\n.lw-slide{animation:lw-slide 1.4s ease-in-out infinite}\n@keyframes lw-pulse{0%,100%{opacity:1}50%{opacity:.2}}\n@keyframes lw-spin{to{transform:rotate(360deg)}}\n@keyframes lw-spin-r{to{transform:rotate(-360deg)}}\n@keyframes lw-dash{to{stroke-dashoffset:-17}}\n@keyframes lw-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}\n@keyframes lw-ring{0%{opacity:.9}100%{opacity:0}}\n@keyframes lw-glow{0%,100%{opacity:.4}50%{opacity:1}}\n@keyframes lw-slide{0%,100%{transform:translateX(0)}50%{transform:translateX(10px)}}\n@media(prefers-reduced-motion:reduce){.lw-a,.lw-a2,.lw-spin,.lw-spin-r,.lw-flow,.lw-flow2,.lw-bob,.lw-bob2,.lw-ring,.lw-ring2,.lw-ring3,.lw-glow,.lw-slide{animation:none!important}}\n</style>\n  <rect x=\"10\" y=\"10\" width=\"380\" height=\"280\" rx=\"10\" fill=\"#161b22\"/>\n  <rect x=\"110\" y=\"50\" width=\"90\" height=\"75\" fill=\"#7cc7ff\" opacity=\"0.35\" class=\"lw-a lw-glow\"/>\n  <rect x=\"200\" y=\"50\" width=\"90\" height=\"75\" fill=\"#ffd479\" opacity=\"0.35\" class=\"lw-a lw-a2\"/>\n  <rect x=\"110\" y=\"125\" width=\"90\" height=\"75\" fill=\"#ffd479\" opacity=\"0.35\"/>\n  <rect x=\"200\" y=\"125\" width=\"90\" height=\"75\" fill=\"#ff9d9d\" opacity=\"0.35\" class=\"lw-a lw-a2\"/>\n  <line x1=\"110\" y1=\"50\" x2=\"290\" y2=\"50\" stroke=\"#e8ecf1\" stroke-width=\"2\"/>\n  <line x1=\"110\" y1=\"125\" x2=\"290\" y2=\"125\" stroke=\"#e8ecf1\" stroke-width=\"2\"/>\n  <line x1=\"110\" y1=\"200\" x2=\"290\" y2=\"200\" stroke=\"#e8ecf1\" stroke-width=\"2\"/>\n  <line x1=\"110\" y1=\"50\" x2=\"110\" y2=\"200\" stroke=\"#e8ecf1\" stroke-width=\"2\"/>\n  <line x1=\"200\" y1=\"50\" x2=\"200\" y2=\"200\" stroke=\"#e8ecf1\" stroke-width=\"2\"/>\n  <line x1=\"290\" y1=\"50\" x2=\"290\" y2=\"200\" stroke=\"#e8ecf1\" stroke-width=\"2\"/>\n  <text x=\"155\" y=\"40\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"16\" fill=\"#e8ecf1\">A</text>\n  <text x=\"245\" y=\"40\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"16\" fill=\"#e8ecf1\">a</text>\n  <text x=\"90\" y=\"95\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"16\" fill=\"#e8ecf1\">A</text>\n  <text x=\"90\" y=\"170\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"16\" fill=\"#e8ecf1\">a</text>\n  <text x=\"155\" y=\"95\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"15\" fill=\"#e8ecf1\">AA</text>\n  <text x=\"245\" y=\"95\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"15\" fill=\"#e8ecf1\">Aa</text>\n  <text x=\"155\" y=\"170\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"15\" fill=\"#e8ecf1\">Aa</text>\n  <text x=\"245\" y=\"170\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"15\" fill=\"#e8ecf1\">aa</text>\n  <text x=\"200\" y=\"240\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#e8ecf1\">Punnett square \u00b7 allele combinations</text>\n  <text x=\"200\" y=\"265\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#9aa6b8\">genotype ratio 1:2:1 when Aa \u00d7 Aa</text>\n</svg>"
       }
     ]
   },
@@ -154,7 +157,7 @@
         "id": "inheritance",
         "questions": [
           {
-            "q": "In the stated Aa × Aa model, what fraction of offspring are heterozygous?",
+            "q": "In the stated Aa \u00d7 Aa model, what fraction of offspring are heterozygous?",
             "choices": [
               "1/4",
               "1/2",
@@ -173,7 +176,7 @@
               "1/16"
             ],
             "answer": 3,
-            "explain": "Each has probability 1/4 of aa. Independence lets us multiply: 1/4 × 1/4 = 1/16."
+            "explain": "Each has probability 1/4 of aa. Independence lets us multiply: 1/4 \u00d7 1/4 = 1/16."
           }
         ]
       }
@@ -190,7 +193,7 @@
           "No. Random molecular motion continues, while equal opposing flows give no net concentration change."
         ],
         "notes": "A cell membrane is selectively permeable. Small nonpolar molecules can cross its lipid interior readily; ions generally need suitable transport proteins. A boundary is useful because it can maintain different conditions inside and outside a cell. No. Random molecular motion continues, while equal opposing flows give no net concentration change.",
-        "visual": "Picture two rooms joined by water-sized doors. One contains more large particles that cannot cross. Water shifts toward that room until concentration and pressure effects balance; the particles are not pulling water with little ropes."
+        "visual": "Picture two rooms joined by water-sized doors. One contains more large particles that cannot cross. Water shifts toward the particle-rich side until pressures balance."
       },
       {
         "id": "enzymes",
@@ -198,10 +201,10 @@
         "bullets": [
           "Enzymes increase reaction rate by providing a lower-barrier pathway.",
           "The free-energy change of the combined process determines whether ATP coupling can drive it.",
-          "No. Catalysis changes the rate, not the reaction’s overall free-energy difference or equilibrium position."
+          "No. Catalysis changes the rate, not the reaction\u2019s overall free-energy difference or equilibrium position."
         ],
-        "notes": "A reaction can be energetically favourable yet slow. Reactants must pass through a transition state, and the activation barrier limits how frequently they succeed. An enzyme supplies a pathway with a lower barrier, increasing reaction rate under suitable conditions. No. Catalysis changes the rate, not the reaction’s overall free-energy difference or equilibrium position.",
-        "visual": "Picture two valleys connected by a high mountain pass. An enzyme opens a lower pass between the same valleys. It changes the barrier along the route without lifting either endpoint."
+        "notes": "A reaction can be energetically favourable yet slow. Reactants must pass through a transition state, and the activation barrier limits how frequently they succeed. An enzyme supplies a pathway with a lower barrier, increasing reaction rate under suitable conditions. No. Catalysis changes the rate, not the reaction\u2019s overall free-energy difference or equilibrium position.",
+        "visual": "Picture two valleys connected by a high mountain pass. An enzyme opens a lower pass between the same valleys. It changes the rate, not the destination height."
       },
       {
         "id": "inheritance",
@@ -211,13 +214,13 @@
           "Complete dominance gives the heterozygote the dominant phenotype without implying allele frequency or fitness.",
           "With complete dominance, both AA and Aa show the dominant phenotype. The genotype ratio is 1:2:1."
         ],
-        "notes": "At a diploid locus, an individual generally has two alleles, one inherited from each parent. In a simple Mendelian model, an Aa parent produces A and a gametes with equal probability. For an Aa × Aa cross, the four equally likely combinations are AA, Aa, aA and aa. With complete dominance, both AA and Aa show the dominant phenotype. The genotype ratio is 1:2:1.",
-        "visual": "Picture a two-by-two grid with A and a across the top and down the side. Each square combines one allele from each parent. Colour the three dominant-phenotype squares together while keeping their genotypes visible."
+        "notes": "At a diploid locus, an individual generally has two alleles, one inherited from each parent. In a simple Mendelian model, an Aa parent produces A and a gametes with equal probability. For an Aa \u00d7 Aa cross, the four equally likely combinations are AA, Aa, aA and aa. With complete dominance, both AA and Aa show the dominant phenotype. The genotype ratio is 1:2:1.",
+        "visual": "Picture a two-by-two grid with A and a across the top and down the side. Each square combines one allele from each parent \u2014 the Punnett square."
       }
     ]
   },
   "enrichment": {
-    "audioTitle": "AP Biology: Cells, Energy & Inheritance — a conversation",
+    "audioTitle": "AP Biology: Cells, Energy & Inheritance \u2014 a conversation",
     "turns": [
       {
         "speaker": "teacher",
@@ -253,7 +256,7 @@
       },
       {
         "speaker": "teacher",
-        "line": "No. Catalysis changes the rate, not the reaction’s overall free-energy difference or equilibrium position."
+        "line": "No. Catalysis changes the rate, not the reaction\u2019s overall free-energy difference or equilibrium position."
       },
       {
         "speaker": "student",
@@ -277,7 +280,7 @@
       },
       {
         "speaker": "student",
-        "line": "In the stated Aa × Aa model, what fraction of offspring are heterozygous?"
+        "line": "In the stated Aa \u00d7 Aa model, what fraction of offspring are heterozygous?"
       },
       {
         "speaker": "teacher",
@@ -317,7 +320,7 @@
         "id": "enzymes",
         "parent": "root",
         "label": "Lower the barrier, keep the destination",
-        "note": "No. Catalysis changes the rate, not the reaction’s overall free-energy difference or equilibrium position."
+        "note": "No. Catalysis changes the rate, not the reaction\u2019s overall free-energy difference or equilibrium position."
       },
       {
         "id": "enzymes-concept-1",
@@ -354,11 +357,11 @@
   },
   "sources": [
     {
-      "title": "College Board — AP Biology course scope",
+      "title": "College Board \u2014 AP Biology course scope",
       "url": "https://apcentral.collegeboard.org/courses/ap-biology"
     },
     {
-      "title": "OpenStax — Passive transport",
+      "title": "OpenStax \u2014 Passive transport",
       "url": "https://openstax.org/books/biology-2e/pages/5-2-passive-transport"
     }
   ]

@@ -13,7 +13,7 @@
     "title": "Electrical Wiring Fundamentals: Circuits & Protection",
     "hook": "Learn voltage, current, resistance and protective-device roles. Calculations use simplified low-voltage DC circuits; household wiring discussion is conceptual, not installation guidance.",
     "objectives": [
-      "Use Ohm’s law with units and assumptions.",
+      "Use Ohm\u2019s law with units and assumptions.",
       "Compare series and parallel circuits.",
       "Distinguish overcurrent protection, GFCIs and protective bonding."
     ],
@@ -27,7 +27,7 @@
         "points": [
           "Voltage is energy per charge; current is charge flow per time.",
           "In the stated steady DC model, voltage equals current multiplied by resistance.",
-          "I = 12/6 = 2 A. The associated resistor power is 12 × 2 = 24 W."
+          "I = 12/6 = 2 A. The associated resistor power is 12 \u00d7 2 = 24 W."
         ]
       },
       {
@@ -55,41 +55,44 @@
       {
         "id": "quantities",
         "heading": "Voltage is not current",
-        "body": "Voltage is electric potential difference: energy transferred per unit charge. Current is the rate of charge flow. Resistance describes how a component opposes that flow under stated conditions. Voltage is measured in volts, current in amperes and resistance in ohms.\n\nFor an ideal ohmic resistor in steady DC conditions, V = IR. With 12 V across a 6 Ω resistor, current is I = V/R = 2 A. The resistor's power is P = VI = 24 W. That power calculation matters: a physical component must have an appropriate power rating and thermal arrangement. This arithmetic example is not a build instruction, and a battery capable of high current can still cause burns or fire.\n\nOhm's law in this simple form is a model for an ohmic component, not a universal description of every device. Diodes, motors and AC systems require more context. Keep the model's assumptions attached to its answer.",
-        "visual": "Picture a source providing an energy difference around a closed loop, with charge circulating through a resistor. Mark voltage across the resistor and current through it; they describe different measurements.",
+        "body": "Voltage is electric potential difference: energy transferred per unit charge. Current is the rate of charge flow. Resistance describes how a component opposes that flow under stated conditions. Voltage is measured in volts, current in amperes and resistance in ohms.\n\nFor an ideal ohmic resistor in steady DC conditions, V = IR. With 12 V across a 6 \u03a9 resistor, current is I = V/R = 2 A. The resistor's power is P = VI = 24 W. That power calculation matters: a physical component must have an appropriate power rating and thermal arrangement. This arithmetic example is not a build instruction, and a battery capable of high current can still cause burns or fire.\n\nOhm's law in this simple form is a model for an ohmic component, not a universal description of every device. Diodes, motors and AC systems require more context. Keep the model's assumptions attached to its answer.",
+        "visual": "Picture a source providing an energy difference around a closed loop, with charge carriers drifting through the wire. Voltage is the energy difference; current is the flow rate.",
         "questions": [
           {
-            "q": "What current flows through 6 Ω with 12 V across it?",
+            "q": "What current flows through 6 \u03a9 with 12 V across it?",
             "hint": "Rearrange V = IR.",
-            "answer": "I = 12/6 = 2 A. The associated resistor power is 12 × 2 = 24 W."
+            "answer": "I = 12/6 = 2 A. The associated resistor power is 12 \u00d7 2 = 24 W."
           }
-        ]
+        ],
+        "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><style>\n.lw-a{animation:lw-pulse 1.4s ease-in-out infinite}\n.lw-a2{animation:lw-pulse 1.7s ease-in-out infinite .25s}\n.lw-spin{animation:lw-spin 5s linear infinite;transform-box:fill-box;transform-origin:center}\n.lw-spin-r{animation:lw-spin-r 4s linear infinite;transform-box:fill-box;transform-origin:center}\n.lw-flow{stroke-dasharray:10 7;animation:lw-dash .7s linear infinite}\n.lw-flow2{stroke-dasharray:8 6;animation:lw-dash 1s linear infinite reverse}\n.lw-bob{animation:lw-bob 1.1s ease-in-out infinite}\n.lw-bob2{animation:lw-bob 1.3s ease-in-out infinite .15s}\n.lw-ring{animation:lw-ring 1.6s ease-out infinite}\n.lw-ring2{animation:lw-ring 1.6s ease-out infinite .55s}\n.lw-ring3{animation:lw-ring 1.6s ease-out infinite 1.1s}\n.lw-glow{animation:lw-glow 1.5s ease-in-out infinite}\n.lw-slide{animation:lw-slide 1.4s ease-in-out infinite}\n@keyframes lw-pulse{0%,100%{opacity:1}50%{opacity:.2}}\n@keyframes lw-spin{to{transform:rotate(360deg)}}\n@keyframes lw-spin-r{to{transform:rotate(-360deg)}}\n@keyframes lw-dash{to{stroke-dashoffset:-17}}\n@keyframes lw-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}\n@keyframes lw-ring{0%{opacity:.9}100%{opacity:0}}\n@keyframes lw-glow{0%,100%{opacity:.4}50%{opacity:1}}\n@keyframes lw-slide{0%,100%{transform:translateX(0)}50%{transform:translateX(10px)}}\n@media(prefers-reduced-motion:reduce){.lw-a,.lw-a2,.lw-spin,.lw-spin-r,.lw-flow,.lw-flow2,.lw-bob,.lw-bob2,.lw-ring,.lw-ring2,.lw-ring3,.lw-glow,.lw-slide{animation:none!important}}\n</style>\n  <rect x=\"10\" y=\"10\" width=\"380\" height=\"280\" rx=\"10\" fill=\"#161b22\"/>\n  <rect x=\"155\" y=\"40\" width=\"90\" height=\"45\" rx=\"8\" fill=\"#ffd479\" class=\"lw-a\"/>\n  <text x=\"200\" y=\"68\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#161b22\">source V</text>\n  <line x1=\"200\" y1=\"85\" x2=\"200\" y2=\"130\" stroke=\"#7ee2a8\" stroke-width=\"3\" class=\"lw-flow\"/>\n  <rect x=\"145\" y=\"130\" width=\"110\" height=\"45\" rx=\"8\" fill=\"#7cc7ff\" opacity=\"0.5\" class=\"lw-glow\"/>\n  <text x=\"200\" y=\"158\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#e8ecf1\">load</text>\n  <line x1=\"145\" y1=\"152\" x2=\"60\" y2=\"152\" stroke=\"#7ee2a8\" stroke-width=\"3\" class=\"lw-flow\"/>\n  <line x1=\"60\" y1=\"152\" x2=\"60\" y2=\"62\" stroke=\"#7ee2a8\" stroke-width=\"3\" class=\"lw-flow\"/>\n  <line x1=\"60\" y1=\"62\" x2=\"155\" y2=\"62\" stroke=\"#7ee2a8\" stroke-width=\"3\" class=\"lw-flow\"/>\n  <line x1=\"255\" y1=\"152\" x2=\"340\" y2=\"152\" stroke=\"#7ee2a8\" stroke-width=\"3\" class=\"lw-flow\"/>\n  <line x1=\"340\" y1=\"152\" x2=\"340\" y2=\"62\" stroke=\"#7ee2a8\" stroke-width=\"3\" class=\"lw-flow\"/>\n  <line x1=\"340\" y1=\"62\" x2=\"245\" y2=\"62\" stroke=\"#7ee2a8\" stroke-width=\"3\"/>\n  <text x=\"200\" y=\"220\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#e8ecf1\">closed loop required</text>\n  <text x=\"200\" y=\"250\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#9aa6b8\">V = energy per charge \u00b7 I = charge per time</text>\n</svg>"
       },
       {
         "id": "paths",
         "heading": "Series shares current; parallel shares voltage",
-        "body": "In a simple steady series circuit, components lie on one current path and carry the same current. Their voltage drops add. Two 6 Ω resistors in series have total resistance 12 Ω, so an ideal 12 V source supplies 1 A. Equal resistances each drop 6 V.\n\nParallel branches connect across the same two nodes, so each branch has the same voltage. Put two 6 Ω resistors in parallel across 12 V and each draws 2 A. The source supplies their sum, 4 A. The equivalent resistance is 12/4 = 3 Ω, smaller than either individual branch.\n\nHousehold loads are generally arranged in parallel so they receive their intended supply voltage independently. Adding loads still increases current in shared conductors and can exceed circuit limits. The topology principle is not a household installation diagram: actual wiring must satisfy conductor, protective-device and local-code requirements.",
-        "visual": "Picture one road through two checkpoints for series, then a fork into two roads that rejoin for parallel. Parallel branches share the same endpoints, while their currents add at the junction.",
+        "body": "In a simple steady series circuit, components lie on one current path and carry the same current. Their voltage drops add. Two 6 \u03a9 resistors in series have total resistance 12 \u03a9, so an ideal 12 V source supplies 1 A. Equal resistances each drop 6 V.\n\nParallel branches connect across the same two nodes, so each branch has the same voltage. Put two 6 \u03a9 resistors in parallel across 12 V and each draws 2 A. The source supplies their sum, 4 A. The equivalent resistance is 12/4 = 3 \u03a9, smaller than either individual branch.\n\nHousehold loads are generally arranged in parallel so they receive their intended supply voltage independently. Adding loads still increases current in shared conductors and can exceed circuit limits. The topology principle is not a household installation diagram: actual wiring must satisfy conductor, protective-device and local-code requirements.",
+        "visual": "Picture one road through two checkpoints for series, then a fork into two roads that rejoin for parallel. Series adds resistance; parallel shares current.",
         "questions": [
           {
             "q": "Why can an extra parallel load overload a circuit without changing its nominal voltage?",
             "hint": "Add the branch currents.",
             "answer": "Each branch can draw current at the supply voltage. The shared supply conductors must carry the sum of all branch currents."
           }
-        ]
+        ],
+        "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><style>\n.lw-a{animation:lw-pulse 1.4s ease-in-out infinite}\n.lw-a2{animation:lw-pulse 1.7s ease-in-out infinite .25s}\n.lw-spin{animation:lw-spin 5s linear infinite;transform-box:fill-box;transform-origin:center}\n.lw-spin-r{animation:lw-spin-r 4s linear infinite;transform-box:fill-box;transform-origin:center}\n.lw-flow{stroke-dasharray:10 7;animation:lw-dash .7s linear infinite}\n.lw-flow2{stroke-dasharray:8 6;animation:lw-dash 1s linear infinite reverse}\n.lw-bob{animation:lw-bob 1.1s ease-in-out infinite}\n.lw-bob2{animation:lw-bob 1.3s ease-in-out infinite .15s}\n.lw-ring{animation:lw-ring 1.6s ease-out infinite}\n.lw-ring2{animation:lw-ring 1.6s ease-out infinite .55s}\n.lw-ring3{animation:lw-ring 1.6s ease-out infinite 1.1s}\n.lw-glow{animation:lw-glow 1.5s ease-in-out infinite}\n.lw-slide{animation:lw-slide 1.4s ease-in-out infinite}\n@keyframes lw-pulse{0%,100%{opacity:1}50%{opacity:.2}}\n@keyframes lw-spin{to{transform:rotate(360deg)}}\n@keyframes lw-spin-r{to{transform:rotate(-360deg)}}\n@keyframes lw-dash{to{stroke-dashoffset:-17}}\n@keyframes lw-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}\n@keyframes lw-ring{0%{opacity:.9}100%{opacity:0}}\n@keyframes lw-glow{0%,100%{opacity:.4}50%{opacity:1}}\n@keyframes lw-slide{0%,100%{transform:translateX(0)}50%{transform:translateX(10px)}}\n@media(prefers-reduced-motion:reduce){.lw-a,.lw-a2,.lw-spin,.lw-spin-r,.lw-flow,.lw-flow2,.lw-bob,.lw-bob2,.lw-ring,.lw-ring2,.lw-ring3,.lw-glow,.lw-slide{animation:none!important}}\n</style>\n  <rect x=\"10\" y=\"10\" width=\"380\" height=\"280\" rx=\"10\" fill=\"#161b22\"/>\n  <text x=\"100\" y=\"40\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#e8ecf1\">series</text>\n  <line x1=\"30\" y1=\"70\" x2=\"170\" y2=\"70\" stroke=\"#7cc7ff\" stroke-width=\"3\" class=\"lw-flow\"/>\n  <rect x=\"50\" y=\"58\" width=\"35\" height=\"24\" fill=\"#ffd479\" class=\"lw-a\"/>\n  <rect x=\"110\" y=\"58\" width=\"35\" height=\"24\" fill=\"#ffd479\" class=\"lw-a\"/>\n  <text x=\"100\" y=\"110\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#9aa6b8\">R total = R1 + R2</text>\n  <text x=\"290\" y=\"40\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#e8ecf1\">parallel</text>\n  <line x1=\"220\" y1=\"70\" x2=\"250\" y2=\"70\" stroke=\"#b39dff\" stroke-width=\"3\" class=\"lw-flow2\"/>\n  <line x1=\"250\" y1=\"70\" x2=\"250\" y2=\"50\" stroke=\"#b39dff\" stroke-width=\"3\" class=\"lw-flow2\"/>\n  <line x1=\"250\" y1=\"70\" x2=\"250\" y2=\"90\" stroke=\"#b39dff\" stroke-width=\"3\" class=\"lw-flow2\"/>\n  <line x1=\"250\" y1=\"50\" x2=\"340\" y2=\"50\" stroke=\"#b39dff\" stroke-width=\"3\" class=\"lw-flow2\"/>\n  <line x1=\"250\" y1=\"90\" x2=\"340\" y2=\"90\" stroke=\"#b39dff\" stroke-width=\"3\" class=\"lw-flow2\"/>\n  <rect x=\"280\" y=\"38\" width=\"35\" height=\"24\" fill=\"#7ee2a8\" class=\"lw-a2\"/>\n  <rect x=\"280\" y=\"78\" width=\"35\" height=\"24\" fill=\"#7ee2a8\" class=\"lw-a2\"/>\n  <line x1=\"340\" y1=\"50\" x2=\"340\" y2=\"90\" stroke=\"#b39dff\" stroke-width=\"3\" class=\"lw-flow2\"/>\n  <line x1=\"340\" y1=\"70\" x2=\"370\" y2=\"70\" stroke=\"#b39dff\" stroke-width=\"3\"/>\n  <text x=\"290\" y=\"120\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#9aa6b8\">current splits</text>\n  <text x=\"200\" y=\"180\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#e8ecf1\">series: one path \u00b7 parallel: shared paths</text>\n  <text x=\"200\" y=\"220\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#9aa6b8\">series adds R \u00b7 parallel lowers R</text>\n  <text x=\"200\" y=\"250\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#9aa6b8\">same voltage across parallel branches</text>\n</svg>"
       },
       {
         "id": "protection",
         "heading": "Different hazards need different protection",
         "body": "A correctly selected fuse or breaker interrupts overcurrent to protect conductors and equipment. It is not complete protection against electric shock: a dangerous current through a person can be far below the trip threshold of an ordinary branch breaker.\n\nA ground-fault circuit interrupter, or GFCI, compares outgoing and returning current. An imbalance can indicate current taking an unintended path, causing the device to interrupt supply. Its purpose differs from ordinary overload protection; neither device makes touching electricity safe.\n\nNeutral and protective bonding conductors also have different jobs. In a typical North American branch circuit, neutral carries normal return current, while protective bonding provides a low-impedance fault path for exposed conductive parts. They are not interchangeable. Their permitted connections depend on installation rules.\n\nUse a qualified electrician and current local requirements for household wiring. Do not open panels or work on energised wiring from this lesson. Wire colour, a switch position or a tripped breaker is not proof that a conductor is safe to touch.",
-        "visual": "Picture two monitors: one watches total current become too large; the other compares what leaves with what returns. Draw a separate protective fault path. These are distinct jobs, not interchangeable protections.",
+        "visual": "Picture two monitors: one watches total current become too large; the other compares hot and neutral and trips on any difference \u2014 that is the GFCI that can save a life.",
         "questions": [
           {
             "q": "Why is an ordinary branch breaker not complete shock protection?",
             "hint": "Compare dangerous body current with normal circuit current.",
             "answer": "A current dangerous to a person can be too small to trip that breaker. Other protections and safe work practices remain necessary."
           }
-        ]
+        ],
+        "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><style>\n.lw-a{animation:lw-pulse 1.4s ease-in-out infinite}\n.lw-a2{animation:lw-pulse 1.7s ease-in-out infinite .25s}\n.lw-spin{animation:lw-spin 5s linear infinite;transform-box:fill-box;transform-origin:center}\n.lw-spin-r{animation:lw-spin-r 4s linear infinite;transform-box:fill-box;transform-origin:center}\n.lw-flow{stroke-dasharray:10 7;animation:lw-dash .7s linear infinite}\n.lw-flow2{stroke-dasharray:8 6;animation:lw-dash 1s linear infinite reverse}\n.lw-bob{animation:lw-bob 1.1s ease-in-out infinite}\n.lw-bob2{animation:lw-bob 1.3s ease-in-out infinite .15s}\n.lw-ring{animation:lw-ring 1.6s ease-out infinite}\n.lw-ring2{animation:lw-ring 1.6s ease-out infinite .55s}\n.lw-ring3{animation:lw-ring 1.6s ease-out infinite 1.1s}\n.lw-glow{animation:lw-glow 1.5s ease-in-out infinite}\n.lw-slide{animation:lw-slide 1.4s ease-in-out infinite}\n@keyframes lw-pulse{0%,100%{opacity:1}50%{opacity:.2}}\n@keyframes lw-spin{to{transform:rotate(360deg)}}\n@keyframes lw-spin-r{to{transform:rotate(-360deg)}}\n@keyframes lw-dash{to{stroke-dashoffset:-17}}\n@keyframes lw-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}\n@keyframes lw-ring{0%{opacity:.9}100%{opacity:0}}\n@keyframes lw-glow{0%,100%{opacity:.4}50%{opacity:1}}\n@keyframes lw-slide{0%,100%{transform:translateX(0)}50%{transform:translateX(10px)}}\n@media(prefers-reduced-motion:reduce){.lw-a,.lw-a2,.lw-spin,.lw-spin-r,.lw-flow,.lw-flow2,.lw-bob,.lw-bob2,.lw-ring,.lw-ring2,.lw-ring3,.lw-glow,.lw-slide{animation:none!important}}\n</style>\n  <rect x=\"10\" y=\"10\" width=\"380\" height=\"280\" rx=\"10\" fill=\"#161b22\"/>\n  <rect x=\"40\" y=\"60\" width=\"140\" height=\"70\" rx=\"8\" fill=\"#ff9d9d\" opacity=\"0.4\" class=\"lw-a lw-a2\"/>\n  <text x=\"110\" y=\"100\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"14\" fill=\"#e8ecf1\">breaker</text>\n  <text x=\"110\" y=\"155\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#9aa6b8\">trips on overcurrent</text>\n  <rect x=\"220\" y=\"60\" width=\"140\" height=\"70\" rx=\"8\" fill=\"#7ee2a8\" opacity=\"0.4\" class=\"lw-a\"/>\n  <text x=\"290\" y=\"100\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"14\" fill=\"#e8ecf1\">GFCI</text>\n  <text x=\"290\" y=\"155\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#9aa6b8\">trips on imbalance</text>\n  <text x=\"200\" y=\"210\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#e8ecf1\">two complementary protections</text>\n  <text x=\"200\" y=\"245\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#9aa6b8\">current limit \u00b7 leakage detect</text>\n</svg>"
       }
     ]
   },
@@ -99,7 +102,7 @@
         "id": "quantities",
         "questions": [
           {
-            "q": "What current does the stated 12 V, 6 Ω ideal resistor draw?",
+            "q": "What current does the stated 12 V, 6 \u03a9 ideal resistor draw?",
             "choices": [
               "0.5 A",
               "2 A",
@@ -126,7 +129,7 @@
         "id": "paths",
         "questions": [
           {
-            "q": "Two 6 Ω resistors in parallel across an ideal 12 V source draw what total current?",
+            "q": "Two 6 \u03a9 resistors in parallel across an ideal 12 V source draw what total current?",
             "choices": [
               "1 A",
               "2 A",
@@ -186,10 +189,10 @@
         "bullets": [
           "Voltage is energy per charge; current is charge flow per time.",
           "In the stated steady DC model, voltage equals current multiplied by resistance.",
-          "I = 12/6 = 2 A. The associated resistor power is 12 × 2 = 24 W."
+          "I = 12/6 = 2 A. The associated resistor power is 12 \u00d7 2 = 24 W."
         ],
-        "notes": "Voltage is electric potential difference: energy transferred per unit charge. Current is the rate of charge flow. Resistance describes how a component opposes that flow under stated conditions. Voltage is measured in volts, current in amperes and resistance in ohms. I = 12/6 = 2 A. The associated resistor power is 12 × 2 = 24 W.",
-        "visual": "Picture a source providing an energy difference around a closed loop, with charge circulating through a resistor. Mark voltage across the resistor and current through it; they describe different measurements."
+        "notes": "Voltage is electric potential difference: energy transferred per unit charge. Current is the rate of charge flow. Resistance describes how a component opposes that flow under stated conditions. Voltage is measured in volts, current in amperes and resistance in ohms. I = 12/6 = 2 A. The associated resistor power is 12 \u00d7 2 = 24 W.",
+        "visual": "Picture a source providing an energy difference around a closed loop, with charge carriers drifting through the wire. Voltage is the energy difference; current is the flow rate."
       },
       {
         "id": "paths",
@@ -199,8 +202,8 @@
           "Branches share voltage, and their currents add at the supply connection.",
           "Each branch can draw current at the supply voltage. The shared supply conductors must carry the sum of all branch currents."
         ],
-        "notes": "In a simple steady series circuit, components lie on one current path and carry the same current. Their voltage drops add. Two 6 Ω resistors in series have total resistance 12 Ω, so an ideal 12 V source supplies 1 A. Equal resistances each drop 6 V. Each branch can draw current at the supply voltage. The shared supply conductors must carry the sum of all branch currents.",
-        "visual": "Picture one road through two checkpoints for series, then a fork into two roads that rejoin for parallel. Parallel branches share the same endpoints, while their currents add at the junction."
+        "notes": "In a simple steady series circuit, components lie on one current path and carry the same current. Their voltage drops add. Two 6 \u03a9 resistors in series have total resistance 12 \u03a9, so an ideal 12 V source supplies 1 A. Equal resistances each drop 6 V. Each branch can draw current at the supply voltage. The shared supply conductors must carry the sum of all branch currents.",
+        "visual": "Picture one road through two checkpoints for series, then a fork into two roads that rejoin for parallel. Series adds resistance; parallel shares current."
       },
       {
         "id": "protection",
@@ -211,12 +214,12 @@
           "A current dangerous to a person can be too small to trip that breaker. Other protections and safe work practices remain necessary."
         ],
         "notes": "A correctly selected fuse or breaker interrupts overcurrent to protect conductors and equipment. It is not complete protection against electric shock: a dangerous current through a person can be far below the trip threshold of an ordinary branch breaker. A current dangerous to a person can be too small to trip that breaker. Other protections and safe work practices remain necessary.",
-        "visual": "Picture two monitors: one watches total current become too large; the other compares what leaves with what returns. Draw a separate protective fault path. These are distinct jobs, not interchangeable protections."
+        "visual": "Picture two monitors: one watches total current become too large; the other compares hot and neutral and trips on any difference \u2014 that is the GFCI that can save a life."
       }
     ]
   },
   "enrichment": {
-    "audioTitle": "Electrical Wiring Fundamentals: Circuits & Protection — a conversation",
+    "audioTitle": "Electrical Wiring Fundamentals: Circuits & Protection \u2014 a conversation",
     "turns": [
       {
         "speaker": "teacher",
@@ -228,15 +231,15 @@
       },
       {
         "speaker": "student",
-        "line": "What current flows through 6 Ω with 12 V across it?"
+        "line": "What current flows through 6 \u03a9 with 12 V across it?"
       },
       {
         "speaker": "teacher",
-        "line": "I = 12/6 = 2 A. The associated resistor power is 12 × 2 = 24 W."
+        "line": "I = 12/6 = 2 A. The associated resistor power is 12 \u00d7 2 = 24 W."
       },
       {
         "speaker": "student",
-        "line": "What current does the stated 12 V, 6 Ω ideal resistor draw?"
+        "line": "What current does the stated 12 V, 6 \u03a9 ideal resistor draw?"
       },
       {
         "speaker": "teacher",
@@ -256,7 +259,7 @@
       },
       {
         "speaker": "student",
-        "line": "Two 6 Ω resistors in parallel across an ideal 12 V source draw what total current?"
+        "line": "Two 6 \u03a9 resistors in parallel across an ideal 12 V source draw what total current?"
       },
       {
         "speaker": "teacher",
@@ -284,7 +287,7 @@
       },
       {
         "speaker": "teacher",
-        "line": "To review: Use Ohm’s law with units and assumptions. Compare series and parallel circuits. Distinguish overcurrent protection, GFCIs and protective bonding."
+        "line": "To review: Use Ohm\u2019s law with units and assumptions. Compare series and parallel circuits. Distinguish overcurrent protection, GFCIs and protective bonding."
       }
     ],
     "nodes": [
@@ -298,7 +301,7 @@
         "id": "quantities",
         "parent": "root",
         "label": "Voltage is not current",
-        "note": "I = 12/6 = 2 A. The associated resistor power is 12 × 2 = 24 W."
+        "note": "I = 12/6 = 2 A. The associated resistor power is 12 \u00d7 2 = 24 W."
       },
       {
         "id": "quantities-concept-1",
@@ -353,7 +356,7 @@
   },
   "sources": [
     {
-      "title": "CCOHS — Electrical safety basics",
+      "title": "CCOHS \u2014 Electrical safety basics",
       "url": "https://www.ccohs.ca/oshanswers/safety_haz/electrical.html"
     }
   ]
