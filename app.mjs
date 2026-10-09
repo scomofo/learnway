@@ -21,8 +21,9 @@ const store = {
 };
 
 let state = {
-  screen: 'library',       // library | wizard | course | settings
+  screen: 'library',       // library | wizard | course | settings | details
   course: null,            // loaded course object
+  detailsCourse: null,     // course shown on the details screen
   view: 'reading',
   draft: null,             // approved plan awaiting generation
   generating: false,
@@ -61,6 +62,7 @@ function render() {
   if (state.screen === 'library') app.innerHTML = viewLibrary();
   else if (state.screen === 'wizard') app.innerHTML = viewWizard();
   else if (state.screen === 'course') app.innerHTML = viewCourse();
+  else if (state.screen === 'details') app.innerHTML = viewDetails();
   else if (state.screen === 'settings') app.innerHTML = viewSettings();
   // The shell's delegated handlers are installed once at boot. Only the newly
   // rendered view needs listeners here; rebinding the shell duplicates API calls.
@@ -114,14 +116,17 @@ function viewLibrary() {
     }
     const secCount = c.plan?.sections?.length || 0;
     return `
-      <article class="lib-card" data-open="${originalIdx}">
+      <article class="lib-card">
         <div class="lib-title">${esc(c.meta.title)}</div>
         <div class="lib-badges">
           <span class="badge level">${esc(levelLabel(c.meta.level))}</span>
           <span class="badge depth">${esc(depthLabel(c.meta.depth))} (${secCount} secs)</span>
         </div>
         <div class="lib-meta">${esc(c.meta.topic)} · ${new Date(c.meta.createdAt).toLocaleDateString()}</div>
-        <button type="button" class="btn primary small lib-open">Open course</button>
+        <div class="lib-actions">
+          <button type="button" class="btn ghost small" data-details-open="${originalIdx}">Details</button>
+          <button type="button" class="btn primary small" data-open="${originalIdx}">Open course</button>
+        </div>
       </article>`;
   }).join('');
 
@@ -133,11 +138,14 @@ function viewLibrary() {
       return searchText(b.title).includes(q) || searchText(b.topic).includes(q);
     })
     .map(({ b, originalIdx }) => `
-      <article class="lib-card bundled" data-bundled="${originalIdx}">
+      <article class="lib-card bundled">
         <div class="lib-title">${esc(b.title)}</div>
         <div class="lib-badges"><span class="badge bundled-tag">Included</span>${b.level ? `<span class="badge level">${esc(levelLabel(b.level))}</span>` : ''}</div>
         <div class="lib-meta">${esc(b.topic)}</div>
-        <button type="button" class="btn primary small lib-open">Open course</button>
+        <div class="lib-actions">
+          <button type="button" class="btn ghost small" data-details-bundled="${originalIdx}">Details</button>
+          <button type="button" class="btn primary small" data-bundled="${originalIdx}">Open course</button>
+        </div>
       </article>`).join('');
 
   const searchControls = allCourses.length || state.bundled?.length ? `
@@ -169,6 +177,40 @@ function viewLibrary() {
 }
 
 function levelLabel(id) { return (LEVELS.find(l => l.id === id) || {}).label || id; }
+
+function viewDetails() {
+  const c = state.detailsCourse;
+  if (!c) return viewLibrary();
+  const secs = c.plan?.sections || [];
+  const objectives = c.plan?.objectives || [];
+  const prereqs = c.plan?.prerequisites || [];
+  const secList = secs.map((s, i) => `
+    <li>
+      <strong>${esc(s.heading || s.id || ('Section ' + (i + 1)))}</strong>
+      ${Array.isArray(s.points) && s.points.length
+        ? `<ul class="tight muted">${s.points.map(p => `<li>${esc(p)}</li>`).join('')}</ul>`
+        : ''}
+    </li>`).join('');
+  return `${header('library')}
+  <main class="wrap narrow">
+    <div class="course-head">
+      <button class="btn ghost small" data-nav="library">← Library</button>
+      <h1>${esc(c.meta?.title || 'Course')}</h1>
+      <p class="muted">${esc(c.meta?.topic || '')}${c.meta?.level ? ' · ' + esc(levelLabel(c.meta.level)) : ''}${c.meta?.depth ? ' · ' + esc(depthLabel(c.meta.depth)) : ''}${c.meta?.interests ? ' · ' + esc(c.meta.interests) : ''}</p>
+    </div>
+    ${c.plan?.hook ? `<p class="hook">${esc(c.plan.hook)}</p>` : ''}
+    ${objectives.length ? `<div class="card"><div class="sec-kicker">Objectives</div>
+      <ul class="tight">${objectives.map(o => `<li>${esc(o)}</li>`).join('')}</ul></div>` : ''}
+    ${prereqs.length ? `<div class="card"><div class="sec-kicker">Prerequisites</div>
+      <ul class="tight">${prereqs.map(p => `<li>${esc(p)}</li>`).join('')}</ul></div>` : ''}
+    ${secs.length ? `<div class="card"><div class="sec-kicker">Sections (${secs.length})</div>
+      <ol class="details-sections">${secList}</ol></div>` : ''}
+    <div class="form-actions">
+      <button class="btn primary" data-action="open-details-course">Open course</button>
+      <button class="btn ghost" data-nav="library">Back to library</button>
+    </div>
+  </main>`;
+}
 
 function viewWizard() {
   const key = store.get(LS.key, '');
@@ -306,12 +348,47 @@ function showErr(id, msg) {
 function wire(root) {
   root.addEventListener('click', async e => {
     const nav = e.target.closest('[data-nav]');
-    if (nav) { state.screen = nav.dataset.nav; state.draft = null; render(); return; }
+    if (nav) {
+      state.screen = nav.dataset.nav;
+      state.draft = null;
+      if (nav.dataset.nav === 'library') state.detailsCourse = null;
+      render();
+      return;
+    }
 
     const view = e.target.closest('[data-view]');
     if (view) {
       state.view = view.dataset.view;
       render();
+      return;
+    }
+
+    const detailsOpen = e.target.closest('[data-details-open]');
+    if (detailsOpen) {
+      const course = getCourses()[Number(detailsOpen.dataset.detailsOpen)];
+      const problems = validateCourse(course);
+      if (problems.length) { showErr('library-err', 'This saved course is incomplete. Import a complete copy.'); return; }
+      state.detailsCourse = course;
+      state.screen = 'details';
+      render();
+      return;
+    }
+
+    const detailsBundled = e.target.closest('[data-details-bundled]');
+    if (detailsBundled) {
+      const entry = (state.bundled || [])[Number(detailsBundled.dataset.detailsBundled)];
+      try {
+        const res = await fetch(entry.file);
+        const course = await res.json();
+        const problems = validateCourse(course);
+        if (problems.length) throw new Error(problems.join('; '));
+        course.bundled = true;
+        state.detailsCourse = course;
+        state.screen = 'details';
+        render();
+      } catch {
+        alert('Could not load the included course.');
+      }
       return;
     }
 
@@ -425,6 +502,15 @@ function wire(root) {
       } catch {
         showErr('set-err', 'Could not save — this browser is blocking site storage. Check privacy settings, or use a normal (non-private) window.');
       }
+      return;
+    }
+
+    if (a === 'open-details-course') {
+      if (!state.detailsCourse) return;
+      state.course = state.detailsCourse;
+      state.view = 'reading';
+      state.screen = 'course';
+      render();
       return;
     }
 
