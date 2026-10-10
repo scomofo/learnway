@@ -93,7 +93,7 @@ export function diagramFigure(s, cls = '') {
     const caption = s.visual ? `<figcaption class="diagram-caption">${md(s.visual)}</figcaption>` : '';
     // Cards stay static: controls nested inside the flip button would be invalid.
     if (cls === 'fc-diagram') return `<figure class="${classes}"><div class="diagram-art">${svg}</div>${caption}</figure>`;
-    const animated = /class="[^"]*\blw-(flow|rotate(?:-reverse-slow)?|orbit|exhaust|wave-ring(?:-late)?|fall|cone|air(?:-\d+)?|string(?:-\d+)?|engine-piston)\b/.test(svg);
+    const animated = /class="[^"]*\blw-[a-z0-9-]+/.test(svg);
     const motion = animated ? `<div class="diagram-controls">
       <button type="button" class="btn diagram-play" data-diagram-play aria-pressed="false">Play</button>
       <label class="diagram-scrub">Inspect motion<input type="range" min="0" max="100" value="0" aria-label="Animation progress" data-diagram-seek></label>
