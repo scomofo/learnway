@@ -111,11 +111,14 @@ test('valid JSON with an invalid plan produces a recoverable pipeline error', as
 
 for (const [index, stage] of ['reading', 'quizzes', 'slides', 'enrichment'].entries()) {
   test(`invalid ${stage} stops generation at that stage`, async t => {
-    const payloads = [fixture.reading, fixture.quizzes, fixture.slides, fixture.enrichment];
-    payloads[index] = {};
+    const good = [fixture.reading, fixture.quizzes, fixture.slides, fixture.enrichment];
+    // The failing part is requested twice — the original call plus the one
+    // corrective retry — and both attempts return the same invalid payload,
+    // so generation still stops at this stage and nothing downstream runs.
+    const payloads = [...good.slice(0, index), {}, {}];
     let calls = 0;
     t.mock.method(globalThis, 'fetch', async () => response(payloads[calls++]));
     await assert.rejects(generateCourse(draft, input), e => e.code === 'validation' && e.message.includes(stage));
-    assert.equal(calls, index + 1);
+    assert.equal(calls, index + 2);
   });
 }

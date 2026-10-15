@@ -392,21 +392,69 @@ function sectionDigest(plan) {
   return plan.sections.map(s => `- ${s.id}: ${s.heading}\n  ${s.points.join('\n  ')}`).join('\n');
 }
 
+/**
+ * The section ids belong to the approved plan, not to whichever model wrote
+ * a follow-up part: those models are told to echo the ids and still
+ * re-slug, renumber, or reorder them. Order and count are the response's
+ * real contribution, so when they match the plan the ids are rewritten
+ * positionally before validation — and before anything downstream
+ * cross-references them. A count mismatch is a genuine failure (a part is
+ * missing or invented) and is left for validation to report.
+ */
+function remapSectionIds(value, plan) {
+  if (!plan || !Array.isArray(value?.sections)) return;
+  if (value.sections.length !== plan.sections.length) return;
+  value.sections.forEach((section, i) => { section.id = plan.sections[i].id; });
+}
+
+function correctionNote(problems, ids) {
+  const idLine = ids?.length
+    ? ` — and return exactly these section ids, in this order: ${ids.join(', ')}`
+    : '';
+  return `\n\nYour previous attempt failed these checks: ${problems.join('; ')}. Return the complete part again, fixing exactly these issues${idLine}.`;
+}
+
+/**
+ * Generate one part of a course with a single corrective retry. A part that
+ * fails validation is requested once more, with its problems (and, for
+ * sectioned parts, the exact ids it must return) appended to the prompt;
+ * only a second failure throws. Errors thrown by the API call itself —
+ * network, quota, truncation — are not retried: repeating them helps
+ * nothing. `call` receives the feedback text to append ('' first time).
+ */
+async function generatePart({ kind, plan, retryNote, onProgress, call }) {
+  const attempt = async (feedback) => {
+    const value = await call(feedback);
+    remapSectionIds(value, plan);
+    return { value, problems: validatePart(kind, value, plan) };
+  };
+  let { value, problems } = await attempt('');
+  if (!problems.length) return value;
+  onProgress?.(retryNote);
+  ({ value, problems } = await attempt(correctionNote(problems, plan?.sections.map(s => s.id))));
+  if (problems.length) throw validationError(kind, problems);
+  return value;
+}
+
 /** Step 1: a tight plan the learner approves before the expensive calls. */
 export async function generatePlan({ apiKey, model, topic, level, interests, depth }, onProgress) {
   onProgress?.('Sketching the course plan…');
   const n = (DEPTHS.find(d => d.id === depth) || DEPTHS[1]).sections;
-  const plan = await callGemini({
-    apiKey, model,
-    system: DESIGNER,
-    user: `${personalization(level, interests, depth)}
+  const plan = await generatePart({
+    kind: 'plan',
+    retryNote: 'The plan came back inconsistent — asking once more…',
+    onProgress,
+    call: (feedback) => callGemini({
+      apiKey, model,
+      system: DESIGNER,
+      user: `${personalization(level, interests, depth)}
 
 Design a course on this topic: "${topic}"
 
-Return exactly ${n} sections that build on each other: open with the core mental model, then mechanism, then depth/edge cases, then connections outward. Objectives must be capabilities ("explain X", "predict Y"), never "understand Z".`,
-    schema: SCHEMAS.plan, maxTokens: 2048, temperature: 0.6,
+Return exactly ${n} sections that build on each other: open with the core mental model, then mechanism, then depth/edge cases, then connections outward. Objectives must be capabilities ("explain X", "predict Y"), never "understand Z".` + feedback,
+      schema: SCHEMAS.plan, maxTokens: 2048, temperature: 0.6,
+    }),
   });
-  requireValidPart('plan', plan);
   return { topic, level, interests, depth, model, plan };
 }
 
@@ -419,10 +467,14 @@ export async function generateCourse(draft, creds, onProgress) {
   const digest = sectionDigest(plan);
 
   onProgress?.('Writing the immersive reading… (1 of 5)');
-  const reading = await callGemini({
-    apiKey, model,
-    system: DESIGNER,
-    user: `${pers}
+  const reading = await generatePart({
+    kind: 'reading', plan,
+    retryNote: 'The reading came back inconsistent — asking once more…',
+    onProgress,
+    call: (feedback) => callGemini({
+      apiKey, model,
+      system: DESIGNER,
+      user: `${pers}
 
 Write the immersive reading for the course "${plan.title}" on "${topic}".
 Follow this approved plan exactly — same section ids, headings, and points:
@@ -430,32 +482,40 @@ Follow this approved plan exactly — same section ids, headings, and points:
 ${digest}
 
 For each section: a narrative body (markdown, 250-450 words) that teaches the points in order, opening with the single most surprising or important idea. Weave in the learner's interests for analogies. End each section with 2 embedded check-in questions (with answers and hints).
-Every section must also include a "visual" caption: the one concrete scene, analogy, or labeled sketch the section's diagram will show, in 1-2 sentences. Write it as the diagram's caption — specific enough that an illustrator could draw it from the caption alone, never a generic "imagine a graph". (A separate step generates the actual SVG diagram from this caption; leave the "diagram" field empty.)`,
-    schema: SCHEMAS.reading, maxTokens: 32768,
+Every section must also include a "visual" caption: the one concrete scene, analogy, or labeled sketch the section's diagram will show, in 1-2 sentences. Write it as the diagram's caption — specific enough that an illustrator could draw it from the caption alone, never a generic "imagine a graph". (A separate step generates the actual SVG diagram from this caption; leave the "diagram" field empty.)` + feedback,
+      schema: SCHEMAS.reading, maxTokens: 32768,
+    }),
   });
-  requireValidPart('reading', reading, plan);
 
   onProgress?.('Building section quizzes… (2 of 5)');
-  const quizzes = await callGemini({
-    apiKey, model,
-    system: DESIGNER,
-    user: `${pers}
+  const quizzes = await generatePart({
+    kind: 'quizzes', plan,
+    retryNote: 'The quizzes came back inconsistent — asking once more…',
+    onProgress,
+    call: (feedback) => callGemini({
+      apiKey, model,
+      system: DESIGNER,
+      user: `${pers}
 
 Write section quizzes for the course "${plan.title}" on "${topic}".
 Sections:
 
 ${digest}
 
-For each section: 3 multiple-choice questions that test application and reasoning, not memorized facts. Wrong options must be plausible mistakes a learner could really make. Each needs an explanation of why the right answer is right and what each distractor gets wrong.`,
-    schema: SCHEMAS.quizzes, maxTokens: 16384,
+For each section: 3 multiple-choice questions that test application and reasoning, not memorized facts. Wrong options must be plausible mistakes a learner could really make. Each needs an explanation of why the right answer is right and what each distractor gets wrong.` + feedback,
+      schema: SCHEMAS.quizzes, maxTokens: 16384,
+    }),
   });
-  requireValidPart('quizzes', quizzes, plan);
 
   onProgress?.('Drafting slides and narration… (3 of 5)');
-  const slides = await callGemini({
-    apiKey, model,
-    system: DESIGNER,
-    user: `${pers}
+  const slides = await generatePart({
+    kind: 'slides', plan,
+    retryNote: 'The slides came back inconsistent — asking once more…',
+    onProgress,
+    call: (feedback) => callGemini({
+      apiKey, model,
+      system: DESIGNER,
+      user: `${pers}
 
 Write the lecture version of the course "${plan.title}" on "${topic}".
 Sections:
@@ -463,16 +523,20 @@ Sections:
 ${digest}
 
 For each section: a slide title, 5-7 tight bullets (the skeleton of a 5-minute lecture segment), and speaker notes — the conversational 60-second spoken version of those bullets, as if explaining to a smart friend.
-Every slide also carries a "visual" caption: the one scene or visual analogy the learner should see illustrated while hearing these bullets, in 1-2 sentences.`,
-    schema: SCHEMAS.slides, maxTokens: 16384,
+Every slide also carries a "visual" caption: the one scene or visual analogy the learner should see illustrated while hearing these bullets, in 1-2 sentences.` + feedback,
+      schema: SCHEMAS.slides, maxTokens: 16384,
+    }),
   });
-  requireValidPart('slides', slides, plan);
 
   onProgress?.('Scripting the audio lesson, mind map and mnemonics… (4 of 5)');
-  const enrichment = await callGemini({
-    apiKey, model,
-    system: DESIGNER,
-    user: `${pers}
+  const enrichment = await generatePart({
+    kind: 'enrichment',
+    retryNote: 'The enrichment pack came back inconsistent — asking once more…',
+    onProgress,
+    call: (feedback) => callGemini({
+      apiKey, model,
+      system: DESIGNER,
+      user: `${pers}
 
 Create the enrichment pack for the course "${plan.title}" on "${topic}".
 Sections:
@@ -481,10 +545,10 @@ ${digest}
 
 1. Audio lesson: a Socratic dialogue between a teacher and a curious student covering the whole arc of the course. 14-20 turns. The student asks sharp questions, voices common misconceptions, and the teacher corrects with patience and concrete examples drawn from the learner's interests.
 2. Mind map: nodes covering every section's key ideas, exactly one root node, every other node naming its parent id.
-3. Mnemonics: memory aids for the hardest facts. Skip if nothing genuinely needs one.`,
-    schema: SCHEMAS.enrichment, maxTokens: 16384,
+3. Mnemonics: memory aids for the hardest facts. Skip if nothing genuinely needs one.` + feedback,
+      schema: SCHEMAS.enrichment, maxTokens: 16384,
+    }),
   });
-  requireValidPart('enrichment', enrichment);
 
   onProgress?.('Illustrating section diagrams… (5 of 5)');
   const diagramSvgs = await generateDiagrams({
@@ -523,26 +587,48 @@ export async function generateDiagrams({ apiKey, model, sections }, onProgress) 
   const brief = sections.map(s =>
     `### ${s.id}: ${s.heading}\nKey points:\n${(s.points || []).map(p => `- ${p}`).join('\n')}\nDiagram caption: ${s.visual || '(none — illustrate the key points)'}` 
   ).join('\n\n');
-  const out = await callGemini({
-    apiKey, model,
-    system: DIAGRAM_BRIEF,
-    user: `${DIAGRAM_BRIEF}\n\nIllustrate each of these sections with one diagram. Return the diagrams in the same order, keyed by section id:\n\n${brief}`,
-    schema: SCHEMAS.diagrams, maxTokens: 32768, temperature: 0.7,
-  });
-  const problems = validatePart('diagrams', out);
-  if (problems.length) throw validationError('diagrams', problems);
+  const expectedIds = sections.map(s => s.id);
+  // The returned ids get the same distrust as the course parts': validation
+  // runs on the raw response first (shape, duplicate ids, unusable SVGs),
+  // then — when the count matches — the ids are rewritten positionally onto
+  // the requested sections, so a re-slugged echo attaches each diagram to
+  // the section it was drawn for instead of failing as an unknown id. A
+  // count mismatch leaves unknown/missing ids as genuine problems. As with
+  // the other parts, one corrective retry precedes the throw.
+  const attempt = async (feedback) => {
+    const out = await callGemini({
+      apiKey, model,
+      system: DIAGRAM_BRIEF,
+      user: `${DIAGRAM_BRIEF}\n\nIllustrate each of these sections with one diagram. Return the diagrams in the same order, keyed by section id:\n\n${brief}` + feedback,
+      schema: SCHEMAS.diagrams, maxTokens: 32768, temperature: 0.7,
+    });
+    const problems = validatePart('diagrams', out);
+    if (!problems.length) {
+      if (out.diagrams.length === sections.length) {
+        out.diagrams.forEach((d, i) => { d.id = sections[i].id; });
+      }
+      const ids = new Set(expectedIds);
+      for (const d of out.diagrams) {
+        if (!ids.has(d.id)) problems.push(`diagrams: unknown section id "${d.id}"`);
+      }
+      const present = new Set(out.diagrams.map(d => d.id));
+      const missing = expectedIds.filter(id => !present.has(id));
+      if (missing.length) problems.push(`diagrams: missing section ids ${missing.join(', ')}`);
+    }
+    return { out, problems };
+  };
+  let { out, problems } = await attempt('');
+  if (problems.length) {
+    onProgress?.('The diagrams came back inconsistent — asking once more…');
+    ({ out, problems } = await attempt(correctionNote(problems, expectedIds)));
+    if (problems.length) throw validationError('diagrams', problems);
+  }
   const byId = new Map();
   for (const d of out.diagrams) {
     const clean = sanitizeDiagram(d.svg);
     if (!clean) throw new PipelineError(`Diagram for section "${d.id}" came back unusable. Try again — this is usually transient.`, 'validation');
     byId.set(d.id, clean);
   }
-  const ids = new Set(sections.map(s => s.id));
-  for (const id of byId.keys()) {
-    if (!ids.has(id)) throw validationError('diagrams', [`diagrams: unknown section id "${id}"`]);
-  }
-  const missing = [...ids].filter(id => !byId.has(id));
-  if (missing.length) throw validationError('diagrams', [`diagrams: missing section ids ${missing.join(', ')}`]);
   onProgress?.(`Illustrated ${byId.size} diagram${byId.size === 1 ? '' : 's'}.`);
   return byId;
 }
@@ -689,7 +775,7 @@ function validatePart(kind, value, plan) {
   uniqueIds(value.sections, `${kind}.sections`, problems);
   if (plan && (value.sections.length !== plan.sections.length ||
       value.sections.some((section, i) => section.id !== plan.sections[i]?.id))) {
-    problems.push(`${kind}.sections: ids must match the approved plan in order`);
+    problems.push(`${kind}.sections: ids must match the approved plan in order (expected ids in order: [${plan.sections.map(s => s.id).join(', ')}]; received: [${value.sections.map(s => s.id).join(', ')}])`);
   }
   if (kind === 'plan') nonempty(value.objectives, 'plan.objectives', problems);
   value.sections.forEach((section, i) => {
