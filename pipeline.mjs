@@ -33,7 +33,8 @@ export class PipelineError extends Error {
 /**
  * Parse model JSON robustly. Models sometimes wrap the payload in markdown
  * fences or add leading/trailing chatter; try the raw text, then a fenced
- * block, then the outermost {...} span before giving up.
+ * block, then the outermost {...} span, and finally a repair pass for a
+ * response cut off mid-JSON (token limit) before giving up.
  */
 export function parseJsonLoose(text) {
   const attempts = [() => JSON.parse(text)];
@@ -45,7 +46,87 @@ export function parseJsonLoose(text) {
   for (const attempt of attempts) {
     try { return attempt(); } catch (e) { last = e; }
   }
+  const salvaged = repairTruncatedJson(fenced ? fenced[1] : text);
+  if (salvaged !== undefined) return salvaged;
   throw last;
+}
+
+/**
+ * Last-resort repair for a response truncated mid-JSON: scan the payload
+ * once, keep everything up to the last complete value, drop the dangling
+ * partial fragment (an unfinished string, key, or scalar), and close the
+ * containers still open at that point. Returns undefined when no complete
+ * element or pair survived — a bare husk like '{"a":' is not a salvage.
+ * The result is not trusted: callers still run schema validation, which
+ * reports whatever the truncation cost the course.
+ */
+function repairTruncatedJson(text) {
+  const start = text.search(/[{[]/);
+  if (start === -1) return undefined;
+  const src = text.slice(start);
+  const stack = [];      // closers owed by open containers, innermost last
+  let i = 0;             // scan position
+  let cut = 0;           // src index just past the last complete value
+  let cutStack = [];     // stack snapshot at cut
+  let completed = 0;     // complete values kept anywhere in the payload
+  let expect = 'value';  // value | valueOrClose | key | keyOrClose | colon | afterValue
+
+  const scanString = () => {
+    let j = i + 1;
+    while (j < src.length) {
+      if (src[j] === '\\') { j += 2; continue; }
+      if (src[j] === '"') return j + 1;
+      j++;
+    }
+    return -1;
+  };
+  const scanScalar = () => {
+    const m = src.slice(i).match(/^(?:-?\d+(?:\.\d*)?(?:[eE][+-]?\d+)?|true|false|null)/);
+    return m ? i + m[0].length : -1;
+  };
+  const noteValue = () => { completed++; cut = i; cutStack = stack.slice(); expect = 'afterValue'; };
+
+  while (i < src.length) {
+    const ch = src[i];
+    if (ch === ' ' || ch === '\t' || ch === '\n' || ch === '\r') { i++; continue; }
+    if (expect === 'value' || expect === 'valueOrClose') {
+      if (ch === ']' && expect === 'valueOrClose') {
+        if (stack.pop() !== ']') break;
+        i++; noteValue(); continue;
+      }
+      if (ch === '{' || ch === '[') {
+        stack.push(ch === '{' ? '}' : ']');
+        expect = ch === '{' ? 'keyOrClose' : 'valueOrClose';
+        i++; continue;
+      }
+      if (ch === '"') { const end = scanString(); if (end === -1) break; i = end; noteValue(); continue; }
+      const end = scanScalar();
+      if (end === -1) break;
+      i = end; noteValue(); continue;
+    }
+    if (expect === 'key' || expect === 'keyOrClose') {
+      if (ch === '}' && expect === 'keyOrClose') {
+        if (stack.pop() !== '}') break;
+        i++; noteValue(); continue;
+      }
+      if (ch !== '"') break;
+      const end = scanString();
+      if (end === -1) break;
+      i = end; expect = 'colon'; continue;
+    }
+    if (expect === 'colon') {
+      if (ch !== ':') break;
+      i++; expect = 'value'; continue;
+    }
+    // afterValue: a comma, the innermost container's closer, or end of input.
+    if (!stack.length) break;
+    if (ch === ',') { i++; expect = stack[stack.length - 1] === '}' ? 'key' : 'value'; continue; }
+    if (ch === stack[stack.length - 1]) { stack.pop(); i++; noteValue(); continue; }
+    break;
+  }
+  if (!completed) return undefined;
+  const fixed = src.slice(0, cut) + cutStack.slice().reverse().join('');
+  try { return JSON.parse(fixed); } catch { return undefined; }
 }
 
 async function callGemini({ apiKey, model, system, user, schema, maxTokens, temperature = 0.7 }) {
@@ -63,6 +144,11 @@ async function callGemini({ apiKey, model, system, user, schema, maxTokens, temp
           responseSchema: schema,
           temperature,
           maxOutputTokens: maxTokens,
+          // Every model in MODELS is a Gemini 3: thinking is on by default
+          // and its tokens come out of the same budget as the response.
+          // 'low' is the level all three accept (Pro rejects 'minimal'),
+          // and pinning it leaves the budget for the course itself.
+          thinkingConfig: { thinkingLevel: 'low' },
         },
       }),
     });
@@ -81,12 +167,28 @@ async function callGemini({ apiKey, model, system, user, schema, maxTokens, temp
   const data = await res.json();
   const block = data?.promptFeedback?.blockReason;
   if (block) throw new PipelineError(`Generation was blocked (${block}). Try rephrasing the topic.`, 'blocked');
-  const text = data?.candidates?.[0]?.content?.parts?.map(p => p.text || '').join('');
-  if (!text) throw new PipelineError('Empty response from the model. Try again.', 'empty');
+  const candidate = data?.candidates?.[0];
+  const finishReason = candidate?.finishReason;
+  const usage = data?.usageMetadata;
+  const truncatedError = () => {
+    const counts = usage
+      ? ` It used ${usage.candidatesTokenCount ?? 0} output tokens and ${usage.thoughtsTokenCount ?? 0} thinking tokens against the ${maxTokens}-token output limit.`
+      : '';
+    return new PipelineError(`The model ran out of output room and stopped mid-response.${counts} A straight retry at the same settings will likely hit the same wall — retry, or pick a shorter course depth so the response fits.`, 'truncated');
+  };
+  const text = candidate?.content?.parts?.map(p => p.text || '').join('');
+  if (!text) {
+    if (finishReason === 'MAX_TOKENS') throw truncatedError();
+    throw new PipelineError('Empty response from the model. Try again.', 'empty');
+  }
   try {
     return parseJsonLoose(text);
   } catch {
-    throw new PipelineError('Model returned malformed JSON. Try again — this is usually transient.', 'parse');
+    // A MAX_TOKENS finish means the JSON was cut off, not garbled — say so.
+    // (A salvageable truncation never reaches here: parseJsonLoose repairs
+    // it and schema validation reports the part as incomplete instead.)
+    if (finishReason === 'MAX_TOKENS') throw truncatedError();
+    throw new PipelineError('Model returned unparseable output (malformed JSON), not a usable response. Try again, or switch to a different model in Settings.', 'parse');
   }
 }
 
@@ -329,7 +431,7 @@ ${digest}
 
 For each section: a narrative body (markdown, 250-450 words) that teaches the points in order, opening with the single most surprising or important idea. Weave in the learner's interests for analogies. End each section with 2 embedded check-in questions (with answers and hints).
 Every section must also include a "visual" caption: the one concrete scene, analogy, or labeled sketch the section's diagram will show, in 1-2 sentences. Write it as the diagram's caption — specific enough that an illustrator could draw it from the caption alone, never a generic "imagine a graph". (A separate step generates the actual SVG diagram from this caption; leave the "diagram" field empty.)`,
-    schema: SCHEMAS.reading, maxTokens: 16384,
+    schema: SCHEMAS.reading, maxTokens: 32768,
   });
   requireValidPart('reading', reading, plan);
 
@@ -345,7 +447,7 @@ Sections:
 ${digest}
 
 For each section: 3 multiple-choice questions that test application and reasoning, not memorized facts. Wrong options must be plausible mistakes a learner could really make. Each needs an explanation of why the right answer is right and what each distractor gets wrong.`,
-    schema: SCHEMAS.quizzes, maxTokens: 8192,
+    schema: SCHEMAS.quizzes, maxTokens: 16384,
   });
   requireValidPart('quizzes', quizzes, plan);
 
@@ -362,7 +464,7 @@ ${digest}
 
 For each section: a slide title, 5-7 tight bullets (the skeleton of a 5-minute lecture segment), and speaker notes — the conversational 60-second spoken version of those bullets, as if explaining to a smart friend.
 Every slide also carries a "visual" caption: the one scene or visual analogy the learner should see illustrated while hearing these bullets, in 1-2 sentences.`,
-    schema: SCHEMAS.slides, maxTokens: 8192,
+    schema: SCHEMAS.slides, maxTokens: 16384,
   });
   requireValidPart('slides', slides, plan);
 
@@ -380,7 +482,7 @@ ${digest}
 1. Audio lesson: a Socratic dialogue between a teacher and a curious student covering the whole arc of the course. 14-20 turns. The student asks sharp questions, voices common misconceptions, and the teacher corrects with patience and concrete examples drawn from the learner's interests.
 2. Mind map: nodes covering every section's key ideas, exactly one root node, every other node naming its parent id.
 3. Mnemonics: memory aids for the hardest facts. Skip if nothing genuinely needs one.`,
-    schema: SCHEMAS.enrichment, maxTokens: 8192,
+    schema: SCHEMAS.enrichment, maxTokens: 16384,
   });
   requireValidPart('enrichment', enrichment);
 
@@ -425,7 +527,7 @@ export async function generateDiagrams({ apiKey, model, sections }, onProgress) 
     apiKey, model,
     system: DIAGRAM_BRIEF,
     user: `${DIAGRAM_BRIEF}\n\nIllustrate each of these sections with one diagram. Return the diagrams in the same order, keyed by section id:\n\n${brief}`,
-    schema: SCHEMAS.diagrams, maxTokens: 16384, temperature: 0.7,
+    schema: SCHEMAS.diagrams, maxTokens: 32768, temperature: 0.7,
   });
   const problems = validatePart('diagrams', out);
   if (problems.length) throw validationError('diagrams', problems);

@@ -80,3 +80,68 @@ test('HTTP 402 explains the billing requirement', async t => {
   t.mock.method(globalThis, 'fetch', async () => ({ status: 402, ok: false }));
   await assert.rejects(generatePlan(input), error => error instanceof PipelineError && error.code === 'billing' && /billing/i.test(error.message));
 });
+
+test('loose JSON salvages a truncated payload but still rejects husks and garbage', () => {
+  assert.deepEqual(parseJsonLoose('{"a":1,"b":[1,2'), { a: 1, b: [1, 2] });
+  assert.deepEqual(parseJsonLoose('{"a":"x","b":"cut off mid-str'), { a: 'x' });
+  assert.deepEqual(parseJsonLoose('{"a":"he said \\"hi\\" ok","b":"cut'), { a: 'he said "hi" ok' });
+  // Nothing complete survived in these, so there is nothing to salvage.
+  for (const text of ['garbage', '{"a":', '{"a":{"b":', '{"q":"only an unfinished str']) {
+    assert.throws(() => parseJsonLoose(text));
+  }
+});
+
+test('a token-truncated response is reported as truncated, never as malformed', async t => {
+  t.mock.method(globalThis, 'fetch', async () => ({
+    status: 200, ok: true,
+    json: async () => ({
+      candidates: [{ finishReason: 'MAX_TOKENS', content: { parts: [{ text: '{"title": "Filters' }] } }],
+      usageMetadata: { promptTokenCount: 512, candidatesTokenCount: 1900, thoughtsTokenCount: 148, totalTokenCount: 2560 },
+    }),
+  }));
+  await assert.rejects(generatePlan(input), error =>
+    error instanceof PipelineError && error.code === 'truncated'
+    && /ran out of output room/.test(error.message)
+    && /1900 output tokens/.test(error.message)
+    && /148 thinking tokens/.test(error.message)
+    && /shorter course depth/.test(error.message)
+    && !/transient/.test(error.message));
+});
+
+test('a salvaged truncation fails validation as incomplete, not as a parse error', async t => {
+  const full = JSON.stringify(fixture.plan);
+  // Cut mid-string inside the last section's heading (the first key of that
+  // section object): the repair drops the whole section, keeps the rest.
+  const midHeading = full.slice(0, full.lastIndexOf('"heading"') + '"heading":"'.length + 2);
+  const salvaged = parseJsonLoose(midHeading);
+  assert.equal(salvaged.sections.length, fixture.plan.sections.length - 1);
+  assert.equal(salvaged.hook, fixture.plan.hook);
+  // Cut inside the required title instead: the salvaged plan parses, then
+  // validation — not the parser, not the truncation check — reports the loss.
+  const midTitle = full.slice(0, full.lastIndexOf('"title"') + '"title":"'.length + 5);
+  t.mock.method(globalThis, 'fetch', async () => ({
+    status: 200, ok: true,
+    json: async () => ({
+      candidates: [{ finishReason: 'MAX_TOKENS', content: { parts: [{ text: midTitle }] } }],
+      usageMetadata: { promptTokenCount: 512, candidatesTokenCount: 2048, thoughtsTokenCount: 300, totalTokenCount: 2860 },
+    }),
+  }));
+  await assert.rejects(generatePlan(input), error =>
+    error instanceof PipelineError && error.code === 'validation' && /incomplete/.test(error.message));
+});
+
+test('generation requests carry raised output budgets and pinned low thinking', async t => {
+  const GOOD_SVG = `<svg viewBox="0 0 400 300"><rect x="10" y="10" width="120" height="60" fill="#7cc7ff"/><text x="20" y="45" font-family="sans-serif" font-size="12" fill="#e8ecf1">Crust</text></svg>`;
+  const diagramPayload = { diagrams: fixture.reading.sections.map(s => ({ id: s.id, svg: GOOD_SVG })) };
+  const payloads = [fixture.plan, fixture.reading, fixture.quizzes, fixture.slides, fixture.enrichment, diagramPayload];
+  const requests = [];
+  t.mock.method(globalThis, 'fetch', async (url, init) => {
+    requests.push(JSON.parse(init.body));
+    return response(JSON.stringify(payloads.shift()));
+  });
+  const draft = await generatePlan(input);
+  await generateCourse(draft, input);
+  // plan, reading, quizzes, slides, enrichment, diagrams.
+  assert.deepEqual(requests.map(r => r.generationConfig.maxOutputTokens), [2048, 32768, 16384, 16384, 16384, 32768]);
+  for (const r of requests) assert.equal(r.generationConfig.thinkingConfig.thinkingLevel, 'low');
+});
