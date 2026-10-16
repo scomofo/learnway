@@ -67,13 +67,34 @@ export function wireDiagrams(root) {
       stopFrame();
       if (running && visible && !document.hidden) frame = requestAnimationFrame(tick);
     };
-    play?.addEventListener('click', () => {
+    const togglePlay = () => {
       if (time >= DURATION) time = 0;
       running = !running; paint(); announce(); schedule();
-    });
+    };
+    play?.addEventListener('click', togglePlay);
     range?.addEventListener('input', () => {
       running = false; time = Math.max(0, Math.min(100, Number(range.value))) / 100 * DURATION;
       paint(); announce(); schedule();
+    });
+    figure.tabIndex = figure.tabIndex >= 0 ? figure.tabIndex : 0;
+    figure.addEventListener('keydown', (e) => {
+      if (e.target !== figure && e.target !== play && e.target !== range && !figure.contains(e.target)) return;
+      if (e.code === 'Space' || e.key === ' ') {
+        e.preventDefault();
+        togglePlay();
+      } else if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+        e.preventDefault();
+        running = false;
+        const step = e.key === 'ArrowRight' ? 0.05 : -0.05;
+        time = Math.max(0, Math.min(DURATION, time + step * DURATION));
+        paint(); announce(); schedule();
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        running = false; time = 0; paint(); announce(); schedule();
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        running = false; time = DURATION; paint(); announce(); schedule();
+      }
     });
     const observer = new IntersectionObserver(entries => {
       visible = entries[0].isIntersecting && entries[0].intersectionRatio >= .15;
@@ -186,8 +207,16 @@ function updateEquilibrium(art, progress) {
   const rev = art.querySelector('.lw-eq-dot-rev');
   if (!fwd && !rev) return;
   const cycle = (progress * 2) % 1;
-  if (fwd) fwd.setAttribute('cx', (290 + cycle * 220).toFixed(1));
-  if (rev) rev.setAttribute('cx', (510 - cycle * 220).toFixed(1));
+  const edge = Math.min(cycle, 1 - cycle);
+  const opacity = Math.max(0.25, Math.min(1, edge * 8));
+  if (fwd) {
+    fwd.setAttribute('cx', (290 + cycle * 220).toFixed(1));
+    fwd.setAttribute('opacity', opacity.toFixed(2));
+  }
+  if (rev) {
+    rev.setAttribute('cx', (510 - cycle * 220).toFixed(1));
+    rev.setAttribute('opacity', opacity.toFixed(2));
+  }
 }
 
 function bezier(t, p0, p1, p2, p3) {
@@ -196,20 +225,18 @@ function bezier(t, p0, p1, p2, p3) {
 }
 
 function updateEnzymes(art, progress) {
-  const cat = art.querySelector('.lw-enzyme-particle-cat');
-  if (cat) {
-    const x = bezier(progress, 100, 225, 500, 725);
-    const y = bezier(progress, 260, 185, 285, 285);
-    cat.setAttribute('cx', x.toFixed(1));
-    cat.setAttribute('cy', y.toFixed(1));
-  }
-  const uncat = art.querySelector('.lw-enzyme-particle-uncat');
-  if (uncat) {
-    const x = bezier(progress, 100, 205, 505, 725);
-    const y = bezier(progress, 260, 92, 285, 285);
-    uncat.setAttribute('cx', x.toFixed(1));
-    uncat.setAttribute('cy', y.toFixed(1));
-  }
+  const place = (el, x0, x1, x2, x3, y0, y1, y2, y3) => {
+    if (!el) return;
+    const x = bezier(progress, x0, x1, x2, x3);
+    const y = bezier(progress, y0, y1, y2, y3);
+    el.setAttribute('cx', x.toFixed(1));
+    el.setAttribute('cy', y.toFixed(1));
+    const peak = 1 - Math.abs(progress - 0.45) / 0.45;
+    const r = 5 + 2.5 * Math.max(0, peak);
+    el.setAttribute('r', r.toFixed(2));
+  };
+  place(art.querySelector('.lw-enzyme-particle-cat'), 100, 225, 500, 725, 260, 185, 285, 285);
+  place(art.querySelector('.lw-enzyme-particle-uncat'), 100, 205, 505, 725, 260, 92, 285, 285);
 }
 
 function updateOrbit(art, progress) {
@@ -227,14 +254,9 @@ function updateOrbit(art, progress) {
   const tx = -Math.sin(angle);
   const ty = Math.cos(angle);
   const velLen = 58;
-  const vx1 = sx + tx * 12;
-  const vy1 = sy + ty * 12;
-  const vx2 = sx + tx * velLen;
-  const vy2 = sy + ty * velLen;
-  const gx1 = sx - Math.cos(angle) * 14;
-  const gy1 = sy - Math.sin(angle) * 14;
-  const gx2 = sx - Math.cos(angle) * 50;
-  const gy2 = sy - Math.sin(angle) * 50;
+  const vx1 = sx + tx * 12, vy1 = sy + ty * 12, vx2 = sx + tx * velLen, vy2 = sy + ty * velLen;
+  const gx1 = sx - Math.cos(angle) * 14, gy1 = sy - Math.sin(angle) * 14;
+  const gx2 = sx - Math.cos(angle) * 50, gy2 = sy - Math.sin(angle) * 50;
   const paths = group.querySelectorAll('path');
   if (paths[0]) paths[0].setAttribute('d', `M${vx1.toFixed(1)} ${vy1.toFixed(1)} L${vx2.toFixed(1)} ${vy2.toFixed(1)}`);
   if (paths[1]) {
@@ -271,8 +293,7 @@ function updateSound(art, progress) {
     circle.setAttribute('cx', (eqX + dx).toFixed(1));
     circle.setAttribute('cy', eqY.toFixed(1));
     if (circle.getAttribute('fill') === '#ffd479' || circle.getAttribute('stroke') === '#ffd479') {
-      const pulse = 4 + 1.2 * Math.abs(Math.sin(phase));
-      circle.setAttribute('r', pulse.toFixed(2));
+      circle.setAttribute('r', (4 + 1.2 * Math.abs(Math.sin(phase))).toFixed(2));
     }
     g.style.transform = 'none';
   });
@@ -289,14 +310,11 @@ function updateString(art, progress) {
     const d = g.dataset.eqD;
     g.style.transform = 'none';
     if (g.classList.contains('lw-string-1')) {
-      const yMid = 161 - amp;
-      path.setAttribute('d', `M123 161 Q404 ${yMid.toFixed(1)} 685 161`);
+      path.setAttribute('d', `M123 161 Q404 ${(161 - amp).toFixed(1)} 685 161`);
       return;
     }
     if (g.classList.contains('lw-string-2')) {
-      const yL = 257 - amp;
-      const yR = 257 + amp;
-      path.setAttribute('d', `M123 257 Q263 ${yL.toFixed(1)} 404 257 Q544 ${yR.toFixed(1)} 685 257`);
+      path.setAttribute('d', `M123 257 Q263 ${(257 - amp).toFixed(1)} 404 257 Q544 ${(257 + amp).toFixed(1)} 685 257`);
       return;
     }
     path.setAttribute('d', d);
@@ -305,16 +323,14 @@ function updateString(art, progress) {
 
 function updateGears(art, progress) {
   art.querySelectorAll('.lw-rotate').forEach(el => {
-    const deg = progress * 360;
     el.style.transformOrigin = 'center';
     el.style.transformBox = 'fill-box';
-    el.style.transform = `rotate(${deg.toFixed(2)}deg)`;
+    el.style.transform = `rotate(${(progress * 360).toFixed(2)}deg)`;
   });
   art.querySelectorAll('.lw-rotate-reverse-slow').forEach(el => {
-    const deg = -progress * 180;
     el.style.transformOrigin = 'center';
     el.style.transformBox = 'fill-box';
-    el.style.transform = `rotate(${deg.toFixed(2)}deg)`;
+    el.style.transform = `rotate(${(-progress * 180).toFixed(2)}deg)`;
   });
 }
 
@@ -322,8 +338,7 @@ function updateFall(art, progress) {
   const group = art.querySelector('.lw-fall');
   if (!group) return;
   const t = progress % 1;
-  const dy = t * t * 50;
-  group.style.transform = `translateY(${dy.toFixed(1)}px)`;
+  group.style.transform = `translateY(${(t * t * 50).toFixed(1)}px)`;
 }
 
 function updateWaveRings(art, progress) {
@@ -346,23 +361,20 @@ function updateWaveRings(art, progress) {
 
 function updateCone(art, progress) {
   art.querySelectorAll('.lw-cone').forEach(el => {
-    const scaleX = 0.88 + 0.12 * Math.sin(progress * Math.PI * 4);
     el.style.transformOrigin = 'left center';
     el.style.transformBox = 'fill-box';
-    el.style.transform = `scaleX(${scaleX.toFixed(3)})`;
+    el.style.transform = `scaleX(${(0.88 + 0.12 * Math.sin(progress * Math.PI * 4)).toFixed(3)})`;
   });
   art.querySelectorAll('.lw-exhaust').forEach(el => {
-    const scaleX = 0.75 + 0.25 * Math.sin(progress * Math.PI * 6);
     el.style.transformOrigin = 'right center';
     el.style.transformBox = 'fill-box';
-    el.style.transform = `scaleX(${scaleX.toFixed(3)})`;
+    el.style.transform = `scaleX(${(0.75 + 0.25 * Math.sin(progress * Math.PI * 6)).toFixed(3)})`;
   });
 }
 
 function updateFlow(art, progress) {
   art.querySelectorAll('.lw-flow').forEach(el => {
-    const offset = -progress * 20;
     el.style.strokeDasharray = '8 12';
-    el.style.strokeDashoffset = offset.toFixed(2);
+    el.style.strokeDashoffset = (-progress * 20).toFixed(2);
   });
 }
