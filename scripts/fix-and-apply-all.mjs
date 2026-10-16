@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/** Restore any placeholder course files, then apply all motion diagram patches. */
+/** Restore broken course files, then apply all motion diagram patches. */
 import { writeFile, readFile, access } from 'node:fs/promises';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -7,16 +7,15 @@ import { spawn } from 'node:child_process';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const GOOD = {
-  'everyday-probability.json': '300d3abf060986ce5c320f64310da610c2e45057',
   'plate-tectonics.json': '6e190d334a1c91e3e03e26659c0745feac0f9998',
 };
 
 async function run(script) {
   const path = join(root, 'scripts', script);
-  try { await access(path); } catch { console.warn('skip', script); return; }
+  try { await access(path); } catch { console.warn('skip missing', script); return; }
   await new Promise((res, rej) => {
     const p = spawn(process.execPath, [path], { stdio: 'inherit', cwd: root });
-    p.on('exit', c => c === 0 ? res() : rej(new Error(script)));
+    p.on('exit', c => c === 0 ? res() : rej(new Error(script + ' failed')));
   });
 }
 
@@ -33,11 +32,19 @@ for (const [file, sha] of Object.entries(GOOD)) {
   }
 }
 
-for (const s of [
+const scripts = [
   'patch-static-a.mjs',
   'patch-static-sound-prob.mjs',
   'patch-genetics-diagrams.mjs',
   'patch-machine-diagrams.mjs',
-]) await run(s);
+  'patch-motion-how-gps-works.mjs',
+  'patch-motion-ap-biology-foundations.mjs',
+  'patch-motion-ap-chemistry-foundations.mjs',
+  'patch-motion-electrical-wiring-fundamentals.mjs',
+  'patch-motion-sound-and-music.mjs',
+  'patch-motion-hs-genetics.mjs',
+  'patch-motion-hs-simple-machines.mjs',
+];
 
-console.log('All remaining sections should now have motion classes.');
+for (const s of scripts) await run(s);
+console.log('All remaining section animations applied.');
