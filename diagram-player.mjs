@@ -28,6 +28,8 @@ export function wireDiagrams(root) {
       updatePulley(art, p);
       updateEquilibrium(art, p);
       updateEnzymes(art, p);
+      updateOrbit(art, p);
+      updateSound(art, p);
       if (range) range.value = String(Math.round(p * 100));
       figure.dataset.progress = String(Math.round(p * 100));
     };
@@ -186,4 +188,85 @@ function updateEnzymes(art, progress) {
     uncat.setAttribute('cx', x.toFixed(1));
     uncat.setAttribute('cy', y.toFixed(1));
   }
+}
+
+// Circular orbit: satellite + tangential velocity + radial gravity stay locked together.
+// Progress 0 → 1 is one full revolution. Centre and radius match the authored drawing.
+function updateOrbit(art, progress) {
+  const group = art.querySelector('.lw-orbit');
+  if (!group) return;
+  const cx = 275, cy = 205, r = 118;
+  // Start at the top (as drawn) and travel counter-clockwise so the path feels natural.
+  const angle = -Math.PI / 2 + progress * Math.PI * 2;
+  const sx = cx + r * Math.cos(angle);
+  const sy = cy + r * Math.sin(angle);
+
+  const sat = group.querySelector('circle');
+  if (sat) {
+    sat.setAttribute('cx', sx.toFixed(1));
+    sat.setAttribute('cy', sy.toFixed(1));
+  }
+
+  // Tangential velocity (amber): perpendicular to radius, pointing in travel direction.
+  const tx = -Math.sin(angle);
+  const ty = Math.cos(angle);
+  const velLen = 52;
+  const vx1 = sx + tx * 10;
+  const vy1 = sy + ty * 10;
+  const vx2 = sx + tx * velLen;
+  const vy2 = sy + ty * velLen;
+
+  // Radial gravity (green): toward centre.
+  const gx1 = sx - Math.cos(angle) * 12;
+  const gy1 = sy - Math.sin(angle) * 12;
+  const gx2 = sx - Math.cos(angle) * 48;
+  const gy2 = sy - Math.sin(angle) * 48;
+
+  const paths = group.querySelectorAll('path');
+  // Authored order: velocity shaft, velocity head, gravity shaft, gravity head.
+  if (paths[0]) paths[0].setAttribute('d', `M${vx1.toFixed(1)} ${vy1.toFixed(1)} L${vx2.toFixed(1)} ${vy2.toFixed(1)}`);
+  if (paths[1]) {
+    const a = Math.atan2(vy2 - vy1, vx2 - vx1);
+    const size = 9;
+    const p = ang => `${(vx2 - size * Math.cos(ang)).toFixed(1)} ${(vy2 - size * Math.sin(ang)).toFixed(1)}`;
+    paths[1].setAttribute('d', `M${p(a - 0.48)} L${vx2.toFixed(1)} ${vy2.toFixed(1)} L${p(a + 0.48)}`);
+  }
+  if (paths[2]) paths[2].setAttribute('d', `M${gx1.toFixed(1)} ${gy1.toFixed(1)} L${gx2.toFixed(1)} ${gy2.toFixed(1)}`);
+  if (paths[3]) {
+    const a = Math.atan2(gy2 - gy1, gx2 - gx1);
+    const size = 9;
+    const p = ang => `${(gx2 - size * Math.cos(ang)).toFixed(1)} ${(gy2 - size * Math.sin(ang)).toFixed(1)}`;
+    paths[3].setAttribute('d', `M${p(a - 0.48)} L${gx2.toFixed(1)} ${gy2.toFixed(1)} L${p(a + 0.48)}`);
+  }
+
+  // Disable the CSS rotate so our geometry is not double-transformed.
+  group.style.transform = 'none';
+}
+
+// Longitudinal sound wave: each air particle oscillates around a fixed equilibrium.
+// Phase depends on horizontal position so a travelling compression pattern appears.
+function updateSound(art, progress) {
+  const particles = art.querySelectorAll('.lw-air');
+  if (!particles.length) return;
+
+  // Equilibrium x is the original centre of each particle group.
+  // We store it once so scrubbing is deterministic.
+  particles.forEach((g, i) => {
+    const circle = g.querySelector('circle');
+    if (!circle) return;
+    if (g.dataset.eqX == null) {
+      g.dataset.eqX = circle.getAttribute('cx') || '0';
+      g.dataset.eqY = circle.getAttribute('cy') || '0';
+    }
+    const eqX = Number(g.dataset.eqX);
+    const eqY = Number(g.dataset.eqY);
+    // Wavelength roughly spans the particle field (~350 px). Two cycles look clear.
+    const phase = (eqX - 170) / 175 * Math.PI * 2 + progress * Math.PI * 2;
+    const amp = 11;
+    const dx = Math.sin(phase) * amp;
+    circle.setAttribute('cx', (eqX + dx).toFixed(1));
+    circle.setAttribute('cy', eqY.toFixed(1));
+    // Kill any residual CSS translate so only the JS displacement remains.
+    g.style.transform = 'none';
+  });
 }
