@@ -1,10 +1,7 @@
-// A single, scoped clock controls all motion in a figure. Offscreen figures
-// freeze, reduced-motion users start paused, and view changes dispose players.
+// A single, scoped clock controls all motion in a figure.
 const players = new Set();
 const DURATION = 8000;
-export function disposeDiagrams() {
-  for (const dispose of [...players]) dispose();
-}
+export function disposeDiagrams() { for (const dispose of [...players]) dispose(); }
 
 export function wireDiagrams(root) {
   root.querySelectorAll('[data-diagram]').forEach(figure => {
@@ -17,11 +14,11 @@ export function wireDiagrams(root) {
     const expand = figure.querySelector('[data-diagram-expand]');
     const motion = matchMedia('(prefers-reduced-motion: reduce)');
     const animations = art.getAnimations({ subtree: true });
-    animations.forEach(animation => animation.pause());
+    animations.forEach(a => a.pause());
     let time = 0, running = false, visible = false, frame = 0, last = 0;
     let dialog = null, placeholder = null, disposed = false;
     const paint = () => {
-      animations.forEach(animation => { animation.currentTime = time; });
+      animations.forEach(a => { a.currentTime = time; });
       const p = time / DURATION;
       updateEngine(art, p); updateLever(art, p); updatePulley(art, p);
       updateEquilibrium(art, p); updateEnzymes(art, p); updateOrbit(art, p);
@@ -30,6 +27,7 @@ export function wireDiagrams(root) {
       updateFlow(art, p); updateRamp(art, p); updateWedge(art, p); updateScrew(art, p);
       updateBasePairs(art, p); updateDogma(art, p); updatePunnett(art, p);
       updateCrossover(art, p); updateSeqEdit(art, p);
+      updateSteps(art, p); updateGrowRings(art, p); updateBars(art, p);
       const pct = Math.round(p * 100);
       if (range) range.value = String(pct);
       figure.dataset.progress = String(pct);
@@ -80,10 +78,8 @@ export function wireDiagrams(root) {
       visible = entries[0].isIntersecting && entries[0].intersectionRatio >= .15; schedule();
     }, { threshold: .15 });
     observer.observe(figure);
-    const visibility = () => schedule();
-    document.addEventListener('visibilitychange', visibility);
-    const preference = () => { if (motion.matches) running = false; announce(); schedule(); };
-    motion.addEventListener('change', preference);
+    document.addEventListener('visibilitychange', () => schedule());
+    motion.addEventListener('change', () => { if (motion.matches) running = false; announce(); schedule(); });
     const close = () => {
       if (!dialog) return;
       placeholder?.replaceWith(figure); dialog.remove(); dialog = null; placeholder = null;
@@ -103,10 +99,8 @@ export function wireDiagrams(root) {
       dialog.showModal(); closeButton.focus();
     });
     const dispose = () => {
-      disposed = true; stopFrame(); observer.disconnect();
-      document.removeEventListener('visibilitychange', visibility);
-      motion.removeEventListener('change', preference);
-      close(); animations.forEach(a => a.cancel()); players.delete(dispose);
+      disposed = true; stopFrame(); observer.disconnect(); close();
+      animations.forEach(a => a.cancel()); players.delete(dispose);
     };
     players.add(dispose); paint(); announce();
   });
@@ -114,26 +108,20 @@ export function wireDiagrams(root) {
 
 function updateEngine(art, progress) {
   art.querySelectorAll('.lw-engine-piston').forEach((piston, i) => {
-    const x = Number(piston.getAttribute('x')) + 42;
-    const cy = 288, radius = 14, rodLength = 74;
+    const x = Number(piston.getAttribute('x')) + 42, cy = 288, radius = 14, rodLength = 74;
     const angle = (i % 2 ? 1 : 0) * Math.PI + progress * Math.PI;
     const pinX = x + radius * Math.sin(angle), pinY = cy - radius * Math.cos(angle);
-    const under = rodLength ** 2 - (pinX - x) ** 2;
-    const pistonY = pinY - Math.sqrt(Math.max(0, under));
+    const pistonY = pinY - Math.sqrt(Math.max(0, rodLength ** 2 - (pinX - x) ** 2));
     const top = pistonY - 18;
     piston.setAttribute('y', top.toFixed(1));
     const gas = art.querySelectorAll('.lw-engine-gas')[i];
-    if (gas) {
-      gas.setAttribute('height', Math.max(2, top - 163).toFixed(1));
-      gas.setAttribute('opacity', i === 2 ? String(0.55 + 0.45 * Math.max(0, Math.sin(angle))) : '1');
-    }
+    if (gas) { gas.setAttribute('height', Math.max(2, top - 163).toFixed(1)); gas.setAttribute('opacity', i === 2 ? String(0.55 + 0.45 * Math.max(0, Math.sin(angle))) : '1'); }
     art.querySelector(`.lw-engine-rod-${i}`)?.setAttribute('d', `M${x.toFixed(1)} ${pistonY.toFixed(1)} L${pinX.toFixed(1)} ${pinY.toFixed(1)}`);
     art.querySelector(`.lw-engine-crank-${i}`)?.setAttribute('d', `M${x} ${cy} L${pinX.toFixed(1)} ${pinY.toFixed(1)}`);
   });
 }
 function updateLever(art, progress) {
-  const bar = art.querySelector('.lw-lever-bar');
-  if (!bar) return;
+  const bar = art.querySelector('.lw-lever-bar'); if (!bar) return;
   const angle = Math.sin(progress * Math.PI * 2) * 0.16, pivotX = 510, pivotY = 235;
   const effortX = pivotX - 366 * Math.cos(angle), effortY = pivotY - 366 * Math.sin(angle);
   const loadX = pivotX + 122 * Math.cos(angle), loadY = pivotY + 122 * Math.sin(angle);
@@ -142,14 +130,10 @@ function updateLever(art, progress) {
   art.querySelector('.lw-lever-load')?.setAttribute('transform', `translate(0, ${(loadY - 235).toFixed(1)})`);
 }
 function updatePulley(art, progress) {
-  const pulleyWheel = art.querySelector('.lw-pulley-wheel');
-  if (!pulleyWheel) return;
+  const w = art.querySelector('.lw-pulley-wheel'); if (!w) return;
   const lift = (1 - Math.cos(progress * Math.PI * 2)) / 2 * 48, py = 234 - lift;
-  pulleyWheel.setAttribute('cy', py.toFixed(1));
-  pulleyWheel.style.transformOrigin = 'center'; pulleyWheel.style.transformBox = 'fill-box';
-  pulleyWheel.style.transform = `rotate(${(progress * 720).toFixed(1)}deg)`;
-  const rope = art.querySelector('.lw-pulley-rope');
-  if (rope) rope.setAttribute('d', `M540 122 V${py.toFixed(1)} A34 34 0 0 0 608 ${py.toFixed(1)} V${(132 - lift * 2).toFixed(1)}`);
+  w.setAttribute('cy', py.toFixed(1)); w.style.transformOrigin = 'center'; w.style.transformBox = 'fill-box'; w.style.transform = `rotate(${(progress * 720).toFixed(1)}deg)`;
+  art.querySelector('.lw-pulley-rope')?.setAttribute('d', `M540 122 V${py.toFixed(1)} A34 34 0 0 0 608 ${py.toFixed(1)} V${(132 - lift * 2).toFixed(1)}`);
   art.querySelector('.lw-pulley-load')?.setAttribute('transform', `translate(0, ${(-lift).toFixed(1)})`);
   art.querySelector('.lw-pulley-pull')?.setAttribute('transform', `translate(0, ${(-lift * 2).toFixed(1)})`);
 }
@@ -160,7 +144,7 @@ function updateEquilibrium(art, progress) {
   if (fwd) { fwd.setAttribute('cx', (290 + cycle * 220).toFixed(1)); fwd.setAttribute('opacity', opacity.toFixed(2)); }
   if (rev) { rev.setAttribute('cx', (510 - cycle * 220).toFixed(1)); rev.setAttribute('opacity', opacity.toFixed(2)); }
 }
-function bezier(t, p0, p1, p2, p3) { const u = 1 - t; return u*u*u*p0 + 3*u*u*t*p1 + 3*u*t*t*p2 + t*t*t*p3; }
+function bezier(t, a, b, c, d) { const u = 1 - t; return u*u*u*a + 3*u*u*t*b + 3*u*t*t*c + t*t*t*d; }
 function updateEnzymes(art, progress) {
   const place = (el, x0, x1, x2, x3, y0, y1, y2, y3) => {
     if (!el) return;
@@ -172,16 +156,14 @@ function updateEnzymes(art, progress) {
   place(art.querySelector('.lw-enzyme-particle-uncat'), 100, 205, 505, 725, 260, 92, 285, 285);
 }
 function updateOrbit(art, progress) {
-  const group = art.querySelector('.lw-orbit');
-  if (!group) return;
+  const group = art.querySelector('.lw-orbit'); if (!group) return;
   const cx = 275, cy = 205, r = 118, angle = -Math.PI / 2 + progress * Math.PI * 2;
   const sx = cx + r * Math.cos(angle), sy = cy + r * Math.sin(angle);
   const sat = group.querySelector('circle');
   if (sat) { sat.setAttribute('cx', sx.toFixed(1)); sat.setAttribute('cy', sy.toFixed(1)); }
-  const tx = -Math.sin(angle), ty = Math.cos(angle), velLen = 58;
-  const vx1 = sx + tx * 12, vy1 = sy + ty * 12, vx2 = sx + tx * velLen, vy2 = sy + ty * velLen;
-  const gx1 = sx - Math.cos(angle) * 14, gy1 = sy - Math.sin(angle) * 14;
-  const gx2 = sx - Math.cos(angle) * 50, gy2 = sy - Math.sin(angle) * 50;
+  const tx = -Math.sin(angle), ty = Math.cos(angle);
+  const vx1 = sx + tx * 12, vy1 = sy + ty * 12, vx2 = sx + tx * 58, vy2 = sy + ty * 58;
+  const gx1 = sx - Math.cos(angle) * 14, gy1 = sy - Math.sin(angle) * 14, gx2 = sx - Math.cos(angle) * 50, gy2 = sy - Math.sin(angle) * 50;
   const paths = group.querySelectorAll('path');
   if (paths[0]) paths[0].setAttribute('d', `M${vx1.toFixed(1)} ${vy1.toFixed(1)} L${vx2.toFixed(1)} ${vy2.toFixed(1)}`);
   if (paths[1]) { const a = Math.atan2(vy2 - vy1, vx2 - vx1); const p = ang => `${(vx2 - 9 * Math.cos(ang)).toFixed(1)} ${(vy2 - 9 * Math.sin(ang)).toFixed(1)}`; paths[1].setAttribute('d', `M${p(a - 0.48)} L${vx2.toFixed(1)} ${vy2.toFixed(1)} L${p(a + 0.48)}`); }
@@ -191,13 +173,11 @@ function updateOrbit(art, progress) {
 }
 function updateSound(art, progress) {
   art.querySelectorAll('.lw-air').forEach((g) => {
-    const circle = g.querySelector('circle');
-    if (!circle) return;
+    const circle = g.querySelector('circle'); if (!circle) return;
     if (g.dataset.eqX == null) { g.dataset.eqX = circle.getAttribute('cx') || '0'; g.dataset.eqY = circle.getAttribute('cy') || '0'; }
     const eqX = Number(g.dataset.eqX), eqY = Number(g.dataset.eqY);
     const phase = (eqX - 170) / 175 * Math.PI * 2 + progress * Math.PI * 2;
-    circle.setAttribute('cx', (eqX + Math.sin(phase) * 13).toFixed(1));
-    circle.setAttribute('cy', eqY.toFixed(1));
+    circle.setAttribute('cx', (eqX + Math.sin(phase) * 13).toFixed(1)); circle.setAttribute('cy', eqY.toFixed(1));
     if (circle.getAttribute('fill') === '#ffd479' || circle.getAttribute('stroke') === '#ffd479') circle.setAttribute('r', (4 + 1.2 * Math.abs(Math.sin(phase))).toFixed(2));
     g.style.transform = 'none';
   });
@@ -205,8 +185,7 @@ function updateSound(art, progress) {
 function updateString(art, progress) {
   const amp = Math.sin(progress * Math.PI * 2) * 42;
   art.querySelectorAll('.lw-string').forEach(g => {
-    const path = g.querySelector('path');
-    if (!path) return;
+    const path = g.querySelector('path'); if (!path) return;
     if (g.dataset.eqD == null) g.dataset.eqD = path.getAttribute('d') || '';
     g.style.transform = 'none';
     if (g.classList.contains('lw-string-1')) path.setAttribute('d', `M123 161 Q404 ${(161 - amp).toFixed(1)} 685 161`);
@@ -218,16 +197,12 @@ function updateGears(art, progress) {
   art.querySelectorAll('.lw-rotate').forEach(el => { el.style.transformOrigin = 'center'; el.style.transformBox = 'fill-box'; el.style.transform = `rotate(${(progress * 360).toFixed(2)}deg)`; });
   art.querySelectorAll('.lw-rotate-reverse-slow').forEach(el => { el.style.transformOrigin = 'center'; el.style.transformBox = 'fill-box'; el.style.transform = `rotate(${(-progress * 180).toFixed(2)}deg)`; });
 }
-function updateFall(art, progress) {
-  const group = art.querySelector('.lw-fall');
-  if (group) group.style.transform = `translateY(${((progress % 1) ** 2 * 50).toFixed(1)}px)`;
-}
+function updateFall(art, progress) { const g = art.querySelector('.lw-fall'); if (g) g.style.transform = `translateY(${((progress % 1) ** 2 * 50).toFixed(1)}px)`; }
 function updateWaveRings(art, progress) {
   const paintRing = (ring, speed, late) => {
     const t = (progress * speed + (late ? 0.5 : 0)) % 1;
     ring.style.transformOrigin = 'center'; ring.style.transformBox = 'fill-box';
-    ring.style.transform = `scale(${(0.2 + t * 1.15).toFixed(3)})`;
-    ring.style.opacity = Math.max(0.06, 0.9 - t * 0.85).toFixed(3);
+    ring.style.transform = `scale(${(0.2 + t * 1.15).toFixed(3)})`; ring.style.opacity = Math.max(0.06, 0.9 - t * 0.85).toFixed(3);
   };
   art.querySelectorAll('.lw-wave-p').forEach(r => paintRing(r, 1.7, false));
   art.querySelectorAll('.lw-wave-p-late').forEach(r => paintRing(r, 1.7, true));
@@ -240,14 +215,11 @@ function updateCone(art, progress) {
   art.querySelectorAll('.lw-cone').forEach(el => { el.style.transformOrigin = 'left center'; el.style.transformBox = 'fill-box'; el.style.transform = `scaleX(${(0.88 + 0.12 * Math.sin(progress * Math.PI * 4)).toFixed(3)})`; });
   art.querySelectorAll('.lw-exhaust').forEach(el => { el.style.transformOrigin = 'right center'; el.style.transformBox = 'fill-box'; el.style.transform = `scaleX(${(0.75 + 0.25 * Math.sin(progress * Math.PI * 6)).toFixed(3)})`; });
 }
-function updateFlow(art, progress) {
-  art.querySelectorAll('.lw-flow').forEach(el => { el.style.strokeDasharray = '8 12'; el.style.strokeDashoffset = (-progress * 20).toFixed(2); });
-}
+function updateFlow(art, progress) { art.querySelectorAll('.lw-flow').forEach(el => { el.style.strokeDasharray = '8 12'; el.style.strokeDashoffset = (-progress * 20).toFixed(2); }); }
 function updateRamp(art, progress) {
   const t = 0.5 - 0.5 * Math.cos(progress * Math.PI * 2);
   const place = (sel, x0, y0, x1, y1) => { const el = art.querySelector(sel); if (el) el.setAttribute('transform', `translate(${(x0 + (x1 - x0) * t).toFixed(1)} ${(y0 + (y1 - y0) * t).toFixed(1)})`); };
-  place('.lw-ramp-block-steep', 70, 250, 250, 145);
-  place('.lw-ramp-block-gentle', 400, 265, 680, 145);
+  place('.lw-ramp-block-steep', 70, 250, 250, 145); place('.lw-ramp-block-gentle', 400, 265, 680, 145);
   art.querySelector('.lw-ramp-force-steep')?.setAttribute('opacity', (0.45 + 0.55 * t).toFixed(2));
   art.querySelector('.lw-ramp-force-gentle')?.setAttribute('opacity', (0.45 + 0.55 * t).toFixed(2));
 }
@@ -259,24 +231,18 @@ function updateWedge(art, progress) {
   art.querySelectorAll('.lw-wedge-force').forEach(el => el.setAttribute('opacity', (0.3 + 0.7 * t).toFixed(2)));
 }
 function updateScrew(art, progress) {
-  const body = art.querySelector('.lw-screw-body');
-  if (!body) return;
+  const body = art.querySelector('.lw-screw-body'); if (!body) return;
   body.style.transformOrigin = '300px 200px'; body.style.transformBox = 'view-box';
   body.style.transform = `translate(0 ${((progress % 1) * 22).toFixed(1)}px) rotate(${(progress * 360).toFixed(1)}deg)`;
   art.querySelector('.lw-screw-pitch')?.setAttribute('opacity', (0.4 + 0.6 * Math.abs(Math.sin(progress * Math.PI))).toFixed(2));
 }
 function updateBasePairs(art, progress) {
-  const pairs = [...art.querySelectorAll('.lw-base-pair')];
-  if (!pairs.length) return;
+  const pairs = [...art.querySelectorAll('.lw-base-pair')]; if (!pairs.length) return;
   const active = Math.min(pairs.length - 1, Math.floor(progress * pairs.length));
-  pairs.forEach((g, i) => {
-    if (i === active) g.setAttribute('opacity', (0.85 + 0.15 * Math.sin(progress * Math.PI * 8)).toFixed(2));
-    else g.setAttribute('opacity', i < active ? '0.55' : '0.2');
-  });
+  pairs.forEach((g, i) => { g.setAttribute('opacity', i === active ? (0.85 + 0.15 * Math.sin(progress * Math.PI * 8)).toFixed(2) : i < active ? '0.55' : '0.2'); });
 }
 function updateDogma(art, progress) {
-  const particle = art.querySelector('.lw-dogma-particle');
-  if (!particle) return;
+  const particle = art.querySelector('.lw-dogma-particle'); if (!particle) return;
   const pts = [[170, 203], [280, 203], [389, 203], [457, 203], [570, 203], [661, 186], [720, 190]];
   const t = progress * (pts.length - 1), i = Math.min(pts.length - 2, Math.floor(t)), f = t - i;
   particle.setAttribute('cx', (pts[i][0] + (pts[i + 1][0] - pts[i][0]) * f).toFixed(1));
@@ -284,16 +250,10 @@ function updateDogma(art, progress) {
   art.querySelectorAll('.lw-aa').forEach((el, idx) => el.setAttribute('opacity', progress > 0.55 + idx * 0.12 ? '1' : '0.15'));
 }
 function updatePunnett(art, progress) {
-  const cells = [...art.querySelectorAll('.lw-punnett-cell')];
-  if (!cells.length) return;
+  const cells = [...art.querySelectorAll('.lw-punnett-cell')]; if (!cells.length) return;
   const step = Math.min(cells.length - 1, Math.floor(progress * cells.length));
-  cells.forEach((cell, i) => {
-    cell.setAttribute('opacity', i === step ? '1' : '0.35');
-    cell.setAttribute('stroke-width', i === step ? '4' : '2');
-  });
-  art.querySelectorAll('.lw-gamete').forEach((g, i) => {
-    g.setAttribute('opacity', (0.4 + 0.6 * Math.abs(Math.sin((progress + i * 0.25) * Math.PI * 2))).toFixed(2));
-  });
+  cells.forEach((cell, i) => { cell.setAttribute('opacity', i === step ? '1' : '0.35'); cell.setAttribute('stroke-width', i === step ? '4' : '2'); });
+  art.querySelectorAll('.lw-gamete').forEach((g, i) => g.setAttribute('opacity', (0.4 + 0.6 * Math.abs(Math.sin((progress + i * 0.25) * Math.PI * 2))).toFixed(2)));
 }
 function updateCrossover(art, progress) {
   const t = 0.5 - 0.5 * Math.cos(progress * Math.PI * 2);
@@ -306,16 +266,37 @@ function updateCrossover(art, progress) {
 }
 function updateSeqEdit(art, progress) {
   const cursor = art.querySelector('.lw-seq-cursor');
-  if (cursor) {
-    cursor.setAttribute('transform', `translate(${(100 + progress * 200).toFixed(1)} 0)`);
-    cursor.setAttribute('opacity', progress < 0.95 ? '1' : '0.3');
-  }
-  const target = art.querySelector('.lw-edit-target');
-  if (target) target.setAttribute('opacity', (0.5 + 0.5 * Math.abs(Math.sin(progress * Math.PI * 4))).toFixed(2));
+  if (cursor) { cursor.setAttribute('transform', `translate(${(100 + progress * 200).toFixed(1)} 0)`); cursor.setAttribute('opacity', progress < 0.95 ? '1' : '0.3'); }
+  art.querySelector('.lw-edit-target')?.setAttribute('opacity', (0.5 + 0.5 * Math.abs(Math.sin(progress * Math.PI * 4))).toFixed(2));
   const before = art.querySelector('.lw-edit-before'), after = art.querySelector('.lw-edit-after');
-  if (before && after) {
-    const done = progress > 0.6;
-    before.setAttribute('opacity', done ? '0.25' : '1');
-    after.setAttribute('opacity', done ? '1' : '0.2');
-  }
+  if (before && after) { const done = progress > 0.6; before.setAttribute('opacity', done ? '0.25' : '1'); after.setAttribute('opacity', done ? '1' : '0.2'); }
+}
+function updateSteps(art, progress) {
+  const steps = [...art.querySelectorAll('.lw-step')]; if (!steps.length) return;
+  const active = Math.min(steps.length - 1, Math.floor(progress * steps.length));
+  steps.forEach((el, i) => {
+    el.setAttribute('opacity', i === active ? '1' : i < active ? '0.65' : '0.28');
+    if (el.getAttribute('stroke')) el.setAttribute('stroke-width', i === active ? '3.5' : '2');
+  });
+}
+function updateGrowRings(art, progress) {
+  art.querySelectorAll('.lw-grow-ring').forEach((ring, i) => {
+    const t = (progress + i * 0.22) % 1;
+    ring.style.transformOrigin = 'center'; ring.style.transformBox = 'fill-box';
+    ring.style.transform = `scale(${(0.25 + t * 1.1).toFixed(3)})`;
+    ring.style.opacity = Math.max(0.08, 0.85 - t * 0.75).toFixed(3);
+  });
+}
+function updateBars(art, progress) {
+  art.querySelectorAll('.lw-bar').forEach((bar, i) => {
+    const fund = progress * Math.PI * 2;
+    const amp = 0.35 + 0.65 * Math.abs(Math.sin(fund * (i + 1)));
+    const h = Number(bar.dataset.h || bar.getAttribute('height') || 40);
+    if (bar.dataset.h == null) bar.dataset.h = String(h);
+    const baseY = Number(bar.dataset.y || bar.getAttribute('y') || 0);
+    if (bar.dataset.y == null) bar.dataset.y = String(baseY);
+    const nh = Math.max(6, h * amp);
+    bar.setAttribute('height', nh.toFixed(1));
+    bar.setAttribute('y', (baseY + h - nh).toFixed(1));
+  });
 }
