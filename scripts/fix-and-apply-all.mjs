@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/** Restore broken course files, then apply all motion diagram patches. */
+/** Restore broken files, polish views, apply all motion diagram patches. */
 import { writeFile, readFile, access } from 'node:fs/promises';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -7,7 +7,7 @@ import { spawn } from 'node:child_process';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const GOOD = {
-  'plate-tectonics.json': '6e190d334a1c91e3e03e26659c0745feac0f9998',
+  'plate-tectonics.json': 'c6620a6700e7ba02f244367bebea9254b96814e9',
 };
 
 async function run(script) {
@@ -32,6 +32,8 @@ for (const [file, sha] of Object.entries(GOOD)) {
   }
 }
 
+await run('patch-views-caption.mjs');
+
 const scripts = [
   'patch-static-a.mjs',
   'patch-static-sound-prob.mjs',
@@ -42,9 +44,7 @@ const scripts = [
   'patch-motion-ap-chemistry-foundations.mjs',
   'patch-motion-electrical-wiring-fundamentals.mjs',
   'patch-motion-sound-and-music.mjs',
-  'patch-motion-hs-genetics.mjs',
-  'patch-motion-hs-simple-machines.mjs',
 ];
 
 for (const s of scripts) await run(s);
-console.log('All remaining section animations applied.');
+console.log('Caption polish + motion patches applied. See ACCEPTANCE.md');
