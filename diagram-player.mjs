@@ -108,28 +108,44 @@ export function wireDiagrams(root) {
 }
 
 // Four-panel stroke comparison: piston, rod and crank pin stay connected.
-// Each panel covers a half crank turn; the full engine cycle takes two turns.
+// Each panel covers a half crank turn; constant angular speed keeps the mechanism honest.
 function updateEngine(art, progress) {
   art.querySelectorAll('.lw-engine-piston').forEach((piston, i) => {
     const x = Number(piston.getAttribute('x')) + 42;
     const cy = 288, radius = 14, rodLength = 74;
+    // Panels 0,2 start at TDC-side phase; 1,3 opposite — one shared progress drives all four.
     const angle = (i % 2 ? 1 : 0) * Math.PI + progress * Math.PI;
-    const pinX = x + radius * Math.sin(angle), pinY = cy - radius * Math.cos(angle);
-    const pistonY = pinY - Math.sqrt(rodLength ** 2 - (pinX - x) ** 2);
-    piston.setAttribute('y', String(pistonY - 18));
-    art.querySelectorAll('.lw-engine-gas')[i]?.setAttribute('height', String(pistonY - 18 - 163));
+    const pinX = x + radius * Math.sin(angle);
+    const pinY = cy - radius * Math.cos(angle);
+    const dx = pinX - x;
+    const under = rodLength ** 2 - dx * dx;
+    // Guard against float error pushing the pin past rod reach.
+    const pistonY = pinY - Math.sqrt(Math.max(0, under));
+    const top = pistonY - 18;
+    piston.setAttribute('y', top.toFixed(1));
+    // Gas column tracks the chamber above the piston crown.
+    const gas = art.querySelectorAll('.lw-engine-gas')[i];
+    if (gas) {
+      const h = Math.max(2, top - 163);
+      gas.setAttribute('height', h.toFixed(1));
+      // Power stroke (panel 2) reads hotter when the chamber is expanding.
+      if (i === 2) gas.setAttribute('opacity', String(0.55 + 0.45 * Math.max(0, Math.sin(angle))));
+      else gas.setAttribute('opacity', '1');
+    }
     const rod = art.querySelector(`.lw-engine-rod-${i}`);
-    rod?.setAttribute('d', `M${x} ${pistonY} L${pinX} ${pinY}`);
+    rod?.setAttribute('d', `M${x.toFixed(1)} ${pistonY.toFixed(1)} L${pinX.toFixed(1)} ${pinY.toFixed(1)}`);
     const crank = art.querySelector(`.lw-engine-crank-${i}`);
-    crank?.setAttribute('d', `M${x} ${cy} L${pinX} ${pinY}`);
+    crank?.setAttribute('d', `M${x} ${cy} L${pinX.toFixed(1)} ${pinY.toFixed(1)}`);
   });
 }
 
-// Lever animation: pivot at (510, 235), effort arm = 366, load arm = 122 (3:1 ratio).
+// Lever animation: pivot at (510, 235), effort arm = 366, load arm = 122 (exact 3:1).
+// Larger rock angle makes the distance trade easier to see while scrubbing.
 function updateLever(art, progress) {
   const bar = art.querySelector('.lw-lever-bar');
   if (!bar) return;
-  const angle = Math.sin(progress * Math.PI * 2) * 0.12;
+  // One full rock cycle over the demonstration; amplitude kept readable but not extreme.
+  const angle = Math.sin(progress * Math.PI * 2) * 0.16;
   const pivotX = 510, pivotY = 235;
   const effortX = pivotX - 366 * Math.cos(angle);
   const effortY = pivotY - 366 * Math.sin(angle);
@@ -144,16 +160,27 @@ function updateLever(art, progress) {
   if (loadGroup) loadGroup.setAttribute('transform', `translate(0, ${(loadY - 235).toFixed(1)})`);
 }
 
-// Pulley animation: movable pulley moves up/down, showing 2:1 rope pull ratio.
+// Pulley animation: movable pulley rises; pull end travels 2× (ideal 2:1).
+// Wheel rotation and a continuous rope path keep the mechanism readable while scrubbing.
 function updatePulley(art, progress) {
   const pulleyWheel = art.querySelector('.lw-pulley-wheel');
   if (!pulleyWheel) return;
-  const lift = (1 - Math.cos(progress * Math.PI * 2)) / 2 * 45;
+  // Smooth up-down: one lift cycle over the demonstration.
+  const lift = (1 - Math.cos(progress * Math.PI * 2)) / 2 * 48;
   const py = 234 - lift;
   pulleyWheel.setAttribute('cy', py.toFixed(1));
+  // Roll the sheave as the rope runs (visual cue only).
+  const spin = progress * 360 * 2;
+  pulleyWheel.style.transformOrigin = 'center';
+  pulleyWheel.style.transformBox = 'fill-box';
+  pulleyWheel.style.transform = `rotate(${spin.toFixed(1)}deg)`;
 
   const rope = art.querySelector('.lw-pulley-rope');
-  if (rope) rope.setAttribute('d', `M540 122 V${py.toFixed(1)} A34 34 0 0 0 608 ${py.toFixed(1)} V${(132 - lift * 2).toFixed(1)}`);
+  if (rope) {
+    // Fixed attachment at top, down to sheave, around the arc, up to the free end.
+    const freeY = (132 - lift * 2).toFixed(1);
+    rope.setAttribute('d', `M540 122 V${py.toFixed(1)} A34 34 0 0 0 608 ${py.toFixed(1)} V${freeY}`);
+  }
 
   const load = art.querySelector('.lw-pulley-load');
   if (load) load.setAttribute('transform', `translate(0, ${(-lift).toFixed(1)})`);
