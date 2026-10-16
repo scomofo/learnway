@@ -30,6 +30,9 @@ export function wireDiagrams(root) {
       updateEnzymes(art, p);
       updateOrbit(art, p);
       updateSound(art, p);
+      updateString(art, p);
+      updateGears(art, p);
+      updateFall(art, p);
       if (range) range.value = String(Math.round(p * 100));
       figure.dataset.progress = String(Math.round(p * 100));
     };
@@ -269,4 +272,66 @@ function updateSound(art, progress) {
     // Kill any residual CSS translate so only the JS displacement remains.
     g.style.transform = 'none';
   });
+}
+
+// Standing-wave string modes: nodes stay fixed; antinodes oscillate with amplitude.
+// Authored paths: n=1 is a single quadratic; n=2 is a double-hump path.
+function updateString(art, progress) {
+  const strings = art.querySelectorAll('.lw-string');
+  if (!strings.length) return;
+  // Amplitude envelope: one full oscillation over the demonstration.
+  const amp = Math.sin(progress * Math.PI * 2) * 42;
+
+  strings.forEach(g => {
+    const path = g.querySelector('path');
+    if (!path) return;
+    if (g.dataset.eqD == null) g.dataset.eqD = path.getAttribute('d') || '';
+    const d = g.dataset.eqD;
+    g.style.transform = 'none';
+
+    // n = 1: M123 161 Q404 109 685 161  → control y moves with amp
+    if (g.classList.contains('lw-string-1')) {
+      const yMid = 161 - amp;
+      path.setAttribute('d', `M123 161 Q404 ${yMid.toFixed(1)} 685 161`);
+      return;
+    }
+    // n = 2: M123 257 Q263 207 404 257 Q544 307 685 257
+    // Left antinode goes up when right goes down (opposite phase).
+    if (g.classList.contains('lw-string-2')) {
+      const yL = 257 - amp;
+      const yR = 257 + amp;
+      path.setAttribute('d', `M123 257 Q263 ${yL.toFixed(1)} 404 257 Q544 ${yR.toFixed(1)} 685 257`);
+      return;
+    }
+    // Fallback: restore original path
+    path.setAttribute('d', d);
+  });
+}
+
+// Gears and wheel/axle: drive rotation from the shared clock so scrubbing shows ratios.
+// .lw-rotate turns one full revolution over the demo; .lw-rotate-reverse-slow turns half
+// (and opposite) so a 2:1 gear pair stays meshed while the learner inspects.
+function updateGears(art, progress) {
+  art.querySelectorAll('.lw-rotate').forEach(el => {
+    const deg = progress * 360;
+    el.style.transformOrigin = 'center';
+    el.style.transformBox = 'fill-box';
+    el.style.transform = `rotate(${deg.toFixed(2)}deg)`;
+  });
+  art.querySelectorAll('.lw-rotate-reverse-slow').forEach(el => {
+    const deg = -progress * 180; // half speed, opposite direction → 2:1 mesh
+    el.style.transformOrigin = 'center';
+    el.style.transformBox = 'fill-box';
+    el.style.transform = `rotate(${deg.toFixed(2)}deg)`;
+  });
+}
+
+// Falling rain droplets under a cloud: drop, then loop.
+function updateFall(art, progress) {
+  const group = art.querySelector('.lw-fall');
+  if (!group) return;
+  // Drop 50 px over the cycle, ease in a little.
+  const t = progress % 1;
+  const dy = t * t * 50;
+  group.style.transform = `translateY(${dy.toFixed(1)}px)`;
 }
