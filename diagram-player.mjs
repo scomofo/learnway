@@ -36,6 +36,9 @@ export function wireDiagrams(root) {
       updateWaveRings(art, p);
       updateCone(art, p);
       updateFlow(art, p);
+      updateRamp(art, p);
+      updateWedge(art, p);
+      updateScrew(art, p);
       const pct = Math.round(p * 100);
       if (range) range.value = String(pct);
       figure.dataset.progress = String(pct);
@@ -79,25 +82,14 @@ export function wireDiagrams(root) {
     figure.tabIndex = figure.tabIndex >= 0 ? figure.tabIndex : 0;
     figure.addEventListener('keydown', (e) => {
       if (e.target !== figure && e.target !== play && e.target !== range && !figure.contains(e.target)) return;
-      if (e.code === 'Space' || e.key === ' ') {
-        e.preventDefault();
-        togglePlay();
-      } else if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
-        e.preventDefault();
-        running = false;
-        const step = e.key === 'ArrowRight' ? 0.05 : -0.05;
-        time = Math.max(0, Math.min(DURATION, time + step * DURATION));
+      if (e.code === 'Space' || e.key === ' ') { e.preventDefault(); togglePlay(); }
+      else if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+        e.preventDefault(); running = false;
+        time = Math.max(0, Math.min(DURATION, time + (e.key === 'ArrowRight' ? 0.05 : -0.05) * DURATION));
         paint(); announce(); schedule();
-      } else if (e.key === 'Home') {
-        e.preventDefault();
-        running = false; time = 0; paint(); announce(); schedule();
-      } else if (e.key === 'End') {
-        e.preventDefault();
-        running = false; time = DURATION; paint(); announce(); schedule();
-      } else if (e.key === 'Escape' && dialog) {
-        e.preventDefault();
-        dialog.close();
-      }
+      } else if (e.key === 'Home') { e.preventDefault(); running = false; time = 0; paint(); announce(); schedule(); }
+      else if (e.key === 'End') { e.preventDefault(); running = false; time = DURATION; paint(); announce(); schedule(); }
+      else if (e.key === 'Escape' && dialog) { e.preventDefault(); dialog.close(); }
     });
     const observer = new IntersectionObserver(entries => {
       visible = entries[0].isIntersecting && entries[0].intersectionRatio >= .15;
@@ -161,10 +153,8 @@ function updateEngine(art, progress) {
       if (i === 2) gas.setAttribute('opacity', String(0.55 + 0.45 * Math.max(0, Math.sin(angle))));
       else gas.setAttribute('opacity', '1');
     }
-    const rod = art.querySelector(`.lw-engine-rod-${i}`);
-    rod?.setAttribute('d', `M${x.toFixed(1)} ${pistonY.toFixed(1)} L${pinX.toFixed(1)} ${pinY.toFixed(1)}`);
-    const crank = art.querySelector(`.lw-engine-crank-${i}`);
-    crank?.setAttribute('d', `M${x} ${cy} L${pinX.toFixed(1)} ${pinY.toFixed(1)}`);
+    art.querySelector(`.lw-engine-rod-${i}`)?.setAttribute('d', `M${x.toFixed(1)} ${pistonY.toFixed(1)} L${pinX.toFixed(1)} ${pinY.toFixed(1)}`);
+    art.querySelector(`.lw-engine-crank-${i}`)?.setAttribute('d', `M${x} ${cy} L${pinX.toFixed(1)} ${pinY.toFixed(1)}`);
   });
 }
 
@@ -178,10 +168,8 @@ function updateLever(art, progress) {
   const loadX = pivotX + 122 * Math.cos(angle);
   const loadY = pivotY + 122 * Math.sin(angle);
   bar.setAttribute('d', `M${effortX.toFixed(1)} ${effortY.toFixed(1)} L${loadX.toFixed(1)} ${loadY.toFixed(1)}`);
-  const effortGroup = art.querySelector('.lw-lever-effort');
-  if (effortGroup) effortGroup.setAttribute('transform', `translate(0, ${(effortY - 225).toFixed(1)})`);
-  const loadGroup = art.querySelector('.lw-lever-load');
-  if (loadGroup) loadGroup.setAttribute('transform', `translate(0, ${(loadY - 235).toFixed(1)})`);
+  art.querySelector('.lw-lever-effort')?.setAttribute('transform', `translate(0, ${(effortY - 225).toFixed(1)})`);
+  art.querySelector('.lw-lever-load')?.setAttribute('transform', `translate(0, ${(loadY - 235).toFixed(1)})`);
 }
 
 function updatePulley(art, progress) {
@@ -190,19 +178,16 @@ function updatePulley(art, progress) {
   const lift = (1 - Math.cos(progress * Math.PI * 2)) / 2 * 48;
   const py = 234 - lift;
   pulleyWheel.setAttribute('cy', py.toFixed(1));
-  const spin = progress * 360 * 2;
   pulleyWheel.style.transformOrigin = 'center';
   pulleyWheel.style.transformBox = 'fill-box';
-  pulleyWheel.style.transform = `rotate(${spin.toFixed(1)}deg)`;
+  pulleyWheel.style.transform = `rotate(${(progress * 720).toFixed(1)}deg)`;
   const rope = art.querySelector('.lw-pulley-rope');
   if (rope) {
     const freeY = (132 - lift * 2).toFixed(1);
     rope.setAttribute('d', `M540 122 V${py.toFixed(1)} A34 34 0 0 0 608 ${py.toFixed(1)} V${freeY}`);
   }
-  const load = art.querySelector('.lw-pulley-load');
-  if (load) load.setAttribute('transform', `translate(0, ${(-lift).toFixed(1)})`);
-  const pull = art.querySelector('.lw-pulley-pull');
-  if (pull) pull.setAttribute('transform', `translate(0, ${(-lift * 2).toFixed(1)})`);
+  art.querySelector('.lw-pulley-load')?.setAttribute('transform', `translate(0, ${(-lift).toFixed(1)})`);
+  art.querySelector('.lw-pulley-pull')?.setAttribute('transform', `translate(0, ${(-lift * 2).toFixed(1)})`);
 }
 
 function updateEquilibrium(art, progress) {
@@ -210,16 +195,9 @@ function updateEquilibrium(art, progress) {
   const rev = art.querySelector('.lw-eq-dot-rev');
   if (!fwd && !rev) return;
   const cycle = (progress * 2) % 1;
-  const edge = Math.min(cycle, 1 - cycle);
-  const opacity = Math.max(0.25, Math.min(1, edge * 8));
-  if (fwd) {
-    fwd.setAttribute('cx', (290 + cycle * 220).toFixed(1));
-    fwd.setAttribute('opacity', opacity.toFixed(2));
-  }
-  if (rev) {
-    rev.setAttribute('cx', (510 - cycle * 220).toFixed(1));
-    rev.setAttribute('opacity', opacity.toFixed(2));
-  }
+  const opacity = Math.max(0.25, Math.min(1, Math.min(cycle, 1 - cycle) * 8));
+  if (fwd) { fwd.setAttribute('cx', (290 + cycle * 220).toFixed(1)); fwd.setAttribute('opacity', opacity.toFixed(2)); }
+  if (rev) { rev.setAttribute('cx', (510 - cycle * 220).toFixed(1)); rev.setAttribute('opacity', opacity.toFixed(2)); }
 }
 
 function bezier(t, p0, p1, p2, p3) {
@@ -230,10 +208,8 @@ function bezier(t, p0, p1, p2, p3) {
 function updateEnzymes(art, progress) {
   const place = (el, x0, x1, x2, x3, y0, y1, y2, y3) => {
     if (!el) return;
-    const x = bezier(progress, x0, x1, x2, x3);
-    const y = bezier(progress, y0, y1, y2, y3);
-    el.setAttribute('cx', x.toFixed(1));
-    el.setAttribute('cy', y.toFixed(1));
+    el.setAttribute('cx', bezier(progress, x0, x1, x2, x3).toFixed(1));
+    el.setAttribute('cy', bezier(progress, y0, y1, y2, y3).toFixed(1));
     const peak = 1 - Math.abs(progress - 0.45) / 0.45;
     el.setAttribute('r', (5 + 2.5 * Math.max(0, peak)).toFixed(2));
   };
@@ -246,13 +222,9 @@ function updateOrbit(art, progress) {
   if (!group) return;
   const cx = 275, cy = 205, r = 118;
   const angle = -Math.PI / 2 + progress * Math.PI * 2;
-  const sx = cx + r * Math.cos(angle);
-  const sy = cy + r * Math.sin(angle);
-  const sat = group.querySelector('circle');
-  if (sat) {
-    sat.setAttribute('cx', sx.toFixed(1));
-    sat.setAttribute('cy', sy.toFixed(1));
-  }
+  const sx = cx + r * Math.cos(angle), sy = cy + r * Math.sin(angle);
+  group.querySelector('circle')?.setAttribute('cx', sx.toFixed(1));
+  group.querySelector('circle')?.setAttribute('cy', sy.toFixed(1));
   const tx = -Math.sin(angle), ty = Math.cos(angle), velLen = 58;
   const vx1 = sx + tx * 12, vy1 = sy + ty * 12, vx2 = sx + tx * velLen, vy2 = sy + ty * velLen;
   const gx1 = sx - Math.cos(angle) * 14, gy1 = sy - Math.sin(angle) * 14;
@@ -261,24 +233,20 @@ function updateOrbit(art, progress) {
   if (paths[0]) paths[0].setAttribute('d', `M${vx1.toFixed(1)} ${vy1.toFixed(1)} L${vx2.toFixed(1)} ${vy2.toFixed(1)}`);
   if (paths[1]) {
     const a = Math.atan2(vy2 - vy1, vx2 - vx1);
-    const size = 9;
-    const p = ang => `${(vx2 - size * Math.cos(ang)).toFixed(1)} ${(vy2 - size * Math.sin(ang)).toFixed(1)}`;
+    const p = ang => `${(vx2 - 9 * Math.cos(ang)).toFixed(1)} ${(vy2 - 9 * Math.sin(ang)).toFixed(1)}`;
     paths[1].setAttribute('d', `M${p(a - 0.48)} L${vx2.toFixed(1)} ${vy2.toFixed(1)} L${p(a + 0.48)}`);
   }
   if (paths[2]) paths[2].setAttribute('d', `M${gx1.toFixed(1)} ${gy1.toFixed(1)} L${gx2.toFixed(1)} ${gy2.toFixed(1)}`);
   if (paths[3]) {
     const a = Math.atan2(gy2 - gy1, gx2 - gx1);
-    const size = 9;
-    const p = ang => `${(gx2 - size * Math.cos(ang)).toFixed(1)} ${(gy2 - size * Math.sin(ang)).toFixed(1)}`;
+    const p = ang => `${(gx2 - 9 * Math.cos(ang)).toFixed(1)} ${(gy2 - 9 * Math.sin(ang)).toFixed(1)}`;
     paths[3].setAttribute('d', `M${p(a - 0.48)} L${gx2.toFixed(1)} ${gy2.toFixed(1)} L${p(a + 0.48)}`);
   }
   group.style.transform = 'none';
 }
 
 function updateSound(art, progress) {
-  const particles = art.querySelectorAll('.lw-air');
-  if (!particles.length) return;
-  particles.forEach((g) => {
+  art.querySelectorAll('.lw-air').forEach((g) => {
     const circle = g.querySelector('circle');
     if (!circle) return;
     if (g.dataset.eqX == null) {
@@ -287,8 +255,7 @@ function updateSound(art, progress) {
     }
     const eqX = Number(g.dataset.eqX), eqY = Number(g.dataset.eqY);
     const phase = (eqX - 170) / 175 * Math.PI * 2 + progress * Math.PI * 2;
-    const dx = Math.sin(phase) * 13;
-    circle.setAttribute('cx', (eqX + dx).toFixed(1));
+    circle.setAttribute('cx', (eqX + Math.sin(phase) * 13).toFixed(1));
     circle.setAttribute('cy', eqY.toFixed(1));
     if (circle.getAttribute('fill') === '#ffd479' || circle.getAttribute('stroke') === '#ffd479') {
       circle.setAttribute('r', (4 + 1.2 * Math.abs(Math.sin(phase))).toFixed(2));
@@ -298,35 +265,25 @@ function updateSound(art, progress) {
 }
 
 function updateString(art, progress) {
-  const strings = art.querySelectorAll('.lw-string');
-  if (!strings.length) return;
   const amp = Math.sin(progress * Math.PI * 2) * 42;
-  strings.forEach(g => {
+  art.querySelectorAll('.lw-string').forEach(g => {
     const path = g.querySelector('path');
     if (!path) return;
     if (g.dataset.eqD == null) g.dataset.eqD = path.getAttribute('d') || '';
     g.style.transform = 'none';
-    if (g.classList.contains('lw-string-1')) {
-      path.setAttribute('d', `M123 161 Q404 ${(161 - amp).toFixed(1)} 685 161`);
-      return;
-    }
-    if (g.classList.contains('lw-string-2')) {
-      path.setAttribute('d', `M123 257 Q263 ${(257 - amp).toFixed(1)} 404 257 Q544 ${(257 + amp).toFixed(1)} 685 257`);
-      return;
-    }
-    path.setAttribute('d', g.dataset.eqD);
+    if (g.classList.contains('lw-string-1')) path.setAttribute('d', `M123 161 Q404 ${(161 - amp).toFixed(1)} 685 161`);
+    else if (g.classList.contains('lw-string-2')) path.setAttribute('d', `M123 257 Q263 ${(257 - amp).toFixed(1)} 404 257 Q544 ${(257 + amp).toFixed(1)} 685 257`);
+    else path.setAttribute('d', g.dataset.eqD);
   });
 }
 
 function updateGears(art, progress) {
   art.querySelectorAll('.lw-rotate').forEach(el => {
-    el.style.transformOrigin = 'center';
-    el.style.transformBox = 'fill-box';
+    el.style.transformOrigin = 'center'; el.style.transformBox = 'fill-box';
     el.style.transform = `rotate(${(progress * 360).toFixed(2)}deg)`;
   });
   art.querySelectorAll('.lw-rotate-reverse-slow').forEach(el => {
-    el.style.transformOrigin = 'center';
-    el.style.transformBox = 'fill-box';
+    el.style.transformOrigin = 'center'; el.style.transformBox = 'fill-box';
     el.style.transform = `rotate(${(-progress * 180).toFixed(2)}deg)`;
   });
 }
@@ -340,9 +297,8 @@ function updateFall(art, progress) {
 
 function updateWaveRings(art, progress) {
   const paintRing = (ring, speed, late) => {
-    let t = (progress * speed + (late ? 0.5 : 0)) % 1;
-    ring.style.transformOrigin = 'center';
-    ring.style.transformBox = 'fill-box';
+    const t = (progress * speed + (late ? 0.5 : 0)) % 1;
+    ring.style.transformOrigin = 'center'; ring.style.transformBox = 'fill-box';
     ring.style.transform = `scale(${(0.2 + t * 1.15).toFixed(3)})`;
     ring.style.opacity = Math.max(0.06, 0.9 - t * 0.85).toFixed(3);
   };
@@ -356,13 +312,11 @@ function updateWaveRings(art, progress) {
 
 function updateCone(art, progress) {
   art.querySelectorAll('.lw-cone').forEach(el => {
-    el.style.transformOrigin = 'left center';
-    el.style.transformBox = 'fill-box';
+    el.style.transformOrigin = 'left center'; el.style.transformBox = 'fill-box';
     el.style.transform = `scaleX(${(0.88 + 0.12 * Math.sin(progress * Math.PI * 4)).toFixed(3)})`;
   });
   art.querySelectorAll('.lw-exhaust').forEach(el => {
-    el.style.transformOrigin = 'right center';
-    el.style.transformBox = 'fill-box';
+    el.style.transformOrigin = 'right center'; el.style.transformBox = 'fill-box';
     el.style.transform = `scaleX(${(0.75 + 0.25 * Math.sin(progress * Math.PI * 6)).toFixed(3)})`;
   });
 }
@@ -372,4 +326,36 @@ function updateFlow(art, progress) {
     el.style.strokeDasharray = '8 12';
     el.style.strokeDashoffset = (-progress * 20).toFixed(2);
   });
+}
+
+function updateRamp(art, progress) {
+  const t = 0.5 - 0.5 * Math.cos(progress * Math.PI * 2);
+  const place = (sel, x0, y0, x1, y1) => {
+    const el = art.querySelector(sel);
+    if (!el) return;
+    el.setAttribute('transform', `translate(${(x0 + (x1 - x0) * t).toFixed(1)} ${(y0 + (y1 - y0) * t).toFixed(1)})`);
+  };
+  place('.lw-ramp-block-steep', 70, 250, 250, 145);
+  place('.lw-ramp-block-gentle', 400, 265, 680, 145);
+  art.querySelector('.lw-ramp-force-steep')?.setAttribute('opacity', (0.45 + 0.55 * t).toFixed(2));
+  art.querySelector('.lw-ramp-force-gentle')?.setAttribute('opacity', (0.45 + 0.55 * t).toFixed(2));
+}
+
+function updateWedge(art, progress) {
+  const t = 0.5 - 0.5 * Math.cos(progress * Math.PI * 2);
+  art.querySelector('.lw-wedge')?.setAttribute('transform', `translate(0 ${(t * 36).toFixed(1)})`);
+  art.querySelector('.lw-wedge-left')?.setAttribute('transform', `translate(${(-t * 28).toFixed(1)} 0)`);
+  art.querySelector('.lw-wedge-right')?.setAttribute('transform', `translate(${(t * 28).toFixed(1)} 0)`);
+  art.querySelectorAll('.lw-wedge-force').forEach(el => el.setAttribute('opacity', (0.3 + 0.7 * t).toFixed(2)));
+}
+
+function updateScrew(art, progress) {
+  const body = art.querySelector('.lw-screw-body');
+  if (!body) return;
+  const deg = progress * 360;
+  const dy = (progress % 1) * 22;
+  body.style.transformOrigin = '300px 200px';
+  body.style.transformBox = 'view-box';
+  body.style.transform = `translate(0 ${dy.toFixed(1)}px) rotate(${deg.toFixed(1)}deg)`;
+  art.querySelector('.lw-screw-pitch')?.setAttribute('opacity', (0.4 + 0.6 * Math.abs(Math.sin(progress * Math.PI))).toFixed(2));
 }
