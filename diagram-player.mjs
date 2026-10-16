@@ -33,6 +33,9 @@ export function wireDiagrams(root) {
       updateString(art, p);
       updateGears(art, p);
       updateFall(art, p);
+      updateWaveRings(art, p);
+      updateCone(art, p);
+      updateFlow(art, p);
       if (range) range.value = String(Math.round(p * 100));
       figure.dataset.progress = String(Math.round(p * 100));
     };
@@ -334,4 +337,50 @@ function updateFall(art, progress) {
   const t = progress % 1;
   const dy = t * t * 50;
   group.style.transform = `translateY(${dy.toFixed(1)}px)`;
+}
+
+// Seismic wave rings: expand and fade outward from the focus.
+// .lw-wave-ring-late is half a cycle behind so two rings are always visible.
+function updateWaveRings(art, progress) {
+  const rings = art.querySelectorAll('.lw-wave-ring, .lw-wave-ring-late');
+  if (!rings.length) return;
+  rings.forEach(ring => {
+    const late = ring.classList.contains('lw-wave-ring-late');
+    // Map progress into 0→1, with late offset by half a cycle.
+    let t = (progress + (late ? 0.5 : 0)) % 1;
+    const scale = 0.25 + t * 1.0; // 0.25 → 1.25
+    const opacity = Math.max(0.08, 0.85 - t * 0.75);
+    ring.style.transformOrigin = 'center';
+    ring.style.transformBox = 'fill-box';
+    ring.style.transform = `scale(${scale.toFixed(3)})`;
+    ring.style.opacity = opacity.toFixed(3);
+  });
+}
+
+// Speaker cone and rocket exhaust: pulse with the demonstration clock.
+function updateCone(art, progress) {
+  // Cone: gentle horizontal squash (sound source oscillating).
+  art.querySelectorAll('.lw-cone').forEach(el => {
+    const scaleX = 0.88 + 0.12 * Math.sin(progress * Math.PI * 4);
+    el.style.transformOrigin = 'left center';
+    el.style.transformBox = 'fill-box';
+    el.style.transform = `scaleX(${scaleX.toFixed(3)})`;
+  });
+  // Exhaust plume: same idea, origin on the nozzle side (right).
+  art.querySelectorAll('.lw-exhaust').forEach(el => {
+    const scaleX = 0.75 + 0.25 * Math.sin(progress * Math.PI * 6);
+    el.style.transformOrigin = 'right center';
+    el.style.transformBox = 'fill-box';
+    el.style.transform = `scaleX(${scaleX.toFixed(3)})`;
+  });
+}
+
+// Flow arrows: drive stroke-dashoffset so scrubbing shows direction of flow.
+function updateFlow(art, progress) {
+  art.querySelectorAll('.lw-flow').forEach(el => {
+    // dash pattern is 8 12 (period 20); move one full pattern per cycle.
+    const offset = -progress * 20;
+    el.style.strokeDasharray = '8 12';
+    el.style.strokeDashoffset = offset.toFixed(2);
+  });
 }
