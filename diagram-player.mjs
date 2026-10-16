@@ -94,6 +94,9 @@ export function wireDiagrams(root) {
       } else if (e.key === 'End') {
         e.preventDefault();
         running = false; time = DURATION; paint(); announce(); schedule();
+      } else if (e.key === 'Escape' && dialog) {
+        e.preventDefault();
+        dialog.close();
       }
     });
     const observer = new IntersectionObserver(entries => {
@@ -232,8 +235,7 @@ function updateEnzymes(art, progress) {
     el.setAttribute('cx', x.toFixed(1));
     el.setAttribute('cy', y.toFixed(1));
     const peak = 1 - Math.abs(progress - 0.45) / 0.45;
-    const r = 5 + 2.5 * Math.max(0, peak);
-    el.setAttribute('r', r.toFixed(2));
+    el.setAttribute('r', (5 + 2.5 * Math.max(0, peak)).toFixed(2));
   };
   place(art.querySelector('.lw-enzyme-particle-cat'), 100, 225, 500, 725, 260, 185, 285, 285);
   place(art.querySelector('.lw-enzyme-particle-uncat'), 100, 205, 505, 725, 260, 92, 285, 285);
@@ -251,9 +253,7 @@ function updateOrbit(art, progress) {
     sat.setAttribute('cx', sx.toFixed(1));
     sat.setAttribute('cy', sy.toFixed(1));
   }
-  const tx = -Math.sin(angle);
-  const ty = Math.cos(angle);
-  const velLen = 58;
+  const tx = -Math.sin(angle), ty = Math.cos(angle), velLen = 58;
   const vx1 = sx + tx * 12, vy1 = sy + ty * 12, vx2 = sx + tx * velLen, vy2 = sy + ty * velLen;
   const gx1 = sx - Math.cos(angle) * 14, gy1 = sy - Math.sin(angle) * 14;
   const gx2 = sx - Math.cos(angle) * 50, gy2 = sy - Math.sin(angle) * 50;
@@ -285,11 +285,9 @@ function updateSound(art, progress) {
       g.dataset.eqX = circle.getAttribute('cx') || '0';
       g.dataset.eqY = circle.getAttribute('cy') || '0';
     }
-    const eqX = Number(g.dataset.eqX);
-    const eqY = Number(g.dataset.eqY);
+    const eqX = Number(g.dataset.eqX), eqY = Number(g.dataset.eqY);
     const phase = (eqX - 170) / 175 * Math.PI * 2 + progress * Math.PI * 2;
-    const amp = 13;
-    const dx = Math.sin(phase) * amp;
+    const dx = Math.sin(phase) * 13;
     circle.setAttribute('cx', (eqX + dx).toFixed(1));
     circle.setAttribute('cy', eqY.toFixed(1));
     if (circle.getAttribute('fill') === '#ffd479' || circle.getAttribute('stroke') === '#ffd479') {
@@ -307,7 +305,6 @@ function updateString(art, progress) {
     const path = g.querySelector('path');
     if (!path) return;
     if (g.dataset.eqD == null) g.dataset.eqD = path.getAttribute('d') || '';
-    const d = g.dataset.eqD;
     g.style.transform = 'none';
     if (g.classList.contains('lw-string-1')) {
       path.setAttribute('d', `M123 161 Q404 ${(161 - amp).toFixed(1)} 685 161`);
@@ -317,7 +314,7 @@ function updateString(art, progress) {
       path.setAttribute('d', `M123 257 Q263 ${(257 - amp).toFixed(1)} 404 257 Q544 ${(257 + amp).toFixed(1)} 685 257`);
       return;
     }
-    path.setAttribute('d', d);
+    path.setAttribute('d', g.dataset.eqD);
   });
 }
 
@@ -344,12 +341,10 @@ function updateFall(art, progress) {
 function updateWaveRings(art, progress) {
   const paintRing = (ring, speed, late) => {
     let t = (progress * speed + (late ? 0.5 : 0)) % 1;
-    const scale = 0.2 + t * 1.15;
-    const opacity = Math.max(0.06, 0.9 - t * 0.85);
     ring.style.transformOrigin = 'center';
     ring.style.transformBox = 'fill-box';
-    ring.style.transform = `scale(${scale.toFixed(3)})`;
-    ring.style.opacity = opacity.toFixed(3);
+    ring.style.transform = `scale(${(0.2 + t * 1.15).toFixed(3)})`;
+    ring.style.opacity = Math.max(0.06, 0.9 - t * 0.85).toFixed(3);
   };
   art.querySelectorAll('.lw-wave-p').forEach(r => paintRing(r, 1.7, false));
   art.querySelectorAll('.lw-wave-p-late').forEach(r => paintRing(r, 1.7, true));
