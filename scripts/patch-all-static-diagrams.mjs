@@ -1,8 +1,5 @@
 #!/usr/bin/env node
-/**
- * Apply motion diagrams to every course that still has static figures.
- * Prefer the split patches; fall back to specialized genetics/machine scripts.
- */
+/** Apply motion diagrams across courses that still had static figures. */
 import { spawn } from 'node:child_process';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -19,16 +16,12 @@ async function run(script) {
   });
 }
 
-try {
-  await access(join(dir, 'pb0.b64'));
-  await run('assemble-patch-b.mjs');
-} catch { /* no chunks */ }
+const scripts = [
+  'patch-static-a.mjs',              // bio, chem, electrical, GPS
+  'patch-static-sound-prob.mjs',     // timbre + probability
+  'patch-genetics-diagrams.mjs',     // genetics
+  'patch-machine-diagrams.mjs',      // inclined / wedge / screw
+];
 
-await run('patch-static-a.mjs');
-await run('patch-static-b.mjs');
-try { await access(join(dir, 'patch-static-b.mjs')); }
-catch {
-  await run('patch-genetics-diagrams.mjs');
-  await run('patch-machine-diagrams.mjs');
-}
+for (const s of scripts) await run(s);
 console.log('All available static-diagram patches applied.');
