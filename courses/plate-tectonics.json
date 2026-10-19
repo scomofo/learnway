@@ -3,54 +3,50 @@
     "title": "Plate Tectonics: A Moving Planet",
     "topic": "Plate Tectonics",
     "level": "beginner",
-    "estimatedMinutes": 20,
-    "tags": [
-      "earth",
-      "geology",
-      "waves"
-    ],
-    "createdAt": "2026-10-08T20:06:50.000Z",
     "interests": "",
     "depth": "quick",
-    "model": "Learnway authored starter"
+    "model": "Learnway authored starter",
+    "createdAt": "2026-10-08T00:00:07.000Z",
+    "version": 1
   },
   "plan": {
     "title": "Plate Tectonics: A Moving Planet",
-    "hook": "The ground under every city is a raft in slow motion. The rafts are thicker than the crust alone, they grind along three kinds of edges, and the friction on those edges is why earthquakes arrive as sudden releases of centuries of patience.",
+    "hook": "Connect slow plate motion to new crust, mountain building and sudden earthquakes.",
     "objectives": [
-      "State what a lithospheric plate includes and what the plates move over",
-      "Classify a boundary as divergent, convergent, or transform from the relative motion of its plates",
-      "Explain how stress builds and releases in an earthquake, and why P waves outrun S waves"
+      "Describe what a tectonic plate contains.",
+      "Compare three boundary motions.",
+      "Distinguish earthquake magnitude, intensity and prediction."
     ],
     "prerequisites": [
-      "None — starts from everyday experience"
+      "Basic Earth layers",
+      "Distance and time units"
     ],
     "sections": [
       {
         "id": "plates",
         "heading": "The moving pieces include more than crust",
         "points": [
-          "Lithospheric plates include crust and the rigid uppermost mantle",
-          "The moving unit is therefore thicker than the crust alone",
-          "Plates move slowly over the deeper mantle"
+          "A plate includes crust and rigid uppermost mantle and may carry both ocean and continent.",
+          "Small annual movements accumulate into large displacement over millions of years.",
+          "Lithospheric plates move, and the underlying mantle is mostly solid but slowly deformable. Plate outlines do not simply follow continents."
         ]
       },
       {
         "id": "boundaries",
         "heading": "Pull apart, push together, slide past",
         "points": [
-          "Divergent boundaries pull apart; convergent boundaries push together; transform boundaries slide past",
-          "The boundary type is about the direction of relative motion",
-          "Boundary type is not judged by how dramatic the landscape looks"
+          "Plates can separate to form crust or converge through subduction or collision.",
+          "Sideways relative motion can generate earthquakes without forming a volcanic arc.",
+          "No. A transform fault can accumulate stress and generate earthquakes without a volcanic arc."
         ]
       },
       {
         "id": "earthquakes",
         "heading": "Slow loading can release suddenly",
         "points": [
-          "Stress builds along faults until rock slips, releasing the loading suddenly",
-          "P waves are compressional and travel faster; S waves are shear and slower",
-          "From the focus, the P front stays ahead of the S front"
+          "Locked faults can store strain before sudden slip releases seismic energy.",
+          "Source size differs from the local shaking effects experienced at different sites.",
+          "Ground conditions and wave paths change shaking, while buildings differ in vulnerability. Equal distance does not guarantee equal effects."
         ]
       }
     ]
@@ -60,59 +56,47 @@
       {
         "id": "plates",
         "heading": "The moving pieces include more than crust",
-        "body": "Lithospheric plates include crust and the rigid uppermost mantle. They move slowly over the deeper mantle.",
-        "visual": "Plates are rigid pieces of lithosphere that ride over the deeper mantle. Highlight each plate to see that the moving unit is thicker than the crust alone.",
-        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Plates move over the mantle\"><title>Plates move over the mantle</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Plates move over the mantle</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><rect x=\"60\" y=\"220\" width=\"680\" height=\"100\" rx=\"8\" fill=\"#172331\" stroke=\"#344253\"/><text x=\"400\" y=\"280\" fill=\"#9aa6b8\" font-size=\"16\" text-anchor=\"middle\">Mantle</text><g class=\"lw-step\"><rect x=\"80\" y=\"140\" width=\"160\" height=\"80\" rx=\"6\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"160\" y=\"185\" fill=\"#7cc7ff\" font-size=\"16\" text-anchor=\"middle\">Plate A</text></g><g class=\"lw-step\"><rect x=\"280\" y=\"130\" width=\"180\" height=\"90\" rx=\"6\" fill=\"#172331\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><text x=\"370\" y=\"180\" fill=\"#7ee2a8\" font-size=\"16\" text-anchor=\"middle\">Plate B</text></g><g class=\"lw-step\"><rect x=\"500\" y=\"145\" width=\"200\" height=\"75\" rx=\"6\" fill=\"#172331\" stroke=\"#ffd479\" stroke-width=\"2\"/><text x=\"600\" y=\"188\" fill=\"#ffd479\" font-size=\"16\" text-anchor=\"middle\">Plate C</text></g><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Lithosphere = crust + uppermost mantle</text></svg>",
+        "body": "A tectonic plate is a piece of lithosphere: crust plus rigid uppermost mantle. It can carry oceanic crust, continental crust, or both. A coastline is therefore not necessarily a plate boundary.\n\nBelow the lithosphere, hotter mantle material can deform and flow over long timescales while remaining mostly solid. Plates do not float on a global ocean of liquid magma. Timescale matters: a material can respond rigidly to a quick disturbance yet deform under sustained stress.\n\nPlate motion reflects gravity and internal heat, including effects associated with sinking dense slabs, elevated ocean ridges and mantle flow. One cartoon conveyor belt cannot describe every detail.\n\nAt a hypothetical steady 3 cm/year, movement over 10 million years is 30 million centimetres, or 300 km. Small annual motion becomes enormous geological displacement. The constant rate and direction are simplifying assumptions, not a claim about every plate through time.",
+        "visual": "The rigid lithosphere contains crust and the uppermost mantle. It moves over hotter mantle rock that deforms slowly while remaining mostly solid. Plate speed is slow on a human timescale, but substantial over millions of years.",
         "questions": [
           {
-            "q": "What exactly is a plate made of?",
-            "hint": "It is more than the crust — what rides along with it?",
-            "answer": "A lithospheric plate includes the crust and the rigid uppermost mantle. The moving pieces are thicker than the crust alone, and they move slowly over the deeper mantle."
-          },
-          {
-            "q": "What do plates move over?",
-            "hint": "Name the layer beneath the lithosphere as the section describes it.",
-            "answer": "The deeper mantle. Plates are rigid pieces of lithosphere that ride over it."
+            "q": "Why is “continents floating on liquid magma” misleading?",
+            "hint": "Correct both the moving object and the material below it.",
+            "answer": "Lithospheric plates move, and the underlying mantle is mostly solid but slowly deformable. Plate outlines do not simply follow continents."
           }
-        ]
+        ],
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"A plate is more than its crust\"><title>A plate is more than its crust</title><desc>The rigid lithosphere contains crust and the uppermost mantle. It moves over hotter mantle rock that deforms slowly while remaining mostly solid. Plate speed is slow on a human timescale, but substantial over millions of years.</desc><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\" text-anchor=\"start\">A plate is more than its crust</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><rect x=\"45\" y=\"101\" width=\"710\" height=\"43\" rx=\"1\" fill=\"#334a4f\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><rect x=\"45\" y=\"144\" width=\"710\" height=\"81\" rx=\"1\" fill=\"#253347\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><rect x=\"45\" y=\"225\" width=\"710\" height=\"104\" rx=\"1\" fill=\"#393044\" stroke=\"#b39dff\" stroke-width=\"2\"/><text x=\"65\" y=\"129\" fill=\"#7ee2a8\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Crust</text><text x=\"65\" y=\"190\" fill=\"#7cc7ff\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Rigid uppermost mantle</text><text x=\"65\" y=\"280\" fill=\"#b39dff\" font-size=\"20\" font-family=\"sans-serif\" text-anchor=\"start\">Hot, slowly deforming solid mantle</text><path d=\"M715 105 H741 V218 H715\" fill=\"none\" stroke=\"#ffd479\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><text x=\"380\" y=\"168\" fill=\"#ffd479\" font-size=\"21\" font-family=\"sans-serif\" text-anchor=\"start\">← Lithosphere →</text><path d=\"M478 91 L632 91\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M623.1 95.6 L632 91 L623.1 86.4\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><text x=\"504\" y=\"75\" fill=\"#9aa6b8\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Plate motion</text><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Layer model • lithosphere over asthenosphere • not a liquid ocean of magma</text></svg>",
+        "diagramTitle": "A plate is more than its crust"
       },
       {
         "id": "boundaries",
         "heading": "Pull apart, push together, slide past",
-        "body": "Divergent boundaries pull apart, convergent boundaries push together, transform boundaries slide past.",
-        "visual": "Three relative motions: plates separate, collide, or slide past. The boundary type is about direction of motion, not how dramatic the landscape looks.",
-        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Three boundary types\"><title>Three boundary types</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Pull apart · push together · slide past</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><g class=\"lw-step\"><text x=\"140\" y=\"160\" fill=\"#7cc7ff\" font-size=\"18\" text-anchor=\"middle\">Divergent</text><path d=\"M80 220 L120 220\" stroke=\"#7cc7ff\" stroke-width=\"3\" fill=\"none\" class=\"lw-flow\"/><path d=\"M160 220 L200 220\" stroke=\"#7cc7ff\" stroke-width=\"3\" fill=\"none\" class=\"lw-flow\"/></g><g class=\"lw-step\"><text x=\"400\" y=\"160\" fill=\"#7ee2a8\" font-size=\"18\" text-anchor=\"middle\">Convergent</text><path d=\"M340 220 L380 220\" stroke=\"#7ee2a8\" stroke-width=\"3\" fill=\"none\"/><path d=\"M420 220 L460 220\" stroke=\"#7ee2a8\" stroke-width=\"3\" fill=\"none\"/></g><g class=\"lw-step\"><text x=\"640\" y=\"160\" fill=\"#ffd479\" font-size=\"18\" text-anchor=\"middle\">Transform</text><path d=\"M580 200 L700 200\" stroke=\"#ffd479\" stroke-width=\"3\" fill=\"none\"/></g><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Boundary type sets the relative motion</text></svg>",
+        "body": "At a divergent boundary, plates move apart. At mid-ocean ridges, rising mantle can partially melt as pressure decreases, and magma cools to create new oceanic crust. The gap does not expose Earth's core.\n\nAt a convergent boundary, plates approach. Dense oceanic lithosphere can descend at a subduction zone. Water released from the descending slab helps promote melting in the overlying mantle, feeding many volcanic arcs. Continental collision instead can produce extensive shortening and crustal thickening that build mountain ranges.\n\nAt a transform boundary, motion is mainly sideways. This idealised boundary motion does not systematically create or destroy crust, but faults can produce powerful earthquakes. A lack of volcanoes does not establish safety.\n\nReal boundary zones can be broad and complicated. Earthquake depths, volcanic patterns, topography and measured surface motion provide complementary evidence; a single landscape photograph rarely establishes the entire mechanism.",
+        "visual": "Divergent plates move apart, transform plates slide past one another, and convergent plates move together. This convergent example shows one plate descending beneath another; other collisions can build mountain belts.",
         "questions": [
           {
-            "q": "Name the three boundary types and the motion at each.",
-            "hint": "The heading lists them as three everyday verbs.",
-            "answer": "Divergent boundaries pull apart, convergent boundaries push together, and transform boundaries slide past one another."
-          },
-          {
-            "q": "A boundary has modest scenery but plates sliding sideways. What type is it?",
-            "hint": "Classify by motion, not by landscape.",
-            "answer": "A transform boundary. The boundary type is about the direction of relative motion, not how dramatic the landscape looks."
+            "q": "Does the absence of a volcanic chain prove a plate boundary is inactive?",
+            "hint": "Consider transform motion.",
+            "answer": "No. A transform fault can accumulate stress and generate earthquakes without a volcanic arc."
           }
-        ]
+        ],
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Three boundaries, three relative motions\"><title>Three boundaries, three relative motions</title><desc>Divergent plates move apart, transform plates slide past one another, and convergent plates move together. This convergent example shows one plate descending beneath another; other collisions can build mountain belts.</desc><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\" text-anchor=\"start\">Three boundaries, three relative motions</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><rect x=\"28\" y=\"78\" width=\"232\" height=\"251\" rx=\"12\" fill=\"#172331\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"46\" y=\"107\" fill=\"#7ee2a8\" font-size=\"18\" font-family=\"sans-serif\" text-anchor=\"start\">Divergent</text><path d=\"M48 245 H127 L144 218 L161 245 H241\" fill=\"none\" stroke=\"#7ee2a8\" stroke-width=\"5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M128 161 L63 161\" fill=\"none\" stroke=\"#7ee2a8\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lw-flow\"/><path d=\"M71.9 156.4 L63 161 L71.9 165.6\" fill=\"none\" stroke=\"#7ee2a8\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M163 161 L228 161\" fill=\"none\" stroke=\"#7ee2a8\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lw-flow\"/><path d=\"M219.1 165.6 L228 161 L219.1 156.4\" fill=\"none\" stroke=\"#7ee2a8\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M144 299 L144 244\" fill=\"none\" stroke=\"#ffd479\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M148.6 252.9 L144 244 L139.4 252.9\" fill=\"none\" stroke=\"#ffd479\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><text x=\"143\" y=\"321\" fill=\"#9aa6b8\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"middle\">New crust at a ridge</text><rect x=\"284\" y=\"78\" width=\"232\" height=\"251\" rx=\"12\" fill=\"#172331\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"302\" y=\"107\" fill=\"#7cc7ff\" font-size=\"18\" font-family=\"sans-serif\" text-anchor=\"start\">Transform</text><path d=\"M399 141 L399 287\" fill=\"none\" stroke=\"#9aa6b8\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M367 273 L367 158\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lw-flow\"/><path d=\"M371.6 166.9 L367 158 L362.4 166.9\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M430 158 L430 273\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lw-flow\"/><path d=\"M425.4 264.1 L430 273 L434.6 264.1\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><text x=\"400\" y=\"321\" fill=\"#9aa6b8\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"middle\">Shear along the boundary</text><rect x=\"540\" y=\"78\" width=\"232\" height=\"251\" rx=\"12\" fill=\"#172331\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"558\" y=\"107\" fill=\"#b39dff\" font-size=\"18\" font-family=\"sans-serif\" text-anchor=\"start\">Convergent</text><path d=\"M559 233 H640 L738 300 M663 218 H749\" fill=\"none\" stroke=\"#b39dff\" stroke-width=\"5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M567 162 L629 162\" fill=\"none\" stroke=\"#b39dff\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lw-flow\"/><path d=\"M620.1 166.6 L629 162 L620.1 157.4\" fill=\"none\" stroke=\"#b39dff\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M744 162 L681 162\" fill=\"none\" stroke=\"#b39dff\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lw-flow\"/><path d=\"M689.9 157.4 L681 162 L689.9 166.6\" fill=\"none\" stroke=\"#b39dff\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><text x=\"656\" y=\"321\" fill=\"#9aa6b8\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"middle\">Subduction example</text><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Relative plate motion • convergent boundaries have several forms</text></svg>",
+        "diagramTitle": "Three boundaries, three relative motions"
       },
       {
         "id": "earthquakes",
         "heading": "Slow loading can release suddenly",
-        "body": "Stress builds along faults until rock slips. P waves travel faster than S waves from the focus.",
-        "visual": "From the focus, compressional P waves expand faster than shear S waves. Scrub the motion: the cyan P front stays ahead of the purple S front — that lag is the teaching point.",
-        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"P waves outrun S waves\"><title>P waves outrun S waves</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">P waves outrun S waves</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><circle cx=\"400\" cy=\"210\" r=\"8\" fill=\"#ffd479\"/><text x=\"400\" y=\"195\" fill=\"#ffd479\" font-size=\"14\" text-anchor=\"middle\">Focus</text><circle class=\"lw-wave-p\" cx=\"400\" cy=\"210\" r=\"40\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"3\"/><circle class=\"lw-wave-p-late\" cx=\"400\" cy=\"210\" r=\"40\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"2\" opacity=\"0.5\"/><circle class=\"lw-wave-s\" cx=\"400\" cy=\"210\" r=\"40\" fill=\"none\" stroke=\"#b39dff\" stroke-width=\"3\"/><circle class=\"lw-wave-s-late\" cx=\"400\" cy=\"210\" r=\"40\" fill=\"none\" stroke=\"#b39dff\" stroke-width=\"2\" opacity=\"0.5\"/><text x=\"120\" y=\"100\" fill=\"#7cc7ff\" font-size=\"18\">P — faster, compressional</text><text x=\"120\" y=\"130\" fill=\"#b39dff\" font-size=\"18\">S — slower, shear</text><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Scrub to compare wavefront speeds</text></svg>",
+        "body": "Friction can lock a fault while nearby rock slowly deforms under tectonic stress. When part of the fault slips, stored elastic energy is released as seismic waves. Long loading followed by abrupt slip explains how slow plate motion can produce sudden shaking.\n\nThe focus, or hypocentre, is where rupture starts underground. The epicentre is the surface point directly above it. Rupture can spread across a large fault area, so the earthquake is not confined to one mathematical point.\n\nMagnitude describes the earthquake's source size. Intensity describes shaking effects at a particular location. One earthquake can produce different intensities because distance, depth and ground conditions differ; building vulnerability also affects damage.\n\nScientists estimate hazards and probabilities, but cannot reliably predict the exact time, location and magnitude of a future earthquake. Preparedness remains useful despite that limit. A quiet period is neither proof of safety nor an exact countdown to a large event.",
+        "visual": "A locked fault can accumulate elastic strain as plates continue moving. Sudden slip releases some of that stored energy as seismic waves. The rings show the idea of outward propagation, not a prediction of rupture timing.",
         "questions": [
           {
-            "q": "Why does an earthquake release energy suddenly rather than gradually?",
-            "hint": "The heading pairs slow loading with sudden release — what gives way?",
-            "answer": "Stress builds along a fault while the rock holds; when the rock slips, the accumulated loading releases at once. Slow loading, sudden release."
-          },
-          {
-            "q": "Which seismic wave arrives first from the focus, and why?",
-            "hint": "Compare the two wave types the section names.",
-            "answer": "The P wave. P waves are compressional and travel faster than the shear S waves, so the P front stays ahead of the S front."
+            "q": "Why can one earthquake cause different damage at two nearby places?",
+            "hint": "Separate source size, local shaking and building vulnerability.",
+            "answer": "Ground conditions and wave paths change shaking, while buildings differ in vulnerability. Equal distance does not guarantee equal effects."
           }
-        ]
+        ],
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Stored strain becomes seismic waves\"><title>Stored strain becomes seismic waves</title><desc>A locked fault can accumulate elastic strain as plates continue moving. Sudden slip releases some of that stored energy as seismic waves. The rings show the idea of outward propagation, not a prediction of rupture timing.</desc><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\" text-anchor=\"start\">Stored strain becomes seismic waves</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M57 153 L322 153 L349 198 L378 152 L739 152 V312 H57 Z\" fill=\"#172331\" stroke=\"#344253\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M349 198 L404 312\" fill=\"none\" stroke=\"#ff9d9d\" stroke-width=\"5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M275 254 L331 230\" fill=\"none\" stroke=\"#ffd479\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M324.7 237.7 L331 230 L321.0 229.2\" fill=\"none\" stroke=\"#ffd479\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M451 205 L409 232\" fill=\"none\" stroke=\"#ffd479\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M414.0 223.3 L409 232 L419.0 231.1\" fill=\"none\" stroke=\"#ffd479\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle cx=\"376\" cy=\"251\" r=\"7\" fill=\"#ff9d9d\" stroke=\"#ff9d9d\" stroke-width=\"2\"/><circle cx=\"376\" cy=\"251\" r=\"43\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"2\" class=\"lw-wave-ring\"/><circle cx=\"376\" cy=\"251\" r=\"75\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"2\" class=\"lw-wave-ring-late\"/><text x=\"91\" y=\"113\" fill=\"#ffd479\" font-size=\"20\" font-family=\"sans-serif\" text-anchor=\"start\">Stress accumulates</text><text x=\"497\" y=\"112\" fill=\"#ff9d9d\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Sudden slip releases energy</text><text x=\"500\" y=\"245\" fill=\"#ff9d9d\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">Focus: rupture starts here</text><text x=\"91\" y=\"289\" fill=\"#7cc7ff\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">Seismic waves spread outward</text><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Illustrative cross-section • strain, rupture and wave propagation</text></svg>",
+        "diagramTitle": "Stored strain becomes seismic waves"
       }
     ]
   },
@@ -122,26 +106,26 @@
         "id": "plates",
         "questions": [
           {
-            "q": "A lithospheric plate consists of…",
+            "q": "What does a lithospheric plate contain?",
             "choices": [
-              "Crust only",
-              "Crust plus the rigid uppermost mantle",
-              "The whole mantle plus crust",
-              "Mantle only, sliding under a fixed crust"
+              "Crust plus rigid uppermost mantle",
+              "Only dry land",
+              "Only liquid mantle",
+              "Only the ocean"
             ],
-            "answer": 1,
-            "explain": "The plates include crust and the rigid uppermost mantle — the moving unit is thicker than the crust alone — and they move slowly over the deeper mantle."
+            "answer": 0,
+            "explain": "The lithosphere includes crust and uppermost rigid mantle; a plate can contain continental and oceanic regions."
           },
           {
-            "q": "Plates move…",
+            "q": "At a steady 3 cm/year, how far does a plate move in 10 million years?",
             "choices": [
-              "Quickly, at speeds you could watch",
-              "Only during earthquakes",
-              "Slowly, over the deeper mantle",
-              "Only where oceans cover them"
+              "3 km",
+              "30 km",
+              "3,000 km",
+              "300 km"
             ],
-            "answer": 2,
-            "explain": "The section describes rigid lithospheric plates moving slowly over the deeper mantle; earthquakes are releases along their boundaries, not the moments when motion happens."
+            "answer": 3,
+            "explain": "The product is 30,000,000 cm. Dividing by 100,000 cm/km gives 300 km."
           }
         ]
       },
@@ -149,26 +133,26 @@
         "id": "boundaries",
         "questions": [
           {
-            "q": "Two plates are pulling apart at their shared edge. The boundary is…",
+            "q": "What defines a transform boundary?",
             "choices": [
-              "Convergent",
-              "Transform",
-              "Divergent",
-              "A fault with no classification"
-            ],
-            "answer": 2,
-            "explain": "Divergent boundaries pull apart. Convergent boundaries push together, and transform boundaries slide past."
-          },
-          {
-            "q": "The right way to classify a boundary is by…",
-            "choices": [
-              "How mountainous the landscape is",
-              "The direction of the plates' relative motion",
-              "How many earthquakes it produces",
-              "Whether it lies under an ocean"
+              "Direct separation",
+              "Mainly sideways relative motion",
+              "A continent evaporating",
+              "Every plate melting completely"
             ],
             "answer": 1,
-            "explain": "The visual states it: the boundary type is about direction of motion, not how dramatic the landscape looks."
+            "explain": "Transform boundaries accommodate mainly lateral motion. Earthquakes can occur without ridge-like crust production."
+          },
+          {
+            "q": "Which process forms new oceanic crust?",
+            "choices": [
+              "A river depositing beach sand",
+              "Every mountain-building process",
+              "Magma cooling near a spreading mid-ocean ridge",
+              "Any coastline shifting"
+            ],
+            "answer": 2,
+            "explain": "Partial melting beneath ridges supplies magma that can cool into new oceanic crust. Sediment deposition is different."
           }
         ]
       },
@@ -176,26 +160,26 @@
         "id": "earthquakes",
         "questions": [
           {
-            "q": "At a fault, an earthquake happens when…",
+            "q": "What is the epicentre?",
             "choices": [
-              "Stress builds until the rock slips and releases it",
-              "The plates stop moving for good",
-              "P waves overtake S waves",
-              "The mantle pushes the plates apart"
+              "Every point of a fault",
+              "The deepest mantle point",
+              "A mandatory volcano location",
+              "The surface point directly above the rupture’s start"
             ],
-            "answer": 0,
-            "explain": "Stress builds along faults until rock slips; the slow loading is released suddenly. The waves are the consequence that radiates from the focus, not the cause."
+            "answer": 3,
+            "explain": "The underground starting location is the focus. The epicentre lies above it at the surface."
           },
           {
-            "q": "From the focus, the P front stays ahead of the S front because…",
+            "q": "Which statement best reflects earthquake forecasting limits?",
             "choices": [
-              "P waves start earlier at the focus",
-              "P waves are compressional and travel faster than the shear S waves",
-              "S waves slow down in the mantle",
-              "P waves take a shorter path"
+              "Hazard probabilities are useful, but exact future time, place and magnitude cannot be reliably predicted",
+              "Every fault repeats on an exact calendar",
+              "A quiet month guarantees a safe year",
+              "Intensity is identical everywhere"
             ],
-            "answer": 1,
-            "explain": "Both wave types leave the focus together; the compressional P waves simply travel faster than the shear S waves, so the cyan P front stays ahead."
+            "answer": 0,
+            "explain": "Useful hazard estimates do not require precise event prediction. Fault behaviour and local shaking remain variable."
           }
         ]
       }
@@ -205,37 +189,36 @@
     "sections": [
       {
         "id": "plates",
-        "title": "More than crust is moving",
+        "title": "The moving pieces include more than crust",
         "bullets": [
-          "A plate = crust + rigid uppermost mantle (the lithosphere).",
-          "The moving unit is thicker than the crust alone.",
-          "Plates move slowly over the deeper mantle."
+          "A plate includes crust and rigid uppermost mantle and may carry both ocean and continent.",
+          "Small annual movements accumulate into large displacement over millions of years.",
+          "Lithospheric plates move, and the underlying mantle is mostly solid but slowly deformable. Plate outlines do not simply follow continents."
         ],
-        "notes": "The word \"plate\" undersells the thickness. Each moving piece is a slab of lithosphere — crust welded to the rigid top of the mantle — rafting over the deeper mantle below.",
-        "visual": "Plates are rigid pieces of lithosphere that ride over the deeper mantle. Highlight each plate to see that the moving unit is thicker than the crust alone."
+        "notes": "A tectonic plate is a piece of lithosphere: crust plus rigid uppermost mantle. It can carry oceanic crust, continental crust, or both. A coastline is therefore not necessarily a plate boundary. Lithospheric plates move, and the underlying mantle is mostly solid but slowly deformable. Plate outlines do not simply follow continents.",
+        "visual": "The rigid lithosphere contains crust and the uppermost mantle. It moves over hotter mantle rock that deforms slowly while remaining mostly solid. Plate speed is slow on a human timescale, but substantial over millions of years."
       },
       {
         "id": "boundaries",
-        "title": "Three motions, three boundaries",
+        "title": "Pull apart, push together, slide past",
         "bullets": [
-          "Divergent: pull apart.",
-          "Convergent: push together.",
-          "Transform: slide past.",
-          "Classify by direction of motion, not by scenery."
+          "Plates can separate to form crust or converge through subduction or collision.",
+          "Sideways relative motion can generate earthquakes without forming a volcanic arc.",
+          "No. A transform fault can accumulate stress and generate earthquakes without a volcanic arc."
         ],
-        "notes": "Every boundary is one of three relative motions. Learn to read the arrows and the label follows — a quiet landscape can sit on any of the three.",
-        "visual": "Three relative motions: plates separate, collide, or slide past. The boundary type is about direction of motion, not how dramatic the landscape looks."
+        "notes": "At a divergent boundary, plates move apart. At mid-ocean ridges, rising mantle can partially melt as pressure decreases, and magma cools to create new oceanic crust. The gap does not expose Earth's core. No. A transform fault can accumulate stress and generate earthquakes without a volcanic arc.",
+        "visual": "Divergent plates move apart, transform plates slide past one another, and convergent plates move together. This convergent example shows one plate descending beneath another; other collisions can build mountain belts."
       },
       {
         "id": "earthquakes",
-        "title": "Slow loading, sudden release",
+        "title": "Slow loading can release suddenly",
         "bullets": [
-          "Stress builds along faults while rock holds.",
-          "When rock slips, the loading releases at once.",
-          "P waves (compressional, faster) outrun S waves (shear, slower)."
+          "Locked faults can store strain before sudden slip releases seismic energy.",
+          "Source size differs from the local shaking effects experienced at different sites.",
+          "Ground conditions and wave paths change shaking, while buildings differ in vulnerability. Equal distance does not guarantee equal effects."
         ],
-        "notes": "An earthquake is a slip, not an explosion: stress accumulates silently, then the fault lets go. The two wave types then race outward, and the faster compressional P wave always leads.",
-        "visual": "From the focus, compressional P waves expand faster than shear S waves. Scrub the motion: the cyan P front stays ahead of the purple S front — that lag is the teaching point."
+        "notes": "Friction can lock a fault while nearby rock slowly deforms under tectonic stress. When part of the fault slips, stored elastic energy is released as seismic waves. Long loading followed by abrupt slip explains how slow plate motion can produce sudden shaking. Ground conditions and wave paths change shaking, while buildings differ in vulnerability. Equal distance does not guarantee equal effects.",
+        "visual": "A locked fault can accumulate elastic strain as plates continue moving. Sudden slip releases some of that stored energy as seismic waves. The rings show the idea of outward propagation, not a prediction of rupture timing."
       }
     ]
   },
@@ -244,63 +227,71 @@
     "turns": [
       {
         "speaker": "teacher",
-        "line": "Quick test of the first idea: when we say a plate moves, what is the thing that is moving?"
-      },
-      {
-        "speaker": "student",
-        "line": "The crust of that region?"
+        "line": "Connect slow plate motion to new crust, mountain building and sudden earthquakes."
       },
       {
         "speaker": "teacher",
-        "line": "More than that. A lithospheric plate includes the crust and the rigid uppermost mantle — the moving unit is thicker than the crust alone. What does it move over?"
+        "line": "The moving pieces include more than crust. A plate includes crust and rigid uppermost mantle and may carry both ocean and continent. Small annual movements accumulate into large displacement over millions of years."
       },
       {
         "speaker": "student",
-        "line": "The deeper mantle, slowly."
+        "line": "Why is “continents floating on liquid magma” misleading?"
       },
       {
         "speaker": "teacher",
-        "line": "Good. Now boundaries. Three kinds — give me the motion at each."
+        "line": "Lithospheric plates move, and the underlying mantle is mostly solid but slowly deformable. Plate outlines do not simply follow continents."
       },
       {
         "speaker": "student",
-        "line": "Divergent pull apart, convergent push together, transform slide past."
+        "line": "What does a lithospheric plate contain?"
       },
       {
         "speaker": "teacher",
-        "line": "And if a boundary looks scenic and dramatic, does that tell you its type?"
+        "line": "Crust plus rigid uppermost mantle. The lithosphere includes crust and uppermost rigid mantle; a plate can contain continental and oceanic regions."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Pull apart, push together, slide past. Plates can separate to form crust or converge through subduction or collision. Sideways relative motion can generate earthquakes without forming a volcanic arc."
       },
       {
         "speaker": "student",
-        "line": "No — the visual warned about that. Type is about direction of motion, not how dramatic the landscape looks."
+        "line": "Does the absence of a volcanic chain prove a plate boundary is inactive?"
       },
       {
         "speaker": "teacher",
-        "line": "Exactly. Last part: a fault is quiet for two hundred years, then produces an earthquake in seconds. Where was the energy in the quiet years?"
+        "line": "No. A transform fault can accumulate stress and generate earthquakes without a volcanic arc."
       },
       {
         "speaker": "student",
-        "line": "Building as stress along the fault while the rock held — then the rock slipped and released it."
+        "line": "What defines a transform boundary?"
       },
       {
         "speaker": "teacher",
-        "line": "Slow loading, sudden release. The slip radiates waves: which arrives first at a distant station, P or S, and why?"
+        "line": "Mainly sideways relative motion. Transform boundaries accommodate mainly lateral motion. Earthquakes can occur without ridge-like crust production."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Slow loading can release suddenly. Locked faults can store strain before sudden slip releases seismic energy. Source size differs from the local shaking effects experienced at different sites."
       },
       {
         "speaker": "student",
-        "line": "P — it is compressional and travels faster than the shear S wave, so its front stays ahead."
+        "line": "Why can one earthquake cause different damage at two nearby places?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Ground conditions and wave paths change shaking, while buildings differ in vulnerability. Equal distance does not guarantee equal effects."
       },
       {
         "speaker": "student",
-        "line": "And both waves leave the focus at the same moment — the lag is purely the speed difference?"
+        "line": "What is the epicentre?"
       },
       {
         "speaker": "teacher",
-        "line": "Just so. Scrub the diagram's motion and the cyan P front stays ahead of the purple S front the whole way out; nothing but their speeds separates them."
+        "line": "The surface point directly above the rupture’s start. The underground starting location is the focus. The epicentre lies above it at the surface."
       },
       {
         "speaker": "teacher",
-        "line": "That is the whole course: thick plates, three motions, and one lag between two wavefronts that proves which is faster."
+        "line": "To review: Describe what a tectonic plate contains. Compare three boundary motions. Distinguish earthquake magnitude, intensity and prediction."
       }
     ],
     "nodes": [
@@ -308,45 +299,73 @@
         "id": "root",
         "parent": null,
         "label": "Plate Tectonics: A Moving Planet",
-        "note": "Rigid lithospheric plates move slowly over the deeper mantle, and their edges set the geology."
+        "note": "Connect slow plate motion to new crust, mountain building and sudden earthquakes."
       },
       {
         "id": "plates",
         "parent": "root",
-        "label": "Plates are lithosphere",
-        "note": "Crust plus rigid uppermost mantle — thicker than the crust alone."
+        "label": "The moving pieces include more than crust",
+        "note": "Lithospheric plates move, and the underlying mantle is mostly solid but slowly deformable. Plate outlines do not simply follow continents."
+      },
+      {
+        "id": "plates-concept-1",
+        "parent": "plates",
+        "label": "Lithosphere",
+        "note": "A plate includes crust and rigid uppermost mantle and may carry both ocean and continent."
+      },
+      {
+        "id": "plates-concept-2",
+        "parent": "plates",
+        "label": "Geological timescale",
+        "note": "Small annual movements accumulate into large displacement over millions of years."
       },
       {
         "id": "boundaries",
         "parent": "root",
-        "label": "Three boundary motions",
-        "note": "Pull apart, push together, slide past — classified by relative motion, not scenery."
+        "label": "Pull apart, push together, slide past",
+        "note": "No. A transform fault can accumulate stress and generate earthquakes without a volcanic arc."
       },
       {
-        "id": "boundaries-types",
+        "id": "boundaries-concept-1",
         "parent": "boundaries",
-        "label": "Divergent · convergent · transform",
-        "note": "Each name matches one direction of relative motion."
+        "label": "Divergence and convergence",
+        "note": "Plates can separate to form crust or converge through subduction or collision."
+      },
+      {
+        "id": "boundaries-concept-2",
+        "parent": "boundaries",
+        "label": "Transform boundary",
+        "note": "Sideways relative motion can generate earthquakes without forming a volcanic arc."
       },
       {
         "id": "earthquakes",
         "parent": "root",
-        "label": "Stress and slip",
-        "note": "Stress builds along faults until rock slips and releases it suddenly."
+        "label": "Slow loading can release suddenly",
+        "note": "Ground conditions and wave paths change shaking, while buildings differ in vulnerability. Equal distance does not guarantee equal effects."
       },
       {
-        "id": "earthquakes-waves",
+        "id": "earthquakes-concept-1",
         "parent": "earthquakes",
-        "label": "P outruns S",
-        "note": "Compressional P waves travel faster than shear S waves from the focus."
+        "label": "Elastic strain",
+        "note": "Locked faults can store strain before sudden slip releases seismic energy."
+      },
+      {
+        "id": "earthquakes-concept-2",
+        "parent": "earthquakes",
+        "label": "Magnitude and intensity",
+        "note": "Source size differs from the local shaking effects experienced at different sites."
       }
     ],
     "mnemonics": []
   },
   "sources": [
     {
-      "title": "NOAA Ocean Service — what is plate tectonics?",
-      "url": "https://oceanservice.noaa.gov/facts/tectonics.html"
+      "title": "USGS — This Dynamic Planet",
+      "url": "https://pubs.usgs.gov/imap/2800/"
+    },
+    {
+      "title": "USGS — What causes earthquakes?",
+      "url": "https://www.usgs.gov/faqs/what-earthquake-and-what-causes-them-happen"
     }
   ]
 }

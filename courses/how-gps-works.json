@@ -3,54 +3,50 @@
     "title": "How GPS Works: Time into Position",
     "topic": "How GPS Works",
     "level": "intermediate",
-    "estimatedMinutes": 20,
-    "tags": [
-      "gps",
-      "navigation",
-      "timing"
-    ],
-    "createdAt": "2026-10-08T20:06:50.000Z",
     "interests": "",
     "depth": "quick",
-    "model": "Learnway authored starter"
+    "model": "Learnway authored starter",
+    "createdAt": "2026-10-08T00:00:05.000Z",
+    "version": 1
   },
   "plan": {
     "title": "How GPS Works: Time into Position",
-    "hook": "Your phone finds itself by listening for clocks. Each satellite announces when its signal left; the receiver turns that tiny travel time into a distance — and the arithmetic is so sensitive that a single microsecond of timing error becomes 300 metres of position error.",
+    "hook": "A GPS receiver solves a timing problem using moving reference points. See why four satellites matter and why extra decimal places do not guarantee accuracy.",
     "objectives": [
-      "Convert a signal travel time into a range estimate, and a timing error into the range error it causes",
-      "Explain why a receiver solves for four unknowns — three coordinates and its own clock offset — and needs at least four satellites",
-      "Distinguish accuracy from repeatability and judge a fix by geometry and error sources rather than displayed digits"
+      "Convert signal timing error to range error.",
+      "Identify the four unknowns in a basic position fix.",
+      "Separate accuracy, repeatability and display resolution."
     ],
     "prerequisites": [
-      "Comfort with distance = speed × time"
+      "Speed equals distance divided by time",
+      "Basic three-dimensional coordinates"
     ],
     "sections": [
       {
         "id": "timing",
         "heading": "Tiny time errors become large distances",
         "points": [
-          "Satellites broadcast their position information and signal transmission time",
-          "Comparing transmit and receive times gives an apparent travel time; multiplying by signal speed gives a range estimate",
-          "Signals travel at about 300 million metres per second, so one microsecond of timing error is roughly 300 metres of range error"
+          "Distance follows signal speed multiplied by elapsed time.",
+          "A measured apparent range includes timing and propagation errors.",
+          "About 300 m. Small timing errors become large range errors because radio signals travel so quickly."
         ]
       },
       {
         "id": "solution",
         "heading": "Three coordinates plus one clock",
         "points": [
-          "A real receiver must estimate its own clock offset as well as its location — four unknowns in total",
-          "The unknowns are three position coordinates plus one clock offset",
-          "At least four suitably placed satellites are normally required, each supplying a range sphere"
+          "A standard basic fix estimates three position coordinates and receiver-clock offset.",
+          "Reference-point arrangement affects how range errors become position errors.",
+          "The basic unconstrained solution estimates the receiver-clock offset alongside three coordinates, giving four unknown quantities."
         ]
       },
       {
         "id": "quality",
         "heading": "More digits do not guarantee a better fix",
         "points": [
-          "Accuracy is closeness to the true position; repeatability is how tightly repeated estimates cluster",
-          "Extra decimal places can simply decorate a noisy estimate",
-          "Geometry, signal quality, clock and atmosphere matter more than display resolution"
+          "A stable cluster of coordinates can still share a systematic position error.",
+          "Reflected signal paths can distort a range measurement without moving the receiver.",
+          "It changes display resolution. It does not by itself improve the physical measurement or absolute accuracy."
         ]
       }
     ]
@@ -60,59 +56,47 @@
       {
         "id": "timing",
         "heading": "Tiny time errors become large distances",
-        "body": "GPS satellites broadcast information that lets a receiver estimate satellite position and signal transmission time. Comparing transmit and receive times gives apparent travel time. Multiplying by signal speed turns that interval into a range estimate.\n\nRadio signals travel at about 300 million metres per second. One microsecond therefore corresponds to roughly 300 metres.",
+        "body": "GPS satellites broadcast information that lets a receiver estimate satellite position and signal transmission time. Comparing transmit and receive times gives apparent travel time. Multiplying by signal speed turns that interval into a range estimate.\n\nRadio signals travel at about 300 million metres per second in vacuum. One microsecond—one millionth of a second—therefore corresponds to roughly 300 metres. Even 10 nanoseconds corresponds to about 3 metres. Timing precision is central to the measurement, not a finishing touch added after locating the receiver.\n\nThe initial measurement is a pseudorange because it includes errors such as receiver-clock offset and atmospheric delays. The receiver listens to one-way satellite broadcasts; it does not have to transmit a ranging request back to each satellite. A phone may also use network assistance, which is a separate part of its positioning system.",
         "visual": "A satellite transmits its send time. The receiver compares send and receive times, then multiplies the signal’s travel time by the speed of light. A one-microsecond timing error corresponds to about 300 metres of range error.",
-        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"A time measurement becomes a range\"><title>A time measurement becomes a range</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">A time measurement becomes a range</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><path d=\"M178 152 L609 267\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"3\" class=\"lw-flow\"/><text x=\"365\" y=\"182\" fill=\"#7cc7ff\" font-size=\"19\" text-anchor=\"middle\">Signal travels at c</text><text x=\"365\" y=\"323\" fill=\"#e8ecf1\" font-size=\"24\" text-anchor=\"middle\">range ≈ c × travel time</text><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">1 μs × c ≈ 300 m</text></svg>",
         "questions": [
           {
-            "q": "How does a receiver turn a radio signal into a distance?",
-            "hint": "Two times are compared, and their difference is scaled by something.",
-            "answer": "It compares the signal's transmit time with its receive time to get an apparent travel time, then multiplies by the signal speed. That product is the range estimate."
-          },
-          {
-            "q": "Why does a one-microsecond clock error matter so much?",
-            "hint": "Multiply one microsecond by the speed the signal travels.",
-            "answer": "Radio signals travel at about 300 million metres per second, so one microsecond corresponds to roughly 300 metres of range. Tiny time errors become large distances."
+            "q": "Approximately how much range error corresponds to a 1 microsecond timing error?",
+            "hint": "Multiply 300 million m/s by one millionth of a second.",
+            "answer": "About 300 m. Small timing errors become large range errors because radio signals travel so quickly."
           }
-        ]
+        ],
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"A time measurement becomes a range\"><title>A time measurement becomes a range</title><desc>A satellite transmits its send time. The receiver compares send and receive times, then multiplies the signal’s travel time by the speed of light. A one-microsecond timing error corresponds to about 300 metres of range error.</desc><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\" text-anchor=\"start\">A time measurement becomes a range</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><rect x=\"118\" y=\"121\" width=\"24\" height=\"24\" rx=\"3\" fill=\"#172331\" stroke=\"#ffd479\" stroke-width=\"2\"/><rect x=\"87\" y=\"124\" width=\"27\" height=\"18\" rx=\"2\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><rect x=\"146\" y=\"124\" width=\"27\" height=\"18\" rx=\"2\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><path d=\"M82 302 Q365 190 660 302\" fill=\"none\" stroke=\"#7ee2a8\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><rect x=\"621\" y=\"267\" width=\"31\" height=\"29\" rx=\"4\" fill=\"#172331\" stroke=\"#ffd479\" stroke-width=\"2\"/><path d=\"M178 152 L609 267\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lw-flow\"/><path d=\"M599.2 269.2 L609 267 L601.6 260.3\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><text x=\"85\" y=\"89\" fill=\"#ffd479\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Send time</text><text x=\"565\" y=\"246\" fill=\"#ffd479\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Receive time</text><text x=\"365\" y=\"182\" fill=\"#7cc7ff\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"middle\">Signal travels at c</text><text x=\"365\" y=\"323\" fill=\"#e8ecf1\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"middle\">range ≈ c × travel time</text><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Timing example • 1 μs × 299,792,458 m/s ≈ 300 m</text></svg>",
+        "diagramTitle": "A time measurement becomes a range"
       },
       {
         "id": "solution",
         "heading": "Three coordinates plus one clock",
-        "body": "Real receivers must estimate their own clock offset as well as location, so the standard unconstrained three-dimensional problem has four unknowns: three position coordinates and one clock offset. At least four suitably placed satellites are normally required.",
-        "visual": "Each satellite supplies a range sphere. A real GNSS receiver solves for x, y, z and its clock offset using at least four measurements; this sketch is a 2D analogy.",
-        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Three coordinates plus one clock\"><title>Three coordinates plus one clock</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Three coordinates plus one clock</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><circle cx=\"400\" cy=\"210\" r=\"8\" fill=\"#ffd479\"/><text x=\"400\" y=\"195\" fill=\"#ffd479\" font-size=\"14\" text-anchor=\"middle\">Receiver</text><circle class=\"lw-grow-ring\" cx=\"200\" cy=\"120\" r=\"50\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><circle class=\"lw-grow-ring\" cx=\"600\" cy=\"130\" r=\"50\" fill=\"none\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><circle class=\"lw-grow-ring\" cx=\"250\" cy=\"300\" r=\"50\" fill=\"none\" stroke=\"#b39dff\" stroke-width=\"2\"/><circle class=\"lw-grow-ring\" cx=\"550\" cy=\"290\" r=\"50\" fill=\"none\" stroke=\"#ffd479\" stroke-width=\"2\"/><circle cx=\"200\" cy=\"120\" r=\"6\" fill=\"#7cc7ff\"/><circle cx=\"600\" cy=\"130\" r=\"6\" fill=\"#7ee2a8\"/><circle cx=\"250\" cy=\"300\" r=\"6\" fill=\"#b39dff\"/><circle cx=\"550\" cy=\"290\" r=\"6\" fill=\"#ffd479\"/><text x=\"400\" y=\"330\" fill=\"#9aa6b8\" font-size=\"15\" text-anchor=\"middle\">4 satellites → x, y, z, and clock bias</text><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Each satellite supplies a range sphere</text></svg>",
+        "body": "If the receiver clock were exact, a known satellite range would constrain position to a sphere. More independent ranges narrow the possibilities. Real receivers must estimate their own clock offset as well as location, so the standard unconstrained three-dimensional problem has four unknowns: three position coordinates and one clock offset.\n\nAt least four suitably placed satellites are normally required for that basic solution. Additional measurements provide redundancy and can improve estimation. Special systems with extra constraints can behave differently, so the four-satellite rule is not a statement about every possible navigation method.\n\nGeometry matters too. Reference points spread across the sky generally constrain different directions better than points clustered together. Poor geometry can amplify a small range error into a large position error. A high satellite count alone is therefore not a complete quality measure: the arrangement and trustworthiness of those measurements matter.",
+        "visual": "The overlapping circles are a two-dimensional analogy for range constraints. A real GNSS receiver solves for x, y, z and its clock offset using at least four satellite measurements; this sketch is not a three-dimensional position solution.",
         "questions": [
           {
-            "q": "Why are three satellites not enough for a full fix?",
-            "hint": "Count the unknowns the receiver itself brings to the problem.",
-            "answer": "The receiver must estimate its own clock offset as well as its position — four unknowns: three coordinates and one clock offset. At least four suitably placed satellites are normally required."
-          },
-          {
-            "q": "What does each satellite contribute to the solution?",
-            "hint": "The visual describes a geometric shape per satellite.",
-            "answer": "A range: the receiver lies somewhere on a sphere of that radius around the satellite. Combining at least four such measurements pins down position and clock offset together."
+            "q": "Why does the fourth satellite add useful information?",
+            "hint": "Count all unknowns, including time.",
+            "answer": "The basic unconstrained solution estimates the receiver-clock offset alongside three coordinates, giving four unknown quantities."
           }
-        ]
+        ],
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Four unknowns need at least four signals\"><title>Four unknowns need at least four signals</title><desc>The overlapping circles are a two-dimensional analogy for range constraints. A real GNSS receiver solves for x, y, z and its clock offset using at least four satellite measurements; this sketch is not a three-dimensional position solution.</desc><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\" text-anchor=\"start\">Four unknowns need at least four signals</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle cx=\"193\" cy=\"153\" r=\"93.6\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><circle cx=\"343\" cy=\"153\" r=\"93.6\" fill=\"none\" stroke=\"#b39dff\" stroke-width=\"2\"/><circle cx=\"268\" cy=\"264\" r=\"55\" fill=\"none\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><circle cx=\"268\" cy=\"209\" r=\"4\" fill=\"#ffd479\" stroke=\"#ffd479\" stroke-width=\"2\"/><text x=\"268\" y=\"195\" fill=\"#ffd479\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"middle\">Receiver</text><rect x=\"490\" y=\"89\" width=\"280\" height=\"239\" rx=\"12\" fill=\"#172331\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"508\" y=\"118\" fill=\"#ffd479\" font-size=\"18\" font-family=\"sans-serif\" text-anchor=\"start\">Receiver unknowns</text><text x=\"514\" y=\"158\" fill=\"#7cc7ff\" font-size=\"31\" font-family=\"sans-serif\" text-anchor=\"start\">x    y    z</text><text x=\"514\" y=\"207\" fill=\"#b39dff\" font-size=\"23\" font-family=\"sans-serif\" text-anchor=\"start\">+ clock offset</text><text x=\"514\" y=\"259\" fill=\"#e8ecf1\" font-size=\"20\" font-family=\"sans-serif\" text-anchor=\"start\">≥ 4 satellite signals</text><text x=\"514\" y=\"297\" fill=\"#9aa6b8\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Positions + receiver time</text><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Range-constraint analogy in 2D • actual measurements are pseudoranges</text></svg>",
+        "diagramTitle": "Four unknowns need at least four signals"
       },
       {
         "id": "quality",
         "heading": "More digits do not guarantee a better fix",
-        "body": "Accuracy means closeness to the true position. Repeatability describes how tightly repeated estimates cluster. Extra decimal places can simply decorate a noisy estimate.",
-        "visual": "Geometry, signal quality, clock and atmosphere all matter more than display resolution. Precision is not the same as accuracy.",
-        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"More digits do not guarantee a better fix\"><title>More digits do not guarantee a better fix</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">More digits do not guarantee a better fix</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><g class=\"lw-step\"><text x=\"120\" y=\"140\" fill=\"#7cc7ff\" font-size=\"20\">Geometry</text><text x=\"120\" y=\"170\" fill=\"#9aa6b8\" font-size=\"15\">Satellite spread matters</text></g><g class=\"lw-step\"><text x=\"120\" y=\"230\" fill=\"#7ee2a8\" font-size=\"20\">Signal quality</text><text x=\"120\" y=\"260\" fill=\"#9aa6b8\" font-size=\"15\">Noise and multipath</text></g><g class=\"lw-step\"><text x=\"450\" y=\"140\" fill=\"#ffd479\" font-size=\"20\">Clock & atmosphere</text><text x=\"450\" y=\"170\" fill=\"#9aa6b8\" font-size=\"15\">Systematic biases</text></g><g class=\"lw-step\"><text x=\"450\" y=\"230\" fill=\"#b39dff\" font-size=\"20\">Reported precision</text><text x=\"450\" y=\"260\" fill=\"#9aa6b8\" font-size=\"15\">≠ true accuracy</text></g><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Trust geometry and error sources, not extra decimal places</text></svg>",
+        "body": "Accuracy means closeness to the true position. Repeatability describes how tightly repeated estimates cluster, and display resolution describes how finely a number is shown. A tight cluster can still be systematically displaced, while extra decimal places can simply decorate a noisy estimate.\n\nAtmospheric effects, imperfect satellite information, receiver noise and reflected signals all affect ranges. Multipath occurs when a signal reaches the receiver by an indirect route, such as a reflection from a building. That extra route can distort the range estimate even though the receiver itself did not move.\n\nCorrection methods can estimate and reduce particular errors, while advanced signal measurements can support much greater precision. They do not remove every obstruction, reflection or geometry problem. When evaluating a guidance display, consider solution quality and measurement conditions as well as the coordinates. A sudden shift near a wall is a reason to inspect the measurement, not assume the mapped feature physically moved.",
+        "visual": "A tight cluster can still miss the true position. Precision describes the spread of repeated measurements; accuracy describes how close they are to the truth. Atmosphere, reflections and satellite geometry affect a GNSS fix.",
         "questions": [
           {
-            "q": "What is the difference between accuracy and repeatability?",
-            "hint": "One is about the true position; the other is about the estimates among themselves.",
-            "answer": "Accuracy is closeness to the true position. Repeatability describes how tightly repeated estimates cluster — a receiver can be repeatably wrong."
-          },
-          {
-            "q": "A receiver shows eight decimal places. Should you trust the fix more?",
-            "hint": "The heading of this section is the warning label.",
-            "answer": "Not on that evidence. Extra decimal places can simply decorate a noisy estimate; geometry, signal quality, clock and atmosphere matter more than display resolution."
+            "q": "What does adding decimal places definitely change?",
+            "hint": "Separate a displayed representation from a measurement.",
+            "answer": "It changes display resolution. It does not by itself improve the physical measurement or absolute accuracy."
           }
-        ]
+        ],
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"More digits do not remove bias\"><title>More digits do not remove bias</title><desc>A tight cluster can still miss the true position. Precision describes the spread of repeated measurements; accuracy describes how close they are to the truth. Atmosphere, reflections and satellite geometry affect a GNSS fix.</desc><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\" text-anchor=\"start\">More digits do not remove bias</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle cx=\"222\" cy=\"205\" r=\"92\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><circle cx=\"222\" cy=\"205\" r=\"61\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><circle cx=\"222\" cy=\"205\" r=\"30\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><path d=\"M124 205 L320 205\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M222 107 L222 303\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle cx=\"577\" cy=\"205\" r=\"92\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><circle cx=\"577\" cy=\"205\" r=\"61\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><circle cx=\"577\" cy=\"205\" r=\"30\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><path d=\"M479 205 L675 205\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M577 107 L577 303\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle cx=\"260\" cy=\"169\" r=\"4\" fill=\"#ff9d9d\" stroke=\"#ff9d9d\" stroke-width=\"2\"/><circle cx=\"269\" cy=\"179\" r=\"4\" fill=\"#ff9d9d\" stroke=\"#ff9d9d\" stroke-width=\"2\"/><circle cx=\"252\" cy=\"173\" r=\"4\" fill=\"#ff9d9d\" stroke=\"#ff9d9d\" stroke-width=\"2\"/><circle cx=\"264\" cy=\"158\" r=\"4\" fill=\"#ff9d9d\" stroke=\"#ff9d9d\" stroke-width=\"2\"/><circle cx=\"253\" cy=\"160\" r=\"4\" fill=\"#ff9d9d\" stroke=\"#ff9d9d\" stroke-width=\"2\"/><circle cx=\"577\" cy=\"205\" r=\"4\" fill=\"#7ee2a8\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><circle cx=\"591\" cy=\"220\" r=\"4\" fill=\"#7ee2a8\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><circle cx=\"564\" cy=\"211\" r=\"4\" fill=\"#7ee2a8\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><circle cx=\"586\" cy=\"188\" r=\"4\" fill=\"#7ee2a8\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><circle cx=\"566\" cy=\"191\" r=\"4\" fill=\"#7ee2a8\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><text x=\"222\" y=\"89\" fill=\"#ff9d9d\" font-size=\"20\" font-family=\"sans-serif\" text-anchor=\"middle\">Precise, but biased</text><text x=\"577\" y=\"89\" fill=\"#7ee2a8\" font-size=\"20\" font-family=\"sans-serif\" text-anchor=\"middle\">Precise and accurate</text><text x=\"400\" y=\"330\" fill=\"#e8ecf1\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"middle\">Repeatability and closeness to truth are different.</text><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Targets are conceptual • dots represent repeated position estimates</text></svg>",
+        "diagramTitle": "More digits do not remove bias"
       }
     ]
   },
@@ -122,26 +106,26 @@
         "id": "timing",
         "questions": [
           {
-            "q": "A receiver's clock is off by 2 microseconds. Roughly how large a range error does that create?",
+            "q": "What range error corresponds approximately to 10 nanoseconds?",
             "choices": [
-              "About 3 metres",
-              "About 60 metres",
-              "About 600 metres",
-              "About 6 kilometres"
+              "0.003 m",
+              "300 m",
+              "3 m",
+              "30 km"
             ],
             "answer": 2,
-            "explain": "One microsecond at signal speed (about 300 million metres per second) corresponds to roughly 300 metres. Two microseconds double that to about 600 metres."
+            "explain": "10 ns = 0.00000001 s. Multiplying by about 300,000,000 m/s gives 3 m."
           },
           {
-            "q": "A GPS range estimate is computed as…",
+            "q": "How does a basic GPS receiver obtain satellite ranging signals?",
             "choices": [
-              "Signal travel time divided by signal speed",
-              "Signal travel time multiplied by signal speed",
-              "Transmit time minus satellite position",
-              "Signal speed divided by travel time"
+              "It listens to broadcasts",
+              "It queries each satellite with a radio message",
+              "It photographs satellites",
+              "It measures barometric pressure only"
             ],
-            "answer": 1,
-            "explain": "Comparing transmit and receive times gives the apparent travel time; multiplying by the signal speed turns that interval into a range estimate."
+            "answer": 0,
+            "explain": "The basic ranging principle uses one-way broadcasts. Network assistance is distinct from having to query GPS satellites."
           }
         ]
       },
@@ -149,26 +133,26 @@
         "id": "solution",
         "questions": [
           {
-            "q": "The four unknowns in the standard GPS problem are…",
+            "q": "Which set contains the standard four unknowns?",
             "choices": [
-              "Three satellite positions and one clock offset",
-              "Three position coordinates and the receiver's clock offset",
-              "Four satellite clock offsets",
-              "Latitude, longitude, and two clock offsets"
+              "Four independent receiver temperatures",
+              "Three coordinates and receiver-clock offset",
+              "Latitude, longitude, fuel and tyre size",
+              "Three satellite colours and pressure"
             ],
             "answer": 1,
-            "explain": "Real receivers must estimate their own clock offset as well as location: three position coordinates plus one clock offset — which is why at least four suitably placed satellites are normally required."
+            "explain": "Clock offset is estimated along with the receiver’s three position coordinates."
           },
           {
-            "q": "Why does the receiver need to solve for its own clock offset at all?",
+            "q": "With similar range noise and satellite count, which geometry is generally better?",
             "choices": [
-              "Because satellite clocks are unreliable",
-              "Because its range estimates are built from its own receive times, which its clock error corrupts",
-              "Because four unknowns make the maths easier",
-              "Because the satellites move during the signal's travel"
+              "All satellites in one direction",
+              "Duplicate measurements only",
+              "Geometry never matters",
+              "Satellites well spread across the sky"
             ],
-            "answer": 1,
-            "explain": "Ranges come from comparing transmit times with the receiver's own receive times. Any error in the receiver's clock lands directly in every range, so the offset is estimated as part of the solution."
+            "answer": 3,
+            "explain": "Well-spread geometry constrains multiple directions more effectively. Clustered satellites can leave some directions poorly determined."
           }
         ]
       },
@@ -176,26 +160,26 @@
         "id": "quality",
         "questions": [
           {
-            "q": "A receiver reports the same wrong position, tightly clustered, on every reading. That is…",
+            "q": "A reflected signal travels farther before reaching the receiver. What can result?",
             "choices": [
-              "High accuracy and high repeatability",
-              "Low accuracy but high repeatability",
-              "High accuracy but low repeatability",
-              "Neither accuracy nor repeatability"
+              "A range error from multipath",
+              "Guaranteed perfect accuracy",
+              "Removal of every clock error",
+              "Movement of the physical receiver"
             ],
-            "answer": 1,
-            "explain": "Repeatability describes how tightly repeated estimates cluster — they cluster tightly here. Accuracy is closeness to the true position, and the position is wrong, so accuracy is low."
+            "answer": 0,
+            "explain": "An indirect route can bias the apparent travel time and range. The receiver need not have moved."
           },
           {
-            "q": "Which evidence best supports trusting a GPS fix?",
+            "q": "Repeated coordinates cluster tightly but are all displaced from the true location. Which description fits?",
             "choices": [
-              "The display shows many decimal places",
-              "The reading updates quickly",
-              "Good satellite geometry and clean signals with understood error sources",
-              "The receiver is an expensive model"
+              "Accurate and exact",
+              "No repeatability",
+              "Repeatable with a systematic error",
+              "Proof of perfect satellite geometry"
             ],
             "answer": 2,
-            "explain": "The section lists what matters: geometry, signal quality, clock and atmosphere. Reported precision is not true accuracy — extra digits can decorate a noisy estimate."
+            "explain": "Tight clustering demonstrates repeatability under those conditions, while the shared displacement indicates an accuracy problem."
           }
         ]
       }
@@ -205,38 +189,36 @@
     "sections": [
       {
         "id": "timing",
-        "title": "A time measurement becomes a range",
+        "title": "Tiny time errors become large distances",
         "bullets": [
-          "Satellites broadcast position information and transmission time.",
-          "Travel time × signal speed = range estimate.",
-          "Signals move at about 300 million m/s.",
-          "A 1 μs timing error is roughly 300 m of range error."
+          "Distance follows signal speed multiplied by elapsed time.",
+          "A measured apparent range includes timing and propagation errors.",
+          "About 300 m. Small timing errors become large range errors because radio signals travel so quickly."
         ],
-        "notes": "GPS is a timing system wearing a map's clothes. The receiver never measures distance directly — it measures how long the signal took and multiplies by the speed of light. That multiplication is why tiny clock errors explode into hundreds of metres.",
+        "notes": "GPS satellites broadcast information that lets a receiver estimate satellite position and signal transmission time. Comparing transmit and receive times gives apparent travel time. Multiplying by signal speed turns that interval into a range estimate. About 300 m. Small timing errors become large range errors because radio signals travel so quickly.",
         "visual": "A satellite transmits its send time. The receiver compares send and receive times, then multiplies the signal’s travel time by the speed of light. A one-microsecond timing error corresponds to about 300 metres of range error."
       },
       {
         "id": "solution",
         "title": "Three coordinates plus one clock",
         "bullets": [
-          "The receiver solves for x, y, z — and its own clock offset.",
-          "Four unknowns need at least four suitably placed satellites.",
-          "Each satellite supplies a range sphere."
+          "A standard basic fix estimates three position coordinates and receiver-clock offset.",
+          "Reference-point arrangement affects how range errors become position errors.",
+          "The basic unconstrained solution estimates the receiver-clock offset alongside three coordinates, giving four unknown quantities."
         ],
-        "notes": "The receiver's clock is cheap and wrong, so the solution treats that error as a fourth unknown instead of pretending it away. Four satellites give the four measurements the problem needs.",
-        "visual": "Each satellite supplies a range sphere. A real GNSS receiver solves for x, y, z and its clock offset using at least four measurements; this sketch is a 2D analogy."
+        "notes": "If the receiver clock were exact, a known satellite range would constrain position to a sphere. More independent ranges narrow the possibilities. Real receivers must estimate their own clock offset as well as location, so the standard unconstrained three-dimensional problem has four unknowns: three position coordinates and one clock offset. The basic unconstrained solution estimates the receiver-clock offset alongside three coordinates, giving four unknown quantities.",
+        "visual": "The overlapping circles are a two-dimensional analogy for range constraints. A real GNSS receiver solves for x, y, z and its clock offset using at least four satellite measurements; this sketch is not a three-dimensional position solution."
       },
       {
         "id": "quality",
-        "title": "Precision is not accuracy",
+        "title": "More digits do not guarantee a better fix",
         "bullets": [
-          "Accuracy: closeness to the true position.",
-          "Repeatability: how tightly repeated estimates cluster.",
-          "Extra decimal places can decorate a noisy estimate.",
-          "Trust geometry, signal quality, clock and atmosphere — not digit count."
+          "A stable cluster of coordinates can still share a systematic position error.",
+          "Reflected signal paths can distort a range measurement without moving the receiver.",
+          "It changes display resolution. It does not by itself improve the physical measurement or absolute accuracy."
         ],
-        "notes": "A long decimal readout feels rigorous but says nothing about truth. A fix deserves trust when the satellites are well spread and the error sources are understood.",
-        "visual": "Geometry, signal quality, clock and atmosphere all matter more than display resolution. Precision is not the same as accuracy."
+        "notes": "Accuracy means closeness to the true position. Repeatability describes how tightly repeated estimates cluster, and display resolution describes how finely a number is shown. A tight cluster can still be systematically displaced, while extra decimal places can simply decorate a noisy estimate. It changes display resolution. It does not by itself improve the physical measurement or absolute accuracy.",
+        "visual": "A tight cluster can still miss the true position. Precision describes the spread of repeated measurements; accuracy describes how close they are to the truth. Atmosphere, reflections and satellite geometry affect a GNSS fix."
       }
     ]
   },
@@ -245,59 +227,71 @@
     "turns": [
       {
         "speaker": "teacher",
-        "line": "A satellite's signal left at a known time and arrives a fraction of a second later. What does the receiver actually compute from that?"
-      },
-      {
-        "speaker": "student",
-        "line": "The travel time — receive time minus transmit time — then multiply by the signal speed to get a range."
+        "line": "A GPS receiver solves a timing problem using moving reference points. See why four satellites matter and why extra decimal places do not guarantee accuracy."
       },
       {
         "speaker": "teacher",
-        "line": "Right. Now the punchline: the signal travels at about 300 million metres per second. Your clock is off by one microsecond. How wrong is the range?"
+        "line": "Tiny time errors become large distances. Distance follows signal speed multiplied by elapsed time. A measured apparent range includes timing and propagation errors."
       },
       {
         "speaker": "student",
-        "line": "One microsecond times that speed... about 300 metres. That is brutal."
+        "line": "Approximately how much range error corresponds to a 1 microsecond timing error?"
       },
       {
         "speaker": "teacher",
-        "line": "It is. Which raises the next problem: the receiver's clock is exactly the kind of clock that drifts. What does the solution do about it?"
+        "line": "About 300 m. Small timing errors become large range errors because radio signals travel so quickly."
       },
       {
         "speaker": "student",
-        "line": "Use more satellites until the clock error cancels?"
+        "line": "What range error corresponds approximately to 10 nanoseconds?"
       },
       {
         "speaker": "teacher",
-        "line": "Nearly — it promotes the clock offset to an unknown and solves for it. How many unknowns does that make, in three dimensions?"
-      },
-      {
-        "speaker": "student",
-        "line": "Three coordinates plus the clock offset: four. So at least four satellites, each giving a range sphere."
+        "line": "3 m. 10 ns = 0.00000001 s. Multiplying by about 300,000,000 m/s gives 3 m."
       },
       {
         "speaker": "teacher",
-        "line": "Exactly — suitably placed ones. Last topic: your receiver shows a position with eight decimal places and it barely changes between readings. Impressed?"
+        "line": "Three coordinates plus one clock. A standard basic fix estimates three position coordinates and receiver-clock offset. Reference-point arrangement affects how range errors become position errors."
       },
       {
         "speaker": "student",
-        "line": "It repeats tightly, so... yes?"
+        "line": "Why does the fourth satellite add useful information?"
       },
       {
         "speaker": "teacher",
-        "line": "Careful. Repeatability is the tight clustering. Accuracy is closeness to the true position. What can those extra digits be doing?"
+        "line": "The basic unconstrained solution estimates the receiver-clock offset alongside three coordinates, giving four unknown quantities."
       },
       {
         "speaker": "student",
-        "line": "Decorating a noisy estimate. The clustering could be tightly wrong."
+        "line": "Which set contains the standard four unknowns?"
       },
       {
         "speaker": "teacher",
-        "line": "So what earns your trust instead of the digit count?"
+        "line": "Three coordinates and receiver-clock offset. Clock offset is estimated along with the receiver’s three position coordinates."
+      },
+      {
+        "speaker": "teacher",
+        "line": "More digits do not guarantee a better fix. A stable cluster of coordinates can still share a systematic position error. Reflected signal paths can distort a range measurement without moving the receiver."
       },
       {
         "speaker": "student",
-        "line": "Satellite geometry, signal quality, and the clock and atmosphere error sources — the things the section lists."
+        "line": "What does adding decimal places definitely change?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "It changes display resolution. It does not by itself improve the physical measurement or absolute accuracy."
+      },
+      {
+        "speaker": "student",
+        "line": "A reflected signal travels farther before reaching the receiver. What can result?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "A range error from multipath. An indirect route can bias the apparent travel time and range. The receiver need not have moved."
+      },
+      {
+        "speaker": "teacher",
+        "line": "To review: Convert signal timing error to range error. Identify the four unknowns in a basic position fix. Separate accuracy, repeatability and display resolution."
       }
     ],
     "nodes": [
@@ -305,45 +299,73 @@
         "id": "root",
         "parent": null,
         "label": "How GPS Works: Time into Position",
-        "note": "Position comes from timing: signals become ranges, ranges plus a clock solution become a fix."
+        "note": "A GPS receiver solves a timing problem using moving reference points. See why four satellites matter and why extra decimal places do not guarantee accuracy."
       },
       {
         "id": "timing",
         "parent": "root",
-        "label": "Time into range",
-        "note": "Travel time multiplied by signal speed gives a range estimate."
+        "label": "Tiny time errors become large distances",
+        "note": "About 300 m. Small timing errors become large range errors because radio signals travel so quickly."
       },
       {
-        "id": "timing-error",
+        "id": "timing-concept-1",
         "parent": "timing",
-        "label": "1 μs ≈ 300 m",
-        "note": "At about 300 million metres per second, a microsecond of timing error is roughly 300 metres of range error."
+        "label": "Signal travel time",
+        "note": "Distance follows signal speed multiplied by elapsed time."
+      },
+      {
+        "id": "timing-concept-2",
+        "parent": "timing",
+        "label": "Pseudorange",
+        "note": "A measured apparent range includes timing and propagation errors."
       },
       {
         "id": "solution",
         "parent": "root",
-        "label": "Four unknowns",
-        "note": "Three coordinates plus the receiver's clock offset, solved together."
+        "label": "Three coordinates plus one clock",
+        "note": "The basic unconstrained solution estimates the receiver-clock offset alongside three coordinates, giving four unknown quantities."
       },
       {
-        "id": "solution-satellites",
+        "id": "solution-concept-1",
         "parent": "solution",
-        "label": "Four satellites minimum",
-        "note": "Each satellite supplies a range sphere; at least four suitably placed satellites are normally required."
+        "label": "Four unknowns",
+        "note": "A standard basic fix estimates three position coordinates and receiver-clock offset."
+      },
+      {
+        "id": "solution-concept-2",
+        "parent": "solution",
+        "label": "Satellite geometry",
+        "note": "Reference-point arrangement affects how range errors become position errors."
       },
       {
         "id": "quality",
         "parent": "root",
-        "label": "Digits are not accuracy",
-        "note": "Accuracy is closeness to truth; repeatability is clustering; extra decimal places can decorate noise."
+        "label": "More digits do not guarantee a better fix",
+        "note": "It changes display resolution. It does not by itself improve the physical measurement or absolute accuracy."
+      },
+      {
+        "id": "quality-concept-1",
+        "parent": "quality",
+        "label": "Accuracy and repeatability",
+        "note": "A stable cluster of coordinates can still share a systematic position error."
+      },
+      {
+        "id": "quality-concept-2",
+        "parent": "quality",
+        "label": "Multipath",
+        "note": "Reflected signal paths can distort a range measurement without moving the receiver."
       }
     ],
     "mnemonics": []
   },
   "sources": [
     {
-      "title": "GPS.gov — official U.S. government information about the Global Positioning System",
-      "url": "https://www.gps.gov/"
+      "title": "GPS.gov — GPS overview",
+      "url": "https://www.gps.gov/gps"
+    },
+    {
+      "title": "GPS.gov — Trilateration",
+      "url": "https://www.gps.gov/trilateration"
     }
   ]
 }
