@@ -1,1 +1,354 @@
-{"meta":{"title":"Electrical Wiring Fundamentals","topic":"Electrical Wiring","level":"beginner","estimatedMinutes":25,"tags":["electrical","safety"]},"reading":{"sections":[{"id":"quantities","heading":"Voltage, current, and resistance","body":"Voltage is electrical pressure, current is flow of charge, resistance opposes that flow. Ohm’s law relates them.","visual":"Current moves through a circuit when a voltage drives it against resistance.","diagram":"<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Voltage drives current against resistance\"><title>Voltage drives current against resistance</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Voltage drives current against resistance</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><path d=\"M120 200 L680 200\" stroke=\"#7cc7ff\" stroke-width=\"4\" class=\"lw-flow\"/><text x=\"400\" y=\"170\" fill=\"#ffd479\" font-size=\"18\" text-anchor=\"middle\">V = I × R</text><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Ohm’s law links the three quantities</text></svg>"},{"id":"paths","heading":"Complete paths matter","body":"Current needs a closed loop. Series and parallel arrangements share voltage and current differently.","visual":"A complete path lets charge circulate; an open switch stops the flow.","diagram":"<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Complete paths matter\"><title>Complete paths matter</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Complete paths matter</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><path d=\"M150 150 L650 150 L650 280 L150 280 Z\" fill=\"none\" stroke=\"#7ee2a8\" stroke-width=\"3\" class=\"lw-flow\"/><text x=\"400\" y=\"220\" fill=\"#9aa6b8\" font-size=\"16\" text-anchor=\"middle\">Closed loop</text><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Open switches interrupt the loop</text></svg>"},{"id":"protection","heading":"Different hazards need different protection","body":"Overcurrent, ground-fault, and arc-fault hazards need different devices. Match the device to the hazard.","visual":"Fuses and breakers handle overcurrent; GFCI handles ground faults; AFCI handles dangerous arcs. One device does not cover every hazard.","diagram":"<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Different hazards need different protection\"><title>Different hazards need different protection</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Different hazards need different protection</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><g class=\"lw-step\"><rect x=\"80\" y=\"100\" width=\"200\" height=\"120\" rx=\"10\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"180\" y=\"155\" fill=\"#7cc7ff\" font-size=\"18\" text-anchor=\"middle\">Overcurrent</text><text x=\"180\" y=\"185\" fill=\"#9aa6b8\" font-size=\"14\" text-anchor=\"middle\">Fuse / breaker</text></g><g class=\"lw-step\"><rect x=\"300\" y=\"100\" width=\"200\" height=\"120\" rx=\"10\" fill=\"#172331\" stroke=\"#ffd479\" stroke-width=\"2\"/><text x=\"400\" y=\"155\" fill=\"#ffd479\" font-size=\"18\" text-anchor=\"middle\">Ground fault</text><text x=\"400\" y=\"185\" fill=\"#9aa6b8\" font-size=\"14\" text-anchor=\"middle\">GFCI</text></g><g class=\"lw-step\"><rect x=\"520\" y=\"100\" width=\"200\" height=\"120\" rx=\"10\" fill=\"#172331\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><text x=\"620\" y=\"155\" fill=\"#7ee2a8\" font-size=\"18\" text-anchor=\"middle\">Arc fault</text><text x=\"620\" y=\"185\" fill=\"#9aa6b8\" font-size=\"14\" text-anchor=\"middle\">AFCI</text></g><g class=\"lw-step\"><text x=\"400\" y=\"280\" fill=\"#e8ecf1\" font-size=\"18\" text-anchor=\"middle\">Match the device to the hazard</text></g><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Protection is hazard-specific, not one-size-fits-all</text></svg>"}]},"practice":{"items":[]},"quiz":{"items":[]}}
+{
+  "meta": {
+    "title": "Electrical Wiring Fundamentals: Circuits & Protection",
+    "topic": "Electrical Wiring Fundamentals",
+    "level": "beginner",
+    "estimatedMinutes": 25,
+    "tags": [
+      "electrical",
+      "safety"
+    ],
+    "createdAt": "2026-10-08T20:06:50.000Z",
+    "interests": "",
+    "depth": "quick",
+    "model": "Learnway authored starter"
+  },
+  "plan": {
+    "title": "Electrical Wiring Fundamentals: Circuits & Protection",
+    "hook": "Every circuit is a bargain between three quantities — pressure, flow, and opposition — and every safety device in a panel exists because one particular way of breaking that bargain hurts people.",
+    "objectives": [
+      "State what voltage, current, and resistance each describe and how Ohm's law relates them",
+      "Explain why current needs a closed loop and how series and parallel arrangements share voltage and current differently",
+      "Match overcurrent, ground-fault, and arc-fault hazards to the devices that guard against each"
+    ],
+    "prerequisites": [
+      "None — starts from everyday experience"
+    ],
+    "sections": [
+      {
+        "id": "quantities",
+        "heading": "Voltage, current, and resistance",
+        "points": [
+          "Voltage is electrical pressure, current is flow of charge, resistance opposes that flow",
+          "Ohm's law relates the three: V = I × R",
+          "Current moves through a circuit when a voltage drives it against resistance"
+        ]
+      },
+      {
+        "id": "paths",
+        "heading": "Complete paths matter",
+        "points": [
+          "Current needs a closed loop; an open switch stops the flow",
+          "A complete path lets charge circulate",
+          "Series and parallel arrangements share voltage and current differently"
+        ]
+      },
+      {
+        "id": "protection",
+        "heading": "Different hazards need different protection",
+        "points": [
+          "Overcurrent, ground-fault, and arc-fault are different hazards",
+          "Fuses and breakers handle overcurrent; a GFCI handles ground faults; an AFCI handles dangerous arcs",
+          "Match the device to the hazard — one device does not cover every hazard"
+        ]
+      }
+    ]
+  },
+  "reading": {
+    "sections": [
+      {
+        "id": "quantities",
+        "heading": "Voltage, current, and resistance",
+        "body": "Voltage is electrical pressure, current is flow of charge, resistance opposes that flow. Ohm’s law relates them.",
+        "visual": "Current moves through a circuit when a voltage drives it against resistance.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Voltage drives current against resistance\"><title>Voltage drives current against resistance</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Voltage drives current against resistance</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><path d=\"M120 200 L680 200\" stroke=\"#7cc7ff\" stroke-width=\"4\" class=\"lw-flow\"/><text x=\"400\" y=\"170\" fill=\"#ffd479\" font-size=\"18\" text-anchor=\"middle\">V = I × R</text><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Ohm’s law links the three quantities</text></svg>",
+        "questions": [
+          {
+            "q": "What does each of voltage, current, and resistance describe?",
+            "hint": "The body introduces them as pressure, flow, and opposition — assign each term.",
+            "answer": "Voltage is electrical pressure, current is the flow of charge, and resistance opposes that flow. Ohm's law relates the three quantities."
+          },
+          {
+            "q": "How does Ohm's law tie the three quantities together?",
+            "hint": "The diagram writes it as a single equation.",
+            "answer": "V = I × R: the voltage driving a circuit equals the current multiplied by the resistance it works against."
+          }
+        ]
+      },
+      {
+        "id": "paths",
+        "heading": "Complete paths matter",
+        "body": "Current needs a closed loop. Series and parallel arrangements share voltage and current differently.",
+        "visual": "A complete path lets charge circulate; an open switch stops the flow.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Complete paths matter\"><title>Complete paths matter</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Complete paths matter</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><path d=\"M150 150 L650 150 L650 280 L150 280 Z\" fill=\"none\" stroke=\"#7ee2a8\" stroke-width=\"3\" class=\"lw-flow\"/><text x=\"400\" y=\"220\" fill=\"#9aa6b8\" font-size=\"16\" text-anchor=\"middle\">Closed loop</text><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Open switches interrupt the loop</text></svg>",
+        "questions": [
+          {
+            "q": "Why does an open switch stop the current everywhere in a simple loop?",
+            "hint": "What does current require of the path it travels?",
+            "answer": "Current needs a closed loop. An open switch breaks the loop, so charge cannot circulate and the flow stops."
+          },
+          {
+            "q": "Do series and parallel arrangements treat voltage and current the same way?",
+            "hint": "The body says the two arrangements share them — but how?",
+            "answer": "No. Series and parallel arrangements share voltage and current differently, which is why the layout of a circuit matters, not just its parts."
+          }
+        ]
+      },
+      {
+        "id": "protection",
+        "heading": "Different hazards need different protection",
+        "body": "Overcurrent, ground-fault, and arc-fault hazards need different devices. Match the device to the hazard.",
+        "visual": "Fuses and breakers handle overcurrent; GFCI handles ground faults; AFCI handles dangerous arcs. One device does not cover every hazard.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Different hazards need different protection\"><title>Different hazards need different protection</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Different hazards need different protection</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><g class=\"lw-step\"><rect x=\"80\" y=\"100\" width=\"200\" height=\"120\" rx=\"10\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"180\" y=\"155\" fill=\"#7cc7ff\" font-size=\"18\" text-anchor=\"middle\">Overcurrent</text><text x=\"180\" y=\"185\" fill=\"#9aa6b8\" font-size=\"14\" text-anchor=\"middle\">Fuse / breaker</text></g><g class=\"lw-step\"><rect x=\"300\" y=\"100\" width=\"200\" height=\"120\" rx=\"10\" fill=\"#172331\" stroke=\"#ffd479\" stroke-width=\"2\"/><text x=\"400\" y=\"155\" fill=\"#ffd479\" font-size=\"18\" text-anchor=\"middle\">Ground fault</text><text x=\"400\" y=\"185\" fill=\"#9aa6b8\" font-size=\"14\" text-anchor=\"middle\">GFCI</text></g><g class=\"lw-step\"><rect x=\"520\" y=\"100\" width=\"200\" height=\"120\" rx=\"10\" fill=\"#172331\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><text x=\"620\" y=\"155\" fill=\"#7ee2a8\" font-size=\"18\" text-anchor=\"middle\">Arc fault</text><text x=\"620\" y=\"185\" fill=\"#9aa6b8\" font-size=\"14\" text-anchor=\"middle\">AFCI</text></g><g class=\"lw-step\"><text x=\"400\" y=\"280\" fill=\"#e8ecf1\" font-size=\"18\" text-anchor=\"middle\">Match the device to the hazard</text></g><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Protection is hazard-specific, not one-size-fits-all</text></svg>",
+        "questions": [
+          {
+            "q": "Why is one protective device not enough for a whole panel?",
+            "hint": "Count the distinct hazards the section names.",
+            "answer": "Because the hazards are different: overcurrent, ground faults, and arc faults are distinct dangers, and each needs its own kind of device. Protection is hazard-specific, not one-size-fits-all."
+          },
+          {
+            "q": "Which device handles a ground fault, and which handles overcurrent?",
+            "hint": "The diagram pairs each hazard with its device.",
+            "answer": "A GFCI handles ground faults. Fuses and breakers handle overcurrent. Dangerous arcs are the AFCI's job."
+          }
+        ]
+      }
+    ]
+  },
+  "quizzes": {
+    "sections": [
+      {
+        "id": "quantities",
+        "questions": [
+          {
+            "q": "In the language of this course, resistance is…",
+            "choices": [
+              "The flow of charge",
+              "The electrical pressure",
+              "What opposes the flow of charge",
+              "The speed of the current"
+            ],
+            "answer": 2,
+            "explain": "Voltage is the electrical pressure and current is the flow of charge. Resistance opposes that flow, and Ohm's law — V = I × R — relates all three."
+          },
+          {
+            "q": "A voltage drives current through a circuit. What does the current have to work against?",
+            "choices": [
+              "The resistance",
+              "The switch",
+              "The loop itself",
+              "Nothing — voltage alone sets the flow"
+            ],
+            "answer": 0,
+            "explain": "Current moves through a circuit when a voltage drives it against resistance. That opposition is exactly what resistance names."
+          }
+        ]
+      },
+      {
+        "id": "paths",
+        "questions": [
+          {
+            "q": "A lamp in a simple loop goes dark the moment a switch opens, even though the switch is on the far side of the loop. Why?",
+            "choices": [
+              "The switch absorbs the current",
+              "Current needs a closed loop, and the open switch breaks it",
+              "The voltage drops to zero at the power source",
+              "Charge drains out through the open switch"
+            ],
+            "answer": 1,
+            "explain": "Current needs a closed loop to circulate. An open switch interrupts the loop anywhere, so flow stops throughout it."
+          },
+          {
+            "q": "Series and parallel circuits differ in that they…",
+            "choices": [
+              "Use different units for voltage",
+              "Share voltage and current differently",
+              "Require different protective devices",
+              "Only work with different voltages"
+            ],
+            "answer": 1,
+            "explain": "The body states it directly: series and parallel arrangements share voltage and current differently. The quantities and their units are the same in both."
+          }
+        ]
+      },
+      {
+        "id": "protection",
+        "questions": [
+          {
+            "q": "A breaker keeps tripping on an overloaded circuit, but a damaged cord is leaking current to ground without overloading anything. Which device addresses the second hazard?",
+            "choices": [
+              "A fuse",
+              "A breaker",
+              "A GFCI",
+              "An AFCI"
+            ],
+            "answer": 2,
+            "explain": "Fuses and breakers handle overcurrent — the first hazard. The GFCI is the device matched to ground faults; match the device to the hazard."
+          },
+          {
+            "q": "Why does the course insist that protection is \"hazard-specific, not one-size-fits-all\"?",
+            "choices": [
+              "Because panels are too small for multiple devices",
+              "Because overcurrent, ground-fault, and arc-fault hazards are different dangers needing different devices",
+              "Because each device only works at one voltage",
+              "Because fuses and breakers are being phased out"
+            ],
+            "answer": 1,
+            "explain": "The three hazards are distinct: overcurrent is handled by fuses and breakers, ground faults by a GFCI, and dangerous arcs by an AFCI. No single device covers every hazard."
+          }
+        ]
+      }
+    ]
+  },
+  "slides": {
+    "sections": [
+      {
+        "id": "quantities",
+        "title": "Pressure, flow, and opposition",
+        "bullets": [
+          "Voltage is electrical pressure.",
+          "Current is the flow of charge.",
+          "Resistance opposes the flow.",
+          "Ohm's law links them: V = I × R."
+        ],
+        "notes": "Keep the three roles separate: voltage pushes, current flows, resistance pushes back. Ohm's law is the equation that ties the three together.",
+        "visual": "Current moves through a circuit when a voltage drives it against resistance."
+      },
+      {
+        "id": "paths",
+        "title": "No loop, no current",
+        "bullets": [
+          "Current needs a closed loop to circulate.",
+          "An open switch interrupts the loop and stops the flow.",
+          "Series and parallel arrangements share voltage and current differently."
+        ],
+        "notes": "A circuit is a loop, not a line. Break it anywhere — one open switch is enough — and charge stops circulating everywhere. How components are arranged then decides how voltage and current are shared.",
+        "visual": "A complete path lets charge circulate; an open switch stops the flow."
+      },
+      {
+        "id": "protection",
+        "title": "Match the device to the hazard",
+        "bullets": [
+          "Overcurrent → fuse or breaker.",
+          "Ground fault → GFCI.",
+          "Arc fault → AFCI.",
+          "One device does not cover every hazard."
+        ],
+        "notes": "Each protective device exists for a specific failure. Overloading, leaking to ground, and dangerous arcing are three different hazards, so the panel carries three different answers.",
+        "visual": "Fuses and breakers handle overcurrent; GFCI handles ground faults; AFCI handles dangerous arcs. One device does not cover every hazard."
+      }
+    ]
+  },
+  "enrichment": {
+    "audioTitle": "Electrical Wiring Fundamentals: Circuits & Protection — a conversation",
+    "turns": [
+      {
+        "speaker": "teacher",
+        "line": "Start with three words: voltage, current, resistance. Give me a one-line job description for each."
+      },
+      {
+        "speaker": "student",
+        "line": "Voltage is pressure, current is the flow of charge, and resistance... is how much wire there is?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Close — resistance opposes the flow. Voltage drives current against that opposition, and Ohm's law ties them together: V = I × R."
+      },
+      {
+        "speaker": "student",
+        "line": "So if I know any two, the third follows."
+      },
+      {
+        "speaker": "teacher",
+        "line": "That is the point of the law. Next: a switch opens on the far side of a loop and the lamp next to the battery dies too. Why?"
+      },
+      {
+        "speaker": "student",
+        "line": "Because the current was used up before reaching the switch?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Current is not used up — it needs a closed loop to circulate. Open the loop anywhere and the flow stops everywhere."
+      },
+      {
+        "speaker": "student",
+        "line": "And whether parts are in series or parallel changes how they share voltage and current."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Right. Now protection. A breaker handles overloads. A cord is leaking current to ground but drawing normal current. Is the breaker the right guard?"
+      },
+      {
+        "speaker": "student",
+        "line": "It would not trip — there is no overcurrent. That hazard needs a different device."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Which one?"
+      },
+      {
+        "speaker": "student",
+        "line": "A GFCI, for ground faults. And arcs get an AFCI."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Exactly: fuses and breakers for overcurrent, GFCI for ground faults, AFCI for dangerous arcs. Why not build one device that does all three?"
+      },
+      {
+        "speaker": "student",
+        "line": "Because the hazards themselves are different — protection is hazard-specific, not one-size-fits-all."
+      }
+    ],
+    "nodes": [
+      {
+        "id": "root",
+        "parent": null,
+        "label": "Electrical Wiring Fundamentals: Circuits & Protection",
+        "note": "Circuits run on three quantities and a complete loop; protection works by matching a device to each distinct hazard."
+      },
+      {
+        "id": "quantities",
+        "parent": "root",
+        "label": "Voltage, current, resistance",
+        "note": "Pressure, flow of charge, and opposition to that flow."
+      },
+      {
+        "id": "quantities-ohms",
+        "parent": "quantities",
+        "label": "Ohm's law: V = I × R",
+        "note": "The equation that relates the three quantities."
+      },
+      {
+        "id": "paths",
+        "parent": "root",
+        "label": "Complete paths",
+        "note": "Current needs a closed loop; an open switch stops the flow."
+      },
+      {
+        "id": "paths-arrangements",
+        "parent": "paths",
+        "label": "Series vs parallel",
+        "note": "The two arrangements share voltage and current differently."
+      },
+      {
+        "id": "protection",
+        "parent": "root",
+        "label": "Hazard-specific protection",
+        "note": "Overcurrent, ground-fault, and arc-fault hazards need different devices."
+      },
+      {
+        "id": "protection-devices",
+        "parent": "protection",
+        "label": "Fuse/breaker, GFCI, AFCI",
+        "note": "Fuses and breakers handle overcurrent; GFCI handles ground faults; AFCI handles dangerous arcs."
+      }
+    ],
+    "mnemonics": []
+  },
+  "sources": [
+    {
+      "title": "Electrical Safety Foundation International — home electrical safety",
+      "url": "https://www.esfi.org/"
+    }
+  ]
+}

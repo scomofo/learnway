@@ -1,1 +1,482 @@
-{"meta":{"title":"Genetics","topic":"Genetics","level":"highschool","estimatedMinutes":30,"tags":["genetics","DNA"]},"reading":{"sections":[{"id":"dna-code","heading":"DNA: The Code of Life","body":"DNA stores information in base pairs. A pairs with T; C pairs with G.","visual":"The two sugar-phosphate backbones hold complementary base pairs: A with T, C with G.","diagram":"<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"DNA: paired letters on two strands\"><title>DNA: paired letters on two strands</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">DNA: paired letters on two strands</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><g class=\"lw-base-pair\"><text x=\"200\" y=\"160\" fill=\"#7cc7ff\" font-size=\"22\">A</text><text x=\"200\" y=\"220\" fill=\"#ffd479\" font-size=\"22\">T</text></g><g class=\"lw-base-pair\"><text x=\"320\" y=\"160\" fill=\"#7ee2a8\" font-size=\"22\">C</text><text x=\"320\" y=\"220\" fill=\"#b39dff\" font-size=\"22\">G</text></g><g class=\"lw-base-pair\"><text x=\"440\" y=\"160\" fill=\"#7cc7ff\" font-size=\"22\">A</text><text x=\"440\" y=\"220\" fill=\"#ffd479\" font-size=\"22\">T</text></g><g class=\"lw-base-pair\"><text x=\"560\" y=\"160\" fill=\"#7ee2a8\" font-size=\"22\">G</text><text x=\"560\" y=\"220\" fill=\"#b39dff\" font-size=\"22\">C</text></g><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Complementary pairs · stylised</text></svg>"},{"id":"gene-to-trait","heading":"From Gene to Trait: The Central Dogma","body":"DNA is transcribed to RNA; RNA is translated to protein. Proteins help produce traits.","visual":"In this simplified path, a gene is transcribed into message RNA, then translated into a chain of amino acids.","diagram":"<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"DNA → RNA → protein\"><title>DNA → RNA → protein</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">DNA → RNA → protein</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"120\" y=\"180\" fill=\"#7cc7ff\" font-size=\"20\">DNA</text><path d=\"M180 170 L280 170\" stroke=\"#7ee2a8\" stroke-width=\"3\" class=\"lw-flow\"/><text x=\"320\" y=\"180\" fill=\"#7ee2a8\" font-size=\"20\">RNA</text><path d=\"M380 170 L480 170\" stroke=\"#ffd479\" stroke-width=\"3\" class=\"lw-flow\"/><circle class=\"lw-dogma-particle\" cx=\"230\" cy=\"170\" r=\"6\" fill=\"#ffd479\"/><text x=\"520\" y=\"180\" fill=\"#ffd479\" font-size=\"20\">Protein</text><text class=\"lw-aa\" x=\"600\" y=\"220\" fill=\"#b39dff\" font-size=\"16\">amino acids</text><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Simplified eukaryotic gene expression</text></svg>"},{"id":"inheritance","heading":"Inheritance: Mendel's Rules","body":"An Aa × Aa cross yields genotype ratio 1:2:1 and phenotype ratio 3:1 under complete dominance.","visual":"Each cell combines one allele from each parent. Genotype ratio 1 AA : 2 Aa : 1 aa.","diagram":"<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Punnett square\"><title>Punnett square</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Aa × Aa outcomes</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text class=\"lw-gamete\" x=\"278\" y=\"120\" fill=\"#7cc7ff\" font-size=\"20\" text-anchor=\"middle\">A</text><text class=\"lw-gamete\" x=\"393\" y=\"120\" fill=\"#7cc7ff\" font-size=\"20\" text-anchor=\"middle\">a</text><text class=\"lw-gamete\" x=\"196\" y=\"185\" fill=\"#7cc7ff\" font-size=\"20\" text-anchor=\"middle\">A</text><text class=\"lw-gamete\" x=\"196\" y=\"268\" fill=\"#7cc7ff\" font-size=\"20\" text-anchor=\"middle\">a</text><rect class=\"lw-punnett-cell\" x=\"220\" y=\"139\" width=\"115\" height=\"83\" fill=\"#172331\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><text x=\"277\" y=\"190\" fill=\"#7ee2a8\" font-size=\"28\" text-anchor=\"middle\">AA</text><rect class=\"lw-punnett-cell\" x=\"335\" y=\"139\" width=\"115\" height=\"83\" fill=\"#172331\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><text x=\"392\" y=\"190\" fill=\"#7ee2a8\" font-size=\"28\" text-anchor=\"middle\">Aa</text><rect class=\"lw-punnett-cell\" x=\"220\" y=\"222\" width=\"115\" height=\"83\" fill=\"#172331\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><text x=\"277\" y=\"273\" fill=\"#7ee2a8\" font-size=\"28\" text-anchor=\"middle\">Aa</text><rect class=\"lw-punnett-cell\" x=\"335\" y=\"222\" width=\"115\" height=\"83\" fill=\"#172331\" stroke=\"#b39dff\" stroke-width=\"2\"/><text x=\"392\" y=\"273\" fill=\"#b39dff\" font-size=\"28\" text-anchor=\"middle\">aa</text><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">1:2:1 genotypes · 3:1 phenotypes</text></svg>"},{"id":"variation","heading":"Where variation comes from","body":"Mutation, independent assortment, and crossing over create genetic variation.","visual":"Crossing over exchanges DNA between homologous chromosomes. Mutation changes a base. Assortment shuffles chromosomes.","diagram":"<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Variation mechanisms\"><title>Variation mechanisms</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Variation comes from several mechanisms</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"120\" y=\"140\" fill=\"#7cc7ff\" font-size=\"16\">Mutation</text><text class=\"lw-mut-base\" x=\"120\" y=\"180\" fill=\"#ffd479\" font-size=\"20\">A→G</text><text x=\"320\" y=\"140\" fill=\"#7ee2a8\" font-size=\"16\">Crossing over</text><rect class=\"lw-xo-before\" x=\"300\" y=\"160\" width=\"80\" height=\"20\" fill=\"#7cc7ff\"/><rect class=\"lw-xo-after\" x=\"300\" y=\"200\" width=\"80\" height=\"20\" fill=\"#b39dff\"/><text x=\"560\" y=\"140\" fill=\"#b39dff\" font-size=\"16\">Assortment</text><circle class=\"lw-shuffle-a\" cx=\"560\" cy=\"190\" r=\"12\" fill=\"#7cc7ff\"/><circle class=\"lw-shuffle-b\" cx=\"600\" cy=\"190\" r=\"12\" fill=\"#ffd479\"/><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Mechanism sketches · not trait predictions</text></svg>"},{"id":"genetics-wild","heading":"Genetics in the Wild","body":"Sequencing reads DNA order. Editing aims to change a chosen target.","visual":"Reading a sequence is different from editing it. Sequencing observes; editing intervenes at a target site.","diagram":"<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Reading vs editing\"><title>Reading vs editing</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Reading a sequence is different from editing it</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"120\" y=\"150\" fill=\"#7cc7ff\" font-size=\"18\">Sequence</text><text class=\"lw-seq-cursor\" x=\"120\" y=\"190\" fill=\"#ffd479\" font-size=\"16\">ATCG…</text><text x=\"450\" y=\"150\" fill=\"#7ee2a8\" font-size=\"18\">Edit</text><text class=\"lw-edit-before\" x=\"450\" y=\"190\" fill=\"#9aa6b8\" font-size=\"16\">before</text><text class=\"lw-edit-target\" x=\"520\" y=\"190\" fill=\"#ffd479\" font-size=\"16\">TARGET</text><text class=\"lw-edit-after\" x=\"620\" y=\"190\" fill=\"#9aa6b8\" font-size=\"16\">after</text><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Conceptual comparison</text></svg>"}]},"practice":{"items":[]},"quiz":{"items":[]}}
+{
+  "meta": {
+    "title": "Genetics: The Code That Builds You",
+    "topic": "Genetics",
+    "level": "highschool",
+    "estimatedMinutes": 30,
+    "tags": [
+      "genetics",
+      "DNA"
+    ],
+    "createdAt": "2026-10-04T01:55:01.000Z",
+    "interests": "",
+    "depth": "standard"
+  },
+  "plan": {
+    "title": "Genetics: The Code That Builds You",
+    "hook": "Your genome is a text written in four letters, read by machinery that turns genes into proteins, shuffled every generation — and now readable, and even editable, by us.",
+    "objectives": [
+      "Pair the DNA bases correctly and describe DNA as information stored in base pairs",
+      "Trace the central dogma from DNA through RNA to protein and on to traits",
+      "Predict genotype and phenotype ratios for an Aa × Aa cross under complete dominance",
+      "Name the three mechanisms the course gives for genetic variation and what each one changes",
+      "Distinguish sequencing from editing: observing the code versus intervening at a target"
+    ],
+    "prerequisites": [
+      "Middle-school science: cells and the idea of inherited traits"
+    ],
+    "sections": [
+      {
+        "id": "dna-code",
+        "heading": "DNA: The Code of Life",
+        "points": [
+          "DNA stores information in base pairs",
+          "A pairs with T; C pairs with G",
+          "Two sugar-phosphate backbones hold the complementary base pairs"
+        ]
+      },
+      {
+        "id": "gene-to-trait",
+        "heading": "From Gene to Trait: The Central Dogma",
+        "points": [
+          "DNA is transcribed to RNA; RNA is translated to protein",
+          "The protein is a chain of amino acids built from the RNA message",
+          "Proteins help produce traits — this simplified path is the central dogma"
+        ]
+      },
+      {
+        "id": "inheritance",
+        "heading": "Inheritance: Mendel's Rules",
+        "points": [
+          "Each parent contributes one allele per gene to the offspring",
+          "An Aa × Aa cross yields a genotype ratio of 1:2:1",
+          "Under complete dominance the phenotype ratio is 3:1"
+        ]
+      },
+      {
+        "id": "variation",
+        "heading": "Where variation comes from",
+        "points": [
+          "Mutation changes a base in the DNA sequence",
+          "Crossing over exchanges DNA between homologous chromosomes",
+          "Independent assortment shuffles chromosomes — together the three create genetic variation"
+        ]
+      },
+      {
+        "id": "genetics-wild",
+        "heading": "Genetics in the Wild",
+        "points": [
+          "Sequencing reads the order of DNA bases — it observes",
+          "Editing aims to change a chosen target — it intervenes",
+          "Reading a sequence is different from editing it"
+        ]
+      }
+    ]
+  },
+  "reading": {
+    "sections": [
+      {
+        "id": "dna-code",
+        "heading": "DNA: The Code of Life",
+        "body": "DNA stores information in base pairs. A pairs with T; C pairs with G.",
+        "visual": "The two sugar-phosphate backbones hold complementary base pairs: A with T, C with G.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"DNA: paired letters on two strands\"><title>DNA: paired letters on two strands</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">DNA: paired letters on two strands</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><g class=\"lw-base-pair\"><text x=\"200\" y=\"160\" fill=\"#7cc7ff\" font-size=\"22\">A</text><text x=\"200\" y=\"220\" fill=\"#ffd479\" font-size=\"22\">T</text></g><g class=\"lw-base-pair\"><text x=\"320\" y=\"160\" fill=\"#7ee2a8\" font-size=\"22\">C</text><text x=\"320\" y=\"220\" fill=\"#b39dff\" font-size=\"22\">G</text></g><g class=\"lw-base-pair\"><text x=\"440\" y=\"160\" fill=\"#7cc7ff\" font-size=\"22\">A</text><text x=\"440\" y=\"220\" fill=\"#ffd479\" font-size=\"22\">T</text></g><g class=\"lw-base-pair\"><text x=\"560\" y=\"160\" fill=\"#7ee2a8\" font-size=\"22\">G</text><text x=\"560\" y=\"220\" fill=\"#b39dff\" font-size=\"22\">C</text></g><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Complementary pairs · stylised</text></svg>",
+        "questions": [
+          {
+            "q": "Which bases pair with each other in DNA?",
+            "hint": "Two pairings cover all four letters.",
+            "answer": "A pairs with T, and C pairs with G. The two sugar-phosphate backbones hold these complementary base pairs, and their order stores the information."
+          },
+          {
+            "q": "Where is the information in a DNA molecule kept?",
+            "hint": "Not in the backbones — in what they hold in order.",
+            "answer": "In the sequence of base pairs. DNA stores information in base pairs, held in order between the two sugar-phosphate backbones."
+          }
+        ]
+      },
+      {
+        "id": "gene-to-trait",
+        "heading": "From Gene to Trait: The Central Dogma",
+        "body": "DNA is transcribed to RNA; RNA is translated to protein. Proteins help produce traits.",
+        "visual": "In this simplified path, a gene is transcribed into message RNA, then translated into a chain of amino acids.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"DNA → RNA → protein\"><title>DNA → RNA → protein</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">DNA → RNA → protein</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"120\" y=\"180\" fill=\"#7cc7ff\" font-size=\"20\">DNA</text><path d=\"M180 170 L280 170\" stroke=\"#7ee2a8\" stroke-width=\"3\" class=\"lw-flow\"/><text x=\"320\" y=\"180\" fill=\"#7ee2a8\" font-size=\"20\">RNA</text><path d=\"M380 170 L480 170\" stroke=\"#ffd479\" stroke-width=\"3\" class=\"lw-flow\"/><circle class=\"lw-dogma-particle\" cx=\"230\" cy=\"170\" r=\"6\" fill=\"#ffd479\"/><text x=\"520\" y=\"180\" fill=\"#ffd479\" font-size=\"20\">Protein</text><text class=\"lw-aa\" x=\"600\" y=\"220\" fill=\"#b39dff\" font-size=\"16\">amino acids</text><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Simplified eukaryotic gene expression</text></svg>",
+        "questions": [
+          {
+            "q": "What are the two steps from gene to protein, in order?",
+            "hint": "One rewrites the message; the other builds from it.",
+            "answer": "Transcription, then translation: DNA is transcribed to RNA, and RNA is translated to protein — a chain of amino acids."
+          },
+          {
+            "q": "How do proteins connect to traits?",
+            "hint": "The body gives proteins the final role in the path.",
+            "answer": "Proteins help produce traits. The simplified path runs DNA → RNA → protein → trait."
+          }
+        ]
+      },
+      {
+        "id": "inheritance",
+        "heading": "Inheritance: Mendel's Rules",
+        "body": "An Aa × Aa cross yields genotype ratio 1:2:1 and phenotype ratio 3:1 under complete dominance.",
+        "visual": "Each cell combines one allele from each parent. Genotype ratio 1 AA : 2 Aa : 1 aa.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Punnett square\"><title>Punnett square</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Aa × Aa outcomes</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text class=\"lw-gamete\" x=\"278\" y=\"120\" fill=\"#7cc7ff\" font-size=\"20\" text-anchor=\"middle\">A</text><text class=\"lw-gamete\" x=\"393\" y=\"120\" fill=\"#7cc7ff\" font-size=\"20\" text-anchor=\"middle\">a</text><text class=\"lw-gamete\" x=\"196\" y=\"185\" fill=\"#7cc7ff\" font-size=\"20\" text-anchor=\"middle\">A</text><text class=\"lw-gamete\" x=\"196\" y=\"268\" fill=\"#7cc7ff\" font-size=\"20\" text-anchor=\"middle\">a</text><rect class=\"lw-punnett-cell\" x=\"220\" y=\"139\" width=\"115\" height=\"83\" fill=\"#172331\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><text x=\"277\" y=\"190\" fill=\"#7ee2a8\" font-size=\"28\" text-anchor=\"middle\">AA</text><rect class=\"lw-punnett-cell\" x=\"335\" y=\"139\" width=\"115\" height=\"83\" fill=\"#172331\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><text x=\"392\" y=\"190\" fill=\"#7ee2a8\" font-size=\"28\" text-anchor=\"middle\">Aa</text><rect class=\"lw-punnett-cell\" x=\"220\" y=\"222\" width=\"115\" height=\"83\" fill=\"#172331\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><text x=\"277\" y=\"273\" fill=\"#7ee2a8\" font-size=\"28\" text-anchor=\"middle\">Aa</text><rect class=\"lw-punnett-cell\" x=\"335\" y=\"222\" width=\"115\" height=\"83\" fill=\"#172331\" stroke=\"#b39dff\" stroke-width=\"2\"/><text x=\"392\" y=\"273\" fill=\"#b39dff\" font-size=\"28\" text-anchor=\"middle\">aa</text><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">1:2:1 genotypes · 3:1 phenotypes</text></svg>",
+        "questions": [
+          {
+            "q": "What genotype and phenotype ratios does an Aa × Aa cross give?",
+            "hint": "Two ratios — one counts allele combinations, the other counts appearances.",
+            "answer": "Genotypes run 1 AA : 2 Aa : 1 aa, and under complete dominance phenotypes run 3:1, because AA and Aa share the dominant phenotype."
+          },
+          {
+            "q": "Where does each allele in an offspring's genotype come from?",
+            "hint": "The visual splits the contribution between the parents.",
+            "answer": "One allele comes from each parent: each cell in the Punnett square combines one allele from one parent with one from the other."
+          }
+        ]
+      },
+      {
+        "id": "variation",
+        "heading": "Where variation comes from",
+        "body": "Mutation, independent assortment, and crossing over create genetic variation.",
+        "visual": "Crossing over exchanges DNA between homologous chromosomes. Mutation changes a base. Assortment shuffles chromosomes.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Variation mechanisms\"><title>Variation mechanisms</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Variation comes from several mechanisms</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"120\" y=\"140\" fill=\"#7cc7ff\" font-size=\"16\">Mutation</text><text class=\"lw-mut-base\" x=\"120\" y=\"180\" fill=\"#ffd479\" font-size=\"20\">A→G</text><text x=\"320\" y=\"140\" fill=\"#7ee2a8\" font-size=\"16\">Crossing over</text><rect class=\"lw-xo-before\" x=\"300\" y=\"160\" width=\"80\" height=\"20\" fill=\"#7cc7ff\"/><rect class=\"lw-xo-after\" x=\"300\" y=\"200\" width=\"80\" height=\"20\" fill=\"#b39dff\"/><text x=\"560\" y=\"140\" fill=\"#b39dff\" font-size=\"16\">Assortment</text><circle class=\"lw-shuffle-a\" cx=\"560\" cy=\"190\" r=\"12\" fill=\"#7cc7ff\"/><circle class=\"lw-shuffle-b\" cx=\"600\" cy=\"190\" r=\"12\" fill=\"#ffd479\"/><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Mechanism sketches · not trait predictions</text></svg>",
+        "questions": [
+          {
+            "q": "Name the three sources of genetic variation in this section.",
+            "hint": "One changes a base, one swaps segments, one shuffles whole chromosomes.",
+            "answer": "Mutation, crossing over, and independent assortment. Mutation changes a base; crossing over exchanges DNA between homologous chromosomes; assortment shuffles chromosomes."
+          },
+          {
+            "q": "What does crossing over physically do?",
+            "hint": "It acts between a specific pair of chromosomes.",
+            "answer": "It exchanges DNA between homologous chromosomes, so each resulting chromosome carries a new combination of the parents' segments."
+          }
+        ]
+      },
+      {
+        "id": "genetics-wild",
+        "heading": "Genetics in the Wild",
+        "body": "Sequencing reads DNA order. Editing aims to change a chosen target.",
+        "visual": "Reading a sequence is different from editing it. Sequencing observes; editing intervenes at a target site.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Reading vs editing\"><title>Reading vs editing</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Reading a sequence is different from editing it</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"120\" y=\"150\" fill=\"#7cc7ff\" font-size=\"18\">Sequence</text><text class=\"lw-seq-cursor\" x=\"120\" y=\"190\" fill=\"#ffd479\" font-size=\"16\">ATCG…</text><text x=\"450\" y=\"150\" fill=\"#7ee2a8\" font-size=\"18\">Edit</text><text class=\"lw-edit-before\" x=\"450\" y=\"190\" fill=\"#9aa6b8\" font-size=\"16\">before</text><text class=\"lw-edit-target\" x=\"520\" y=\"190\" fill=\"#ffd479\" font-size=\"16\">TARGET</text><text class=\"lw-edit-after\" x=\"620\" y=\"190\" fill=\"#9aa6b8\" font-size=\"16\">after</text><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Conceptual comparison</text></svg>",
+        "questions": [
+          {
+            "q": "What is the difference between sequencing and editing DNA?",
+            "hint": "One observes; the other intervenes.",
+            "answer": "Sequencing reads the DNA order — it observes. Editing aims to change a chosen target in the sequence — it intervenes at a target site."
+          },
+          {
+            "q": "Does sequencing a genome change it?",
+            "hint": "Reading versus intervening — which one is sequencing?",
+            "answer": "No. Sequencing only reads the order of bases. Changing a chosen target is editing, a different act."
+          }
+        ]
+      }
+    ]
+  },
+  "quizzes": {
+    "sections": [
+      {
+        "id": "dna-code",
+        "questions": [
+          {
+            "q": "In DNA, the base C pairs with…",
+            "choices": [
+              "A",
+              "T",
+              "G",
+              "C"
+            ],
+            "answer": 2,
+            "explain": "The pairings are A with T and C with G. The two backbones hold these complementary pairs."
+          },
+          {
+            "q": "DNA stores its information in…",
+            "choices": [
+              "The sugar-phosphate backbones",
+              "The order of its base pairs",
+              "The number of chromosomes",
+              "The proteins it touches"
+            ],
+            "answer": 1,
+            "explain": "The body states it directly: DNA stores information in base pairs. The backbones are the holders; the sequence is the message."
+          }
+        ]
+      },
+      {
+        "id": "gene-to-trait",
+        "questions": [
+          {
+            "q": "The central dogma path, as simplified in this course, runs…",
+            "choices": [
+              "Protein → RNA → DNA",
+              "DNA → protein → RNA",
+              "DNA → RNA → protein",
+              "RNA → DNA → protein"
+            ],
+            "answer": 2,
+            "explain": "DNA is transcribed to RNA; RNA is translated to protein. Proteins then help produce traits."
+          },
+          {
+            "q": "Translation produces…",
+            "choices": [
+              "A new DNA strand",
+              "A chain of amino acids",
+              "A message RNA",
+              "A pair of chromosomes"
+            ],
+            "answer": 1,
+            "explain": "In this simplified path, a gene is transcribed into message RNA, then translated into a chain of amino acids — the protein."
+          }
+        ]
+      },
+      {
+        "id": "inheritance",
+        "questions": [
+          {
+            "q": "For an Aa × Aa cross under complete dominance, the phenotype ratio is…",
+            "choices": [
+              "1:2:1",
+              "1:1",
+              "3:1",
+              "9:3:3:1"
+            ],
+            "answer": 2,
+            "explain": "Genotypes run 1 AA : 2 Aa : 1 aa. Under complete dominance AA and Aa share the dominant phenotype, so phenotypes run 3:1."
+          },
+          {
+            "q": "Each offspring in an Aa × Aa cross gets its two alleles…",
+            "choices": [
+              "Both from one parent",
+              "One from each parent",
+              "By copying a sibling",
+              "From the environment"
+            ],
+            "answer": 1,
+            "explain": "Each cell of the Punnett square combines one allele from each parent — that is why four combinations are possible."
+          }
+        ]
+      },
+      {
+        "id": "variation",
+        "questions": [
+          {
+            "q": "A single base in a DNA sequence changes from A to G. That is an example of…",
+            "choices": [
+              "Crossing over",
+              "Independent assortment",
+              "Mutation",
+              "Transcription"
+            ],
+            "answer": 2,
+            "explain": "Mutation changes a base — the diagram's example is exactly A→G. Crossing over exchanges segments between homologous chromosomes, and assortment shuffles chromosomes."
+          },
+          {
+            "q": "Crossing over creates variation by…",
+            "choices": [
+              "Changing individual bases",
+              "Exchanging DNA between homologous chromosomes",
+              "Reading the DNA sequence",
+              "Duplicating the whole genome"
+            ],
+            "answer": 1,
+            "explain": "Crossing over exchanges DNA between homologous chromosomes, producing new combinations along the chromosome — different from mutation, which changes a base."
+          }
+        ]
+      },
+      {
+        "id": "genetics-wild",
+        "questions": [
+          {
+            "q": "A lab reports the full base order of a patient's gene without altering it. The lab performed…",
+            "choices": [
+              "Editing",
+              "Sequencing",
+              "Crossing over",
+              "Translation"
+            ],
+            "answer": 1,
+            "explain": "Sequencing reads DNA order — it observes. Editing is the act that aims to change a chosen target."
+          },
+          {
+            "q": "Editing differs from sequencing because editing…",
+            "choices": [
+              "Reads bases faster",
+              "Works only in plants",
+              "Aims to change a chosen target in the sequence",
+              "Requires no DNA"
+            ],
+            "answer": 2,
+            "explain": "The section contrasts the two directly: sequencing observes; editing intervenes at a target site to change it."
+          }
+        ]
+      }
+    ]
+  },
+  "slides": {
+    "sections": [
+      {
+        "id": "dna-code",
+        "title": "Four letters, two pairings",
+        "bullets": [
+          "DNA stores information in base pairs.",
+          "A pairs with T; C pairs with G.",
+          "Two sugar-phosphate backbones hold the complementary pairs."
+        ],
+        "notes": "Everything in genetics starts as text. Four bases, two strict pairings, and the order along the backbones is the stored information.",
+        "visual": "The two sugar-phosphate backbones hold complementary base pairs: A with T, C with G."
+      },
+      {
+        "id": "gene-to-trait",
+        "title": "DNA → RNA → protein",
+        "bullets": [
+          "Transcription: DNA is copied into RNA.",
+          "Translation: RNA is read to build a chain of amino acids.",
+          "Proteins help produce traits."
+        ],
+        "notes": "The central dogma in one line: the gene is transcribed into a message, the message is translated into a protein, and proteins do the work that shows up as traits.",
+        "visual": "In this simplified path, a gene is transcribed into message RNA, then translated into a chain of amino acids."
+      },
+      {
+        "id": "inheritance",
+        "title": "One cross, two ratios",
+        "bullets": [
+          "Each offspring gets one allele from each parent.",
+          "Aa × Aa genotypes: 1 AA : 2 Aa : 1 aa.",
+          "Complete dominance: phenotypes 3:1."
+        ],
+        "notes": "Count the allele combinations first — 1:2:1 — then let dominance merge AA and Aa into one visible phenotype for the 3:1.",
+        "visual": "Each cell combines one allele from each parent. Genotype ratio 1 AA : 2 Aa : 1 aa."
+      },
+      {
+        "id": "variation",
+        "title": "Three sources of variation",
+        "bullets": [
+          "Mutation changes a base.",
+          "Crossing over exchanges DNA between homologous chromosomes.",
+          "Independent assortment shuffles chromosomes."
+        ],
+        "notes": "Variation is manufactured three ways: edit a letter, swap segments between paired chromosomes, or shuffle which chromosomes travel together.",
+        "visual": "Crossing over exchanges DNA between homologous chromosomes. Mutation changes a base. Assortment shuffles chromosomes."
+      },
+      {
+        "id": "genetics-wild",
+        "title": "Reading is not editing",
+        "bullets": [
+          "Sequencing reads the order of DNA — it observes.",
+          "Editing aims to change a chosen target — it intervenes."
+        ],
+        "notes": "Modern genetics runs on the difference between these two acts: reading a sequence tells you what is written; editing reaches in and changes a chosen target.",
+        "visual": "Reading a sequence is different from editing it. Sequencing observes; editing intervenes at a target site."
+      }
+    ]
+  },
+  "enrichment": {
+    "audioTitle": "Genetics: The Code That Builds You — a conversation",
+    "turns": [
+      {
+        "speaker": "teacher",
+        "line": "Four letters run this whole course. In DNA, what pairs with A, and what pairs with C?"
+      },
+      {
+        "speaker": "student",
+        "line": "A pairs with T, and C pairs with G."
+      },
+      {
+        "speaker": "teacher",
+        "line": "And where is the information — in the sugar-phosphate backbones, or somewhere else?"
+      },
+      {
+        "speaker": "student",
+        "line": "In the order of the base pairs the backbones hold. The backbones are the shelving; the sequence is the text."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Good image. Now the path from gene to trait — name the two steps."
+      },
+      {
+        "speaker": "student",
+        "line": "Transcription makes RNA from DNA, then translation builds a chain of amino acids — a protein — from the RNA. Proteins help produce traits."
+      },
+      {
+        "speaker": "teacher",
+        "line": "The central dogma, simplified. Next: two carriers, Aa × Aa. Predict the ratios."
+      },
+      {
+        "speaker": "student",
+        "line": "Genotypes 1 AA : 2 Aa : 1 aa, and with complete dominance the phenotypes go 3:1."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Where does each allele in those squares come from?"
+      },
+      {
+        "speaker": "student",
+        "line": "One from each parent."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Now variation. A base flips from A to G in one generation. Which mechanism is that, and how do the other two differ?"
+      },
+      {
+        "speaker": "student",
+        "line": "That is mutation. Crossing over swaps DNA between homologous chromosomes, and independent assortment shuffles which chromosomes go together."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Last distinction: a clinic sequences a patient's gene. Has the clinic changed the patient's DNA?"
+      },
+      {
+        "speaker": "student",
+        "line": "No — sequencing reads the order; it observes. Changing a chosen target would be editing."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Reading versus intervening. Hold those apart and the headlines about genetics get much easier to judge."
+      }
+    ],
+    "nodes": [
+      {
+        "id": "root",
+        "parent": null,
+        "label": "Genetics: The Code That Builds You",
+        "note": "DNA stores the code, the central dogma expresses it, inheritance shuffles it, and tools now read and edit it."
+      },
+      {
+        "id": "dna-code",
+        "parent": "root",
+        "label": "DNA: paired letters",
+        "note": "Information lives in base pairs: A with T, C with G, held by two sugar-phosphate backbones."
+      },
+      {
+        "id": "gene-to-trait",
+        "parent": "root",
+        "label": "Central dogma",
+        "note": "DNA is transcribed to RNA; RNA is translated to protein; proteins help produce traits."
+      },
+      {
+        "id": "inheritance",
+        "parent": "root",
+        "label": "Mendel's rules",
+        "note": "One allele from each parent; Aa × Aa gives 1:2:1 genotypes and 3:1 phenotypes under complete dominance."
+      },
+      {
+        "id": "variation",
+        "parent": "root",
+        "label": "Where variation comes from",
+        "note": "Mutation, crossing over, and independent assortment create genetic variation."
+      },
+      {
+        "id": "variation-kinds",
+        "parent": "variation",
+        "label": "Change, swap, shuffle",
+        "note": "Mutation changes a base; crossing over exchanges DNA between homologues; assortment shuffles chromosomes."
+      },
+      {
+        "id": "genetics-wild",
+        "parent": "root",
+        "label": "Reading vs editing",
+        "note": "Sequencing reads DNA order; editing aims to change a chosen target."
+      }
+    ],
+    "mnemonics": []
+  }
+}

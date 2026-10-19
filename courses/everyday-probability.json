@@ -1,1 +1,352 @@
-{"meta":{"title":"Everyday Probability: Chance & Evidence","topic":"Everyday Probability","level":"beginner","estimatedMinutes":25,"tags":["probability","chance","evidence"]},"reading":{"sections":[{"id":"outcomes","heading":"Define the possible outcomes first","body":"Before computing a probability, list the outcomes that count. On a fair six-sided die the sample space is {1,2,3,4,5,6}. Events are subsets of that space.","visual":"On a fair six-sided die, {2, 4, 6} are even and {5, 6} are greater than four. Their intersection contains only 6, so the chance of “even and greater than four” is 1/6.","diagram":"<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Start with the six equally likely outcomes\"><title>Start with the six equally likely outcomes</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Start with the six equally likely outcomes</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><g class=\"lw-step\"><circle cx=\"120\" cy=\"160\" r=\"28\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"120\" y=\"166\" fill=\"#7cc7ff\" font-size=\"22\" text-anchor=\"middle\">1</text></g><g class=\"lw-step\"><circle cx=\"200\" cy=\"160\" r=\"28\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"200\" y=\"166\" fill=\"#7cc7ff\" font-size=\"22\" text-anchor=\"middle\">2</text></g><g class=\"lw-step\"><circle cx=\"280\" cy=\"160\" r=\"28\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"280\" y=\"166\" fill=\"#7cc7ff\" font-size=\"22\" text-anchor=\"middle\">3</text></g><g class=\"lw-step\"><circle cx=\"360\" cy=\"160\" r=\"28\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"360\" y=\"166\" fill=\"#7cc7ff\" font-size=\"22\" text-anchor=\"middle\">4</text></g><g class=\"lw-step\"><circle cx=\"440\" cy=\"160\" r=\"28\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"440\" y=\"166\" fill=\"#7cc7ff\" font-size=\"22\" text-anchor=\"middle\">5</text></g><g class=\"lw-step\"><circle cx=\"520\" cy=\"160\" r=\"28\" fill=\"#172331\" stroke=\"#ffd479\" stroke-width=\"3\"/><text x=\"520\" y=\"166\" fill=\"#ffd479\" font-size=\"22\" text-anchor=\"middle\">6</text></g><text x=\"320\" y=\"250\" fill=\"#9aa6b8\" font-size=\"16\" text-anchor=\"middle\">Even ∩ greater than 4 = {6} → 1/6</text><text x=\"320\" y=\"290\" fill=\"#e8ecf1\" font-size=\"16\" text-anchor=\"middle\">Define the sample space first</text><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Fair die · equally likely faces</text></svg>"},{"id":"combining","heading":"“And” and “or” use different rules","body":"Union adds probabilities and subtracts the overlap. Independent conjunction multiplies.","visual":"The shared part of the two sets must be counted once for “or.”","diagram":"<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Or counts a union. And follows a path.\"><title>Or counts a union. And follows a path.</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Or counts a union. And follows a path.</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><g class=\"lw-step\"><circle cx=\"200\" cy=\"180\" r=\"70\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"3\"/><text x=\"160\" y=\"185\" fill=\"#7cc7ff\" font-size=\"16\">A</text></g><g class=\"lw-step\"><circle cx=\"280\" cy=\"180\" r=\"70\" fill=\"none\" stroke=\"#7ee2a8\" stroke-width=\"3\"/><text x=\"300\" y=\"185\" fill=\"#7ee2a8\" font-size=\"16\">B</text></g><g class=\"lw-step\"><text x=\"240\" y=\"185\" fill=\"#ffd479\" font-size=\"14\" text-anchor=\"middle\">A∩B</text></g><g class=\"lw-step\"><text x=\"520\" y=\"140\" fill=\"#e8ecf1\" font-size=\"17\">P(A or B) =</text><text x=\"520\" y=\"170\" fill=\"#9aa6b8\" font-size=\"15\">P(A)+P(B)−P(A and B)</text><text x=\"520\" y=\"220\" fill=\"#e8ecf1\" font-size=\"17\">Independent and:</text><text x=\"520\" y=\"250\" fill=\"#9aa6b8\" font-size=\"15\">P(A)×P(B)</text></g><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Union vs intersection · independence matters</text></svg>"},{"id":"evidence","heading":"Choose the right denominator","body":"A positive test is not the same as a true positive rate among all items.","visual":"Out of 1,000 parts, 10 are defective.","diagram":"<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Among positive tests, choose the right denominator\"><title>Among positive tests, choose the right denominator</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Among positive tests, choose the right denominator</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><g class=\"lw-step\"><text x=\"80\" y=\"120\" fill=\"#9aa6b8\" font-size=\"16\">1,000 parts · 10 defective</text></g><g class=\"lw-step\"><text x=\"80\" y=\"170\" fill=\"#7ee2a8\" font-size=\"16\">9 true positives · 99 false positives</text></g><g class=\"lw-step\"><text x=\"80\" y=\"220\" fill=\"#ffd479\" font-size=\"16\">108 total positives</text></g><g class=\"lw-step\"><text x=\"80\" y=\"280\" fill=\"#e8ecf1\" font-size=\"20\">9 / 108 ≈ 8.3% truly defective</text></g><rect x=\"480\" y=\"110\" width=\"250\" height=\"180\" rx=\"12\" fill=\"#172331\" stroke=\"#344253\"/><text x=\"500\" y=\"150\" fill=\"#ffd479\" font-size=\"16\">Not 9/10</text><text x=\"500\" y=\"190\" fill=\"#9aa6b8\" font-size=\"14\">Condition on the</text><text x=\"500\" y=\"215\" fill=\"#9aa6b8\" font-size=\"14\">evidence you have</text><text x=\"500\" y=\"255\" fill=\"#7cc7ff\" font-size=\"14\">Denominator = positives</text><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Base rates change the meaning of a positive test</text></svg>"}]},"practice":{"items":[]},"quiz":{"items":[]},"sources":[]}
+{
+  "meta": {
+    "title": "Everyday Probability: Chance & Evidence",
+    "topic": "Everyday Probability",
+    "level": "beginner",
+    "estimatedMinutes": 25,
+    "tags": [
+      "probability",
+      "chance",
+      "evidence"
+    ],
+    "createdAt": "2026-10-08T20:06:50.000Z",
+    "interests": "",
+    "depth": "quick",
+    "model": "Learnway authored starter"
+  },
+  "plan": {
+    "title": "Everyday Probability: Chance & Evidence",
+    "hook": "Most probability mistakes are not arithmetic mistakes — they are setup mistakes: the wrong outcomes counted, the overlap counted twice, or the wrong denominator under the fraction.",
+    "objectives": [
+      "List a sample space and identify events as subsets before computing any probability",
+      "Apply the union rule with its overlap subtraction, and multiply for independent events joined by \"and\"",
+      "Judge a positive test by the share of true positives among all positives, using the base rate"
+    ],
+    "prerequisites": [
+      "None — starts from everyday experience with dice and counts"
+    ],
+    "sections": [
+      {
+        "id": "outcomes",
+        "heading": "Define the possible outcomes first",
+        "points": [
+          "Before computing a probability, list the outcomes that count — the sample space",
+          "On a fair six-sided die the sample space is {1,2,3,4,5,6} and events are subsets of it",
+          "\"Even and greater than four\" is the single outcome {6}, so its probability is 1/6"
+        ]
+      },
+      {
+        "id": "combining",
+        "heading": "“And” and “or” use different rules",
+        "points": [
+          "For \"or\", add the probabilities and subtract the overlap so the shared part is counted once",
+          "For independent events joined by \"and\", multiply the probabilities",
+          "P(A or B) = P(A) + P(B) − P(A and B); independence is what licenses the multiplication"
+        ]
+      },
+      {
+        "id": "evidence",
+        "heading": "Choose the right denominator",
+        "points": [
+          "A positive test is not the same as the true-positive rate among all items",
+          "Of 1,000 parts with 10 defective, the test flags 108 positives: 9 true and 99 false",
+          "So a positive is truly defective only 9/108 ≈ 8.3% of the time — condition on the positives, the evidence you actually have"
+        ]
+      }
+    ]
+  },
+  "reading": {
+    "sections": [
+      {
+        "id": "outcomes",
+        "heading": "Define the possible outcomes first",
+        "body": "Before computing a probability, list the outcomes that count. On a fair six-sided die the sample space is {1,2,3,4,5,6}. Events are subsets of that space.",
+        "visual": "On a fair six-sided die, {2, 4, 6} are even and {5, 6} are greater than four. Their intersection contains only 6, so the chance of “even and greater than four” is 1/6.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Start with the six equally likely outcomes\"><title>Start with the six equally likely outcomes</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Start with the six equally likely outcomes</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><g class=\"lw-step\"><circle cx=\"120\" cy=\"160\" r=\"28\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"120\" y=\"166\" fill=\"#7cc7ff\" font-size=\"22\" text-anchor=\"middle\">1</text></g><g class=\"lw-step\"><circle cx=\"200\" cy=\"160\" r=\"28\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"200\" y=\"166\" fill=\"#7cc7ff\" font-size=\"22\" text-anchor=\"middle\">2</text></g><g class=\"lw-step\"><circle cx=\"280\" cy=\"160\" r=\"28\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"280\" y=\"166\" fill=\"#7cc7ff\" font-size=\"22\" text-anchor=\"middle\">3</text></g><g class=\"lw-step\"><circle cx=\"360\" cy=\"160\" r=\"28\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"360\" y=\"166\" fill=\"#7cc7ff\" font-size=\"22\" text-anchor=\"middle\">4</text></g><g class=\"lw-step\"><circle cx=\"440\" cy=\"160\" r=\"28\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"440\" y=\"166\" fill=\"#7cc7ff\" font-size=\"22\" text-anchor=\"middle\">5</text></g><g class=\"lw-step\"><circle cx=\"520\" cy=\"160\" r=\"28\" fill=\"#172331\" stroke=\"#ffd479\" stroke-width=\"3\"/><text x=\"520\" y=\"166\" fill=\"#ffd479\" font-size=\"22\" text-anchor=\"middle\">6</text></g><text x=\"320\" y=\"250\" fill=\"#9aa6b8\" font-size=\"16\" text-anchor=\"middle\">Even ∩ greater than 4 = {6} → 1/6</text><text x=\"320\" y=\"290\" fill=\"#e8ecf1\" font-size=\"16\" text-anchor=\"middle\">Define the sample space first</text><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Fair die · equally likely faces</text></svg>",
+        "questions": [
+          {
+            "q": "What must you write down before computing any probability in this course?",
+            "hint": "The section heading gives the order of operations.",
+            "answer": "The outcomes that count — the sample space. On a fair six-sided die it is {1,2,3,4,5,6}, and every event is a subset of that space."
+          },
+          {
+            "q": "On a fair die, what is the probability of \"even and greater than four\", and why?",
+            "hint": "List the outcomes that satisfy both descriptions at once.",
+            "answer": "The evens are {2,4,6} and the outcomes greater than four are {5,6}; their intersection is only {6}, so the probability is 1/6."
+          }
+        ]
+      },
+      {
+        "id": "combining",
+        "heading": "“And” and “or” use different rules",
+        "body": "Union adds probabilities and subtracts the overlap. Independent conjunction multiplies.",
+        "visual": "The shared part of the two sets must be counted once for “or.”",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Or counts a union. And follows a path.\"><title>Or counts a union. And follows a path.</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Or counts a union. And follows a path.</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><g class=\"lw-step\"><circle cx=\"200\" cy=\"180\" r=\"70\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"3\"/><text x=\"160\" y=\"185\" fill=\"#7cc7ff\" font-size=\"16\">A</text></g><g class=\"lw-step\"><circle cx=\"280\" cy=\"180\" r=\"70\" fill=\"none\" stroke=\"#7ee2a8\" stroke-width=\"3\"/><text x=\"300\" y=\"185\" fill=\"#7ee2a8\" font-size=\"16\">B</text></g><g class=\"lw-step\"><text x=\"240\" y=\"185\" fill=\"#ffd479\" font-size=\"14\" text-anchor=\"middle\">A∩B</text></g><g class=\"lw-step\"><text x=\"520\" y=\"140\" fill=\"#e8ecf1\" font-size=\"17\">P(A or B) =</text><text x=\"520\" y=\"170\" fill=\"#9aa6b8\" font-size=\"15\">P(A)+P(B)−P(A and B)</text><text x=\"520\" y=\"220\" fill=\"#e8ecf1\" font-size=\"17\">Independent and:</text><text x=\"520\" y=\"250\" fill=\"#9aa6b8\" font-size=\"15\">P(A)×P(B)</text></g><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Union vs intersection · independence matters</text></svg>",
+        "questions": [
+          {
+            "q": "Why does the union rule subtract the overlap?",
+            "hint": "Picture the shared part of the two sets being counted twice.",
+            "answer": "Adding P(A) and P(B) counts the shared part, A∩B, twice. Subtracting P(A and B) makes the shared part count once for \"or\"."
+          },
+          {
+            "q": "When are you allowed to multiply probabilities for an \"and\"?",
+            "hint": "The rule names a condition on how the events relate.",
+            "answer": "When the events are independent. Independent conjunction multiplies: P(A and B) = P(A) × P(B)."
+          }
+        ]
+      },
+      {
+        "id": "evidence",
+        "heading": "Choose the right denominator",
+        "body": "A positive test is not the same as a true positive rate among all items.",
+        "visual": "Out of 1,000 parts, 10 are defective.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Among positive tests, choose the right denominator\"><title>Among positive tests, choose the right denominator</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Among positive tests, choose the right denominator</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><g class=\"lw-step\"><text x=\"80\" y=\"120\" fill=\"#9aa6b8\" font-size=\"16\">1,000 parts · 10 defective</text></g><g class=\"lw-step\"><text x=\"80\" y=\"170\" fill=\"#7ee2a8\" font-size=\"16\">9 true positives · 99 false positives</text></g><g class=\"lw-step\"><text x=\"80\" y=\"220\" fill=\"#ffd479\" font-size=\"16\">108 total positives</text></g><g class=\"lw-step\"><text x=\"80\" y=\"280\" fill=\"#e8ecf1\" font-size=\"20\">9 / 108 ≈ 8.3% truly defective</text></g><rect x=\"480\" y=\"110\" width=\"250\" height=\"180\" rx=\"12\" fill=\"#172331\" stroke=\"#344253\"/><text x=\"500\" y=\"150\" fill=\"#ffd479\" font-size=\"16\">Not 9/10</text><text x=\"500\" y=\"190\" fill=\"#9aa6b8\" font-size=\"14\">Condition on the</text><text x=\"500\" y=\"215\" fill=\"#9aa6b8\" font-size=\"14\">evidence you have</text><text x=\"500\" y=\"255\" fill=\"#7cc7ff\" font-size=\"14\">Denominator = positives</text><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Base rates change the meaning of a positive test</text></svg>",
+        "questions": [
+          {
+            "q": "A test flags 108 parts as positive, and 9 of those are truly defective. What does a positive result actually tell you?",
+            "hint": "Choose the denominator the diagram insists on.",
+            "answer": "That the part is truly defective with probability 9/108 ≈ 8.3%. The denominator is all the positives — the evidence you have — not the 10 defective parts overall."
+          },
+          {
+            "q": "Why is \"9 out of 10 defectives were caught\" the wrong headline for this test?",
+            "hint": "It conditions on being defective; you hold a positive result, not a defective part.",
+            "answer": "Because you never observe \"defective\" directly — you observe a positive test. Among positives, most (99 of 108) are false positives, so the base rate changes the meaning of a positive result."
+          }
+        ]
+      }
+    ]
+  },
+  "quizzes": {
+    "sections": [
+      {
+        "id": "outcomes",
+        "questions": [
+          {
+            "q": "On a fair six-sided die, the probability of rolling \"even and greater than four\" is…",
+            "choices": [
+              "1/2",
+              "1/3",
+              "1/6",
+              "2/6"
+            ],
+            "answer": 2,
+            "explain": "The sample space is {1,2,3,4,5,6}. Even outcomes are {2,4,6}; outcomes greater than four are {5,6}. Their intersection is the single outcome {6}, so the probability is 1/6."
+          },
+          {
+            "q": "In this course, an \"event\" is…",
+            "choices": [
+              "Any single roll of the die",
+              "A subset of the sample space",
+              "The full list of outcomes",
+              "A probability greater than one half"
+            ],
+            "answer": 1,
+            "explain": "Events are subsets of the sample space: \"even\" is the subset {2,4,6} of {1,2,3,4,5,6}. You define the outcomes first, then pick out the subsets that count."
+          }
+        ]
+      },
+      {
+        "id": "combining",
+        "questions": [
+          {
+            "q": "P(A) = 0.5 and P(B) = 0.4, with P(A and B) = 0.2. What is P(A or B)?",
+            "choices": [
+              "0.9",
+              "0.7",
+              "0.2",
+              "1.1"
+            ],
+            "answer": 1,
+            "explain": "Union adds the probabilities and subtracts the overlap: 0.5 + 0.4 − 0.2 = 0.7. Adding without subtracting counts the shared part twice."
+          },
+          {
+            "q": "Two independent events have probabilities 0.5 and 0.2. The probability that both happen is…",
+            "choices": [
+              "0.7",
+              "0.3",
+              "0.1",
+              "0.2"
+            ],
+            "answer": 2,
+            "explain": "Independent conjunction multiplies: 0.5 × 0.2 = 0.1. Adding would be the (overlap-uncorrected) union move, not the \"and\" rule for independent events."
+          }
+        ]
+      },
+      {
+        "id": "evidence",
+        "questions": [
+          {
+            "q": "Of 1,000 parts, 10 are defective. A test returns 108 positives, of which 9 are true positives. A part tests positive. The chance it is actually defective is about…",
+            "choices": [
+              "90%",
+              "8.3%",
+              "0.9%",
+              "10%"
+            ],
+            "answer": 1,
+            "explain": "Condition on the evidence you have: the denominator is the 108 positives, so 9/108 ≈ 8.3%. The tempting 9/10 conditions on defectives, which is not what a positive result shows you."
+          },
+          {
+            "q": "The 99 false positives in this example matter because…",
+            "choices": [
+              "They show the test is useless",
+              "They outnumber true positives among the positives, so a positive is usually false",
+              "They change the number of defective parts",
+              "They make the base rate irrelevant"
+            ],
+            "answer": 1,
+            "explain": "Among the 108 positives, 99 are false and only 9 are true — so a positive result is usually a false alarm. That is the base rate changing the meaning of a positive test."
+          }
+        ]
+      }
+    ]
+  },
+  "slides": {
+    "sections": [
+      {
+        "id": "outcomes",
+        "title": "Define the outcomes first",
+        "bullets": [
+          "The sample space lists every outcome that counts: {1,2,3,4,5,6} for a fair die.",
+          "Events are subsets of the sample space.",
+          "\"Even and greater than four\" is just {6} — probability 1/6."
+        ],
+        "notes": "Every error later in the course comes from skipping this step. Write the outcomes down, mark the subsets, and only then divide counts.",
+        "visual": "On a fair six-sided die, {2, 4, 6} are even and {5, 6} are greater than four. Their intersection contains only 6, so the chance of “even and greater than four” is 1/6."
+      },
+      {
+        "id": "combining",
+        "title": "\"Or\" adds and corrects; \"and\" multiplies",
+        "bullets": [
+          "P(A or B) = P(A) + P(B) − P(A and B).",
+          "The subtraction stops the overlap being counted twice.",
+          "Independent \"and\": P(A) × P(B)."
+        ],
+        "notes": "A union is a merged set: add both sides, then remove the double-counted middle. A conjunction of independent events is a path: multiply along it. The words \"or\" and \"and\" pick different rules.",
+        "visual": "The shared part of the two sets must be counted once for “or.”"
+      },
+      {
+        "id": "evidence",
+        "title": "Condition on the evidence you have",
+        "bullets": [
+          "1,000 parts, 10 defective.",
+          "108 positive tests: 9 true, 99 false.",
+          "A positive means truly defective only 9/108 ≈ 8.3% of the time.",
+          "The denominator is the positives — not the defectives."
+        ],
+        "notes": "A positive test feels like a verdict, but it is evidence, and weak evidence when false positives swamp true ones. Always ask: out of all results like this one, how many are real?",
+        "visual": "Out of 1,000 parts, 10 are defective."
+      }
+    ]
+  },
+  "enrichment": {
+    "audioTitle": "Everyday Probability: Chance & Evidence — a conversation",
+    "turns": [
+      {
+        "speaker": "teacher",
+        "line": "Before any formula: a fair die. What is the sample space, and what is the event \"even and greater than four\"?"
+      },
+      {
+        "speaker": "student",
+        "line": "The sample space is {1,2,3,4,5,6}. Even is {2,4,6}, greater than four is {5,6} — the overlap is just {6}."
+      },
+      {
+        "speaker": "teacher",
+        "line": "So its probability?"
+      },
+      {
+        "speaker": "student",
+        "line": "One outcome out of six: 1/6. The trick was listing outcomes before computing."
+      },
+      {
+        "speaker": "teacher",
+        "line": "That ordering is the course's first rule. Now \"or\": P(A) is 0.5, P(B) is 0.4. Is P(A or B) simply 0.9?"
+      },
+      {
+        "speaker": "student",
+        "line": "Only if they never overlap. Otherwise the shared part is counted twice, so subtract P(A and B)."
+      },
+      {
+        "speaker": "teacher",
+        "line": "And for \"and\"?"
+      },
+      {
+        "speaker": "student",
+        "line": "If the events are independent, multiply. Independence is the condition that licenses it."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Good. Last setup: 1,000 parts, 10 defective. A test produces 108 positives, 9 of them true. A part tests positive — how confident are you that it is defective?"
+      },
+      {
+        "speaker": "student",
+        "line": "The test caught 9 of 10 defectives, so about 90%?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "That is the denominator trap. You are holding a positive, not a defective. Among the 108 positives, how many are real?"
+      },
+      {
+        "speaker": "student",
+        "line": "Nine. So 9 out of 108 — about 8.3%. The other 99 positives are false."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Exactly. Why does the intuitive 90% feel so right?"
+      },
+      {
+        "speaker": "student",
+        "line": "Because it conditions on the defectives, the group I cannot observe. I have to condition on the evidence I actually have — the positives."
+      },
+      {
+        "speaker": "teacher",
+        "line": "And that is the base rate doing its work: rare conditions make even good tests produce mostly false positives."
+      }
+    ],
+    "nodes": [
+      {
+        "id": "root",
+        "parent": null,
+        "label": "Everyday Probability: Chance & Evidence",
+        "note": "Set up the count honestly — the right outcomes, the overlap once, and the denominator you actually observe."
+      },
+      {
+        "id": "outcomes",
+        "parent": "root",
+        "label": "Sample space first",
+        "note": "List the outcomes that count; events are subsets of that space."
+      },
+      {
+        "id": "outcomes-intersection",
+        "parent": "outcomes",
+        "label": "Intersection picks both",
+        "note": "\"Even and greater than four\" on a die is the single outcome {6}, probability 1/6."
+      },
+      {
+        "id": "combining",
+        "parent": "root",
+        "label": "And vs or",
+        "note": "Union adds and subtracts the overlap; independent conjunction multiplies."
+      },
+      {
+        "id": "evidence",
+        "parent": "root",
+        "label": "The right denominator",
+        "note": "Judge evidence against all results like it: 9 true positives among 108 positives is ≈ 8.3%."
+      },
+      {
+        "id": "evidence-base-rate",
+        "parent": "evidence",
+        "label": "Base rates rule positives",
+        "note": "When the condition is rare, false positives can outnumber true ones, changing what a positive means."
+      }
+    ],
+    "mnemonics": []
+  },
+  "sources": [
+    {
+      "title": "Seeing Theory — a visual introduction to probability and statistics (Brown University)",
+      "url": "https://seeing-theory.brown.edu/"
+    }
+  ]
+}
