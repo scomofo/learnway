@@ -1,1 +1,554 @@
-{"meta":{"title":"The 6 Simple Machines","topic":"Simple Machines","level":"highschool","estimatedMinutes":30,"tags":["physics","machines"]},"reading":{"sections":[{"id":"lever","heading":"Lever","body":"A lever trades force and distance about a fulcrum. Ideal mechanical advantage is effort arm over load arm.","visual":"Effort and load move opposite the fulcrum. Scrub to see the 3:1 arm ratio in motion.","diagram":"<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Lever\"><title>Lever</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Lever · effort vs load</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><line class=\"lw-lever-bar\" x1=\"150\" y1=\"220\" x2=\"650\" y2=\"220\" stroke=\"#7cc7ff\" stroke-width=\"6\"/><circle cx=\"400\" cy=\"220\" r=\"10\" fill=\"#ffd479\"/><circle class=\"lw-lever-effort\" cx=\"180\" cy=\"220\" r=\"14\" fill=\"#7ee2a8\"/><circle class=\"lw-lever-load\" cx=\"580\" cy=\"220\" r=\"18\" fill=\"#b39dff\"/><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Ideal · fulcrum fixed</text></svg>"},{"id":"wheel-axle","heading":"Wheel and axle","body":"A larger wheel turns a smaller axle with a force advantage proportional to the radius ratio.","visual":"Wheel and axle rotate together about the same center.","diagram":"<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Wheel and axle\"><title>Wheel and axle</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Wheel and axle</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><circle class=\"lw-rotate\" cx=\"400\" cy=\"210\" r=\"90\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"4\"/><circle class=\"lw-rotate\" cx=\"400\" cy=\"210\" r=\"30\" fill=\"#172331\" stroke=\"#ffd479\" stroke-width=\"4\"/><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Same angular speed · different rim force</text></svg>"},{"id":"pulley","heading":"Pulley","body":"A movable pulley can halve the effort for ideal frictionless rope, at the cost of more rope length.","visual":"Pull the free end; the load rises half as far as the rope you pull in a simple 2:1 setup.","diagram":"<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Pulley\"><title>Pulley</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Pulley · 2:1 ideal</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><circle class=\"lw-pulley-wheel\" cx=\"400\" cy=\"120\" r=\"28\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"4\"/><path class=\"lw-pulley-rope\" d=\"M400 148 L400 260\" stroke=\"#9aa6b8\" stroke-width=\"3\"/><rect class=\"lw-pulley-load\" x=\"375\" y=\"260\" width=\"50\" height=\"40\" fill=\"#b39dff\"/><path class=\"lw-pulley-pull\" d=\"M372 120 L280 200\" stroke=\"#ffd479\" stroke-width=\"3\"/><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Ideal rope · no friction</text></svg>"},{"id":"inclined-plane","heading":"Inclined plane","body":"A gentler ramp reduces required force but increases distance for the same height gain.","visual":"Compare steep and gentle ramps: blocks climb as force arrows show the tradeoff.","diagram":"<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Inclined plane\"><title>Inclined plane</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Gentle vs steep ramp</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><path d=\"M60 300 L280 140 L280 300 Z\" fill=\"#172331\" stroke=\"#7cc7ff\"/><path d=\"M420 300 L720 140 L720 300 Z\" fill=\"#172331\" stroke=\"#7ee2a8\"/><rect class=\"lw-ramp-block-steep\" x=\"70\" y=\"250\" width=\"36\" height=\"24\" fill=\"#ffd479\"/><rect class=\"lw-ramp-block-gentle\" x=\"400\" y=\"265\" width=\"36\" height=\"24\" fill=\"#ffd479\"/><path class=\"lw-ramp-force-steep\" d=\"M100 240 L140 200\" stroke=\"#b39dff\" stroke-width=\"3\"/><path class=\"lw-ramp-force-gentle\" d=\"M430 250 L500 220\" stroke=\"#b39dff\" stroke-width=\"3\"/><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Same height · different force and distance</text></svg>"},{"id":"wedge","heading":"Wedge","body":"A wedge converts an input force into sideways splitting forces along its faces.","visual":"Drive the wedge; side forces push material apart.","diagram":"<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Wedge\"><title>Wedge</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Wedge · split forces</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><path class=\"lw-wedge\" d=\"M400 100 L460 280 L340 280 Z\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"3\"/><path class=\"lw-wedge-force\" d=\"M400 90 L400 60\" stroke=\"#ffd479\" stroke-width=\"3\"/><path class=\"lw-wedge-left\" d=\"M350 200 L300 200\" stroke=\"#7ee2a8\" stroke-width=\"3\"/><path class=\"lw-wedge-right\" d=\"M450 200 L500 200\" stroke=\"#7ee2a8\" stroke-width=\"3\"/><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Input down · outputs sideways</text></svg>"},{"id":"screw","heading":"Screw","body":"A screw is a helical inclined plane. One turn advances the screw by one pitch.","visual":"The thread is a helical ramp. One full turn advances the screw by one pitch while the handle turns a full circle.","diagram":"<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Screw\"><title>Screw</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Screw · helix as ramp</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><rect class=\"lw-screw-body\" x=\"360\" y=\"100\" width=\"80\" height=\"200\" rx=\"8\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"3\"/><path class=\"lw-screw-pitch\" d=\"M360 140 Q400 160 440 140 T440 180 T440 220 T440 260\" fill=\"none\" stroke=\"#ffd479\" stroke-width=\"3\"/><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">One turn · one pitch of advance</text></svg>"}]},"practice":{"items":[]},"quiz":{"items":[]}}
+{
+  "meta": {
+    "title": "Simple Machines: Six Ways to Win at Physics",
+    "topic": "The 6 simple machines (lever, wheel and axle, pulley, inclined plane, wedge, screw)",
+    "level": "highschool",
+    "estimatedMinutes": 30,
+    "tags": [
+      "physics",
+      "machines"
+    ],
+    "createdAt": "2026-10-04T01:55:01.000Z",
+    "interests": "",
+    "depth": "deep"
+  },
+  "plan": {
+    "title": "Simple Machines: Six Ways to Win at Physics",
+    "hook": "Six ancient inventions, one shared bargain: give up distance, gain force. Every machine in this course is that trade wearing a different shape.",
+    "objectives": [
+      "For each of the six simple machines, state what it trades and what it gains",
+      "Compute a lever's ideal mechanical advantage from its arm lengths",
+      "Explain how a movable pulley halves ideal effort and what it costs in rope",
+      "Recognise the inclined plane hiding inside both the wedge and the screw"
+    ],
+    "prerequisites": [
+      "Middle-school ideas of force and distance"
+    ],
+    "sections": [
+      {
+        "id": "lever",
+        "heading": "Lever",
+        "points": [
+          "A lever trades force and distance about a fulcrum",
+          "Ideal mechanical advantage is effort arm over load arm",
+          "Effort and load move on opposite sides of the fixed fulcrum — the diagram shows a 3:1 arm ratio"
+        ]
+      },
+      {
+        "id": "wheel-axle",
+        "heading": "Wheel and axle",
+        "points": [
+          "A larger wheel turns a smaller axle",
+          "The assembly rotates together about the same centre, at the same angular speed",
+          "Force advantage is proportional to the radius ratio — same rotation, different rim force"
+        ]
+      },
+      {
+        "id": "pulley",
+        "heading": "Pulley",
+        "points": [
+          "A movable pulley can halve the effort for ideal frictionless rope",
+          "The cost is rope length: the load rises half as far as the rope you pull",
+          "The simple setup in the diagram is a 2:1 arrangement"
+        ]
+      },
+      {
+        "id": "inclined-plane",
+        "heading": "Inclined plane",
+        "points": [
+          "A gentler ramp reduces the required force",
+          "The trade is distance: the same height gain takes a longer path",
+          "Steep versus gentle ramps reach the same height with different force and distance"
+        ]
+      },
+      {
+        "id": "wedge",
+        "heading": "Wedge",
+        "points": [
+          "A wedge converts an input force into sideways splitting forces",
+          "The force enters along the drive direction and exits sideways along the faces",
+          "Driving the wedge pushes the material apart on both sides"
+        ]
+      },
+      {
+        "id": "screw",
+        "heading": "Screw",
+        "points": [
+          "A screw is a helical inclined plane — a ramp wrapped into a helix",
+          "One full turn advances the screw by exactly one pitch",
+          "The handle sweeps a full circle for that single pitch of advance — the same force-for-distance trade"
+        ]
+      }
+    ]
+  },
+  "reading": {
+    "sections": [
+      {
+        "id": "lever",
+        "heading": "Lever",
+        "body": "A lever trades force and distance about a fulcrum. Ideal mechanical advantage is effort arm over load arm.",
+        "visual": "Effort and load move opposite the fulcrum. Scrub to see the 3:1 arm ratio in motion.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Lever\"><title>Lever</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Lever · effort vs load</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><line class=\"lw-lever-bar\" x1=\"150\" y1=\"220\" x2=\"650\" y2=\"220\" stroke=\"#7cc7ff\" stroke-width=\"6\"/><circle cx=\"400\" cy=\"220\" r=\"10\" fill=\"#ffd479\"/><circle class=\"lw-lever-effort\" cx=\"180\" cy=\"220\" r=\"14\" fill=\"#7ee2a8\"/><circle class=\"lw-lever-load\" cx=\"580\" cy=\"220\" r=\"18\" fill=\"#b39dff\"/><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Ideal · fulcrum fixed</text></svg>",
+        "questions": [
+          {
+            "q": "What does a lever trade, and around what?",
+            "hint": "Two quantities are exchanged, pivoting on a fixed point.",
+            "answer": "A lever trades force and distance about a fulcrum. A longer effort arm means less force needed, paid for with more movement on the effort side."
+          },
+          {
+            "q": "How is a lever's ideal mechanical advantage computed?",
+            "hint": "It is a ratio of the two arms.",
+            "answer": "Effort arm divided by load arm. The diagram's 3:1 arm ratio gives an ideal mechanical advantage of 3."
+          }
+        ]
+      },
+      {
+        "id": "wheel-axle",
+        "heading": "Wheel and axle",
+        "body": "A larger wheel turns a smaller axle with a force advantage proportional to the radius ratio.",
+        "visual": "Wheel and axle rotate together about the same center.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Wheel and axle\"><title>Wheel and axle</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Wheel and axle</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><circle class=\"lw-rotate\" cx=\"400\" cy=\"210\" r=\"90\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"4\"/><circle class=\"lw-rotate\" cx=\"400\" cy=\"210\" r=\"30\" fill=\"#172331\" stroke=\"#ffd479\" stroke-width=\"4\"/><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Same angular speed · different rim force</text></svg>",
+        "questions": [
+          {
+            "q": "Why does turning the big wheel give a force advantage at the axle?",
+            "hint": "Both parts share one rotation but have different radii.",
+            "answer": "The wheel and axle rotate together about the same centre, so they share angular speed, but the larger radius converts the turn into a force advantage proportional to the radius ratio."
+          },
+          {
+            "q": "Do the wheel and axle turn at different speeds?",
+            "hint": "The diagram is explicit about what they share.",
+            "answer": "No — they rotate together at the same angular speed. What differs is the rim force, thanks to the different radii."
+          }
+        ]
+      },
+      {
+        "id": "pulley",
+        "heading": "Pulley",
+        "body": "A movable pulley can halve the effort for ideal frictionless rope, at the cost of more rope length.",
+        "visual": "Pull the free end; the load rises half as far as the rope you pull in a simple 2:1 setup.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Pulley\"><title>Pulley</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Pulley · 2:1 ideal</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><circle class=\"lw-pulley-wheel\" cx=\"400\" cy=\"120\" r=\"28\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"4\"/><path class=\"lw-pulley-rope\" d=\"M400 148 L400 260\" stroke=\"#9aa6b8\" stroke-width=\"3\"/><rect class=\"lw-pulley-load\" x=\"375\" y=\"260\" width=\"50\" height=\"40\" fill=\"#b39dff\"/><path class=\"lw-pulley-pull\" d=\"M372 120 L280 200\" stroke=\"#ffd479\" stroke-width=\"3\"/><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Ideal rope · no friction</text></svg>",
+        "questions": [
+          {
+            "q": "What does a movable pulley give you, and what does it charge?",
+            "hint": "The gain is in effort; the price is measured in rope.",
+            "answer": "It can halve the effort for ideal frictionless rope — and the cost is rope length: in the simple 2:1 setup the load rises half as far as the rope you pull."
+          },
+          {
+            "q": "You pull 2 metres of rope in the diagram's 2:1 setup. How far does the load rise?",
+            "hint": "Apply the ratio in the diagram's caption.",
+            "answer": "One metre. The load rises half as far as the rope you pull in a simple 2:1 setup."
+          }
+        ]
+      },
+      {
+        "id": "inclined-plane",
+        "heading": "Inclined plane",
+        "body": "A gentler ramp reduces required force but increases distance for the same height gain.",
+        "visual": "Compare steep and gentle ramps: blocks climb as force arrows show the tradeoff.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Inclined plane\"><title>Inclined plane</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Gentle vs steep ramp</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><path d=\"M60 300 L280 140 L280 300 Z\" fill=\"#172331\" stroke=\"#7cc7ff\"/><path d=\"M420 300 L720 140 L720 300 Z\" fill=\"#172331\" stroke=\"#7ee2a8\"/><rect class=\"lw-ramp-block-steep\" x=\"70\" y=\"250\" width=\"36\" height=\"24\" fill=\"#ffd479\"/><rect class=\"lw-ramp-block-gentle\" x=\"400\" y=\"265\" width=\"36\" height=\"24\" fill=\"#ffd479\"/><path class=\"lw-ramp-force-steep\" d=\"M100 240 L140 200\" stroke=\"#b39dff\" stroke-width=\"3\"/><path class=\"lw-ramp-force-gentle\" d=\"M430 250 L500 220\" stroke=\"#b39dff\" stroke-width=\"3\"/><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Same height · different force and distance</text></svg>",
+        "questions": [
+          {
+            "q": "What changes when a ramp is made gentler?",
+            "hint": "Force and distance move in opposite directions.",
+            "answer": "The required force drops, but the distance travelled for the same height gain increases. Gentler ramp: less force, more distance."
+          },
+          {
+            "q": "Do a steep ramp and a gentle ramp deliver the same height gain?",
+            "hint": "The diagram compares them on exactly this point.",
+            "answer": "Yes — same height, different force and distance. The plane trades one against the other; it does not change the height."
+          }
+        ]
+      },
+      {
+        "id": "wedge",
+        "heading": "Wedge",
+        "body": "A wedge converts an input force into sideways splitting forces along its faces.",
+        "visual": "Drive the wedge; side forces push material apart.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Wedge\"><title>Wedge</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Wedge · split forces</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><path class=\"lw-wedge\" d=\"M400 100 L460 280 L340 280 Z\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"3\"/><path class=\"lw-wedge-force\" d=\"M400 90 L400 60\" stroke=\"#ffd479\" stroke-width=\"3\"/><path class=\"lw-wedge-left\" d=\"M350 200 L300 200\" stroke=\"#7ee2a8\" stroke-width=\"3\"/><path class=\"lw-wedge-right\" d=\"M450 200 L500 200\" stroke=\"#7ee2a8\" stroke-width=\"3\"/><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Input down · outputs sideways</text></svg>",
+        "questions": [
+          {
+            "q": "What does a wedge do to the force you drive it with?",
+            "hint": "The output points in a different direction than the input.",
+            "answer": "It converts the input force into sideways splitting forces along its faces: input down, outputs sideways, pushing the material apart."
+          },
+          {
+            "q": "Why does driving a wedge split material instead of just denting it?",
+            "hint": "Follow the direction of the forces along the faces.",
+            "answer": "Because the faces redirect the drive force sideways. Both sides of the material are pushed apart along the wedge's faces as it advances."
+          }
+        ]
+      },
+      {
+        "id": "screw",
+        "heading": "Screw",
+        "body": "A screw is a helical inclined plane. One turn advances the screw by one pitch.",
+        "visual": "The thread is a helical ramp. One full turn advances the screw by one pitch while the handle turns a full circle.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Screw\"><title>Screw</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Screw · helix as ramp</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><rect class=\"lw-screw-body\" x=\"360\" y=\"100\" width=\"80\" height=\"200\" rx=\"8\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"3\"/><path class=\"lw-screw-pitch\" d=\"M360 140 Q400 160 440 140 T440 180 T440 220 T440 260\" fill=\"none\" stroke=\"#ffd479\" stroke-width=\"3\"/><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">One turn · one pitch of advance</text></svg>",
+        "questions": [
+          {
+            "q": "What is a screw, geometrically?",
+            "hint": "One of the other machines in this course, wrapped up.",
+            "answer": "A helical inclined plane — a ramp wound into a helix. The thread is a helical ramp."
+          },
+          {
+            "q": "How far does a screw advance in one full turn?",
+            "hint": "The advance has its own name in the text.",
+            "answer": "Exactly one pitch. One turn of the handle — a full circle — advances the screw by a single pitch."
+          }
+        ]
+      }
+    ]
+  },
+  "quizzes": {
+    "sections": [
+      {
+        "id": "lever",
+        "questions": [
+          {
+            "q": "A lever's effort arm is three times its load arm. Its ideal mechanical advantage is…",
+            "choices": [
+              "1/3",
+              "1",
+              "3",
+              "9"
+            ],
+            "answer": 2,
+            "explain": "Ideal mechanical advantage is effort arm over load arm: 3 ÷ 1 = 3, the 3:1 arm ratio shown in the diagram."
+          },
+          {
+            "q": "On a lever, the effort and load sit…",
+            "choices": [
+              "On the same side of the fulcrum",
+              "On opposite sides of the fulcrum",
+              "Both on the fulcrum",
+              "Wherever the rope attaches"
+            ],
+            "answer": 1,
+            "explain": "The visual states it: effort and load move opposite the fulcrum — they act on opposite sides of the fixed pivot."
+          }
+        ]
+      },
+      {
+        "id": "wheel-axle",
+        "questions": [
+          {
+            "q": "The force advantage of a wheel and axle is proportional to…",
+            "choices": [
+              "The number of turns",
+              "The radius ratio",
+              "The axle's length",
+              "The rope tension"
+            ],
+            "answer": 1,
+            "explain": "A larger wheel turns a smaller axle with a force advantage proportional to the radius ratio — same angular speed, different rim force."
+          },
+          {
+            "q": "Wheel and axle rotate…",
+            "choices": [
+              "At different angular speeds",
+              "In opposite directions",
+              "Together about the same centre at the same angular speed",
+              "Only when no load is attached"
+            ],
+            "answer": 2,
+            "explain": "The diagram is explicit: wheel and axle rotate together about the same center, at the same angular speed; the rim forces differ because the radii differ."
+          }
+        ]
+      },
+      {
+        "id": "pulley",
+        "questions": [
+          {
+            "q": "In the simple 2:1 pulley setup, halving the effort costs you…",
+            "choices": [
+              "Half the load height",
+              "Twice the rope pulled for the same rise",
+              "Friction in the rope",
+              "A second pulley"
+            ],
+            "answer": 1,
+            "explain": "The load rises half as far as the rope you pull, so raising it a given height takes twice that length of rope. The halved effort is for ideal frictionless rope."
+          },
+          {
+            "q": "\"Ideal\" in this section's pulley assumes…",
+            "choices": [
+              "A very strong rope",
+              "Frictionless rope",
+              "A fixed pulley only",
+              "Two people pulling"
+            ],
+            "answer": 1,
+            "explain": "The text says the movable pulley can halve the effort for ideal frictionless rope — the idealisation is about friction, and the cost is rope length."
+          }
+        ]
+      },
+      {
+        "id": "inclined-plane",
+        "questions": [
+          {
+            "q": "Making a ramp gentler…",
+            "choices": [
+              "Reduces both force and distance",
+              "Increases force but shortens distance",
+              "Reduces required force but increases distance for the same height",
+              "Changes the height you can reach"
+            ],
+            "answer": 2,
+            "explain": "A gentler ramp reduces required force but increases distance for the same height gain — steep and gentle ramps reach the same height with different force and distance."
+          },
+          {
+            "q": "Two ramps reach the same platform, one steep and one gentle. Compared with the steep one, the gentle ramp needs…",
+            "choices": [
+              "More force over less distance",
+              "Less force over more distance",
+              "The same force over the same distance",
+              "No force at all"
+            ],
+            "answer": 1,
+            "explain": "That is the plane's bargain, stated in the body: gentler slope, smaller force, longer path, same height."
+          }
+        ]
+      },
+      {
+        "id": "wedge",
+        "questions": [
+          {
+            "q": "A wedge converts an input force into…",
+            "choices": [
+              "A lifting force straight up",
+              "Sideways splitting forces along its faces",
+              "Rotational force",
+              "A stored spring force"
+            ],
+            "answer": 1,
+            "explain": "Drive the wedge and the side forces push material apart: input down, outputs sideways along the faces."
+          },
+          {
+            "q": "The wedge is most closely related to which other machine in this course?",
+            "choices": [
+              "The pulley",
+              "The screw only",
+              "The inclined plane — its faces are ramps",
+              "The lever"
+            ],
+            "answer": 2,
+            "explain": "A wedge's faces are inclined planes: the drive force travels along the ramp-like faces and emerges sideways as splitting force."
+          }
+        ]
+      },
+      {
+        "id": "screw",
+        "questions": [
+          {
+            "q": "One full turn of a screw advances it by…",
+            "choices": [
+              "One full thread length of the screw",
+              "Exactly one pitch",
+              "Twice the pitch",
+              "It depends on the force applied"
+            ],
+            "answer": 1,
+            "explain": "The body and diagram agree: one turn advances the screw by one pitch, while the handle turns a full circle."
+          },
+          {
+            "q": "A screw is best described as…",
+            "choices": [
+              "A lever wrapped in a coil",
+              "A helical inclined plane",
+              "A pulley with threads",
+              "A wedge that rotates in place only"
+            ],
+            "answer": 1,
+            "explain": "A screw is a helical inclined plane: the thread is a helical ramp, which is why turning trades a long circular path for a short advance."
+          }
+        ]
+      }
+    ]
+  },
+  "slides": {
+    "sections": [
+      {
+        "id": "lever",
+        "title": "Trade force and distance about a fulcrum",
+        "bullets": [
+          "A lever pivots on a fulcrum, effort on one side, load on the other.",
+          "Ideal mechanical advantage = effort arm ÷ load arm.",
+          "Longer effort arm: less force, more movement."
+        ],
+        "notes": "The lever is the template for every machine here: arrange the geometry so a small force moving far balances a large force moving little. The arm ratio is the whole story.",
+        "visual": "Effort and load move opposite the fulcrum. Scrub to see the 3:1 arm ratio in motion."
+      },
+      {
+        "id": "wheel-axle",
+        "title": "One rotation, two radii",
+        "bullets": [
+          "Wheel and axle rotate together about the same centre.",
+          "Same angular speed, different rim force.",
+          "Force advantage is proportional to the radius ratio."
+        ],
+        "notes": "Bolt a big wheel to a small axle and one turn serves both: your hands travel the wheel's long rim path while the axle winds with multiplied force.",
+        "visual": "Wheel and axle rotate together about the same center."
+      },
+      {
+        "id": "pulley",
+        "title": "Half the effort, twice the rope",
+        "bullets": [
+          "A movable pulley can halve the effort (ideal, frictionless rope).",
+          "The load rises half as far as the rope you pull.",
+          "The diagram's setup is a simple 2:1."
+        ],
+        "notes": "The pulley bills you in rope. Halve the pull and you pay double the pull length — the same bargain as the lever, collected differently.",
+        "visual": "Pull the free end; the load rises half as far as the rope you pull in a simple 2:1 setup."
+      },
+      {
+        "id": "inclined-plane",
+        "title": "Same height, gentler price",
+        "bullets": [
+          "A ramp trades a steep lift for a longer, gentler climb.",
+          "Gentler ramp: less force, more distance.",
+          "Height gain is unchanged."
+        ],
+        "notes": "Nobody lifts a piano straight up a wall when a ramp exists. The plane spreads the same height over more distance so the force at any moment stays manageable.",
+        "visual": "Compare steep and gentle ramps: blocks climb as force arrows show the tradeoff."
+      },
+      {
+        "id": "wedge",
+        "title": "Force in, split sideways",
+        "bullets": [
+          "Drive force enters along the wedge.",
+          "The faces redirect it into sideways splitting forces.",
+          "Material is pushed apart on both sides."
+        ],
+        "notes": "A wedge is two ramps back to back. The blow travels down; the faces translate it into an outward push that tears the material's seam open.",
+        "visual": "Drive the wedge; side forces push material apart."
+      },
+      {
+        "id": "screw",
+        "title": "A ramp wound into a helix",
+        "bullets": [
+          "A screw is a helical inclined plane.",
+          "One full turn advances the screw by one pitch.",
+          "The handle sweeps a full circle for that single pitch of advance."
+        ],
+        "notes": "Unwrap a screw's thread and you find the inclined plane again, coiled. Turning trades a long circular sweep for a tiny, forceful advance — one pitch per turn.",
+        "visual": "The thread is a helical ramp. One full turn advances the screw by one pitch while the handle turns a full circle."
+      }
+    ]
+  },
+  "enrichment": {
+    "audioTitle": "Simple Machines: Six Ways to Win at Physics — a conversation",
+    "turns": [
+      {
+        "speaker": "teacher",
+        "line": "Six machines, one bargain. Start with the lever: what is being traded, and around what point?"
+      },
+      {
+        "speaker": "student",
+        "line": "Force and distance, traded about the fulcrum."
+      },
+      {
+        "speaker": "teacher",
+        "line": "And the ideal mechanical advantage if the effort arm is three times the load arm?"
+      },
+      {
+        "speaker": "student",
+        "line": "Effort arm over load arm — three."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Good. Wheel and axle: the wheel turns the axle. Do they spin at different speeds?"
+      },
+      {
+        "speaker": "student",
+        "line": "No — together, same centre, same angular speed. The force advantage comes from the radius ratio: different rim force."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Pulley next. A movable pulley halves your effort. What is the catch?"
+      },
+      {
+        "speaker": "student",
+        "line": "Rope. The load rises half as far as the rope pulled, so you haul twice the length — and that is for ideal frictionless rope."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Inclined plane: two ramps to the same platform, one steep, one gentle. Compare them."
+      },
+      {
+        "speaker": "student",
+        "line": "Same height either way. The gentle one needs less force but over more distance."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Now the wedge — where does the force come out?"
+      },
+      {
+        "speaker": "student",
+        "line": "Sideways. You drive it down and its faces push the material apart."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Last one. What is a screw, really?"
+      },
+      {
+        "speaker": "student",
+        "line": "An inclined plane wrapped into a helix. One full turn advances it by exactly one pitch."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Which makes all six the same trade in six costumes: distance surrendered, force gained. If you can say what each one charges, you understand all of them."
+      }
+    ],
+    "nodes": [
+      {
+        "id": "root",
+        "parent": null,
+        "label": "Simple Machines: Six Ways to Win at Physics",
+        "note": "Six machines, one bargain: surrender distance, gain force."
+      },
+      {
+        "id": "lever",
+        "parent": "root",
+        "label": "Lever",
+        "note": "Trades force and distance about a fulcrum; ideal advantage is effort arm over load arm."
+      },
+      {
+        "id": "wheel-axle",
+        "parent": "root",
+        "label": "Wheel and axle",
+        "note": "One rotation, two radii: force advantage proportional to the radius ratio."
+      },
+      {
+        "id": "pulley",
+        "parent": "root",
+        "label": "Pulley",
+        "note": "A movable pulley can halve ideal effort; the load rises half as far as the rope pulled."
+      },
+      {
+        "id": "inclined-plane",
+        "parent": "root",
+        "label": "Inclined plane",
+        "note": "A gentler ramp cuts the force and lengthens the path for the same height."
+      },
+      {
+        "id": "wedge",
+        "parent": "root",
+        "label": "Wedge",
+        "note": "Converts a drive force into sideways splitting forces along its faces."
+      },
+      {
+        "id": "screw",
+        "parent": "root",
+        "label": "Screw",
+        "note": "A helical inclined plane: one turn advances one pitch."
+      },
+      {
+        "id": "wedge-plane",
+        "parent": "wedge",
+        "label": "Faces are ramps",
+        "note": "The wedge and screw are the inclined plane in disguise — faces and thread are both ramps."
+      }
+    ],
+    "mnemonics": []
+  }
+}

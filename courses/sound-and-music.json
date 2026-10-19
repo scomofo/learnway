@@ -1,1 +1,359 @@
-{"meta":{"title":"Sound & Music: Waves, Pitch & Resonance","topic":"Sound & Music","level":"beginner","estimatedMinutes":25,"tags":["sound","music","waves"]},"reading":{"sections":[{"id":"waves","heading":"The pattern travels; air oscillates locally","body":"Ordinary sound in air is a longitudinal pressure wave. Frequency times wavelength equals wave speed.","visual":"The speaker moves back and forth. Air particles oscillate around their own positions. Follow one particle: it does not travel across the diagram.","diagram":"<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"The wave travels. The air stays nearby.\"><title>The wave travels. The air stays nearby.</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">The wave travels. The air stays nearby.</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><g class=\"lw-air lw-air-0\"><circle cx=\"200\" cy=\"200\" r=\"5\" fill=\"#7cc7ff\"/></g><g class=\"lw-air lw-air-1\"><circle cx=\"260\" cy=\"200\" r=\"5\" fill=\"#7cc7ff\"/></g><g class=\"lw-air lw-air-2\"><circle cx=\"320\" cy=\"200\" r=\"5\" fill=\"#7cc7ff\"/></g><g class=\"lw-air lw-air-3\"><circle cx=\"380\" cy=\"200\" r=\"5\" fill=\"#ffd479\"/></g><g class=\"lw-air lw-air-4\"><circle cx=\"440\" cy=\"200\" r=\"5\" fill=\"#7cc7ff\"/></g><g class=\"lw-air lw-air-5\"><circle cx=\"500\" cy=\"200\" r=\"5\" fill=\"#7cc7ff\"/></g><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Longitudinal wave · displacements exaggerated</text></svg>"},{"id":"timbre","heading":"Three different questions about a note","body":"Pitch tracks fundamental frequency. Loudness tracks amplitude. Timbre tracks spectrum shape and envelope.","visual":"Pitch, amplitude and timbre answer different questions about the same note. Harmonic bars show spectral shape.","diagram":"<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Three different questions about a note\"><title>Three different questions about a note</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Three different questions about a note</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"80\" y=\"100\" fill=\"#9aa6b8\" font-size=\"16\">Harmonic spectrum</text><rect class=\"lw-bar\" x=\"100\" y=\"140\" width=\"36\" height=\"160\" fill=\"#7cc7ff\" rx=\"4\"/><rect class=\"lw-bar\" x=\"160\" y=\"180\" width=\"36\" height=\"120\" fill=\"#7ee2a8\" rx=\"4\"/><rect class=\"lw-bar\" x=\"220\" y=\"200\" width=\"36\" height=\"100\" fill=\"#ffd479\" rx=\"4\"/><rect class=\"lw-bar\" x=\"280\" y=\"230\" width=\"36\" height=\"70\" fill=\"#b39dff\" rx=\"4\"/><rect class=\"lw-bar\" x=\"340\" y=\"250\" width=\"36\" height=\"50\" fill=\"#7cc7ff\" rx=\"4\"/><g class=\"lw-step\"><text x=\"500\" y=\"150\" fill=\"#7cc7ff\" font-size=\"18\">Pitch → fundamental</text></g><g class=\"lw-step\"><text x=\"500\" y=\"200\" fill=\"#7ee2a8\" font-size=\"18\">Loudness → amplitude</text></g><g class=\"lw-step\"><text x=\"500\" y=\"250\" fill=\"#ffd479\" font-size=\"18\">Timbre → spectrum shape</text></g><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Same pitch can still sound different</text></svg>"},{"id":"resonance","heading":"Boundaries select a standing pattern","body":"For a string fixed at both ends, ends are nodes. Fundamental frequency is wave speed over twice the length.","visual":"Nodes stay still; antinodes move most. Scrub through the standing-wave cycle.","diagram":"<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Nodes stay still; antinodes move most\"><title>Nodes stay still; antinodes move most</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Nodes stay still; antinodes move most</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><path class=\"lw-string lw-string-1\" d=\"M100 161 Q250 100 400 161 T700 161\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"3\"/><path class=\"lw-string lw-string-2\" d=\"M100 257 Q250 200 400 257 T700 257\" fill=\"none\" stroke=\"#7ee2a8\" stroke-width=\"3\"/><circle cx=\"100\" cy=\"161\" r=\"5\" fill=\"#ffd479\"/><circle cx=\"700\" cy=\"161\" r=\"5\" fill=\"#ffd479\"/><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Ideal fixed-end string · amber = nodes</text></svg>"}]},"practice":{"items":[]},"quiz":{"items":[]}}
+{
+  "meta": {
+    "title": "Sound & Music: Waves, Pitch & Resonance",
+    "topic": "Sound & Music",
+    "level": "beginner",
+    "estimatedMinutes": 25,
+    "tags": [
+      "sound",
+      "music",
+      "waves"
+    ],
+    "createdAt": "2026-10-08T20:06:50.000Z",
+    "interests": "",
+    "depth": "quick",
+    "model": "Learnway authored starter"
+  },
+  "plan": {
+    "title": "Sound & Music: Waves, Pitch & Resonance",
+    "hook": "A note on a piano is three separate facts wearing one name: how high it is, how loud it is, and why it sounds like a piano at all. This course separates them — and shows why the air carrying the note never actually goes anywhere.",
+    "objectives": [
+      "Explain how a longitudinal pressure wave travels while air particles only oscillate in place, using frequency × wavelength = wave speed",
+      "Separate pitch, loudness, and timbre by what each one tracks: fundamental frequency, amplitude, and spectrum shape with envelope",
+      "Describe a standing wave on a string fixed at both ends — nodes at the ends — and give the fundamental frequency as wave speed over twice the length"
+    ],
+    "prerequisites": [
+      "None — starts from everyday listening"
+    ],
+    "sections": [
+      {
+        "id": "waves",
+        "heading": "The pattern travels; air oscillates locally",
+        "points": [
+          "Ordinary sound in air is a longitudinal pressure wave",
+          "Air particles oscillate around their own positions; the pattern travels, the air stays nearby",
+          "Frequency times wavelength equals wave speed"
+        ]
+      },
+      {
+        "id": "timbre",
+        "heading": "Three different questions about a note",
+        "points": [
+          "Pitch tracks fundamental frequency; loudness tracks amplitude",
+          "Timbre tracks spectrum shape and envelope",
+          "The same pitch can still sound different — three questions about a note have three different answers"
+        ]
+      },
+      {
+        "id": "resonance",
+        "heading": "Boundaries select a standing pattern",
+        "points": [
+          "For a string fixed at both ends, the ends are nodes",
+          "Nodes stay still; antinodes move most",
+          "Fundamental frequency is wave speed over twice the length"
+        ]
+      }
+    ]
+  },
+  "reading": {
+    "sections": [
+      {
+        "id": "waves",
+        "heading": "The pattern travels; air oscillates locally",
+        "body": "Ordinary sound in air is a longitudinal pressure wave. Frequency times wavelength equals wave speed.",
+        "visual": "The speaker moves back and forth. Air particles oscillate around their own positions. Follow one particle: it does not travel across the diagram.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"The wave travels. The air stays nearby.\"><title>The wave travels. The air stays nearby.</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">The wave travels. The air stays nearby.</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><g class=\"lw-air lw-air-0\"><circle cx=\"200\" cy=\"200\" r=\"5\" fill=\"#7cc7ff\"/></g><g class=\"lw-air lw-air-1\"><circle cx=\"260\" cy=\"200\" r=\"5\" fill=\"#7cc7ff\"/></g><g class=\"lw-air lw-air-2\"><circle cx=\"320\" cy=\"200\" r=\"5\" fill=\"#7cc7ff\"/></g><g class=\"lw-air lw-air-3\"><circle cx=\"380\" cy=\"200\" r=\"5\" fill=\"#ffd479\"/></g><g class=\"lw-air lw-air-4\"><circle cx=\"440\" cy=\"200\" r=\"5\" fill=\"#7cc7ff\"/></g><g class=\"lw-air lw-air-5\"><circle cx=\"500\" cy=\"200\" r=\"5\" fill=\"#7cc7ff\"/></g><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Longitudinal wave · displacements exaggerated</text></svg>",
+        "questions": [
+          {
+            "q": "A speaker plays a steady tone across the room. Does the air next to the speaker end up next to you?",
+            "hint": "Follow one particle, as the visual suggests.",
+            "answer": "No. Air particles oscillate around their own positions; the pattern travels, but the air itself stays nearby. Sound in air is a longitudinal pressure wave."
+          },
+          {
+            "q": "How are frequency, wavelength, and wave speed related?",
+            "hint": "The body states it as a single multiplication.",
+            "answer": "Frequency times wavelength equals wave speed. Double the frequency at the same speed and the wavelength halves."
+          }
+        ]
+      },
+      {
+        "id": "timbre",
+        "heading": "Three different questions about a note",
+        "body": "Pitch tracks fundamental frequency. Loudness tracks amplitude. Timbre tracks spectrum shape and envelope.",
+        "visual": "Pitch, amplitude and timbre answer different questions about the same note. Harmonic bars show spectral shape.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Three different questions about a note\"><title>Three different questions about a note</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Three different questions about a note</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"80\" y=\"100\" fill=\"#9aa6b8\" font-size=\"16\">Harmonic spectrum</text><rect class=\"lw-bar\" x=\"100\" y=\"140\" width=\"36\" height=\"160\" fill=\"#7cc7ff\" rx=\"4\"/><rect class=\"lw-bar\" x=\"160\" y=\"180\" width=\"36\" height=\"120\" fill=\"#7ee2a8\" rx=\"4\"/><rect class=\"lw-bar\" x=\"220\" y=\"200\" width=\"36\" height=\"100\" fill=\"#ffd479\" rx=\"4\"/><rect class=\"lw-bar\" x=\"280\" y=\"230\" width=\"36\" height=\"70\" fill=\"#b39dff\" rx=\"4\"/><rect class=\"lw-bar\" x=\"340\" y=\"250\" width=\"36\" height=\"50\" fill=\"#7cc7ff\" rx=\"4\"/><g class=\"lw-step\"><text x=\"500\" y=\"150\" fill=\"#7cc7ff\" font-size=\"18\">Pitch → fundamental</text></g><g class=\"lw-step\"><text x=\"500\" y=\"200\" fill=\"#7ee2a8\" font-size=\"18\">Loudness → amplitude</text></g><g class=\"lw-step\"><text x=\"500\" y=\"250\" fill=\"#ffd479\" font-size=\"18\">Timbre → spectrum shape</text></g><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Same pitch can still sound different</text></svg>",
+        "questions": [
+          {
+            "q": "Two instruments play the same note at the same volume, yet sound different. Which property explains it?",
+            "hint": "Run through the three questions: pitch, loudness, and...?",
+            "answer": "Timbre. Pitch tracks fundamental frequency and loudness tracks amplitude — both are matched here — while timbre tracks spectrum shape and envelope, which differ between instruments."
+          },
+          {
+            "q": "What does loudness track, if not frequency?",
+            "hint": "The diagram assigns one quantity to each of the three questions.",
+            "answer": "Amplitude. Pitch tracks fundamental frequency, loudness tracks amplitude, and timbre tracks spectrum shape and envelope."
+          }
+        ]
+      },
+      {
+        "id": "resonance",
+        "heading": "Boundaries select a standing pattern",
+        "body": "For a string fixed at both ends, ends are nodes. Fundamental frequency is wave speed over twice the length.",
+        "visual": "Nodes stay still; antinodes move most. Scrub through the standing-wave cycle.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Nodes stay still; antinodes move most\"><title>Nodes stay still; antinodes move most</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Nodes stay still; antinodes move most</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><path class=\"lw-string lw-string-1\" d=\"M100 161 Q250 100 400 161 T700 161\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"3\"/><path class=\"lw-string lw-string-2\" d=\"M100 257 Q250 200 400 257 T700 257\" fill=\"none\" stroke=\"#7ee2a8\" stroke-width=\"3\"/><circle cx=\"100\" cy=\"161\" r=\"5\" fill=\"#ffd479\"/><circle cx=\"700\" cy=\"161\" r=\"5\" fill=\"#ffd479\"/><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Ideal fixed-end string · amber = nodes</text></svg>",
+        "questions": [
+          {
+            "q": "On a string fixed at both ends, what happens at the ends themselves?",
+            "hint": "The ends have a special name in the standing pattern.",
+            "answer": "They are nodes: points that stay still. Between them, antinodes are where the string moves most."
+          },
+          {
+            "q": "What sets the fundamental frequency of a fixed-end string?",
+            "hint": "It is a ratio of wave speed to a length, from the body.",
+            "answer": "The fundamental frequency is wave speed over twice the length: f = v / 2L. A longer string means a lower fundamental."
+          }
+        ]
+      }
+    ]
+  },
+  "quizzes": {
+    "sections": [
+      {
+        "id": "waves",
+        "questions": [
+          {
+            "q": "In a longitudinal sound wave, an individual air particle…",
+            "choices": [
+              "Travels with the wave from speaker to listener",
+              "Oscillates around its own position while the pattern travels",
+              "Moves only when the sound is loud",
+              "Stays perfectly still — only pressure moves"
+            ],
+            "answer": 1,
+            "explain": "The visual follows one particle: it does not travel across the diagram. Air oscillates locally; what crosses the room is the pattern of the longitudinal pressure wave."
+          },
+          {
+            "q": "A wave has frequency 100 Hz and wavelength 3.4 m. Its speed is…",
+            "choices": [
+              "29.4 m/s",
+              "340 m/s",
+              "103.4 m/s",
+              "3,400 m/s"
+            ],
+            "answer": 1,
+            "explain": "Frequency times wavelength equals wave speed: 100 × 3.4 = 340 m/s."
+          }
+        ]
+      },
+      {
+        "id": "timbre",
+        "questions": [
+          {
+            "q": "Pitch, loudness, and timbre track, in order…",
+            "choices": [
+              "Amplitude, fundamental frequency, spectrum shape",
+              "Spectrum shape, amplitude, fundamental frequency",
+              "Fundamental frequency, amplitude, spectrum shape and envelope",
+              "Envelope, amplitude, fundamental frequency"
+            ],
+            "answer": 2,
+            "explain": "The diagram assigns one quantity to each question: pitch → fundamental frequency, loudness → amplitude, timbre → spectrum shape (and envelope)."
+          },
+          {
+            "q": "The same pitch can still sound different because…",
+            "choices": [
+              "Pitch is unrelated to frequency",
+              "Timbre depends on spectrum shape and envelope, which vary by source",
+              "Loudness changes the pitch",
+              "Each note has a unique wavelength"
+            ],
+            "answer": 1,
+            "explain": "Pitch only fixes the fundamental frequency. Two sources can share it while their harmonic spectrum and envelope — timbre — differ, so the notes sound different."
+          }
+        ]
+      },
+      {
+        "id": "resonance",
+        "questions": [
+          {
+            "q": "For a string fixed at both ends, the ends are…",
+            "choices": [
+              "Antinodes, where motion is greatest",
+              "Nodes, which stay still",
+              "Free to move like the middle",
+              "Where the wave reflects silently without a pattern"
+            ],
+            "answer": 1,
+            "explain": "Boundaries select the standing pattern: the fixed ends are nodes that stay still, and antinodes between them move most."
+          },
+          {
+            "q": "A string sounds its fundamental at 110 Hz. If the wave speed on the string stays the same but the string is made twice as long, the new fundamental is…",
+            "choices": [
+              "220 Hz",
+              "110 Hz",
+              "55 Hz",
+              "440 Hz"
+            ],
+            "answer": 2,
+            "explain": "Fundamental frequency is wave speed over twice the length, f = v / 2L. Doubling the length halves the frequency: 110 / 2 = 55 Hz."
+          }
+        ]
+      }
+    ]
+  },
+  "slides": {
+    "sections": [
+      {
+        "id": "waves",
+        "title": "The wave travels; the air stays",
+        "bullets": [
+          "Sound in air is a longitudinal pressure wave.",
+          "Air particles oscillate around their own positions.",
+          "The pattern crosses the room; the air does not.",
+          "Frequency × wavelength = wave speed."
+        ],
+        "notes": "Follow one air particle and the illusion breaks: it jiggles in place while the disturbance hands itself along. What reaches the listener is a pattern, not a parcel of air.",
+        "visual": "The speaker moves back and forth. Air particles oscillate around their own positions. Follow one particle: it does not travel across the diagram."
+      },
+      {
+        "id": "timbre",
+        "title": "Three questions about one note",
+        "bullets": [
+          "Pitch → fundamental frequency.",
+          "Loudness → amplitude.",
+          "Timbre → spectrum shape and envelope.",
+          "Same pitch can still sound different."
+        ],
+        "notes": "One note, three independent facts. Keep the questions separate and the vocabulary stops tangling: frequency questions, amplitude questions, and spectrum questions have different answers.",
+        "visual": "Pitch, amplitude and timbre answer different questions about the same note. Harmonic bars show spectral shape."
+      },
+      {
+        "id": "resonance",
+        "title": "Boundaries pick the pattern",
+        "bullets": [
+          "A string fixed at both ends has nodes at the ends.",
+          "Nodes stay still; antinodes move most.",
+          "Fundamental frequency = wave speed / (2 × length)."
+        ],
+        "notes": "Pin both ends and only certain patterns fit. The simplest — one hump between two still ends — is the fundamental, and its frequency falls straight out of the wave speed and the length.",
+        "visual": "Nodes stay still; antinodes move most. Scrub through the standing-wave cycle."
+      }
+    ]
+  },
+  "enrichment": {
+    "audioTitle": "Sound & Music: Waves, Pitch & Resonance — a conversation",
+    "turns": [
+      {
+        "speaker": "teacher",
+        "line": "A tone plays across the room. A speck of dust hangs in the air near the speaker. By the time the sound reaches you, where is the speck?"
+      },
+      {
+        "speaker": "student",
+        "line": "Carried across with the sound?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "That is the picture to unlearn. Air particles oscillate around their own positions — the speck jiggles in place. What crosses the room is the pattern of a longitudinal pressure wave."
+      },
+      {
+        "speaker": "student",
+        "line": "So frequency times wavelength equals the speed of that pattern."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Exactly. Now take one note from two instruments, same pitch, same volume. Why do they sound different?"
+      },
+      {
+        "speaker": "student",
+        "line": "Different... pitch quality? They have the same pitch, so something else."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Run the three questions. Pitch tracks what?"
+      },
+      {
+        "speaker": "student",
+        "line": "Fundamental frequency. Loudness tracks amplitude. So the difference must be timbre — spectrum shape and envelope."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Right — the harmonic bars differ even when the fundamental matches. Last idea: a string fixed at both ends. What is special about the ends?"
+      },
+      {
+        "speaker": "student",
+        "line": "They cannot move — they are nodes. The middle moves most at the antinodes."
+      },
+      {
+        "speaker": "teacher",
+        "line": "And the fundamental frequency of that string?"
+      },
+      {
+        "speaker": "student",
+        "line": "Wave speed over twice the length. Longer string, lower note."
+      },
+      {
+        "speaker": "student",
+        "line": "Then halving the string's length should double the fundamental, from that same formula."
+      },
+      {
+        "speaker": "teacher",
+        "line": "It follows directly: f = v / 2L, so half the length at the same wave speed gives twice the frequency. That is why the short strings are the high ones."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Which ties the course shut: waves carry patterns, notes answer three separate questions, and boundaries choose which patterns may stand."
+      }
+    ],
+    "nodes": [
+      {
+        "id": "root",
+        "parent": null,
+        "label": "Sound & Music: Waves, Pitch & Resonance",
+        "note": "Sound is a travelling pattern; a note is three separate facts; boundaries choose the standing patterns."
+      },
+      {
+        "id": "waves",
+        "parent": "root",
+        "label": "Waves travel, air oscillates",
+        "note": "Ordinary sound in air is a longitudinal pressure wave; particles stay near their own positions."
+      },
+      {
+        "id": "waves-speed",
+        "parent": "waves",
+        "label": "f × λ = wave speed",
+        "note": "Frequency times wavelength equals wave speed."
+      },
+      {
+        "id": "timbre",
+        "parent": "root",
+        "label": "Three questions about a note",
+        "note": "Pitch, loudness, and timbre track different quantities."
+      },
+      {
+        "id": "timbre-map",
+        "parent": "timbre",
+        "label": "Pitch→frequency, loudness→amplitude, timbre→spectrum",
+        "note": "Fundamental frequency, amplitude, and spectrum shape with envelope — so the same pitch can sound different."
+      },
+      {
+        "id": "resonance",
+        "parent": "root",
+        "label": "Standing waves on a string",
+        "note": "A string fixed at both ends has nodes at the ends and antinodes between."
+      },
+      {
+        "id": "resonance-fundamental",
+        "parent": "resonance",
+        "label": "Fundamental = v / 2L",
+        "note": "The fundamental frequency is wave speed over twice the length."
+      }
+    ],
+    "mnemonics": []
+  },
+  "sources": [
+    {
+      "title": "OpenStax — University Physics Volume 1 (waves and sound)",
+      "url": "https://openstax.org/details/books/university-physics-volume-1"
+    }
+  ]
+}

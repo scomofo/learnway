@@ -1,1 +1,362 @@
-{"meta":{"title":"AP Biology: Cells, Energy & Inheritance","topic":"AP Biology","level":"advanced","estimatedMinutes":25,"tags":["biology","cells","genetics"]},"reading":{"sections":[{"id":"membranes","heading":"A boundary that does useful work","body":"A cell membrane is selectively permeable. Osmosis is water movement across a selectively permeable membrane. With equal initial pressure, water tends to move toward the side with more solute that cannot cross.","visual":"More water crosses toward the side with more trapped solute. Individual water molecules move both ways; the larger arrow shows net movement before pressure balances it.","diagram":"<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Osmosis: water crosses; solutes stay\"><title>Osmosis: water crosses; solutes stay</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Osmosis: water crosses; solutes stay</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><rect x=\"40\" y=\"78\" width=\"340\" height=\"240\" rx=\"12\" fill=\"#172331\" stroke=\"#344253\"/><text x=\"58\" y=\"107\" fill=\"#7cc7ff\" font-size=\"18\">Fewer trapped solutes</text><rect x=\"420\" y=\"78\" width=\"340\" height=\"240\" rx=\"12\" fill=\"#172331\" stroke=\"#344253\"/><text x=\"438\" y=\"107\" fill=\"#b39dff\" font-size=\"18\">More trapped solutes</text><path d=\"M325 193 L476 193\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"3\" class=\"lw-flow\"/><text x=\"400\" y=\"337\" fill=\"#ffd479\" font-size=\"16\" text-anchor=\"middle\">Selectively permeable membrane</text><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Schematic • not to scale</text></svg>"},{"id":"enzymes","heading":"Lower the barrier, keep the destination","body":"An enzyme supplies a pathway with a lower activation barrier, increasing reaction rate. Catalysis does not change overall free-energy difference or equilibrium.","visual":"The enzyme provides a route with a lower activation-energy barrier. Reactant and product energies stay the same.","diagram":"<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"A lower activation barrier\"><title>A lower activation barrier</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">A lower activation barrier</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><path d=\"M100 260 C205 260 205 92 355 92 S505 285 725 285\" fill=\"none\" stroke=\"#b39dff\" stroke-width=\"4\"/><path d=\"M100 260 C225 260 230 185 355 185 S500 285 725 285\" fill=\"none\" stroke=\"#7ee2a8\" stroke-width=\"4\"/><circle cx=\"100\" cy=\"260\" r=\"7\" fill=\"#b39dff\" class=\"lw-enzyme-particle-uncat\"/><circle cx=\"100\" cy=\"260\" r=\"7\" fill=\"#7ee2a8\" class=\"lw-enzyme-particle-cat\"/><text x=\"362\" y=\"80\" fill=\"#b39dff\" font-size=\"17\">Without enzyme</text><text x=\"365\" y=\"171\" fill=\"#7ee2a8\" font-size=\"17\">With enzyme</text><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Schematic • not to scale</text></svg>"},{"id":"inheritance","heading":"Count alleles before predicting traits","body":"For an Aa × Aa cross, the four equally likely combinations are AA, Aa, aA and aa. With complete dominance, AA and Aa share the dominant phenotype, producing a 3:1 phenotype ratio.","visual":"Each cell combines one allele from each parent. The genotype ratio is 1 AA : 2 Aa : 1 aa. With complete dominance, three of the four outcomes have the dominant phenotype.","diagram":"<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Aa × Aa: possible outcomes, not a quota\"><title>Aa × Aa: possible outcomes, not a quota</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Aa × Aa: possible outcomes, not a quota</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text class=\"lw-step\" x=\"278\" y=\"125\" fill=\"#7cc7ff\" font-size=\"22\" text-anchor=\"middle\">A</text><text class=\"lw-step\" x=\"393\" y=\"125\" fill=\"#7cc7ff\" font-size=\"22\" text-anchor=\"middle\">a</text><text class=\"lw-step\" x=\"196\" y=\"190\" fill=\"#7cc7ff\" font-size=\"22\" text-anchor=\"middle\">A</text><text class=\"lw-step\" x=\"196\" y=\"273\" fill=\"#7cc7ff\" font-size=\"22\" text-anchor=\"middle\">a</text><rect class=\"lw-punnett-cell lw-step\" x=\"220\" y=\"139\" width=\"115\" height=\"83\" fill=\"#172331\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><text x=\"277\" y=\"190\" fill=\"#7ee2a8\" font-size=\"28\" text-anchor=\"middle\">AA</text><rect class=\"lw-punnett-cell lw-step\" x=\"335\" y=\"139\" width=\"115\" height=\"83\" fill=\"#172331\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><text x=\"392\" y=\"190\" fill=\"#7ee2a8\" font-size=\"28\" text-anchor=\"middle\">Aa</text><rect class=\"lw-punnett-cell lw-step\" x=\"220\" y=\"222\" width=\"115\" height=\"83\" fill=\"#172331\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><text x=\"277\" y=\"273\" fill=\"#7ee2a8\" font-size=\"28\" text-anchor=\"middle\">Aa</text><rect class=\"lw-punnett-cell lw-step\" x=\"335\" y=\"222\" width=\"115\" height=\"83\" fill=\"#172331\" stroke=\"#b39dff\" stroke-width=\"2\"/><text x=\"392\" y=\"273\" fill=\"#b39dff\" font-size=\"28\" text-anchor=\"middle\">aa</text><text x=\"560\" y=\"200\" fill=\"#ffd479\" font-size=\"18\">1 : 2 : 1 genotypes</text><text x=\"560\" y=\"235\" fill=\"#9aa6b8\" font-size=\"16\">3 : 1 phenotypes</text><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Ratios are probabilities · small families need not match</text></svg>"}]},"practice":{"items":[]},"quiz":{"items":[]}}
+{
+  "meta": {
+    "title": "AP Biology: Cells, Energy & Inheritance",
+    "topic": "AP Biology",
+    "level": "advanced",
+    "estimatedMinutes": 25,
+    "tags": [
+      "biology",
+      "cells",
+      "genetics"
+    ],
+    "createdAt": "2026-10-08T20:06:50.000Z",
+    "interests": "",
+    "depth": "quick",
+    "model": "Learnway authored starter"
+  },
+  "plan": {
+    "title": "AP Biology: Cells, Energy & Inheritance",
+    "hook": "A cell is not a bag of chemicals — its membrane decides what crosses, its enzymes decide how fast, and its alleles decide what the next generation can look like.",
+    "objectives": [
+      "Predict the net direction of osmosis across a selectively permeable membrane from the solute on each side",
+      "Explain why an enzyme changes a reaction's rate but not its free-energy difference or equilibrium",
+      "Work out genotype and phenotype ratios for an Aa × Aa cross under complete dominance"
+    ],
+    "prerequisites": [
+      "Basic cell vocabulary: membrane, solute, and allele"
+    ],
+    "sections": [
+      {
+        "id": "membranes",
+        "heading": "A boundary that does useful work",
+        "points": [
+          "A cell membrane is selectively permeable: some things cross, others are trapped",
+          "Osmosis is water movement across such a membrane; individual molecules move both ways",
+          "With equal initial pressure, net water movement is toward the side with more trapped solute"
+        ]
+      },
+      {
+        "id": "enzymes",
+        "heading": "Lower the barrier, keep the destination",
+        "points": [
+          "An enzyme supplies a pathway with a lower activation barrier, so the reaction rate increases",
+          "Reactant and product energies are unchanged by catalysis",
+          "Catalysis changes neither the overall free-energy difference nor the equilibrium"
+        ]
+      },
+      {
+        "id": "inheritance",
+        "heading": "Count alleles before predicting traits",
+        "points": [
+          "In an Aa × Aa cross the four equally likely combinations are AA, Aa, aA and aa",
+          "The genotype ratio is 1 AA : 2 Aa : 1 aa",
+          "With complete dominance, AA and Aa share the dominant phenotype, giving a 3:1 phenotype ratio — a probability, not a quota"
+        ]
+      }
+    ]
+  },
+  "reading": {
+    "sections": [
+      {
+        "id": "membranes",
+        "heading": "A boundary that does useful work",
+        "body": "A cell membrane is selectively permeable. Osmosis is water movement across a selectively permeable membrane. With equal initial pressure, water tends to move toward the side with more solute that cannot cross.",
+        "visual": "More water crosses toward the side with more trapped solute. Individual water molecules move both ways; the larger arrow shows net movement before pressure balances it.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Osmosis: water crosses; solutes stay\"><title>Osmosis: water crosses; solutes stay</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Osmosis: water crosses; solutes stay</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><rect x=\"40\" y=\"78\" width=\"340\" height=\"240\" rx=\"12\" fill=\"#172331\" stroke=\"#344253\"/><text x=\"58\" y=\"107\" fill=\"#7cc7ff\" font-size=\"18\">Fewer trapped solutes</text><rect x=\"420\" y=\"78\" width=\"340\" height=\"240\" rx=\"12\" fill=\"#172331\" stroke=\"#344253\"/><text x=\"438\" y=\"107\" fill=\"#b39dff\" font-size=\"18\">More trapped solutes</text><path d=\"M325 193 L476 193\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"3\" class=\"lw-flow\"/><text x=\"400\" y=\"337\" fill=\"#ffd479\" font-size=\"16\" text-anchor=\"middle\">Selectively permeable membrane</text><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Schematic • not to scale</text></svg>",
+        "questions": [
+          {
+            "q": "If both sides of a membrane start at equal pressure, which way does water move on balance?",
+            "hint": "Compare the amount of solute that cannot cross on each side.",
+            "answer": "Net movement is toward the side with more solute that cannot cross. Individual water molecules move both ways; the net flow goes toward the more trapped solute until pressure balances it."
+          },
+          {
+            "q": "What does it mean that the membrane is selectively permeable?",
+            "hint": "Think about which substances are allowed through and which are held back.",
+            "answer": "Some substances can cross the membrane while others cannot. In the osmosis example, water crosses but the solute stays put."
+          }
+        ]
+      },
+      {
+        "id": "enzymes",
+        "heading": "Lower the barrier, keep the destination",
+        "body": "An enzyme supplies a pathway with a lower activation barrier, increasing reaction rate. Catalysis does not change overall free-energy difference or equilibrium.",
+        "visual": "The enzyme provides a route with a lower activation-energy barrier. Reactant and product energies stay the same.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"A lower activation barrier\"><title>A lower activation barrier</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">A lower activation barrier</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><path d=\"M100 260 C205 260 205 92 355 92 S505 285 725 285\" fill=\"none\" stroke=\"#b39dff\" stroke-width=\"4\"/><path d=\"M100 260 C225 260 230 185 355 185 S500 285 725 285\" fill=\"none\" stroke=\"#7ee2a8\" stroke-width=\"4\"/><circle cx=\"100\" cy=\"260\" r=\"7\" fill=\"#b39dff\" class=\"lw-enzyme-particle-uncat\"/><circle cx=\"100\" cy=\"260\" r=\"7\" fill=\"#7ee2a8\" class=\"lw-enzyme-particle-cat\"/><text x=\"362\" y=\"80\" fill=\"#b39dff\" font-size=\"17\">Without enzyme</text><text x=\"365\" y=\"171\" fill=\"#7ee2a8\" font-size=\"17\">With enzyme</text><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Schematic • not to scale</text></svg>",
+        "questions": [
+          {
+            "q": "What does an enzyme actually change about a reaction?",
+            "hint": "Separate the height of the barrier from the energies of the start and end points.",
+            "answer": "It supplies a pathway with a lower activation barrier, which increases the reaction rate. It does not change the overall free-energy difference or the equilibrium."
+          },
+          {
+            "q": "Do the reactant and product energies move when an enzyme is added?",
+            "hint": "Check the visual: which parts of the energy diagram stay put?",
+            "answer": "No. Reactant and product energies stay the same; only the barrier between them is lower on the enzyme's route."
+          }
+        ]
+      },
+      {
+        "id": "inheritance",
+        "heading": "Count alleles before predicting traits",
+        "body": "For an Aa × Aa cross, the four equally likely combinations are AA, Aa, aA and aa. With complete dominance, AA and Aa share the dominant phenotype, producing a 3:1 phenotype ratio.",
+        "visual": "Each cell combines one allele from each parent. The genotype ratio is 1 AA : 2 Aa : 1 aa. With complete dominance, three of the four outcomes have the dominant phenotype.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Aa × Aa: possible outcomes, not a quota\"><title>Aa × Aa: possible outcomes, not a quota</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Aa × Aa: possible outcomes, not a quota</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text class=\"lw-step\" x=\"278\" y=\"125\" fill=\"#7cc7ff\" font-size=\"22\" text-anchor=\"middle\">A</text><text class=\"lw-step\" x=\"393\" y=\"125\" fill=\"#7cc7ff\" font-size=\"22\" text-anchor=\"middle\">a</text><text class=\"lw-step\" x=\"196\" y=\"190\" fill=\"#7cc7ff\" font-size=\"22\" text-anchor=\"middle\">A</text><text class=\"lw-step\" x=\"196\" y=\"273\" fill=\"#7cc7ff\" font-size=\"22\" text-anchor=\"middle\">a</text><rect class=\"lw-punnett-cell lw-step\" x=\"220\" y=\"139\" width=\"115\" height=\"83\" fill=\"#172331\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><text x=\"277\" y=\"190\" fill=\"#7ee2a8\" font-size=\"28\" text-anchor=\"middle\">AA</text><rect class=\"lw-punnett-cell lw-step\" x=\"335\" y=\"139\" width=\"115\" height=\"83\" fill=\"#172331\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><text x=\"392\" y=\"190\" fill=\"#7ee2a8\" font-size=\"28\" text-anchor=\"middle\">Aa</text><rect class=\"lw-punnett-cell lw-step\" x=\"220\" y=\"222\" width=\"115\" height=\"83\" fill=\"#172331\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><text x=\"277\" y=\"273\" fill=\"#7ee2a8\" font-size=\"28\" text-anchor=\"middle\">Aa</text><rect class=\"lw-punnett-cell lw-step\" x=\"335\" y=\"222\" width=\"115\" height=\"83\" fill=\"#172331\" stroke=\"#b39dff\" stroke-width=\"2\"/><text x=\"392\" y=\"273\" fill=\"#b39dff\" font-size=\"28\" text-anchor=\"middle\">aa</text><text x=\"560\" y=\"200\" fill=\"#ffd479\" font-size=\"18\">1 : 2 : 1 genotypes</text><text x=\"560\" y=\"235\" fill=\"#9aa6b8\" font-size=\"16\">3 : 1 phenotypes</text><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Ratios are probabilities · small families need not match</text></svg>",
+        "questions": [
+          {
+            "q": "Why do AA and Aa look the same in this cross?",
+            "hint": "The section assumes a particular dominance relationship.",
+            "answer": "Under complete dominance, one dominant allele is enough to show the dominant phenotype, so AA and Aa share it. Only aa shows the recessive phenotype."
+          },
+          {
+            "q": "A family of four offspring from Aa × Aa are all aa. Has the 3:1 prediction failed?",
+            "hint": "The diagram calls the ratios probabilities, not quotas.",
+            "answer": "No. The 3:1 ratio is a probability over many offspring; small families need not match it, and an all-recessive run of four is possible."
+          }
+        ]
+      }
+    ]
+  },
+  "quizzes": {
+    "sections": [
+      {
+        "id": "membranes",
+        "questions": [
+          {
+            "q": "Two sides of a selectively permeable membrane start at equal pressure. The right side holds more solute that cannot cross. What is the net movement of water?",
+            "choices": [
+              "Toward the right, the side with more trapped solute",
+              "Toward the left, away from the solute",
+              "No net movement, because water molecules move both ways",
+              "Toward whichever side has less water pressure building up"
+            ],
+            "answer": 0,
+            "explain": "Individual water molecules cross both ways, but with equal initial pressure the net movement is toward the side with more solute that cannot cross, until pressure balances it."
+          },
+          {
+            "q": "In this section's osmosis setup, which substance is the one held back by the membrane?",
+            "choices": [
+              "Water",
+              "The solute that cannot cross",
+              "Neither — everything crosses freely",
+              "Both water and solute"
+            ],
+            "answer": 1,
+            "explain": "The membrane is selectively permeable: water crosses, while the solute that cannot cross stays trapped on its side — that trapped solute is what drives the net flow."
+          }
+        ]
+      },
+      {
+        "id": "enzymes",
+        "questions": [
+          {
+            "q": "An enzyme speeds up a reaction mainly by…",
+            "choices": [
+              "Lowering the energy of the products",
+              "Raising the energy of the reactants",
+              "Supplying a pathway with a lower activation barrier",
+              "Shifting the equilibrium toward the products"
+            ],
+            "answer": 2,
+            "explain": "The enzyme's route has a lower activation-energy barrier, so the rate increases. Reactant and product energies — and therefore the free-energy difference and equilibrium — stay the same."
+          },
+          {
+            "q": "Adding a catalyst to a reaction at equilibrium will…",
+            "choices": [
+              "Move the equilibrium toward the products",
+              "Move the equilibrium toward the reactants",
+              "Leave the equilibrium unchanged",
+              "Change the overall free-energy difference"
+            ],
+            "answer": 2,
+            "explain": "Catalysis does not change the overall free-energy difference or equilibrium. It only lowers the barrier, so equilibrium is reached faster, not in a different place."
+          }
+        ]
+      },
+      {
+        "id": "inheritance",
+        "questions": [
+          {
+            "q": "For an Aa × Aa cross with complete dominance, what are the expected genotype and phenotype ratios?",
+            "choices": [
+              "Genotypes 3:1, phenotypes 1:2:1",
+              "Genotypes 1:2:1, phenotypes 3:1",
+              "Genotypes 1:1, phenotypes 1:1",
+              "Genotypes 1:2:1, phenotypes 1:2:1"
+            ],
+            "answer": 1,
+            "explain": "The four equally likely combinations are AA, Aa, aA and aa — a 1 AA : 2 Aa : 1 aa genotype ratio. With complete dominance AA and Aa share the dominant phenotype, so phenotypes run 3:1."
+          },
+          {
+            "q": "The 3:1 phenotype ratio from an Aa × Aa cross is best described as…",
+            "choices": [
+              "A guaranteed count in every set of four offspring",
+              "A probability that small families need not match",
+              "A ratio that applies only to the first four offspring",
+              "A pattern that holds only when no aa offspring appear"
+            ],
+            "answer": 1,
+            "explain": "The diagram states it directly: ratios are probabilities, and small families need not match them. The 3:1 emerges over many offspring, not as a quota per family."
+          }
+        ]
+      }
+    ]
+  },
+  "slides": {
+    "sections": [
+      {
+        "id": "membranes",
+        "title": "Water follows the trapped solute",
+        "bullets": [
+          "The membrane is selectively permeable: water crosses, some solute cannot.",
+          "Individual water molecules move both ways across the membrane.",
+          "Net movement runs toward the side with more trapped solute until pressure balances."
+        ],
+        "notes": "Picture two compartments split by a membrane that lets water through but not the solute. Molecules cross in both directions, yet the balance of movement favours the side with more trapped solute — that imbalance is osmosis.",
+        "visual": "More water crosses toward the side with more trapped solute. Individual water molecules move both ways; the larger arrow shows net movement before pressure balances it."
+      },
+      {
+        "id": "enzymes",
+        "title": "Lower barrier, same destination",
+        "bullets": [
+          "An enzyme offers a route with a lower activation-energy barrier.",
+          "A lower barrier means a faster reaction rate.",
+          "Free-energy difference and equilibrium are exactly where they were without the enzyme."
+        ],
+        "notes": "The enzyme does not move the start or finish lines of the energy diagram. It cuts a lower pass through the hill between them, so more molecules get over per second — but where the reaction settles is unchanged.",
+        "visual": "The enzyme provides a route with a lower activation-energy barrier. Reactant and product energies stay the same."
+      },
+      {
+        "id": "inheritance",
+        "title": "Count alleles before phenotypes",
+        "bullets": [
+          "Aa × Aa gives AA, Aa, aA, aa with equal likelihood.",
+          "Genotype ratio: 1 AA : 2 Aa : 1 aa.",
+          "Complete dominance merges AA and Aa into one phenotype: 3:1.",
+          "Ratios are probabilities — small families need not match."
+        ],
+        "notes": "Each parent contributes one allele per offspring, so four combinations are equally likely. Count genotypes first (1:2:1), then apply complete dominance to get phenotypes (3:1) — and remember these are odds, not quotas.",
+        "visual": "Each cell combines one allele from each parent. The genotype ratio is 1 AA : 2 Aa : 1 aa. With complete dominance, three of the four outcomes have the dominant phenotype."
+      }
+    ]
+  },
+  "enrichment": {
+    "audioTitle": "AP Biology: Cells, Energy & Inheritance — a conversation",
+    "turns": [
+      {
+        "speaker": "teacher",
+        "line": "Three ideas run this course: a membrane that chooses what crosses, an enzyme that lowers a barrier, and a cross you can count. Start with the membrane — what does selectively permeable mean?"
+      },
+      {
+        "speaker": "student",
+        "line": "That it lets some substances through and keeps others out?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Exactly. In osmosis, water crosses but a solute cannot. If both sides start at equal pressure and one side has more of that trapped solute, which way does water move on balance?"
+      },
+      {
+        "speaker": "student",
+        "line": "Water molecules move both ways, so maybe there is no net movement?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "The molecules do move both ways — but not equally. Net movement is toward the side with more trapped solute, and it continues until pressure balances it."
+      },
+      {
+        "speaker": "student",
+        "line": "So osmosis is about the net flow, not each molecule."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Right. Now the enzyme section. Its heading says \"lower the barrier, keep the destination.\" What is the destination that stays put?"
+      },
+      {
+        "speaker": "student",
+        "line": "The equilibrium? And the free-energy difference?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Both. The enzyme supplies a pathway with a lower activation barrier, so the rate rises — but reactant and product energies are unchanged, so the free-energy difference and equilibrium stay where they were."
+      },
+      {
+        "speaker": "student",
+        "line": "I used to think enzymes pushed reactions toward products. They just get there faster."
+      },
+      {
+        "speaker": "teacher",
+        "line": "That is the correction to keep. Last section: Aa × Aa. What are the four equally likely combinations?"
+      },
+      {
+        "speaker": "student",
+        "line": "AA, Aa, aA and aa — so genotypes run 1:2:1."
+      },
+      {
+        "speaker": "teacher",
+        "line": "And with complete dominance, what do phenotypes do?"
+      },
+      {
+        "speaker": "student",
+        "line": "AA and Aa look the same, so it is 3:1 dominant to recessive."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Yes. One warning from the diagram: those ratios are probabilities. A small family of four need not show 3:1 — what would you say to someone who calls that a failed prediction?"
+      },
+      {
+        "speaker": "student",
+        "line": "That the ratio describes odds over many offspring, not a quota every family of four must fill."
+      }
+    ],
+    "nodes": [
+      {
+        "id": "root",
+        "parent": null,
+        "label": "AP Biology: Cells, Energy & Inheritance",
+        "note": "Membranes choose what crosses, enzymes set the pace, and alleles set the odds for the next generation."
+      },
+      {
+        "id": "membranes",
+        "parent": "root",
+        "label": "Membranes and osmosis",
+        "note": "A selectively permeable boundary lets water cross but traps some solute."
+      },
+      {
+        "id": "membranes-net",
+        "parent": "membranes",
+        "label": "Net flow toward trapped solute",
+        "note": "With equal initial pressure, net water movement is toward the side with more non-crossing solute."
+      },
+      {
+        "id": "enzymes",
+        "parent": "root",
+        "label": "Enzymes lower the barrier",
+        "note": "A lower activation barrier raises the reaction rate."
+      },
+      {
+        "id": "enzymes-equilibrium",
+        "parent": "enzymes",
+        "label": "Equilibrium unchanged",
+        "note": "Catalysis changes neither the free-energy difference nor the equilibrium position."
+      },
+      {
+        "id": "inheritance",
+        "parent": "root",
+        "label": "Counting alleles",
+        "note": "Aa × Aa gives four equally likely allele combinations."
+      },
+      {
+        "id": "inheritance-ratios",
+        "parent": "inheritance",
+        "label": "1:2:1 genotypes, 3:1 phenotypes",
+        "note": "Complete dominance merges AA and Aa into the dominant phenotype; ratios are probabilities, not quotas."
+      }
+    ],
+    "mnemonics": []
+  },
+  "sources": [
+    {
+      "title": "OpenStax — Biology 2e",
+      "url": "https://openstax.org/details/books/biology-2e"
+    }
+  ]
+}
