@@ -28,14 +28,16 @@ export function wireDiagrams(root) {
       updateBasePairs(art, p); updateDogma(art, p); updatePunnett(art, p);
       updateCrossover(art, p); updateSeqEdit(art, p);
       updateSteps(art, p); updateGrowRings(art, p); updateBars(art, p);
+      updateOsmosis(art, p);
       const pct = Math.round(p * 100);
-      if (range) range.value = String(pct);
+      if (range) { range.value = String(pct); range.style.setProperty('--seek', `${pct}%`); }
       figure.dataset.progress = String(pct);
       if (status && (running || time > 0) && !motion.matches && time < DURATION) {
         status.textContent = running ? `Playing · ${pct}%` : `Inspecting · ${pct}%`;
       }
     };
     const announce = () => {
+      figure.dataset.playing = String(running);
       if (play) { play.textContent = running ? 'Pause' : (time >= DURATION ? 'Replay' : 'Play'); play.setAttribute('aria-pressed', String(running)); }
       if (status) {
         const pct = Math.round((time / DURATION) * 100);
@@ -67,6 +69,8 @@ export function wireDiagrams(root) {
       if (e.target !== figure && e.target !== play && e.target !== range && !figure.contains(e.target)) return;
       if (e.code === 'Space' || e.key === ' ') { e.preventDefault(); togglePlay(); }
       else if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+        // Range arrows keep their native 1% steps; figure-level arrows use 5%.
+        if (e.target === range) return;
         e.preventDefault(); running = false;
         time = Math.max(0, Math.min(DURATION, time + (e.key === 'ArrowRight' ? 0.05 : -0.05) * DURATION));
         paint(); announce(); schedule();
@@ -78,8 +82,10 @@ export function wireDiagrams(root) {
       visible = entries[0].isIntersecting && entries[0].intersectionRatio >= .15; schedule();
     }, { threshold: .15 });
     observer.observe(figure);
-    document.addEventListener('visibilitychange', () => schedule());
-    motion.addEventListener('change', () => { if (motion.matches) running = false; announce(); schedule(); });
+    const onVisibility = () => schedule();
+    const onMotion = () => { if (motion.matches) running = false; announce(); schedule(); };
+    document.addEventListener('visibilitychange', onVisibility);
+    motion.addEventListener('change', onMotion);
     const close = () => {
       if (!dialog) return;
       placeholder?.replaceWith(figure); dialog.remove(); dialog = null; placeholder = null;
@@ -100,9 +106,38 @@ export function wireDiagrams(root) {
     });
     const dispose = () => {
       disposed = true; stopFrame(); observer.disconnect(); close();
+      document.removeEventListener('visibilitychange', onVisibility);
+      motion.removeEventListener('change', onMotion);
       animations.forEach(a => a.cancel()); players.delete(dispose);
     };
     players.add(dispose); paint(); announce();
+  });
+}
+
+function updateOsmosis(art, progress) {
+  const waters = [...art.querySelectorAll('.lw-osmosis-water')];
+  if (!waters.length) return;
+  waters.forEach((particle, i) => {
+    if (particle.dataset.eqX == null) {
+      particle.dataset.eqX = particle.getAttribute('cx') || '0';
+      particle.dataset.eqY = particle.getAttribute('cy') || '0';
+    }
+    const x = Number(particle.dataset.eqX), y = Number(particle.dataset.eqY);
+    const phase = progress * Math.PI * 2 + i * .83;
+    if (particle.classList.contains('lw-osmosis-cross')) {
+      const t = (progress * 1.6 + i * .137) % 1;
+      particle.setAttribute('cx', (315 + t * 175).toFixed(1));
+      particle.setAttribute('cy', (y + Math.sin(t * Math.PI * 2) * 8).toFixed(1));
+      particle.setAttribute('opacity', Math.min(1, Math.min(t, 1 - t) * 8 + .18).toFixed(2));
+    } else if (particle.classList.contains('lw-osmosis-reverse')) {
+      const t = (progress + i * .21) % 1;
+      particle.setAttribute('cx', (490 - t * 175).toFixed(1));
+      particle.setAttribute('cy', (y + Math.cos(t * Math.PI * 2) * 7).toFixed(1));
+      particle.setAttribute('opacity', Math.min(1, Math.min(t, 1 - t) * 8 + .18).toFixed(2));
+    } else {
+      particle.setAttribute('cx', (x + Math.sin(phase) * 6).toFixed(1));
+      particle.setAttribute('cy', (y + Math.cos(phase) * 4).toFixed(1));
+    }
   });
 }
 
