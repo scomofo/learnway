@@ -31,7 +31,12 @@ No build step, no dependencies.
    - labelled SVG illustrations for each section
 4. **Six views** — Read, Quiz (interactive scoring), Slides, Audio
    (read aloud in-browser with two voices), Mind map, Flashcards.
-5. Courses save to the browser's localStorage; export/import as JSON.
+5. **Original visual system** — subject-specific vector course covers, an animated
+   learning-orbit hero, and interactive particle diagrams. Decorative and study
+   motion respects reduced-motion preferences; flashcard diagrams stay static.
+   Manrope and Newsreader load from Google Fonts, with system-font fallbacks and
+   their OFL licenses in `assets/fonts/`.
+6. Courses save to the browser's localStorage; export/import as JSON.
    Export Markdown for a study guide including visuals and further-reading links.
 
 ## Included lessons

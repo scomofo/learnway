@@ -4,6 +4,7 @@ import { readFile } from 'node:fs/promises';
 import vm from 'node:vm';
 import * as pipeline from '../pipeline.mjs';
 import * as views from '../views.mjs';
+import * as artwork from '../artwork.mjs';
 
 const source = (await readFile(new URL('../app.mjs', import.meta.url), 'utf8')).replace(/^import .*;\n/gm, '');
 const fixture = JSON.parse(await readFile(new URL('../sample-course.json', import.meta.url)));
@@ -17,7 +18,7 @@ function harness() {
   const app = { innerHTML: '', handlers: {}, addEventListener(type, fn) { this.handlers[type] = fn; }, querySelector() { return this.innerHTML.includes('id="view-root"') ? { querySelectorAll: selector => selector === '[data-sec-note]' ? [note] : [] } : null; } };
   const storage = { getItem: key => values.get(key) ?? null, setItem: (key, value) => values.set(key, value) };
   const fetched = [];
-  const context = vm.createContext({ ...pipeline, ...views,
+  const context = vm.createContext({ ...pipeline, ...views, ...artwork,
     document: { querySelector: () => app, addEventListener() {}, getElementById() { return null; } },
     window: { scrollTo() {} }, localStorage: storage, fixture, index,
     fetch: async file => { fetched.push(file); return { json: async () => structuredClone(shipped[index.findIndex(entry => entry.file === file)]) }; },
