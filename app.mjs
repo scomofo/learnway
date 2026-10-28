@@ -2,6 +2,7 @@
 'use strict';
 import { DEFAULT_MODEL, MODELS, LEVELS, DEPTHS, generatePlan, generateCourse, validateCourse, PipelineError } from './pipeline.mjs';
 import { VIEWS, renderView, wireView, courseToMarkdown, renderSources, esc, disposeDiagrams } from './views.mjs';
+import { courseArtwork, heroArtwork, brandMark } from './artwork.mjs';
 
 const LS = { key: 'learnway:key', model: 'learnway:model', courses: 'learnway:courses', notes: 'learnway:notes' };
 const $ = sel => document.querySelector(sel);
@@ -79,7 +80,7 @@ function render() {
 
 function header(active) {
   return `<header class="topbar">
-    <button class="brand" data-nav="library">Learnway</button>
+    <button class="brand" data-nav="library" aria-label="Learnway library">${brandMark()}<span>Learnway</span></button>
     <nav>
       <button data-nav="wizard" class="${active === 'wizard' ? 'active' : ''}">New course</button>
       <button data-nav="settings" class="${active === 'settings' ? 'active' : ''}">Settings</button>
@@ -118,15 +119,18 @@ function viewLibrary() {
     const secCount = c.plan?.sections?.length || 0;
     return `
       <article class="lib-card">
-        <div class="lib-title">${esc(c.meta.title)}</div>
-        <div class="lib-badges">
-          <span class="badge level">${esc(levelLabel(c.meta.level))}</span>
-          <span class="badge depth">${esc(depthLabel(c.meta.depth))} (${secCount} secs)</span>
-        </div>
-        <div class="lib-meta">${esc(c.meta.topic)} · ${new Date(c.meta.createdAt).toLocaleDateString()}</div>
-        <div class="lib-actions">
-          <button type="button" class="btn ghost small" data-details-open="${originalIdx}">Details</button>
-          <button type="button" class="btn primary small" data-open="${originalIdx}">Open course</button>
+        ${courseArtwork(c.meta.title, c.meta.topic)}
+        <div class="lib-card-body">
+          <div class="lib-title">${esc(c.meta.title)}</div>
+          <div class="lib-badges">
+            <span class="badge level">${esc(levelLabel(c.meta.level))}</span>
+            <span class="badge depth">${esc(depthLabel(c.meta.depth))} (${secCount} secs)</span>
+          </div>
+          <div class="lib-meta">${esc(c.meta.topic)} · ${new Date(c.meta.createdAt).toLocaleDateString()}</div>
+          <div class="lib-actions">
+            <button type="button" class="btn ghost small" data-details-open="${originalIdx}">Details</button>
+            <button type="button" class="btn primary small" data-open="${originalIdx}">Open course <span aria-hidden="true">→</span></button>
+          </div>
         </div>
       </article>`;
   }).join('');
@@ -140,12 +144,15 @@ function viewLibrary() {
     })
     .map(({ b, originalIdx }) => `
       <article class="lib-card bundled">
-        <div class="lib-title">${esc(b.title)}</div>
-        <div class="lib-badges"><span class="badge bundled-tag">Included</span>${b.level ? `<span class="badge level">${esc(levelLabel(b.level))}</span>` : ''}</div>
-        <div class="lib-meta">${esc(b.topic)}</div>
-        <div class="lib-actions">
-          <button type="button" class="btn ghost small" data-details-bundled="${originalIdx}">Details</button>
-          <button type="button" class="btn primary small" data-bundled="${originalIdx}">Open course</button>
+        ${courseArtwork(b.title, b.topic)}
+        <div class="lib-card-body">
+          <div class="lib-title">${esc(b.title)}</div>
+          <div class="lib-badges"><span class="badge bundled-tag">Included</span>${b.level ? `<span class="badge level">${esc(levelLabel(b.level))}</span>` : ''}</div>
+          <div class="lib-meta">${esc(b.topic)}</div>
+          <div class="lib-actions">
+            <button type="button" class="btn ghost small" data-details-bundled="${originalIdx}">Details</button>
+            <button type="button" class="btn primary small" data-bundled="${originalIdx}">Open course <span aria-hidden="true">→</span></button>
+          </div>
         </div>
       </article>`).join('');
 
@@ -161,14 +168,19 @@ function viewLibrary() {
   return `${header('library')}
   <main class="wrap">
     <div class="err" id="library-err" hidden></div>
-    <div class="hero">
-      <h1>Courses on whatever catches your interest.</h1>
-      <p class="muted">Type a topic. Get a reading, quizzes, slides, an audio dialogue, flashcards, and a mind map — all tuned to your level and interests.</p>
-      <div class="hero-actions">
-        <button class="btn primary" data-nav="wizard">New course</button>
-        <button class="btn ghost" data-sample>Try the sample course</button>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="hero-eyebrow"><span></span>Follow what fascinates you</div>
+        <h1 id="hero-title">Curiosity, turned into <em>understanding.</em></h1>
+        <p class="muted">Type a topic. Get a reading, quizzes, slides, an audio dialogue, flashcards, and a mind map — all tuned to your level and interests.</p>
+        <div class="hero-actions">
+          <button class="btn primary" data-nav="wizard">Create your course <span aria-hidden="true">→</span></button>
+          <button class="btn ghost" data-sample>Explore a sample</button>
+        </div>
+        <div class="hero-footnote"><span>${(state.bundled || []).length} included courses</span><span>No sign-up needed</span></div>
       </div>
-    </div>
+      ${heroArtwork()}
+    </section>
     ${searchControls}
     ${bundledCards ? `<h2>Included courses</h2><div class="lib-grid">${bundledCards}</div>` : ''}
     ${allCourses.length ? `<h2>Your courses ${filteredCoursesWithIdx.length < allCourses.length ? `(${filteredCoursesWithIdx.length} of ${allCourses.length})` : ''}</h2>
