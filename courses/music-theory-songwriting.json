@@ -1,0 +1,791 @@
+{
+  "meta": {
+    "title": "Music Theory for Songwriting & Arrangement",
+    "topic": "Music theory and songwriting",
+    "level": "intermediate",
+    "estimatedMinutes": 70,
+    "tags": [
+      "music theory",
+      "songwriting",
+      "arrangement",
+      "guitar",
+      "keyboard",
+      "vocals"
+    ],
+    "createdAt": "2026-10-30T03:00:00.000Z",
+    "interests": "Practical mechanisms, music, space, technology and worked examples",
+    "depth": "standard",
+    "model": "Learnway authored course"
+  },
+  "plan": {
+    "title": "Music Theory for Songwriting & Arrangement",
+    "hook": "You can know every note in a scale and still struggle to write a memorable phrase. Start with a musical home, then shape harmony, rhythm and individual voices into an original eight-bar sketch.",
+    "objectives": [
+      "Hear and describe tonal relationships using scale degrees and intervals",
+      "Choose chord functions and voice leading that support a phrase",
+      "Count durations, rests and chord changes in 4/4",
+      "Write and revise an eight-bar melody with a simple arrangement"
+    ],
+    "prerequisites": [
+      "Basic note names; an instrument or the ability to hum is helpful",
+      "Learnway’s Sound & Music explains the physical foundations"
+    ],
+    "sections": [
+      {
+        "id": "musical-home",
+        "heading": "Hear a home note before naming the chords",
+        "points": [
+          "Tonic: a tonal centre is a point of reference, not just the first note",
+          "Scale degrees: numbers describe notes relative to that centre",
+          "Major scale: whole and half steps create a reusable pattern",
+          "Intervals: describe the distance between notes",
+          "Experiment: change the ending while keeping the phrase unchanged"
+        ]
+      },
+      {
+        "id": "chord-function",
+        "heading": "Give a progression somewhere to go",
+        "points": [
+          "Triads: stack alternate scale tones to build three-note chords",
+          "Roman numerals: uppercase major and lowercase minor in this course",
+          "Function: tonic, predominant and dominant describe common tonal roles",
+          "Cadence: the ending of a phrase shapes its sense of arrival",
+          "Style: useful tendencies are not universal composition rules"
+        ]
+      },
+      {
+        "id": "voice-leading",
+        "heading": "Move the voices, not just the chord labels",
+        "points": [
+          "Voicing: the same chord tones can occupy different registers and orders",
+          "Common tones: hold a shared note when it serves the phrase",
+          "Economy: compare small inner-voice moves with larger leaps",
+          "Bass role: a bass note can establish the root beneath an inversion",
+          "Independence: preserve audible parts and comfortable ranges"
+        ]
+      },
+      {
+        "id": "rhythm-groove",
+        "heading": "Make repetition feel intentional",
+        "points": [
+          "Meter: group pulses so rhythmic placement has a reference",
+          "Duration: quarter notes, eighth notes and rests occupy time",
+          "Syncopation: emphasise an offbeat or carry sound across an expected accent",
+          "Groove: coordinate parts through a shared timing pattern",
+          "Space: leave deliberate gaps for melody, breath and contrast"
+        ]
+      },
+      {
+        "id": "melody-phrase",
+        "heading": "Write a melody that asks and answers",
+        "points": [
+          "Motive: a short recognisable idea can return with variation",
+          "Chord tones: use harmonic support without restricting every note",
+          "Passing motion: connect stable tones with purposeful non-chord tones",
+          "Contour: plan a high point and a place to settle",
+          "Phrasing: breath, rests and endings make the line feel intentional"
+        ]
+      },
+      {
+        "id": "song-capstone",
+        "heading": "Arrange an eight-bar song sketch",
+        "points": [
+          "Form: plan two four-bar phrases with different endings",
+          "Harmony: give each bar a clear chord and count changes within bars",
+          "Melody: preserve a motive while shaping a peak and resolution",
+          "Arrangement: assign bass, harmony and melody distinct jobs",
+          "Revision: compare one controlled change at a time"
+        ]
+      }
+    ]
+  },
+  "reading": {
+    "sections": [
+      {
+        "id": "musical-home",
+        "heading": "Hear a home note before naming the chords",
+        "body": "Play or hum C–D–E–G, then end on C. Repeat the same opening but end on B. In a C-major context, the second ending often feels less settled. That expectation is a useful starting point for theory: musical labels describe relationships you can test with your ears. They are not guarantees of the same emotional response in every style or listener.\n\nThe tonic is the perceived tonal centre. A major scale arranges seven different note names around that centre using whole step, whole step, half step, whole step, whole step, whole step, half step. On a keyboard, a half step is the distance to the next key, including black keys; a whole step is two half steps. C major uses C D E F G A B, returning to C an octave higher. Its half steps are E–F and B–C.\n\nScale degrees name these relationships with numbers: in C major, C is 1, D is 2, and B is 7. Transpose the same scale-degree pattern to G major and degree 7 becomes F-sharp, not F-natural. An interval describes the separation of two pitches; its number counts note names inclusively, while its quality specifies the more exact distance. C to E is a major third, four half steps.\n\n**Predict:** Move C–E–G up two half steps while preserving the intervals. The result is D–F-sharp–A. D–F–A changes the middle interval and produces a minor triad instead.\n\n**Try it:** Hum a short phrase, stop before its final note, and try two endings. Identify which sounds more settled in the context you created. Then write its scale degrees and transpose those relationships to another key. An instrument helps you check pitches, but the goal is to hear the relationship before treating the symbols as an answer.",
+        "visual": "C major has half steps between E–F and B–C. The spacing of the degree markers shows whole and half steps; the numbers describe relationships to C.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"A major scale is a pattern of distances\" font-family=\"sans-serif\"><title>A major scale is a pattern of distances</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"35\" font-size=\"22\" fill=\"#e8ecf1\" text-anchor=\"start\">A major scale is a pattern of distances</text><path d=\"M28 52 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><path d=\"M75 205 H730\" stroke=\"#9aa6b8\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"75\" cy=\"205\" r=\"7\" stroke=\"#7cc7ff\" stroke-width=\"2\" fill=\"#7cc7ff\"/><text x=\"75\" y=\"165\" font-size=\"20\" fill=\"#e8ecf1\" text-anchor=\"middle\">C</text><text x=\"75\" y=\"253\" font-size=\"18\" fill=\"#ffd479\" text-anchor=\"middle\">1</text><circle cx=\"175\" cy=\"205\" r=\"7\" stroke=\"#7cc7ff\" stroke-width=\"2\" fill=\"#7cc7ff\"/><text x=\"175\" y=\"165\" font-size=\"20\" fill=\"#e8ecf1\" text-anchor=\"middle\">D</text><text x=\"175\" y=\"253\" font-size=\"18\" fill=\"#ffd479\" text-anchor=\"middle\">2</text><circle cx=\"275\" cy=\"205\" r=\"7\" stroke=\"#7cc7ff\" stroke-width=\"2\" fill=\"#7cc7ff\"/><text x=\"275\" y=\"165\" font-size=\"20\" fill=\"#e8ecf1\" text-anchor=\"middle\">E</text><text x=\"275\" y=\"253\" font-size=\"18\" fill=\"#ffd479\" text-anchor=\"middle\">3</text><circle cx=\"325\" cy=\"205\" r=\"7\" stroke=\"#7cc7ff\" stroke-width=\"2\" fill=\"#7cc7ff\"/><text x=\"325\" y=\"165\" font-size=\"20\" fill=\"#e8ecf1\" text-anchor=\"middle\">F</text><text x=\"325\" y=\"253\" font-size=\"18\" fill=\"#ffd479\" text-anchor=\"middle\">4</text><circle cx=\"425\" cy=\"205\" r=\"7\" stroke=\"#7cc7ff\" stroke-width=\"2\" fill=\"#7cc7ff\"/><text x=\"425\" y=\"165\" font-size=\"20\" fill=\"#e8ecf1\" text-anchor=\"middle\">G</text><text x=\"425\" y=\"253\" font-size=\"18\" fill=\"#ffd479\" text-anchor=\"middle\">5</text><circle cx=\"525\" cy=\"205\" r=\"7\" stroke=\"#7cc7ff\" stroke-width=\"2\" fill=\"#7cc7ff\"/><text x=\"525\" y=\"165\" font-size=\"20\" fill=\"#e8ecf1\" text-anchor=\"middle\">A</text><text x=\"525\" y=\"253\" font-size=\"18\" fill=\"#ffd479\" text-anchor=\"middle\">6</text><circle cx=\"625\" cy=\"205\" r=\"7\" stroke=\"#7cc7ff\" stroke-width=\"2\" fill=\"#7cc7ff\"/><text x=\"625\" y=\"165\" font-size=\"20\" fill=\"#e8ecf1\" text-anchor=\"middle\">B</text><text x=\"625\" y=\"253\" font-size=\"18\" fill=\"#ffd479\" text-anchor=\"middle\">7</text><circle cx=\"675\" cy=\"205\" r=\"7\" stroke=\"#7cc7ff\" stroke-width=\"2\" fill=\"#7cc7ff\"/><text x=\"675\" y=\"165\" font-size=\"20\" fill=\"#e8ecf1\" text-anchor=\"middle\">C</text><text x=\"675\" y=\"253\" font-size=\"18\" fill=\"#ffd479\" text-anchor=\"middle\">1</text><text x=\"125\" y=\"212\" font-size=\"15\" fill=\"#7ee2a8\" text-anchor=\"middle\">W</text><text x=\"225\" y=\"212\" font-size=\"15\" fill=\"#7ee2a8\" text-anchor=\"middle\">W</text><text x=\"300\" y=\"212\" font-size=\"15\" fill=\"#7ee2a8\" text-anchor=\"middle\">H</text><text x=\"375\" y=\"212\" font-size=\"15\" fill=\"#7ee2a8\" text-anchor=\"middle\">W</text><text x=\"475\" y=\"212\" font-size=\"15\" fill=\"#7ee2a8\" text-anchor=\"middle\">W</text><text x=\"575\" y=\"212\" font-size=\"15\" fill=\"#7ee2a8\" text-anchor=\"middle\">W</text><text x=\"650\" y=\"212\" font-size=\"15\" fill=\"#7ee2a8\" text-anchor=\"middle\">H</text><text x=\"400\" y=\"310\" font-size=\"18\" fill=\"#9aa6b8\" text-anchor=\"middle\">W = whole step     H = half step</text><path d=\"M28 350 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"28\" y=\"379\" font-size=\"15\" fill=\"#9aa6b8\" text-anchor=\"start\">The final C is one octave above the first; scale degree numbering begins again.</text></svg>",
+        "questions": [
+          {
+            "q": "Why does C–E–G become D–F-sharp–A when transposed up two half steps?",
+            "hint": "Move every pitch by the same distance.",
+            "answer": "All three pitches move up two half steps, preserving the major-third and perfect-fifth relationships. D–F–A would change the third to minor."
+          },
+          {
+            "q": "Is the first note of any melody necessarily the tonic?",
+            "hint": "Distinguish order of appearance from a sense of tonal centre.",
+            "answer": "No. The tonic is established by the musical context and sense of home; a melody may begin on another scale degree."
+          }
+        ]
+      },
+      {
+        "id": "chord-function",
+        "heading": "Give a progression somewhere to go",
+        "body": "A chord progression can create a journey even when its chord vocabulary is small. In C major, build triads by stacking alternate notes from the scale: C–E–G, D–F–A, E–G–B, F–A–C, G–B–D, A–C–E and B–D–F. These are C major, D minor, E minor, F major, G major, A minor and B diminished.\n\nRoman numerals describe their roots relative to the key. We use uppercase for major and lowercase for minor: I, ii, iii, IV, V and vi. The diminished triad is vii°. In this convention I in C major means C major, while vi means A minor. A chord symbol such as Am names a chord independently of its function in the current key.\n\nIn familiar major-key tonal music, I often provides rest, ii or IV can prepare a move away, and V can create an expectation of return. The B in the G-major chord (G–B–D) is the leading tone of C major and tends toward C in that context. Adding F creates G7, whose B and F can resolve to C and E. This is a useful tendency, not an obligation for every voice in every genre.\n\n**Compare:** I–vi–IV–V, or C–Am–F–G, ends on a dominant chord. Add I and the phrase gains a more settled return. V–vi instead can defer the expected arrival. Many popular songs use repeated loops whose effect depends on melody, rhythm and production, so do not grade every song against a single classical cadence template.\n\n**Try it:** Play or imagine C–Am–F–G twice. On one repetition, stop on G; on the next, add C. Describe the difference before naming it. Then change only the final chord and decide whether the new ending supports the phrase you want.",
+        "visual": "In C major, the same chords can be labelled by name and by scale-degree role. The final move from G to C is one common dominant-to-tonic arrival.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Chord names become roles within a key\" font-family=\"sans-serif\"><title>Chord names become roles within a key</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"35\" font-size=\"22\" fill=\"#e8ecf1\" text-anchor=\"start\">Chord names become roles within a key</text><path d=\"M28 52 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><rect x=\"45\" y=\"100\" width=\"210\" height=\"135\" rx=\"8\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"61\" y=\"128\" font-size=\"20\" fill=\"#7cc7ff\" text-anchor=\"start\">C major — I</text><text x=\"61\" y=\"158\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">C  E  G</text><text x=\"61\" y=\"183\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Tonic / home</text><rect x=\"295\" y=\"100\" width=\"210\" height=\"135\" rx=\"8\" fill=\"none\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><text x=\"311\" y=\"128\" font-size=\"20\" fill=\"#7ee2a8\" text-anchor=\"start\">F major — IV</text><text x=\"311\" y=\"158\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">F  A  C</text><text x=\"311\" y=\"183\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Predominant</text><rect x=\"545\" y=\"100\" width=\"210\" height=\"135\" rx=\"8\" fill=\"none\" stroke=\"#ffd479\" stroke-width=\"2\"/><text x=\"561\" y=\"128\" font-size=\"20\" fill=\"#ffd479\" text-anchor=\"start\">G major — V</text><text x=\"561\" y=\"158\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">G  B  D</text><text x=\"561\" y=\"183\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Dominant</text><path d=\"M255 170 L292 170 M284.0 174.2 L292 170 L284.0 165.8\" stroke=\"#9aa6b8\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><path d=\"M505 170 L542 170 M534.0 174.2 L542 170 L534.0 165.8\" stroke=\"#9aa6b8\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><path d=\"M650 245 V295 H150 V245\" stroke=\"#b39dff\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"400\" y=\"322\" font-size=\"18\" fill=\"#b39dff\" text-anchor=\"middle\">V → I can create an arrival</text><path d=\"M28 350 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"28\" y=\"379\" font-size=\"15\" fill=\"#9aa6b8\" text-anchor=\"start\">These are common tonal roles in context, not a law for every style or progression.</text></svg>",
+        "questions": [
+          {
+            "q": "What does vi mean in C major using this course’s convention?",
+            "hint": "Count six scale degrees, then build the diatonic triad.",
+            "answer": "It means A minor: A–C–E. The lowercase numeral indicates minor quality."
+          },
+          {
+            "q": "Why might C–Am–F–G sound less finished than C–Am–F–G–C?",
+            "hint": "Compare the final harmonic role.",
+            "answer": "The first ends on V in C major; the second returns to I. In a tonal C-major context that return commonly supplies a stronger sense of arrival."
+          }
+        ]
+      },
+      {
+        "id": "voice-leading",
+        "heading": "Move the voices, not just the chord labels",
+        "body": "Play C4–E4–G4, then C4–F4–A4. The numbers name octaves using scientific pitch notation, where middle C is C4. The first chord is C major. The second contains F–A–C and is an F-major voicing with C as its lowest note. One pitch stays put, one moves a half step, and one moves a whole step. You changed the harmony without moving every voice a long way.\n\nVoice leading means following the individual lines through a chord progression. A voicing specifies the spacing and order of the notes at one moment. An inversion means a chord tone other than the root is lowest in the relevant chord texture. If a separate bass plays F2 beneath C4–F4–A4, the complete sonority has F at the bottom even though the upper keyboard shape begins on C.\n\n**Worked comparison:** Move each pitch in C4–E4–G4 to the corresponding pitch in C4–F4–A4. The movements are 0, 1 and 2 half steps, for a total of 3. Compare moving all three voices up to F4–A4–C5: each travels 5 half steps, for a total of 15. The smaller total is a useful measure of motion, not proof that the sound is always better. A dramatic leap may be exactly what the phrase needs.\n\nFor singers and instruments, check each line's register, contour and breathing or physical demands. Close low-register chords can become muddy; raising inner parts or thinning the texture may help. Common-practice chorale conventions and popular keyboard writing also have different stylistic expectations, so avoid treating one set of part-writing rules as universal.\n\n**Try it:** Use C–F–G–C. Keep a simple bass on chord roots and find upper voicings that retain common tones where useful. Hum each upper line alone. Revise any leap or range problem that distracts from the musical purpose.",
+        "visual": "Three upper voices connect C major to an F-major voicing. C4 stays, E4 rises to F4, and G4 rises to A4; a separate bass may establish the chord root.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Small motions can connect different chords\" font-family=\"sans-serif\"><title>Small motions can connect different chords</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"35\" font-size=\"22\" fill=\"#e8ecf1\" text-anchor=\"start\">Small motions can connect different chords</text><path d=\"M28 52 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"190\" y=\"82\" font-size=\"20\" fill=\"#7cc7ff\" text-anchor=\"middle\">C-major voicing</text><text x=\"610\" y=\"82\" font-size=\"20\" fill=\"#7ee2a8\" text-anchor=\"middle\">F-major voicing</text><text x=\"155\" y=\"285\" font-size=\"20\" fill=\"#7cc7ff\" text-anchor=\"start\">C4</text><path d=\"M210 278 L555 278 M547.0 282.2 L555 278 L547.0 273.8\" stroke=\"#b39dff\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"590\" y=\"285\" font-size=\"20\" fill=\"#7ee2a8\" text-anchor=\"start\">C4</text><text x=\"155\" y=\"215\" font-size=\"20\" fill=\"#7cc7ff\" text-anchor=\"start\">E4</text><path d=\"M210 208 L555 193 M547.2 197.5 L555 193 L546.8 189.2\" stroke=\"#b39dff\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"590\" y=\"200\" font-size=\"20\" fill=\"#7ee2a8\" text-anchor=\"start\">F4</text><text x=\"155\" y=\"145\" font-size=\"20\" fill=\"#7cc7ff\" text-anchor=\"start\">G4</text><path d=\"M210 138 L555 108 M547.4 112.8 L555 108 L546.7 104.6\" stroke=\"#b39dff\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"590\" y=\"115\" font-size=\"20\" fill=\"#7ee2a8\" text-anchor=\"start\">A4</text><text x=\"400\" y=\"330\" font-size=\"18\" fill=\"#ffd479\" text-anchor=\"middle\">Moves: 0, 1 and 2 half steps</text><path d=\"M28 350 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"28\" y=\"379\" font-size=\"15\" fill=\"#9aa6b8\" text-anchor=\"start\">Pitch spacing is schematic. C4 is middle C; the upper F chord has C as its lowest note.</text></svg>",
+        "questions": [
+          {
+            "q": "What is the total half-step movement from C4–E4–G4 to C4–F4–A4 when corresponding voices connect?",
+            "hint": "Track each voice separately.",
+            "answer": "C4 stays: 0. E4 to F4: 1. G4 to A4: 2. Total movement is 3 half steps."
+          },
+          {
+            "q": "Does choosing the least possible motion always produce the best arrangement?",
+            "hint": "What might the phrase require besides smoothness?",
+            "answer": "No. Small movement is one useful option, but contour, range, register, independence and expressive intent can justify larger movement."
+          }
+        ]
+      },
+      {
+        "id": "rhythm-groove",
+        "heading": "Make repetition feel intentional",
+        "body": "Tap a steady pulse and count 1-and-2-and-3-and-4-and. In a simple 4/4 example, a bar contains four quarter-note beats, and each spoken “and” divides a beat into two equal eighth notes. A quarter note lasts one beat, an eighth note half a beat, a half note two beats, and a dotted half note three beats. A rest occupies time just as a sounding note does.\n\nMeter provides a recurring pattern of strong and weaker positions; rhythm is the particular sequence of durations and attacks. Tempo sets the rate of the pulse. For this course's straight-eighth examples, 96 beats per minute means 96 quarter-note beats per minute. Swing or shuffle changes the subdivision feel and should be specified rather than silently mixed with equal eighth notes.\n\n**Worked bar:** A melody uses two eighth notes, one quarter note, one half note. Its duration is 0.5 + 0.5 + 1 + 2 = 4 beats, so it fits one 4/4 bar. Adding another quarter note would require removing time elsewhere or extending across the bar line; the bar does not grow to fit the phrase.\n\nSyncopation can place an accent on an offbeat or sustain a note across an expected strong position. It works because the listener still has some rhythmic reference. If bass, chords and melody all fill every subdivision with competing accents, the intended pattern may become harder to hear.\n\n**Predict:** Keep the bass on beats 1 and 3, put chord attacks on the offbeats after 2 and 4, and leave a gap before the melody's next phrase. The parts can create motion while preserving space; more attacks are not automatically more energy.\n\n**Try it:** Clap one bar with only two attacks and one with eight. Then repeat the sparse bar under a short melody. Decide which version supports the phrase, and count every rest as carefully as every note.",
+        "visual": "Eight equal eighth-note slots fill this 4/4 bar. The bass anchors beats 1 and 3 while chord attacks after 2 and 4 create a contrasting rhythmic layer.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"A groove comes from coordinated placement\" font-family=\"sans-serif\"><title>A groove comes from coordinated placement</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"35\" font-size=\"22\" fill=\"#e8ecf1\" text-anchor=\"start\">A groove comes from coordinated placement</text><path d=\"M28 52 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"65\" y=\"120\" font-size=\"17\" fill=\"#9aa6b8\" text-anchor=\"start\">Count</text><text x=\"65\" y=\"205\" font-size=\"18\" fill=\"#7cc7ff\" text-anchor=\"start\">Bass</text><text x=\"65\" y=\"280\" font-size=\"18\" fill=\"#7ee2a8\" text-anchor=\"start\">Chords</text><text x=\"210\" y=\"120\" font-size=\"18\" fill=\"#ffd479\" text-anchor=\"middle\">1</text><path d=\"M210 140 V310\" stroke=\"#344253\" stroke-width=\"1\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"280\" y=\"120\" font-size=\"18\" fill=\"#ffd479\" text-anchor=\"middle\">&amp;</text><path d=\"M280 140 V310\" stroke=\"#344253\" stroke-width=\"1\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"350\" y=\"120\" font-size=\"18\" fill=\"#ffd479\" text-anchor=\"middle\">2</text><path d=\"M350 140 V310\" stroke=\"#344253\" stroke-width=\"1\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"420\" y=\"120\" font-size=\"18\" fill=\"#ffd479\" text-anchor=\"middle\">&amp;</text><path d=\"M420 140 V310\" stroke=\"#344253\" stroke-width=\"1\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"490\" y=\"120\" font-size=\"18\" fill=\"#ffd479\" text-anchor=\"middle\">3</text><path d=\"M490 140 V310\" stroke=\"#344253\" stroke-width=\"1\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"560\" y=\"120\" font-size=\"18\" fill=\"#ffd479\" text-anchor=\"middle\">&amp;</text><path d=\"M560 140 V310\" stroke=\"#344253\" stroke-width=\"1\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"630\" y=\"120\" font-size=\"18\" fill=\"#ffd479\" text-anchor=\"middle\">4</text><path d=\"M630 140 V310\" stroke=\"#344253\" stroke-width=\"1\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"700\" y=\"120\" font-size=\"18\" fill=\"#ffd479\" text-anchor=\"middle\">&amp;</text><path d=\"M700 140 V310\" stroke=\"#344253\" stroke-width=\"1\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"210\" cy=\"200\" r=\"11\" stroke=\"#7cc7ff\" stroke-width=\"2\" fill=\"#7cc7ff\"/><circle cx=\"490\" cy=\"200\" r=\"11\" stroke=\"#7cc7ff\" stroke-width=\"2\" fill=\"#7cc7ff\"/><rect x=\"410\" y=\"262\" width=\"20\" height=\"20\" rx=\"3\" fill=\"#7ee2a8\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><rect x=\"690\" y=\"262\" width=\"20\" height=\"20\" rx=\"3\" fill=\"#7ee2a8\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><path d=\"M28 350 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"28\" y=\"379\" font-size=\"15\" fill=\"#9aa6b8\" text-anchor=\"start\">Straight eighth-note grid. Symbols show attacks, not sustained durations or a complete drum part.</text></svg>",
+        "questions": [
+          {
+            "q": "Do two eighth notes, a quarter note and a half note fit one 4/4 bar?",
+            "hint": "Add their durations in quarter-note beats.",
+            "answer": "Yes. 0.5 + 0.5 + 1 + 2 = 4 beats."
+          },
+          {
+            "q": "Why can a rest help a phrase feel stronger?",
+            "hint": "What can the gap make room for or prepare?",
+            "answer": "A deliberate gap can clarify a rhythmic pattern, give a singer breath, separate phrases or prepare the next entrance. Space is part of the arrangement."
+          }
+        ]
+      },
+      {
+        "id": "melody-phrase",
+        "heading": "Write a melody that asks and answers",
+        "body": "A melody becomes recognisable through relationships that return. Start with a short motive: E4–G4–E4–D4 as four quarter notes over C major. The E–G–E shape repeats a small idea, while D is outside the C-major triad. That D need not be a mistake; it can lead into C in the next bar. Its effect depends on placement, duration and what follows.\n\nChord tones belong to the current harmony. Non-chord tones do not, but may connect, decorate or delay them. A passing tone can move stepwise between two chord tones. For example, E–F–G over C can connect E and G through F. Not every non-chord tone is a passing tone: its approach, departure and rhythmic role determine the description.\n\n**Build a two-bar phrase:** Over C, use E4 quarter, G4 quarter, E4 quarter, D4 quarter. Over Am, continue C4 quarter, E4 quarter, A4 half. Each bar totals four beats. The first D descends to C at the next bar, while the second bar opens the contour upwards. A note held longer can attract attention even without a leap.\n\nAn answering phrase can reuse the rhythm or contour while changing the ending. Keep enough of the motive for recognition, then alter one feature: transpose it, shorten it, extend its final note, or answer it lower. If every note, rhythm and contour changes at once, listeners may hear a new idea rather than a variation.\n\n**Predict:** Repeat a motive twice, then leave a quarter-note rest before the final tonic. The rest can prepare the arrival; it does not have to be filled with another scale run.\n\n**Try it:** Hum your motive without accompaniment. Mark one high point and one breathing place. Play the harmony underneath, then revise one note whose tension does not lead where you intended. Judge the musical effect before labelling every event.",
+        "visual": "The two-bar idea uses a recurring contour and a longer final note. D in bar 1 leads to C in bar 2; the diagram shows note durations on a beat grid.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"A short motive can open into a phrase\" font-family=\"sans-serif\"><title>A short motive can open into a phrase</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"35\" font-size=\"22\" fill=\"#e8ecf1\" text-anchor=\"start\">A short motive can open into a phrase</text><path d=\"M28 52 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"215\" y=\"92\" font-size=\"19\" fill=\"#7cc7ff\" text-anchor=\"middle\">Bar 1: C</text><text x=\"565\" y=\"92\" font-size=\"19\" fill=\"#7ee2a8\" text-anchor=\"middle\">Bar 2: Am</text><path d=\"M75 300 H740 M400 115 V310\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><rect x=\"80\" y=\"210\" width=\"65\" height=\"14\" rx=\"3\" fill=\"#7cc7ff\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"112.5\" y=\"200\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"middle\">E4</text><rect x=\"160\" y=\"165\" width=\"65\" height=\"14\" rx=\"3\" fill=\"#7cc7ff\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"192.5\" y=\"155\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"middle\">G4</text><rect x=\"240\" y=\"210\" width=\"65\" height=\"14\" rx=\"3\" fill=\"#7cc7ff\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"272.5\" y=\"200\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"middle\">E4</text><rect x=\"320\" y=\"240\" width=\"65\" height=\"14\" rx=\"3\" fill=\"#ffd479\" stroke=\"#ffd479\" stroke-width=\"2\"/><text x=\"352.5\" y=\"230\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"middle\">D4</text><rect x=\"425\" y=\"270\" width=\"65\" height=\"14\" rx=\"3\" fill=\"#7ee2a8\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><text x=\"457.5\" y=\"260\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"middle\">C4</text><rect x=\"505\" y=\"210\" width=\"65\" height=\"14\" rx=\"3\" fill=\"#7ee2a8\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><text x=\"537.5\" y=\"200\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"middle\">E4</text><rect x=\"585\" y=\"140\" width=\"145\" height=\"14\" rx=\"3\" fill=\"#7ee2a8\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><text x=\"657.5\" y=\"130\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"middle\">A4</text><text x=\"225\" y=\"330\" font-size=\"16\" fill=\"#9aa6b8\" text-anchor=\"middle\">1     2     3     4</text><text x=\"575\" y=\"330\" font-size=\"16\" fill=\"#9aa6b8\" text-anchor=\"middle\">1     2     3–4</text><path d=\"M28 350 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"28\" y=\"379\" font-size=\"15\" fill=\"#9aa6b8\" text-anchor=\"start\">Bar widths represent four beats each; vertical pitch spacing is schematic.</text></svg>",
+        "questions": [
+          {
+            "q": "In E–F–G over a C chord, why can F function as a passing tone?",
+            "hint": "Look at both its approach and its departure.",
+            "answer": "F connects the chord tones E and G by stepwise motion. Context and duration still affect how the listener hears it."
+          },
+          {
+            "q": "What should an answering phrase retain if you want it to sound related?",
+            "hint": "Think beyond simply choosing notes from the same scale.",
+            "answer": "Retain a recognisable feature such as rhythm, contour or a short interval pattern, then vary another feature to create a purposeful answer."
+          }
+        ]
+      },
+      {
+        "id": "song-capstone",
+        "heading": "Arrange an eight-bar song sketch",
+        "body": "Build an original eight-bar sketch in C major, 4/4, at a comfortable tempo such as 96 beats per minute. Use this harmonic plan: bar 1 C; bar 2 Am; bar 3 F; bar 4 G; bar 5 C; bar 6 Am; bar 7 F for beats 1–2 and G for beats 3–4; bar 8 C. The first four-bar phrase ends on V. The second returns to I.\n\nUse the following melody as a worked starting point. A quarter note lasts one beat, a half note two, and a dotted half note three. Scientific pitch notation uses C4 for middle C.\n\n- Bar 1: E4 quarter, G4 quarter, E4 quarter, D4 quarter.\n- Bar 2: C4 quarter, E4 quarter, A4 half.\n- Bar 3: A4 quarter, G4 quarter, F4 half.\n- Bar 4: D4 quarter, G4 quarter, B4 half.\n- Bar 5: C5 half, G4 quarter, E4 quarter.\n- Bar 6: E4 quarter, C4 quarter, A4 half.\n- Bar 7: A4 quarter, F4 quarter, G4 quarter, B4 quarter.\n- Bar 8: C5 dotted half, quarter rest.\n\nEach bar totals four beats. B4 at the end of bar 4 resolves up to C5 in bar 5; the final B4 likewise leads to C5. These arrivals and the final rest help shape the phrases. The example is a sketch to audition and revise, not a claim that every performer should use this register.\n\nAdd a simple bass on chord roots and sparse upper chord voicings. Keep the melody prominent. For a vocal arrangement, transpose into the actual singers' comfortable ranges and leave breathing places; a keyboard sketch is not automatically an idiomatic choir chart.\n\n**Try it:** Perform or hum the melody, then remove half the accompaniment attacks. Compare clarity. Next change just the final chord or the last melody duration and describe the effect. Keep a revision only when it supports the phrase you intended. This course provides notation and reasoning; it does not generate instrumental audio.",
+        "visual": "Two four-bar phrases share a harmonic outline. The first ends on G; the second uses a split F/G bar and settles on C with a final rest.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Two phrases create an eight-bar shape\" font-family=\"sans-serif\"><title>Two phrases create an eight-bar shape</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"35\" font-size=\"22\" fill=\"#e8ecf1\" text-anchor=\"start\">Two phrases create an eight-bar shape</text><path d=\"M28 52 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"50\" y=\"100\" font-size=\"20\" fill=\"#7cc7ff\" text-anchor=\"start\">Phrase 1: leaves a question</text><text x=\"50\" y=\"220\" font-size=\"20\" fill=\"#7ee2a8\" text-anchor=\"start\">Phrase 2: returns home</text><rect x=\"50\" y=\"120\" width=\"145\" height=\"66\" rx=\"8\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"123\" y=\"146\" font-size=\"15\" fill=\"#9aa6b8\" text-anchor=\"middle\">1</text><text x=\"123\" y=\"172\" font-size=\"21\" fill=\"#7cc7ff\" text-anchor=\"middle\">C</text><rect x=\"235\" y=\"120\" width=\"145\" height=\"66\" rx=\"8\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"308\" y=\"146\" font-size=\"15\" fill=\"#9aa6b8\" text-anchor=\"middle\">2</text><text x=\"308\" y=\"172\" font-size=\"21\" fill=\"#7cc7ff\" text-anchor=\"middle\">Am</text><rect x=\"420\" y=\"120\" width=\"145\" height=\"66\" rx=\"8\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"493\" y=\"146\" font-size=\"15\" fill=\"#9aa6b8\" text-anchor=\"middle\">3</text><text x=\"493\" y=\"172\" font-size=\"21\" fill=\"#7cc7ff\" text-anchor=\"middle\">F</text><rect x=\"605\" y=\"120\" width=\"145\" height=\"66\" rx=\"8\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"678\" y=\"146\" font-size=\"15\" fill=\"#9aa6b8\" text-anchor=\"middle\">4</text><text x=\"678\" y=\"172\" font-size=\"21\" fill=\"#7cc7ff\" text-anchor=\"middle\">G</text><rect x=\"50\" y=\"240\" width=\"145\" height=\"66\" rx=\"8\" fill=\"none\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><text x=\"123\" y=\"266\" font-size=\"15\" fill=\"#9aa6b8\" text-anchor=\"middle\">5</text><text x=\"123\" y=\"292\" font-size=\"21\" fill=\"#7ee2a8\" text-anchor=\"middle\">C</text><rect x=\"235\" y=\"240\" width=\"145\" height=\"66\" rx=\"8\" fill=\"none\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><text x=\"308\" y=\"266\" font-size=\"15\" fill=\"#9aa6b8\" text-anchor=\"middle\">6</text><text x=\"308\" y=\"292\" font-size=\"21\" fill=\"#7ee2a8\" text-anchor=\"middle\">Am</text><rect x=\"420\" y=\"240\" width=\"145\" height=\"66\" rx=\"8\" fill=\"none\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><text x=\"493\" y=\"266\" font-size=\"15\" fill=\"#9aa6b8\" text-anchor=\"middle\">7</text><text x=\"493\" y=\"292\" font-size=\"21\" fill=\"#7ee2a8\" text-anchor=\"middle\">F / G</text><rect x=\"605\" y=\"240\" width=\"145\" height=\"66\" rx=\"8\" fill=\"none\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><text x=\"678\" y=\"266\" font-size=\"15\" fill=\"#9aa6b8\" text-anchor=\"middle\">8</text><text x=\"678\" y=\"292\" font-size=\"21\" fill=\"#7ee2a8\" text-anchor=\"middle\">C</text><path d=\"M28 350 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"28\" y=\"379\" font-size=\"15\" fill=\"#9aa6b8\" text-anchor=\"start\">Bar 7 changes from F to G after two beats. Every bar contains four quarter-note beats.</text></svg>",
+        "questions": [
+          {
+            "q": "Does bar 8, C5 dotted half followed by a quarter rest, fill 4/4?",
+            "hint": "Count the sustained note and the silence.",
+            "answer": "Yes. The dotted half lasts three beats and the rest one beat, totalling four."
+          },
+          {
+            "q": "What makes the sketch a useful starting point rather than a finished arrangement?",
+            "hint": "What depends on the actual performers and sound?",
+            "answer": "Register, voicing, groove, dynamics and breathing must be checked with the performers or instruments. The sketch supplies a coherent form and material to audition and revise."
+          }
+        ]
+      }
+    ]
+  },
+  "quizzes": {
+    "sections": [
+      {
+        "id": "musical-home",
+        "questions": [
+          {
+            "q": "Which pair is a half step within C major?",
+            "choices": [
+              "G–A",
+              "F–G",
+              "E–F",
+              "C–D"
+            ],
+            "answer": 2,
+            "explain": "E–F are adjacent keyboard pitches. The other listed pairs each span a whole step."
+          },
+          {
+            "q": "In G major, what note is scale degree 7?",
+            "choices": [
+              "F-natural",
+              "A",
+              "F-sharp",
+              "G"
+            ],
+            "answer": 2,
+            "explain": "The major-scale pattern places the seventh one half step below the tonic: F-sharp leads up to G. F-natural changes the scale pattern."
+          },
+          {
+            "q": "You want to transpose a phrase without changing its interval pattern. What should stay constant?",
+            "choices": [
+              "Only the first note",
+              "The original letter names",
+              "The distance each note moves",
+              "The number of black keys played"
+            ],
+            "answer": 2,
+            "explain": "Moving every pitch by the same interval preserves the relationships. Keeping letter names or counting black keys does not ensure a transposition."
+          }
+        ]
+      },
+      {
+        "id": "chord-function",
+        "questions": [
+          {
+            "q": "Which notes form the ii triad in C major?",
+            "choices": [
+              "D–F-sharp–A",
+              "B–D–F",
+              "C–E–G",
+              "D–F–A"
+            ],
+            "answer": 3,
+            "explain": "The second scale degree is D. Stacking alternate C-major tones gives D–F–A, a minor triad."
+          },
+          {
+            "q": "In a C-major context, what is a common effect of G7 moving to C?",
+            "choices": [
+              "It guarantees a change to G major",
+              "It makes every note a chord tone",
+              "It removes all rhythmic expectations",
+              "It supports dominant-to-tonic resolution"
+            ],
+            "answer": 3,
+            "explain": "G7 functions as V7 in C major and commonly resolves to I. Context still matters; neither a key change nor universal consonance follows automatically."
+          },
+          {
+            "q": "A song loops I–V–vi–IV without a textbook final cadence. Which response is most useful?",
+            "choices": [
+              "Replace every IV with V",
+              "Ignore its melody and rhythm",
+              "Declare the song harmonically incorrect",
+              "Evaluate how the loop supports its phrase, style and intended effect"
+            ],
+            "answer": 3,
+            "explain": "Function describes useful contextual tendencies. A popular loop can work without following one classical closing pattern."
+          }
+        ]
+      },
+      {
+        "id": "voice-leading",
+        "questions": [
+          {
+            "q": "Which upper voice can remain unchanged when C4–E4–G4 moves to C4–F4–A4?",
+            "choices": [
+              "C4",
+              "E4",
+              "G4",
+              "All three"
+            ],
+            "answer": 0,
+            "explain": "Both voicings contain C4. E moves to F and G to A, so the other two voices change."
+          },
+          {
+            "q": "A separate bass plays F2 under C4–F4–A4. What is the lowest pitch of the complete texture?",
+            "choices": [
+              "F2",
+              "F4",
+              "A4",
+              "C4"
+            ],
+            "answer": 0,
+            "explain": "The complete texture includes the separate bass, so F2 is lowest. The lowest note of the upper voicing alone is C4."
+          },
+          {
+            "q": "A close low chord sounds muddy beneath a melody. Which change is a reasonable experiment?",
+            "choices": [
+              "Double every low note",
+              "Ignore the register",
+              "Add more low sustained notes",
+              "Thin or raise inner parts and compare the result"
+            ],
+            "answer": 3,
+            "explain": "Register and density affect clarity. Thinning or spreading parts is a focused experiment; doubling the congested register may worsen the problem."
+          }
+        ]
+      },
+      {
+        "id": "rhythm-groove",
+        "questions": [
+          {
+            "q": "In this course’s 4/4 examples, how many quarter-note beats does a dotted half note occupy?",
+            "choices": [
+              "Four",
+              "Two",
+              "Three",
+              "One and a half"
+            ],
+            "answer": 2,
+            "explain": "A half note occupies two beats; the dot adds half its value, one more beat, for three total."
+          },
+          {
+            "q": "Which placement is an example of syncopation against a clear straight beat?",
+            "choices": [
+              "Playing all notes at the same pitch",
+              "Removing all rhythmic reference",
+              "An accented attack on the “and” after beat 2",
+              "Only accents on every downbeat"
+            ],
+            "answer": 2,
+            "explain": "An offbeat accent can create syncopation against an established beat. Pitch alone is unrelated, and the effect relies on rhythmic context."
+          },
+          {
+            "q": "A melody feels crowded. What is the most focused first experiment?",
+            "choices": [
+              "Increase all note velocities",
+              "Remove selected accompaniment attacks and compare the phrase",
+              "Change every chord and tempo at once",
+              "Add attacks to every part"
+            ],
+            "answer": 1,
+            "explain": "Changing density while preserving other factors lets you hear whether space helps. Simultaneous unrelated changes obscure the cause."
+          }
+        ]
+      },
+      {
+        "id": "melody-phrase",
+        "questions": [
+          {
+            "q": "Which note is not in a C-major triad?",
+            "choices": [
+              "G",
+              "C",
+              "E",
+              "D"
+            ],
+            "answer": 3,
+            "explain": "C major contains C, E and G. D is a scale tone in C major but is not a tone of that triad."
+          },
+          {
+            "q": "Which change most clearly develops a recognisable motive?",
+            "choices": [
+              "Replace every feature at once",
+              "Use random durations every time",
+              "Avoid repeating any interval",
+              "Keep its rhythm and vary its ending"
+            ],
+            "answer": 3,
+            "explain": "Retaining one recognisable feature while changing another creates a relationship the listener can follow. Replacing everything weakens that connection."
+          },
+          {
+            "q": "Your melody fits the key but sounds like an endless scale. What is the best next experiment?",
+            "choices": [
+              "Keep the same contour indefinitely",
+              "Shape a repeated motive, a high point and a deliberate ending",
+              "Add every remaining scale note",
+              "Remove all rests permanently"
+            ],
+            "answer": 1,
+            "explain": "Key membership alone does not create a phrase. Motive, contour and closure give a line a more specific musical purpose."
+          }
+        ]
+      },
+      {
+        "id": "song-capstone",
+        "questions": [
+          {
+            "q": "In the worked sketch, how long does F last in bar 7?",
+            "choices": [
+              "Two beats",
+              "Four beats",
+              "Three beats",
+              "One beat"
+            ],
+            "answer": 0,
+            "explain": "The plan assigns F to beats 1–2 and G to beats 3–4. The bar still totals four beats."
+          },
+          {
+            "q": "What does the final B4 moving to C5 demonstrate in this C-major sketch?",
+            "choices": [
+              "Leading-tone motion into the tonic",
+              "A mandatory modulation",
+              "An out-of-key mistake",
+              "An extra beat added to the bar"
+            ],
+            "answer": 0,
+            "explain": "B is degree 7 in C major, and C is degree 1. The step supports the planned arrival without changing the bar length or requiring a new key."
+          },
+          {
+            "q": "Which revision process produces the clearest comparison?",
+            "choices": [
+              "Change one musical feature, perform both versions and compare the intended effect",
+              "Change tempo, key and every voicing together",
+              "Keep only whichever version has more notes",
+              "Add parts until all rests disappear"
+            ],
+            "answer": 0,
+            "explain": "A controlled comparison lets you hear why a revision helps. Note count alone and many simultaneous changes do not identify the musical cause."
+          }
+        ]
+      }
+    ]
+  },
+  "slides": {
+    "sections": [
+      {
+        "id": "musical-home",
+        "title": "Hear a home note before naming the chords",
+        "bullets": [
+          "Tonic: a tonal centre is a point of reference, not just the first note",
+          "Scale degrees: numbers describe notes relative to that centre",
+          "Major scale: whole and half steps create a reusable pattern",
+          "Intervals: describe the distance between notes",
+          "Experiment: change the ending while keeping the phrase unchanged"
+        ],
+        "notes": "Try the sound before the label. Establish C as home, then compare an ending on C with an ending on B. Scale degrees name a relationship to that home. The major-scale step pattern lets you carry the same relationships into another key. Transposition preserves intervals; changing only selected pitches may change the musical idea.",
+        "visual": "C major has half steps between E–F and B–C. The spacing of the degree markers shows whole and half steps; the numbers describe relationships to C."
+      },
+      {
+        "id": "chord-function",
+        "title": "Give a progression somewhere to go",
+        "bullets": [
+          "Triads: stack alternate scale tones to build three-note chords",
+          "Roman numerals: uppercase major and lowercase minor in this course",
+          "Function: tonic, predominant and dominant describe common tonal roles",
+          "Cadence: the ending of a phrase shapes its sense of arrival",
+          "Style: useful tendencies are not universal composition rules"
+        ],
+        "notes": "Chords become more informative when you hear their relationships. In C major, I is C, vi is A minor, IV is F and V is G. Compare stopping on the dominant with returning to the tonic. Use the contrast as a writing choice, while remembering that genre and phrasing can change the effect.",
+        "visual": "In C major, the same chords can be labelled by name and by scale-degree role. The final move from G to C is one common dominant-to-tonic arrival."
+      },
+      {
+        "id": "voice-leading",
+        "title": "Move the voices, not just the chord labels",
+        "bullets": [
+          "Voicing: the same chord tones can occupy different registers and orders",
+          "Common tones: hold a shared note when it serves the phrase",
+          "Economy: compare small inner-voice moves with larger leaps",
+          "Bass role: a bass note can establish the root beneath an inversion",
+          "Independence: preserve audible parts and comfortable ranges"
+        ],
+        "notes": "Follow three lines rather than jumping between chord names. C can stay while E rises to F and G rises to A. That creates a new harmony with little motion. Then add the bass and check the whole texture, because an upper shape’s lowest note is not necessarily the lowest note the listener hears.",
+        "visual": "Three upper voices connect C major to an F-major voicing. C4 stays, E4 rises to F4, and G4 rises to A4; a separate bass may establish the chord root."
+      },
+      {
+        "id": "rhythm-groove",
+        "title": "Make repetition feel intentional",
+        "bullets": [
+          "Meter: group pulses so rhythmic placement has a reference",
+          "Duration: quarter notes, eighth notes and rests occupy time",
+          "Syncopation: emphasise an offbeat or carry sound across an expected accent",
+          "Groove: coordinate parts through a shared timing pattern",
+          "Space: leave deliberate gaps for melody, breath and contrast"
+        ],
+        "notes": "Count the time, including silence. Eight equal eighth-note slots fit a simple 4/4 bar, but each part does not need an attack in every slot. Let one part establish the pulse and another answer it. Compare a sparse version with a busy one before deciding which feels more alive.",
+        "visual": "Eight equal eighth-note slots fill this 4/4 bar. The bass anchors beats 1 and 3 while chord attacks after 2 and 4 create a contrasting rhythmic layer."
+      },
+      {
+        "id": "melody-phrase",
+        "title": "Write a melody that asks and answers",
+        "bullets": [
+          "Motive: a short recognisable idea can return with variation",
+          "Chord tones: use harmonic support without restricting every note",
+          "Passing motion: connect stable tones with purposeful non-chord tones",
+          "Contour: plan a high point and a place to settle",
+          "Phrasing: breath, rests and endings make the line feel intentional"
+        ],
+        "notes": "A phrase needs identity and direction. Our first bar has a small recurring contour; D then leads into C, and the next bar opens up to a longer A. Reuse a feature when you answer the phrase. The point is to make the listener recognise an idea and hear what changed.",
+        "visual": "The two-bar idea uses a recurring contour and a longer final note. D in bar 1 leads to C in bar 2; the diagram shows note durations on a beat grid."
+      },
+      {
+        "id": "song-capstone",
+        "title": "Arrange an eight-bar song sketch",
+        "bullets": [
+          "Form: plan two four-bar phrases with different endings",
+          "Harmony: give each bar a clear chord and count changes within bars",
+          "Melody: preserve a motive while shaping a peak and resolution",
+          "Arrangement: assign bass, harmony and melody distinct jobs",
+          "Revision: compare one controlled change at a time"
+        ],
+        "notes": "The sketch now has eight counted bars, an opening phrase and an answer. Follow B into C at each arrival, and count the final rest. Add parts with distinct jobs rather than doubling everything. Then audition one change at a time. A good arrangement grows from hearing the effect of a choice.",
+        "visual": "Two four-bar phrases share a harmonic outline. The first ends on G; the second uses a split F/G bar and settles on C with a final rest."
+      }
+    ]
+  },
+  "enrichment": {
+    "audioTitle": "Music Theory for Songwriting & Arrangement — think it through",
+    "turns": [
+      {
+        "speaker": "teacher",
+        "line": "You can know every note in a scale and still struggle to write a memorable phrase. Start with a musical home, then shape harmony, rhythm and individual voices into an original eight-bar sketch."
+      },
+      {
+        "speaker": "student",
+        "line": "What should I be able to do by the end?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Write and revise an eight-bar melody with a simple arrangement"
+      },
+      {
+        "speaker": "student",
+        "line": "Does calling C home mean every tune must start on C?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "No. The surrounding harmony and phrases establish a tonal centre; the opening pitch can be another degree."
+      },
+      {
+        "speaker": "student",
+        "line": "Why do I need F-sharp when I move the C-major pattern to G?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "The major-scale distances must remain the same. F-sharp sits a half step below G; F-natural does not."
+      },
+      {
+        "speaker": "student",
+        "line": "Are Roman numerals just another way to spell chord names?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "They also show relationships to a key. The same I–vi–IV–V pattern can move to another tonic while keeping its harmonic outline."
+      },
+      {
+        "speaker": "student",
+        "line": "Must every song end V to I?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "No. That is one strong tonal arrival. Loops, modal music and other styles can organise expectation differently."
+      },
+      {
+        "speaker": "student",
+        "line": "If the notes belong to the chord, why care about their order?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Order and register change the voicing, the individual lines and the clarity of the texture."
+      },
+      {
+        "speaker": "student",
+        "line": "Do smooth lines mean I should never leap?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "No. Compare the options against the phrase. Economy helps, but range, contour and expressive purpose also matter."
+      },
+      {
+        "speaker": "student",
+        "line": "If every part plays more notes, will the groove improve?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Not necessarily. Shared timing and deliberate gaps can make a pattern clearer than constant competing attacks."
+      },
+      {
+        "speaker": "student",
+        "line": "Can I ignore rests when checking a bar?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "No. Rests occupy measured time and help define both the phrase and its breathing space."
+      },
+      {
+        "speaker": "student",
+        "line": "If D is outside the C chord, should I delete it?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Not automatically. It can create useful movement into C. Examine the approach, duration and resolution."
+      },
+      {
+        "speaker": "student",
+        "line": "Why does a technically correct scale run feel unmemorable?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "It may lack a recognisable motive, contrast or destination. Give the line a shape and leave space for its ending."
+      },
+      {
+        "speaker": "student",
+        "line": "Is this ready to hand directly to a choir?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "It is a keyboard-style song sketch. A choir version needs suitable ranges, voice independence, text and breathing planned for the actual singers."
+      },
+      {
+        "speaker": "student",
+        "line": "How do I know which revision is better?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Perform or hum both versions with one feature changed. Keep the version that better supports the intended phrase and clarity."
+      }
+    ],
+    "nodes": [
+      {
+        "id": "root",
+        "parent": null,
+        "label": "Music theory and songwriting",
+        "note": "Hear and describe tonal relationships using scale degrees and intervals"
+      },
+      {
+        "id": "musical-home",
+        "parent": "root",
+        "label": "Hear a home note before naming the chords",
+        "note": "Hear tonal relationships, then use degrees and intervals to describe and transpose them."
+      },
+      {
+        "id": "musical-home-0",
+        "parent": "musical-home",
+        "label": "Tonic",
+        "note": "Tonic: a tonal centre is a point of reference, not just the first note"
+      },
+      {
+        "id": "musical-home-1",
+        "parent": "musical-home",
+        "label": "Scale degrees",
+        "note": "Scale degrees: numbers describe notes relative to that centre"
+      },
+      {
+        "id": "chord-function",
+        "parent": "root",
+        "label": "Give a progression somewhere to go",
+        "note": "Choose chord roles and cadences to support a phrase rather than following a rule mechanically."
+      },
+      {
+        "id": "chord-function-0",
+        "parent": "chord-function",
+        "label": "Triads",
+        "note": "Triads: stack alternate scale tones to build three-note chords"
+      },
+      {
+        "id": "chord-function-1",
+        "parent": "chord-function",
+        "label": "Roman numerals",
+        "note": "Roman numerals: uppercase major and lowercase minor in this course"
+      },
+      {
+        "id": "voice-leading",
+        "parent": "root",
+        "label": "Move the voices, not just the chord labels",
+        "note": "Track each part through the progression and choose voicings for both motion and register."
+      },
+      {
+        "id": "voice-leading-0",
+        "parent": "voice-leading",
+        "label": "Voicing",
+        "note": "Voicing: the same chord tones can occupy different registers and orders"
+      },
+      {
+        "id": "voice-leading-1",
+        "parent": "voice-leading",
+        "label": "Common tones",
+        "note": "Common tones: hold a shared note when it serves the phrase"
+      },
+      {
+        "id": "rhythm-groove",
+        "parent": "root",
+        "label": "Make repetition feel intentional",
+        "note": "Count complete bars and coordinate attacks and rests across parts."
+      },
+      {
+        "id": "rhythm-groove-0",
+        "parent": "rhythm-groove",
+        "label": "Meter",
+        "note": "Meter: group pulses so rhythmic placement has a reference"
+      },
+      {
+        "id": "rhythm-groove-1",
+        "parent": "rhythm-groove",
+        "label": "Duration",
+        "note": "Duration: quarter notes, eighth notes and rests occupy time"
+      },
+      {
+        "id": "melody-phrase",
+        "parent": "root",
+        "label": "Write a melody that asks and answers",
+        "note": "Use motive, contextual tension and contour to build a recognisable musical phrase."
+      },
+      {
+        "id": "melody-phrase-0",
+        "parent": "melody-phrase",
+        "label": "Motive",
+        "note": "Motive: a short recognisable idea can return with variation"
+      },
+      {
+        "id": "melody-phrase-1",
+        "parent": "melody-phrase",
+        "label": "Chord tones",
+        "note": "Chord tones: use harmonic support without restricting every note"
+      },
+      {
+        "id": "song-capstone",
+        "parent": "root",
+        "label": "Arrange an eight-bar song sketch",
+        "note": "Combine counted form, harmonic direction and distinct instrumental roles, then revise by listening."
+      },
+      {
+        "id": "song-capstone-0",
+        "parent": "song-capstone",
+        "label": "Form",
+        "note": "Form: plan two four-bar phrases with different endings"
+      },
+      {
+        "id": "song-capstone-1",
+        "parent": "song-capstone",
+        "label": "Harmony",
+        "note": "Harmony: give each bar a clear chord and count changes within bars"
+      }
+    ],
+    "mnemonics": [
+      {
+        "for": "Revision",
+        "aid": "Keep an identity, change one feature, hear the result."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Music Theory for the 21st-Century Classroom — Major scale",
+      "url": "https://musictheory.pugetsound.edu/mt21c/TheMajorScale.html"
+    },
+    {
+      "title": "Music Theory for the 21st-Century Classroom — Harmonic function",
+      "url": "https://musictheory.pugetsound.edu/mt21c/HarmonicFunction.html"
+    },
+    {
+      "title": "Music Theory for the 21st-Century Classroom — Voice leading",
+      "url": "https://musictheory.pugetsound.edu/mt21c/VoiceLeading.html"
+    },
+    {
+      "title": "Music Theory for the 21st-Century Classroom — Rhythm",
+      "url": "https://musictheory.pugetsound.edu/mt21c/BasicsOfRhythm.html"
+    },
+    {
+      "title": "Music Theory for the 21st-Century Classroom — Melodic analysis",
+      "url": "https://musictheory.pugetsound.edu/mt21c/MelodicAnalysis.html"
+    }
+  ]
+}

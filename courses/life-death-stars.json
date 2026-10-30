@@ -1,0 +1,799 @@
+{
+  "meta": {
+    "title": "The Life & Death of Stars",
+    "topic": "Stellar evolution",
+    "level": "intermediate",
+    "estimatedMinutes": 65,
+    "tags": [
+      "astronomy",
+      "stars",
+      "fusion",
+      "H-R diagram",
+      "white dwarf",
+      "supernova"
+    ],
+    "createdAt": "2026-10-30T03:00:00.000Z",
+    "interests": "Practical mechanisms, music, space, technology and worked examples",
+    "depth": "standard",
+    "model": "Learnway authored course"
+  },
+  "plan": {
+    "title": "The Life & Death of Stars",
+    "hook": "Why does a massive star run out of time sooner, and how can a red giant be cool yet luminous? Follow pressure, fuel and structure through branching stellar lives rather than memorising a single sequence.",
+    "objectives": [
+      "Separate pressure support from the energy supplied by fusion",
+      "Compare fuel supply, luminosity and simplified stellar lifetimes",
+      "Read an H–R diagram and reason about temperature, radius and luminosity",
+      "Explain Sun-like and massive-star paths with appropriate model limits"
+    ],
+    "prerequisites": [
+      "Basic energy ideas and scientific notation are helpful",
+      "No calculus or prior astronomy course is required"
+    ],
+    "sections": [
+      {
+        "id": "stellar-birth",
+        "heading": "Gravity gathers the material; pressure supports it",
+        "points": [
+          "Formation: a collapsing region of gas and dust can build a protostar",
+          "Heating: contraction converts gravitational energy into internal energy and radiation",
+          "Support: a pressure gradient opposes inward gravity",
+          "Fusion: sustained core hydrogen fusion marks the main sequence",
+          "Balance: hydrostatic support and energy balance are related but distinct"
+        ]
+      },
+      {
+        "id": "main-sequence-life",
+        "heading": "More fuel does not necessarily mean more time",
+        "points": [
+          "Mass: initial mass strongly shapes central conditions and evolution",
+          "Luminosity: energy emitted per second measures the rate of spending",
+          "Lifetime: available nuclear energy divided by luminosity gives a useful estimate",
+          "Comparison: massive main-sequence stars spend fuel disproportionately quickly",
+          "Limits: fuel fractions and luminosity change across different stellar structures"
+        ]
+      },
+      {
+        "id": "hr-diagram",
+        "heading": "Read the H–R diagram without treating it as a clock",
+        "points": [
+          "Temperature: the conventional horizontal axis gets cooler to the right",
+          "Luminosity: the vertical axis measures emitted power, increasing upwards",
+          "Radius: temperature and emitting area jointly set luminosity",
+          "Regions: main sequence, giants and white dwarfs occupy different areas",
+          "Evolution: a population diagram is not one universal track through time"
+        ]
+      },
+      {
+        "id": "sun-like-evolution",
+        "heading": "Follow a Sun-like star beyond core hydrogen",
+        "points": [
+          "Core exhaustion: hydrogen fusion ends in the centre before hydrogen vanishes everywhere",
+          "Red giant: shell hydrogen fusion accompanies a contracting core and expanding envelope",
+          "Helium burning: the core can produce carbon and oxygen",
+          "Late giant: later readjustments and mass loss remove the envelope",
+          "White dwarf: a compact remnant cools without sustained core fusion"
+        ]
+      },
+      {
+        "id": "massive-star-end",
+        "heading": "An iron-rich core changes the energy story",
+        "points": [
+          "Massive-star burning: later fuels can support successive core stages",
+          "Layering: shells can burn different fuels around an evolved core",
+          "Iron group: further fusion no longer supplies the same net energy gain",
+          "Collapse: core conditions and support determine a rapid transformation",
+          "Remnant: neutron star or black hole depends on retained core and explosion history"
+        ]
+      },
+      {
+        "id": "stellar-capstone",
+        "heading": "Choose a path and defend the evidence",
+        "points": [
+          "Branching: initial mass and later interactions shape distinct histories",
+          "Evidence: temperature and luminosity constrain radius, not a unique age",
+          "Timescale: compare available energy with luminosity",
+          "Integrity: distinguish observed populations from modelled future evolution",
+          "Explanation: state the path, mechanism and remaining uncertainty"
+        ]
+      }
+    ]
+  },
+  "reading": {
+    "sections": [
+      {
+        "id": "stellar-birth",
+        "heading": "Gravity gathers the material; pressure supports it",
+        "body": "A star begins as part of a cloud, not as a finished sphere with a flame switched on inside it. In a collapsing region, gravity gathers material. As gas contracts, gravitational energy is redistributed into heating and radiation. The central density and temperature rise while the young object can still gain material from its surroundings.\n\nPressure matters before sustained hydrogen fusion begins. A pressure gradient means pressure changes with position; in a supported star, higher pressure deeper inside provides an outward force that balances gravity locally. This state is called hydrostatic equilibrium. It is more precise to say that the pressure gradient balances gravity than that “fusion pushes gravity away.” Fusion supplies energy that helps maintain the interior conditions supporting that pressure.\n\nWhen an object develops suitable central temperature and density, sustained hydrogen fusion can supply its main energy source. Hydrogen nuclei ultimately become helium, with some mass converted into released energy. A star in the main-sequence phase is stably fusing hydrogen in its core. Not every forming object becomes a hydrogen-fusing star; insufficiently massive objects can remain below that threshold.\n\nTwo balances are useful. Mechanical support concerns forces at each layer. Thermal or energy balance concerns whether energy generation and transport match energy leaving the surface over time. A star can readjust when those conditions change. The main sequence is a long-lived phase, not a guarantee that radius and luminosity remain exactly constant.\n\n**Predict:** If a core contracts and heats, that does not mean the star's visible surface must become hotter at the same moment. Different layers can respond differently.\n\n**Try it:** Draw one layer inside a star. Put inward gravity on one side of your explanation and the pressure-gradient force on the other. In a separate sentence, explain what supplies the energy that sustains the interior. Keeping force and energy roles separate will make the later giant phases easier to understand.",
+        "visual": "Gravity acts inward while the pressure-gradient force supports the layer outward. Fusion supplies energy; it is not itself a separate outward mechanical force at every layer.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Support and energy supply answer different questions\" font-family=\"sans-serif\"><title>Support and energy supply answer different questions</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"35\" font-size=\"22\" fill=\"#e8ecf1\" text-anchor=\"start\">Support and energy supply answer different questions</text><path d=\"M28 52 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"235\" cy=\"205\" r=\"108\" stroke=\"#ffd479\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"235\" cy=\"205\" r=\"45\" stroke=\"#ff9c9c\" stroke-width=\"2\" fill=\"#402a26\"/><path d=\"M80 205 L165 205 M157.0 209.2 L165 205 L157.0 200.8\" stroke=\"#7cc7ff\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><path d=\"M390 205 L305 205 M313.0 200.8 L305 205 L313.0 209.2\" stroke=\"#7cc7ff\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><path d=\"M235 128 L235 78 M239.2 86.0 L235 78 L230.8 86.0\" stroke=\"#7ee2a8\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><path d=\"M235 282 L235 330 M230.8 322.0 L235 330 L239.2 322.0\" stroke=\"#7ee2a8\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"235\" y=\"216\" font-size=\"20\" fill=\"#ffd479\" text-anchor=\"middle\">Core</text><text x=\"75\" y=\"175\" font-size=\"17\" fill=\"#7cc7ff\" text-anchor=\"start\">Gravity</text><rect x=\"440\" y=\"95\" width=\"310\" height=\"210\" rx=\"8\" fill=\"none\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><text x=\"456\" y=\"123\" font-size=\"20\" fill=\"#7ee2a8\" text-anchor=\"start\">Two kinds of balance</text><text x=\"456\" y=\"153\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Pressure gradient ↔ gravity</text><text x=\"456\" y=\"178\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Energy generated / released</text><text x=\"456\" y=\"203\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Energy transported outward</text><text x=\"456\" y=\"228\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Energy radiated at surface</text><path d=\"M28 350 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"28\" y=\"379\" font-size=\"15\" fill=\"#9aa6b8\" text-anchor=\"start\">Schematic layer forces; the drawing does not show the detailed internal structure of every star.</text></svg>",
+        "questions": [
+          {
+            "q": "What directly balances inward gravity in hydrostatic equilibrium?",
+            "hint": "Distinguish a force from an energy source.",
+            "answer": "The outward force produced by the pressure gradient balances gravity locally. Fusion helps supply energy that maintains the supporting interior conditions."
+          },
+          {
+            "q": "What defines the main-sequence phase?",
+            "hint": "Which fuel is being fused, and where?",
+            "answer": "The star stably fuses hydrogen into helium in its core. Other phases can involve shell hydrogen fusion or different core fuels."
+          }
+        ]
+      },
+      {
+        "id": "main-sequence-life",
+        "heading": "More fuel does not necessarily mean more time",
+        "body": "A large fuel tank lasts longer only if the rate of use stays comparable. A star's mass changes both the fuel available and the conditions under which energy is generated. More massive main-sequence stars have more demanding interior conditions and much higher luminosities. Their faster energy output can outweigh their larger fuel supply, giving them shorter main-sequence lifetimes.\n\nLuminosity means total energy emitted per second, not how bright the star happens to look from Earth. A nearby dim star can appear brighter than a much more luminous distant one. For a simplified lifetime estimate, t ≈ E_available / L, where t is time, E_available is usable nuclear energy and L is luminosity. The division has the correct meaning: an energy amount divided by energy per second gives seconds.\n\n**Worked comparison:** Suppose a hypothetical model has twice the available nuclear energy of a reference star but emits at ten times the reference luminosity. Its lifetime ratio is 2 ÷ 10 = 0.2. If the reference main-sequence lifetime is 10 billion years in this teaching model, the comparison lifetime is 2 billion years. These are stated fuel and luminosity assumptions, not a universal law assigning an exact lifetime from mass alone.\n\nReal models must consider changing luminosity, chemical composition, mixing, rotation and mass loss. Low-mass stars can make use of their fuel differently from Sun-like stars. Some predicted low-mass lifetimes exceed the current age of the universe, so their complete evolution has not been directly observed from birth to death.\n\n**Predict:** A star with more total hydrogen does not automatically have a longer life if its usable fuel is consumed at a much higher rate.\n\n**Try it:** Compare model A with one unit of available energy and one unit of luminosity to model B with three energy units and six luminosity units. B lasts half as long in the simple model. State both assumptions before interpreting the answer.",
+        "visual": "Lifetime is a ratio of available energy to its rate of use. In this explicit model, twice the fuel at ten times the luminosity produces one-fifth the reference lifetime.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Fuel supply must be compared with spending rate\" font-family=\"sans-serif\"><title>Fuel supply must be compared with spending rate</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"35\" font-size=\"22\" fill=\"#e8ecf1\" text-anchor=\"start\">Fuel supply must be compared with spending rate</text><path d=\"M28 52 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><rect x=\"45\" y=\"90\" width=\"325\" height=\"220\" rx=\"8\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"61\" y=\"118\" font-size=\"20\" fill=\"#7cc7ff\" text-anchor=\"start\">Reference model</text><text x=\"61\" y=\"148\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Available energy: 1 unit</text><text x=\"61\" y=\"173\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Luminosity: 1 unit</text><text x=\"61\" y=\"198\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Relative lifetime: 1</text><text x=\"61\" y=\"223\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Example: 10 billion years</text><rect x=\"430\" y=\"90\" width=\"325\" height=\"220\" rx=\"8\" fill=\"none\" stroke=\"#ffd479\" stroke-width=\"2\"/><text x=\"446\" y=\"118\" font-size=\"20\" fill=\"#ffd479\" text-anchor=\"start\">Comparison model</text><text x=\"446\" y=\"148\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Available energy: 2 units</text><text x=\"446\" y=\"173\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Luminosity: 10 units</text><text x=\"446\" y=\"198\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Relative lifetime: 2/10 = 0.2</text><text x=\"446\" y=\"223\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Example: 2 billion years</text><path d=\"M28 350 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"28\" y=\"379\" font-size=\"15\" fill=\"#9aa6b8\" text-anchor=\"start\">Constant-luminosity teaching model. These inputs are not a universal mass-to-lifetime formula.</text></svg>",
+        "questions": [
+          {
+            "q": "A model has three times the available energy and six times the luminosity. How long does it last relative to the reference?",
+            "hint": "Divide the fuel ratio by the spending-rate ratio.",
+            "answer": "3 ÷ 6 = 0.5, so it lasts half as long under the stated constant-luminosity assumptions."
+          },
+          {
+            "q": "Why is luminosity different from apparent brightness?",
+            "hint": "Does distance change the total energy the star emits?",
+            "answer": "Luminosity is the star’s emitted energy per second. Apparent brightness also depends on distance and intervening material, so it is not the same quantity."
+          }
+        ]
+      },
+      {
+        "id": "hr-diagram",
+        "heading": "Read the H–R diagram without treating it as a clock",
+        "body": "An H–R diagram, short for Hertzsprung–Russell diagram, compares stellar luminosity and surface temperature. In the conventional layout, hotter stars are on the left and cooler stars on the right. More luminous stars are higher. Real diagrams commonly use logarithmic scales, so equal spacing can represent multiplicative changes. Read the actual labels before measuring distances on the page.\n\nThe main sequence forms a broad diagonal from hot luminous stars at upper left to cool faint stars at lower right. Giants can be cool at their surfaces but luminous because they have large emitting areas. White dwarfs can have hot surfaces but low luminosities because they are small. A point's position is not automatically its age, and a population's main-sequence band is not a track that every single star travels from end to end.\n\nThe surface relation is L = 4πR²σT⁴. L is luminosity in watts, R is radius in metres, T is effective surface temperature in kelvin, and σ is the Stefan–Boltzmann constant. For ratios to a reference, the constants cancel: L/L_ref = (R/R_ref)² × (T/T_ref)⁴.\n\n**Worked example:** Give a hypothetical star ten times the reference radius and half the reference surface temperature. Its luminosity ratio is 10² × 0.5⁴ = 100 × 0.0625 = 6.25. A cooler surface can still yield more total emitted power when the radius is sufficiently large. The example uses effective temperatures and an idealised radiating-surface relation; it is not a complete stellar-interior model.\n\n**Predict:** A hot but faint object could have a small radius; “hot” does not mean “high luminosity” without an area.\n\n**Try it:** Place a Sun-like main-sequence star, a cool luminous giant and a hot faint white dwarf on the diagram. State the two observed quantities first, then infer relative radius. Do not infer an exact mass or age from the sketch alone.",
+        "visual": "The conventional H–R layout has hot stars at left and high luminosity at top. This qualitative sketch marks regions, not numeric positions, exact tracks or evolutionary speeds.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"An H–R diagram compares temperature and luminosity\" font-family=\"sans-serif\"><title>An H–R diagram compares temperature and luminosity</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"35\" font-size=\"22\" fill=\"#e8ecf1\" text-anchor=\"start\">An H–R diagram compares temperature and luminosity</text><path d=\"M28 52 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><path d=\"M95 302 L95 83 M99.2 91.0 L95 83 L90.8 91.0\" stroke=\"#9aa6b8\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><path d=\"M95 302 L740 302 M732.0 306.2 L740 302 L732.0 297.8\" stroke=\"#9aa6b8\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"108\" y=\"83\" font-size=\"17\" fill=\"#9aa6b8\" text-anchor=\"start\">More luminous ↑</text><text x=\"430\" y=\"334\" font-size=\"17\" fill=\"#9aa6b8\" text-anchor=\"middle\">Hotter  ←  surface temperature  →  Cooler</text><path d=\"M175 120 L635 270\" stroke=\"#7cc7ff\" stroke-width=\"16\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"410\" y=\"140\" font-size=\"19\" fill=\"#7cc7ff\" text-anchor=\"middle\">Main sequence</text><path d=\"M410 152 V181\" stroke=\"#7cc7ff\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"625\" cy=\"125\" r=\"26\" stroke=\"#ff9c9c\" stroke-width=\"2\" fill=\"#402a26\"/><text x=\"625\" y=\"80\" font-size=\"19\" fill=\"#ff9c9c\" text-anchor=\"middle\">Giants</text><circle cx=\"230\" cy=\"265\" r=\"10\" stroke=\"#7ee2a8\" stroke-width=\"2\" fill=\"#7ee2a8\"/><text x=\"290\" y=\"272\" font-size=\"18\" fill=\"#7ee2a8\" text-anchor=\"start\">White dwarfs</text><path d=\"M28 350 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"28\" y=\"379\" font-size=\"15\" fill=\"#9aa6b8\" text-anchor=\"start\">Qualitative region map only. Real H–R axes often use logarithmic scales.</text></svg>",
+        "questions": [
+          {
+            "q": "A star has 10 times the reference radius and half its temperature. What is its luminosity ratio?",
+            "hint": "Square the radius ratio and raise the temperature ratio to the fourth power.",
+            "answer": "10² × 0.5⁴ = 100 × 0.0625 = 6.25. Its large area outweighs the cooler surface."
+          },
+          {
+            "q": "Why is the main sequence not a single clock track?",
+            "hint": "Is the plot following one star or comparing many stars?",
+            "answer": "An H–R diagram can show a population of stars with different masses and stages. The band is not a path that every star travels through in the same order."
+          }
+        ]
+      },
+      {
+        "id": "sun-like-evolution",
+        "heading": "Follow a Sun-like star beyond core hydrogen",
+        "body": "A Sun-like star does not use up all its hydrogen at once. The centre changes first. When core hydrogen becomes exhausted, the helium-rich core contracts while hydrogen fusion continues in a surrounding shell. The outer layers can expand greatly and their surface cools. A contracting, heating core and an expanding, cooling surface can therefore exist in the same evolving star.\n\nThat red-giant stage is not the final step. The core can become hot enough for helium fusion, producing carbon and, through further reactions, oxygen. The structure readjusts during core helium burning. After central helium is exhausted, later giant phases involve shell burning around the compact core and substantial mass loss. The simplified sequence in the figure omits many details and is specific to a Sun-like single-star path.\n\nMaterial shed from the envelope can become a planetary nebula when illuminated by the hot exposed remnant. The name is historical: the nebula is not made by forming planets. The remaining white dwarf is a dense stellar core, commonly made mainly of carbon and oxygen in this path. Electron degeneracy pressure supplies an important form of support. Its emitted light comes from cooling stored heat rather than sustained core fusion like the main sequence.\n\n**Predict:** The Sun-like path does not finish as a core-collapse supernova or black hole. There is no requirement for every star to pass through the same explosive ending.\n\nVery low-mass stars and stars interacting with companions can follow different histories. A white dwarf in a binary can gain material or merge, opening outcomes not covered by this isolated single-star sketch. Separate those channels rather than attaching every possible event to one universal timeline.\n\n**Try it:** Arrange six stages: core hydrogen fusion, red giant with shell hydrogen fusion, core helium fusion, later giant and mass loss, exposed remnant with shed envelope, cooling white dwarf. For each stage, say what is happening in the core and what an observer sees at the surface.",
+        "visual": "This Sun-like single-star sequence includes a core-helium-burning stage between giant phases. The final exposed white dwarf cools; the shed envelope is distinct from the remnant.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"A Sun-like path has several internal fuel stages\" font-family=\"sans-serif\"><title>A Sun-like path has several internal fuel stages</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"35\" font-size=\"22\" fill=\"#e8ecf1\" text-anchor=\"start\">A Sun-like path has several internal fuel stages</text><path d=\"M28 52 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><rect x=\"40\" y=\"80\" width=\"220\" height=\"105\" rx=\"8\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"56\" y=\"108\" font-size=\"20\" fill=\"#7cc7ff\" text-anchor=\"start\">Core H fusion</text><text x=\"56\" y=\"138\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Main sequence</text><rect x=\"290\" y=\"80\" width=\"220\" height=\"105\" rx=\"8\" fill=\"none\" stroke=\"#ffd479\" stroke-width=\"2\"/><text x=\"306\" y=\"108\" font-size=\"20\" fill=\"#ffd479\" text-anchor=\"start\">Shell H fusion</text><text x=\"306\" y=\"138\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Red giant</text><rect x=\"540\" y=\"80\" width=\"220\" height=\"105\" rx=\"8\" fill=\"none\" stroke=\"#ff9c9c\" stroke-width=\"2\"/><text x=\"556\" y=\"108\" font-size=\"20\" fill=\"#ff9c9c\" text-anchor=\"start\">Core He fusion</text><text x=\"556\" y=\"138\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Carbon and oxygen</text><rect x=\"540\" y=\"225\" width=\"220\" height=\"105\" rx=\"8\" fill=\"none\" stroke=\"#b39dff\" stroke-width=\"2\"/><text x=\"556\" y=\"253\" font-size=\"20\" fill=\"#b39dff\" text-anchor=\"start\">Later giant</text><text x=\"556\" y=\"283\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Shell burning; mass loss</text><rect x=\"290\" y=\"225\" width=\"220\" height=\"105\" rx=\"8\" fill=\"none\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><text x=\"306\" y=\"253\" font-size=\"20\" fill=\"#7ee2a8\" text-anchor=\"start\">Exposed core</text><text x=\"306\" y=\"283\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Shed envelope glows</text><rect x=\"40\" y=\"225\" width=\"220\" height=\"105\" rx=\"8\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"56\" y=\"253\" font-size=\"20\" fill=\"#7cc7ff\" text-anchor=\"start\">White dwarf</text><text x=\"56\" y=\"283\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Stored heat cools</text><path d=\"M260 135 L288 135 M280.0 139.2 L288 135 L280.0 130.8\" stroke=\"#7cc7ff\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><path d=\"M510 135 L538 135 M530.0 139.2 L538 135 L530.0 130.8\" stroke=\"#7cc7ff\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><path d=\"M650 185 L650 223 M645.8 215.0 L650 223 L654.2 215.0\" stroke=\"#7cc7ff\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><path d=\"M540 278 L512 278 M520.0 273.8 L512 278 L520.0 282.2\" stroke=\"#7cc7ff\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><path d=\"M290 278 L262 278 M270.0 273.8 L262 278 L270.0 282.2\" stroke=\"#7cc7ff\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><path d=\"M28 350 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"28\" y=\"379\" font-size=\"15\" fill=\"#9aa6b8\" text-anchor=\"start\">Simplified Sun-like single-star sequence; lengths and arrow spacing do not represent time.</text></svg>",
+        "questions": [
+          {
+            "q": "Can the core heat while the surface cools during red-giant evolution?",
+            "hint": "Are core temperature and effective surface temperature the same variable?",
+            "answer": "Yes. The core can contract and heat while the envelope expands and the surface cools. Different layers respond differently."
+          },
+          {
+            "q": "What powers an isolated white dwarf’s light after ordinary core fusion ends?",
+            "hint": "Does it need to continue main-sequence hydrogen fusion?",
+            "answer": "It radiates stored thermal energy while cooling. Electron degeneracy pressure supports the remnant, but that support is not sustained core hydrogen fusion."
+          }
+        ]
+      },
+      {
+        "id": "massive-star-end",
+        "heading": "An iron-rich core changes the energy story",
+        "body": "Sufficiently massive stars can proceed beyond the core-fuel stages available to a Sun-like star. After hydrogen and helium, successive burning stages can process heavier nuclei. A late massive star may have several active shells around an evolved core. These layers are often drawn like an onion, but their thicknesses, temperatures and durations differ greatly; the picture is a structural analogy, not a scale model.\n\nAn iron-group core creates a different problem. Fusion toward tightly bound nuclei has supplied energy during earlier stages, but building still heavier nuclei from an iron-group mixture does not continue that same net energy release. Advanced core evolution also involves energy losses, electron capture and changes in support. A core can become unstable and collapse. Saying “the whole star simply runs out of fuel at once” misses the distinct core and shell processes.\n\nCore collapse can power a supernova, ejecting material and leaving a compact remnant. A neutron star is supported by dense-matter physics, including degeneracy effects and nuclear interactions. If collapse leaves too much mass for stable neutron-star support, a black hole can form. The outcome depends on the core, mass loss, explosion and possible fallback, not just a single classroom cut-off based on birth mass. Some massive stars may collapse with weak or no bright conventional supernova display.\n\n**Predict:** A Sun-like white-dwarf path should not be extended by automatically adding an iron core. Different starting conditions lead to different accessible stages.\n\nExplosions and stellar winds return processed material to space. Heavy-element production also involves other channels, including compact-object mergers; not every heavy nucleus should be attributed to one generic supernova cartoon.\n\n**Try it:** Explain why “more massive” can mean both a shorter main-sequence life and access to later burning stages. Then draw two possible compact outcomes without claiming a universal exact initial-mass threshold. Include one uncertainty that a detailed stellar model must resolve.",
+        "visual": "An evolved massive star can contain nested burning regions around an iron-rich core. The schematic compresses many layers and does not imply equal thickness or universal structure.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"A layered star can surround an iron-rich core\" font-family=\"sans-serif\"><title>A layered star can surround an iron-rich core</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"35\" font-size=\"22\" fill=\"#e8ecf1\" text-anchor=\"start\">A layered star can surround an iron-rich core</text><path d=\"M28 52 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"220\" cy=\"205\" r=\"113\" stroke=\"#7cc7ff\" stroke-width=\"2\" fill=\"#172c3b\"/><circle cx=\"220\" cy=\"205\" r=\"86\" stroke=\"#ffd479\" stroke-width=\"2\" fill=\"#3a3324\"/><circle cx=\"220\" cy=\"205\" r=\"57\" stroke=\"#ff9c9c\" stroke-width=\"2\" fill=\"#3f2827\"/><circle cx=\"220\" cy=\"205\" r=\"25\" stroke=\"#b39dff\" stroke-width=\"2\" fill=\"#332742\"/><text x=\"420\" y=\"112\" font-size=\"19\" fill=\"#7cc7ff\" text-anchor=\"start\">Outer hydrogen-rich region</text><text x=\"420\" y=\"166\" font-size=\"19\" fill=\"#ffd479\" text-anchor=\"start\">Helium and later fuel shells</text><text x=\"420\" y=\"220\" font-size=\"19\" fill=\"#ff9c9c\" text-anchor=\"start\">Advanced burning products</text><text x=\"420\" y=\"274\" font-size=\"19\" fill=\"#b39dff\" text-anchor=\"start\">Iron-group core</text><path d=\"M310 140 L370 106 H395\" stroke=\"#7cc7ff\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><path d=\"M298 190 L370 160 H395\" stroke=\"#ffd479\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><path d=\"M270 210 L370 214 H395\" stroke=\"#ff9c9c\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><path d=\"M235 215 L350 268 H395\" stroke=\"#b39dff\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><path d=\"M28 350 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"28\" y=\"379\" font-size=\"15\" fill=\"#9aa6b8\" text-anchor=\"start\">Structural analogy, not to scale. Core evolution and retained mass shape the eventual remnant.</text></svg>",
+        "questions": [
+          {
+            "q": "Why is an iron-group core a turning point in the fusion-energy story?",
+            "hint": "Does continuing to build heavier nuclei release energy in the same way?",
+            "answer": "Further fusion from iron-group material does not provide the earlier net energy gain. Other core processes and loss of support can then contribute to collapse."
+          },
+          {
+            "q": "Why avoid a universal exact birth-mass threshold for a neutron star versus a black hole?",
+            "hint": "What changes between birth and collapse?",
+            "answer": "Mass loss, core evolution, binary history, explosion behaviour and fallback alter the retained remnant. A detailed outcome cannot be assigned from one simple cut-off alone."
+          }
+        ]
+      },
+      {
+        "id": "stellar-capstone",
+        "heading": "Choose a path and defend the evidence",
+        "body": "Your capstone is to explain three cases without forcing them onto one universal timeline.\n\n**Case A — a Sun-like single star.** Follow core hydrogen fusion, shell hydrogen fusion with an expanding envelope, core helium fusion, later giant evolution and envelope loss. The final isolated remnant is a white dwarf that cools. State why a contracting core does not require a hotter visible surface at every stage.\n\n**Case B — an evolved massive star.** Explain how later burning stages can build a layered structure and an iron-group core. Describe core-collapse possibilities and why a neutron-star versus black-hole outcome depends on retained core conditions and history. Do not copy the white-dwarf path and attach a supernova at the end.\n\n**Case C — a hot faint object.** Use the H–R relation to infer a small emitting area as one consistent explanation. A white dwarf is a plausible interpretation, but temperature and luminosity alone do not supply a unique complete history. Distance, spectrum and other observations can refine the classification.\n\n**Worked model check:** A comparison star has twice the available nuclear energy and ten times the luminosity. Its simple lifetime is one-fifth of the reference, not five times longer. A different object with ten times the radius and half the surface temperature has 6.25 times the luminosity. These calculations answer different questions: one concerns energy use over time, the other the properties of a radiating surface.\n\n**Try it:** Draw two main evolutionary branches and annotate each arrow with a change of fuel, structure or mass loss. Add a separate note that binary interaction can alter the path. Finish a five-sentence explanation for one case: what is observed, what mechanism fits, what the model predicts, what it leaves uncertain, and what further evidence would help. A well-labelled uncertainty is part of a sound scientific explanation.",
+        "visual": "A Sun-like single-star branch leads to a cooling white dwarf. A sufficiently massive-star branch may undergo core collapse with a neutron star or black hole; binary interactions can alter either history.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Stellar evolution branches with physical conditions\" font-family=\"sans-serif\"><title>Stellar evolution branches with physical conditions</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"35\" font-size=\"22\" fill=\"#e8ecf1\" text-anchor=\"start\">Stellar evolution branches with physical conditions</text><path d=\"M28 52 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><rect x=\"40\" y=\"85\" width=\"210\" height=\"105\" rx=\"8\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"56\" y=\"113\" font-size=\"20\" fill=\"#7cc7ff\" text-anchor=\"start\">Starting conditions</text><text x=\"56\" y=\"143\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Mass, composition</text><text x=\"56\" y=\"168\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Possible interactions</text><rect x=\"315\" y=\"75\" width=\"220\" height=\"105\" rx=\"8\" fill=\"none\" stroke=\"#ffd479\" stroke-width=\"2\"/><text x=\"331\" y=\"103\" font-size=\"20\" fill=\"#ffd479\" text-anchor=\"start\">Sun-like path</text><text x=\"331\" y=\"133\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Giant stages</text><text x=\"331\" y=\"158\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Envelope loss</text><rect x=\"315\" y=\"225\" width=\"220\" height=\"105\" rx=\"8\" fill=\"none\" stroke=\"#ff9c9c\" stroke-width=\"2\"/><text x=\"331\" y=\"253\" font-size=\"20\" fill=\"#ff9c9c\" text-anchor=\"start\">Massive-star path</text><text x=\"331\" y=\"283\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Advanced burning</text><text x=\"331\" y=\"308\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Core collapse possible</text><rect x=\"585\" y=\"75\" width=\"180\" height=\"105\" rx=\"8\" fill=\"none\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><text x=\"601\" y=\"103\" font-size=\"20\" fill=\"#7ee2a8\" text-anchor=\"start\">White dwarf</text><text x=\"601\" y=\"133\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Cooling remnant</text><rect x=\"585\" y=\"225\" width=\"180\" height=\"105\" rx=\"8\" fill=\"none\" stroke=\"#b39dff\" stroke-width=\"2\"/><text x=\"601\" y=\"253\" font-size=\"20\" fill=\"#b39dff\" text-anchor=\"start\">Remnant</text><text x=\"601\" y=\"283\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Neutron star / BH</text><path d=\"M250 132 L313 128 M305.3 132.7 L313 128 L304.8 124.4\" stroke=\"#ffd479\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><path d=\"M250 160 L313 260 M305.2 255.5 L313 260 L312.3 251.0\" stroke=\"#ff9c9c\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><path d=\"M535 128 L583 128 M575.0 132.2 L583 128 L575.0 123.8\" stroke=\"#7ee2a8\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><path d=\"M535 278 L583 278 M575.0 282.2 L583 278 L575.0 273.8\" stroke=\"#b39dff\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><path d=\"M28 350 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"28\" y=\"379\" font-size=\"15\" fill=\"#9aa6b8\" text-anchor=\"start\">Simplified single-star branches; mass loss, binaries and collapse details can change outcomes.</text></svg>",
+        "questions": [
+          {
+            "q": "Why are the lifetime-ratio and radius-temperature calculations not interchangeable?",
+            "hint": "Which inputs answer an amount-per-rate question, and which describe a surface?",
+            "answer": "Lifetime uses available energy divided by luminosity. Surface luminosity uses area and temperature. They describe different mechanisms and need different assumptions."
+          },
+          {
+            "q": "What belongs in a scientifically careful five-sentence capstone explanation?",
+            "hint": "Include both evidence and what the model cannot decide.",
+            "answer": "State observations, a fitting mechanism, a model prediction, remaining uncertainty and further evidence that could discriminate alternatives."
+          }
+        ]
+      }
+    ]
+  },
+  "quizzes": {
+    "sections": [
+      {
+        "id": "stellar-birth",
+        "questions": [
+          {
+            "q": "A star is in hydrostatic equilibrium. Which description is most precise?",
+            "choices": [
+              "A pressure-gradient force balances gravity locally",
+              "Gravity has disappeared",
+              "Fusion is a solid wall holding the gas up",
+              "No energy leaves the surface"
+            ],
+            "answer": 0,
+            "explain": "Hydrostatic equilibrium is a local force balance. Gravity remains, and the star can still transport and radiate energy."
+          },
+          {
+            "q": "What identifies a main-sequence star?",
+            "choices": [
+              "Any red surface",
+              "Any object contracting in a cloud",
+              "Only shell helium fusion",
+              "Stable core hydrogen fusion"
+            ],
+            "answer": 3,
+            "explain": "Core hydrogen fusion defines the phase. Colour alone does not, and a protostar can contract before reaching it."
+          },
+          {
+            "q": "Why should mechanical support and thermal balance be described separately?",
+            "choices": [
+              "Stars have no pressure gradients",
+              "One applies only to planets",
+              "One concerns forces and the other energy generation, transport and loss",
+              "They never affect each other"
+            ],
+            "answer": 2,
+            "explain": "The balances interact but answer different questions. Keeping them separate avoids treating fusion as a direct mechanical force."
+          }
+        ]
+      },
+      {
+        "id": "main-sequence-life",
+        "questions": [
+          {
+            "q": "A teaching model has twice the fuel and ten times the luminosity. What is its relative lifetime?",
+            "choices": [
+              "0.2",
+              "2",
+              "10",
+              "5"
+            ],
+            "answer": 0,
+            "explain": "Lifetime scales as available energy divided by luminosity in this model: 2/10 = 0.2. More fuel alone does not determine the answer."
+          },
+          {
+            "q": "Why do massive main-sequence stars commonly have shorter lives?",
+            "choices": [
+              "Their gravity turns off early",
+              "Their much higher energy output outweighs the larger fuel supply",
+              "They are always closer to Earth",
+              "They contain no hydrogen"
+            ],
+            "answer": 1,
+            "explain": "The relevant comparison is fuel supply versus energy-use rate. Distance affects apparent brightness, not the nuclear lifetime."
+          },
+          {
+            "q": "What limitation belongs beside a simple fuel/luminosity calculation?",
+            "choices": [
+              "Real mixing, composition and changing luminosity alter the detailed lifetime",
+              "Every star has exactly the same usable fuel fraction",
+              "The arithmetic measures distance",
+              "All luminosities remain constant forever"
+            ],
+            "answer": 0,
+            "explain": "The ratio explains a mechanism but detailed evolution depends on stellar structure and time-dependent conditions."
+          }
+        ]
+      },
+      {
+        "id": "hr-diagram",
+        "questions": [
+          {
+            "q": "On a conventional temperature-versus-luminosity H–R diagram, where are cooler stars?",
+            "choices": [
+              "Always at the bottom",
+              "To the left",
+              "Only on the main sequence",
+              "To the right"
+            ],
+            "answer": 3,
+            "explain": "The conventional temperature axis decreases to the right. Luminosity is a separate vertical quantity."
+          },
+          {
+            "q": "How can a cool giant be more luminous than a hotter small star?",
+            "choices": [
+              "Temperature is unrelated to light",
+              "Cool objects always emit more per unit area",
+              "It must be closer to Earth",
+              "Its much larger surface area can outweigh its lower surface temperature"
+            ],
+            "answer": 3,
+            "explain": "Luminosity depends on both area and temperature: L ∝ R²T⁴. Distance changes apparent brightness, not intrinsic luminosity."
+          },
+          {
+            "q": "Which inference is justified from a hot but intrinsically faint star?",
+            "choices": [
+              "It must have a huge radius",
+              "It is moving along a universal age axis",
+              "A small emitting radius is consistent with those properties",
+              "It is certainly younger than every cool star"
+            ],
+            "answer": 2,
+            "explain": "High temperature with low total emitted power points toward a small surface area. Exact age and evolutionary history need more information."
+          }
+        ]
+      },
+      {
+        "id": "sun-like-evolution",
+        "questions": [
+          {
+            "q": "After core hydrogen exhaustion in a Sun-like star, where can hydrogen fusion continue?",
+            "choices": [
+              "Only in orbiting planets",
+              "Nowhere, because all hydrogen disappears",
+              "In a shell around the helium-rich core",
+              "Only outside the atmosphere"
+            ],
+            "answer": 2,
+            "explain": "Core exhaustion concerns the centre. Hydrogen can remain elsewhere and fuse in a shell during subsequent evolution."
+          },
+          {
+            "q": "Which stage belongs between the first red-giant phase and the eventual white dwarf in the simplified Sun-like path?",
+            "choices": [
+              "Mandatory black-hole formation",
+              "Core helium fusion producing carbon and oxygen",
+              "Iron-core fusion",
+              "A new protostar made from the same intact core"
+            ],
+            "answer": 1,
+            "explain": "Sun-like evolution includes core helium burning and later readjustments before envelope loss and the white-dwarf remnant."
+          },
+          {
+            "q": "What is a planetary nebula in this context?",
+            "choices": [
+              "A cloud made by newly formed planets",
+              "Shed stellar envelope material illuminated by the hot remnant",
+              "The same object as the white-dwarf core",
+              "A required core-collapse supernova"
+            ],
+            "answer": 1,
+            "explain": "The glowing envelope and compact remnant are different components. The historical name does not mean the nebula consists of forming planets."
+          }
+        ]
+      },
+      {
+        "id": "massive-star-end",
+        "questions": [
+          {
+            "q": "Why does an iron-group core not behave like another ordinary energy-releasing fusion stage?",
+            "choices": [
+              "Gravity stops acting on it",
+              "All surrounding shells disappear instantly",
+              "Iron contains no protons",
+              "Further fusion does not continue the earlier net energy gain"
+            ],
+            "answer": 3,
+            "explain": "Iron-group nuclei are tightly bound. Building heavier nuclei does not supply the same net fusion energy, while gravity and complex core processes remain."
+          },
+          {
+            "q": "Which factor matters for the compact outcome of core collapse?",
+            "choices": [
+              "The number of planets",
+              "Retained core/remnant mass and the collapse/explosion history",
+              "Only apparent brightness at Earth",
+              "Only the star’s colour in one photo"
+            ],
+            "answer": 1,
+            "explain": "Remnant support depends on the retained core and the physical history, including mass loss and fallback. Colour or apparent brightness alone cannot decide it."
+          },
+          {
+            "q": "Which statement preserves the limits of the onion diagram?",
+            "choices": [
+              "It is a structural analogy for certain evolved massive stars",
+              "The diagram determines an exact lifetime",
+              "Every star develops every displayed layer",
+              "Every layer has equal width"
+            ],
+            "answer": 0,
+            "explain": "The sketch organises a layered concept. It is not a scale model or a universal path for all stars."
+          }
+        ]
+      },
+      {
+        "id": "stellar-capstone",
+        "questions": [
+          {
+            "q": "Which final remnant fits the simplified isolated Sun-like path?",
+            "choices": [
+              "A newly formed giant planet",
+              "An iron-core neutron star",
+              "A mandatory black hole",
+              "A cooling white dwarf"
+            ],
+            "answer": 3,
+            "explain": "The Sun-like path loses its envelope and leaves a white dwarf. Core-collapse remnants belong to different starting conditions and histories."
+          },
+          {
+            "q": "A hot object has low intrinsic luminosity. Which interpretation is consistent with the H–R relation?",
+            "choices": [
+              "Its distance directly sets its luminosity",
+              "Its emitting radius must be enormous",
+              "It must be a cool giant",
+              "A small emitting radius, as in a white-dwarf interpretation"
+            ],
+            "answer": 3,
+            "explain": "At high temperature, low luminosity requires a relatively small emitting area. More evidence is needed for a unique classification and history."
+          },
+          {
+            "q": "What makes the strongest capstone explanation?",
+            "choices": [
+              "A path tied to mechanisms, observations and stated limits",
+              "Exact remnant claims from colour alone",
+              "Skipping model assumptions to sound confident",
+              "One timeline for every star"
+            ],
+            "answer": 0,
+            "explain": "A defensible explanation connects evidence and mechanism while preserving uncertainties. It does not substitute confidence for a model."
+          }
+        ]
+      }
+    ]
+  },
+  "slides": {
+    "sections": [
+      {
+        "id": "stellar-birth",
+        "title": "Gravity gathers the material; pressure supports it",
+        "bullets": [
+          "Formation: a collapsing region of gas and dust can build a protostar",
+          "Heating: contraction converts gravitational energy into internal energy and radiation",
+          "Support: a pressure gradient opposes inward gravity",
+          "Fusion: sustained core hydrogen fusion marks the main sequence",
+          "Balance: hydrostatic support and energy balance are related but distinct"
+        ],
+        "notes": "Start with gravity gathering a cloud and contraction heating it. Pressure already matters before stable core fusion begins. In a supported layer, a pressure-gradient force balances gravity. Fusion then helps replenish energy being transported and radiated. Those force and energy stories are connected, but they are not interchangeable.",
+        "visual": "Gravity acts inward while the pressure-gradient force supports the layer outward. Fusion supplies energy; it is not itself a separate outward mechanical force at every layer."
+      },
+      {
+        "id": "main-sequence-life",
+        "title": "More fuel does not necessarily mean more time",
+        "bullets": [
+          "Mass: initial mass strongly shapes central conditions and evolution",
+          "Luminosity: energy emitted per second measures the rate of spending",
+          "Lifetime: available nuclear energy divided by luminosity gives a useful estimate",
+          "Comparison: massive main-sequence stars spend fuel disproportionately quickly",
+          "Limits: fuel fractions and luminosity change across different stellar structures"
+        ],
+        "notes": "Think about a tank and a rate of use together. Our model star gets twice the available energy but spends it ten times faster, so its lifetime is one-fifth as long. The numbers are a controlled example. Real stars require evolving models, especially when their mixing and fuel access differ.",
+        "visual": "Lifetime is a ratio of available energy to its rate of use. In this explicit model, twice the fuel at ten times the luminosity produces one-fifth the reference lifetime."
+      },
+      {
+        "id": "hr-diagram",
+        "title": "Read the H–R diagram without treating it as a clock",
+        "bullets": [
+          "Temperature: the conventional horizontal axis gets cooler to the right",
+          "Luminosity: the vertical axis measures emitted power, increasing upwards",
+          "Radius: temperature and emitting area jointly set luminosity",
+          "Regions: main sequence, giants and white dwarfs occupy different areas",
+          "Evolution: a population diagram is not one universal track through time"
+        ],
+        "notes": "Read both axes before telling the story. Hot goes left; luminous goes up. A giant can be cool and bright because of its area, while a white dwarf can be hot and faint because it is small. The diagram compares properties; a full evolutionary track needs an additional model and a specified star.",
+        "visual": "The conventional H–R layout has hot stars at left and high luminosity at top. This qualitative sketch marks regions, not numeric positions, exact tracks or evolutionary speeds."
+      },
+      {
+        "id": "sun-like-evolution",
+        "title": "Follow a Sun-like star beyond core hydrogen",
+        "bullets": [
+          "Core exhaustion: hydrogen fusion ends in the centre before hydrogen vanishes everywhere",
+          "Red giant: shell hydrogen fusion accompanies a contracting core and expanding envelope",
+          "Helium burning: the core can produce carbon and oxygen",
+          "Late giant: later readjustments and mass loss remove the envelope",
+          "White dwarf: a compact remnant cools without sustained core fusion"
+        ],
+        "notes": "Track the core and the surface separately. Core hydrogen exhaustion leads to shell burning and a larger cooler envelope. Core helium burning is another chapter, followed by later giant evolution and mass loss. The exposed white dwarf then cools. Do not skip directly from the first giant to a supernova.",
+        "visual": "This Sun-like single-star sequence includes a core-helium-burning stage between giant phases. The final exposed white dwarf cools; the shed envelope is distinct from the remnant."
+      },
+      {
+        "id": "massive-star-end",
+        "title": "An iron-rich core changes the energy story",
+        "bullets": [
+          "Massive-star burning: later fuels can support successive core stages",
+          "Layering: shells can burn different fuels around an evolved core",
+          "Iron group: further fusion no longer supplies the same net energy gain",
+          "Collapse: core conditions and support determine a rapid transformation",
+          "Remnant: neutron star or black hole depends on retained core and explosion history"
+        ],
+        "notes": "Massive stars can reach later fuels, but the iron-group core changes the energy balance. Collapse and explosion depend on more than the original mass label. The retained core and subsequent history shape whether a neutron star or black hole remains. Keep the onion sketch as a structural analogy, with its limits attached.",
+        "visual": "An evolved massive star can contain nested burning regions around an iron-rich core. The schematic compresses many layers and does not imply equal thickness or universal structure."
+      },
+      {
+        "id": "stellar-capstone",
+        "title": "Choose a path and defend the evidence",
+        "bullets": [
+          "Branching: initial mass and later interactions shape distinct histories",
+          "Evidence: temperature and luminosity constrain radius, not a unique age",
+          "Timescale: compare available energy with luminosity",
+          "Integrity: distinguish observed populations from modelled future evolution",
+          "Explanation: state the path, mechanism and remaining uncertainty"
+        ],
+        "notes": "Choose a path using physical conditions, then defend each step. A Sun-like star, a massive evolved star and a hot faint remnant tell different stories. Use the calculations for the questions they actually answer. The final explanation should say both what fits the evidence and what still needs to be learned.",
+        "visual": "A Sun-like single-star branch leads to a cooling white dwarf. A sufficiently massive-star branch may undergo core collapse with a neutron star or black hole; binary interactions can alter either history."
+      }
+    ]
+  },
+  "enrichment": {
+    "audioTitle": "The Life & Death of Stars — think it through",
+    "turns": [
+      {
+        "speaker": "teacher",
+        "line": "Why does a massive star run out of time sooner, and how can a red giant be cool yet luminous? Follow pressure, fuel and structure through branching stellar lives rather than memorising a single sequence."
+      },
+      {
+        "speaker": "student",
+        "line": "What should I be able to do by the end?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Explain Sun-like and massive-star paths with appropriate model limits"
+      },
+      {
+        "speaker": "student",
+        "line": "Is fusion the force that physically holds every layer up?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "The local supporting force comes from the pressure gradient. Fusion is an energy source that helps maintain the interior conditions."
+      },
+      {
+        "speaker": "student",
+        "line": "Does a main-sequence star stay exactly unchanged?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "No. It is a long-lived core-hydrogen-fusing phase, during which composition and structure gradually evolve."
+      },
+      {
+        "speaker": "student",
+        "line": "Why does a massive star not simply last longer?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Its luminosity increases strongly, so the fuel can be spent much faster than the supply grows."
+      },
+      {
+        "speaker": "student",
+        "line": "Have we watched the smallest stars complete their entire lives?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "No. Some predicted lifetimes are longer than the age of the universe, so their far-future evolution is modelled rather than fully observed."
+      },
+      {
+        "speaker": "student",
+        "line": "If red means cooler, why can a red giant be so luminous?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Its emitting surface can be enormous. Radius squared can more than compensate for a lower temperature."
+      },
+      {
+        "speaker": "student",
+        "line": "Does a star move down the main sequence as it ages?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Not as a universal rule. The band compares stars of different masses; an individual track depends on its structure and evolution."
+      },
+      {
+        "speaker": "student",
+        "line": "Does core hydrogen exhaustion mean there is no hydrogen left in the star?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "No. The core can be hydrogen-depleted while surrounding layers still contain hydrogen and support shell fusion."
+      },
+      {
+        "speaker": "student",
+        "line": "Will a Sun-like star become a black hole in this path?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "No. The isolated Sun-like sequence leaves a white dwarf after the envelope is lost. Other initial masses and binary interactions need different stories."
+      },
+      {
+        "speaker": "student",
+        "line": "Can I keep adding fusion stages forever?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "No. The energy gain from fusion changes near the iron group; later core processes can undermine support rather than provide another long stable fuel stage."
+      },
+      {
+        "speaker": "student",
+        "line": "Can the birth mass alone give an exact black-hole verdict?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Not reliably with one universal number. Core structure, lost mass, explosion and fallback all influence the remnant."
+      },
+      {
+        "speaker": "student",
+        "line": "Can I make one neat timeline containing every possible stellar event?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "You can make a branching map, but one mandatory sequence would mix incompatible paths and hide the role of initial conditions and interactions."
+      },
+      {
+        "speaker": "student",
+        "line": "Does uncertainty make my explanation weaker?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "A stated uncertainty makes the limits clear and points to useful evidence. It is stronger than an exact claim the model cannot support."
+      }
+    ],
+    "nodes": [
+      {
+        "id": "root",
+        "parent": null,
+        "label": "Stellar evolution",
+        "note": "Separate pressure support from the energy supplied by fusion"
+      },
+      {
+        "id": "stellar-birth",
+        "parent": "root",
+        "label": "Gravity gathers the material; pressure supports it",
+        "note": "Separate gravitational contraction, pressure support and nuclear energy supply."
+      },
+      {
+        "id": "stellar-birth-0",
+        "parent": "stellar-birth",
+        "label": "Formation",
+        "note": "Formation: a collapsing region of gas and dust can build a protostar"
+      },
+      {
+        "id": "stellar-birth-1",
+        "parent": "stellar-birth",
+        "label": "Heating",
+        "note": "Heating: contraction converts gravitational energy into internal energy and radiation"
+      },
+      {
+        "id": "main-sequence-life",
+        "parent": "root",
+        "label": "More fuel does not necessarily mean more time",
+        "note": "Estimate lifetime from fuel divided by spending rate and keep the model limits explicit."
+      },
+      {
+        "id": "main-sequence-life-0",
+        "parent": "main-sequence-life",
+        "label": "Mass",
+        "note": "Mass: initial mass strongly shapes central conditions and evolution"
+      },
+      {
+        "id": "main-sequence-life-1",
+        "parent": "main-sequence-life",
+        "label": "Luminosity",
+        "note": "Luminosity: energy emitted per second measures the rate of spending"
+      },
+      {
+        "id": "hr-diagram",
+        "parent": "root",
+        "label": "Read the H–R diagram without treating it as a clock",
+        "note": "Combine luminosity and temperature to reason about radius while separating population position from age."
+      },
+      {
+        "id": "hr-diagram-0",
+        "parent": "hr-diagram",
+        "label": "Temperature",
+        "note": "Temperature: the conventional horizontal axis gets cooler to the right"
+      },
+      {
+        "id": "hr-diagram-1",
+        "parent": "hr-diagram",
+        "label": "Luminosity",
+        "note": "Luminosity: the vertical axis measures emitted power, increasing upwards"
+      },
+      {
+        "id": "sun-like-evolution",
+        "parent": "root",
+        "label": "Follow a Sun-like star beyond core hydrogen",
+        "note": "Follow fuel changes, envelope response and the final remnant along a Sun-like single-star path."
+      },
+      {
+        "id": "sun-like-evolution-0",
+        "parent": "sun-like-evolution",
+        "label": "Core exhaustion",
+        "note": "Core exhaustion: hydrogen fusion ends in the centre before hydrogen vanishes everywhere"
+      },
+      {
+        "id": "sun-like-evolution-1",
+        "parent": "sun-like-evolution",
+        "label": "Red giant",
+        "note": "Red giant: shell hydrogen fusion accompanies a contracting core and expanding envelope"
+      },
+      {
+        "id": "massive-star-end",
+        "parent": "root",
+        "label": "An iron-rich core changes the energy story",
+        "note": "Connect advanced burning and changing core support to possible compact remnants without a universal threshold."
+      },
+      {
+        "id": "massive-star-end-0",
+        "parent": "massive-star-end",
+        "label": "Massive-star burning",
+        "note": "Massive-star burning: later fuels can support successive core stages"
+      },
+      {
+        "id": "massive-star-end-1",
+        "parent": "massive-star-end",
+        "label": "Layering",
+        "note": "Layering: shells can burn different fuels around an evolved core"
+      },
+      {
+        "id": "stellar-capstone",
+        "parent": "root",
+        "label": "Choose a path and defend the evidence",
+        "note": "Defend an evolutionary branch with mechanisms, calculations and explicit uncertainty."
+      },
+      {
+        "id": "stellar-capstone-0",
+        "parent": "stellar-capstone",
+        "label": "Branching",
+        "note": "Branching: initial mass and later interactions shape distinct histories"
+      },
+      {
+        "id": "stellar-capstone-1",
+        "parent": "stellar-capstone",
+        "label": "Evidence",
+        "note": "Evidence: temperature and luminosity constrain radius, not a unique age"
+      }
+    ],
+    "mnemonics": [
+      {
+        "for": "Stellar lifetime",
+        "aid": "Compare the fuel with the spending rate: more fuel can still mean less time."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "NASA — Stars and their life cycles",
+      "url": "https://science.nasa.gov/universe/stars/"
+    },
+    {
+      "title": "NASA — Types of stars and remnants",
+      "url": "https://science.nasa.gov/universe/stars/types/"
+    },
+    {
+      "title": "NASA — Life cycles of Sun-like and massive stars",
+      "url": "https://science.nasa.gov/asset/webb/life-cycles-of-sun-like-and-massive-stars/"
+    },
+    {
+      "title": "OpenStax Astronomy 2e — Further evolution of stars",
+      "url": "https://openstax.org/books/astronomy-2e/pages/22-4-further-evolution-of-stars"
+    },
+    {
+      "title": "OpenStax Astronomy 2e — Death of low-mass stars",
+      "url": "https://openstax.org/books/astronomy-2e/pages/23-1-the-death-of-low-mass-stars"
+    },
+    {
+      "title": "OpenStax Astronomy 2e — Evolution of massive stars",
+      "url": "https://openstax.org/books/astronomy-2e/pages/23-2-evolution-of-massive-stars-an-explosive-finish"
+    },
+    {
+      "title": "University of Nebraska astronomy — H–R diagram and luminosity",
+      "url": "https://astro.unl.edu/naap/hr/hr_background2.html"
+    }
+  ]
+}

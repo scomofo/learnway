@@ -64,7 +64,9 @@ export function wireDiagrams(root) {
     });
     figure.tabIndex = figure.tabIndex >= 0 ? figure.tabIndex : 0;
     figure.addEventListener('keydown', (e) => {
-      if (e.target !== figure && e.target !== play && e.target !== range && !figure.contains(e.target)) return;
+      // Native range keys and focusable caption/code content own their events.
+      // Static figures have no playback shortcuts; arrow keys can scroll normally.
+      if (!play || (e.target !== figure && e.target !== play)) return;
       if (e.code === 'Space' || e.key === ' ') { e.preventDefault(); togglePlay(); }
       else if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
         e.preventDefault(); running = false;
@@ -300,3 +302,4 @@ function updateBars(art, progress) {
     bar.setAttribute('y', (baseY + h - nh).toFixed(1));
   });
 }
+

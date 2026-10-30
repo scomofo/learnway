@@ -182,34 +182,37 @@ try {
   await page.locator('.topbar').getByRole('button', { name: 'New course', exact: true }).click();
   await page.getByLabel('Topic', { exact: true }).fill('Desktop generation test');
   await page.getByLabel(/^Depth/).selectOption('quick');
-  replies.push({ title: 'Incomplete plan' });
+  // Validation failures receive one automatic repair attempt. Supplying both
+  // invalid responses keeps this test about the recoverable error path rather
+  // than accidentally exhausting the mock queue during that bounded retry.
+  replies.push({ title: 'Incomplete plan' }, { title: 'Incomplete plan' });
   await page.getByRole('button', { name: 'Sketch a plan', exact: true }).click();
   await page.locator('#wiz-err:not([hidden])').waitFor();
   assert.match(await page.locator('#wiz-err').textContent(), /plan.*incomplete/);
-  assert.equal(calls, 1);
+  assert.equal(calls, 2, 'one invalid plan action includes one corrective retry');
 
   const plan = { ...fixture.plan, title: 'Desktop generation test' };
   replies.push(plan);
   await page.getByRole('button', { name: 'Sketch a plan', exact: true }).click();
   await page.getByRole('heading', { name: plan.title, exact: true }).waitFor();
-  assert.equal(calls, 2);
-  replies.push({ sections: [] });
+  assert.equal(calls, 3);
+  replies.push({ sections: [] }, { sections: [] });
   await page.getByRole('button', { name: 'Looks good — write it' }).click();
   await page.locator('#wiz-err:not([hidden])').waitFor();
   assert.match(await page.locator('#wiz-err').textContent(), /reading.*incomplete/);
-  assert.equal(calls, 3, 'invalid reading stops the remaining API calls');
+  assert.equal(calls, 5, 'invalid reading stops downstream calls after its corrective retry');
   assert.equal(await storage(), saved);
 
   replies.push(visualFixture.reading, fixture.quizzes, visualFixture.slides, fixture.enrichment, { diagrams: fixture.reading.sections.map(s => ({ id: s.id, svg: '<svg viewBox="0 0 800 400"><text x="40" y="40" font-size="20">Generated diagram</text><rect x="40" y="80" width="150" height="80" fill="#7cc7ff"/></svg>' })) });
   await page.getByRole('button', { name: 'Looks good — write it' }).click();
   await page.locator('h1').filter({ hasText: plan.title }).waitFor();
-  assert.equal(calls, 8, 'one valid plan plus five content calls, with two rejected attempts');
+  assert.equal(calls, 10, 'one valid plan plus five content calls, with four rejected attempts');
   const courses = JSON.parse(await storage());
   assert.equal(courses.length, 2);
   const generated = courses[0];
   assert.deepEqual(validateCourse(generated), []);
   await checkViews(generated);
-  console.log('PASS: one request per action, invalid generation stops early, retry saves a complete course');
+  console.log('PASS: bounded validation retries without duplicate action handlers, invalid generation stops early, retry saves a complete course');
 
   const downloadPromise = page.waitForEvent('download');
   await page.getByRole('button', { name: 'Export JSON', exact: true }).click();
@@ -249,3 +252,4 @@ try {
   await context.close();
   await browser.close();
 }
+
