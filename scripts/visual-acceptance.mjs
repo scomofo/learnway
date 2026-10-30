@@ -86,22 +86,35 @@ try {
   await orbit.scrollIntoViewIfNeeded();
   await orbit.getByRole('slider',{name:'Animation progress'}).press('Home');
   for(let i=0;i<25;i++)await orbit.getByRole('slider',{name:'Animation progress'}).press('ArrowRight');
+  assert.equal(await orbit.getByRole('slider',{name:'Animation progress'}).inputValue(),'25','native range arrows advance one percentage point');
   const orbital=await orbit.locator('.lw-orbit').evaluate(el=>{
-    const m=new DOMMatrix(getComputedStyle(el).transform);
-    return {x:m.a,y:m.b};
+    const satellite=el.querySelector('circle');
+    const paths=el.querySelectorAll('path');
+    const vector=path=>path.getAttribute('d').match(/-?\d+(?:\.\d+)?/g).map(Number);
+    return {x:Number(satellite.getAttribute('cx')),y:Number(satellite.getAttribute('cy')),velocity:vector(paths[0]),gravity:vector(paths[2])};
   });
-  assert.ok(Math.abs(orbital.x)<.01&&Math.abs(orbital.y-1)<.01,'one quarter orbit rotates the satellite and its vectors together by 90 degrees');
+  assert.ok(Math.abs(orbital.x-393)<.1&&Math.abs(orbital.y-205)<.1,'one quarter orbit reaches the rightmost point of the circular path');
+  assert.ok(Math.abs(orbital.velocity[2]-orbital.velocity[0])<.1&&orbital.velocity[3]>orbital.velocity[1],'velocity is tangent and points down at the rightmost point');
+  assert.ok(orbital.gravity[2]<orbital.gravity[0]&&Math.abs(orbital.gravity[3]-orbital.gravity[1])<.1,'gravity points inward toward the centre');
   await library();
   await openCourse('Sound & Music: Waves');
   const sound=page.locator('[data-diagram]').first();
   await sound.scrollIntoViewIfNeeded();
-  const particle=sound.locator('.lw-air').nth(45);
-  const position=()=>particle.evaluate(el=>({base:el.querySelector('circle').getAttribute('cx'),shift:new DOMMatrix(getComputedStyle(el).transform).e}));
+  const particles=sound.locator('.lw-air');
+  const particle=particles.nth(Math.floor(await particles.count()/2));
+  const position=()=>particle.evaluate(el=>({base:Number(el.dataset.eqX),x:Number(el.querySelector('circle').getAttribute('cx')),y:Number(el.querySelector('circle').getAttribute('cy'))}));
+  const soundSlider=sound.getByRole('slider',{name:'Animation progress'});
+  await soundSlider.press('Home');
   const a=await position();
-  await sound.getByRole('slider',{name:'Animation progress'}).press('End');
+  for(let i=0;i<25;i++)await soundSlider.press('ArrowRight');
   const b=await position();
   assert.equal(a.base,b.base,'particle equilibrium position does not move with the wave');
-  assert.ok(Math.abs(a.shift)<=15&&Math.abs(b.shift)<=15,'local particle excursion stays bounded');
+  assert.equal(a.y,b.y,'longitudinal particle motion stays on the same horizontal line');
+  assert.notEqual(a.x,b.x,'the local particle actually oscillates when seeking');
+  assert.ok(Math.abs(a.x-a.base)<=15&&Math.abs(b.x-b.base)<=15,'local particle excursion stays bounded');
+  await soundSlider.press('End');
+  const c=await position();
+  assert.ok(Math.abs(a.x-c.x)<.1,'one cycle returns the particle to its initial displacement');
   await library();
   await openCourse('How Engines Work: Fuel');
   await page.getByRole('button',{name:'Flashcards',exact:true}).click();
@@ -120,3 +133,4 @@ try {
   await browser.close();
 }
 function courseVisualIndex(course){return course.reading.sections[0].questions.length;}
+

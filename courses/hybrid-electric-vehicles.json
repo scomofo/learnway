@@ -1,0 +1,795 @@
+{
+  "meta": {
+    "title": "How Hybrid & Electric Vehicles Work",
+    "topic": "Hybrid and electric vehicles",
+    "level": "intermediate",
+    "estimatedMinutes": 60,
+    "tags": [
+      "PHEV",
+      "hybrid",
+      "electric vehicles",
+      "energy",
+      "regenerative braking",
+      "12V"
+    ],
+    "createdAt": "2026-10-30T03:00:00.000Z",
+    "interests": "Practical mechanisms, music, space, technology and worked examples",
+    "depth": "standard",
+    "model": "Learnway authored course"
+  },
+  "plan": {
+    "title": "How Hybrid & Electric Vehicles Work",
+    "hook": "A charged traction battery is only one part of a ready vehicle. Follow energy through propulsion, braking, charging and the low-voltage control system, then practise explaining symptoms without guessing a failed component.",
+    "objectives": [
+      "Distinguish HEV, PHEV and BEV energy paths and operating modes",
+      "Calculate energy from power and time using consistent units",
+      "Explain regeneration, converter roles and temperature-dependent limits",
+      "Build a clear observation record and service handoff for a hypothetical symptom"
+    ],
+    "prerequisites": [
+      "Basic energy and circuit ideas; the Engines and Electrical Wiring courses are helpful",
+      "Comfort with kilometres, hours, multiplication and division"
+    ],
+    "sections": [
+      {
+        "id": "vehicle-architecture",
+        "heading": "Follow the energy before naming the vehicle",
+        "points": [
+          "HEV: a hybrid combines fuel and electric drive without normal plug-in charging",
+          "PHEV: a plug-in hybrid adds externally charged energy and retains an engine",
+          "BEV: a battery electric vehicle has no combustion engine for propulsion",
+          "Architecture: component roles differ from the momentary operating mode",
+          "Control: the vehicle chooses modes within its design and operating limits"
+        ]
+      },
+      {
+        "id": "energy-power",
+        "heading": "Separate the size of the tank from the rate of use",
+        "points": [
+          "Energy: kilowatt-hours describe an amount that can be stored or transferred",
+          "Power: kilowatts describe the rate of energy transfer",
+          "Time: energy equals average power multiplied by elapsed hours",
+          "Efficiency: compare useful output and input over the same boundary",
+          "Range: a simplified estimate divides usable energy by energy per distance"
+        ]
+      },
+      {
+        "id": "motor-regeneration",
+        "heading": "Braking recovers some motion, not all of it",
+        "points": [
+          "Inverter: controlled electrical conversion supports motor operation",
+          "Motor/generator: energy flow can reverse during regeneration",
+          "Kinetic energy: mass and speed set an upper bound on recoverable motion",
+          "Losses and limits: grip, battery acceptance and temperature affect recovery",
+          "Blending: friction braking supplies braking that regeneration cannot"
+        ]
+      },
+      {
+        "id": "low-voltage",
+        "heading": "A charged traction battery still needs low-voltage control",
+        "points": [
+          "Two systems: traction energy and low-voltage control serve different roles",
+          "Auxiliary battery: supports electronics and startup sequencing",
+          "DC–DC converter: supplies lower-voltage power from the traction system",
+          "READY state: engine sound is not a reliable charging-state test",
+          "Diagnosis: a warning suggests a system to investigate, not a component verdict"
+        ]
+      },
+      {
+        "id": "winter-charging",
+        "heading": "Account for the energy that does not turn the wheels",
+        "points": [
+          "Climate loads: cabin and battery conditioning consume energy",
+          "Cold conditions: temperature can affect battery performance and charge acceptance",
+          "Charging: power can vary with state of charge, temperature and equipment limits",
+          "Preconditioning: supported grid-powered preparation can reduce trip battery demand",
+          "Planning: use observed conditions rather than a universal winter percentage"
+        ]
+      },
+      {
+        "id": "vehicle-capstone",
+        "heading": "Explain a symptom without guessing a replacement",
+        "points": [
+          "Observation: record exact events and operating state",
+          "Model: trace the relevant energy and control paths",
+          "Hypotheses: keep more than one explanation alive",
+          "Evidence: distinguish normal strategy from warning or readiness faults",
+          "Handoff: give a technician a concise reproducible description"
+        ]
+      }
+    ]
+  },
+  "reading": {
+    "sections": [
+      {
+        "id": "vehicle-architecture",
+        "heading": "Follow the energy before naming the vehicle",
+        "body": "A quiet car at a stoplight may still be fully ready to move. In an electrified powertrain, engine sound is a poor guide to the vehicle's operating state. Begin with energy sources and component roles rather than assuming that a running engine means “on” and a stopped engine means “off.”\n\nA conventional hybrid electric vehicle (HEV) combines an internal-combustion engine with electric drive. Its traction battery normally receives energy from regenerative braking and engine-driven generation rather than a charging plug. A plug-in hybrid electric vehicle (PHEV) can also take energy from an external electrical supply and retains an engine. A battery electric vehicle (BEV) uses stored electrical energy for propulsion and has no combustion engine providing drive power. These categories do not specify every mechanical detail of the transmission.\n\nHybrid architectures can connect engine, generator and drive motor in different ways. In a series arrangement the engine supplies electrical generation rather than directly driving the wheels; parallel and power-split arrangements allow other paths. A single diagram should not imply that all hybrids have the same gearing or operating strategy.\n\n**Predict:** A PHEV starts its engine while showing charge remaining. Does that by itself prove a fault? No. Heating demand, power demand, temperature, protection strategies and manufacturer-specific modes may require engine operation. Check the actual operating instructions and any warning indications before drawing a conclusion.\n\n**Try it:** For HEV, PHEV and BEV, list the external energy inputs, the energy storage and the propulsion components. Then trace one path from source to wheel. Treat the paths as energy accounting: a generator converts energy supplied by fuel or motion; it does not create free energy. The examples in this course are generic teaching models, not specifications for a particular model year.",
+        "visual": "The three categories differ in external energy inputs and whether an engine remains. The simplified boxes describe energy sources, not a universal transmission layout.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Three vehicle categories, different energy inputs\" font-family=\"sans-serif\"><title>Three vehicle categories, different energy inputs</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"35\" font-size=\"22\" fill=\"#e8ecf1\" text-anchor=\"start\">Three vehicle categories, different energy inputs</text><path d=\"M28 52 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><rect x=\"40\" y=\"105\" width=\"225\" height=\"185\" rx=\"8\" fill=\"none\" stroke=\"#ffd479\" stroke-width=\"2\"/><text x=\"56\" y=\"133\" font-size=\"20\" fill=\"#ffd479\" text-anchor=\"start\">HEV</text><text x=\"56\" y=\"163\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Fuel → engine</text><text x=\"56\" y=\"188\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Battery + motor</text><text x=\"56\" y=\"213\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">No normal plug-in input</text><text x=\"56\" y=\"238\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Engine remains</text><rect x=\"287\" y=\"105\" width=\"225\" height=\"185\" rx=\"8\" fill=\"none\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><text x=\"303\" y=\"133\" font-size=\"20\" fill=\"#7ee2a8\" text-anchor=\"start\">PHEV</text><text x=\"303\" y=\"163\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Fuel + external charge</text><text x=\"303\" y=\"188\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Battery + motor</text><text x=\"303\" y=\"213\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Plug-in energy available</text><text x=\"303\" y=\"238\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Engine remains</text><rect x=\"534\" y=\"105\" width=\"225\" height=\"185\" rx=\"8\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"550\" y=\"133\" font-size=\"20\" fill=\"#7cc7ff\" text-anchor=\"start\">BEV</text><text x=\"550\" y=\"163\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">External charge</text><text x=\"550\" y=\"188\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Battery + motor</text><text x=\"550\" y=\"213\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Electric propulsion</text><text x=\"550\" y=\"238\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">No drive engine</text><path d=\"M28 350 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"28\" y=\"379\" font-size=\"15\" fill=\"#9aa6b8\" text-anchor=\"start\">A category does not determine every operating mode, gear arrangement or engine-start condition.</text></svg>",
+        "questions": [
+          {
+            "q": "Does a PHEV engine starting with charge remaining automatically prove a fault?",
+            "hint": "What other demands can the control system respond to?",
+            "answer": "No. Power, heating, temperature and protection strategies may require engine operation. Use the model-specific instructions and warning evidence to interpret the event."
+          },
+          {
+            "q": "What distinguishes a PHEV from a conventional HEV in this course?",
+            "hint": "Think about external energy input, not just whether there is a motor.",
+            "answer": "A PHEV can receive external electrical charging as well as fuel. A conventional HEV normally charges through regeneration and engine-driven generation rather than a plug."
+          }
+        ]
+      },
+      {
+        "id": "energy-power",
+        "heading": "Separate the size of the tank from the rate of use",
+        "body": "A battery's energy capacity and a motor's power rating answer different questions. Energy is an amount; power is the rate at which energy is transferred. A kilowatt (kW) is a unit of power. A kilowatt-hour (kWh) is a unit of energy: one kilowatt supplied for one hour transfers one kilowatt-hour. Neither is a distance unit.\n\nFor constant or average power, E = P × t. Here E is energy in kWh, P is power in kW and t is time in hours. A 20 kW average draw for 30 minutes uses 20 × 0.5 = 10 kWh. A momentary 60 kW acceleration does not use 60 kWh unless that average power is sustained for an entire hour. Converting minutes to hours prevents a common factor-of-sixty error.\n\nCharging and driving have losses. If 12 kWh enter from the wall during an observed charging interval and stored battery energy rises by 10 kWh, the wall-to-stored-energy ratio for that interval is 10 ÷ 12 ≈ 0.83, or 83%. The difference can include conversion losses and auxiliary or thermal loads. This is a hypothetical measured boundary, not a standard efficiency rating for every charger or car.\n\n**Range model:** If 10 kWh are usable for a trip and consumption is 20 kWh per 100 km, estimated distance is 10 ÷ 20 × 100 = 50 km. The result assumes that consumption applies to the trip and that the stated energy is actually usable. Speed, temperature, terrain, climate control and reserves can change the result.\n\n**Predict:** Doubling the motor's peak power does not automatically double the battery's stored energy or the vehicle's range.\n\n**Try it:** Explain a 7 kW charging input and a 14 kWh energy transfer without swapping the units. At a constant 7 kW, 14 kWh would take two hours before considering changing power or different measurement boundaries.",
+        "visual": "A constant 20 kW draw for half an hour transfers 10 kWh. The shaded rectangle is energy: its width is time and its height is power.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Energy is the area under a power-time trace\" font-family=\"sans-serif\"><title>Energy is the area under a power-time trace</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"35\" font-size=\"22\" fill=\"#e8ecf1\" text-anchor=\"start\">Energy is the area under a power-time trace</text><path d=\"M28 52 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><path d=\"M95 80 V295 H465\" stroke=\"#9aa6b8\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><rect x=\"96\" y=\"145\" width=\"320\" height=\"149\" rx=\"0\" fill=\"#1c354a\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"65\" y=\"135\" font-size=\"18\" fill=\"#7cc7ff\" text-anchor=\"middle\">20</text><text x=\"60\" y=\"105\" font-size=\"17\" fill=\"#9aa6b8\" text-anchor=\"middle\">kW</text><text x=\"416\" y=\"325\" font-size=\"18\" fill=\"#9aa6b8\" text-anchor=\"middle\">0.5 h</text><text x=\"255\" y=\"228\" font-size=\"26\" fill=\"#7cc7ff\" text-anchor=\"middle\">10 kWh</text><rect x=\"505\" y=\"110\" width=\"245\" height=\"160\" rx=\"8\" fill=\"none\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><text x=\"521\" y=\"138\" font-size=\"20\" fill=\"#7ee2a8\" text-anchor=\"start\">Constant draw</text><text x=\"521\" y=\"168\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">E = P × t</text><text x=\"521\" y=\"193\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">20 kW × 0.5 h</text><text x=\"521\" y=\"218\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">E = 10 kWh</text><path d=\"M28 350 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"28\" y=\"379\" font-size=\"15\" fill=\"#9aa6b8\" text-anchor=\"start\">A peak power reading is not an energy amount. Use average power for the stated interval.</text></svg>",
+        "questions": [
+          {
+            "q": "How much energy does a 20 kW average load use in 30 minutes?",
+            "hint": "Express the duration in hours before multiplying.",
+            "answer": "30 minutes is 0.5 hours, so 20 kW × 0.5 h = 10 kWh."
+          },
+          {
+            "q": "Why can wall energy exceed the increase in stored battery energy?",
+            "hint": "Does every input joule end up as stored chemical energy?",
+            "answer": "Conversion losses and auxiliary or thermal loads can consume part of the input. Compare energy over a clearly defined measurement boundary and interval."
+          }
+        ]
+      },
+      {
+        "id": "motor-regeneration",
+        "heading": "Braking recovers some motion, not all of it",
+        "body": "An electric traction motor converts electrical energy into mechanical motion. During regenerative braking, a suitable motor/generator converts some mechanical energy back into electrical energy. The inverter and control system manage the electrical interaction; common traction systems use an inverter between the battery's direct-current supply and controlled alternating-current motor drive. Architectures vary, so this is a component-role model rather than a wiring diagram for every vehicle.\n\nThe available motion has a calculable upper limit. Kinetic energy K = ½mv², where mass m is in kilograms and speed v in metres per second, giving K in joules. For a hypothetical 1,800 kg car at 50 km/h, v = 50 ÷ 3.6 ≈ 13.9 m/s. K is about 0.5 × 1,800 × 13.9² = 174,000 J. Dividing by 3,600,000 J per kWh gives about 0.048 kWh.\n\nIf a made-up recovery fraction were 60% for that stop, about 0.029 kWh would return to storage. The fraction is an illustration, not a performance claim. Friction, electrical conversion, tyres and aerodynamic drag dissipate energy, and not all slowing is routed through the motor. A nearly full or cold battery may accept less regenerative power. Available grip and stability control can also limit it.\n\n**Predict:** Double the speed with mass unchanged. Kinetic energy becomes four times as large because speed is squared. That does not mean a real vehicle can recover four times as much in every braking event; power, grip and storage limits still apply.\n\n**Try it:** Trace battery → inverter → motor → wheels for acceleration, then reverse the useful path for regeneration. Mark losses on both paths. Explain why deliberately accelerating and braking repeatedly cannot recharge the battery without net energy loss, and why ordinary friction brakes remain necessary.",
+        "visual": "The useful energy path reverses in regeneration, while losses remain. The numerical example estimates motion energy before applying any recovery fraction.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Energy flow reverses during regeneration\" font-family=\"sans-serif\"><title>Energy flow reverses during regeneration</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"35\" font-size=\"22\" fill=\"#e8ecf1\" text-anchor=\"start\">Energy flow reverses during regeneration</text><path d=\"M28 52 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><rect x=\"40\" y=\"120\" width=\"200\" height=\"105\" rx=\"8\" fill=\"none\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><text x=\"56\" y=\"148\" font-size=\"20\" fill=\"#7ee2a8\" text-anchor=\"start\">Battery</text><text x=\"56\" y=\"178\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Stored energy</text><rect x=\"300\" y=\"120\" width=\"200\" height=\"105\" rx=\"8\" fill=\"none\" stroke=\"#b39dff\" stroke-width=\"2\"/><text x=\"316\" y=\"148\" font-size=\"20\" fill=\"#b39dff\" text-anchor=\"start\">Inverter</text><text x=\"316\" y=\"178\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Controlled conversion</text><rect x=\"560\" y=\"120\" width=\"200\" height=\"105\" rx=\"8\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"576\" y=\"148\" font-size=\"20\" fill=\"#7cc7ff\" text-anchor=\"start\">Motor / wheels</text><text x=\"576\" y=\"178\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Mechanical motion</text><path d=\"M240 140 L298 140 M290.0 144.2 L298 140 L290.0 135.8\" stroke=\"#7cc7ff\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><path d=\"M500 140 L558 140 M550.0 144.2 L558 140 L550.0 135.8\" stroke=\"#7cc7ff\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><path d=\"M558 205 L502 205 M510.0 200.8 L502 205 L510.0 209.2\" stroke=\"#7ee2a8\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><path d=\"M298 205 L242 205 M250.0 200.8 L242 205 L250.0 209.2\" stroke=\"#7ee2a8\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"400\" y=\"88\" font-size=\"18\" fill=\"#7cc7ff\" text-anchor=\"middle\">Acceleration →</text><text x=\"400\" y=\"275\" font-size=\"18\" fill=\"#7ee2a8\" text-anchor=\"middle\">← Regeneration</text><text x=\"400\" y=\"320\" font-size=\"19\" fill=\"#ffd479\" text-anchor=\"middle\">1,800 kg at 50 km/h: K ≈ 0.048 kWh</text><path d=\"M28 350 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"28\" y=\"379\" font-size=\"15\" fill=\"#9aa6b8\" text-anchor=\"start\">Not all motion energy reaches storage; friction brakes and losses remain part of the system.</text></svg>",
+        "questions": [
+          {
+            "q": "Why does doubling speed quadruple kinetic energy in the stated model?",
+            "hint": "Find where speed appears in K = ½mv².",
+            "answer": "Speed is squared. Replacing v with 2v multiplies v² by four while mass stays the same."
+          },
+          {
+            "q": "Why can regenerative braking be reduced even when the motor works normally?",
+            "hint": "Can the battery always accept the same power?",
+            "answer": "Battery charge state, temperature, grip and control limits can reduce acceptable regenerative power. Friction brakes provide the remaining braking demand."
+          }
+        ]
+      },
+      {
+        "id": "low-voltage",
+        "heading": "A charged traction battery still needs low-voltage control",
+        "body": "A vehicle can have energy in its traction battery and still fail to become ready to drive. The low-voltage electrical system powers control electronics and supports the startup sequence. In many electrified vehicles, low-voltage power is needed to operate contactors: controlled switches that connect the high-voltage system when the required checks are satisfied. A large charged battery is not a substitute for a functioning control supply.\n\nA DC–DC converter changes direct-current power from one voltage level to another. In many hybrids and electric vehicles, it supplies the low-voltage bus and supports charging the auxiliary battery when the control system enables it. This role differs from the inverter's traction-motor role. The exact operating conditions, target voltages and charging strategy are vehicle-specific; do not infer them solely from whether the combustion engine is running.\n\n**Hypothetical case:** The traction display shows charge, but the car intermittently fails to enter READY and presents a low-voltage-related warning. Plausible causes can include the auxiliary battery, connections, control logic, loads or the charging path. The symptom does not identify the DC–DC converter as failed. Diagnosis requires the correct service procedure, system state and test evidence.\n\n**Predict:** “The engine is off, so the 12V battery cannot be charging” is not a valid general rule for an electrified vehicle. Engine operation and converter operation are separate questions.\n\n**Try it:** Write a passive observation log: ambient temperature, recent use, indicated READY state, exact warning text and time, and any professionally retrieved fault codes. Distinguish observations from interpretations. For example, “warning appeared after a stop” is an observation; “converter failed” is an unproven interpretation. This course does not provide high-voltage testing, isolation or repair procedures. Leave high-voltage components, orange cables and interlocks to appropriately trained service personnel.",
+        "visual": "The auxiliary system supports control and startup; the traction system supplies drive energy. A DC–DC converter connects their power roles when enabled by the vehicle.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Drive energy and control power are different roles\" font-family=\"sans-serif\"><title>Drive energy and control power are different roles</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"35\" font-size=\"22\" fill=\"#e8ecf1\" text-anchor=\"start\">Drive energy and control power are different roles</text><path d=\"M28 52 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><rect x=\"40\" y=\"90\" width=\"300\" height=\"100\" rx=\"8\" fill=\"none\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><text x=\"56\" y=\"118\" font-size=\"20\" fill=\"#7ee2a8\" text-anchor=\"start\">Traction battery</text><text x=\"56\" y=\"148\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Energy for the drive system</text><rect x=\"460\" y=\"90\" width=\"300\" height=\"100\" rx=\"8\" fill=\"none\" stroke=\"#b39dff\" stroke-width=\"2\"/><text x=\"476\" y=\"118\" font-size=\"20\" fill=\"#b39dff\" text-anchor=\"start\">DC–DC converter</text><text x=\"476\" y=\"148\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Lower-voltage supply</text><rect x=\"460\" y=\"235\" width=\"300\" height=\"95\" rx=\"8\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"476\" y=\"263\" font-size=\"20\" fill=\"#7cc7ff\" text-anchor=\"start\">Low-voltage system</text><text x=\"476\" y=\"293\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Auxiliary battery + controls</text><path d=\"M340 140 L458 140 M450.0 144.2 L458 140 L450.0 135.8\" stroke=\"#7ee2a8\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><path d=\"M610 190 L610 233 M605.8 225.0 L610 233 L614.2 225.0\" stroke=\"#7cc7ff\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><rect x=\"40\" y=\"235\" width=\"300\" height=\"95\" rx=\"8\" fill=\"none\" stroke=\"#ffd479\" stroke-width=\"2\"/><text x=\"56\" y=\"263\" font-size=\"20\" fill=\"#ffd479\" text-anchor=\"start\">Startup control</text><text x=\"56\" y=\"293\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Checks and contactor control</text><path d=\"M460 282 L342 282 M350.0 277.8 L342 282 L350.0 286.2\" stroke=\"#ffd479\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><path d=\"M28 350 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"28\" y=\"379\" font-size=\"15\" fill=\"#9aa6b8\" text-anchor=\"start\">Conceptual roles only. Converter enable logic and charging targets depend on the vehicle.</text></svg>",
+        "questions": [
+          {
+            "q": "Why might a charged traction battery not guarantee a READY vehicle?",
+            "hint": "What powers the controllers and startup sequence?",
+            "answer": "The low-voltage control supply and startup checks must work before the high-voltage system can be connected appropriately. Traction charge alone does not establish that."
+          },
+          {
+            "q": "Does an auxiliary-battery warning prove that the DC–DC converter needs replacement?",
+            "hint": "How many other parts contribute to the same system?",
+            "answer": "No. Battery condition, connections, loads, controls and the charging path can all matter. A component verdict needs procedure-specific test evidence."
+          }
+        ]
+      },
+      {
+        "id": "winter-charging",
+        "heading": "Account for the energy that does not turn the wheels",
+        "body": "A winter trip spends energy on more than propulsion. Cabin heating, window clearing and battery thermal management can draw from the available energy supply. Cold conditions can also affect battery behaviour and charging power. The size of the effect depends on the vehicle, heating technology, temperature, trip length and driving pattern. A single winter range percentage is not a law for every car or every Alberta day.\n\n**Worked budget:** Suppose a hypothetical vehicle uses 18 kWh per 100 km for the modelled propulsion demand. A 50 km trip therefore needs 9 kWh for that part. Add a constant 2 kW climate load over 30 minutes: 2 × 0.5 = 1 kWh. The total becomes 10 kWh, before any other unmodelled loads or changes. We state the 18 kWh figure as excluding the added climate load so we do not count the same demand twice.\n\nTrip duration matters. The same 2 kW load over an hour uses 2 kWh. Comparing energy per distance therefore needs both distance and time. Short trips can repeatedly spend energy warming the cabin, while different speeds change both travel time and propulsion demand.\n\nCharging power also need not remain at the charger's nameplate value. The vehicle, charging equipment, supply, state of charge and temperature constrain the actual rate. Model-specific preconditioning while connected to a suitable supply can shift some preparation energy to the grid, but it does not remove every cold-weather penalty or guarantee a full battery remains untouched.\n\n**Predict:** A slower charging session on a cold morning does not by itself prove that battery capacity has permanently fallen.\n\n**Try it:** Make two trip budgets with the same distance but different durations and climate loads. Label every assumption, preserve enough reserve for uncertainty, and use the vehicle's instructions for charging and supported preconditioning. Compare actual trips before attributing a change to one cause.",
+        "visual": "In a hypothetical 50 km trip, 9 kWh of propulsion demand plus 1 kWh of separately counted climate demand totals 10 kWh. The bars are an energy budget, not vehicle ratings.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"A winter trip has more than one energy demand\" font-family=\"sans-serif\"><title>A winter trip has more than one energy demand</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"35\" font-size=\"22\" fill=\"#e8ecf1\" text-anchor=\"start\">A winter trip has more than one energy demand</text><path d=\"M28 52 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"70\" y=\"105\" font-size=\"20\" fill=\"#e8ecf1\" text-anchor=\"start\">Hypothetical 50 km trip</text><rect x=\"70\" y=\"140\" width=\"540\" height=\"65\" rx=\"0\" fill=\"#1c354a\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><rect x=\"610\" y=\"140\" width=\"60\" height=\"65\" rx=\"0\" fill=\"#403723\" stroke=\"#ffd479\" stroke-width=\"2\"/><text x=\"340\" y=\"181\" font-size=\"22\" fill=\"#7cc7ff\" text-anchor=\"middle\">Propulsion: 9 kWh</text><text x=\"640\" y=\"240\" font-size=\"18\" fill=\"#ffd479\" text-anchor=\"middle\">1 kWh</text><path d=\"M640 210 V220\" stroke=\"#ffd479\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"70\" y=\"280\" font-size=\"19\" fill=\"#ffd479\" text-anchor=\"start\">Climate: 2 kW × 0.5 h = 1 kWh</text><text x=\"70\" y=\"322\" font-size=\"22\" fill=\"#7ee2a8\" text-anchor=\"start\">Total in this model: 10 kWh</text><path d=\"M28 350 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"28\" y=\"379\" font-size=\"15\" fill=\"#9aa6b8\" text-anchor=\"start\">The propulsion assumption excludes the added climate load. Real conditions add uncertainty.</text></svg>",
+        "questions": [
+          {
+            "q": "What is the total in the worked 50 km budget?",
+            "hint": "Calculate the separately defined propulsion and climate amounts.",
+            "answer": "Propulsion is 18 × 50/100 = 9 kWh. Climate is 2 × 0.5 = 1 kWh. Total is 10 kWh within the stated model."
+          },
+          {
+            "q": "Why should a charging-power observation not be treated as a direct battery-capacity measurement?",
+            "hint": "Distinguish a transfer rate from an amount the battery can store.",
+            "answer": "Charging power is a rate constrained by temperature, charge state and equipment. Capacity is an energy amount; a slower session alone does not establish permanent capacity loss."
+          }
+        ]
+      },
+      {
+        "id": "vehicle-capstone",
+        "heading": "Explain a symptom without guessing a replacement",
+        "body": "Consider three hypothetical reports. A PHEV engine starts while charge remains. Regeneration is reduced just after a cold charge. A vehicle intermittently fails to become READY and shows a low-voltage warning. These reports involve different links and should not automatically be assigned one common cause.\n\n**Case A — engine starts.** Compare the event with the model's operating strategy, temperature, heating demand and power demand. Record any warnings. The energy-source category does not promise electric-only operation under every condition. A normal control strategy and a fault need different evidence.\n\n**Case B — reduced regeneration.** Consider charge state, temperature, grip and the vehicle's limits. Regeneration is only one braking path; its available level varies. Follow normal braking controls and the vehicle's instructions. A change in recovered power alone is not a direct measurement of battery capacity.\n\n**Case C — not READY with warning.** Traction charge does not certify the low-voltage supply or control sequence. Preserve the exact warning and the circumstances, and have the correct system checks performed. Do not turn a plausible converter hypothesis into a replacement instruction.\n\n**Worked handoff:** “At −15 °C after an overnight park, the display showed charge, READY did not appear, and the exact warning text was recorded at 07:20. A subsequent attempt behaved differently.” This is useful evidence without claiming a diagnosis. Include recent service and professionally retrieved fault information when available. If a vehicle loses propulsion or displays a stop instruction, respond to the actual warning and seek appropriate assistance rather than continuing an experiment.\n\n**Try it:** Choose one case. Draw the relevant energy/control path, write two plausible explanations and name the observation that would distinguish them. Finish with a brief service description containing facts, uncertainty and the question to resolve. No high-voltage probing, isolation or component repair is part of this exercise.",
+        "visual": "Different symptoms lead to different questions: control strategy, regenerative limits, or low-voltage readiness. Observations guide the next check without proving a component failure.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Three symptoms, three evidence paths\" font-family=\"sans-serif\"><title>Three symptoms, three evidence paths</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"35\" font-size=\"22\" fill=\"#e8ecf1\" text-anchor=\"start\">Three symptoms, three evidence paths</text><path d=\"M28 52 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><rect x=\"40\" y=\"90\" width=\"225\" height=\"230\" rx=\"8\" fill=\"none\" stroke=\"#ffd479\" stroke-width=\"2\"/><text x=\"56\" y=\"118\" font-size=\"20\" fill=\"#ffd479\" text-anchor=\"start\">Engine starts</text><text x=\"56\" y=\"148\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Charge remains</text><text x=\"56\" y=\"173\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Check mode and loads</text><text x=\"56\" y=\"198\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Read warnings</text><text x=\"56\" y=\"223\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Normal strategy or fault?</text><rect x=\"287\" y=\"90\" width=\"225\" height=\"230\" rx=\"8\" fill=\"none\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><text x=\"303\" y=\"118\" font-size=\"20\" fill=\"#7ee2a8\" text-anchor=\"start\">Less regeneration</text><text x=\"303\" y=\"148\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Cold or high charge?</text><text x=\"303\" y=\"173\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Check operating limits</text><text x=\"303\" y=\"198\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Keep braking normally</text><text x=\"303\" y=\"223\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Rate is not capacity</text><rect x=\"534\" y=\"90\" width=\"225\" height=\"230\" rx=\"8\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"550\" y=\"118\" font-size=\"20\" fill=\"#7cc7ff\" text-anchor=\"start\">Not READY</text><text x=\"550\" y=\"148\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Exact warning and state</text><text x=\"550\" y=\"173\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Low-voltage/control path</text><text x=\"550\" y=\"198\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Use service procedure</text><text x=\"550\" y=\"223\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">No component verdict</text><path d=\"M28 350 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"28\" y=\"379\" font-size=\"15\" fill=\"#9aa6b8\" text-anchor=\"start\">Record facts and discriminate hypotheses. These examples are not vehicle-specific diagnoses.</text></svg>",
+        "questions": [
+          {
+            "q": "Why should the three capstone symptoms not automatically receive one diagnosis?",
+            "hint": "Do they concern the same energy and control path?",
+            "answer": "They can involve distinct operating strategies, regenerative limits and low-voltage startup conditions. A shared cause must be demonstrated rather than assumed."
+          },
+          {
+            "q": "What makes the worked handoff more useful than “it is the converter”?",
+            "hint": "Which version lets another person reconstruct the event?",
+            "answer": "It records temperature, timing, charge indication, READY state and exact warning without converting a hypothesis into a diagnosis."
+          }
+        ]
+      }
+    ]
+  },
+  "quizzes": {
+    "sections": [
+      {
+        "id": "vehicle-architecture",
+        "questions": [
+          {
+            "q": "Which vehicle category has external electrical charging and retains a combustion engine?",
+            "choices": [
+              "BEV only",
+              "PHEV",
+              "Every vehicle with a 12V battery",
+              "Conventional HEV"
+            ],
+            "answer": 1,
+            "explain": "A PHEV combines plug-in energy with an engine. A BEV has no propulsion engine; a conventional HEV does not normally take plug-in charge."
+          },
+          {
+            "q": "What does a generator do in a hybrid powertrain?",
+            "choices": [
+              "Converts supplied mechanical energy into electrical energy",
+              "Guarantees the engine is off",
+              "Creates energy without an input",
+              "Makes battery losses disappear"
+            ],
+            "answer": 0,
+            "explain": "A generator converts mechanical input, supplied for example by an engine or braking motion. Energy conversion still has losses."
+          },
+          {
+            "q": "Why is engine noise alone a poor indicator of whether an electrified vehicle is ready to move?",
+            "choices": [
+              "The drive system may be ready while the engine is stopped",
+              "All hybrids have identical transmissions",
+              "All electrified vehicles always idle",
+              "Battery state is irrelevant"
+            ],
+            "answer": 0,
+            "explain": "A ready electrified vehicle can operate without engine sound. Readiness and warnings are more meaningful than engine noise alone."
+          }
+        ]
+      },
+      {
+        "id": "energy-power",
+        "questions": [
+          {
+            "q": "A 20 kW average load runs for 30 minutes. What energy is transferred?",
+            "choices": [
+              "20 kWh",
+              "600 kWh",
+              "10 kWh",
+              "0.67 kWh"
+            ],
+            "answer": 2,
+            "explain": "Convert 30 minutes to 0.5 h. Energy is 20 × 0.5 = 10 kWh."
+          },
+          {
+            "q": "A hypothetical charging interval takes 12 kWh from the wall and stores 10 kWh. What ratio is stored/input?",
+            "choices": [
+              "20%",
+              "120%",
+              "Exactly 100%",
+              "About 83%"
+            ],
+            "answer": 3,
+            "explain": "10 ÷ 12 ≈ 0.833, or 83%. The ratio describes the stated interval and boundary, not a universal vehicle rating."
+          },
+          {
+            "q": "A simplified trip has 10 kWh usable at 20 kWh/100 km. What distance follows?",
+            "choices": [
+              "20 km",
+              "100 km",
+              "50 km",
+              "200 km"
+            ],
+            "answer": 2,
+            "explain": "Distance = 10 ÷ 20 × 100 = 50 km, provided the assumed consumption and usable energy apply to the trip."
+          }
+        ]
+      },
+      {
+        "id": "motor-regeneration",
+        "questions": [
+          {
+            "q": "What is the approximate kinetic energy of a 1,800 kg car at 50 km/h?",
+            "choices": [
+              "4.8 kWh",
+              "0.000048 kWh",
+              "0.048 kWh",
+              "48 kWh"
+            ],
+            "answer": 2,
+            "explain": "Convert speed to about 13.9 m/s, calculate about 174 kJ, then divide by 3,600 kJ/kWh to get roughly 0.048 kWh."
+          },
+          {
+            "q": "Why does repeated acceleration followed by regeneration fail to create free charge?",
+            "choices": [
+              "Friction brakes always return all energy",
+              "Each conversion and motion cycle has losses",
+              "Motors cannot work as generators",
+              "Battery capacity doubles during braking"
+            ],
+            "answer": 1,
+            "explain": "Regeneration recovers only part of energy supplied earlier. Conversion and road losses prevent a net energy gain from repeated accelerate/brake cycles."
+          },
+          {
+            "q": "The battery is nearly full and regenerative braking is limited. What remains essential?",
+            "choices": [
+              "Disconnecting the 12V battery",
+              "Increasing speed to force recovery",
+              "The vehicle’s friction-brake system and normal braking controls",
+              "Assuming all braking is unavailable"
+            ],
+            "answer": 2,
+            "explain": "The friction system supplies braking that regeneration cannot provide. Limited regeneration is not a reason to alter wiring or assume braking is absent."
+          }
+        ]
+      },
+      {
+        "id": "low-voltage",
+        "questions": [
+          {
+            "q": "Which component’s role is to supply a lower-voltage DC system from higher-voltage DC power?",
+            "choices": [
+              "DC–DC converter",
+              "Friction brake",
+              "Wheel bearing",
+              "Traction inverter only"
+            ],
+            "answer": 0,
+            "explain": "The DC–DC converter changes DC voltage levels. The traction inverter serves a different electrical conversion role."
+          },
+          {
+            "q": "A traction battery shows charge but the vehicle fails to enter READY. What can you conclude?",
+            "choices": [
+              "The warning can always be ignored",
+              "The traction battery must be empty",
+              "The converter definitely failed",
+              "Low-voltage/control conditions still need investigation"
+            ],
+            "answer": 3,
+            "explain": "Traction charge does not verify the control supply or startup checks. The symptom narrows investigation but does not prove one component has failed."
+          },
+          {
+            "q": "Which log entry preserves the best diagnostic evidence?",
+            "choices": [
+              "Must be the same issue as another vehicle",
+              "Engine quiet, therefore no charging",
+              "Converter broken, no further details",
+              "Exact warning, time, temperature and indicated system state"
+            ],
+            "answer": 3,
+            "explain": "A precise observation record helps a service procedure discriminate causes. Unverified conclusions or engine sound alone discard useful context."
+          }
+        ]
+      },
+      {
+        "id": "winter-charging",
+        "questions": [
+          {
+            "q": "A constant 2 kW climate load runs for 30 minutes. What energy does it use?",
+            "choices": [
+              "60 kWh",
+              "1 kWh",
+              "2 kWh",
+              "0.25 kWh"
+            ],
+            "answer": 1,
+            "explain": "Thirty minutes is half an hour. 2 kW × 0.5 h = 1 kWh."
+          },
+          {
+            "q": "Why must the example specify that its propulsion figure excludes climate loads?",
+            "choices": [
+              "To make power and energy interchangeable",
+              "To avoid counting the same climate energy twice",
+              "Because heaters never consume traction energy",
+              "Because every vehicle uses the same consumption"
+            ],
+            "answer": 1,
+            "explain": "If the base consumption already includes heating, adding it again overstates the budget. A clear boundary prevents double counting."
+          },
+          {
+            "q": "Which statement about winter charging is most defensible?",
+            "choices": [
+              "Actual power and energy use depend on temperature, equipment, charge state and vehicle controls",
+              "One cold session proves permanent battery damage",
+              "Nameplate power is guaranteed at every charge state",
+              "Preconditioning removes every cold-weather effect"
+            ],
+            "answer": 0,
+            "explain": "Several operating constraints affect charging and use. A nameplate limit or one session does not establish constant power or permanent damage."
+          }
+        ]
+      },
+      {
+        "id": "vehicle-capstone",
+        "questions": [
+          {
+            "q": "A PHEV starts its engine with charge remaining and no other information. What is the strongest conclusion?",
+            "choices": [
+              "More operating context is needed",
+              "The vehicle cannot be a PHEV",
+              "The converter has failed",
+              "The traction battery is defective"
+            ],
+            "answer": 0,
+            "explain": "Engine use can be part of normal strategy. Temperature, demand, supported modes and warning evidence are needed to interpret it."
+          },
+          {
+            "q": "Which observation most directly concerns startup readiness rather than range prediction?",
+            "choices": [
+              "READY does not appear and an exact warning is recorded",
+              "A charger has a 7 kW nameplate",
+              "The road is 50 km long",
+              "A trip used 20 kWh/100 km"
+            ],
+            "answer": 0,
+            "explain": "READY state and warning text concern startup/control conditions. Consumption and charging ratings address different questions."
+          },
+          {
+            "q": "What is an appropriate capstone output?",
+            "choices": [
+              "A replacement order based on one symptom",
+              "A factual handoff with competing hypotheses and a procedure-based next check",
+              "An untested high-voltage repair instruction",
+              "A universal winter range claim"
+            ],
+            "answer": 1,
+            "explain": "A factual, bounded handoff supports real diagnosis. It preserves evidence and avoids claiming a component verdict without tests."
+          }
+        ]
+      }
+    ]
+  },
+  "slides": {
+    "sections": [
+      {
+        "id": "vehicle-architecture",
+        "title": "Follow the energy before naming the vehicle",
+        "bullets": [
+          "HEV: a hybrid combines fuel and electric drive without normal plug-in charging",
+          "PHEV: a plug-in hybrid adds externally charged energy and retains an engine",
+          "BEV: a battery electric vehicle has no combustion engine for propulsion",
+          "Architecture: component roles differ from the momentary operating mode",
+          "Control: the vehicle chooses modes within its design and operating limits"
+        ],
+        "notes": "Identify the sources before tracing the paths. An HEV takes fuel, a PHEV can also take plug-in electricity, and a BEV uses electrical storage without a propulsion engine. Those categories do not reveal every mode. A PHEV can legitimately use its engine while charge remains, so interpretation needs operating context.",
+        "visual": "The three categories differ in external energy inputs and whether an engine remains. The simplified boxes describe energy sources, not a universal transmission layout."
+      },
+      {
+        "id": "energy-power",
+        "title": "Separate the size of the tank from the rate of use",
+        "bullets": [
+          "Energy: kilowatt-hours describe an amount that can be stored or transferred",
+          "Power: kilowatts describe the rate of energy transfer",
+          "Time: energy equals average power multiplied by elapsed hours",
+          "Efficiency: compare useful output and input over the same boundary",
+          "Range: a simplified estimate divides usable energy by energy per distance"
+        ],
+        "notes": "Keep the units attached to the story. Kilowatts tell you how fast energy moves; kilowatt-hours tell you how much moved. Our twenty-kilowatt half-hour rectangle contains ten kilowatt-hours. Then state the boundary: wall input, stored battery energy and wheel output need not be the same amount.",
+        "visual": "A constant 20 kW draw for half an hour transfers 10 kWh. The shaded rectangle is energy: its width is time and its height is power."
+      },
+      {
+        "id": "motor-regeneration",
+        "title": "Braking recovers some motion, not all of it",
+        "bullets": [
+          "Inverter: controlled electrical conversion supports motor operation",
+          "Motor/generator: energy flow can reverse during regeneration",
+          "Kinetic energy: mass and speed set an upper bound on recoverable motion",
+          "Losses and limits: grip, battery acceptance and temperature affect recovery",
+          "Blending: friction braking supplies braking that regeneration cannot"
+        ],
+        "notes": "Regeneration is recovery, not creation. The energy already in motion is the upper bound, and the path back to storage loses some of it. Even our whole fifty-kilometre-per-hour stop contains only about forty-eight watt-hours of kinetic energy. Battery and traction limits determine how much of that can actually be stored.",
+        "visual": "The useful energy path reverses in regeneration, while losses remain. The numerical example estimates motion energy before applying any recovery fraction."
+      },
+      {
+        "id": "low-voltage",
+        "title": "A charged traction battery still needs low-voltage control",
+        "bullets": [
+          "Two systems: traction energy and low-voltage control serve different roles",
+          "Auxiliary battery: supports electronics and startup sequencing",
+          "DC–DC converter: supplies lower-voltage power from the traction system",
+          "READY state: engine sound is not a reliable charging-state test",
+          "Diagnosis: a warning suggests a system to investigate, not a component verdict"
+        ],
+        "notes": "Think of drive energy and control power as separate responsibilities. The big battery may contain energy, but controllers and startup sequencing still need their low-voltage supply. A warning points toward an investigation. It does not turn one component into a proven culprit, and engine sound is not a converter test.",
+        "visual": "The auxiliary system supports control and startup; the traction system supplies drive energy. A DC–DC converter connects their power roles when enabled by the vehicle."
+      },
+      {
+        "id": "winter-charging",
+        "title": "Account for the energy that does not turn the wheels",
+        "bullets": [
+          "Climate loads: cabin and battery conditioning consume energy",
+          "Cold conditions: temperature can affect battery performance and charge acceptance",
+          "Charging: power can vary with state of charge, temperature and equipment limits",
+          "Preconditioning: supported grid-powered preparation can reduce trip battery demand",
+          "Planning: use observed conditions rather than a universal winter percentage"
+        ],
+        "notes": "Separate travel demand from other loads before adding them. Our hypothetical trip uses nine kilowatt-hours for propulsion and one for a separately defined climate load. The calculation is simple; the boundary is what keeps it honest. Cold charging observations also need context, because transfer rate and storage capacity are different quantities.",
+        "visual": "In a hypothetical 50 km trip, 9 kWh of propulsion demand plus 1 kWh of separately counted climate demand totals 10 kWh. The bars are an energy budget, not vehicle ratings."
+      },
+      {
+        "id": "vehicle-capstone",
+        "title": "Explain a symptom without guessing a replacement",
+        "bullets": [
+          "Observation: record exact events and operating state",
+          "Model: trace the relevant energy and control paths",
+          "Hypotheses: keep more than one explanation alive",
+          "Evidence: distinguish normal strategy from warning or readiness faults",
+          "Handoff: give a technician a concise reproducible description"
+        ],
+        "notes": "Use the model to organise questions. Engine starts, reduced regeneration and failure to become ready do not mean the same thing. Capture exact observations and compare them with operating instructions and appropriate service evidence. The useful skill is explaining what needs to be checked, not guessing a replacement from a familiar-sounding symptom.",
+        "visual": "Different symptoms lead to different questions: control strategy, regenerative limits, or low-voltage readiness. Observations guide the next check without proving a component failure."
+      }
+    ]
+  },
+  "enrichment": {
+    "audioTitle": "How Hybrid & Electric Vehicles Work — think it through",
+    "turns": [
+      {
+        "speaker": "teacher",
+        "line": "A charged traction battery is only one part of a ready vehicle. Follow energy through propulsion, braking, charging and the low-voltage control system, then practise explaining symptoms without guessing a failed component."
+      },
+      {
+        "speaker": "student",
+        "line": "What should I be able to do by the end?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Build a clear observation record and service handoff for a hypothetical symptom"
+      },
+      {
+        "speaker": "student",
+        "line": "If the engine stops at a light, is the car switched off?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Not necessarily. An electrified drive system may remain ready to move while its engine is stopped."
+      },
+      {
+        "speaker": "student",
+        "line": "Does a PHEV always stay electric until the battery is empty?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "No. Its control system may use the engine for several demands while charge remains; the model’s instructions explain the supported modes."
+      },
+      {
+        "speaker": "student",
+        "line": "A motor can draw sixty kilowatts. Does that mean sixty kilowatt-hours disappear immediately?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "No. Multiply the average power by time in hours to find energy. A short peak is a rate, not a whole-hour energy amount."
+      },
+      {
+        "speaker": "student",
+        "line": "Why did the charging meter show more energy than the battery gained?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "The measurement includes losses and possibly thermal or auxiliary loads. Define both boundaries before comparing them."
+      },
+      {
+        "speaker": "student",
+        "line": "Can I keep charging by accelerating and braking?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "You can recover some energy you already spent, but losses on the way out and back make the total decrease."
+      },
+      {
+        "speaker": "student",
+        "line": "Why do electric vehicles still need friction brakes?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Regeneration is limited by operating conditions and cannot supply every braking requirement. The friction system remains essential."
+      },
+      {
+        "speaker": "student",
+        "line": "Why keep a small battery when there is a large one?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "The auxiliary system supports controls and startup. Those functions must be supplied before the high-voltage system can be connected as designed."
+      },
+      {
+        "speaker": "student",
+        "line": "Can a quiet engine tell me whether the converter is working?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "No. Converter operation follows vehicle-specific control logic. Capture the system state and warnings, then use the appropriate service procedure."
+      },
+      {
+        "speaker": "student",
+        "line": "Why can two trips of the same distance use different energy?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Time, speed, weather, heating and other conditions can change the budget. The same heater power uses more energy over a longer interval."
+      },
+      {
+        "speaker": "student",
+        "line": "Will preconditioning make winter identical to summer?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "No. Supported preparation can reduce some trip demand, but cold conditions and other operating differences remain."
+      },
+      {
+        "speaker": "student",
+        "line": "Can I use this course to diagnose my particular vehicle from one warning?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "It provides a conceptual model. A particular fault needs the correct vehicle-specific procedure and evidence."
+      },
+      {
+        "speaker": "student",
+        "line": "What should I give the technician?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Exact warning text, time, temperature, indicated readiness and charge, recent service, and a concise description of what happened before and after."
+      }
+    ],
+    "nodes": [
+      {
+        "id": "root",
+        "parent": null,
+        "label": "Hybrid and electric vehicles",
+        "note": "Distinguish HEV, PHEV and BEV energy paths and operating modes"
+      },
+      {
+        "id": "vehicle-architecture",
+        "parent": "root",
+        "label": "Follow the energy before naming the vehicle",
+        "note": "Distinguish energy sources, component architecture and the current operating mode."
+      },
+      {
+        "id": "vehicle-architecture-0",
+        "parent": "vehicle-architecture",
+        "label": "HEV",
+        "note": "HEV: a hybrid combines fuel and electric drive without normal plug-in charging"
+      },
+      {
+        "id": "vehicle-architecture-1",
+        "parent": "vehicle-architecture",
+        "label": "PHEV",
+        "note": "PHEV: a plug-in hybrid adds externally charged energy and retains an engine"
+      },
+      {
+        "id": "energy-power",
+        "parent": "root",
+        "label": "Separate the size of the tank from the rate of use",
+        "note": "Use power, time and explicit measurement boundaries to calculate energy and simplified range."
+      },
+      {
+        "id": "energy-power-0",
+        "parent": "energy-power",
+        "label": "Energy",
+        "note": "Energy: kilowatt-hours describe an amount that can be stored or transferred"
+      },
+      {
+        "id": "energy-power-1",
+        "parent": "energy-power",
+        "label": "Power",
+        "note": "Power: kilowatts describe the rate of energy transfer"
+      },
+      {
+        "id": "motor-regeneration",
+        "parent": "root",
+        "label": "Braking recovers some motion, not all of it",
+        "note": "Trace bidirectional energy flow and calculate its limits without assuming perfect recovery."
+      },
+      {
+        "id": "motor-regeneration-0",
+        "parent": "motor-regeneration",
+        "label": "Inverter",
+        "note": "Inverter: controlled electrical conversion supports motor operation"
+      },
+      {
+        "id": "motor-regeneration-1",
+        "parent": "motor-regeneration",
+        "label": "Motor/generator",
+        "note": "Motor/generator: energy flow can reverse during regeneration"
+      },
+      {
+        "id": "low-voltage",
+        "parent": "root",
+        "label": "A charged traction battery still needs low-voltage control",
+        "note": "Separate traction charge, auxiliary power and controlled startup before interpreting a warning."
+      },
+      {
+        "id": "low-voltage-0",
+        "parent": "low-voltage",
+        "label": "Two systems",
+        "note": "Two systems: traction energy and low-voltage control serve different roles"
+      },
+      {
+        "id": "low-voltage-1",
+        "parent": "low-voltage",
+        "label": "Auxiliary battery",
+        "note": "Auxiliary battery: supports electronics and startup sequencing"
+      },
+      {
+        "id": "winter-charging",
+        "parent": "root",
+        "label": "Account for the energy that does not turn the wheels",
+        "note": "Build an energy budget with explicit load boundaries and temperature-dependent uncertainty."
+      },
+      {
+        "id": "winter-charging-0",
+        "parent": "winter-charging",
+        "label": "Climate loads",
+        "note": "Climate loads: cabin and battery conditioning consume energy"
+      },
+      {
+        "id": "winter-charging-1",
+        "parent": "winter-charging",
+        "label": "Cold conditions",
+        "note": "Cold conditions: temperature can affect battery performance and charge acceptance"
+      },
+      {
+        "id": "vehicle-capstone",
+        "parent": "root",
+        "label": "Explain a symptom without guessing a replacement",
+        "note": "Turn an energy-and-control model into a clear evidence-based service question."
+      },
+      {
+        "id": "vehicle-capstone-0",
+        "parent": "vehicle-capstone",
+        "label": "Observation",
+        "note": "Observation: record exact events and operating state"
+      },
+      {
+        "id": "vehicle-capstone-1",
+        "parent": "vehicle-capstone",
+        "label": "Model",
+        "note": "Model: trace the relevant energy and control paths"
+      }
+    ],
+    "mnemonics": [
+      {
+        "for": "Power versus energy",
+        "aid": "Kilowatts tell the rate; kilowatt-hours tell the amount over time."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "US Department of Energy AFDC — Hybrid electric cars",
+      "url": "https://afdc.energy.gov/vehicles/how-do-hybrid-electric-cars-work"
+    },
+    {
+      "title": "US Department of Energy AFDC — Plug-in hybrid electric cars",
+      "url": "https://afdc.energy.gov/vehicles/how-do-plug-in-hybrid-electric-cars-work"
+    },
+    {
+      "title": "NHTSA — Electric and hybrid vehicle components and safety",
+      "url": "https://www.nhtsa.gov/vehicle-safety/electric-and-hybrid-vehicles"
+    },
+    {
+      "title": "Transport Canada — Driving cycle, climate and electric range",
+      "url": "https://tc.canada.ca/en/programs/ecotechnology-vehicles-program/technical-papers/impact-driving-cycle-climate-electrical-consumption-range-fully-electric-passenger-vehicles"
+    },
+    {
+      "title": "Argonne National Laboratory — BEVs under extreme weather",
+      "url": "https://vms.taps.anl.gov/research-highlights/vehicle-technologies/bev-xtreme-weather/"
+    },
+    {
+      "title": "US Department of Energy AFDC — Maintenance and safety",
+      "url": "https://afdc.energy.gov/vehicles/electric-maintenance"
+    }
+  ]
+}

@@ -34,10 +34,11 @@ No build step, no dependencies.
 5. Courses save to the browser's localStorage; export/import as JSON.
    Export Markdown for a study guide including visuals and further-reading links.
 
-## Included lessons
+## Included courses
 
-Ten authored mini-courses join the existing Genetics and Simple Machines courses.
-Each new course has three reading sections, visual mental models, check-in
+The catalog contains 17 included courses. Ten authored mini-courses join the
+existing Genetics and Simple Machines courses, plus five expanded courses below.
+Each of the ten mini-courses has three reading sections, visual mental models, check-in
 questions, six explained quiz questions, slides with notes, an audio dialogue,
 a mind map and automatically derived flashcards. They open from Library without
 an API call. Search and level filters apply to the entire included catalog.
@@ -61,6 +62,30 @@ household installation procedures. Lessons state model assumptions alongside
 worked examples and include further reading from sources such as NASA, NOAA,
 USGS, GPS.gov, OpenStax, CCOHS and the US Department of Energy.
 
+### Five expanded courses
+
+Each expanded course has six lessons, twelve reading check-ins, eighteen scored
+questions with explained answers, six slides with speaker notes, a teacher/student
+audio dialogue, a mind map, visual flashcards and a practical capstone. All thirty
+new lessons have captioned, accessible SVG explanations. They use the same six
+study views, notes and JSON/Markdown exports as the rest of the catalog, and open
+without an API key. Time estimates include the suggested exercises.
+
+| Course | Focus and final exercise | Estimated study time |
+| --- | --- | --- |
+| Precision Agriculture: From RTK to Automated Fieldwork | RTK quality, corrections, geometry, section timing and field data; design a whole-operation acceptance test | 65 minutes |
+| Music Theory for Songwriting & Arrangement | Tonal centre, harmony, voice leading, groove and melody; write and revise an original eight-bar sketch | 70 minutes |
+| How Hybrid & Electric Vehicles Work | Energy paths, power versus energy, regeneration, 12V/DC–DC roles and cold-weather loads; prepare an evidence-based service question | 60 minutes |
+| The Life & Death of Stars | Pressure support, fuel, lifetimes, H–R diagrams and branching evolution; defend a Sun-like or massive-star path | 65 minutes |
+| AI Agents: From Prompt to Reliable Workflow | Tool contracts, retrieval, permissions, failure recovery and evaluation; design a mocked study-plan assistant | 65 minutes |
+
+These are conceptual courses with worked examples and explicit model limits.
+The music course supplies notation to hum or play, rather than instrumental
+audio. Vehicle lessons do not provide high-voltage repair procedures. The AI
+course uses fictional tools and makes no live calls. Source links are available
+in the course and its Markdown export. Editorial and acceptance evidence is in
+[`docs/interest-courses-review.md`](docs/interest-courses-review.md).
+
 Personal section notes save in this browser. If storage fails, the app shows an
 error and keeps the draft while navigating within the current tab; edit again
 to retry, or copy it before closing/reloading. Notes are separate from course
@@ -69,7 +94,7 @@ and resets when that view is reopened.
 
 ## Visual explanations
 
-All 41 included reading sections have authored SVG illustrations, shared with
+All 71 included reading sections have authored SVG illustrations, shared with
 their slides and visual flashcards. The 800 × 400 drawings use consistent labels,
 colour roles and model-limit annotations. They show mechanisms and quantities:
 connected pistons and crank pins, supporting pulley strands, orbit vectors,
@@ -90,10 +115,10 @@ only basic SVG shapes and text; it removes CSS, links, external images, scripts,
 event handlers and SMIL. Generated courses receive the same spacious drawing
 brief, but still require human review for subject accuracy and visual quality.
 
-`node scripts/author-illustrations.mjs` reproducibly rebuilds the included SVGs
-and their matching captions without API calls. To check the drawings and controls
+The authored SVGs and captions are stored in the course JSON and need no API calls.
+To check the drawings and controls
 in Chromium, run `node scripts/visual-acceptance.mjs` against the local server.
-`LEARNWAY_VISUAL_OUTPUT` optionally saves the 41 figure screenshots and a layout
+`LEARNWAY_VISUAL_OUTPUT` optionally saves the 71 figure screenshots and a layout
 verdict. Both browser scripts accept `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH` for an
 existing Chromium binary. CI runs both browser suites.
 
@@ -136,7 +161,8 @@ Desktop browser acceptance runs separately in GitHub Actions with Chromium at
 1440 × 1000. It covers the sample and every included course in all six views,
 quiz and flashcard interactions, search result identity, level filtering,
 note-save failure/recovery/reload, Markdown download, valid/invalid imports,
-generation failure/retry, one API request per action after repeated navigation,
+generation failure/retry, bounded validation retries without duplicated action
+handlers after repeated navigation,
 and JSON export/reimport. It also checks fenced diagram whitespace and keyboard
 scrolling with `toReversed` and `Object.hasOwn` disabled. That compatibility
 exercise is not a complete old-browser certification. Gemini
@@ -149,8 +175,10 @@ To run browser acceptance locally, start `node serve.mjs` in one terminal, then:
 npm install --no-save --package-lock=false playwright@1.62.1
 npx playwright install chromium
 node scripts/browser-acceptance.mjs
+node scripts/interest-courses-acceptance.mjs
 ```
 
 `LEARNWAY_URL` overrides the default `http://127.0.0.1:8130` test address.
 `PLAYWRIGHT_MODULE` can point to an existing Playwright installation's `index.mjs`.
 No real API key is needed; the script uses a new isolated browser context.
+

@@ -1,0 +1,787 @@
+{
+  "meta": {
+    "title": "Precision Agriculture: From RTK to Automated Fieldwork",
+    "topic": "Precision agriculture and RTK",
+    "level": "intermediate",
+    "estimatedMinutes": 65,
+    "tags": [
+      "precision agriculture",
+      "RTK",
+      "GNSS",
+      "guidance",
+      "section control",
+      "farm data"
+    ],
+    "createdAt": "2026-10-30T03:00:00.000Z",
+    "interests": "Practical mechanisms, music, space, technology and worked examples",
+    "depth": "standard",
+    "model": "Learnway authored course"
+  },
+  "plan": {
+    "title": "Precision Agriculture: From RTK to Automated Fieldwork",
+    "hook": "A tractor can report fixed RTK and still put the work in the wrong place. Follow the chain from satellite observations to the actual implement, then build an acceptance test for the whole operation.",
+    "objectives": [
+      "Distinguish receiver solution quality from reference alignment and implement placement",
+      "Isolate correction delivery, geometry and application timing faults using evidence",
+      "Calculate geometric and timing effects with units and explicit limits",
+      "Design a reproducible acceptance test for an automated field operation"
+    ],
+    "prerequisites": [
+      "GNSS/GPS basics; Learnway’s How GPS Works is a useful starting point",
+      "Comfort with distance, speed, time and metres"
+    ],
+    "sections": [
+      {
+        "id": "rtk-position",
+        "heading": "A fixed solution is a starting point",
+        "points": [
+          "Carrier phase: count the fine cycles as well as the coarse travel time",
+          "Ambiguity resolution: fixed and float describe a positioning solution",
+          "Accuracy: compare against a reference in the same coordinate system",
+          "Repeatability: test return passes across the time span that matters",
+          "Application quality: measure the implement as well as the receiver"
+        ]
+      },
+      {
+        "id": "correction-chain",
+        "heading": "Trace the correction chain before changing settings",
+        "points": [
+          "Observation path: satellites must be tracked at the rover",
+          "Correction path: radio or network delivery is a separate dependency",
+          "Correction age: freshness is evidence, not a universal pass threshold",
+          "Isolation: log the fault location and change one variable at a time",
+          "Recovery: confirm both status and field placement after service returns"
+        ]
+      },
+      {
+        "id": "antenna-tool",
+        "heading": "The antenna is not the working tool",
+        "points": [
+          "Geometry: receiver height and fore/aft/lateral offsets locate the tool",
+          "Roll: a high antenna moves sideways when the chassis tilts",
+          "Compensation: an attitude estimate needs correct calibration and geometry",
+          "Implement drift: tractor guidance does not guarantee tool guidance",
+          "Verification: compare reciprocal passes and actual soil or crop placement"
+        ]
+      },
+      {
+        "id": "section-timing",
+        "heading": "Turn delay into distance and overlap",
+        "points": [
+          "Delay: a command and its physical effect occur at different times",
+          "Distance: travel speed multiplied by residual delay gives position error",
+          "Area: a rectangular overlap estimate uses active width and error distance",
+          "On/off timing: measure the two transitions separately",
+          "Calibration: verify offsets before tuning physical response timing"
+        ]
+      },
+      {
+        "id": "field-data",
+        "heading": "A clean map can contain the wrong story",
+        "points": [
+          "Identity: field, season, operation and units give a dataset meaning",
+          "Provenance: record source, calibration and coordinate reference",
+          "Comparison: align spatial position and time before interpreting differences",
+          "Quality control: inspect coverage, outliers and missing observations",
+          "Inference: a map pattern alone does not prove a treatment effect"
+        ]
+      },
+      {
+        "id": "field-acceptance",
+        "heading": "Build an acceptance test for the whole operation",
+        "points": [
+          "Requirement: specify what the tool must achieve and under which conditions",
+          "Evidence: collect receiver, geometry, timing and placement observations",
+          "Isolation: choose a test that distinguishes competing causes",
+          "Verification: repeat the relevant operation after a controlled correction",
+          "Handoff: report result, limits and remaining uncertainty"
+        ]
+      }
+    ]
+  },
+  "reading": {
+    "sections": [
+      {
+        "id": "rtk-position",
+        "heading": "A fixed solution is a starting point",
+        "body": "Two tractor passes can sit neatly beside each other while both are displaced from last year's rows. The receiver may be repeatable over a few minutes without agreeing with an older survey. Start by separating three questions: where is the antenna, where is the tool, and where should the work actually occur?\n\nGlobal Navigation Satellite Systems (GNSS) measure satellite radio signals. Code measurements provide a coarse range. The phase of the radio carrier provides a much finer ruler, but a repeating wave does not reveal how many whole wavelengths lie between satellite and receiver. That unknown whole-cycle count is an integer ambiguity. Real-time kinematic positioning (RTK) uses reference-station and rover observations to reduce shared errors and resolve ambiguities. A fixed solution has accepted integer values; a float solution still estimates them as non-integer quantities. A fixed label is useful evidence, not independent proof that the field operation is correct.\n\nAccuracy is agreement with a trusted position in an appropriate coordinate reference system. Repeatability is agreement between repeated operations over a specified interval. A wrong base coordinate can shift a whole job without making adjacent passes look noisy. A reference frame, datum or stored guidance line mismatch can also create an offset. Comparing two files requires knowing what their coordinates mean.\n\n**Predict:** Every pass sits 0.18 m east of a trusted row, while repeated passes differ by only 0.02 m. Is this mainly scatter or bias? It is a consistent bias; averaging more tightly clustered passes will not remove it.\n\n**Try it:** Sketch a reference point and three clustered measurements displaced to one side. Label accuracy and repeatability separately. For field acceptance, specify a tolerance, reference, time interval and actual tool position. This course uses generic systems; product accuracy claims and supported modes must be checked in the relevant manual.",
+        "visual": "Two tight measurement clusters can have different accuracy. The cross marks a trusted reference; the displaced cluster illustrates bias, not a scale drawing of RTK performance.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Tight clustering can still hide a bias\" font-family=\"sans-serif\"><title>Tight clustering can still hide a bias</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"35\" font-size=\"22\" fill=\"#e8ecf1\" text-anchor=\"start\">Tight clustering can still hide a bias</text><path d=\"M28 52 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"220\" cy=\"205\" r=\"70\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\"/><path d=\"M205 205 H235 M220 190 V220\" stroke=\"#ffd479\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"215\" cy=\"200\" r=\"5\" stroke=\"#7ee2a8\" stroke-width=\"2\" fill=\"#7ee2a8\"/><circle cx=\"226\" cy=\"211\" r=\"5\" stroke=\"#7ee2a8\" stroke-width=\"2\" fill=\"#7ee2a8\"/><circle cx=\"221\" cy=\"202\" r=\"5\" stroke=\"#7ee2a8\" stroke-width=\"2\" fill=\"#7ee2a8\"/><text x=\"220\" y=\"115\" font-size=\"20\" fill=\"#7ee2a8\" text-anchor=\"middle\">Near the reference</text><text x=\"220\" y=\"310\" font-size=\"17\" fill=\"#e8ecf1\" text-anchor=\"middle\">Accurate and repeatable</text><circle cx=\"585\" cy=\"205\" r=\"70\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\"/><path d=\"M570 205 H600 M585 190 V220\" stroke=\"#ffd479\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"630\" cy=\"171\" r=\"5\" stroke=\"#ff9c9c\" stroke-width=\"2\" fill=\"#ff9c9c\"/><circle cx=\"641\" cy=\"181\" r=\"5\" stroke=\"#ff9c9c\" stroke-width=\"2\" fill=\"#ff9c9c\"/><circle cx=\"636\" cy=\"173\" r=\"5\" stroke=\"#ff9c9c\" stroke-width=\"2\" fill=\"#ff9c9c\"/><text x=\"585\" y=\"115\" font-size=\"20\" fill=\"#ff9c9c\" text-anchor=\"middle\">Cluster displaced</text><text x=\"585\" y=\"310\" font-size=\"17\" fill=\"#e8ecf1\" text-anchor=\"middle\">Repeatable with a bias</text><path d=\"M28 350 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"28\" y=\"379\" font-size=\"15\" fill=\"#9aa6b8\" text-anchor=\"start\">Gold cross = trusted reference. Clusters are conceptual; distances are not to scale.</text></svg>",
+        "questions": [
+          {
+            "q": "What does a fixed RTK label tell you, and what does it leave untested?",
+            "hint": "Separate the receiver solution from the completed field operation.",
+            "answer": "The receiver has accepted integer ambiguities. The label alone does not verify the reference coordinates, implement geometry or placement of the work."
+          },
+          {
+            "q": "Passes repeat within 0.02 m but all miss a trusted row by 0.18 m. What needs investigation?",
+            "hint": "Would reducing random scatter move the cluster centre?",
+            "answer": "Investigate a systematic bias such as reference coordinates, guidance-line alignment or geometry. Tighter clustering alone cannot correct the displacement."
+          }
+        ]
+      },
+      {
+        "id": "correction-chain",
+        "heading": "Trace the correction chain before changing settings",
+        "body": "A guidance fault under trees and a correction outage in a cellular dead spot can look similar from the cab. Their causes lie in different paths. Satellite observations reach the antenna directly. Reference data reach the rover through a separate delivery path, such as a local radio or an internet connection to a correction service. A strong phone signal does not prove that usable GNSS observations are available, and open sky does not prove that corrections are arriving.\n\nCorrection age tells you how old the relevant correction data are. Increasing age may point toward a delivery problem, but its interpretation depends on the receiver, correction mode and any supported bridging behaviour. Do not teach one universal cut-off or promise that a receiver stays accurate for a fixed number of seconds after loss. Check the documented operating limits.\n\n**Worked diagnosis:** On an open headland, signal tracking remains healthy while correction age increases and the correction connection drops. That pattern makes the correction delivery chain a better first hypothesis than an antenna obstruction. Record connection state, timestamps, mode, location and the onset of the error. If the same issue appears only beside a building while corrections remain fresh, satellite blockage or reflected signals become stronger hypotheses. These are evidence-led hypotheses, not guaranteed diagnoses.\n\n**Predict:** Would switching radio settings correct an incorrect antenna height? No. It would alter an unrelated dependency and obscure the original evidence.\n\n**Try it:** Write a four-column fault log: observation, possible cause, discriminating check and result. Begin with passive status information and the equipment manual, then perform a controlled check under suitable conditions. Change one factor at a time. After recovery, verify placement against the same reference rather than accepting a green icon alone. Stop automated operation when guidance no longer meets the job's operating requirements.",
+        "visual": "Satellite observations and reference corrections take separate paths to the rover. Checking both paths helps distinguish obstructed reception from correction delivery loss.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Two paths must reach the rover\" font-family=\"sans-serif\"><title>Two paths must reach the rover</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"35\" font-size=\"22\" fill=\"#e8ecf1\" text-anchor=\"start\">Two paths must reach the rover</text><path d=\"M28 52 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><rect x=\"50\" y=\"85\" width=\"260\" height=\"88\" rx=\"8\" fill=\"none\" stroke=\"#b39dff\" stroke-width=\"2\"/><text x=\"66\" y=\"113\" font-size=\"20\" fill=\"#b39dff\" text-anchor=\"start\">Satellite observations</text><text x=\"66\" y=\"143\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Direct radio measurements</text><rect x=\"50\" y=\"225\" width=\"260\" height=\"88\" rx=\"8\" fill=\"none\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><text x=\"66\" y=\"253\" font-size=\"20\" fill=\"#7ee2a8\" text-anchor=\"start\">Reference / network</text><text x=\"66\" y=\"283\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Correction delivery</text><rect x=\"480\" y=\"145\" width=\"265\" height=\"110\" rx=\"8\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"496\" y=\"173\" font-size=\"20\" fill=\"#7cc7ff\" text-anchor=\"start\">Rover receiver</text><text x=\"496\" y=\"203\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Combine and validate</text><text x=\"496\" y=\"228\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Position and status</text><path d=\"M310 129 L480 180 M471.2 181.7 L480 180 L473.5 173.7\" stroke=\"#b39dff\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><path d=\"M310 269 L480 220 M473.5 226.2 L480 220 L471.2 218.2\" stroke=\"#7ee2a8\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"375\" y=\"96\" font-size=\"16\" fill=\"#b39dff\" text-anchor=\"middle\">Sky view</text><text x=\"387\" y=\"303\" font-size=\"16\" fill=\"#7ee2a8\" text-anchor=\"middle\">Radio / internet</text><path d=\"M28 350 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"28\" y=\"379\" font-size=\"15\" fill=\"#9aa6b8\" text-anchor=\"start\">Conceptual paths; connection quality and positioning quality are separate observations.</text></svg>",
+        "questions": [
+          {
+            "q": "Corrections are fresh, but failures happen next to one metal building. Which hypothesis gains weight?",
+            "hint": "Compare the satellite observation path with the correction delivery path.",
+            "answer": "Local signal blockage or reflected GNSS signals gain weight. Fresh corrections do not establish a clean satellite observation path."
+          },
+          {
+            "q": "Why record correction age rather than only a green or red icon?",
+            "hint": "Think about the time sequence of the failure.",
+            "answer": "Age and timestamps can reveal delivery loss and recovery over time. Their acceptable values depend on the receiver and correction mode."
+          }
+        ]
+      },
+      {
+        "id": "antenna-tool",
+        "heading": "The antenna is not the working tool",
+        "body": "A perfectly estimated roof-antenna position is still not the position of a seed opener. The display must relate the antenna to the vehicle reference point, hitch and implement working point. Fore/aft distance affects where a tool is along the travel path; a lateral offset moves it sideways. Height matters when the machine rolls. Definitions, measurement points and sign conventions differ between equipment profiles, so copy the geometry from measurements and the correct manual, not from memory of another machine.\n\nPicture an antenna on a mast tilted with the tractor. Even if the point where the mast meets the ground stays fixed, the antenna moves sideways. For an ideal rigid mast, lateral displacement is h × sin(θ), where h is mast length in metres and θ is roll angle measured from vertical. With h = 3.0 m and θ = 5°, displacement is about 3.0 × 0.0872 = 0.26 m. This is an isolated geometric effect, not a prediction of residual error from a correctly compensated receiver.\n\nTerrain compensation combines attitude sensing and geometry to estimate a more useful ground reference. Wrong height or calibration can corrupt that transformation. Beyond the hitch, a towed implement can drift on a side slope even when the tractor reference follows its line. Measuring implement position and actively steering the implement are separate capabilities; confirm what the installed system actually supports.\n\n**Predict:** If the tractor stays on its guidance line but the tool moves downhill, should an arbitrary guidance-line shift be the first response? No. A line shift can hide a tool-placement problem under one condition while creating a new error elsewhere.\n\n**Try it:** Draw antenna, vehicle reference, hitch and working point. Label each measured distance and its documented direction. Use a suitable controlled field check, including opposing travel directions where appropriate, to distinguish a repeatable geometry bias from slope-dependent drift.",
+        "visual": "A rigid 3 m mast tilted by 5° has about 0.26 m of lateral displacement. The sketch exaggerates the angle to show the geometry; compensation estimates a ground reference.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Roll moves a roof antenna sideways\" font-family=\"sans-serif\"><title>Roll moves a roof antenna sideways</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"35\" font-size=\"22\" fill=\"#e8ecf1\" text-anchor=\"start\">Roll moves a roof antenna sideways</text><path d=\"M28 52 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><path d=\"M80 300 H390\" stroke=\"#7ee2a8\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><path d=\"M180 300 V100\" stroke=\"#9aa6b8\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><path d=\"M180 300 L250 110\" stroke=\"#7cc7ff\" stroke-width=\"5\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"250\" cy=\"110\" r=\"12\" stroke=\"#ffd479\" stroke-width=\"2\" fill=\"#ffd479\"/><path d=\"M180 110 H250\" stroke=\"#ffd479\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"286\" y=\"122\" font-size=\"18\" fill=\"#ffd479\" text-anchor=\"start\">Antenna</text><text x=\"76\" y=\"93\" font-size=\"16\" fill=\"#9aa6b8\" text-anchor=\"start\">Vertical</text><text x=\"263\" y=\"219\" font-size=\"18\" fill=\"#e8ecf1\" text-anchor=\"start\">h = 3.0 m</text><text x=\"112\" y=\"274\" font-size=\"17\" fill=\"#b39dff\" text-anchor=\"start\">θ = 5°</text><rect x=\"440\" y=\"105\" width=\"310\" height=\"185\" rx=\"8\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"456\" y=\"133\" font-size=\"20\" fill=\"#7cc7ff\" text-anchor=\"start\">Ideal mast geometry</text><text x=\"456\" y=\"163\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Side shift = h × sin(θ)</text><text x=\"456\" y=\"188\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">3.0 × sin(5°) ≈ 0.26 m</text><text x=\"456\" y=\"213\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Angle exaggerated here</text><text x=\"456\" y=\"238\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Not compensated error</text><path d=\"M28 350 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"28\" y=\"379\" font-size=\"15\" fill=\"#9aa6b8\" text-anchor=\"start\">Use the profile’s specified measurement points and sign conventions.</text></svg>",
+        "questions": [
+          {
+            "q": "What does the 0.26 m mast example demonstrate?",
+            "hint": "Is this an output accuracy specification?",
+            "answer": "It demonstrates uncompensated rigid-mast geometry at 3 m and 5°. It is not a residual accuracy specification for a compensated guidance system."
+          },
+          {
+            "q": "A tractor follows its line but its towed tool moves downhill. What distinction matters?",
+            "hint": "Which object is actually being measured and controlled?",
+            "answer": "Tractor guidance and implement guidance are different. The actual tool may drift even if the tractor follows the line, so check supported implement sensing/control and geometry."
+          }
+        ]
+      },
+      {
+        "id": "section-timing",
+        "heading": "Turn delay into distance and overlap",
+        "body": "Section control has to anticipate where the implement will be when the physical application changes. A screen command is not the same event as product reaching the ground. Valves, meters and product travel can introduce delay. Wrong fore/aft geometry can resemble a timing problem, which is why position and implement setup should be checked before tuning delays.\n\nFor straight travel at constant speed, position error d = v × Δt. Here d is error distance in metres, v is speed in metres per second, and Δt is residual timing error in seconds after any compensation. Convert kilometres per hour by dividing by 3.6. At 9 km/h, speed is 2.5 m/s. A 0.40 s late shutoff therefore moves the effective boundary by 2.5 × 0.40 = 1.0 m.\n\nFor a perpendicular crossing with a uniformly active 12 m width, that 1 m excess gives about 12 × 1 = 12 m² of overlap. This is a rectangular teaching model, not an estimate for every curved headland or partial section. Speed changes, boom angle, tool geometry and separate sections can alter the result. A late turn-on can instead leave a gap; the sign of the correction depends on the event and the manufacturer's settings.\n\n**Predict:** Keep the same residual 0.40 s error and double speed. The error distance doubles. This is why one successful crossing at one speed cannot establish timing quality across every operation.\n\n**Try it:** Calculate the error at 7.2 km/h and 0.25 s. Speed is 2 m/s, so the boundary error is 0.50 m. Then outline a controlled verification that observes the physical application boundary, records speed, and checks turn-on and turn-off separately. Use the machine's prescribed calibration procedure; do not blindly add the calculated delay to a setting with an unknown sign convention.",
+        "visual": "At a perpendicular crossing, a residual 0.40 s late shutoff at 2.5 m/s gives 1 m of excess travel. Across 12 m of active width, the idealised overlap is 12 m².",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Timing error becomes a strip of overlap\" font-family=\"sans-serif\"><title>Timing error becomes a strip of overlap</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"35\" font-size=\"22\" fill=\"#e8ecf1\" text-anchor=\"start\">Timing error becomes a strip of overlap</text><path d=\"M28 52 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><rect x=\"95\" y=\"90\" width=\"285\" height=\"225\" rx=\"8\" fill=\"#182c28\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><rect x=\"380\" y=\"90\" width=\"65\" height=\"225\" rx=\"8\" fill=\"#3d252c\" stroke=\"#ff9c9c\" stroke-width=\"2\"/><path d=\"M380 75 V325\" stroke=\"#ffd479\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"237\" y=\"140\" font-size=\"18\" fill=\"#7ee2a8\" text-anchor=\"middle\">Intended application</text><text x=\"412\" y=\"202\" font-size=\"18\" fill=\"#ff9c9c\" text-anchor=\"middle\">1 m</text><path d=\"M480 250 L710 250 M702.0 254.2 L710 250 L702.0 245.8\" stroke=\"#7cc7ff\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"595\" y=\"230\" font-size=\"18\" fill=\"#7cc7ff\" text-anchor=\"middle\">Travel: 2.5 m/s</text><text x=\"525\" y=\"110\" font-size=\"18\" fill=\"#e8ecf1\" text-anchor=\"start\">Δt = 0.40 s late</text><text x=\"525\" y=\"150\" font-size=\"18\" fill=\"#e8ecf1\" text-anchor=\"start\">d = v × Δt = 1 m</text><text x=\"525\" y=\"190\" font-size=\"17\" fill=\"#e8ecf1\" text-anchor=\"start\">12 m × 1 m = 12 m²</text><text x=\"80\" y=\"335\" font-size=\"17\" fill=\"#7ee2a8\" text-anchor=\"start\">Active width = 12 m</text><path d=\"M28 350 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"28\" y=\"379\" font-size=\"15\" fill=\"#9aa6b8\" text-anchor=\"start\">Rectangular, perpendicular crossing at constant speed; schematic is not to scale.</text></svg>",
+        "questions": [
+          {
+            "q": "Convert 7.2 km/h and a 0.25 s residual delay into an error distance.",
+            "hint": "Convert speed to metres per second first.",
+            "answer": "7.2 ÷ 3.6 = 2.0 m/s. Then 2.0 × 0.25 = 0.50 m."
+          },
+          {
+            "q": "Why measure turn-on and turn-off separately?",
+            "hint": "Do opening and stopping necessarily have the same physical delay?",
+            "answer": "The two transitions can have different physical responses. One timing adjustment cannot be assumed to correct both events."
+          }
+        ]
+      },
+      {
+        "id": "field-data",
+        "heading": "A clean map can contain the wrong story",
+        "body": "A field map is a record of measurements and processing choices. It is not a direct photograph of cause and effect. Before comparing maps, identify the field boundary, season, operation, source machine, units and coordinate reference. A beautiful layer assigned to the wrong field or season can be more misleading than an obvious data gap.\n\nKeep a small provenance record: where the file came from, what was measured, when it was measured, relevant calibration, and transformations applied during export or import. Preserve the original when making a transformed copy. Check that points fall within the expected boundary and that widths, rates and units have plausible values. Distinguish an area with a measured zero from one with no observation; treating missing data as zero changes totals and interpretation.\n\n**Worked comparison:** A rate layer is labelled kg/ha while a second layer is labelled lb/acre. The displayed numbers cannot be compared directly. Convert both to the same unit, and confirm the underlying measurement represents the same quantity. Matching colour scales do not perform the conversion. Likewise, two maps can look shifted because of reference or geometry differences rather than a physical movement of the field.\n\n**Predict:** A high-yield strip overlaps a treatment strip. Does that prove the treatment caused the yield increase? No. Soil, drainage, weather, previous management or machine calibration may differ too. A designed comparison with suitable controls provides stronger evidence than one coincident pattern.\n\n**Try it:** Create an import checklist with identity, spatial alignment, units, coverage and provenance. For a suspicious strip, write one agronomic explanation and one measurement explanation, then name evidence that would discriminate between them. The aim is to improve the decision, not simply to produce a cleaner-looking dashboard.",
+        "visual": "Data quality checks sit between a raw map and an operational decision. Identity, alignment, units and missingness must survive the import process.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Check the data before comparing the colours\" font-family=\"sans-serif\"><title>Check the data before comparing the colours</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"35\" font-size=\"22\" fill=\"#e8ecf1\" text-anchor=\"start\">Check the data before comparing the colours</text><path d=\"M28 52 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><rect x=\"45\" y=\"95\" width=\"325\" height=\"210\" rx=\"8\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"61\" y=\"123\" font-size=\"20\" fill=\"#7cc7ff\" text-anchor=\"start\">Dataset A</text><text x=\"61\" y=\"153\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Field and season known</text><text x=\"61\" y=\"178\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Coordinate reference recorded</text><text x=\"61\" y=\"203\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Rate: kg/ha</text><text x=\"61\" y=\"228\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Missing area flagged</text><rect x=\"430\" y=\"95\" width=\"325\" height=\"210\" rx=\"8\" fill=\"none\" stroke=\"#ffd479\" stroke-width=\"2\"/><text x=\"446\" y=\"123\" font-size=\"20\" fill=\"#ffd479\" text-anchor=\"start\">Dataset B</text><text x=\"446\" y=\"153\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Same field and operation?</text><text x=\"446\" y=\"178\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Aligned spatial reference?</text><text x=\"446\" y=\"203\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Rate: lb/acre — convert</text><text x=\"446\" y=\"228\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Zero or unobserved?</text><path d=\"M374 202 L425 202 M417.0 206.2 L425 202 L417.0 197.8\" stroke=\"#7ee2a8\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><path d=\"M28 350 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"28\" y=\"379\" font-size=\"15\" fill=\"#9aa6b8\" text-anchor=\"start\">Matching colours are not proof of matching units, coordinates or measurement quality.</text></svg>",
+        "questions": [
+          {
+            "q": "Why is an unobserved area different from a measured zero?",
+            "hint": "What evidence exists about the quantity in each case?",
+            "answer": "A measured zero is a value supported by an observation. Missing data give no measured value; substituting zero changes totals and can mislead comparisons."
+          },
+          {
+            "q": "What should travel with an exported field layer?",
+            "hint": "Could another person reconstruct what the values mean?",
+            "answer": "Field and operation identity, dates, units, coordinate reference and relevant source/calibration/transformation information should accompany the layer."
+          }
+        ]
+      },
+      {
+        "id": "field-acceptance",
+        "heading": "Build an acceptance test for the whole operation",
+        "body": "Your capstone job is a planter that repeats well within a pass but leaves inconsistent boundaries and shifts on one side slope. The receiver often reports fixed. A convincing acceptance test must follow the work from position solution to seed placement; it cannot stop at the receiver status.\n\n**Step 1 — define success.** State the required placement tolerance, field reference, operating speed range and relevant conditions. Choose an acceptance value appropriate to the actual operation and equipment, rather than borrowing a generic centimetre claim. Define how and where the result will be measured.\n\n**Step 2 — separate the symptoms.** Record correction freshness and tracking at the failure locations. Confirm coordinate and guidance-line identity. Measure the geometry that connects antenna, vehicle and tool. Compare level and side-slope placement. Observe the physical start and stop boundary at recorded speeds. Each check answers a different question; one green indicator cannot stand in for them all.\n\n**Step 3 — choose a discriminating change.** Suppose a level crossing at 2.5 m/s shows a consistent 1 m excess after shutoff, while geometry is verified. A 0.40 s residual delay is a useful timing hypothesis. It does not explain a tool that drifts downhill with changing slope. Address and verify each cause under controlled conditions using the prescribed procedures.\n\n**Step 4 — report the evidence.** Repeat the relevant passes after correction, compare against the same reference, and record remaining uncertainty. A useful handoff says what was tested, what passed, what was not tested and what would trigger another check.\n\n**Try it:** Write a short acceptance plan for this job. Include at least one positioning check, one implement-placement check and one on/off boundary check. For each, name the observation that would make you reject your leading hypothesis. That last step keeps troubleshooting from becoming a search for confirmation.",
+        "visual": "Acceptance combines several independent checks. Passing the receiver check does not automatically pass the tool-placement or application-timing checks.",
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Accept the operation using several kinds of evidence\" font-family=\"sans-serif\"><title>Accept the operation using several kinds of evidence</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"35\" font-size=\"22\" fill=\"#e8ecf1\" text-anchor=\"start\">Accept the operation using several kinds of evidence</text><path d=\"M28 52 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><rect x=\"45\" y=\"85\" width=\"325\" height=\"105\" rx=\"8\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"61\" y=\"113\" font-size=\"20\" fill=\"#7cc7ff\" text-anchor=\"start\">Position and reference</text><text x=\"61\" y=\"143\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Tracking, corrections, alignment</text><text x=\"61\" y=\"168\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Return to a defined reference</text><rect x=\"430\" y=\"85\" width=\"325\" height=\"105\" rx=\"8\" fill=\"none\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><text x=\"446\" y=\"113\" font-size=\"20\" fill=\"#7ee2a8\" text-anchor=\"start\">Tool placement</text><text x=\"446\" y=\"143\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Measured geometry and drift</text><text x=\"446\" y=\"168\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Level and side-slope checks</text><rect x=\"45\" y=\"215\" width=\"325\" height=\"105\" rx=\"8\" fill=\"none\" stroke=\"#ffd479\" stroke-width=\"2\"/><text x=\"61\" y=\"243\" font-size=\"20\" fill=\"#ffd479\" text-anchor=\"start\">Application boundary</text><text x=\"61\" y=\"273\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Physical on/off response</text><text x=\"61\" y=\"298\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Recorded speed and transitions</text><rect x=\"430\" y=\"215\" width=\"325\" height=\"105\" rx=\"8\" fill=\"none\" stroke=\"#b39dff\" stroke-width=\"2\"/><text x=\"446\" y=\"243\" font-size=\"20\" fill=\"#b39dff\" text-anchor=\"start\">Acceptance record</text><text x=\"446\" y=\"273\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Tolerance, result and limits</text><text x=\"446\" y=\"298\" font-size=\"16\" fill=\"#e8ecf1\" text-anchor=\"start\">Repeat after the correction</text><path d=\"M28 350 H772\" stroke=\"#344253\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"28\" y=\"379\" font-size=\"15\" fill=\"#9aa6b8\" text-anchor=\"start\">A whole-operation result needs evidence beyond the receiver’s solution label.</text></svg>",
+        "questions": [
+          {
+            "q": "Why does the capstone need more than one diagnostic check?",
+            "hint": "Do the boundary and slope symptoms necessarily share a cause?",
+            "answer": "Position/reference, tool drift and on/off response are separate links. Multiple symptoms may have different causes, so each relevant link needs evidence."
+          },
+          {
+            "q": "What makes an acceptance report useful to the next operator?",
+            "hint": "Could they reproduce the check and recognise when its limits are exceeded?",
+            "answer": "It specifies the requirement, reference, conditions, procedure, measured result, remaining limits and triggers for rechecking."
+          }
+        ]
+      }
+    ]
+  },
+  "quizzes": {
+    "sections": [
+      {
+        "id": "rtk-position",
+        "questions": [
+          {
+            "q": "A fixed receiver and neat adjacent passes coexist with a consistent 0.18 m shift from last year. What is the strongest next check?",
+            "choices": [
+              "Average more identical passes",
+              "Compare the coordinate reference, saved line and measured tool position",
+              "Increase displayed decimal places",
+              "Assume RTK has removed every error"
+            ],
+            "answer": 1,
+            "explain": "A consistent shift calls for reference and geometry checks. Display digits, the fixed label and averaging repeated biased results do not establish alignment."
+          },
+          {
+            "q": "Why does carrier phase need ambiguity resolution?",
+            "choices": [
+              "It eliminates the need for reference observations",
+              "It measures only satellite speed",
+              "The receiver cannot receive code and phase together",
+              "A repeating carrier does not identify the unknown whole-cycle count"
+            ],
+            "answer": 3,
+            "explain": "The phase is a fine but repeating ruler. Resolving its unknown integer cycle count is different from measuring satellite speed, and RTK still uses reference observations."
+          },
+          {
+            "q": "Which acceptance statement is most useful?",
+            "choices": [
+              "It looked straight once",
+              "The tool returned within the specified tolerance against a defined reference the next day",
+              "The receiver reported many digits",
+              "The display showed fixed"
+            ],
+            "answer": 1,
+            "explain": "A defined tool tolerance, reference and time interval test the actual requirement. A straight-looking pass or receiver status is weaker evidence."
+          }
+        ]
+      },
+      {
+        "id": "correction-chain",
+        "questions": [
+          {
+            "q": "In open sky, tracking stays healthy while correction age rises and the network session drops. Which path should be checked first?",
+            "choices": [
+              "Correction delivery",
+              "Implement lateral offset",
+              "Map colours",
+              "Tyre pressure as the only cause"
+            ],
+            "answer": 0,
+            "explain": "The observed connection drop and ageing corrections implicate delivery first. Geometry or map styling cannot explain that connection evidence."
+          },
+          {
+            "q": "Which rule about correction outages is sound?",
+            "choices": [
+              "Fresh corrections remove multipath",
+              "Use the mode-specific manual and verify placement after recovery",
+              "Every receiver stays centimetre-accurate for exactly one minute",
+              "Any cellular signal guarantees a fixed solution"
+            ],
+            "answer": 1,
+            "explain": "Holdover and acceptance limits vary. Cellular service alone does not prove GNSS quality, and corrections do not remove all local reflections."
+          },
+          {
+            "q": "Why change one setting at a time during a controlled diagnosis?",
+            "choices": [
+              "To make the screen update slowly",
+              "To guarantee the first hypothesis is correct",
+              "To connect the observed result to a specific change",
+              "To remove the need for a fault log"
+            ],
+            "answer": 2,
+            "explain": "Controlled changes preserve causal evidence. They do not guarantee a diagnosis and still benefit from a fault log."
+          }
+        ]
+      },
+      {
+        "id": "antenna-tool",
+        "questions": [
+          {
+            "q": "For a rigid mast 3 m long at 5° from vertical, what is the approximate side displacement?",
+            "choices": [
+              "3.26 m",
+              "0.26 m",
+              "0.026 m",
+              "15 m"
+            ],
+            "answer": 1,
+            "explain": "The side displacement is 3 × sin(5°) ≈ 3 × 0.0872 = 0.26 m. This is an ideal geometry calculation before compensation."
+          },
+          {
+            "q": "Why should offset signs come from the relevant equipment profile?",
+            "choices": [
+              "Measurement references and sign conventions can differ",
+              "Only the colour of the receiver matters",
+              "A fixed solution calculates every hitch offset automatically",
+              "All displays use the same reference point"
+            ],
+            "answer": 0,
+            "explain": "The transformation depends on the profile definitions. Fixed ambiguity resolution does not measure hitch geometry for you."
+          },
+          {
+            "q": "What is the best evidence that a side-slope job meets its requirement?",
+            "choices": [
+              "Measured placement of the working tool under the relevant conditions",
+              "The roof antenna is on line",
+              "The tractor tyre marks are parallel",
+              "A correction subscription is active"
+            ],
+            "answer": 0,
+            "explain": "The working tool determines application placement. Receiver status, tyre marks and subscriptions are supporting evidence, not the completed result."
+          }
+        ]
+      },
+      {
+        "id": "section-timing",
+        "questions": [
+          {
+            "q": "At 9 km/h, a 0.40 s late shutoff causes what ideal boundary error?",
+            "choices": [
+              "0.10 m",
+              "9.4 m",
+              "1.0 m",
+              "3.6 m"
+            ],
+            "answer": 2,
+            "explain": "9 ÷ 3.6 = 2.5 m/s, and 2.5 × 0.40 = 1.0 m. Multiplying unconverted km/h by seconds gives inconsistent units."
+          },
+          {
+            "q": "A 12 m active width crosses a straight boundary perpendicularly with 1 m excess. What is the ideal overlap area?",
+            "choices": [
+              "1 m²",
+              "120 m²",
+              "6 m²",
+              "12 m²"
+            ],
+            "answer": 3,
+            "explain": "The rectangular teaching model gives width × excess distance = 12 × 1 = 12 m². Angled or partially active crossings require different geometry."
+          },
+          {
+            "q": "Which procedure best separates geometry and timing errors?",
+            "choices": [
+              "Use only one crossing and one transition",
+              "Verify geometry, then observe on/off physical boundaries in controlled tests",
+              "Tune delays until a map looks tidy",
+              "Copy another operator’s settings without checking geometry"
+            ],
+            "answer": 1,
+            "explain": "Correct geometry and observed physical transitions isolate the relevant causes. A tidy display or copied settings do not verify actual application."
+          }
+        ]
+      },
+      {
+        "id": "field-data",
+        "questions": [
+          {
+            "q": "Two rate maps use kg/ha and lb/acre. What must happen before comparing their numeric values?",
+            "choices": [
+              "Increase zoom",
+              "Match the colour palette",
+              "Delete the original files",
+              "Convert to common units and confirm the same measured quantity"
+            ],
+            "answer": 3,
+            "explain": "Unit conversion and quantity checks make the values comparable. Colours and zoom do not change units, and retaining originals supports traceability."
+          },
+          {
+            "q": "A yield increase coincides with a treatment strip. What is justified from that alone?",
+            "choices": [
+              "The effect is identical in all seasons",
+              "There is an association worth investigating with possible confounders",
+              "No calibration check is needed",
+              "The treatment definitely caused it"
+            ],
+            "answer": 1,
+            "explain": "Coincidence is an association. Other factors and measurement quality still need investigation before assigning cause."
+          },
+          {
+            "q": "Which import choice best preserves traceability?",
+            "choices": [
+              "Turn every missing value into zero",
+              "Keep the original and record source, units and transformations",
+              "Discard units once the legend is built",
+              "Overwrite the original after every edit"
+            ],
+            "answer": 1,
+            "explain": "An original plus provenance allows checks and correction later. Silent overwrites and unmarked missingness remove evidence."
+          }
+        ]
+      },
+      {
+        "id": "field-acceptance",
+        "questions": [
+          {
+            "q": "A 1 m late boundary at 2.5 m/s remains after geometry is verified. What residual delay matches this simple model?",
+            "choices": [
+              "2.5 s",
+              "0.04 s",
+              "0.40 s",
+              "1.0 s"
+            ],
+            "answer": 2,
+            "explain": "Rearrange d = v × Δt: Δt = 1 ÷ 2.5 = 0.40 s. This explains the boundary symptom under the model, not every other fault."
+          },
+          {
+            "q": "Why can correcting the timing still leave the capstone job unacceptable?",
+            "choices": [
+              "Timing never affects placement",
+              "Downhill tool drift may be a separate unresolved error",
+              "A clean coverage map certifies every tool",
+              "A fixed solution guarantees slope performance"
+            ],
+            "answer": 1,
+            "explain": "The side-slope symptom can arise from independent geometry or implement behaviour. Fixing one link does not verify the entire operation."
+          },
+          {
+            "q": "Which final handoff is strongest?",
+            "choices": [
+              "All good: icon green",
+              "Changed several settings; seems better",
+              "Should work everywhere now",
+              "Recorded conditions and measurements meet the stated tolerance; untested conditions are identified"
+            ],
+            "answer": 3,
+            "explain": "A bounded measured result is reproducible and honest about its limits. A status icon or universal claim is weaker evidence."
+          }
+        ]
+      }
+    ]
+  },
+  "slides": {
+    "sections": [
+      {
+        "id": "rtk-position",
+        "title": "A fixed solution is a starting point",
+        "bullets": [
+          "Carrier phase: count the fine cycles as well as the coarse travel time",
+          "Ambiguity resolution: fixed and float describe a positioning solution",
+          "Accuracy: compare against a reference in the same coordinate system",
+          "Repeatability: test return passes across the time span that matters",
+          "Application quality: measure the implement as well as the receiver"
+        ],
+        "notes": "Imagine a ruler that repeats its markings every wavelength. Carrier phase gives fine resolution, but RTK must work out which whole cycle is which. Even after a fixed solution is obtained, compare against a meaningful reference and inspect the implement. Tight repeated passes measure repeatability over that interval; they do not by themselves prove absolute alignment.",
+        "visual": "Two tight measurement clusters can have different accuracy. The cross marks a trusted reference; the displaced cluster illustrates bias, not a scale drawing of RTK performance."
+      },
+      {
+        "id": "correction-chain",
+        "title": "Trace the correction chain before changing settings",
+        "bullets": [
+          "Observation path: satellites must be tracked at the rover",
+          "Correction path: radio or network delivery is a separate dependency",
+          "Correction age: freshness is evidence, not a universal pass threshold",
+          "Isolation: log the fault location and change one variable at a time",
+          "Recovery: confirm both status and field placement after service returns"
+        ],
+        "notes": "Trace two paths on the diagram. One carries satellite observations; the other delivers reference data. A good connection on one says little about the other. Use correction age, connection state and location to choose a hypothesis, then verify it with a controlled check. Recovery means the operation meets its placement requirement again.",
+        "visual": "Satellite observations and reference corrections take separate paths to the rover. Checking both paths helps distinguish obstructed reception from correction delivery loss."
+      },
+      {
+        "id": "antenna-tool",
+        "title": "The antenna is not the working tool",
+        "bullets": [
+          "Geometry: receiver height and fore/aft/lateral offsets locate the tool",
+          "Roll: a high antenna moves sideways when the chassis tilts",
+          "Compensation: an attitude estimate needs correct calibration and geometry",
+          "Implement drift: tractor guidance does not guarantee tool guidance",
+          "Verification: compare reciprocal passes and actual soil or crop placement"
+        ],
+        "notes": "Keep the ground reference and the roof antenna separate in your sketch. A small roll angle at a tall antenna creates a meaningful lateral movement. Correct compensation needs the correct geometry. Then look beyond the hitch: a towed tool can drift independently, so tractor guidance alone cannot certify the work.",
+        "visual": "A rigid 3 m mast tilted by 5° has about 0.26 m of lateral displacement. The sketch exaggerates the angle to show the geometry; compensation estimates a ground reference."
+      },
+      {
+        "id": "section-timing",
+        "title": "Turn delay into distance and overlap",
+        "bullets": [
+          "Delay: a command and its physical effect occur at different times",
+          "Distance: travel speed multiplied by residual delay gives position error",
+          "Area: a rectangular overlap estimate uses active width and error distance",
+          "On/off timing: measure the two transitions separately",
+          "Calibration: verify offsets before tuning physical response timing"
+        ],
+        "notes": "The useful equation is speed times residual delay. Convert kilometres per hour to metres per second before multiplying. Our example produces a one-metre strip, then a twelve-square-metre overlap under stated geometry. The calculation explains sensitivity; the equipment procedure determines how to tune and verify the actual machine.",
+        "visual": "At a perpendicular crossing, a residual 0.40 s late shutoff at 2.5 m/s gives 1 m of excess travel. Across 12 m of active width, the idealised overlap is 12 m²."
+      },
+      {
+        "id": "field-data",
+        "title": "A clean map can contain the wrong story",
+        "bullets": [
+          "Identity: field, season, operation and units give a dataset meaning",
+          "Provenance: record source, calibration and coordinate reference",
+          "Comparison: align spatial position and time before interpreting differences",
+          "Quality control: inspect coverage, outliers and missing observations",
+          "Inference: a map pattern alone does not prove a treatment effect"
+        ],
+        "notes": "Ask what the colours represent before asking what they imply. A dataset needs identity, units, reference coordinates and provenance. A missing area is not a measured zero. Even after the data pass those checks, a spatial association is a question to investigate, not automatic proof of a treatment effect.",
+        "visual": "Data quality checks sit between a raw map and an operational decision. Identity, alignment, units and missingness must survive the import process."
+      },
+      {
+        "id": "field-acceptance",
+        "title": "Build an acceptance test for the whole operation",
+        "bullets": [
+          "Requirement: specify what the tool must achieve and under which conditions",
+          "Evidence: collect receiver, geometry, timing and placement observations",
+          "Isolation: choose a test that distinguishes competing causes",
+          "Verification: repeat the relevant operation after a controlled correction",
+          "Handoff: report result, limits and remaining uncertainty"
+        ],
+        "notes": "Work backwards from what the tool must achieve. Define a requirement, collect evidence at each link, make a controlled correction, and repeat the relevant test. Report the measured result and the conditions it covers. That makes an acceptance decision useful to the next person rather than dependent on your memory.",
+        "visual": "Acceptance combines several independent checks. Passing the receiver check does not automatically pass the tool-placement or application-timing checks."
+      }
+    ]
+  },
+  "enrichment": {
+    "audioTitle": "Precision Agriculture: From RTK to Automated Fieldwork — think it through",
+    "turns": [
+      {
+        "speaker": "teacher",
+        "line": "A tractor can report fixed RTK and still put the work in the wrong place. Follow the chain from satellite observations to the actual implement, then build an acceptance test for the whole operation."
+      },
+      {
+        "speaker": "student",
+        "line": "What should I be able to do by the end?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Design a reproducible acceptance test for an automated field operation"
+      },
+      {
+        "speaker": "student",
+        "line": "If the screen says fixed, why would I measure anything?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Fixed describes ambiguity resolution in the receiver. Your job also depends on reference coordinates and where the implement sits."
+      },
+      {
+        "speaker": "student",
+        "line": "Can a precise receiver be consistently wrong?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Yes. A common coordinate or geometry bias can move a tightly clustered set of passes together."
+      },
+      {
+        "speaker": "student",
+        "line": "My phone has bars. Does that rule out a correction problem?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "No. Bars do not prove the correction session is connected, authorised and delivering fresh usable data."
+      },
+      {
+        "speaker": "student",
+        "line": "What if the receiver recovers as soon as I leave the building?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "That location pattern supports a local reception hypothesis. Record it and compare it with correction status before changing unrelated settings."
+      },
+      {
+        "speaker": "student",
+        "line": "Why can a few degrees of roll matter so much?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "A tall mast converts angle into lateral displacement. Three metres times sine of five degrees is about twenty-six centimetres before compensation."
+      },
+      {
+        "speaker": "student",
+        "line": "Would a line shift fix downhill implement drift?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "It might mask one observation, but it does not identify geometry or drift. Measure the tool and verify the installed implement-guidance capability."
+      },
+      {
+        "speaker": "student",
+        "line": "Why does the same delay look worse when I drive faster?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Because the machine travels farther during the same interval. Double speed with unchanged residual delay and you double the distance error."
+      },
+      {
+        "speaker": "student",
+        "line": "Can I copy the turn-off value into turn-on?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Not without verification. Starting and stopping can have different delays and different setting conventions."
+      },
+      {
+        "speaker": "student",
+        "line": "If two map layers line up visually, can I compare them?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Alignment is one check. You also need comparable units, quantities, dates and measurement quality."
+      },
+      {
+        "speaker": "student",
+        "line": "Why not fill missing areas with zero for a tidy total?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Because no observation is different from an observed zero. Filling silently can bias totals and the decision built from them."
+      },
+      {
+        "speaker": "student",
+        "line": "Could one setting explain all three symptoms?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Possibly, but the evidence must establish that. Start with separate hypotheses for reference, tool placement and timing."
+      },
+      {
+        "speaker": "student",
+        "line": "When can I say the job passes?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "When measured results meet the defined operational requirement under the tested conditions, and the record clearly states those conditions and any remaining limits."
+      }
+    ],
+    "nodes": [
+      {
+        "id": "root",
+        "parent": null,
+        "label": "Precision agriculture and RTK",
+        "note": "Distinguish receiver solution quality from reference alignment and implement placement"
+      },
+      {
+        "id": "rtk-position",
+        "parent": "root",
+        "label": "A fixed solution is a starting point",
+        "note": "Receiver status, reference alignment and tool placement are different acceptance questions."
+      },
+      {
+        "id": "rtk-position-0",
+        "parent": "rtk-position",
+        "label": "Carrier phase",
+        "note": "Carrier phase: count the fine cycles as well as the coarse travel time"
+      },
+      {
+        "id": "rtk-position-1",
+        "parent": "rtk-position",
+        "label": "Ambiguity resolution",
+        "note": "Ambiguity resolution: fixed and float describe a positioning solution"
+      },
+      {
+        "id": "correction-chain",
+        "parent": "root",
+        "label": "Trace the correction chain before changing settings",
+        "note": "Separate observation loss from correction delivery loss using timestamps and controlled comparisons."
+      },
+      {
+        "id": "correction-chain-0",
+        "parent": "correction-chain",
+        "label": "Observation path",
+        "note": "Observation path: satellites must be tracked at the rover"
+      },
+      {
+        "id": "correction-chain-1",
+        "parent": "correction-chain",
+        "label": "Correction path",
+        "note": "Correction path: radio or network delivery is a separate dependency"
+      },
+      {
+        "id": "antenna-tool",
+        "parent": "root",
+        "label": "The antenna is not the working tool",
+        "note": "Translate antenna coordinates into the working point, then verify actual implement placement."
+      },
+      {
+        "id": "antenna-tool-0",
+        "parent": "antenna-tool",
+        "label": "Geometry",
+        "note": "Geometry: receiver height and fore/aft/lateral offsets locate the tool"
+      },
+      {
+        "id": "antenna-tool-1",
+        "parent": "antenna-tool",
+        "label": "Roll",
+        "note": "Roll: a high antenna moves sideways when the chassis tilts"
+      },
+      {
+        "id": "section-timing",
+        "parent": "root",
+        "label": "Turn delay into distance and overlap",
+        "note": "Use units and crossing geometry to connect timing errors to the physical application boundary."
+      },
+      {
+        "id": "section-timing-0",
+        "parent": "section-timing",
+        "label": "Delay",
+        "note": "Delay: a command and its physical effect occur at different times"
+      },
+      {
+        "id": "section-timing-1",
+        "parent": "section-timing",
+        "label": "Distance",
+        "note": "Distance: travel speed multiplied by residual delay gives position error"
+      },
+      {
+        "id": "field-data",
+        "parent": "root",
+        "label": "A clean map can contain the wrong story",
+        "note": "Validate identity, units, spatial reference and missingness before interpreting a map pattern."
+      },
+      {
+        "id": "field-data-0",
+        "parent": "field-data",
+        "label": "Identity",
+        "note": "Identity: field, season, operation and units give a dataset meaning"
+      },
+      {
+        "id": "field-data-1",
+        "parent": "field-data",
+        "label": "Provenance",
+        "note": "Provenance: record source, calibration and coordinate reference"
+      },
+      {
+        "id": "field-acceptance",
+        "parent": "root",
+        "label": "Build an acceptance test for the whole operation",
+        "note": "Combine positioning, implement and timing evidence into a reproducible acceptance decision."
+      },
+      {
+        "id": "field-acceptance-0",
+        "parent": "field-acceptance",
+        "label": "Requirement",
+        "note": "Requirement: specify what the tool must achieve and under which conditions"
+      },
+      {
+        "id": "field-acceptance-1",
+        "parent": "field-acceptance",
+        "label": "Evidence",
+        "note": "Evidence: collect receiver, geometry, timing and placement observations"
+      }
+    ],
+    "mnemonics": [
+      {
+        "for": "Timing distance",
+        "aid": "Convert speed, multiply by residual time, then check the physical boundary."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "ESA Navipedia — RTK Fundamentals",
+      "url": "https://gssc.esa.int/navipedia/index.php/RTK_Fundamentals"
+    },
+    {
+      "title": "John Deere — Implement receiver offsets and height",
+      "url": "https://displaysimulator.deere.com/onscreen_help/S7combine/current/en/implement_profiles/implement_profile_implement_receiver.htm"
+    },
+    {
+      "title": "Canadian Geodetic Reference System Committee — RTK and NRTK",
+      "url": "https://cgrsc.ca/resources/gnss-augmentation/rtk-and-nrtk/"
+    },
+    {
+      "title": "Engage Zone Control — operator guide and John Deere section timing",
+      "url": "https://intelligentag.com/wp-content/uploads/2021/03/600890-000059-Engage-Zone-Control-Operators-Guide_rev-1.3.pdf"
+    }
+  ]
+}
