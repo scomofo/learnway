@@ -1,0 +1,756 @@
+{
+  "meta": {
+    "title": "Computer Networks: Packets, Names & Trust",
+    "topic": "Computer networks and service diagnosis",
+    "level": "intermediate",
+    "estimatedMinutes": 65,
+    "tags": [
+      "networks",
+      "DNS",
+      "TCP",
+      "TLS",
+      "technology"
+    ],
+    "createdAt": "2026-10-31T04:00:00.000Z",
+    "interests": "Agriculture, music, space, practical engineering and evidence-based technology",
+    "depth": "standard",
+    "model": "Learnway authored course"
+  },
+  "plan": {
+    "title": "Computer Networks: Packets, Names & Trust",
+    "hook": "A device can have Wi-Fi bars while a service still fails. Separate name lookup, transport, secure channels and application outcomes to diagnose the actual boundary.",
+    "objectives": [
+      "Distinguish local links, IP routing, transport and application roles",
+      "Explain DNS caching, TCP delivery and uncertain request outcomes",
+      "Calculate simple transmission time while separating other delays",
+      "Write a layered service-diagnosis memo with evidence and bounded retries"
+    ],
+    "prerequisites": [
+      "Basic bits, bytes and time units; no network administration required"
+    ],
+    "sections": [
+      {
+        "id": "net-layers",
+        "heading": "Separate a local connection from a working service",
+        "points": [
+          "Link: local frame delivery",
+          "IP: addressing and next-hop forwarding",
+          "Application: request and response meaning"
+        ]
+      },
+      {
+        "id": "net-dns",
+        "heading": "Names and addresses are different evidence",
+        "points": [
+          "Lookup: names resolve to records",
+          "Cache: TTL bounds reuse",
+          "Limit: returned address is not service health"
+        ]
+      },
+      {
+        "id": "net-transport",
+        "heading": "Delivery guarantees stop at a boundary",
+        "points": [
+          "TCP: ordered bytes with retransmission",
+          "Application: defines messages and commit meaning",
+          "Retry: uncertain outcomes need idempotency or status"
+        ]
+      },
+      {
+        "id": "net-performance",
+        "heading": "Bandwidth is not the same as latency",
+        "points": [
+          "Serialization: packet bits divided by link rate",
+          "Propagation: travel time",
+          "Throughput: useful achieved rate"
+        ]
+      },
+      {
+        "id": "net-security",
+        "heading": "A secure channel does not authorize every action",
+        "points": [
+          "TLS: channel confidentiality, integrity and identity checks",
+          "Authentication: claimed identity",
+          "Authorization: allowed actions"
+        ]
+      },
+      {
+        "id": "net-capstone",
+        "heading": "Capstone: diagnose the failing boundary",
+        "points": [
+          "401: inspect authentication context first",
+          "Timeout: committed outcome may be uncertain",
+          "Memo: evidence, bounded retry and safe identifiers"
+        ]
+      }
+    ]
+  },
+  "reading": {
+    "sections": [
+      {
+        "id": "net-layers",
+        "heading": "Separate a local connection from a working service",
+        "body": "A network request crosses several functions. A local link moves frames to a nearby device, such as an access point or router. Internet Protocol, or IP, provides packet addressing and forwarding across networks. A transport protocol connects application endpoints. The application defines what the request and response mean.\n\nThese functions can succeed or fail separately. Strong Wi-Fi signal indicates a local radio condition, not proof that DNS resolves a service, a remote route exists or an account can access the application. Likewise, a server responding with an application error is different from receiving no response at all.\n\nPackets are units forwarded by the network; they are not necessarily complete user actions. A large response may span many packets. A router chooses a next hop based on forwarding information, rather than needing to understand the business meaning of the request.\n\n**Try it:** Draw a device, local router and remote service. Annotate a failure in each function without claiming that a single signal-strength icon tests them all. This course uses a simplified layered model rather than one mandatory stack for every application.",
+        "visual": "The four panels describe functions with distinct evidence. The simplified layout does not imply every application uses the same transport.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">Different layers answer different questions</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">A simplified web request; real stacks may use other transports such as QUIC.</text><rect x=\"55\" y=\"110\" width=\"320\" height=\"100\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"71\" y=\"140\" fill=\"#69d9d0\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Application</text><text x=\"71\" y=\"172\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">What request and response mean</text><rect x=\"425\" y=\"110\" width=\"320\" height=\"100\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"441\" y=\"140\" fill=\"#baa6ff\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Transport</text><text x=\"441\" y=\"172\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Deliver data between endpoints</text><rect x=\"55\" y=\"240\" width=\"320\" height=\"100\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"71\" y=\"270\" fill=\"#f8bf70\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Internet</text><text x=\"71\" y=\"302\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Address and route packets</text><rect x=\"425\" y=\"240\" width=\"320\" height=\"100\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"441\" y=\"270\" fill=\"#f69caf\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Local link</text><text x=\"441\" y=\"302\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Move frames on the next hop</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">Conceptual model; assumptions and units are explained in the lesson.</text></svg>",
+        "questions": [
+          {
+            "q": "Why do strong Wi-Fi bars not prove a remote service works?",
+            "hint": "The icon observes one part of the path.",
+            "answer": "They concern the local radio link, while naming, routing, transport, server state and authorization are separate dependencies."
+          },
+          {
+            "q": "Does one packet necessarily equal one complete user action?",
+            "hint": "Messages and packets have different boundaries.",
+            "answer": "No. An application action can span multiple messages and packets, and a packet does not by itself prove the action committed."
+          }
+        ]
+      },
+      {
+        "id": "net-dns",
+        "heading": "Names and addresses are different evidence",
+        "body": "The Domain Name System, or DNS, maps names to records through a distributed hierarchy. A client commonly asks a recursive resolver, which may answer from cache or query other servers. Records can include addresses and other information; a name is not itself a permanent IP address.\n\nCaching reduces repeated work. A time to live, or TTL, specifies how long a record can be reused under the protocol’s cache rules. A cached answer may outlast a server move until its allowed lifetime expires. Changing an authoritative record does not instantly replace every cached observation everywhere.\n\nA successful lookup proves that a record was returned, not that the application at that address is available or authorized for the user. Conversely, accessing a bare IP instead of a name may fail virtual-host routing or certificate identity checks, so it is not always an equivalent application test.\n\n**Try it:** In a fictional incident record, separate the requested name, returned record, resolver, timestamp and subsequent service result. Do not infer a global DNS outage from one client’s lookup without further evidence.",
+        "visual": "The resolver may answer from cache rather than contacting authority every time. A returned record remains a naming result, not an application acceptance result.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">A name lookup can use cached evidence</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Conceptual recursive lookup; cache lifetimes constrain reuse.</text><rect x=\"45\" y=\"135\" width=\"205\" height=\"145\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"61\" y=\"165\" fill=\"#69d9d0\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Client</text><text x=\"61\" y=\"197\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Requests a name</text><line x1=\"255\" y1=\"200\" x2=\"290\" y2=\"200\" stroke=\"#69d9d0\" stroke-width=\"3\"/><path d=\"M 282.10 204.31 L 290 200 L 282.10 195.69\" fill=\"none\" stroke=\"#69d9d0\" stroke-width=\"3\"/><rect x=\"295\" y=\"135\" width=\"210\" height=\"145\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"311\" y=\"165\" fill=\"#f8bf70\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Resolver</text><text x=\"311\" y=\"197\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Cache or lookup</text><text x=\"311\" y=\"224\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Returns records</text><line x1=\"510\" y1=\"200\" x2=\"545\" y2=\"200\" stroke=\"#69d9d0\" stroke-width=\"3\"/><path d=\"M 537.10 204.31 L 545 200 L 537.10 195.69\" fill=\"none\" stroke=\"#69d9d0\" stroke-width=\"3\"/><rect x=\"550\" y=\"135\" width=\"205\" height=\"145\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"566\" y=\"165\" fill=\"#baa6ff\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Authority</text><text x=\"566\" y=\"197\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Publishes records</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">A resolved address does not prove that the requested application is healthy.</text></svg>",
+        "questions": [
+          {
+            "q": "Why can an old address remain visible after an authoritative change?",
+            "hint": "Other systems may retain valid cache entries.",
+            "answer": "Resolvers and clients can reuse cached records until their cache lifetime expires under the applicable rules."
+          },
+          {
+            "q": "Why is testing a bare IP not always equivalent to the service name?",
+            "hint": "Names can be part of application routing and identity.",
+            "answer": "Virtual hosting and certificate verification can depend on the intended name, so an IP-only request may test a different path."
+          }
+        ]
+      },
+      {
+        "id": "net-transport",
+        "heading": "Delivery guarantees stop at a boundary",
+        "body": "TCP supplies a reliable, ordered byte stream between endpoints while the connection remains viable. It detects loss and retransmits as needed. It does not preserve application message boundaries automatically, and successful byte delivery does not prove the receiving application committed a requested action.\n\nUDP carries datagrams without TCP’s built-in ordered reliable-stream service. Applications can add their own reliability and congestion mechanisms on top. Modern protocols such as QUIC demonstrate why “uses UDP” does not imply that the complete application protocol has no reliability features.\n\nA timeout can leave an operation’s outcome uncertain. The request may never have arrived, may still be processing, or may have committed while the response was lost. Blindly retrying a state-changing request can duplicate an action unless the application provides idempotency or a reliable status query.\n\n**Try it:** Sketch a fictional appointment request with a request identifier. Design a retry rule that asks for the existing result before creating another appointment. Distinguish a transport reconnection from a guarantee of exactly-once business processing.",
+        "visual": "Transport delivery and application commit evidence are deliberately separate. A completed network exchange is not a universal transaction guarantee.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">Reliable delivery and application success differ</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">TCP provides an ordered byte stream, not an automatic transaction receipt.</text><rect x=\"55\" y=\"125\" width=\"325\" height=\"195\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"71\" y=\"155\" fill=\"#69d9d0\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Transport evidence</text><text x=\"71\" y=\"187\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Connection established</text><text x=\"71\" y=\"214\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Bytes delivered in order</text><text x=\"71\" y=\"241\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Retransmission may add delay</text><rect x=\"420\" y=\"125\" width=\"325\" height=\"195\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"436\" y=\"155\" fill=\"#f8bf70\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Application evidence</text><text x=\"436\" y=\"187\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Request validated</text><text x=\"436\" y=\"214\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Action committed</text><text x=\"436\" y=\"241\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Result recorded or queried</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">A timeout after sending a request can leave its application outcome uncertain.</text></svg>",
+        "questions": [
+          {
+            "q": "Does TCP byte delivery prove an application committed an action?",
+            "hint": "Transport and transaction boundaries differ.",
+            "answer": "No. The application must validate, commit and report its own outcome; transport delivery alone does not establish that state."
+          },
+          {
+            "q": "Why can retrying after timeout duplicate a booking?",
+            "hint": "The original may have committed before the response disappeared.",
+            "answer": "Without an idempotency key or status mechanism, a new request can create another action even when the original succeeded."
+          }
+        ]
+      },
+      {
+        "id": "net-performance",
+        "heading": "Bandwidth is not the same as latency",
+        "body": "Bandwidth is a capacity rate, usually in bits per second. Latency is elapsed delay. Serialization time is how long it takes to put a packet’s bits onto a link; propagation is how long the signal travels. Queuing, processing and protocol exchanges add further delay.\n\nA 1,500-byte packet has 12,000 bits before any additional link overhead. On a stated 10 Mbit/s link, serialization is 12,000 / 10,000,000 = 0.0012 s, or 1.2 ms. A 20 ms propagation path does not disappear if serialization becomes faster.\n\nThroughput is the useful rate actually achieved. Shared capacity, losses, congestion control, server work and many small round trips can limit it below the nominal link rate. A bandwidth test alone may miss a slow name lookup or delayed application response.\n\n**Try it:** Divide a hypothetical page load into name lookup, connection setup, server work and data transfer. Identify which parts might benefit from a faster last-mile link and which need different evidence. Keep one-way and round-trip times distinct; they are not interchangeable measurements.",
+        "visual": "The small serialization component and larger fictional propagation component share a time unit. A faster bit rate affects only some parts of total delay.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">Serialization and propagation are different delays</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">One 1,500-byte packet on a stated 10 Mbit/s link; no overhead or queues.</text><text x=\"195\" y=\"167\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"end\">Serialize packet</text><rect x=\"210\" y=\"145\" width=\"475\" height=\"30\" rx=\"6\" fill=\"none\" stroke=\"#33445e\"/><rect x=\"210\" y=\"145\" width=\"22.8\" height=\"30\" rx=\"6\" fill=\"#69d9d0\" stroke=\"#69d9d0\"/><text x=\"697\" y=\"167\" fill=\"#69d9d0\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">1.2 ms</text><text x=\"195\" y=\"257\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"end\">Propagation example</text><rect x=\"210\" y=\"235\" width=\"475\" height=\"30\" rx=\"6\" fill=\"none\" stroke=\"#33445e\"/><rect x=\"210\" y=\"235\" width=\"380.0\" height=\"30\" rx=\"6\" fill=\"#f8bf70\" stroke=\"#f8bf70\"/><text x=\"697\" y=\"257\" fill=\"#f8bf70\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">20 ms</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">12,000 bits / 10,000,000 bit/s = 1.2 ms. A faster link does not erase propagation.</text></svg>",
+        "questions": [
+          {
+            "q": "What is serialization time for the stated packet and link?",
+            "hint": "Convert bytes to bits first.",
+            "answer": "1,500 × 8 / 10,000,000 s = 1.2 ms, excluding additional overhead and other delays."
+          },
+          {
+            "q": "Why can a high-bandwidth connection still feel slow?",
+            "hint": "Several delays are not serialization.",
+            "answer": "Propagation, queuing, protocol round trips, name lookup and server processing can dominate the user-visible delay."
+          }
+        ]
+      },
+      {
+        "id": "net-security",
+        "heading": "A secure channel does not authorize every action",
+        "body": "Transport Layer Security, or TLS, protects a connection against eavesdropping and tampering under its protocol assumptions. In a typical authenticated web connection, the client also verifies the server’s certificate identity for the intended name. Encryption without proper endpoint verification does not establish the same identity claim.\n\nAuthentication asks who or what is presenting credentials. Authorization asks what that identity may do. A correctly protected connection can carry a request that the application rejects for missing credentials, expired context or insufficient permission. A secure channel also cannot guarantee that an endpoint is honest or uncompromised.\n\nDiagnostic records should preserve endpoint, time, response code and a safe request identifier. Avoid copying secrets into logs. A server response indicating authentication failure is evidence about the application boundary; repeatedly changing DNS or disabling certificate checks does not address that evidence.\n\n**Try it:** Classify three fictional events: certificate identity mismatch; valid channel with missing login; valid login lacking edit permission. Write a separate next check for each. Keep transport trust and application permission visible as distinct questions.",
+        "visual": "TLS protects a defined communication channel. The application still has to validate identity context and permissions for the requested action.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">Transport protection has a defined boundary</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Conceptual TLS connection with authenticated server identity.</text><rect x=\"65\" y=\"140\" width=\"210\" height=\"140\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"81\" y=\"170\" fill=\"#69d9d0\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Client</text><text x=\"81\" y=\"202\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Checks identity</text><text x=\"81\" y=\"229\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Protects records</text><rect x=\"310\" y=\"175\" width=\"180\" height=\"65\" rx=\"6\" fill=\"#344459\" stroke=\"#baa6ff\"/><text x=\"400\" y=\"215\" fill=\"#baa6ff\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"middle\">TLS channel</text><rect x=\"525\" y=\"140\" width=\"210\" height=\"140\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"541\" y=\"170\" fill=\"#f8bf70\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Server</text><text x=\"541\" y=\"202\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Receives request</text><text x=\"541\" y=\"229\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Still validates access</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">Encryption does not prove the endpoint is honest or that the user is authorized for every action.</text></svg>",
+        "questions": [
+          {
+            "q": "Can a valid TLS connection still produce an access rejection?",
+            "hint": "Channel protection and permission differ.",
+            "answer": "Yes. The channel can work while the application rejects missing authentication or insufficient authorization."
+          },
+          {
+            "q": "Why retain a safe request identifier instead of a credential in diagnostics?",
+            "hint": "You need correlation without exposing secrets.",
+            "answer": "A request identifier can correlate evidence across components while keeping passwords or tokens out of diagnostic output."
+          }
+        ]
+      },
+      {
+        "id": "net-capstone",
+        "heading": "Capstone: diagnose the failing boundary",
+        "body": "A fictional service incident has these observations at one timestamp: DNS returns the expected address; a connection is established; TLS verifies the intended identity; the service returns HTTP 401 to the request. A separate state-changing request times out after being sent.\n\n**Your task:** Identify the strongest next check for the 401 response. State what the successful observations establish and what they leave untested. Propose a bounded retry strategy for the timed-out action without exposing credentials.\n\n**Worked solution:** The 401 response points first to missing or unacceptable authentication context at the application. Verify the intended account, credential presence and supported authentication flow without printing secret values. The observation does not prove every network condition is healthy, but it supplies no basis to blame DNS for this request. For the timeout, query the action’s status or retry using the application’s supported idempotency mechanism; do not assume it never committed.\n\n**Check your work:** Preserve endpoint, safe request identifier, timestamps, response and each inference. Separate observed failures from untested hypotheses. Define a maximum retry count and escalation condition. A useful diagnosis narrows the failing boundary while keeping uncertainty about unobserved transaction state explicit.",
+        "visual": "The incident evidence narrows the first request’s failure to authentication context. It does not settle the separate timed-out action’s commit state.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">Diagnose with separate evidence at each boundary</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Fictional service: DNS works; connection works; application rejects credentials.</text><rect x=\"50\" y=\"120\" width=\"215\" height=\"200\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"66\" y=\"150\" fill=\"#69d9d0\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Name + route</text><text x=\"66\" y=\"182\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">DNS: address returned</text><text x=\"66\" y=\"209\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Reachability: observed</text><text x=\"66\" y=\"236\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">No DNS outage proved</text><rect x=\"292\" y=\"120\" width=\"215\" height=\"200\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"308\" y=\"150\" fill=\"#baa6ff\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Transport + TLS</text><text x=\"308\" y=\"182\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Connection established</text><text x=\"308\" y=\"209\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Identity verified</text><text x=\"308\" y=\"236\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Channel works in test</text><rect x=\"535\" y=\"120\" width=\"215\" height=\"200\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"551\" y=\"150\" fill=\"#f8bf70\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Application</text><text x=\"551\" y=\"182\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">401 response received</text><text x=\"551\" y=\"209\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Authentication rejected</text><text x=\"551\" y=\"236\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Inspect access context</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">Record timestamps, endpoint and response; do not expose credentials in diagnostics.</text></svg>",
+        "questions": [
+          {
+            "q": "What is the best first boundary to inspect for this 401 response?",
+            "hint": "Use the application response already received.",
+            "answer": "Authentication context: the service responded but did not accept the supplied or missing credentials for this request."
+          },
+          {
+            "q": "Why is the timed-out action a separate uncertainty?",
+            "hint": "No response is not the same as a known rejection.",
+            "answer": "It may have committed before the response was lost. Status checks or supported idempotent retries are needed to avoid duplicates."
+          }
+        ]
+      }
+    ]
+  },
+  "quizzes": {
+    "sections": [
+      {
+        "id": "net-layers",
+        "questions": [
+          {
+            "q": "Which observation most directly concerns the local radio link?",
+            "choices": [
+              "A remote application’s response meaning",
+              "Wi-Fi signal strength",
+              "A server’s authorization decision",
+              "A database commit record"
+            ],
+            "answer": 1,
+            "explain": "Signal strength measures a local radio condition rather than end-to-end service success."
+          },
+          {
+            "q": "What is IP forwarding primarily concerned with?",
+            "choices": [
+              "The colour of a web button",
+              "Whether a user is allowed to edit a record",
+              "Addressed packets and next hops",
+              "The meaning of a purchase request"
+            ],
+            "answer": 2,
+            "explain": "IP routing and forwarding move packets without establishing application permission."
+          },
+          {
+            "q": "A server returns a clear application error. What is justified?",
+            "choices": [
+              "The entire internet is unavailable",
+              "Every network layer has been certified in every condition",
+              "The operation necessarily committed",
+              "Some request-response path worked, though the requested operation failed"
+            ],
+            "answer": 3,
+            "explain": "A received error is useful application evidence and differs from no response, but does not prove universal health."
+          }
+        ]
+      },
+      {
+        "id": "net-dns",
+        "questions": [
+          {
+            "q": "What does a successful address lookup establish directly?",
+            "choices": [
+              "The server committed every pending action",
+              "The remote database is healthy",
+              "A DNS record was returned for the query",
+              "The application accepted the user’s credentials"
+            ],
+            "answer": 2,
+            "explain": "DNS naming evidence is separate from application availability and authorization."
+          },
+          {
+            "q": "Why do caches not all change instantly after a record update?",
+            "choices": [
+              "DNS has no notion of time",
+              "All records must always be permanent",
+              "Wi-Fi signal blocks record updates",
+              "Existing entries can remain reusable within their lifetimes"
+            ],
+            "answer": 3,
+            "explain": "TTL-based reuse means an authoritative update and worldwide cache replacement are not simultaneous."
+          },
+          {
+            "q": "What should a useful lookup incident record include?",
+            "choices": [
+              "Name, returned record, resolver and timestamp",
+              "Only a screenshot colour",
+              "Only a password",
+              "Only the number of browser tabs"
+            ],
+            "answer": 0,
+            "explain": "These details identify what was queried, where the answer came from and when it was observed."
+          }
+        ]
+      },
+      {
+        "id": "net-transport",
+        "questions": [
+          {
+            "q": "What service does TCP provide?",
+            "choices": [
+              "Automatic exactly-once database commits",
+              "Preserved business-message boundaries by itself",
+              "Guaranteed zero delay",
+              "A reliable ordered byte stream"
+            ],
+            "answer": 3,
+            "explain": "TCP orders and retransmits bytes; application transaction semantics remain separate."
+          },
+          {
+            "q": "Which outcome is possible after an application timeout?",
+            "choices": [
+              "The action committed but its response was lost",
+              "The action certainly never arrived",
+              "The action certainly completed twice",
+              "The server certainly shut down"
+            ],
+            "answer": 0,
+            "explain": "A timeout leaves several possible outcomes; it is not a definitive transaction receipt."
+          },
+          {
+            "q": "What helps make state-changing retries safe?",
+            "choices": [
+              "Assuming UDP or TCP proves business success",
+              "Application idempotency identifiers and status checks",
+              "Retrying unlimited times with new identifiers",
+              "Only increasing screen brightness"
+            ],
+            "answer": 1,
+            "explain": "Application-level deduplication and outcome queries address uncertainty across retries."
+          }
+        ]
+      },
+      {
+        "id": "net-performance",
+        "questions": [
+          {
+            "q": "How long to serialize 12,000 bits at 100 Mbit/s, ignoring overhead?",
+            "choices": [
+              "0.12 ms",
+              "1.2 ms",
+              "12 ms",
+              "120 ms"
+            ],
+            "answer": 0,
+            "explain": "12,000 / 100,000,000 s = 0.00012 s = 0.12 ms."
+          },
+          {
+            "q": "Which delay does more link bandwidth not directly remove?",
+            "choices": [
+              "The time required to transmit its bits at that link",
+              "Signal propagation over a fixed path",
+              "Serialization of a fixed packet",
+              "Transfer time for a fixed payload when link-limited"
+            ],
+            "answer": 1,
+            "explain": "Propagation depends on path and medium, rather than serialization rate alone."
+          },
+          {
+            "q": "What is throughput?",
+            "choices": [
+              "Only one-way travel time",
+              "The number of characters in a domain name",
+              "The useful data rate actually achieved",
+              "A promise that every application uses full nominal capacity"
+            ],
+            "answer": 2,
+            "explain": "Throughput describes achieved delivery under the complete path and workload."
+          }
+        ]
+      },
+      {
+        "id": "net-security",
+        "questions": [
+          {
+            "q": "What question does authorization answer?",
+            "choices": [
+              "What the radio signal strength is",
+              "What this identity is allowed to do",
+              "How many bytes form a packet",
+              "How long DNS cached a record"
+            ],
+            "answer": 1,
+            "explain": "Authorization determines permitted actions, distinct from establishing identity or connectivity."
+          },
+          {
+            "q": "What does verified TLS not guarantee?",
+            "choices": [
+              "A check of the intended server identity in the stated case",
+              "Integrity protection of its records",
+              "An honest uncompromised endpoint or permission for every action",
+              "Protection of the negotiated channel under its assumptions"
+            ],
+            "answer": 2,
+            "explain": "Channel security has a defined boundary; endpoint behaviour and application permission remain separate."
+          },
+          {
+            "q": "What is an appropriate first response to a certificate identity mismatch?",
+            "choices": [
+              "Disable identity checks permanently",
+              "Publish the private key in a log",
+              "Assume the application granted access",
+              "Investigate the intended name, endpoint and trust configuration"
+            ],
+            "answer": 3,
+            "explain": "The identity failure needs investigation; removing verification discards the evidence and protection."
+          }
+        ]
+      },
+      {
+        "id": "net-capstone",
+        "questions": [
+          {
+            "q": "Which next check best follows from the observed HTTP 401?",
+            "choices": [
+              "Disable TLS verification",
+              "Retry with unlimited new action identifiers",
+              "Verify intended account and accepted authentication context without logging secrets",
+              "Assume DNS failed despite its recorded answer"
+            ],
+            "answer": 2,
+            "explain": "The received 401 is application authentication evidence; follow that boundary first."
+          },
+          {
+            "q": "What is safest for the state-changing timeout under the stated design?",
+            "choices": [
+              "Assume failure and create unlimited new requests",
+              "Declare success from TCP alone",
+              "Delete all request identifiers",
+              "Use a supported status query or the same idempotency identifier within bounded retries"
+            ],
+            "answer": 3,
+            "explain": "The outcome is uncertain; application mechanisms can avoid creating duplicate committed actions."
+          },
+          {
+            "q": "Which final claim is properly bounded?",
+            "choices": [
+              "The recorded request reached the verified TLS channel and received an authentication rejection",
+              "All future service requests are guaranteed healthy",
+              "The timed-out operation certainly never committed",
+              "Wi-Fi strength proved authorization"
+            ],
+            "answer": 0,
+            "explain": "The claim follows the observed request while leaving other conditions and uncertain outcomes unclaimed."
+          }
+        ]
+      }
+    ]
+  },
+  "slides": {
+    "sections": [
+      {
+        "id": "net-layers",
+        "title": "Separate a local connection from a working service",
+        "bullets": [
+          "Link: local frame delivery",
+          "IP: addressing and next-hop forwarding",
+          "Application: request and response meaning"
+        ],
+        "notes": "They concern the local radio link, while naming, routing, transport, server state and authorization are separate dependencies. No. An application action can span multiple messages and packets, and a packet does not by itself prove the action committed.",
+        "visual": "The four panels describe functions with distinct evidence. The simplified layout does not imply every application uses the same transport."
+      },
+      {
+        "id": "net-dns",
+        "title": "Names and addresses are different evidence",
+        "bullets": [
+          "Lookup: names resolve to records",
+          "Cache: TTL bounds reuse",
+          "Limit: returned address is not service health"
+        ],
+        "notes": "Resolvers and clients can reuse cached records until their cache lifetime expires under the applicable rules. Virtual hosting and certificate verification can depend on the intended name, so an IP-only request may test a different path.",
+        "visual": "The resolver may answer from cache rather than contacting authority every time. A returned record remains a naming result, not an application acceptance result."
+      },
+      {
+        "id": "net-transport",
+        "title": "Delivery guarantees stop at a boundary",
+        "bullets": [
+          "TCP: ordered bytes with retransmission",
+          "Application: defines messages and commit meaning",
+          "Retry: uncertain outcomes need idempotency or status"
+        ],
+        "notes": "No. The application must validate, commit and report its own outcome; transport delivery alone does not establish that state. Without an idempotency key or status mechanism, a new request can create another action even when the original succeeded.",
+        "visual": "Transport delivery and application commit evidence are deliberately separate. A completed network exchange is not a universal transaction guarantee."
+      },
+      {
+        "id": "net-performance",
+        "title": "Bandwidth is not the same as latency",
+        "bullets": [
+          "Serialization: packet bits divided by link rate",
+          "Propagation: travel time",
+          "Throughput: useful achieved rate"
+        ],
+        "notes": "1,500 × 8 / 10,000,000 s = 1.2 ms, excluding additional overhead and other delays. Propagation, queuing, protocol round trips, name lookup and server processing can dominate the user-visible delay.",
+        "visual": "The small serialization component and larger fictional propagation component share a time unit. A faster bit rate affects only some parts of total delay."
+      },
+      {
+        "id": "net-security",
+        "title": "A secure channel does not authorize every action",
+        "bullets": [
+          "TLS: channel confidentiality, integrity and identity checks",
+          "Authentication: claimed identity",
+          "Authorization: allowed actions"
+        ],
+        "notes": "Yes. The channel can work while the application rejects missing authentication or insufficient authorization. A request identifier can correlate evidence across components while keeping passwords or tokens out of diagnostic output.",
+        "visual": "TLS protects a defined communication channel. The application still has to validate identity context and permissions for the requested action."
+      },
+      {
+        "id": "net-capstone",
+        "title": "Capstone: diagnose the failing boundary",
+        "bullets": [
+          "401: inspect authentication context first",
+          "Timeout: committed outcome may be uncertain",
+          "Memo: evidence, bounded retry and safe identifiers"
+        ],
+        "notes": "Authentication context: the service responded but did not accept the supplied or missing credentials for this request. It may have committed before the response was lost. Status checks or supported idempotent retries are needed to avoid duplicates.",
+        "visual": "The incident evidence narrows the first request’s failure to authentication context. It does not settle the separate timed-out action’s commit state."
+      }
+    ]
+  },
+  "enrichment": {
+    "audioTitle": "Computer Networks: Packets, Names & Trust — reason it through",
+    "turns": [
+      {
+        "speaker": "teacher",
+        "line": "A device can have Wi-Fi bars while a service still fails. Separate name lookup, transport, secure channels and application outcomes to diagnose the actual boundary."
+      },
+      {
+        "speaker": "student",
+        "line": "What will I make by the end?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Write a layered service-diagnosis memo with evidence and bounded retries"
+      },
+      {
+        "speaker": "student",
+        "line": "Why do strong Wi-Fi bars not prove a remote service works?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "They concern the local radio link, while naming, routing, transport, server state and authorization are separate dependencies."
+      },
+      {
+        "speaker": "student",
+        "line": "Does one packet necessarily equal one complete user action?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "No. An application action can span multiple messages and packets, and a packet does not by itself prove the action committed."
+      },
+      {
+        "speaker": "student",
+        "line": "Why can an old address remain visible after an authoritative change?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Resolvers and clients can reuse cached records until their cache lifetime expires under the applicable rules."
+      },
+      {
+        "speaker": "student",
+        "line": "Why is testing a bare IP not always equivalent to the service name?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Virtual hosting and certificate verification can depend on the intended name, so an IP-only request may test a different path."
+      },
+      {
+        "speaker": "student",
+        "line": "Does TCP byte delivery prove an application committed an action?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "No. The application must validate, commit and report its own outcome; transport delivery alone does not establish that state."
+      },
+      {
+        "speaker": "student",
+        "line": "Why can retrying after timeout duplicate a booking?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Without an idempotency key or status mechanism, a new request can create another action even when the original succeeded."
+      },
+      {
+        "speaker": "student",
+        "line": "What is serialization time for the stated packet and link?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "1,500 × 8 / 10,000,000 s = 1.2 ms, excluding additional overhead and other delays."
+      },
+      {
+        "speaker": "student",
+        "line": "Why can a high-bandwidth connection still feel slow?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Propagation, queuing, protocol round trips, name lookup and server processing can dominate the user-visible delay."
+      },
+      {
+        "speaker": "student",
+        "line": "Can a valid TLS connection still produce an access rejection?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Yes. The channel can work while the application rejects missing authentication or insufficient authorization."
+      },
+      {
+        "speaker": "student",
+        "line": "Why retain a safe request identifier instead of a credential in diagnostics?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "A request identifier can correlate evidence across components while keeping passwords or tokens out of diagnostic output."
+      },
+      {
+        "speaker": "student",
+        "line": "What is the best first boundary to inspect for this 401 response?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Authentication context: the service responded but did not accept the supplied or missing credentials for this request."
+      },
+      {
+        "speaker": "student",
+        "line": "Why is the timed-out action a separate uncertainty?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "It may have committed before the response was lost. Status checks or supported idempotent retries are needed to avoid duplicates."
+      }
+    ],
+    "nodes": [
+      {
+        "id": "root",
+        "parent": null,
+        "label": "Computer networks and service diagnosis",
+        "note": "A device can have Wi-Fi bars while a service still fails. Separate name lookup, transport, secure channels and application outcomes to diagnose the actual boundary."
+      },
+      {
+        "id": "net-layers",
+        "parent": "root",
+        "label": "Separate a local connection from a working service",
+        "note": "Link: local frame delivery"
+      },
+      {
+        "id": "net-layers-detail-0",
+        "parent": "net-layers",
+        "label": "IP",
+        "note": "IP: addressing and next-hop forwarding"
+      },
+      {
+        "id": "net-layers-detail-1",
+        "parent": "net-layers",
+        "label": "Application",
+        "note": "Application: request and response meaning"
+      },
+      {
+        "id": "net-dns",
+        "parent": "root",
+        "label": "Names and addresses are different evidence",
+        "note": "Lookup: names resolve to records"
+      },
+      {
+        "id": "net-dns-detail-0",
+        "parent": "net-dns",
+        "label": "Cache",
+        "note": "Cache: TTL bounds reuse"
+      },
+      {
+        "id": "net-dns-detail-1",
+        "parent": "net-dns",
+        "label": "Limit",
+        "note": "Limit: returned address is not service health"
+      },
+      {
+        "id": "net-transport",
+        "parent": "root",
+        "label": "Delivery guarantees stop at a boundary",
+        "note": "TCP: ordered bytes with retransmission"
+      },
+      {
+        "id": "net-transport-detail-0",
+        "parent": "net-transport",
+        "label": "Application",
+        "note": "Application: defines messages and commit meaning"
+      },
+      {
+        "id": "net-transport-detail-1",
+        "parent": "net-transport",
+        "label": "Retry",
+        "note": "Retry: uncertain outcomes need idempotency or status"
+      },
+      {
+        "id": "net-performance",
+        "parent": "root",
+        "label": "Bandwidth is not the same as latency",
+        "note": "Serialization: packet bits divided by link rate"
+      },
+      {
+        "id": "net-performance-detail-0",
+        "parent": "net-performance",
+        "label": "Propagation",
+        "note": "Propagation: travel time"
+      },
+      {
+        "id": "net-performance-detail-1",
+        "parent": "net-performance",
+        "label": "Throughput",
+        "note": "Throughput: useful achieved rate"
+      },
+      {
+        "id": "net-security",
+        "parent": "root",
+        "label": "A secure channel does not authorize every action",
+        "note": "TLS: channel confidentiality, integrity and identity checks"
+      },
+      {
+        "id": "net-security-detail-0",
+        "parent": "net-security",
+        "label": "Authentication",
+        "note": "Authentication: claimed identity"
+      },
+      {
+        "id": "net-security-detail-1",
+        "parent": "net-security",
+        "label": "Authorization",
+        "note": "Authorization: allowed actions"
+      },
+      {
+        "id": "net-capstone",
+        "parent": "root",
+        "label": "Capstone: diagnose the failing boundary",
+        "note": "401: inspect authentication context first"
+      },
+      {
+        "id": "net-capstone-detail-0",
+        "parent": "net-capstone",
+        "label": "Timeout",
+        "note": "Timeout: committed outcome may be uncertain"
+      },
+      {
+        "id": "net-capstone-detail-1",
+        "parent": "net-capstone",
+        "label": "Memo",
+        "note": "Memo: evidence, bounded retry and safe identifiers"
+      }
+    ],
+    "mnemonics": []
+  },
+  "sources": [
+    {
+      "title": "IETF RFC 1034 — Domain Names: Concepts and Facilities",
+      "url": "https://www.rfc-editor.org/rfc/rfc1034.html"
+    },
+    {
+      "title": "IETF RFC 9293 — Transmission Control Protocol",
+      "url": "https://www.rfc-editor.org/rfc/rfc9293.html"
+    },
+    {
+      "title": "IETF RFC 8446 — TLS 1.3",
+      "url": "https://www.rfc-editor.org/rfc/rfc8446.html"
+    },
+    {
+      "title": "IETF RFC 9110 — HTTP Semantics",
+      "url": "https://www.rfc-editor.org/rfc/rfc9110.html"
+    }
+  ]
+}

@@ -1,0 +1,752 @@
+{
+  "meta": {
+    "title": "Hydraulic Systems: Pressure, Flow & Work",
+    "topic": "Hydraulic systems",
+    "level": "intermediate",
+    "estimatedMinutes": 65,
+    "tags": [
+      "hydraulics",
+      "engineering",
+      "farm equipment",
+      "pressure",
+      "flow"
+    ],
+    "createdAt": "2026-10-31T04:00:00.000Z",
+    "interests": "Agriculture, music, space, practical engineering and evidence-based technology",
+    "depth": "standard",
+    "model": "Learnway authored course"
+  },
+  "plan": {
+    "title": "Hydraulic Systems: Pressure, Flow & Work",
+    "hook": "A larger cylinder can lift more but move more slowly. Follow force, displaced volume and power to explain that trade without treating pressure and flow as interchangeable.",
+    "objectives": [
+      "Relate pressure difference and effective area to cylinder force",
+      "Convert flow to piston speed using volume conservation",
+      "Identify load, valve and relief roles in a conceptual circuit",
+      "Compare two cylinder choices with a force, speed and power calculation"
+    ],
+    "prerequisites": [
+      "Basic multiplication and area units; these are paper models, not service procedures"
+    ],
+    "sections": [
+      {
+        "id": "hyd-pressure",
+        "heading": "Pressure is force per area",
+        "points": [
+          "Pressure: force per area",
+          "Force: pressure difference times area",
+          "Model: friction and opposing pressure matter"
+        ]
+      },
+      {
+        "id": "hyd-cylinder",
+        "heading": "Count the area on each side",
+        "points": [
+          "Cap area: full piston bore",
+          "Rod-side area: bore minus rod",
+          "Net force: subtract opposing chamber forces"
+        ]
+      },
+      {
+        "id": "hyd-flow",
+        "heading": "Flow sets speed through displaced volume",
+        "points": [
+          "Flow: volume per time",
+          "Speed: actuator flow divided by area",
+          "Travel time: distance divided by steady speed"
+        ]
+      },
+      {
+        "id": "hyd-valve",
+        "heading": "Trace the flow paths before blaming pressure",
+        "points": [
+          "Paths: supply, actuator and return",
+          "Relief: a pressure-limiting bypass",
+          "Evidence: pressure alone does not establish flow"
+        ]
+      },
+      {
+        "id": "hyd-power",
+        "heading": "Pressure times flow is power",
+        "points": [
+          "Hydraulic power: pressure drop times flow",
+          "Mechanical power: force times speed",
+          "Efficiency: useful output over defined input"
+        ]
+      },
+      {
+        "id": "hyd-capstone",
+        "heading": "Capstone: choose a cylinder with evidence",
+        "points": [
+          "Requirement: force and speed together",
+          "Comparison: B meets the ideal limits",
+          "Margin: real losses can invalidate a boundary pass"
+        ]
+      }
+    ]
+  },
+  "reading": {
+    "sections": [
+      {
+        "id": "hyd-pressure",
+        "heading": "Pressure is force per area",
+        "body": "A hydraulic system transfers energy through a fluid. Pressure describes force per unit area; it is not a quantity of oil. One pascal, written Pa, is one newton per square metre. One megapascal, or MPa, is one million pascals.\n\nIn a static enclosed fluid, an applied pressure change is transmitted throughout the fluid. This does not remove pressure differences due to height or the losses that occur during flow. For a simplified piston with negligible opposing pressure and friction, force equals pressure difference multiplied by effective area.\n\nAt 10 MPa across a 20 cm² piston, convert area first: 20 cm² = 0.002 m². Force is 10,000,000 Pa × 0.002 m² = 20,000 N. Doubling area doubles force at the same pressure difference. It does not double energy for free: the larger piston needs more fluid for the same travel.\n\n**Predict:** Does the pump outlet need high pressure when it supplies an easy open flow path? Not necessarily. The load and restrictions create the pressure requirement; pump behaviour and controls determine how the system responds.\n\n**Try it:** Draw two pistons linked by a static fluid. Label equal pressure change but unequal forces. This course uses ideal calculations to build reasoning. Hydraulic equipment can retain dangerous energy; no lesson calls for opening lines or testing leaks by hand.",
+        "visual": "Connected pistons illustrate how the same static pressure change acts on different areas. Dimensions are schematic.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">Pressure acts across an area</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Ideal pistons at the same height; losses and seal friction omitted.</text><rect x=\"100\" y=\"180\" width=\"130\" height=\"110\" rx=\"6\" fill=\"#243e54\" stroke=\"#a8b9d0\"/><rect x=\"490\" y=\"180\" width=\"230\" height=\"110\" rx=\"6\" fill=\"#243e54\" stroke=\"#a8b9d0\"/><line x1=\"165\" y1=\"290\" x2=\"605\" y2=\"290\" stroke=\"#69d9d0\" stroke-width=\"12\"/><rect x=\"105\" y=\"180\" width=\"120\" height=\"14\" rx=\"6\" fill=\"#f8bf70\" stroke=\"#f8bf70\"/><rect x=\"495\" y=\"180\" width=\"220\" height=\"14\" rx=\"6\" fill=\"#f8bf70\" stroke=\"#f8bf70\"/><line x1=\"165\" y1=\"110\" x2=\"165\" y2=\"170\" stroke=\"#f8bf70\" stroke-width=\"3\"/><path d=\"M 160.69 162.10 L 165 170 L 169.31 162.10\" fill=\"none\" stroke=\"#f8bf70\" stroke-width=\"3\"/><line x1=\"605\" y1=\"140\" x2=\"605\" y2=\"105\" stroke=\"#69d9d0\" stroke-width=\"3\"/><path d=\"M 609.31 112.90 L 605 105 L 600.69 112.90\" fill=\"none\" stroke=\"#69d9d0\" stroke-width=\"3\"/><text x=\"70\" y=\"330\" fill=\"#f8bf70\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">Small area: smaller force</text><text x=\"440\" y=\"330\" fill=\"#69d9d0\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">Larger area: larger force</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">Equal pressure does not mean equal force, travel or energy.</text></svg>",
+        "questions": [
+          {
+            "q": "Why can equal pressure produce unequal forces?",
+            "hint": "Compare piston areas.",
+            "answer": "Force is pressure difference times area. A larger area experiences more force for the same difference."
+          },
+          {
+            "q": "Why does a larger force not imply free energy?",
+            "hint": "The fluid volume required for travel changes.",
+            "answer": "The larger piston needs more volume per unit travel. Conservation of volume trades force against distance or speed in the ideal system."
+          }
+        ]
+      },
+      {
+        "id": "hyd-cylinder",
+        "heading": "Count the area on each side",
+        "body": "A double-acting cylinder has a cap chamber and a rod chamber. The cap-side piston area is the full bore area. On the rod side, the rod occupies part of that area, leaving an annulus: bore area minus rod cross-sectional area.\n\nForces act in opposite directions. With cap pressure p-cap, rod pressure p-rod, bore area A-bore and rod-side effective area A-annulus, net extension force before friction is p-cap × A-bore − p-rod × A-annulus. Do not simply subtract pressures and multiply by full area when the two effective areas differ.\n\nSuppose the bore area is 20 cm² and the rod area is 5 cm². Rod-side effective area is 15 cm². With 8 MPa driving one chamber and negligible pressure in the other, ideal extension force is 16,000 N; retraction force is 12,000 N. At equal inlet flow, retraction is faster because its driven area is smaller.\n\n**Try it:** Add 1 MPa backpressure on the rod side during extension. Its opposing force is 1,000,000 × 0.0015 = 1,500 N, leaving 14,500 N before friction. State the chamber pressures as well as the areas. Real seals, geometry, load direction and efficiency can change the result.",
+        "visual": "The rod removes 5 cm² from a 20 cm² bore area. The cap and rod chambers therefore convert pressure and flow differently.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">The rod changes the effective area</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Equal pressure difference and inlet flow are compared separately.</text><rect x=\"80\" y=\"135\" width=\"600\" height=\"130\" rx=\"6\" fill=\"#243e54\" stroke=\"#a8b9d0\"/><rect x=\"330\" y=\"138\" width=\"30\" height=\"124\" rx=\"6\" fill=\"#f8bf70\" stroke=\"#f8bf70\"/><rect x=\"360\" y=\"182\" width=\"375\" height=\"38\" rx=\"6\" fill=\"#a8b9d0\" stroke=\"#a8b9d0\"/><line x1=\"145\" y1=\"190\" x2=\"305\" y2=\"190\" stroke=\"#69d9d0\" stroke-width=\"3\"/><path d=\"M 297.10 194.31 L 305 190 L 297.10 185.69\" fill=\"none\" stroke=\"#69d9d0\" stroke-width=\"3\"/><text x=\"95\" y=\"118\" fill=\"#69d9d0\" font-size=\"18\" font-family=\"sans-serif\" text-anchor=\"start\">Cap side: full bore</text><text x=\"425\" y=\"118\" fill=\"#f8bf70\" font-size=\"18\" font-family=\"sans-serif\" text-anchor=\"start\">Rod side: annular area</text><text x=\"100\" y=\"305\" fill=\"#e5edf9\" font-size=\"18\" font-family=\"sans-serif\" text-anchor=\"start\">Bore area: 20 cm²</text><text x=\"425\" y=\"305\" fill=\"#e5edf9\" font-size=\"18\" font-family=\"sans-serif\" text-anchor=\"start\">Rod area: 5 cm²</text><text x=\"425\" y=\"334\" fill=\"#f8bf70\" font-size=\"18\" font-family=\"sans-serif\" text-anchor=\"start\">Net rod-side area: 15 cm²</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">Conceptual model; assumptions and units are explained in the lesson.</text></svg>",
+        "questions": [
+          {
+            "q": "Why is ideal retraction force lower at equal driving pressure?",
+            "hint": "The rod occupies part of one face.",
+            "answer": "The rod-side effective area is smaller. Equal pressure acting across it produces less force."
+          },
+          {
+            "q": "What is extension force with 8 MPa cap pressure and 1 MPa rod pressure in the example?",
+            "hint": "Calculate each force separately.",
+            "answer": "16,000 N from the cap minus 1,500 N from the rod side gives 14,500 N before friction."
+          }
+        ]
+      },
+      {
+        "id": "hyd-flow",
+        "heading": "Flow sets speed through displaced volume",
+        "body": "Flow rate is volume per time. A litre per minute is a useful equipment unit, but piston calculations become clearer in cubic metres per second. One litre is 0.001 m³; one minute is 60 seconds.\n\nFor an incompressible fluid, a piston moving a distance sweeps volume equal to its effective area times travel. Dividing by time gives flow equals area times speed. Therefore speed equals flow divided by area, when leakage and fluid compression are negligible.\n\nAt 12 L/min, flow is 12 × 0.001 / 60 = 0.0002 m³/s. A 20 cm² area is 0.002 m². Speed is 0.0002 / 0.002 = 0.10 m/s. A 0.50 m stroke takes 0.50 / 0.10 = 5 s under a constant-speed assumption. Doubling area at the same flow halves speed.\n\nThe inlet and outlet flow rates of a double-acting cylinder can differ because the two swept volumes differ. That matters when considering return-path restrictions. A constant pump flow also does not guarantee all flow reaches the cylinder if another path is open.\n\n**Try it:** Repeat the example with 6 L/min. Speed becomes 0.05 m/s and stroke time 10 s. Explain which assumption would fail if half the supply bypassed the actuator.",
+        "visual": "Two piston areas receive the same ideal flow. The larger area has half the speed; the horizontal bars compare speeds on one scale.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">Volume links flow to speed</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Same inlet flow, different ideal piston areas.</text><text x=\"195\" y=\"167\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"end\">Area 20 cm²</text><rect x=\"210\" y=\"145\" width=\"475\" height=\"30\" rx=\"6\" fill=\"none\" stroke=\"#33445e\"/><rect x=\"210\" y=\"145\" width=\"395.83333333333337\" height=\"30\" rx=\"6\" fill=\"#69d9d0\" stroke=\"#69d9d0\"/><text x=\"697\" y=\"167\" fill=\"#69d9d0\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">0.1 m/s</text><text x=\"195\" y=\"267\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"end\">Area 40 cm²</text><rect x=\"210\" y=\"245\" width=\"475\" height=\"30\" rx=\"6\" fill=\"none\" stroke=\"#33445e\"/><rect x=\"210\" y=\"245\" width=\"197.91666666666669\" height=\"30\" rx=\"6\" fill=\"#f8bf70\" stroke=\"#f8bf70\"/><text x=\"697\" y=\"267\" fill=\"#f8bf70\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">0.05 m/s</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">12 L/min = 0.0002 m³/s. Speed = flow / effective area; larger area moves slower.</text></svg>",
+        "questions": [
+          {
+            "q": "Why does doubling area halve speed at fixed flow?",
+            "hint": "Consider the volume needed for one centimetre of travel.",
+            "answer": "Twice the area needs twice the volume per unit travel. The same delivered flow therefore moves it at half the speed."
+          },
+          {
+            "q": "What if half of the 12 L/min bypasses the cylinder?",
+            "hint": "Use actuator flow rather than pump flow.",
+            "answer": "Only 6 L/min enters the 20 cm² chamber, so ideal speed falls to 0.05 m/s."
+          }
+        ]
+      },
+      {
+        "id": "hyd-valve",
+        "heading": "Trace the flow paths before blaming pressure",
+        "body": "A pump supplies flow; a directional valve selects paths; an actuator converts fluid power into motion. A reservoir receives returning fluid. A relief valve can provide a pressure-limiting path when its opening condition is reached. This is a role map, not a complete machine circuit.\n\nIf a cylinder is stalled against a load, continued pump flow must go somewhere, be reduced by pump controls, or cause pressure to rise toward a limit. In a simple fixed-flow teaching circuit with a relief path, flow can return to tank through relief while the cylinder remains still. High indicated pressure then coexists with no useful piston motion.\n\nA throttle restriction can control flow but creates a pressure drop and dissipates energy. The pressure at a pump, valve and cylinder need not match during flow. A single pressure reading does not tell you actuator flow, load force or where losses occur.\n\n**Predict:** Does a stationary cylinder at high pressure prove that the pump has failed? No. A heavy load, blocked path, relief condition or mechanical constraint could produce that observation.\n\n**Try it:** On the conceptual drawing, trace a moving-actuator path and a stalled-with-relief path. List the pressure, motion and flow evidence that would distinguish them. Actual diagnostic testing must follow the equipment’s service procedure and rated instrumentation; this exercise requires no hardware.",
+        "visual": "The normal route and a relief-to-tank branch are shown separately. Real circuits require additional components and equipment-specific documentation.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">A relief path gives flow another route</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Conceptual paths only; not a plumbing or equipment schematic.</text><rect x=\"65\" y=\"125\" width=\"150\" height=\"90\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"81\" y=\"155\" fill=\"#69d9d0\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Pump</text><text x=\"81\" y=\"187\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Flow supply</text><rect x=\"315\" y=\"125\" width=\"155\" height=\"90\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"331\" y=\"155\" fill=\"#69d9d0\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Valve</text><text x=\"331\" y=\"187\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Meters flow</text><rect x=\"570\" y=\"125\" width=\"160\" height=\"90\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"586\" y=\"155\" fill=\"#69d9d0\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Cylinder</text><text x=\"586\" y=\"187\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Moves load</text><line x1=\"220\" y1=\"170\" x2=\"310\" y2=\"170\" stroke=\"#69d9d0\" stroke-width=\"3\"/><path d=\"M 302.10 174.31 L 310 170 L 302.10 165.69\" fill=\"none\" stroke=\"#69d9d0\" stroke-width=\"3\"/><line x1=\"475\" y1=\"170\" x2=\"565\" y2=\"170\" stroke=\"#69d9d0\" stroke-width=\"3\"/><path d=\"M 557.10 174.31 L 565 170 L 557.10 165.69\" fill=\"none\" stroke=\"#69d9d0\" stroke-width=\"3\"/><path d=\"M 260 170 L 260 300 L 580 300\" fill=\"none\" stroke=\"#f69caf\" stroke-width=\"3\"/><text x=\"300\" y=\"287\" fill=\"#f69caf\" font-size=\"18\" font-family=\"sans-serif\" text-anchor=\"start\">Relief → tank</text><text x=\"70\" y=\"335\" fill=\"#e5edf9\" font-size=\"18\" font-family=\"sans-serif\" text-anchor=\"start\">Load and restrictions establish the required pressure</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">Conceptual model; assumptions and units are explained in the lesson.</text></svg>",
+        "questions": [
+          {
+            "q": "How can high pressure coexist with no cylinder movement?",
+            "hint": "Where can the supplied flow go?",
+            "answer": "The cylinder may be stalled while flow bypasses through a relief path, or pump controls may reduce flow. Pressure alone does not show useful motion."
+          },
+          {
+            "q": "Why do we need more than one pressure reading to understand a loss?",
+            "hint": "Loss occurs across an element.",
+            "answer": "The pressure difference across a restriction, together with its flow, identifies dissipated hydraulic power; one absolute reading cannot do that."
+          }
+        ]
+      },
+      {
+        "id": "hyd-power",
+        "heading": "Pressure times flow is power",
+        "body": "Force alone does not describe how fast a hydraulic system does work. Mechanical power is force times speed. For ideal fluid transfer, hydraulic power is pressure difference times volumetric flow. Pascals times cubic metres per second produce watts.\n\nAt 10 MPa and 12 L/min, hydraulic power is 10,000,000 × 0.0002 = 2,000 W. If 2 MPa is lost across a throttle at that same flow, the throttle dissipates 2,000,000 × 0.0002 = 400 W. Only 8 MPa remains across an ideal actuator returning to negligible pressure: 1,600 W.\n\nFor the 20 cm² actuator, force is 16,000 N and speed 0.10 m/s. Their product is also 1,600 W, so the two calculation paths agree. This cross-check catches unit errors. Actual shaft input exceeds hydraulic output because pumps and drives are imperfect; actuator output can also be reduced by leakage and friction.\n\nEfficiency is useful output power divided by input power for a clearly stated boundary. If measured shaft input is 2,500 W and useful actuator output is 1,600 W, whole-boundary efficiency is 64%.\n\n**Try it:** Separate pump losses from throttle losses in a ledger. Explain why a stalled actuator can heat the oil even though its mechanical output power is zero.",
+        "visual": "A shared flow makes pressure-drop power accounting possible. The 2,000 W input splits into 1,600 W ideal actuator output and 400 W throttle heat.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">Account for useful power and heat</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">A fictional steady operating point; both terms use the same flow.</text><text x=\"195\" y=\"152\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"end\">Hydraulic input</text><rect x=\"210\" y=\"130\" width=\"475\" height=\"30\" rx=\"6\" fill=\"none\" stroke=\"#33445e\"/><rect x=\"210\" y=\"130\" width=\"431.8181818181818\" height=\"30\" rx=\"6\" fill=\"#baa6ff\" stroke=\"#baa6ff\"/><text x=\"697\" y=\"152\" fill=\"#baa6ff\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">2000 W</text><text x=\"195\" y=\"217\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"end\">Across actuator</text><rect x=\"210\" y=\"195\" width=\"475\" height=\"30\" rx=\"6\" fill=\"none\" stroke=\"#33445e\"/><rect x=\"210\" y=\"195\" width=\"345.45454545454544\" height=\"30\" rx=\"6\" fill=\"#69d9d0\" stroke=\"#69d9d0\"/><text x=\"697\" y=\"217\" fill=\"#69d9d0\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">1600 W</text><text x=\"195\" y=\"282\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"end\">Across throttle</text><rect x=\"210\" y=\"260\" width=\"475\" height=\"30\" rx=\"6\" fill=\"none\" stroke=\"#33445e\"/><rect x=\"210\" y=\"260\" width=\"86.36363636363636\" height=\"30\" rx=\"6\" fill=\"#f8bf70\" stroke=\"#f8bf70\"/><text x=\"697\" y=\"282\" fill=\"#f8bf70\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">400 W</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">At 12 L/min: 10 MPa × flow = 2,000 W; a 2 MPa valve drop dissipates 400 W.</text></svg>",
+        "questions": [
+          {
+            "q": "What hydraulic power crosses 8 MPa at 12 L/min?",
+            "hint": "Convert litres per minute to cubic metres per second.",
+            "answer": "8,000,000 Pa × 0.0002 m³/s = 1,600 W."
+          },
+          {
+            "q": "Why can a stalled system still generate heat?",
+            "hint": "Zero motion means zero useful actuator power, not necessarily zero input.",
+            "answer": "Flow dissipated across relief or restrictions converts input power to heat while the stationary actuator does no mechanical work."
+          }
+        ]
+      },
+      {
+        "id": "hyd-capstone",
+        "heading": "Capstone: choose a cylinder with evidence",
+        "body": "A fictional mechanism needs at least 25,000 N while extending at 0.05 m/s or faster. Compare cylinder A with bore area 20 cm² and cylinder B with 40 cm². Both receive 12 L/min at an 8 MPa cap-to-return pressure difference. Ignore friction, leakage, acceleration and return backpressure for this first comparison.\n\n**Your task:** Calculate force, speed and ideal power for each. Decide which meets both requirements. State two reasons the decision would need further verification on real equipment.\n\n**Worked solution:** Flow is 0.0002 m³/s. A produces 8,000,000 × 0.002 = 16,000 N at 0.0002 / 0.002 = 0.10 m/s. B produces 32,000 N at 0.05 m/s. Both have 1,600 W ideal output. B meets the stated force and speed limits in the model; A fails the force requirement. B has no speed margin, so actual losses or lower delivered flow could invalidate the choice.\n\n**Check your work:** Include converted areas, actuator flow, pressure difference, both requirement comparisons and the energy cross-check. Record load variation and stroke geometry as further questions. Equal power does not make the two cylinders interchangeable. This paper selection is not a component approval: mounts, stability, ratings and the complete circuit remain outside the model.",
+        "visual": "The comparison preserves identical ideal input conditions. Cylinder B gains force by giving up speed, and its speed result sits exactly at the requirement.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">A bigger bore trades speed for force</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Ideal cap-side operation at 8 MPa and 12 L/min.</text><rect x=\"70\" y=\"115\" width=\"310\" height=\"210\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"86\" y=\"145\" fill=\"#69d9d0\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Cylinder A</text><text x=\"86\" y=\"177\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Area: 20 cm²</text><text x=\"86\" y=\"204\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Force: 16,000 N</text><text x=\"86\" y=\"231\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Speed: 0.10 m/s</text><text x=\"86\" y=\"258\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Power: 1,600 W</text><rect x=\"420\" y=\"115\" width=\"310\" height=\"210\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"436\" y=\"145\" fill=\"#f8bf70\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Cylinder B</text><text x=\"436\" y=\"177\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Area: 40 cm²</text><text x=\"436\" y=\"204\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Force: 32,000 N</text><text x=\"436\" y=\"231\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Speed: 0.05 m/s</text><text x=\"436\" y=\"258\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Power: 1,600 W</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">Equal input conditions: twice the force, half the speed, equal ideal mechanical power.</text></svg>",
+        "questions": [
+          {
+            "q": "Which cylinder meets the stated ideal requirements?",
+            "hint": "Check both limits, not force alone.",
+            "answer": "B produces 32,000 N at 0.05 m/s and meets both model limits. A reaches 0.10 m/s but only 16,000 N."
+          },
+          {
+            "q": "Why is B’s speed result a fragile pass?",
+            "hint": "Compare the answer with the minimum.",
+            "answer": "Its ideal 0.05 m/s equals the minimum. Reduced delivered flow, leakage or other real effects could leave it below the requirement."
+          }
+        ]
+      }
+    ]
+  },
+  "quizzes": {
+    "sections": [
+      {
+        "id": "hyd-pressure",
+        "questions": [
+          {
+            "q": "At 5 MPa across 20 cm², what is ideal force?",
+            "choices": [
+              "2,500 N",
+              "10,000 N",
+              "100 N",
+              "100,000 N"
+            ],
+            "answer": 1,
+            "explain": "20 cm² = 0.002 m²; 5,000,000 × 0.002 = 10,000 N."
+          },
+          {
+            "q": "What establishes a pressure requirement during operation?",
+            "choices": [
+              "Flow alone without any resistance",
+              "Reservoir volume alone",
+              "The load and restrictions opposing flow",
+              "The paint colour of the pump"
+            ],
+            "answer": 2,
+            "explain": "Pressure develops in response to load and restrictions, within pump and control limits."
+          },
+          {
+            "q": "Which statement correctly applies Pascal’s principle?",
+            "choices": [
+              "Pressure is identical at every height and flow condition",
+              "Every piston travels the same distance",
+              "Hydraulics multiply work without input",
+              "An applied static pressure change is transmitted through an enclosed fluid"
+            ],
+            "answer": 3,
+            "explain": "The principle concerns pressure changes in enclosed static fluid; it is not a guarantee of equal forces or energy multiplication."
+          }
+        ]
+      },
+      {
+        "id": "hyd-cylinder",
+        "questions": [
+          {
+            "q": "A bore area is 30 cm² and rod area 8 cm². What is rod-side effective area?",
+            "choices": [
+              "30 cm²",
+              "8 cm²",
+              "22 cm²",
+              "38 cm²"
+            ],
+            "answer": 2,
+            "explain": "The annular area is 30 − 8 = 22 cm²."
+          },
+          {
+            "q": "Why is multiplying net pressure by full bore area generally wrong for this cylinder?",
+            "choices": [
+              "Pressure cannot act on a rod chamber",
+              "Backpressure always assists extension",
+              "The rod area is always zero",
+              "Opposing pressures act on different effective areas"
+            ],
+            "answer": 3,
+            "explain": "Each chamber force needs its own pressure and effective area before subtraction."
+          },
+          {
+            "q": "At equal inlet flow, which stroke is faster in this ideal example?",
+            "choices": [
+              "Retraction through the smaller effective area",
+              "Extension because its area is bigger",
+              "Both must be equal",
+              "Neither can move unless both chambers are pressurized equally"
+            ],
+            "answer": 0,
+            "explain": "Speed equals inlet flow divided by driven area, so the smaller annular area moves faster."
+          }
+        ]
+      },
+      {
+        "id": "hyd-flow",
+        "questions": [
+          {
+            "q": "At 6 L/min into 20 cm², what is ideal speed?",
+            "choices": [
+              "0.5 m/s",
+              "5 m/s",
+              "0.005 m/s",
+              "0.05 m/s"
+            ],
+            "answer": 3,
+            "explain": "6 L/min = 0.0001 m³/s; divide by 0.002 m² to obtain 0.05 m/s."
+          },
+          {
+            "q": "At 0.10 m/s, how long is a 0.50 m steady stroke?",
+            "choices": [
+              "5 s",
+              "0.05 s",
+              "50 s",
+              "0.2 s"
+            ],
+            "answer": 0,
+            "explain": "Time = distance / speed = 0.50 / 0.10 = 5 s."
+          },
+          {
+            "q": "Why can inlet and return flows differ on a moving double-acting cylinder?",
+            "choices": [
+              "Both sides always have full bore area",
+              "The two sides have unequal swept areas",
+              "Fluid must vanish inside the piston",
+              "The flow meter changes pressure units"
+            ],
+            "answer": 1,
+            "explain": "The common piston speed multiplies different chamber areas, producing different volumetric flows."
+          }
+        ]
+      },
+      {
+        "id": "hyd-valve",
+        "questions": [
+          {
+            "q": "In the teaching circuit, where can fixed pump flow go after the cylinder stalls?",
+            "choices": [
+              "Through an open relief path to the reservoir",
+              "Into infinite piston travel",
+              "Nowhere without any pressure change",
+              "It must become useful lifting work"
+            ],
+            "answer": 0,
+            "explain": "The relief path can carry flow while pressure remains high and the actuator is stationary."
+          },
+          {
+            "q": "Which quantity is missing if you know only a throttle’s pressure drop?",
+            "choices": [
+              "The cylinder paint colour",
+              "Flow through the throttle",
+              "The label on the tank",
+              "The calendar date"
+            ],
+            "answer": 1,
+            "explain": "Dissipated hydraulic power is pressure drop times flow; pressure drop alone is insufficient."
+          },
+          {
+            "q": "What does a directional valve primarily determine?",
+            "choices": [
+              "A guaranteed load-independent speed",
+              "Unlimited pressure",
+              "Which flow paths are connected",
+              "The fluid’s mass without any motion"
+            ],
+            "answer": 2,
+            "explain": "Valve connections establish flow routes; loads, metering, supply and controls affect actual pressure and speed."
+          }
+        ]
+      },
+      {
+        "id": "hyd-power",
+        "questions": [
+          {
+            "q": "What power is dissipated across 2 MPa at 12 L/min?",
+            "choices": [
+              "24 W",
+              "400 W",
+              "4,000 W",
+              "40 W"
+            ],
+            "answer": 1,
+            "explain": "2,000,000 × 0.0002 = 400 W."
+          },
+          {
+            "q": "Useful output is 1,600 W and shaft input 2,500 W. What is efficiency?",
+            "choices": [
+              "90%",
+              "16%",
+              "64%",
+              "156.25%"
+            ],
+            "answer": 2,
+            "explain": "1,600 / 2,500 = 0.64. Input and output must describe the same boundary and interval."
+          },
+          {
+            "q": "Which independent calculation should match ideal actuator hydraulic power?",
+            "choices": [
+              "Force divided by piston speed",
+              "Pressure multiplied by reservoir volume",
+              "Area divided by stroke time",
+              "Force multiplied by piston speed"
+            ],
+            "answer": 3,
+            "explain": "Force × speed equals mechanical power, matching pressure difference × flow in the ideal actuator."
+          }
+        ]
+      },
+      {
+        "id": "hyd-capstone",
+        "questions": [
+          {
+            "q": "What is cylinder B’s ideal extension force?",
+            "choices": [
+              "8,000 N",
+              "64,000 N",
+              "32,000 N",
+              "16,000 N"
+            ],
+            "answer": 2,
+            "explain": "8 MPa × 40 cm² = 8,000,000 × 0.004 = 32,000 N."
+          },
+          {
+            "q": "Why do A and B have equal ideal output power?",
+            "choices": [
+              "Both have equal areas",
+              "Their speeds are equal",
+              "A larger piston creates energy",
+              "Both receive the same pressure difference and flow"
+            ],
+            "answer": 3,
+            "explain": "Equal pressure difference × flow gives equal ideal power, with a force-speed trade."
+          },
+          {
+            "q": "What would most directly challenge B’s speed pass?",
+            "choices": [
+              "Measured actuator flow below 12 L/min",
+              "A change in the diagram colour",
+              "Writing MPa with more digits",
+              "A larger reservoir label alone"
+            ],
+            "answer": 0,
+            "explain": "Speed depends on actual delivered flow divided by effective area; B has no speed margin."
+          }
+        ]
+      }
+    ]
+  },
+  "slides": {
+    "sections": [
+      {
+        "id": "hyd-pressure",
+        "title": "Pressure is force per area",
+        "bullets": [
+          "Pressure: force per area",
+          "Force: pressure difference times area",
+          "Model: friction and opposing pressure matter"
+        ],
+        "notes": "Force is pressure difference times area. A larger area experiences more force for the same difference. The larger piston needs more volume per unit travel. Conservation of volume trades force against distance or speed in the ideal system.",
+        "visual": "Connected pistons illustrate how the same static pressure change acts on different areas. Dimensions are schematic."
+      },
+      {
+        "id": "hyd-cylinder",
+        "title": "Count the area on each side",
+        "bullets": [
+          "Cap area: full piston bore",
+          "Rod-side area: bore minus rod",
+          "Net force: subtract opposing chamber forces"
+        ],
+        "notes": "The rod-side effective area is smaller. Equal pressure acting across it produces less force. 16,000 N from the cap minus 1,500 N from the rod side gives 14,500 N before friction.",
+        "visual": "The rod removes 5 cm² from a 20 cm² bore area. The cap and rod chambers therefore convert pressure and flow differently."
+      },
+      {
+        "id": "hyd-flow",
+        "title": "Flow sets speed through displaced volume",
+        "bullets": [
+          "Flow: volume per time",
+          "Speed: actuator flow divided by area",
+          "Travel time: distance divided by steady speed"
+        ],
+        "notes": "Twice the area needs twice the volume per unit travel. The same delivered flow therefore moves it at half the speed. Only 6 L/min enters the 20 cm² chamber, so ideal speed falls to 0.05 m/s.",
+        "visual": "Two piston areas receive the same ideal flow. The larger area has half the speed; the horizontal bars compare speeds on one scale."
+      },
+      {
+        "id": "hyd-valve",
+        "title": "Trace the flow paths before blaming pressure",
+        "bullets": [
+          "Paths: supply, actuator and return",
+          "Relief: a pressure-limiting bypass",
+          "Evidence: pressure alone does not establish flow"
+        ],
+        "notes": "The cylinder may be stalled while flow bypasses through a relief path, or pump controls may reduce flow. Pressure alone does not show useful motion. The pressure difference across a restriction, together with its flow, identifies dissipated hydraulic power; one absolute reading cannot do that.",
+        "visual": "The normal route and a relief-to-tank branch are shown separately. Real circuits require additional components and equipment-specific documentation."
+      },
+      {
+        "id": "hyd-power",
+        "title": "Pressure times flow is power",
+        "bullets": [
+          "Hydraulic power: pressure drop times flow",
+          "Mechanical power: force times speed",
+          "Efficiency: useful output over defined input"
+        ],
+        "notes": "8,000,000 Pa × 0.0002 m³/s = 1,600 W. Flow dissipated across relief or restrictions converts input power to heat while the stationary actuator does no mechanical work.",
+        "visual": "A shared flow makes pressure-drop power accounting possible. The 2,000 W input splits into 1,600 W ideal actuator output and 400 W throttle heat."
+      },
+      {
+        "id": "hyd-capstone",
+        "title": "Capstone: choose a cylinder with evidence",
+        "bullets": [
+          "Requirement: force and speed together",
+          "Comparison: B meets the ideal limits",
+          "Margin: real losses can invalidate a boundary pass"
+        ],
+        "notes": "B produces 32,000 N at 0.05 m/s and meets both model limits. A reaches 0.10 m/s but only 16,000 N. Its ideal 0.05 m/s equals the minimum. Reduced delivered flow, leakage or other real effects could leave it below the requirement.",
+        "visual": "The comparison preserves identical ideal input conditions. Cylinder B gains force by giving up speed, and its speed result sits exactly at the requirement."
+      }
+    ]
+  },
+  "enrichment": {
+    "audioTitle": "Hydraulic Systems: Pressure, Flow & Work — reason it through",
+    "turns": [
+      {
+        "speaker": "teacher",
+        "line": "A larger cylinder can lift more but move more slowly. Follow force, displaced volume and power to explain that trade without treating pressure and flow as interchangeable."
+      },
+      {
+        "speaker": "student",
+        "line": "What will I make by the end?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Compare two cylinder choices with a force, speed and power calculation"
+      },
+      {
+        "speaker": "student",
+        "line": "Why can equal pressure produce unequal forces?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Force is pressure difference times area. A larger area experiences more force for the same difference."
+      },
+      {
+        "speaker": "student",
+        "line": "Why does a larger force not imply free energy?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "The larger piston needs more volume per unit travel. Conservation of volume trades force against distance or speed in the ideal system."
+      },
+      {
+        "speaker": "student",
+        "line": "Why is ideal retraction force lower at equal driving pressure?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "The rod-side effective area is smaller. Equal pressure acting across it produces less force."
+      },
+      {
+        "speaker": "student",
+        "line": "What is extension force with 8 MPa cap pressure and 1 MPa rod pressure in the example?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "16,000 N from the cap minus 1,500 N from the rod side gives 14,500 N before friction."
+      },
+      {
+        "speaker": "student",
+        "line": "Why does doubling area halve speed at fixed flow?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Twice the area needs twice the volume per unit travel. The same delivered flow therefore moves it at half the speed."
+      },
+      {
+        "speaker": "student",
+        "line": "What if half of the 12 L/min bypasses the cylinder?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Only 6 L/min enters the 20 cm² chamber, so ideal speed falls to 0.05 m/s."
+      },
+      {
+        "speaker": "student",
+        "line": "How can high pressure coexist with no cylinder movement?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "The cylinder may be stalled while flow bypasses through a relief path, or pump controls may reduce flow. Pressure alone does not show useful motion."
+      },
+      {
+        "speaker": "student",
+        "line": "Why do we need more than one pressure reading to understand a loss?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "The pressure difference across a restriction, together with its flow, identifies dissipated hydraulic power; one absolute reading cannot do that."
+      },
+      {
+        "speaker": "student",
+        "line": "What hydraulic power crosses 8 MPa at 12 L/min?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "8,000,000 Pa × 0.0002 m³/s = 1,600 W."
+      },
+      {
+        "speaker": "student",
+        "line": "Why can a stalled system still generate heat?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Flow dissipated across relief or restrictions converts input power to heat while the stationary actuator does no mechanical work."
+      },
+      {
+        "speaker": "student",
+        "line": "Which cylinder meets the stated ideal requirements?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "B produces 32,000 N at 0.05 m/s and meets both model limits. A reaches 0.10 m/s but only 16,000 N."
+      },
+      {
+        "speaker": "student",
+        "line": "Why is B’s speed result a fragile pass?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Its ideal 0.05 m/s equals the minimum. Reduced delivered flow, leakage or other real effects could leave it below the requirement."
+      }
+    ],
+    "nodes": [
+      {
+        "id": "root",
+        "parent": null,
+        "label": "Hydraulic systems",
+        "note": "A larger cylinder can lift more but move more slowly. Follow force, displaced volume and power to explain that trade without treating pressure and flow as interchangeable."
+      },
+      {
+        "id": "hyd-pressure",
+        "parent": "root",
+        "label": "Pressure is force per area",
+        "note": "Pressure: force per area"
+      },
+      {
+        "id": "hyd-pressure-detail-0",
+        "parent": "hyd-pressure",
+        "label": "Force",
+        "note": "Force: pressure difference times area"
+      },
+      {
+        "id": "hyd-pressure-detail-1",
+        "parent": "hyd-pressure",
+        "label": "Model",
+        "note": "Model: friction and opposing pressure matter"
+      },
+      {
+        "id": "hyd-cylinder",
+        "parent": "root",
+        "label": "Count the area on each side",
+        "note": "Cap area: full piston bore"
+      },
+      {
+        "id": "hyd-cylinder-detail-0",
+        "parent": "hyd-cylinder",
+        "label": "Rod-side area",
+        "note": "Rod-side area: bore minus rod"
+      },
+      {
+        "id": "hyd-cylinder-detail-1",
+        "parent": "hyd-cylinder",
+        "label": "Net force",
+        "note": "Net force: subtract opposing chamber forces"
+      },
+      {
+        "id": "hyd-flow",
+        "parent": "root",
+        "label": "Flow sets speed through displaced volume",
+        "note": "Flow: volume per time"
+      },
+      {
+        "id": "hyd-flow-detail-0",
+        "parent": "hyd-flow",
+        "label": "Speed",
+        "note": "Speed: actuator flow divided by area"
+      },
+      {
+        "id": "hyd-flow-detail-1",
+        "parent": "hyd-flow",
+        "label": "Travel time",
+        "note": "Travel time: distance divided by steady speed"
+      },
+      {
+        "id": "hyd-valve",
+        "parent": "root",
+        "label": "Trace the flow paths before blaming pressure",
+        "note": "Paths: supply, actuator and return"
+      },
+      {
+        "id": "hyd-valve-detail-0",
+        "parent": "hyd-valve",
+        "label": "Relief",
+        "note": "Relief: a pressure-limiting bypass"
+      },
+      {
+        "id": "hyd-valve-detail-1",
+        "parent": "hyd-valve",
+        "label": "Evidence",
+        "note": "Evidence: pressure alone does not establish flow"
+      },
+      {
+        "id": "hyd-power",
+        "parent": "root",
+        "label": "Pressure times flow is power",
+        "note": "Hydraulic power: pressure drop times flow"
+      },
+      {
+        "id": "hyd-power-detail-0",
+        "parent": "hyd-power",
+        "label": "Mechanical power",
+        "note": "Mechanical power: force times speed"
+      },
+      {
+        "id": "hyd-power-detail-1",
+        "parent": "hyd-power",
+        "label": "Efficiency",
+        "note": "Efficiency: useful output over defined input"
+      },
+      {
+        "id": "hyd-capstone",
+        "parent": "root",
+        "label": "Capstone: choose a cylinder with evidence",
+        "note": "Requirement: force and speed together"
+      },
+      {
+        "id": "hyd-capstone-detail-0",
+        "parent": "hyd-capstone",
+        "label": "Comparison",
+        "note": "Comparison: B meets the ideal limits"
+      },
+      {
+        "id": "hyd-capstone-detail-1",
+        "parent": "hyd-capstone",
+        "label": "Margin",
+        "note": "Margin: real losses can invalidate a boundary pass"
+      }
+    ],
+    "mnemonics": []
+  },
+  "sources": [
+    {
+      "title": "OpenStax — Pascal’s Principle and Hydraulics",
+      "url": "https://openstax.org/books/university-physics-volume-1/pages/14-3-pascals-principle-and-hydraulics"
+    },
+    {
+      "title": "OpenStax — Fluid Dynamics",
+      "url": "https://openstax.org/books/university-physics-volume-1/pages/14-5-fluid-dynamics"
+    },
+    {
+      "title": "OpenStax — Power",
+      "url": "https://openstax.org/books/university-physics-volume-1/pages/7-4-power"
+    }
+  ]
+}

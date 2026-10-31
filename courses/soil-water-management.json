@@ -1,0 +1,752 @@
+{
+  "meta": {
+    "title": "Soil & Water: Infiltration, Storage & Drainage",
+    "topic": "Soil water and drainage",
+    "level": "intermediate",
+    "estimatedMinutes": 65,
+    "tags": [
+      "soil",
+      "water",
+      "drainage",
+      "agriculture",
+      "infiltration"
+    ],
+    "createdAt": "2026-10-31T04:00:00.000Z",
+    "interests": "Agriculture, music, space, practical engineering and evidence-based technology",
+    "depth": "standard",
+    "model": "Learnway authored course"
+  },
+  "plan": {
+    "title": "Soil & Water: Infiltration, Storage & Drainage",
+    "hook": "A wet hollow and a dry hill can share the same rain gauge. Trace where the water enters, where it can be stored and what evidence would explain the difference.",
+    "objectives": [
+      "Distinguish porosity, infiltration and plant-available water",
+      "Calculate root-zone storage and a water balance with consistent units",
+      "Separate surface collection from subsurface restrictions",
+      "Build a measured field-water investigation with a closed budget"
+    ],
+    "prerequisites": [
+      "Fractions, subtraction and millimetres; no soil-science background required"
+    ],
+    "sections": [
+      {
+        "id": "soil-pores",
+        "heading": "Start with pores, not just particle names",
+        "points": [
+          "Texture: particle proportions",
+          "Structure: aggregates and connected spaces",
+          "Porosity: space fraction, not flow rate"
+        ]
+      },
+      {
+        "id": "soil-storage",
+        "heading": "Turn a water fraction into a root-zone depth",
+        "points": [
+          "Capacity: drained minus wilting water",
+          "Depth: effective roots define the bucket",
+          "Current storage: a separate measured state"
+        ]
+      },
+      {
+        "id": "soil-budget",
+        "heading": "Balance inputs, outputs and storage",
+        "points": [
+          "Boundary: same area, depth and interval",
+          "Ledger: inputs minus outputs change storage",
+          "Closure: investigate a mismatch"
+        ]
+      },
+      {
+        "id": "soil-infiltration",
+        "heading": "Separate entry rate from total capacity",
+        "points": [
+          "Rate: water depth per unit time",
+          "Ponding: can precede runoff",
+          "Sampling: starting conditions change results"
+        ]
+      },
+      {
+        "id": "soil-landscape",
+        "heading": "Explain the hollow before proposing a fix",
+        "points": [
+          "Surface: contributing area and outlet",
+          "Profile: layers and water table",
+          "Slope: elevation difference over distance"
+        ]
+      },
+      {
+        "id": "soil-capstone",
+        "heading": "Capstone: defend a field-water investigation",
+        "points": [
+          "Compute: final store is 36 mm",
+          "Investigate: distinguish competing causes",
+          "Report: boundary, evidence and limits"
+        ]
+      }
+    ]
+  },
+  "reading": {
+    "sections": [
+      {
+        "id": "soil-pores",
+        "heading": "Start with pores, not just particle names",
+        "body": "A soil sample is a structure made of solids and connected spaces. Those spaces, or pores, can contain water or air. Texture describes the proportions of sand, silt and clay. Structure describes how particles form aggregates and how the spaces connect. Two soils with the same texture can therefore admit water differently.\n\nPorosity is pore volume divided by total bulk volume. A sample with 450 cubic centimetres of pore space in a 1,000 cubic centimetre bulk volume has porosity 0.45, or 45%. This says how much space exists, not how quickly water can enter or move through it. A narrow connection between large pores can limit movement. A compressed layer can interrupt the path.\n\nInfiltration means entry across the surface. Drainage means subsequent water movement out of a layer or root zone. Neither is identical to the amount roots can extract. At saturation, nearly all pores contain water; prolonged saturation can restrict root-zone oxygen.\n\n**Predict:** Would a very porous but poorly connected material necessarily drain quickly? No: connectivity matters as well as total space.\n\n**Try it:** Draw the same number of pores twice. Connect one drawing with open channels and the other with narrow necks. Explain why a single porosity measurement cannot choose between their flow behaviours. These drawings are conceptual; real soils also vary with depth and initial wetness.",
+        "visual": "Water and air occupy pore space between solids. This conceptual section separates total space from the connections that govern flow.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">One soil, two kinds of space</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">A section through a conceptual soil aggregate; not a particle-size scale.</text><rect x=\"70\" y=\"105\" width=\"660\" height=\"220\" rx=\"6\" fill=\"#473d32\" stroke=\"#7d735f\"/><circle cx=\"100\" cy=\"145\" r=\"18\" fill=\"#8b7b65\"/><circle cx=\"165\" cy=\"202\" r=\"18\" fill=\"#8b7b65\"/><circle cx=\"230\" cy=\"259\" r=\"18\" fill=\"#8b7b65\"/><circle cx=\"295\" cy=\"145\" r=\"18\" fill=\"#8b7b65\"/><circle cx=\"360\" cy=\"202\" r=\"18\" fill=\"#8b7b65\"/><circle cx=\"425\" cy=\"259\" r=\"18\" fill=\"#8b7b65\"/><circle cx=\"490\" cy=\"145\" r=\"18\" fill=\"#8b7b65\"/><circle cx=\"555\" cy=\"202\" r=\"18\" fill=\"#8b7b65\"/><circle cx=\"620\" cy=\"259\" r=\"18\" fill=\"#8b7b65\"/><circle cx=\"135\" cy=\"245\" r=\"14\" fill=\"#69d9d0\"/><circle cx=\"230\" cy=\"195\" r=\"14\" fill=\"#69d9d0\"/><circle cx=\"330\" cy=\"270\" r=\"14\" fill=\"#69d9d0\"/><circle cx=\"410\" cy=\"150\" r=\"14\" fill=\"#69d9d0\"/><circle cx=\"500\" cy=\"245\" r=\"14\" fill=\"#69d9d0\"/><circle cx=\"650\" cy=\"170\" r=\"14\" fill=\"#69d9d0\"/><text x=\"90\" y=\"310\" fill=\"#f8bf70\" font-size=\"18\" font-family=\"sans-serif\" text-anchor=\"start\">Solids</text><text x=\"310\" y=\"310\" fill=\"#69d9d0\" font-size=\"18\" font-family=\"sans-serif\" text-anchor=\"start\">Water-filled pores</text><text x=\"570\" y=\"310\" fill=\"#e5edf9\" font-size=\"18\" font-family=\"sans-serif\" text-anchor=\"start\">Air in pores</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">Conceptual model; assumptions and units are explained in the lesson.</text></svg>",
+        "questions": [
+          {
+            "q": "Why might equal-texture plots infiltrate differently?",
+            "hint": "Think about connections rather than particle labels.",
+            "answer": "Compaction, aggregation and surface conditions can change pore connections without changing the sand, silt and clay proportions."
+          },
+          {
+            "q": "Does 45% porosity mean 45% plant-available water?",
+            "hint": "Pores can hold water too tightly or drain rapidly.",
+            "answer": "No. Porosity is total pore space. Plant-available capacity is the water difference between specified drained and wilting conditions."
+          }
+        ]
+      },
+      {
+        "id": "soil-storage",
+        "heading": "Turn a water fraction into a root-zone depth",
+        "body": "A water-content percentage becomes useful for a crop when paired with the depth roots can explore. Volumetric water content is water volume divided by bulk soil volume. A value of 0.30 means 0.30 cubic metres of water per cubic metre of bulk soil.\n\nField capacity is a practical drained-soil reference after rapid drainage has slowed. Permanent wilting point is a conventional lower water reference. Neither is a universal constant across soil types, and plants can experience stress before all water between them is used.\n\nFor a uniform root zone, available water capacity as a depth equals the difference in those volumetric fractions multiplied by root-zone depth. If field capacity is 0.30, wilting point is 0.12 and effective rooting depth is 0.60 m, capacity is (0.30 − 0.12) × 0.60 = 0.108 m, or 108 mm. Water above field capacity is not an extra guaranteed reserve: it may drain or cause oxygen problems.\n\nCurrent available storage is different from capacity. At current content 0.20, the same simplified profile holds (0.20 − 0.12) × 600 = 48 mm above the wilting reference. Capacity describes the bucket; current storage describes its contents.\n\n**Try it:** Recalculate capacity for roots restricted to 0.30 m. The answer is 54 mm, despite identical surface texture. For layered profiles, calculate each layer separately and add; do not assume deep roots reach every measured layer.",
+        "visual": "The bars convert two volumetric reference contents into depths over a 600 mm root zone. Their difference is capacity, not necessarily current storage.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">Storage depends on depth</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">A 0.60 m root zone; water fractions are volume per volume.</text><text x=\"195\" y=\"142\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"end\">At field capacity</text><rect x=\"210\" y=\"120\" width=\"475\" height=\"30\" rx=\"6\" fill=\"none\" stroke=\"#33445e\"/><rect x=\"210\" y=\"120\" width=\"427.5\" height=\"30\" rx=\"6\" fill=\"#69d9d0\" stroke=\"#69d9d0\"/><text x=\"697\" y=\"142\" fill=\"#69d9d0\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">180 mm</text><text x=\"195\" y=\"207\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"end\">At wilting point</text><rect x=\"210\" y=\"185\" width=\"475\" height=\"30\" rx=\"6\" fill=\"none\" stroke=\"#33445e\"/><rect x=\"210\" y=\"185\" width=\"171.0\" height=\"30\" rx=\"6\" fill=\"#f8bf70\" stroke=\"#f8bf70\"/><text x=\"697\" y=\"207\" fill=\"#f8bf70\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">72 mm</text><text x=\"195\" y=\"272\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"end\">Available capacity</text><rect x=\"210\" y=\"250\" width=\"475\" height=\"30\" rx=\"6\" fill=\"none\" stroke=\"#33445e\"/><rect x=\"210\" y=\"250\" width=\"256.5\" height=\"30\" rx=\"6\" fill=\"#baa6ff\" stroke=\"#baa6ff\"/><text x=\"697\" y=\"272\" fill=\"#baa6ff\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">108 mm</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">Available capacity = (0.30 − 0.12) × 600 mm = 108 mm; not all is stress-free.</text></svg>",
+        "questions": [
+          {
+            "q": "Why does halving effective root depth halve this model’s capacity?",
+            "hint": "The fractions stay fixed.",
+            "answer": "Each depth increment contributes the same water difference in the uniform model; half the depth contains half the available-water volume per area."
+          },
+          {
+            "q": "At content 0.20, what is currently available in the 600 mm profile?",
+            "hint": "Subtract the 0.12 reference first.",
+            "answer": "(0.20 − 0.12) × 600 mm = 48 mm. The 108 mm capacity is not the current amount."
+          }
+        ]
+      },
+      {
+        "id": "soil-budget",
+        "heading": "Balance inputs, outputs and storage",
+        "body": "A water balance is bookkeeping across a defined boundary. Choose a plot area, a root-zone depth and a time interval before adding numbers. Report all flows as equivalent water depths over that same area; 1 mm across 1 square metre is 1 litre.\n\nIn a simplified weekly balance, storage change equals rain plus irrigation and run-on, minus runoff, evapotranspiration and deep drainage. Evapotranspiration, abbreviated ET, combines evaporation and plant transpiration. Upward movement from a shallow water table is another possible input; omit it only when that assumption is reasonable.\n\nSuppose rain is 24 mm, runoff 4 mm, ET 18 mm and deep drainage 3 mm, with other terms zero. Storage changes by 24 − 4 − 18 − 3 = −1 mm. A rainy week has slightly depleted the root-zone store. If initial storage was 60 mm above the lower reference, final storage is 59 mm.\n\nA closure error is the mismatch between measured storage change and estimated net flows. It can expose missing run-on, measurement error or an unsuitable boundary. Do not silently assign the difference to ET because it is the least visible term.\n\n**Try it:** Convert 10 mm over one hectare to volume: 0.010 m × 10,000 m² = 100 m³. Then name one reason a single rain gauge might not describe every location in a field. This balance does not itself predict crop stress or yield.",
+        "visual": "Four weekly water depths share one boundary and unit. Subtracting the three outputs from rainfall produces a 1 mm storage decrease.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">Follow the water ledger</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Changes over one week; all entries are equivalent depths over the same area.</text><text x=\"195\" y=\"142\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"end\">Rain</text><rect x=\"210\" y=\"120\" width=\"475\" height=\"30\" rx=\"6\" fill=\"none\" stroke=\"#33445e\"/><rect x=\"210\" y=\"120\" width=\"380.0\" height=\"30\" rx=\"6\" fill=\"#69d9d0\" stroke=\"#69d9d0\"/><text x=\"697\" y=\"142\" fill=\"#69d9d0\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">24 mm</text><text x=\"195\" y=\"195\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"end\">Runoff</text><rect x=\"210\" y=\"173\" width=\"475\" height=\"30\" rx=\"6\" fill=\"none\" stroke=\"#33445e\"/><rect x=\"210\" y=\"173\" width=\"63.333333333333336\" height=\"30\" rx=\"6\" fill=\"#f69caf\" stroke=\"#f69caf\"/><text x=\"697\" y=\"195\" fill=\"#f69caf\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">4 mm</text><text x=\"195\" y=\"248\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"end\">Crop + soil loss</text><rect x=\"210\" y=\"226\" width=\"475\" height=\"30\" rx=\"6\" fill=\"none\" stroke=\"#33445e\"/><rect x=\"210\" y=\"226\" width=\"285.0\" height=\"30\" rx=\"6\" fill=\"#f8bf70\" stroke=\"#f8bf70\"/><text x=\"697\" y=\"248\" fill=\"#f8bf70\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">18 mm</text><text x=\"195\" y=\"301\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"end\">Deep drainage</text><rect x=\"210\" y=\"279\" width=\"475\" height=\"30\" rx=\"6\" fill=\"none\" stroke=\"#33445e\"/><rect x=\"210\" y=\"279\" width=\"47.5\" height=\"30\" rx=\"6\" fill=\"#baa6ff\" stroke=\"#baa6ff\"/><text x=\"697\" y=\"301\" fill=\"#baa6ff\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">3 mm</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">Storage change = 24 − 4 − 18 − 3 = −1 mm. Initial storage still matters.</text></svg>",
+        "questions": [
+          {
+            "q": "Can storage fall during a rainy week?",
+            "hint": "Compare total inputs with all losses.",
+            "answer": "Yes. In the example, 24 mm enters as rain but runoff, ET and drainage total 25 mm, giving a 1 mm decrease."
+          },
+          {
+            "q": "What should you do with an unexplained 8 mm balance mismatch?",
+            "hint": "A residual is evidence, not automatically a named flow.",
+            "answer": "Check measurement uncertainty, boundaries and omitted flows such as run-on or capillary rise before assigning a cause."
+          }
+        ]
+      },
+      {
+        "id": "soil-infiltration",
+        "heading": "Separate entry rate from total capacity",
+        "body": "A dry profile can have room for water and still lose rain as runoff. Rain arrives at a rate; pores admit it at a rate. Available storage is an amount. Comparing an amount in millimetres with a rate in millimetres per hour confuses two different questions.\n\nInfiltration capacity often changes during wetting. Surface crusts, residue, antecedent moisture, macropores and frozen layers can matter. If rainfall intensity exceeds the entry rate, water can first accumulate at the surface. Runoff begins when water can move away and local surface storage is exceeded. Conversely, a fully wet profile can produce runoff even when the surface is not strongly sealed.\n\nFor an intentionally constant-rate example, rain supplies 20 mm/h for 30 minutes while entry is limited to 8 mm/h. Rainfall depth is 10 mm and infiltrated depth is 4 mm. The remaining 6 mm must be surface storage or runoff, assuming no evaporation or run-on during this short interval. It is not automatically 6 mm of runoff.\n\n**Predict:** Would a single quick ring test establish a field-wide storm runoff rate? No. It samples a small location under particular boundary and moisture conditions.\n\n**Try it:** Plan repeated comparisons at an upslope and low-lying location. Record starting wetness, surface condition and timing. Use the same method, and distinguish an observation from an extrapolation to a whole storm.",
+        "visual": "The conceptual entry-rate curve falls below a constant rainfall intensity. The gap supplies ponding or runoff; it does not by itself measure runoff.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">Rain supply can outrun entry</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Illustrative rates; these curves are not a field prediction.</text><line x1=\"90\" y1=\"315\" x2=\"730\" y2=\"315\" stroke=\"#a8b9d0\" stroke-width=\"2\"/><line x1=\"90\" y1=\"315\" x2=\"90\" y2=\"115\" stroke=\"#a8b9d0\" stroke-width=\"2\"/><text x=\"730\" y=\"346\" fill=\"#a8b9d0\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"end\">Time during storm</text><text x=\"90\" y=\"101\" fill=\"#a8b9d0\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Rate (mm/h)</text><path d=\"M 100.00 150.00 L 220.00 230.00 L 360.00 260.00 L 520.00 270.00 L 710.00 270.00\" fill=\"none\" stroke=\"#69d9d0\" stroke-width=\"3\"/><circle cx=\"100\" cy=\"150\" r=\"4\" fill=\"#69d9d0\"/><circle cx=\"220\" cy=\"230\" r=\"4\" fill=\"#69d9d0\"/><circle cx=\"360\" cy=\"260\" r=\"4\" fill=\"#69d9d0\"/><circle cx=\"520\" cy=\"270\" r=\"4\" fill=\"#69d9d0\"/><circle cx=\"710\" cy=\"270\" r=\"4\" fill=\"#69d9d0\"/><line x1=\"100\" y1=\"195\" x2=\"710\" y2=\"195\" stroke=\"#f8bf70\" stroke-width=\"2\"/><text x=\"530\" y=\"182\" fill=\"#f8bf70\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Rain: 20 mm/h</text><text x=\"455\" y=\"298\" fill=\"#69d9d0\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Late entry: 8 mm/h</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">When rain exceeds entry, water may pond or run off; surface storage delays runoff.</text></svg>",
+        "questions": [
+          {
+            "q": "Why is 100 mm of capacity not comparable directly with 20 mm/h of rain?",
+            "hint": "One quantity has a time denominator.",
+            "answer": "Capacity is an amount; rainfall intensity is a rate. You need duration and a model of entry and storage to connect them."
+          },
+          {
+            "q": "Where does the 6 mm that did not infiltrate go in the example?",
+            "hint": "Keep every part of the short-interval budget.",
+            "answer": "It must remain as surface storage or leave as runoff under the stated assumptions. The split needs additional evidence."
+          }
+        ]
+      },
+      {
+        "id": "soil-landscape",
+        "heading": "Explain the hollow before proposing a fix",
+        "body": "A wet depression may receive runoff from an area much larger than its own surface. It may also sit above a low-permeability layer or a shallow water table. The same visible puddle can therefore have different causes and different responses to intervention.\n\nA terrain model describes surface elevation. A watershed boundary describes which upslope surfaces can contribute flow. Neither establishes subsurface permeability. An outlet that is too high can retain water even where the soil admits it readily. A restricted layer may instead perch water above it. Measurements at several depths and times help distinguish these hypotheses.\n\nSlope is elevation change divided by horizontal distance. A 0.30 m fall over 150 m gives 0.002, or 0.2%. This is geometric evidence, not a drainage design. Small survey errors matter when relief is small, and a coordinate file without a vertical reference cannot establish an outlet reliably.\n\n**Predict:** If the hollow stays wet after nearby surfaces dry, does that prove a compacted layer? No. Persistent input, a high outlet and groundwater remain possible explanations.\n\n**Try it:** Make a three-column investigation: surface input and outlet; profile layers and roots; wetness through time. Write an observation that would weaken each hypothesis. Earthworks, outlets and downstream effects require site-specific professional and regulatory review; this lesson develops the evidence, not an installation plan.",
+        "visual": "Both slopes feed a surface hollow. The drawing identifies contributing flow but leaves outlet and subsurface conditions as separate questions.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">A low spot collects more than rain</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">A conceptual cross-section; vertical relief is exaggerated.</text><path d=\"M 70 155 L 250 225 L 420 295 L 570 205 L 730 155\" fill=\"none\" stroke=\"#f8bf70\" stroke-width=\"5\"/><path d=\"M 340 260 L 420 295 L 475 260 Z\" fill=\"#69d9d0\" stroke=\"#69d9d0\" stroke-width=\"2\"/><line x1=\"170\" y1=\"150\" x2=\"300\" y2=\"225\" stroke=\"#69d9d0\" stroke-width=\"3\"/><path d=\"M 291.00 224.79 L 300 225 L 295.31 217.32\" fill=\"none\" stroke=\"#69d9d0\" stroke-width=\"3\"/><line x1=\"650\" y1=\"150\" x2=\"530\" y2=\"225\" stroke=\"#69d9d0\" stroke-width=\"3\"/><path d=\"M 534.41 217.15 L 530 225 L 538.98 224.47\" fill=\"none\" stroke=\"#69d9d0\" stroke-width=\"3\"/><text x=\"80\" y=\"120\" fill=\"#69d9d0\" font-size=\"18\" font-family=\"sans-serif\" text-anchor=\"start\">Upslope input</text><text x=\"530\" y=\"120\" fill=\"#69d9d0\" font-size=\"18\" font-family=\"sans-serif\" text-anchor=\"start\">Upslope input</text><text x=\"260\" y=\"335\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">Outlet level and soil layers control persistence</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">A surface hollow, restricted layer and shallow water table need different evidence.</text></svg>",
+        "questions": [
+          {
+            "q": "Why does a terrain map not prove a compacted layer?",
+            "hint": "What property does elevation actually measure?",
+            "answer": "It describes the surface, not subsurface pore connections or permeability. Profile evidence is required."
+          },
+          {
+            "q": "What slope is a 0.30 m fall over 150 m?",
+            "hint": "Divide before converting to percent.",
+            "answer": "0.30 / 150 = 0.002, or 0.2%. That alone is not a design or proof of an adequate outlet."
+          }
+        ]
+      },
+      {
+        "id": "soil-capstone",
+        "heading": "Capstone: defend a field-water investigation",
+        "body": "Build an investigation memo for a fictional plot. Initial available storage is 45 mm. During one week, rain is 22 mm, runoff 4 mm, ET 25 mm and deep drainage 2 mm. Assume no irrigation, run-on or upward groundwater contribution, and use one fixed root-zone boundary.\n\n**Your task:** Calculate final storage, identify the most consequential missing observation for a wet hollow, and design a comparison that could distinguish surface run-on from a profile restriction. Include the measurement locations, depths, timing and one uncertainty.\n\n**Worked solution:** Net change is 22 − 4 − 25 − 2 = −9 mm; final storage is 45 − 9 = 36 mm. This says nothing by itself about a separate hollow receiving run-on. A useful next step is to record upslope flow after rain alongside depth-specific wetness in and outside the hollow. Frequent surface inflow supports the run-on explanation; water perched above a consistent layer supports a profile restriction. Both mechanisms may occur together.\n\nCompare repeated locations under similar starting conditions. A before-and-after observation alone can be confounded by rainfall and crop-stage differences. Keep a separate record of the budget residual and measurement uncertainty.\n\n**Check your work:** A successful memo has consistent units and boundaries, a closed ledger, competing explanations, a discriminating measurement and a stated limit. It recommends what evidence to collect next rather than prescribing an unmeasured earthwork. Transfer the same reasoning to any system with inputs, storage and outputs.",
+        "visual": "The capstone ledger keeps starting storage separate from weekly flows. The final 36 mm is conditional on the boundary and omitted-flow assumptions.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">Can the proposed budget close?</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Fictional plot: start at 45 mm; no irrigation, run-on or capillary rise.</text><text x=\"195\" y=\"142\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"end\">Initial storage</text><rect x=\"210\" y=\"120\" width=\"475\" height=\"30\" rx=\"6\" fill=\"none\" stroke=\"#33445e\"/><rect x=\"210\" y=\"120\" width=\"427.5\" height=\"30\" rx=\"6\" fill=\"#baa6ff\" stroke=\"#baa6ff\"/><text x=\"697\" y=\"142\" fill=\"#baa6ff\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">45 mm</text><text x=\"195\" y=\"195\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"end\">Rain retained</text><rect x=\"210\" y=\"173\" width=\"475\" height=\"30\" rx=\"6\" fill=\"none\" stroke=\"#33445e\"/><rect x=\"210\" y=\"173\" width=\"171.0\" height=\"30\" rx=\"6\" fill=\"#69d9d0\" stroke=\"#69d9d0\"/><text x=\"697\" y=\"195\" fill=\"#69d9d0\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">18 mm</text><text x=\"195\" y=\"248\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"end\">ET + drainage</text><rect x=\"210\" y=\"226\" width=\"475\" height=\"30\" rx=\"6\" fill=\"none\" stroke=\"#33445e\"/><rect x=\"210\" y=\"226\" width=\"256.5\" height=\"30\" rx=\"6\" fill=\"#f8bf70\" stroke=\"#f8bf70\"/><text x=\"697\" y=\"248\" fill=\"#f8bf70\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">27 mm</text><text x=\"195\" y=\"301\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"end\">Final storage</text><rect x=\"210\" y=\"279\" width=\"475\" height=\"30\" rx=\"6\" fill=\"none\" stroke=\"#33445e\"/><rect x=\"210\" y=\"279\" width=\"342.0\" height=\"30\" rx=\"6\" fill=\"#69d9d0\" stroke=\"#69d9d0\"/><text x=\"697\" y=\"301\" fill=\"#69d9d0\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">36 mm</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">45 + (22 − 4) − 25 − 2 = 36 mm. A changed surface alone does not prove causation.</text></svg>",
+        "questions": [
+          {
+            "q": "What is the final storage in the capstone?",
+            "hint": "Start with 45 mm, then apply net change.",
+            "answer": "45 + 22 − 4 − 25 − 2 = 36 mm under the stated boundary and omitted-flow assumptions."
+          },
+          {
+            "q": "Why might this plot’s budget fail to describe the hollow?",
+            "hint": "Consider water crossing the surface boundary.",
+            "answer": "The hollow may receive run-on or groundwater that the simplified plot balance assumes absent. Its own boundary and flows need measurement."
+          }
+        ]
+      }
+    ]
+  },
+  "quizzes": {
+    "sections": [
+      {
+        "id": "soil-pores",
+        "questions": [
+          {
+            "q": "A 2,000 cm³ sample has 800 cm³ of pores. What is its porosity?",
+            "choices": [
+              "40%",
+              "25%",
+              "60%",
+              "80%"
+            ],
+            "answer": 0,
+            "explain": "800 / 2,000 = 0.40. Both volumes must use the same units."
+          },
+          {
+            "q": "Two samples have equal porosity; one drains much slower. What could explain this?",
+            "choices": [
+              "All pores must contain air",
+              "Smaller or less connected pore pathways",
+              "A different label on the container alone",
+              "Porosity uniquely fixes the drainage rate"
+            ],
+            "answer": 1,
+            "explain": "Total space does not specify the size and connectivity of flow paths."
+          },
+          {
+            "q": "Why can prolonged saturation harm otherwise watered roots?",
+            "choices": [
+              "Every pore becomes larger",
+              "It guarantees optimal root respiration",
+              "It restricts exchange of oxygen in the root zone",
+              "Water changes sand into clay immediately"
+            ],
+            "answer": 2,
+            "explain": "Roots need oxygen as well as water; water-filled pores exchange gases less readily."
+          }
+        ]
+      },
+      {
+        "id": "soil-storage",
+        "questions": [
+          {
+            "q": "A uniform 500 mm profile has field capacity 0.28 and wilting point 0.10. What is its available capacity?",
+            "choices": [
+              "180 mm",
+              "90 mm",
+              "140 mm",
+              "50 mm"
+            ],
+            "answer": 1,
+            "explain": "(0.28 − 0.10) × 500 mm = 90 mm."
+          },
+          {
+            "q": "Which change reduces capacity without changing the water-content references?",
+            "choices": [
+              "Renaming field capacity as saturation",
+              "Reporting the same depth in centimetres",
+              "A root restriction that halves effective depth",
+              "A new map colour"
+            ],
+            "answer": 2,
+            "explain": "Available capacity scales with effective depth; unit conversion alone changes no physical quantity."
+          },
+          {
+            "q": "Why is all water above field capacity not a dependable crop reserve?",
+            "choices": [
+              "It cannot exist in real soil",
+              "It is already included in the wilting point",
+              "It must remain forever",
+              "It may drain or leave the root zone poorly aerated"
+            ],
+            "answer": 3,
+            "explain": "Field capacity is a drained reference. Excess water can be transient and can restrict oxygen."
+          }
+        ]
+      },
+      {
+        "id": "soil-budget",
+        "questions": [
+          {
+            "q": "Rain is 30 mm, runoff 5 mm, ET 20 mm and drainage 2 mm. Other terms are zero. What is storage change?",
+            "choices": [
+              "−3 mm",
+              "+30 mm",
+              "+3 mm",
+              "+7 mm"
+            ],
+            "answer": 2,
+            "explain": "30 − 5 − 20 − 2 = +3 mm. This is a change, not the final store."
+          },
+          {
+            "q": "How much volume is 10 mm of water over one hectare?",
+            "choices": [
+              "10 m³",
+              "1,000 m³",
+              "0.1 m³",
+              "100 m³"
+            ],
+            "answer": 3,
+            "explain": "Depth 0.010 m times area 10,000 m² equals 100 m³."
+          },
+          {
+            "q": "Which comparison can check balance closure?",
+            "choices": [
+              "Measured storage change versus the net estimated flows",
+              "Rain versus the colour of a yield map",
+              "Final storage versus ET alone",
+              "Water content percentages from unequal depths without conversion"
+            ],
+            "answer": 0,
+            "explain": "The net ledger should agree with independently measured storage change within uncertainty."
+          }
+        ]
+      },
+      {
+        "id": "soil-infiltration",
+        "questions": [
+          {
+            "q": "Under the constant rates in the lesson, what infiltrates in 30 minutes at 8 mm/h?",
+            "choices": [
+              "8 mm",
+              "16 mm",
+              "0.25 mm",
+              "4 mm"
+            ],
+            "answer": 3,
+            "explain": "8 mm/h × 0.5 h = 4 mm."
+          },
+          {
+            "q": "Rain exceeds infiltration by 6 mm. Why is runoff not necessarily 6 mm?",
+            "choices": [
+              "Some water may still be stored on the surface",
+              "Runoff is always zero on farms",
+              "Rates cannot be integrated",
+              "Rainfall has no volume"
+            ],
+            "answer": 0,
+            "explain": "The excess partitions into ponding and runoff; the surface-storage change must be known."
+          },
+          {
+            "q": "What makes a comparison of infiltration tests more interpretable?",
+            "choices": [
+              "Ignoring a frozen layer",
+              "Recording initial wetness and repeating a consistent method",
+              "Using a different method at every site",
+              "Choosing only the fastest result"
+            ],
+            "answer": 1,
+            "explain": "Consistent methods and starting conditions help separate location effects from measurement differences."
+          }
+        ]
+      },
+      {
+        "id": "soil-landscape",
+        "questions": [
+          {
+            "q": "Which evidence most directly tests a suspected restricted subsurface layer?",
+            "choices": [
+              "Profile observations and wetness measurements at several depths",
+              "The surface contour colour alone",
+              "A single photograph of a puddle",
+              "Renaming the area a drainage zone"
+            ],
+            "answer": 0,
+            "explain": "Depth-specific observations address the proposed subsurface mechanism."
+          },
+          {
+            "q": "A 0.50 m fall occurs over 200 m. What is slope?",
+            "choices": [
+              "0.0025%",
+              "0.25%",
+              "2.5%",
+              "25%"
+            ],
+            "answer": 1,
+            "explain": "0.50 / 200 × 100 = 0.25%."
+          },
+          {
+            "q": "A hollow dries slowly. What conclusion is justified first?",
+            "choices": [
+              "Any lower ditch will solve it",
+              "The elevation reference cannot matter",
+              "Several input, outlet and subsurface hypotheses remain possible",
+              "Compaction has been proved"
+            ],
+            "answer": 2,
+            "explain": "The visible outcome alone does not identify one cause or establish a suitable intervention."
+          }
+        ]
+      },
+      {
+        "id": "soil-capstone",
+        "questions": [
+          {
+            "q": "What is the capstone’s storage change before adding the initial store?",
+            "choices": [
+              "45 mm",
+              "−9 mm",
+              "+9 mm",
+              "36 mm"
+            ],
+            "answer": 1,
+            "explain": "22 − 4 − 25 − 2 = −9 mm. Adding the initial 45 mm gives 36 mm."
+          },
+          {
+            "q": "Which investigation best distinguishes run-on from a restricted layer?",
+            "choices": [
+              "Compare two unrelated rainstorms without records",
+              "Assume all dark soil is saturated",
+              "Observe incoming surface flow and wetness at several depths over time",
+              "Measure one surface elevation only"
+            ],
+            "answer": 2,
+            "explain": "Surface input and depth-specific wetness address different mechanisms."
+          },
+          {
+            "q": "What strengthens the final memo most?",
+            "choices": [
+              "Removing the budget residual",
+              "Treating the worked numbers as all fields",
+              "Choosing an earthwork before testing the outlet",
+              "Reporting uncertainty and an observation that could refute the preferred cause"
+            ],
+            "answer": 3,
+            "explain": "A testable explanation and clear limits make the recommendation reviewable."
+          }
+        ]
+      }
+    ]
+  },
+  "slides": {
+    "sections": [
+      {
+        "id": "soil-pores",
+        "title": "Start with pores, not just particle names",
+        "bullets": [
+          "Texture: particle proportions",
+          "Structure: aggregates and connected spaces",
+          "Porosity: space fraction, not flow rate"
+        ],
+        "notes": "Compaction, aggregation and surface conditions can change pore connections without changing the sand, silt and clay proportions. No. Porosity is total pore space. Plant-available capacity is the water difference between specified drained and wilting conditions.",
+        "visual": "Water and air occupy pore space between solids. This conceptual section separates total space from the connections that govern flow."
+      },
+      {
+        "id": "soil-storage",
+        "title": "Turn a water fraction into a root-zone depth",
+        "bullets": [
+          "Capacity: drained minus wilting water",
+          "Depth: effective roots define the bucket",
+          "Current storage: a separate measured state"
+        ],
+        "notes": "Each depth increment contributes the same water difference in the uniform model; half the depth contains half the available-water volume per area. (0.20 − 0.12) × 600 mm = 48 mm. The 108 mm capacity is not the current amount.",
+        "visual": "The bars convert two volumetric reference contents into depths over a 600 mm root zone. Their difference is capacity, not necessarily current storage."
+      },
+      {
+        "id": "soil-budget",
+        "title": "Balance inputs, outputs and storage",
+        "bullets": [
+          "Boundary: same area, depth and interval",
+          "Ledger: inputs minus outputs change storage",
+          "Closure: investigate a mismatch"
+        ],
+        "notes": "Yes. In the example, 24 mm enters as rain but runoff, ET and drainage total 25 mm, giving a 1 mm decrease. Check measurement uncertainty, boundaries and omitted flows such as run-on or capillary rise before assigning a cause.",
+        "visual": "Four weekly water depths share one boundary and unit. Subtracting the three outputs from rainfall produces a 1 mm storage decrease."
+      },
+      {
+        "id": "soil-infiltration",
+        "title": "Separate entry rate from total capacity",
+        "bullets": [
+          "Rate: water depth per unit time",
+          "Ponding: can precede runoff",
+          "Sampling: starting conditions change results"
+        ],
+        "notes": "Capacity is an amount; rainfall intensity is a rate. You need duration and a model of entry and storage to connect them. It must remain as surface storage or leave as runoff under the stated assumptions. The split needs additional evidence.",
+        "visual": "The conceptual entry-rate curve falls below a constant rainfall intensity. The gap supplies ponding or runoff; it does not by itself measure runoff."
+      },
+      {
+        "id": "soil-landscape",
+        "title": "Explain the hollow before proposing a fix",
+        "bullets": [
+          "Surface: contributing area and outlet",
+          "Profile: layers and water table",
+          "Slope: elevation difference over distance"
+        ],
+        "notes": "It describes the surface, not subsurface pore connections or permeability. Profile evidence is required. 0.30 / 150 = 0.002, or 0.2%. That alone is not a design or proof of an adequate outlet.",
+        "visual": "Both slopes feed a surface hollow. The drawing identifies contributing flow but leaves outlet and subsurface conditions as separate questions."
+      },
+      {
+        "id": "soil-capstone",
+        "title": "Capstone: defend a field-water investigation",
+        "bullets": [
+          "Compute: final store is 36 mm",
+          "Investigate: distinguish competing causes",
+          "Report: boundary, evidence and limits"
+        ],
+        "notes": "45 + 22 − 4 − 25 − 2 = 36 mm under the stated boundary and omitted-flow assumptions. The hollow may receive run-on or groundwater that the simplified plot balance assumes absent. Its own boundary and flows need measurement.",
+        "visual": "The capstone ledger keeps starting storage separate from weekly flows. The final 36 mm is conditional on the boundary and omitted-flow assumptions."
+      }
+    ]
+  },
+  "enrichment": {
+    "audioTitle": "Soil & Water: Infiltration, Storage & Drainage — reason it through",
+    "turns": [
+      {
+        "speaker": "teacher",
+        "line": "A wet hollow and a dry hill can share the same rain gauge. Trace where the water enters, where it can be stored and what evidence would explain the difference."
+      },
+      {
+        "speaker": "student",
+        "line": "What will I make by the end?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Build a measured field-water investigation with a closed budget"
+      },
+      {
+        "speaker": "student",
+        "line": "Why might equal-texture plots infiltrate differently?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Compaction, aggregation and surface conditions can change pore connections without changing the sand, silt and clay proportions."
+      },
+      {
+        "speaker": "student",
+        "line": "Does 45% porosity mean 45% plant-available water?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "No. Porosity is total pore space. Plant-available capacity is the water difference between specified drained and wilting conditions."
+      },
+      {
+        "speaker": "student",
+        "line": "Why does halving effective root depth halve this model’s capacity?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Each depth increment contributes the same water difference in the uniform model; half the depth contains half the available-water volume per area."
+      },
+      {
+        "speaker": "student",
+        "line": "At content 0.20, what is currently available in the 600 mm profile?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "(0.20 − 0.12) × 600 mm = 48 mm. The 108 mm capacity is not the current amount."
+      },
+      {
+        "speaker": "student",
+        "line": "Can storage fall during a rainy week?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Yes. In the example, 24 mm enters as rain but runoff, ET and drainage total 25 mm, giving a 1 mm decrease."
+      },
+      {
+        "speaker": "student",
+        "line": "What should you do with an unexplained 8 mm balance mismatch?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Check measurement uncertainty, boundaries and omitted flows such as run-on or capillary rise before assigning a cause."
+      },
+      {
+        "speaker": "student",
+        "line": "Why is 100 mm of capacity not comparable directly with 20 mm/h of rain?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Capacity is an amount; rainfall intensity is a rate. You need duration and a model of entry and storage to connect them."
+      },
+      {
+        "speaker": "student",
+        "line": "Where does the 6 mm that did not infiltrate go in the example?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "It must remain as surface storage or leave as runoff under the stated assumptions. The split needs additional evidence."
+      },
+      {
+        "speaker": "student",
+        "line": "Why does a terrain map not prove a compacted layer?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "It describes the surface, not subsurface pore connections or permeability. Profile evidence is required."
+      },
+      {
+        "speaker": "student",
+        "line": "What slope is a 0.30 m fall over 150 m?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "0.30 / 150 = 0.002, or 0.2%. That alone is not a design or proof of an adequate outlet."
+      },
+      {
+        "speaker": "student",
+        "line": "What is the final storage in the capstone?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "45 + 22 − 4 − 25 − 2 = 36 mm under the stated boundary and omitted-flow assumptions."
+      },
+      {
+        "speaker": "student",
+        "line": "Why might this plot’s budget fail to describe the hollow?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "The hollow may receive run-on or groundwater that the simplified plot balance assumes absent. Its own boundary and flows need measurement."
+      }
+    ],
+    "nodes": [
+      {
+        "id": "root",
+        "parent": null,
+        "label": "Soil water and drainage",
+        "note": "A wet hollow and a dry hill can share the same rain gauge. Trace where the water enters, where it can be stored and what evidence would explain the difference."
+      },
+      {
+        "id": "soil-pores",
+        "parent": "root",
+        "label": "Start with pores, not just particle names",
+        "note": "Texture: particle proportions"
+      },
+      {
+        "id": "soil-pores-detail-0",
+        "parent": "soil-pores",
+        "label": "Structure",
+        "note": "Structure: aggregates and connected spaces"
+      },
+      {
+        "id": "soil-pores-detail-1",
+        "parent": "soil-pores",
+        "label": "Porosity",
+        "note": "Porosity: space fraction, not flow rate"
+      },
+      {
+        "id": "soil-storage",
+        "parent": "root",
+        "label": "Turn a water fraction into a root-zone depth",
+        "note": "Capacity: drained minus wilting water"
+      },
+      {
+        "id": "soil-storage-detail-0",
+        "parent": "soil-storage",
+        "label": "Depth",
+        "note": "Depth: effective roots define the bucket"
+      },
+      {
+        "id": "soil-storage-detail-1",
+        "parent": "soil-storage",
+        "label": "Current storage",
+        "note": "Current storage: a separate measured state"
+      },
+      {
+        "id": "soil-budget",
+        "parent": "root",
+        "label": "Balance inputs, outputs and storage",
+        "note": "Boundary: same area, depth and interval"
+      },
+      {
+        "id": "soil-budget-detail-0",
+        "parent": "soil-budget",
+        "label": "Ledger",
+        "note": "Ledger: inputs minus outputs change storage"
+      },
+      {
+        "id": "soil-budget-detail-1",
+        "parent": "soil-budget",
+        "label": "Closure",
+        "note": "Closure: investigate a mismatch"
+      },
+      {
+        "id": "soil-infiltration",
+        "parent": "root",
+        "label": "Separate entry rate from total capacity",
+        "note": "Rate: water depth per unit time"
+      },
+      {
+        "id": "soil-infiltration-detail-0",
+        "parent": "soil-infiltration",
+        "label": "Ponding",
+        "note": "Ponding: can precede runoff"
+      },
+      {
+        "id": "soil-infiltration-detail-1",
+        "parent": "soil-infiltration",
+        "label": "Sampling",
+        "note": "Sampling: starting conditions change results"
+      },
+      {
+        "id": "soil-landscape",
+        "parent": "root",
+        "label": "Explain the hollow before proposing a fix",
+        "note": "Surface: contributing area and outlet"
+      },
+      {
+        "id": "soil-landscape-detail-0",
+        "parent": "soil-landscape",
+        "label": "Profile",
+        "note": "Profile: layers and water table"
+      },
+      {
+        "id": "soil-landscape-detail-1",
+        "parent": "soil-landscape",
+        "label": "Slope",
+        "note": "Slope: elevation difference over distance"
+      },
+      {
+        "id": "soil-capstone",
+        "parent": "root",
+        "label": "Capstone: defend a field-water investigation",
+        "note": "Compute: final store is 36 mm"
+      },
+      {
+        "id": "soil-capstone-detail-0",
+        "parent": "soil-capstone",
+        "label": "Investigate",
+        "note": "Investigate: distinguish competing causes"
+      },
+      {
+        "id": "soil-capstone-detail-1",
+        "parent": "soil-capstone",
+        "label": "Report",
+        "note": "Report: boundary, evidence and limits"
+      }
+    ],
+    "mnemonics": []
+  },
+  "sources": [
+    {
+      "title": "Manitoba Agriculture — Water Use and Moisture Management",
+      "url": "https://www.gov.mb.ca/agriculture/environment/soil-management/soil-management-guide/water-use-and-moisture-management.html"
+    },
+    {
+      "title": "USDA NRCS — Soil Health for Water Quality and Quantity",
+      "url": "https://www.nrcs.usda.gov/conservation-basics/soil/soil-health/soil-health-for-water-quality-and-quantity"
+    },
+    {
+      "title": "USDA NRCS — Soil Health: Infiltration",
+      "url": "https://www.nrcs.usda.gov/sites/default/files/2022-11/Infiltration%20-%20Soil%20Health%20Guide_0.pdf"
+    }
+  ]
+}

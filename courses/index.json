@@ -160,5 +160,65 @@
     "topic": "the Manhattan Project: history and decisions",
     "level": "advanced",
     "file": "courses/manhattan.json"
+  },
+  {
+    "title": "Soil & Water: Infiltration, Storage & Drainage",
+    "topic": "Soil water and drainage",
+    "level": "intermediate",
+    "file": "courses/soil-water-management.json"
+  },
+  {
+    "title": "Hydraulic Systems: Pressure, Flow & Work",
+    "topic": "Hydraulic systems",
+    "level": "intermediate",
+    "file": "courses/hydraulic-systems.json"
+  },
+  {
+    "title": "Feedback Control: From Error to Stable Motion",
+    "topic": "Feedback control and automation",
+    "level": "intermediate",
+    "file": "courses/feedback-control.json"
+  },
+  {
+    "title": "Sensors & Electronics: From Signal to Measurement",
+    "topic": "Sensors and practical electronics",
+    "level": "intermediate",
+    "file": "courses/sensors-electronics.json"
+  },
+  {
+    "title": "Remote Sensing: From Pixels to Field Decisions",
+    "topic": "Remote sensing for agriculture",
+    "level": "intermediate",
+    "file": "courses/remote-sensing-fields.json"
+  },
+  {
+    "title": "Digital Audio: Sampling, Signal Flow & Mixing",
+    "topic": "Digital audio and mixing",
+    "level": "intermediate",
+    "file": "courses/digital-audio-production.json"
+  },
+  {
+    "title": "Spacecraft Systems: Power, Heat, Pointing & Data",
+    "topic": "Spacecraft systems engineering",
+    "level": "intermediate",
+    "file": "courses/spacecraft-systems.json"
+  },
+  {
+    "title": "Everyday Thermodynamics: Heat, Work & Refrigeration",
+    "topic": "Thermodynamics and heat pumps",
+    "level": "intermediate",
+    "file": "courses/everyday-thermodynamics.json"
+  },
+  {
+    "title": "Experiments & Statistics: From Comparison to Evidence",
+    "topic": "Experimental design and statistics",
+    "level": "intermediate",
+    "file": "courses/experiments-statistics.json"
+  },
+  {
+    "title": "Computer Networks: Packets, Names & Trust",
+    "topic": "Computer networks and service diagnosis",
+    "level": "intermediate",
+    "file": "courses/computer-networks.json"
   }
 ]

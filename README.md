@@ -36,8 +36,9 @@ No build step, no dependencies.
 
 ## Included courses
 
-The catalog contains 17 included courses. Ten authored mini-courses join the
-existing Genetics and Simple Machines courses, plus five expanded courses below.
+The catalog contains **37 included courses**, all available without generation
+or an API key. The original twelve courses, five interest courses and ten restored
+October additions are joined by the ten expanded courses described below.
 Each of the ten mini-courses has three reading sections, visual mental models, check-in
 questions, six explained quiz questions, slides with notes, an audio dialogue,
 a mind map and automatically derived flashcards. They open from Library without
@@ -86,6 +87,38 @@ course uses fictional tools and makes no live calls. Source links are available
 in the course and its Markdown export. Editorial and acceptance evidence is in
 [`docs/interest-courses-review.md`](docs/interest-courses-review.md).
 
+### Ten more expanded courses
+
+Each of these courses contains six lessons, twelve reading check-ins, eighteen
+explained scored questions, six captioned SVG illustrations, slides with speaker
+notes, a teacher/student dialogue, a mind map, visual flashcards and a worked
+capstone. Together they add **60 lessons, 120 check-ins, 180 scored questions and
+60 illustrations**. Each has an estimated 65-minute study time including exercises.
+
+| Course | Focus and final exercise |
+| --- | --- |
+| Soil & Water: Infiltration, Storage & Drainage | Pores, root-zone storage, water budgets and landscape evidence; defend a field-water investigation |
+| Hydraulic Systems: Pressure, Flow & Work | Cylinder areas, flow paths, force, speed and power; compare two cylinder choices |
+| Feedback Control: From Error to Stable Motion | Loop sign, response, PID, saturation and sampling; write a simulated acceptance plan |
+| Sensors & Electronics: From Signal to Measurement | Calibration, dividers, ADCs, filtering and output drivers; verify a fictional sensor against a held-out reference |
+| Remote Sensing: From Pixels to Field Decisions | Resolution, reflectance, NDVI, quality flags and ground checks; prepare a matched scouting plan |
+| Digital Audio: Sampling, Signal Flow & Mixing | Sample formats, gain, dynamics, routing and latency; document a repeatable mix and export |
+| Spacecraft Systems: Power, Heat, Pointing & Data | Coupled resource budgets; distinguish an eclipse-energy pass from a sustained-data failure |
+| Everyday Thermodynamics: Heat, Work & Refrigeration | Energy boundaries, heat transfer, engine efficiency and COP; compare an equal heating requirement |
+| Experiments & Statistics: From Comparison to Evidence | Experimental units, blocking, uncertainty and hypothesis tests; report a randomized blocked comparison |
+| Computer Networks: Packets, Names & Trust | DNS, transport, latency, TLS and permissions; diagnose a fictional service incident |
+
+These use paper, simulated or fictional scenarios. Hardware lessons develop
+conceptual reasoning; they do not provide equipment service or installation
+procedures. The audio-production course supplies a written session exercise,
+diagrams and speech narration. Course JSON is the canonical content, including
+primary-source further reading and all worked answers. Review and acceptance
+evidence is recorded in [`docs/course-expansion-review.md`](docs/course-expansion-review.md).
+
+The restored October courses also cover Apollo guidance, ADAPT/ISOXML, harmony,
+North Korean history, sleight-of-hand theory, orbital rendezvous, Canadian
+personal finance, subtractive synthesis, rhythm and the Manhattan Project.
+
 Personal section notes save in this browser. If storage fails, the app shows an
 error and keeps the draft while navigating within the current tab; edit again
 to retry, or copy it before closing/reloading. Notes are separate from course
@@ -94,8 +127,8 @@ and resets when that view is reopened.
 
 ## Visual explanations
 
-All 71 included reading sections have authored SVG illustrations, shared with
-their slides and visual flashcards. The 800 × 400 drawings use consistent labels,
+All 181 included reading sections have authored SVG illustrations, shared with
+their slides and visual flashcards. The new 800 × 400 drawings use consistent labels,
 colour roles and model-limit annotations. They show mechanisms and quantities:
 connected pistons and crank pins, supporting pulley strands, orbit vectors,
 oscillating sound particles, reaction counts and probability denominators.
@@ -118,9 +151,9 @@ brief, but still require human review for subject accuracy and visual quality.
 The authored SVGs and captions are stored in the course JSON and need no API calls.
 To check the drawings and controls
 in Chromium, run `node scripts/visual-acceptance.mjs` against the local server.
-`LEARNWAY_VISUAL_OUTPUT` optionally saves the 71 figure screenshots and a layout
-verdict. Both browser scripts accept `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH` for an
-existing Chromium binary. CI runs both browser suites.
+`LEARNWAY_VISUAL_OUTPUT` optionally saves the 181 figure screenshots and a layout
+verdict. All three browser scripts accept `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH`
+for an existing Chromium binary. CI runs all three browser suites.
 
 ## Files
 

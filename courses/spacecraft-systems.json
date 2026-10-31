@@ -1,0 +1,752 @@
+{
+  "meta": {
+    "title": "Spacecraft Systems: Power, Heat, Pointing & Data",
+    "topic": "Spacecraft systems engineering",
+    "level": "intermediate",
+    "estimatedMinutes": 65,
+    "tags": [
+      "space",
+      "satellites",
+      "systems engineering",
+      "power",
+      "communications"
+    ],
+    "createdAt": "2026-10-31T04:00:00.000Z",
+    "interests": "Agriculture, music, space, practical engineering and evidence-based technology",
+    "depth": "standard",
+    "model": "Learnway authored course"
+  },
+  "plan": {
+    "title": "Spacecraft Systems: Power, Heat, Pointing & Data",
+    "hook": "A camera in orbit is useful only if the spacecraft can power it, point it, survive its heat and return its data. Balance these dependencies with a fictional small-satellite mission.",
+    "objectives": [
+      "Trace payload dependencies across spacecraft subsystems",
+      "Calculate eclipse energy and useful data volume with units",
+      "Distinguish internal heat transfer, external radiation and attitude control",
+      "Write a mission feasibility memo that separates passing and failing budgets"
+    ],
+    "prerequisites": [
+      "Power versus energy and basic multiplication; no spacecraft-design background required"
+    ],
+    "sections": [
+      {
+        "id": "space-mission",
+        "heading": "Start with the mission, then trace dependencies",
+        "points": [
+          "Mission: a useful outcome with measurable conditions",
+          "Platform: resources and support",
+          "Interfaces: contracts between subsystems"
+        ]
+      },
+      {
+        "id": "space-power",
+        "heading": "Size storage for the dark interval",
+        "points": [
+          "Energy: power multiplied by time",
+          "Storage: usable fraction differs from rating",
+          "Feasibility: peak, eclipse and recharge checks"
+        ]
+      },
+      {
+        "id": "space-thermal",
+        "heading": "Vacuum does not eliminate heat-transfer problems",
+        "points": [
+          "Inside: conduction and designed transport",
+          "Outside: radiation dominates heat exchange",
+          "Modes: heating and rejection change together"
+        ]
+      },
+      {
+        "id": "space-attitude",
+        "heading": "Pointing changes orientation, not automatically the orbit",
+        "points": [
+          "Attitude: orientation",
+          "Reaction wheel: internal momentum exchange",
+          "Coupling: pointing affects power and communication"
+        ]
+      },
+      {
+        "id": "space-link",
+        "heading": "Count useful bits during useful contact time",
+        "points": [
+          "Rate: distinguish useful from raw bits",
+          "Volume: useful rate times contact duration",
+          "Sustainability: delivery must cover generation"
+        ]
+      },
+      {
+        "id": "space-capstone",
+        "heading": "Capstone: issue a bounded mission verdict",
+        "points": [
+          "Energy: 6.5 Wh modeled margin",
+          "Data: 2 MB/orbit deficit",
+          "Verdict: separate tested claims and omissions"
+        ]
+      }
+    ]
+  },
+  "reading": {
+    "sections": [
+      {
+        "id": "space-mission",
+        "heading": "Start with the mission, then trace dependencies",
+        "body": "A spacecraft carries a payload that serves the mission and a supporting platform that makes the payload useful. The payload might produce an image, but the mission needs the image to be correctly located, stored and delivered within an agreed time.\n\nRequirements turn the goal into measurable conditions: ground detail, coverage, observation timing, delivery deadline and lifetime. Those conditions create subsystem needs. A narrow camera view can demand precise pointing. Frequent imaging can increase electrical load, storage demand and radio contact requirements.\n\nAn interface is a shared contract between subsystems: voltage range, data format, allowable temperature, mechanical load or timing. A component that works alone can fail at its interface. A larger battery also changes mass and thermal behaviour; it is not a free cure for every power problem.\n\n**Try it:** Trace one image from observation to ground delivery. At each step, name a resource and a failure condition. Use a fictional mission rather than current product specifications. Systems engineering asks whether all necessary conditions can hold together, not whether each isolated component has an impressive maximum.",
+        "visual": "The payload sits among supporting resource systems. The lines represent dependencies, not a complete hardware architecture.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">One payload depends on a whole spacecraft</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">A conceptual resource map; the payload is not the entire mission.</text><rect x=\"295\" y=\"175\" width=\"210\" height=\"95\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"311\" y=\"205\" fill=\"#69d9d0\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Payload</text><text x=\"311\" y=\"237\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Makes observations</text><rect x=\"55\" y=\"110\" width=\"190\" height=\"95\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"71\" y=\"140\" fill=\"#f8bf70\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Power</text><text x=\"71\" y=\"172\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Energy and limits</text><rect x=\"555\" y=\"110\" width=\"190\" height=\"95\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"571\" y=\"140\" fill=\"#f69caf\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Thermal</text><text x=\"571\" y=\"172\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Temperature bounds</text><rect x=\"55\" y=\"245\" width=\"190\" height=\"95\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"71\" y=\"275\" fill=\"#baa6ff\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Pointing</text><text x=\"71\" y=\"307\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Orientation</text><rect x=\"555\" y=\"245\" width=\"190\" height=\"95\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"571\" y=\"275\" fill=\"#69d9d0\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Data + radio</text><text x=\"571\" y=\"307\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Store and deliver</text><line x1=\"250\" y1=\"170\" x2=\"290\" y2=\"200\" stroke=\"#a8b9d0\" stroke-width=\"2\"/><line x1=\"510\" y1=\"200\" x2=\"550\" y2=\"170\" stroke=\"#a8b9d0\" stroke-width=\"2\"/><line x1=\"250\" y1=\"285\" x2=\"290\" y2=\"245\" stroke=\"#a8b9d0\" stroke-width=\"2\"/><line x1=\"510\" y1=\"245\" x2=\"550\" y2=\"285\" stroke=\"#a8b9d0\" stroke-width=\"2\"/><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">Conceptual model; assumptions and units are explained in the lesson.</text></svg>",
+        "questions": [
+          {
+            "q": "Why is a working camera insufficient to establish mission success?",
+            "hint": "Follow the observation beyond capture.",
+            "answer": "The image must also be correctly pointed, stored, powered and returned under the mission’s timing and quality requirements."
+          },
+          {
+            "q": "Why can adding battery capacity create new constraints?",
+            "hint": "A component consumes resources as well as supplying one.",
+            "answer": "Extra battery capacity changes mass, charging demand, thermal behaviour and integration requirements, so the whole system must be reconsidered."
+          }
+        ]
+      },
+      {
+        "id": "space-power",
+        "heading": "Size storage for the dark interval",
+        "body": "Power is an energy-transfer rate; watt-hours measure energy. A 30 W load running for 35 minutes needs 30 × 35 / 60 = 17.5 Wh. Solar generation stops during eclipse in a solar-powered teaching spacecraft, so the battery must cover that interval.\n\nRated battery energy is not always fully usable. Suppose a fictional 40 Wh battery is limited to a 60% usable fraction under the assumed conditions, with conversion losses already included in that usable estimate. Deliverable energy is 24 Wh. The eclipse margin is then 24 − 17.5 = 6.5 Wh. Actual limits depend on temperature, age, discharge rate and conversion efficiency.\n\nThe sunlit interval must supply loads and restore eclipse energy. For a 90-minute cycle with 55 sunlit minutes, a constant 75 W of usable array output provides 68.75 Wh. A constant 30 W load over the full cycle uses 45 Wh. This ideal cycle has a surplus, but peak loads and charging limits remain untested.\n\n**Try it:** Separate three checks: peak power, eclipse energy and cycle recharge. Explain why passing the average-energy check alone establishes neither of the others.",
+        "visual": "The timeline separates generation opportunity from eclipse demand. The durations are a fictional cycle and are not a universal orbit specification.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">Eclipse turns energy storage into a requirement</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Fictional 90-minute cycle: 55 minutes sunlit and 35 minutes eclipsed.</text><rect x=\"90\" y=\"155\" width=\"379\" height=\"65\" rx=\"6\" fill=\"#f8bf70\" stroke=\"#f8bf70\"/><rect x=\"469\" y=\"155\" width=\"241\" height=\"65\" rx=\"6\" fill=\"#33445e\" stroke=\"#a8b9d0\"/><text x=\"280\" y=\"193\" fill=\"#101a2a\" font-size=\"20\" font-family=\"sans-serif\" text-anchor=\"middle\">Sunlit: 55 min</text><text x=\"590\" y=\"193\" fill=\"#e5edf9\" font-size=\"20\" font-family=\"sans-serif\" text-anchor=\"middle\">Eclipse: 35 min</text><text x=\"100\" y=\"270\" fill=\"#f8bf70\" font-size=\"18\" font-family=\"sans-serif\" text-anchor=\"start\">Array generates; loads run</text><text x=\"460\" y=\"270\" fill=\"#69d9d0\" font-size=\"18\" font-family=\"sans-serif\" text-anchor=\"start\">Battery supplies loads</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">Energy = power × duration. Average generation alone does not size eclipse storage.</text></svg>",
+        "questions": [
+          {
+            "q": "How much energy does a 30 W load need for 35 minutes?",
+            "hint": "Convert minutes to hours.",
+            "answer": "30 W × 35 / 60 h = 17.5 Wh."
+          },
+          {
+            "q": "Why does a cycle energy surplus not prove adequate eclipse storage?",
+            "hint": "The generation and demand occur at different times.",
+            "answer": "The battery must deliver enough energy while generation is absent, even if total sunlit generation exceeds whole-cycle demand."
+          }
+        ]
+      },
+      {
+        "id": "space-thermal",
+        "heading": "Vacuum does not eliminate heat-transfer problems",
+        "body": "Spacecraft electronics convert much of their electrical input into heat. Inside solid structures, conduction moves heat along temperature differences. Exposed surfaces exchange thermal radiation. There is no surrounding air in vacuum to provide ordinary ambient-air convection, though internal fluid loops can move heat within a designed system.\n\nA radiator rejects heat by radiation while also receiving energy from its surroundings. Sunlight, reflected planetary light, planetary infrared radiation and internal dissipation can all matter. A surface’s orientation and optical properties affect its balance. A spacecraft can be too cold in one mode and too hot in another.\n\nFor a simple steady energy ledger, electronics dissipate 20 W and absorbed external heating adds 10 W. To hold a constant temperature, net heat rejection must balance 30 W. This bookkeeping does not determine radiator size without surface properties, temperatures, view factors and other heat paths.\n\n**Try it:** Sketch hot and cold operating cases rather than assigning one fixed temperature to space. Explain why shutting down the payload can reduce useful activity while also removing heat that was helping another component stay warm.",
+        "visual": "Internal heat travels by conduction to a rejecting surface and leaves as radiation. The drawing omits many possible internal transport paths.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">Heat travels inside, then radiates away</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Vacuum outside prevents ambient-air convection; internal conduction remains.</text><rect x=\"55\" y=\"135\" width=\"190\" height=\"145\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"71\" y=\"165\" fill=\"#f8bf70\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Electronics</text><text x=\"71\" y=\"197\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Creates waste heat</text><line x1=\"250\" y1=\"200\" x2=\"300\" y2=\"200\" stroke=\"#f8bf70\" stroke-width=\"3\"/><path d=\"M 292.10 204.31 L 300 200 L 292.10 195.69\" fill=\"none\" stroke=\"#f8bf70\" stroke-width=\"3\"/><rect x=\"305\" y=\"135\" width=\"190\" height=\"145\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"321\" y=\"165\" fill=\"#baa6ff\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Structure</text><text x=\"321\" y=\"197\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Conducts heat</text><line x1=\"500\" y1=\"200\" x2=\"550\" y2=\"200\" stroke=\"#baa6ff\" stroke-width=\"3\"/><path d=\"M 542.10 204.31 L 550 200 L 542.10 195.69\" fill=\"none\" stroke=\"#baa6ff\" stroke-width=\"3\"/><rect x=\"555\" y=\"135\" width=\"190\" height=\"145\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"571\" y=\"165\" fill=\"#69d9d0\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Radiator</text><text x=\"571\" y=\"197\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Emits radiation</text><line x1=\"650\" y1=\"130\" x2=\"700\" y2=\"90\" stroke=\"#69d9d0\" stroke-width=\"3\"/><path d=\"M 696.53 98.30 L 700 90 L 691.14 91.56\" fill=\"none\" stroke=\"#69d9d0\" stroke-width=\"3\"/><line x1=\"690\" y1=\"125\" x2=\"740\" y2=\"90\" stroke=\"#69d9d0\" stroke-width=\"3\"/><path d=\"M 736.00 98.06 L 740 90 L 731.06 90.99\" fill=\"none\" stroke=\"#69d9d0\" stroke-width=\"3\"/><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">Sunlight, planetary radiation and internal loads also enter the thermal balance.</text></svg>",
+        "questions": [
+          {
+            "q": "Why does vacuum not make electronics cool automatically?",
+            "hint": "Heat still needs an exit path.",
+            "answer": "Without ambient convection, heat must reach rejecting surfaces through designed paths and leave mainly through radiation."
+          },
+          {
+            "q": "What balances 20 W internal heating plus 10 W absorbed heating at steady state?",
+            "hint": "No stored thermal-energy change is assumed.",
+            "answer": "Net rejection of 30 W balances those inputs. Geometry and surface properties are still needed to determine temperatures and hardware size."
+          }
+        ]
+      },
+      {
+        "id": "space-attitude",
+        "heading": "Pointing changes orientation, not automatically the orbit",
+        "body": "Attitude is orientation. Orbit describes motion of the spacecraft’s centre of mass through space. A camera can rotate away from Earth without changing its orbit significantly; keeping those questions separate avoids confusing pointing with propulsion.\n\nSensors estimate attitude from references such as stars, the Sun, magnetic fields and inertial rates. Actuators change it. A reaction wheel changes spin inside the spacecraft; the body responds in the opposite sense as angular momentum is exchanged. It does not create free linear thrust.\n\nPersistent external torques can build stored wheel momentum until a wheel reaches a limit. Unloading requires an external torque mechanism appropriate to the mission, such as magnetic interaction near Earth or thrusters. Pointing accuracy also depends on disturbances, structural motion, timing and sensor error.\n\n**Try it:** Write two separate requirements: where the satellite travels and how accurately an instrument points during an exposure. Then add a power consequence: turning for a better image can change solar-array illumination or antenna alignment. A pointing solution must work with the rest of the mission.",
+        "visual": "The body and wheel respond in opposite rotational senses. The diagram illustrates angular-momentum exchange and does not imply orbital thrust.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">Orientation is different from orbit</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">A body and an internal wheel exchange angular momentum.</text><rect x=\"285\" y=\"130\" width=\"230\" height=\"165\" rx=\"6\" fill=\"#26394e\" stroke=\"#a8b9d0\"/><circle cx=\"400\" cy=\"212\" r=\"45\" fill=\"#baa6ff\"/><path d=\"M 380 190 Q 440 170 438 230\" fill=\"none\" stroke=\"#69d9d0\" stroke-width=\"4\"/><line x1=\"438\" y1=\"230\" x2=\"425\" y2=\"243\" stroke=\"#69d9d0\" stroke-width=\"3\"/><path d=\"M 427.53 234.36 L 425 243 L 433.64 240.47\" fill=\"none\" stroke=\"#69d9d0\" stroke-width=\"3\"/><path d=\"M 260 150 Q 210 235 270 300\" fill=\"none\" stroke=\"#f8bf70\" stroke-width=\"4\"/><line x1=\"270\" y1=\"300\" x2=\"290\" y2=\"300\" stroke=\"#f8bf70\" stroke-width=\"3\"/><path d=\"M 282.10 304.31 L 290 300 L 282.10 295.69\" fill=\"none\" stroke=\"#f8bf70\" stroke-width=\"3\"/><text x=\"75\" y=\"120\" fill=\"#f8bf70\" font-size=\"20\" font-family=\"sans-serif\" text-anchor=\"start\">Body turns</text><text x=\"540\" y=\"240\" fill=\"#69d9d0\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Wheel changes spin</text><text x=\"300\" y=\"330\" fill=\"#a8b9d0\" font-size=\"18\" font-family=\"sans-serif\" text-anchor=\"start\">No free linear impulse</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">Conceptual model; assumptions and units are explained in the lesson.</text></svg>",
+        "questions": [
+          {
+            "q": "Why does spinning a reaction wheel turn the body?",
+            "hint": "Consider angular momentum exchange.",
+            "answer": "The wheel and body exchange angular momentum, so changing wheel spin produces an opposing body response in the ideal isolated case."
+          },
+          {
+            "q": "Why can wheel momentum need unloading?",
+            "hint": "External torques can accumulate an internal burden.",
+            "answer": "Persistent disturbances can drive a wheel toward its storage or speed limit; an external torque is needed to remove accumulated total momentum."
+          }
+        ]
+      },
+      {
+        "id": "space-link",
+        "heading": "Count useful bits during useful contact time",
+        "body": "A radio’s stated bit rate is not enough to determine delivered science data. Contact duration, ground visibility, pointing, coding, protocol overhead, retransmissions and link margin all affect useful delivery. Specify whether a quoted rate is raw channel rate or useful payload rate.\n\nFor a fictional useful rate of 100 kbit/s over an eight-minute pass, use decimal kilo: 100,000 bit/s × 480 s = 48,000,000 bits. Divide by eight bits per byte to obtain 6,000,000 bytes, or 6 decimal MB. Because the example rate is already useful, do not subtract unspecified overhead again.\n\nIf the payload produces 8 MB each orbit and one such contact returns 6 MB, backlog grows by 2 MB per orbit. More storage delays overflow but does not fix the long-term rate mismatch. Interruptions require additional allowance.\n\n**Try it:** Draw generation and delivery across several cycles. Name a change that reduces production and a change that increases actual delivered volume. A higher raw rate is not automatically a usable improvement if pointing or link quality cannot support it.",
+        "visual": "A useful-rate assumption produces a 6 MB contact volume. Comparing it with 8 MB generated exposes sustained backlog growth.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">Data must fit the actual contact window</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Fictional useful data rate: 100 kbit/s for an eight-minute pass.</text><text x=\"195\" y=\"152\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"end\">Generated/orbit</text><rect x=\"210\" y=\"130\" width=\"475\" height=\"30\" rx=\"6\" fill=\"none\" stroke=\"#33445e\"/><rect x=\"210\" y=\"130\" width=\"380.0\" height=\"30\" rx=\"6\" fill=\"#f8bf70\" stroke=\"#f8bf70\"/><text x=\"697\" y=\"152\" fill=\"#f8bf70\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">8 MB</text><text x=\"195\" y=\"217\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"end\">Delivered/pass</text><rect x=\"210\" y=\"195\" width=\"475\" height=\"30\" rx=\"6\" fill=\"none\" stroke=\"#33445e\"/><rect x=\"210\" y=\"195\" width=\"285.0\" height=\"30\" rx=\"6\" fill=\"#69d9d0\" stroke=\"#69d9d0\"/><text x=\"697\" y=\"217\" fill=\"#69d9d0\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">6 MB</text><text x=\"195\" y=\"282\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"end\">Backlog growth</text><rect x=\"210\" y=\"260\" width=\"475\" height=\"30\" rx=\"6\" fill=\"none\" stroke=\"#33445e\"/><rect x=\"210\" y=\"260\" width=\"95.0\" height=\"30\" rx=\"6\" fill=\"#f69caf\" stroke=\"#f69caf\"/><text x=\"697\" y=\"282\" fill=\"#f69caf\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">2 MB</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">100,000 bit/s × 480 s / 8 = 6,000,000 bytes, assuming the stated useful rate.</text></svg>",
+        "questions": [
+          {
+            "q": "How much useful data crosses 100 kbit/s for eight minutes?",
+            "hint": "Convert minutes to seconds, then bits to bytes.",
+            "answer": "48,000,000 bits, or 6,000,000 bytes = 6 decimal MB under the stated useful-rate assumption."
+          },
+          {
+            "q": "Why does adding storage not solve an 8 MB versus 6 MB cycle mismatch?",
+            "hint": "Compare long-term rates.",
+            "answer": "Backlog grows by 2 MB each cycle. A larger store postpones overflow but does not stop accumulation."
+          }
+        ]
+      },
+      {
+        "id": "space-capstone",
+        "heading": "Capstone: issue a bounded mission verdict",
+        "body": "A fictional satellite has 24 Wh of usable battery energy, a constant 30 W eclipse load and a 35-minute eclipse. It generates 8 MB of useful observations per orbit and has one eight-minute contact at 100 kbit/s useful rate. Assume adequate sunlit recharge for this exercise; no link interruptions are included.\n\n**Your task:** Judge eclipse energy and long-term data balance separately. Quantify both margins, propose one change for the failing budget and identify two omitted conditions that could change the verdict.\n\n**Worked solution:** Eclipse demand is 17.5 Wh, leaving 6.5 Wh of modeled energy margin. Data delivery is 6 MB per orbit, so backlog grows by 2 MB per orbit. The mission passes the stated eclipse check but fails sustained data balance. Reducing observation production below delivered capacity or increasing verified useful contact volume could address the mismatch; merely adding memory does not.\n\n**Check your work:** State assumptions, usable versus rated energy, bits versus bytes and the interval for every comparison. Peak electrical loads, battery aging, temperature, radio outages, pointing conflict and thermal modes remain outside this numerical verdict. A system is feasible only when all binding requirements can be met together.",
+        "visual": "The two panels preserve separate energy and data verdicts. Passing one resource check cannot cancel a failure in another.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">A mission can pass energy and fail data</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Fictional eclipse and communication checks are separate requirements.</text><rect x=\"55\" y=\"120\" width=\"330\" height=\"200\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"71\" y=\"150\" fill=\"#69d9d0\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Eclipse energy</text><text x=\"71\" y=\"182\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Usable battery: 24 Wh</text><text x=\"71\" y=\"209\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Load need: 17.5 Wh</text><text x=\"71\" y=\"236\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Margin: 6.5 Wh</text><text x=\"71\" y=\"263\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Passes this simple budget</text><rect x=\"415\" y=\"120\" width=\"330\" height=\"200\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"431\" y=\"150\" fill=\"#f69caf\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Data per orbit</text><text x=\"431\" y=\"182\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Generated: 8 MB</text><text x=\"431\" y=\"209\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Delivered: 6 MB</text><text x=\"431\" y=\"236\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Growth: 2 MB/orbit</text><text x=\"431\" y=\"263\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Not sustainable as stated</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">Real design also needs uncertainty, degradation, peak loads, link margin and fault cases.</text></svg>",
+        "questions": [
+          {
+            "q": "Can this mission be declared feasible from its battery result alone?",
+            "hint": "There is another binding budget.",
+            "answer": "No. The modeled eclipse energy passes, but the data store grows without bound under the stated generation and delivery pattern."
+          },
+          {
+            "q": "What change fixes a sustained data deficit in principle?",
+            "hint": "Change generation or useful delivery, not just storage.",
+            "answer": "Reduce produced data or increase verified useful delivery enough to cover it with appropriate allowance. Extra storage alone only delays overflow."
+          }
+        ]
+      }
+    ]
+  },
+  "quizzes": {
+    "sections": [
+      {
+        "id": "space-mission",
+        "questions": [
+          {
+            "q": "Which is a measurable mission requirement?",
+            "choices": [
+              "Add the largest possible battery",
+              "Choose a fashionable radio",
+              "Deliver the specified observation within a defined time and quality limit",
+              "Use an impressive camera"
+            ],
+            "answer": 2,
+            "explain": "A requirement describes the useful outcome and an assessable limit."
+          },
+          {
+            "q": "What is an electrical interface contract likely to specify?",
+            "choices": [
+              "Only the mission nickname",
+              "Only the instrument colour",
+              "A guarantee of unlimited power",
+              "Allowed voltage, current and operating conditions"
+            ],
+            "answer": 3,
+            "explain": "Subsystem interfaces need explicit operating bounds that both sides can satisfy."
+          },
+          {
+            "q": "What is the systems-level response to doubling imaging frequency?",
+            "choices": [
+              "Recheck power, storage, pointing, thermal and downlink budgets",
+              "Assume only the camera changes",
+              "Ignore radio contacts",
+              "Declare every resource doubles identically"
+            ],
+            "answer": 0,
+            "explain": "Dependencies can change in different ways; the coupled budgets need reevaluation."
+          }
+        ]
+      },
+      {
+        "id": "space-power",
+        "questions": [
+          {
+            "q": "What usable energy comes from 40 Wh at a stated 60% usable fraction?",
+            "choices": [
+              "40 Wh",
+              "16 Wh",
+              "66.7 Wh",
+              "24 Wh"
+            ],
+            "answer": 3,
+            "explain": "40 × 0.60 = 24 Wh under the stated conditions."
+          },
+          {
+            "q": "A 20 W load runs for 30 minutes. What energy does it need?",
+            "choices": [
+              "10 Wh",
+              "600 Wh",
+              "40 Wh",
+              "0.667 Wh"
+            ],
+            "answer": 0,
+            "explain": "20 W × 0.5 h = 10 Wh."
+          },
+          {
+            "q": "Which can fail despite a positive orbit-average energy balance?",
+            "choices": [
+              "Every subsystem automatically passes",
+              "Peak-load delivery or eclipse storage",
+              "The arithmetic definition of a watt",
+              "The count of minutes in an hour"
+            ],
+            "answer": 1,
+            "explain": "Time-resolved power and storage limits are separate from average energy sufficiency."
+          }
+        ]
+      },
+      {
+        "id": "space-thermal",
+        "questions": [
+          {
+            "q": "What is the steady rejection requirement for 20 W internal and 10 W absorbed external heating in the simple ledger?",
+            "choices": [
+              "30 W",
+              "10 W",
+              "20 W",
+              "200 W"
+            ],
+            "answer": 0,
+            "explain": "At steady state, net rejection balances the 30 W total input."
+          },
+          {
+            "q": "Which heat-transfer mechanism remains available through a solid bracket in vacuum?",
+            "choices": [
+              "None",
+              "Conduction",
+              "Ambient-air convection outside",
+              "Only acoustic transfer"
+            ],
+            "answer": 1,
+            "explain": "Conduction through solids does not require surrounding air."
+          },
+          {
+            "q": "Why assess both hot and cold modes?",
+            "choices": [
+              "Electronics never produce heat",
+              "Radiators only work in sunlight",
+              "Loads, illumination and view geometry change the thermal balance",
+              "Space has one universal operating temperature"
+            ],
+            "answer": 2,
+            "explain": "Different operating and environmental conditions can produce opposite temperature limits."
+          }
+        ]
+      },
+      {
+        "id": "space-attitude",
+        "questions": [
+          {
+            "q": "Which statement distinguishes attitude from orbit?",
+            "choices": [
+              "They are identical quantities",
+              "Attitude is orientation; orbit is centre-of-mass motion",
+              "Attitude is battery charge",
+              "Orbit is only camera direction"
+            ],
+            "answer": 1,
+            "explain": "A spacecraft’s orientation and translational trajectory are different states."
+          },
+          {
+            "q": "What does a reaction wheel primarily exchange with the body?",
+            "choices": [
+              "An unlimited amount of battery energy",
+              "Ground-station bandwidth",
+              "Angular momentum",
+              "Free linear thrust"
+            ],
+            "answer": 2,
+            "explain": "Internal wheel-body momentum exchange controls orientation but does not supply free translation."
+          },
+          {
+            "q": "Why recheck the power budget after a new pointing requirement?",
+            "choices": [
+              "Pointing never affects power",
+              "Every camera has identical sunlight exposure",
+              "The battery capacity changes units",
+              "The orientation may change solar illumination and operating loads"
+            ],
+            "answer": 3,
+            "explain": "Subsystem coupling means a useful pointing mode may alter generation or demand."
+          }
+        ]
+      },
+      {
+        "id": "space-link",
+        "questions": [
+          {
+            "q": "What is 48,000,000 bits in decimal megabytes?",
+            "choices": [
+              "384 MB",
+              "0.6 MB",
+              "6 MB",
+              "48 MB"
+            ],
+            "answer": 2,
+            "explain": "Divide by eight to get bytes, then by one million: 6 MB."
+          },
+          {
+            "q": "Generation is 8 MB and delivery 6 MB per cycle. What backlog accumulates after three cycles from empty?",
+            "choices": [
+              "2 MB",
+              "18 MB",
+              "24 MB",
+              "6 MB"
+            ],
+            "answer": 3,
+            "explain": "Each cycle adds 2 MB; three add 6 MB, ignoring other changes."
+          },
+          {
+            "q": "Why must a raw radio bit rate not automatically be treated as payload delivery rate?",
+            "choices": [
+              "Overhead, visibility and link performance affect useful data",
+              "All bit rates are always identical",
+              "Bytes and bits are interchangeable",
+              "Antenna pointing never matters"
+            ],
+            "answer": 0,
+            "explain": "The complete communication path determines useful delivery, not only the raw modulation rate."
+          }
+        ]
+      },
+      {
+        "id": "space-capstone",
+        "questions": [
+          {
+            "q": "What is the modeled eclipse energy margin?",
+            "choices": [
+              "17.5 Wh",
+              "24 Wh",
+              "−6.5 Wh",
+              "6.5 Wh"
+            ],
+            "answer": 3,
+            "explain": "24 Wh usable minus 17.5 Wh demand leaves 6.5 Wh."
+          },
+          {
+            "q": "Which proposed change does not fix the long-term data mismatch by itself?",
+            "choices": [
+              "A larger memory store with unchanged generation and delivery",
+              "Less observation data",
+              "More verified useful contact volume",
+              "A sustainable compression strategy that reduces produced bytes"
+            ],
+            "answer": 0,
+            "explain": "Storage capacity postpones overflow while the 2 MB/orbit deficit remains."
+          },
+          {
+            "q": "Which verdict matches the evidence?",
+            "choices": [
+              "Radio success proves thermal success",
+              "Eclipse energy passes the stated model; sustained data balance fails",
+              "All mission requirements are certified",
+              "Both budgets fail numerically"
+            ],
+            "answer": 1,
+            "explain": "Each budget has its own result and assumptions; neither substitutes for the rest of the system."
+          }
+        ]
+      }
+    ]
+  },
+  "slides": {
+    "sections": [
+      {
+        "id": "space-mission",
+        "title": "Start with the mission, then trace dependencies",
+        "bullets": [
+          "Mission: a useful outcome with measurable conditions",
+          "Platform: resources and support",
+          "Interfaces: contracts between subsystems"
+        ],
+        "notes": "The image must also be correctly pointed, stored, powered and returned under the mission’s timing and quality requirements. Extra battery capacity changes mass, charging demand, thermal behaviour and integration requirements, so the whole system must be reconsidered.",
+        "visual": "The payload sits among supporting resource systems. The lines represent dependencies, not a complete hardware architecture."
+      },
+      {
+        "id": "space-power",
+        "title": "Size storage for the dark interval",
+        "bullets": [
+          "Energy: power multiplied by time",
+          "Storage: usable fraction differs from rating",
+          "Feasibility: peak, eclipse and recharge checks"
+        ],
+        "notes": "30 W × 35 / 60 h = 17.5 Wh. The battery must deliver enough energy while generation is absent, even if total sunlit generation exceeds whole-cycle demand.",
+        "visual": "The timeline separates generation opportunity from eclipse demand. The durations are a fictional cycle and are not a universal orbit specification."
+      },
+      {
+        "id": "space-thermal",
+        "title": "Vacuum does not eliminate heat-transfer problems",
+        "bullets": [
+          "Inside: conduction and designed transport",
+          "Outside: radiation dominates heat exchange",
+          "Modes: heating and rejection change together"
+        ],
+        "notes": "Without ambient convection, heat must reach rejecting surfaces through designed paths and leave mainly through radiation. Net rejection of 30 W balances those inputs. Geometry and surface properties are still needed to determine temperatures and hardware size.",
+        "visual": "Internal heat travels by conduction to a rejecting surface and leaves as radiation. The drawing omits many possible internal transport paths."
+      },
+      {
+        "id": "space-attitude",
+        "title": "Pointing changes orientation, not automatically the orbit",
+        "bullets": [
+          "Attitude: orientation",
+          "Reaction wheel: internal momentum exchange",
+          "Coupling: pointing affects power and communication"
+        ],
+        "notes": "The wheel and body exchange angular momentum, so changing wheel spin produces an opposing body response in the ideal isolated case. Persistent disturbances can drive a wheel toward its storage or speed limit; an external torque is needed to remove accumulated total momentum.",
+        "visual": "The body and wheel respond in opposite rotational senses. The diagram illustrates angular-momentum exchange and does not imply orbital thrust."
+      },
+      {
+        "id": "space-link",
+        "title": "Count useful bits during useful contact time",
+        "bullets": [
+          "Rate: distinguish useful from raw bits",
+          "Volume: useful rate times contact duration",
+          "Sustainability: delivery must cover generation"
+        ],
+        "notes": "48,000,000 bits, or 6,000,000 bytes = 6 decimal MB under the stated useful-rate assumption. Backlog grows by 2 MB each cycle. A larger store postpones overflow but does not stop accumulation.",
+        "visual": "A useful-rate assumption produces a 6 MB contact volume. Comparing it with 8 MB generated exposes sustained backlog growth."
+      },
+      {
+        "id": "space-capstone",
+        "title": "Capstone: issue a bounded mission verdict",
+        "bullets": [
+          "Energy: 6.5 Wh modeled margin",
+          "Data: 2 MB/orbit deficit",
+          "Verdict: separate tested claims and omissions"
+        ],
+        "notes": "No. The modeled eclipse energy passes, but the data store grows without bound under the stated generation and delivery pattern. Reduce produced data or increase verified useful delivery enough to cover it with appropriate allowance. Extra storage alone only delays overflow.",
+        "visual": "The two panels preserve separate energy and data verdicts. Passing one resource check cannot cancel a failure in another."
+      }
+    ]
+  },
+  "enrichment": {
+    "audioTitle": "Spacecraft Systems: Power, Heat, Pointing & Data — reason it through",
+    "turns": [
+      {
+        "speaker": "teacher",
+        "line": "A camera in orbit is useful only if the spacecraft can power it, point it, survive its heat and return its data. Balance these dependencies with a fictional small-satellite mission."
+      },
+      {
+        "speaker": "student",
+        "line": "What will I make by the end?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Write a mission feasibility memo that separates passing and failing budgets"
+      },
+      {
+        "speaker": "student",
+        "line": "Why is a working camera insufficient to establish mission success?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "The image must also be correctly pointed, stored, powered and returned under the mission’s timing and quality requirements."
+      },
+      {
+        "speaker": "student",
+        "line": "Why can adding battery capacity create new constraints?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Extra battery capacity changes mass, charging demand, thermal behaviour and integration requirements, so the whole system must be reconsidered."
+      },
+      {
+        "speaker": "student",
+        "line": "How much energy does a 30 W load need for 35 minutes?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "30 W × 35 / 60 h = 17.5 Wh."
+      },
+      {
+        "speaker": "student",
+        "line": "Why does a cycle energy surplus not prove adequate eclipse storage?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "The battery must deliver enough energy while generation is absent, even if total sunlit generation exceeds whole-cycle demand."
+      },
+      {
+        "speaker": "student",
+        "line": "Why does vacuum not make electronics cool automatically?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Without ambient convection, heat must reach rejecting surfaces through designed paths and leave mainly through radiation."
+      },
+      {
+        "speaker": "student",
+        "line": "What balances 20 W internal heating plus 10 W absorbed heating at steady state?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Net rejection of 30 W balances those inputs. Geometry and surface properties are still needed to determine temperatures and hardware size."
+      },
+      {
+        "speaker": "student",
+        "line": "Why does spinning a reaction wheel turn the body?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "The wheel and body exchange angular momentum, so changing wheel spin produces an opposing body response in the ideal isolated case."
+      },
+      {
+        "speaker": "student",
+        "line": "Why can wheel momentum need unloading?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Persistent disturbances can drive a wheel toward its storage or speed limit; an external torque is needed to remove accumulated total momentum."
+      },
+      {
+        "speaker": "student",
+        "line": "How much useful data crosses 100 kbit/s for eight minutes?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "48,000,000 bits, or 6,000,000 bytes = 6 decimal MB under the stated useful-rate assumption."
+      },
+      {
+        "speaker": "student",
+        "line": "Why does adding storage not solve an 8 MB versus 6 MB cycle mismatch?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Backlog grows by 2 MB each cycle. A larger store postpones overflow but does not stop accumulation."
+      },
+      {
+        "speaker": "student",
+        "line": "Can this mission be declared feasible from its battery result alone?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "No. The modeled eclipse energy passes, but the data store grows without bound under the stated generation and delivery pattern."
+      },
+      {
+        "speaker": "student",
+        "line": "What change fixes a sustained data deficit in principle?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Reduce produced data or increase verified useful delivery enough to cover it with appropriate allowance. Extra storage alone only delays overflow."
+      }
+    ],
+    "nodes": [
+      {
+        "id": "root",
+        "parent": null,
+        "label": "Spacecraft systems engineering",
+        "note": "A camera in orbit is useful only if the spacecraft can power it, point it, survive its heat and return its data. Balance these dependencies with a fictional small-satellite mission."
+      },
+      {
+        "id": "space-mission",
+        "parent": "root",
+        "label": "Start with the mission, then trace dependencies",
+        "note": "Mission: a useful outcome with measurable conditions"
+      },
+      {
+        "id": "space-mission-detail-0",
+        "parent": "space-mission",
+        "label": "Platform",
+        "note": "Platform: resources and support"
+      },
+      {
+        "id": "space-mission-detail-1",
+        "parent": "space-mission",
+        "label": "Interfaces",
+        "note": "Interfaces: contracts between subsystems"
+      },
+      {
+        "id": "space-power",
+        "parent": "root",
+        "label": "Size storage for the dark interval",
+        "note": "Energy: power multiplied by time"
+      },
+      {
+        "id": "space-power-detail-0",
+        "parent": "space-power",
+        "label": "Storage",
+        "note": "Storage: usable fraction differs from rating"
+      },
+      {
+        "id": "space-power-detail-1",
+        "parent": "space-power",
+        "label": "Feasibility",
+        "note": "Feasibility: peak, eclipse and recharge checks"
+      },
+      {
+        "id": "space-thermal",
+        "parent": "root",
+        "label": "Vacuum does not eliminate heat-transfer problems",
+        "note": "Inside: conduction and designed transport"
+      },
+      {
+        "id": "space-thermal-detail-0",
+        "parent": "space-thermal",
+        "label": "Outside",
+        "note": "Outside: radiation dominates heat exchange"
+      },
+      {
+        "id": "space-thermal-detail-1",
+        "parent": "space-thermal",
+        "label": "Modes",
+        "note": "Modes: heating and rejection change together"
+      },
+      {
+        "id": "space-attitude",
+        "parent": "root",
+        "label": "Pointing changes orientation, not automatically the orbit",
+        "note": "Attitude: orientation"
+      },
+      {
+        "id": "space-attitude-detail-0",
+        "parent": "space-attitude",
+        "label": "Reaction wheel",
+        "note": "Reaction wheel: internal momentum exchange"
+      },
+      {
+        "id": "space-attitude-detail-1",
+        "parent": "space-attitude",
+        "label": "Coupling",
+        "note": "Coupling: pointing affects power and communication"
+      },
+      {
+        "id": "space-link",
+        "parent": "root",
+        "label": "Count useful bits during useful contact time",
+        "note": "Rate: distinguish useful from raw bits"
+      },
+      {
+        "id": "space-link-detail-0",
+        "parent": "space-link",
+        "label": "Volume",
+        "note": "Volume: useful rate times contact duration"
+      },
+      {
+        "id": "space-link-detail-1",
+        "parent": "space-link",
+        "label": "Sustainability",
+        "note": "Sustainability: delivery must cover generation"
+      },
+      {
+        "id": "space-capstone",
+        "parent": "root",
+        "label": "Capstone: issue a bounded mission verdict",
+        "note": "Energy: 6.5 Wh modeled margin"
+      },
+      {
+        "id": "space-capstone-detail-0",
+        "parent": "space-capstone",
+        "label": "Data",
+        "note": "Data: 2 MB/orbit deficit"
+      },
+      {
+        "id": "space-capstone-detail-1",
+        "parent": "space-capstone",
+        "label": "Verdict",
+        "note": "Verdict: separate tested claims and omissions"
+      }
+    ],
+    "mnemonics": []
+  },
+  "sources": [
+    {
+      "title": "NASA — Small Spacecraft Power",
+      "url": "https://www.nasa.gov/smallsat-institute/sst-soa/power-subsystems/"
+    },
+    {
+      "title": "NASA — Small Spacecraft Thermal Control",
+      "url": "https://www.nasa.gov/smallsat-institute/sst-soa/thermal-control/"
+    },
+    {
+      "title": "NASA — Small Spacecraft Communications",
+      "url": "https://www.nasa.gov/smallsat-institute/sst-soa/soa-communications/"
+    }
+  ]
+}
