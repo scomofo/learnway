@@ -5,9 +5,9 @@ import { courseToMarkdown } from '../views.mjs';
 
 const { chromium } = await import(process.env.PLAYWRIGHT_MODULE || 'playwright');
 const catalog = JSON.parse(await readFile(new URL('../courses/index.json', import.meta.url)));
-const names = new Set(['precision-agriculture-rtk', 'music-theory-songwriting', 'hybrid-electric-vehicles', 'life-death-stars', 'ai-agents-workflows']);
+const names = new Set(['precision-agriculture-rtk', 'music-theory-songwriting', 'hybrid-electric-vehicles', 'life-death-stars', 'ai-agents-workflows', 'soil-water-management', 'hydraulic-systems', 'feedback-control', 'sensors-electronics', 'remote-sensing-fields', 'digital-audio-production', 'spacecraft-systems', 'everyday-thermodynamics', 'experiments-statistics', 'computer-networks']);
 const entries = catalog.filter(entry => names.has(entry.file.split('/').pop().replace('.json', '')));
-assert.equal(entries.length, 5);
+assert.equal(entries.length, names.size);
 const browser = await chromium.launch({ headless: true, ...(process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH } : {}) });
 const context = await browser.newContext({ viewport: { width: 1440, height: 1000 }, reducedMotion: 'reduce' });
 const page = await context.newPage();
@@ -82,11 +82,11 @@ try {
     await page.locator('.brand').click();
     await page.getByRole('searchbox', { name: 'Search courses' }).fill('');
   }
-  assert.equal(checkins, 60);
-  assert.equal(questions, 90);
+  assert.equal(checkins, entries.length * 12);
+  assert.equal(questions, entries.length * 18);
   assert.equal(apiRequests, 0);
   assert.deepEqual(errors, []);
-  console.log(`PASS: five authored courses discovered by search; ${checkins} reading reveals; ${questions} correct quiz answers; five wrong-answer/retry paths; five complete Markdown downloads; no API requests or page errors`);
+  console.log(`PASS: ${entries.length} authored courses discovered by search; ${checkins} reading reveals; ${questions} correct quiz answers; ${entries.length} wrong-answer/retry paths; ${entries.length} complete Markdown downloads; no API requests or page errors`);
 } finally {
   await browser.close();
 }

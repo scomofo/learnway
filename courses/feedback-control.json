@@ -1,0 +1,752 @@
+{
+  "meta": {
+    "title": "Feedback Control: From Error to Stable Motion",
+    "topic": "Feedback control and automation",
+    "level": "intermediate",
+    "estimatedMinutes": 65,
+    "tags": [
+      "automation",
+      "feedback",
+      "PID",
+      "control",
+      "sensors"
+    ],
+    "createdAt": "2026-10-31T04:00:00.000Z",
+    "interests": "Agriculture, music, space, practical engineering and evidence-based technology",
+    "depth": "standard",
+    "model": "Learnway authored course"
+  },
+  "plan": {
+    "title": "Feedback Control: From Error to Stable Motion",
+    "hook": "A machine that chases its target can become less accurate when you turn the gain up. Build a loop model, interpret its response and judge the evidence against a requirement.",
+    "objectives": [
+      "Identify setpoint, measurement, controller, process and actuator",
+      "Calculate proportional effort and interpret integral and derivative action",
+      "Explain overshoot, saturation, delay and stale measurements",
+      "Write a simulated control acceptance plan with measurable limits"
+    ],
+    "prerequisites": [
+      "Basic algebra and rate-of-change intuition; no hardware tuning required"
+    ],
+    "sections": [
+      {
+        "id": "control-loop",
+        "heading": "Draw what the controller can actually see",
+        "points": [
+          "Error: target minus measured output",
+          "Feedback: the sensor closes the information path",
+          "Sign: verify which effort reduces the error"
+        ]
+      },
+      {
+        "id": "control-response",
+        "heading": "Read a response as a sequence of tradeoffs",
+        "points": [
+          "Rise: early response speed",
+          "Overshoot: peak beyond the target",
+          "Settling: enter and stay in a stated band"
+        ]
+      },
+      {
+        "id": "control-pid",
+        "heading": "Understand what each controller term contributes",
+        "points": [
+          "P: current error scaled by gain",
+          "I: error accumulated with elapsed time",
+          "D: rate estimate that can amplify noise"
+        ]
+      },
+      {
+        "id": "control-limits",
+        "heading": "Recognize saturation and hidden accumulation",
+        "points": [
+          "Saturation: actual effort hits a limit",
+          "Windup: integral demand can keep growing",
+          "Logging: retain raw and applied effort"
+        ]
+      },
+      {
+        "id": "control-sampling",
+        "heading": "Delay and stale data change the loop",
+        "points": [
+          "Sampling: interval and rate are reciprocals",
+          "Delay: action can use past information",
+          "Freshness: value plus timestamp"
+        ]
+      },
+      {
+        "id": "control-capstone",
+        "heading": "Capstone: write a control acceptance plan",
+        "points": [
+          "Nominal pass: all three limits must hold",
+          "Repeatability: reset physical and controller state",
+          "Robustness: test disturbance, limits and stale data"
+        ]
+      }
+    ]
+  },
+  "reading": {
+    "sections": [
+      {
+        "id": "control-loop",
+        "heading": "Draw what the controller can actually see",
+        "body": "A controller acts on a measurement, not direct access to reality. The setpoint is the desired value. The process is the system being changed. An actuator applies an effort, and a sensor reports an output. Feedback returns that measured output to the decision.\n\nDefine error as setpoint minus measured output. For a position target of 50 cm and measurement of 46 cm, error is +4 cm. A correctly signed negative-feedback loop acts to reduce that error. If positive effort moves the mechanism toward increasing position, positive effort is appropriate here. Reverse the actuator direction without changing the sign convention and the loop can drive away from the target.\n\nAn open-loop command can work under predictable conditions but does not correct itself from the measured result. Closed-loop operation can reject some disturbances, yet still fail if a sensor is biased or the actuator saturates.\n\n**Predict:** A biased sensor reports 50 cm when the true position is 47 cm. Will zero measured error prove correct placement? No. The loop can settle on the wrong physical value.\n\n**Try it:** Draw a virtual tank-level loop. Label the target, level measurement, valve command and incoming disturbance. State which valve action should occur when measured level exceeds the target. Keep this as a paper or simulated exercise.",
+        "visual": "The output returns through a measurement path. The comparator uses target minus measurement; actuator direction must make that feedback corrective.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">The measurement closes the loop</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Negative feedback: compare the target with what the sensor reports.</text><text x=\"45\" y=\"147\" fill=\"#f8bf70\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">Target</text><line x1=\"45\" y1=\"175\" x2=\"135\" y2=\"175\" stroke=\"#f8bf70\" stroke-width=\"3\"/><path d=\"M 127.10 179.31 L 135 175 L 127.10 170.69\" fill=\"none\" stroke=\"#f8bf70\" stroke-width=\"3\"/><circle cx=\"160\" cy=\"175\" r=\"20\" fill=\"#baa6ff\"/><text x=\"160\" y=\"181\" fill=\"#101a2a\" font-size=\"20\" font-family=\"sans-serif\" text-anchor=\"middle\">−</text><line x1=\"185\" y1=\"175\" x2=\"265\" y2=\"175\" stroke=\"#69d9d0\" stroke-width=\"3\"/><path d=\"M 257.10 179.31 L 265 175 L 257.10 170.69\" fill=\"none\" stroke=\"#69d9d0\" stroke-width=\"3\"/><rect x=\"270\" y=\"130\" width=\"165\" height=\"90\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"286\" y=\"160\" fill=\"#69d9d0\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Controller</text><text x=\"286\" y=\"192\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Computes effort</text><line x1=\"440\" y1=\"175\" x2=\"520\" y2=\"175\" stroke=\"#69d9d0\" stroke-width=\"3\"/><path d=\"M 512.10 179.31 L 520 175 L 512.10 170.69\" fill=\"none\" stroke=\"#69d9d0\" stroke-width=\"3\"/><rect x=\"525\" y=\"130\" width=\"200\" height=\"90\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"541\" y=\"160\" fill=\"#69d9d0\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Process</text><text x=\"541\" y=\"192\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Changes output</text><path d=\"M 700 225 L 700 300 L 160 300 L 160 200\" fill=\"none\" stroke=\"#f8bf70\" stroke-width=\"3\"/><text x=\"330\" y=\"287\" fill=\"#f8bf70\" font-size=\"18\" font-family=\"sans-serif\" text-anchor=\"start\">Measured output returns</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">Conceptual model; assumptions and units are explained in the lesson.</text></svg>",
+        "questions": [
+          {
+            "q": "What is error for a 50 cm target and 46 cm measurement?",
+            "hint": "Use target minus measurement.",
+            "answer": "The error is +4 cm. The sign of the required actuator effort depends on which direction positive effort moves the process."
+          },
+          {
+            "q": "Can a loop have zero measured error but wrong physical output?",
+            "hint": "Consider a sensor offset.",
+            "answer": "Yes. Feedback can make the reported value match the setpoint while a biased sensor hides a physical offset."
+          }
+        ]
+      },
+      {
+        "id": "control-response",
+        "heading": "Read a response as a sequence of tradeoffs",
+        "body": "A step test changes the target and records the response over time. Rise time describes how quickly the output crosses specified fractions of the change. Overshoot describes how far the response passes beyond the final target. Settling time measures when it enters and stays within a defined band. Steady-state error describes the final offset under stated conditions.\n\nSpecify the definitions before comparing runs. A fast rise may coexist with excessive overshoot or long settling. A graph without a time axis or tolerance band cannot establish a settling requirement.\n\nFor a simple first-order response with no delay, the time constant is the time to reach about 63% of a step change. If the output moves from 0 toward 10 cm, one time constant corresponds to about 6.3 cm. This is a model property, not a universal rule for oscillating or delayed machinery.\n\n**Predict:** Run A rises in 1 s and settles in 8 s; run B rises in 2 s and settles in 4 s. Which is better? The answer depends on the requirement, including peak excursion and final accuracy.\n\n**Try it:** On a hypothetical 10 cm step, draw a ±0.5 cm settling band. Mark when the curve first enters, leaves and finally stays within it. Only the last entry begins the demonstrated settled interval.",
+        "visual": "Two normalized step responses share the target and time axes. A quick rise and a small peak are different properties.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">Faster is not the only requirement</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Two illustrative responses to the same step; axes are normalized.</text><line x1=\"90\" y1=\"315\" x2=\"730\" y2=\"315\" stroke=\"#a8b9d0\" stroke-width=\"2\"/><line x1=\"90\" y1=\"315\" x2=\"90\" y2=\"115\" stroke=\"#a8b9d0\" stroke-width=\"2\"/><text x=\"730\" y=\"346\" fill=\"#a8b9d0\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"end\">Time</text><text x=\"90\" y=\"101\" fill=\"#a8b9d0\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Output / target</text><line x1=\"90\" y1=\"180\" x2=\"730\" y2=\"180\" stroke=\"#f8bf70\" stroke-width=\"2\"/><text x=\"600\" y=\"163\" fill=\"#f8bf70\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Target = 1</text><path d=\"M 95.00 315.00 L 200.00 230.00 L 300.00 195.00 L 430.00 182.00 L 710.00 180.00\" fill=\"none\" stroke=\"#69d9d0\" stroke-width=\"3\"/><circle cx=\"95\" cy=\"315\" r=\"4\" fill=\"#69d9d0\"/><circle cx=\"200\" cy=\"230\" r=\"4\" fill=\"#69d9d0\"/><circle cx=\"300\" cy=\"195\" r=\"4\" fill=\"#69d9d0\"/><circle cx=\"430\" cy=\"182\" r=\"4\" fill=\"#69d9d0\"/><circle cx=\"710\" cy=\"180\" r=\"4\" fill=\"#69d9d0\"/><path d=\"M 95.00 315.00 L 180.00 230.00 L 250.00 135.00 L 340.00 210.00 L 460.00 165.00 L 580.00 185.00 L 710.00 180.00\" fill=\"none\" stroke=\"#baa6ff\" stroke-width=\"3\"/><circle cx=\"95\" cy=\"315\" r=\"4\" fill=\"#baa6ff\"/><circle cx=\"180\" cy=\"230\" r=\"4\" fill=\"#baa6ff\"/><circle cx=\"250\" cy=\"135\" r=\"4\" fill=\"#baa6ff\"/><circle cx=\"340\" cy=\"210\" r=\"4\" fill=\"#baa6ff\"/><circle cx=\"460\" cy=\"165\" r=\"4\" fill=\"#baa6ff\"/><circle cx=\"580\" cy=\"185\" r=\"4\" fill=\"#baa6ff\"/><circle cx=\"710\" cy=\"180\" r=\"4\" fill=\"#baa6ff\"/><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">Cyan settles smoothly; purple rises faster but overshoots. Compare the full response.</text></svg>",
+        "questions": [
+          {
+            "q": "Why is first entry into a tolerance band not necessarily settling?",
+            "hint": "The output may leave again.",
+            "answer": "Settling requires remaining within the defined band; an oscillating curve can enter it several times before settling."
+          },
+          {
+            "q": "What does 63% after one time constant assume?",
+            "hint": "Name the model.",
+            "answer": "It assumes a simple first-order step response without delay, not every possible closed-loop system."
+          }
+        ]
+      },
+      {
+        "id": "control-pid",
+        "heading": "Understand what each controller term contributes",
+        "body": "Proportional action makes effort depend on current error. If proportional gain is 5 percentage points of command per centimetre, an error of 4 cm requests 20% command before bias terms or limits. Gain carries units; its numerical value cannot be copied meaningfully between unrelated unit conventions.\n\nIntegral action accumulates error over time. For a sampled loop, an error of 2 cm held for 3 s contributes 6 cm·s to the error integral. Integral action can remove persistent offset in suitable stable systems, but accumulated demand can become troublesome when the actuator cannot respond.\n\nDerivative action responds to a rate of change. It can add damping in an appropriate design, yet measurement noise can produce large rapid changes in the derivative estimate. Practical implementations often filter it and may differentiate measurement rather than error to avoid a large kick after a setpoint step.\n\nThe combined controller is called proportional–integral–derivative, or PID. It does not need all three terms. A P or PI controller may satisfy the requirement with fewer complications.\n\n**Try it:** Separate an imaginary controller trace into current-error, accumulated-error and rate contributions. Explain why derivative action estimates a present trend rather than knowing future disturbances. This course interprets models; it does not prescribe gains for real machines.",
+        "visual": "Three parallel terms represent current error, accumulated error and estimated change rate. They contribute to one constrained actuator request.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">Three terms see different aspects of error</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">These are controller contributions, not three independent processes.</text><rect x=\"45\" y=\"125\" width=\"220\" height=\"180\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"61\" y=\"155\" fill=\"#69d9d0\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Proportional</text><text x=\"61\" y=\"187\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Current error</text><text x=\"61\" y=\"214\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Kp × e</text><text x=\"61\" y=\"241\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Offset may remain</text><rect x=\"290\" y=\"125\" width=\"220\" height=\"180\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"306\" y=\"155\" fill=\"#f8bf70\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Integral</text><text x=\"306\" y=\"187\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Accumulated error</text><text x=\"306\" y=\"214\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Ki × Σ(e × Δt)</text><text x=\"306\" y=\"241\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Needs limits</text><rect x=\"535\" y=\"125\" width=\"220\" height=\"180\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"551\" y=\"155\" fill=\"#baa6ff\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Derivative</text><text x=\"551\" y=\"187\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Rate of change</text><text x=\"551\" y=\"214\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Kd × Δe / Δt</text><text x=\"551\" y=\"241\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Noise sensitive</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">A simpler P or PI controller may meet the requirement; derivative is not prophecy.</text></svg>",
+        "questions": [
+          {
+            "q": "At 5 percentage points per cm and 4 cm error, what P effort is requested?",
+            "hint": "Multiply gain by error.",
+            "answer": "The proportional request is 20% command before any bias or saturation."
+          },
+          {
+            "q": "Does integral action guarantee every loop becomes accurate and stable?",
+            "hint": "Consider limits and excessive accumulation.",
+            "answer": "No. It can remove persistent offset in suitable systems, but saturation, windup and poor tuning can cause overshoot or instability."
+          }
+        ]
+      },
+      {
+        "id": "control-limits",
+        "heading": "Recognize saturation and hidden accumulation",
+        "body": "A controller may request more effort than an actuator can deliver. Saturation is this limiting condition: for example, a valve command cannot exceed its available 100%. Clipping a 140% request to 100% is necessary, but it does not by itself solve every consequence.\n\nIf integral error continues accumulating while the actuator is saturated, the internal request can grow far beyond achievable effort. After the target is reached, that stored demand may keep pushing in the old direction until it unwinds. This is integral windup. Anti-windup strategies limit or correct accumulation using information about the actual command or actuator state.\n\nSuppose proportional action requests 80% and the integral term adds 60%. The raw request is 140%, while the actuator receives 100%. A log showing only the raw request hides the actual applied effort; a log showing only output position hides why recovery is slow.\n\n**Predict:** Would doubling all gains necessarily overcome a hard mechanical limit? No. It can increase requests without increasing available motion or power.\n\n**Try it:** Sketch target, output, raw effort and applied effort during a simulated saturation event. Add a disturbance and a recovery interval. Look for the time when error changes sign but accumulated demand still pushes the old way.",
+        "visual": "Requested effort continues upward while applied effort reaches a ceiling. The difference matters to integral-state handling.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">The actuator cannot obey every request</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Requested effort rises past a physical 100% ceiling.</text><line x1=\"90\" y1=\"315\" x2=\"730\" y2=\"315\" stroke=\"#a8b9d0\" stroke-width=\"2\"/><line x1=\"90\" y1=\"315\" x2=\"90\" y2=\"115\" stroke=\"#a8b9d0\" stroke-width=\"2\"/><text x=\"730\" y=\"346\" fill=\"#a8b9d0\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"end\">Time</text><text x=\"90\" y=\"101\" fill=\"#a8b9d0\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Effort (%)</text><path d=\"M 100.00 290.00 L 300.00 225.00 L 500.00 160.00 L 700.00 120.00\" fill=\"none\" stroke=\"#baa6ff\" stroke-width=\"3\"/><circle cx=\"100\" cy=\"290\" r=\"4\" fill=\"#baa6ff\"/><circle cx=\"300\" cy=\"225\" r=\"4\" fill=\"#baa6ff\"/><circle cx=\"500\" cy=\"160\" r=\"4\" fill=\"#baa6ff\"/><circle cx=\"700\" cy=\"120\" r=\"4\" fill=\"#baa6ff\"/><path d=\"M 100.00 290.00 L 300.00 225.00 L 500.00 180.00 L 700.00 180.00\" fill=\"none\" stroke=\"#69d9d0\" stroke-width=\"3\"/><circle cx=\"100\" cy=\"290\" r=\"4\" fill=\"#69d9d0\"/><circle cx=\"300\" cy=\"225\" r=\"4\" fill=\"#69d9d0\"/><circle cx=\"500\" cy=\"180\" r=\"4\" fill=\"#69d9d0\"/><circle cx=\"700\" cy=\"180\" r=\"4\" fill=\"#69d9d0\"/><line x1=\"90\" y1=\"180\" x2=\"730\" y2=\"180\" stroke=\"#f8bf70\" stroke-width=\"2\"/><text x=\"535\" y=\"164\" fill=\"#f8bf70\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">100% limit</text><text x=\"500\" y=\"255\" fill=\"#69d9d0\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">Actual effort clips</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">An integral term that continues growing during saturation can delay recovery.</text></svg>",
+        "questions": [
+          {
+            "q": "A raw 140% request is clipped to 100%. Which value drives the actuator?",
+            "hint": "Separate calculation from application.",
+            "answer": "The applied effort is 100%. The internal raw value may still matter for windup and recovery."
+          },
+          {
+            "q": "Why can the actuator keep pushing after error changes sign?",
+            "hint": "Look at accumulated rather than current error.",
+            "answer": "A large integral contribution can outweigh the new proportional contribution until that accumulation is reduced."
+          }
+        ]
+      },
+      {
+        "id": "control-sampling",
+        "heading": "Delay and stale data change the loop",
+        "body": "A digital controller samples rather than seeing continuously. A sample interval is the time between observations. At a 0.10 s interval, the nominal sampling rate is 10 samples per second. Computation, transport and actuator response can add further delay.\n\nFast sampling does not remove a slow process or a late measurement. A controller that acts on the past can overcorrect because its latest visible value does not yet reflect a previous command. Filters can reduce noise while adding lag. Choosing a sampling and filtering strategy requires the relevant process time scales and measurement characteristics.\n\nEach sample should carry a value, unit and timestamp or equivalent freshness evidence. Repeating the last plausible number after a sensor disconnects can hide the fault. A stale value is not a measured zero, and a missing observation is not proof that the process stopped moving.\n\n**Predict:** A position value remains exactly on target for five seconds after its timestamp stops changing. Is that strong evidence of perfect control? No: the data path may have failed.\n\n**Try it:** Design a simulated stale-data test. Decide how freshness will be detected and what bounded fallback occurs. The appropriate real fallback depends on the machine and hazard analysis; the exercise should state its assumed virtual process and limits.",
+        "visual": "The held sample trail lags the changing output between updates. This schematic shows timing effects rather than a recommended sample rate.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">Fresh samples matter more than extra digits</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Illustrative measurements of the same changing output.</text><line x1=\"90\" y1=\"315\" x2=\"730\" y2=\"315\" stroke=\"#a8b9d0\" stroke-width=\"2\"/><line x1=\"90\" y1=\"315\" x2=\"90\" y2=\"115\" stroke=\"#a8b9d0\" stroke-width=\"2\"/><text x=\"730\" y=\"346\" fill=\"#a8b9d0\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"end\">Time</text><text x=\"90\" y=\"101\" fill=\"#a8b9d0\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Measured output</text><path d=\"M 100.00 280.00 L 220.00 250.00 L 340.00 210.00 L 460.00 180.00 L 580.00 155.00 L 700.00 145.00\" fill=\"none\" stroke=\"#69d9d0\" stroke-width=\"3\"/><circle cx=\"100\" cy=\"280\" r=\"4\" fill=\"#69d9d0\"/><circle cx=\"220\" cy=\"250\" r=\"4\" fill=\"#69d9d0\"/><circle cx=\"340\" cy=\"210\" r=\"4\" fill=\"#69d9d0\"/><circle cx=\"460\" cy=\"180\" r=\"4\" fill=\"#69d9d0\"/><circle cx=\"580\" cy=\"155\" r=\"4\" fill=\"#69d9d0\"/><circle cx=\"700\" cy=\"145\" r=\"4\" fill=\"#69d9d0\"/><path d=\"M 100 280 L 220 280 L 220 250 L 340 250 L 340 210 L 460 210 L 460 180 L 580 180 L 580 155 L 700 155\" fill=\"none\" stroke=\"#f8bf70\" stroke-width=\"3\"/><text x=\"400\" y=\"305\" fill=\"#f8bf70\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">Held between samples</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">A plausible value with an old timestamp can still be unusable for control.</text></svg>",
+        "questions": [
+          {
+            "q": "What rate corresponds to a 0.10 s interval?",
+            "hint": "Take the reciprocal.",
+            "answer": "1 / 0.10 s = 10 samples per second, or 10 Hz."
+          },
+          {
+            "q": "Why is an unchanging on-target value suspicious when timestamps stop?",
+            "hint": "A valid-looking number can be old.",
+            "answer": "The measurement may be stale. Freshness must be verified before treating the displayed value as current process evidence."
+          }
+        ]
+      },
+      {
+        "id": "control-capstone",
+        "heading": "Capstone: write a control acceptance plan",
+        "body": "A virtual positioning task requires overshoot no greater than 5% of the step, settling within ±1 cm by 8 s, and final measured error no greater than 1 cm. Run A shows 12% overshoot, 4 s settling and 0.5 cm final error. Run B shows 3% overshoot, 7 s settling and 0.8 cm final error.\n\n**Your task:** Decide which run satisfies every requirement. Specify what histories must be logged and add a disturbance, saturation and stale-sensor test. Define a reproducible starting condition.\n\n**Worked solution:** A fails because its 12% peak exceeds 5%, despite fast settling and small final error. B meets the three stated nominal limits. Log setpoint, measurement and freshness, raw and applied effort, and any controller state needed to interpret saturation. Start from the same output and controller state so stored integral demand does not silently change the comparison.\n\nNominal success does not demonstrate performance under load variation or sensor bias. Add a bounded virtual load change, a command exceeding the effort limit and a stopped measurement stream; record the defined fallback and recovery rather than only a final screenshot.\n\n**Check your work:** Your plan states units, bands, peak limits, time windows, initial state and a decision for every case. It does not invent a universal real-machine gain or fallback. A failed test should identify the next observation needed, not simply demand a higher gain.",
+        "visual": "The capstone compares complete requirements rather than selecting a run by one attractive number. B passes the nominal case; fault cases remain separate tests.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">Compare requirements against observations</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Fictional simulated runs; measurement and actuator histories are available.</text><rect x=\"55\" y=\"120\" width=\"330\" height=\"200\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"71\" y=\"150\" fill=\"#f69caf\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Run A</text><text x=\"71\" y=\"182\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Overshoot: 12%</text><text x=\"71\" y=\"209\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Settling: 4 s</text><text x=\"71\" y=\"236\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Final error: 0.5 cm</text><text x=\"71\" y=\"263\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Fails the 5% peak limit</text><rect x=\"415\" y=\"120\" width=\"330\" height=\"200\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"431\" y=\"150\" fill=\"#69d9d0\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Run B</text><text x=\"431\" y=\"182\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Overshoot: 3%</text><text x=\"431\" y=\"209\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Settling: 7 s</text><text x=\"431\" y=\"236\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Final error: 0.8 cm</text><text x=\"431\" y=\"263\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Meets the stated limits</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">A pass applies to the tested conditions; test disturbances, limits and stale data too.</text></svg>",
+        "questions": [
+          {
+            "q": "Why does run A fail even with its smaller final error?",
+            "hint": "Every requirement is binding.",
+            "answer": "Its 12% overshoot exceeds the allowed 5%. A small final error does not erase a peak violation."
+          },
+          {
+            "q": "What hidden initial condition could make two tests incomparable?",
+            "hint": "The controller has memory.",
+            "answer": "An uncleared integral state can change the initial effort. Record or reset relevant controller state as well as process position."
+          }
+        ]
+      }
+    ]
+  },
+  "quizzes": {
+    "sections": [
+      {
+        "id": "control-loop",
+        "questions": [
+          {
+            "q": "A 50 cm setpoint has a 53 cm measurement. What is error?",
+            "choices": [
+              "103 cm",
+              "0 cm",
+              "−3 cm",
+              "+3 cm"
+            ],
+            "answer": 2,
+            "explain": "Error is setpoint minus measurement: 50 − 53 = −3 cm."
+          },
+          {
+            "q": "What change can turn corrective feedback into runaway feedback?",
+            "choices": [
+              "Adding units to a graph",
+              "Recording the sensor timestamp",
+              "Reducing display decimals",
+              "Reversing actuator direction without updating the sign convention"
+            ],
+            "answer": 3,
+            "explain": "The commanded action must reduce error; a direction reversal can make it increase error."
+          },
+          {
+            "q": "Which measurement tests physical accuracy beyond zero reported error?",
+            "choices": [
+              "An independent reference measurement of the actual output",
+              "The same sensor reading shown twice",
+              "A larger font for the setpoint",
+              "The controller’s enabled light"
+            ],
+            "answer": 0,
+            "explain": "An independent reference can expose sensor bias that the loop cannot see."
+          }
+        ]
+      },
+      {
+        "id": "control-response",
+        "questions": [
+          {
+            "q": "For the stated first-order model and a 10 cm step, what change occurs after one time constant?",
+            "choices": [
+              "Exactly 10 cm",
+              "About 0.63 cm",
+              "A guaranteed 12 cm",
+              "About 6.3 cm"
+            ],
+            "answer": 3,
+            "explain": "The model reaches about 63% of the step after one time constant."
+          },
+          {
+            "q": "A response reaches 11 cm after a step from 0 to 10 cm. What is overshoot relative to step size?",
+            "choices": [
+              "10%",
+              "1%",
+              "110%",
+              "0%"
+            ],
+            "answer": 0,
+            "explain": "The excess is 1 cm over a 10 cm step, so 1 / 10 × 100 = 10%."
+          },
+          {
+            "q": "What evidence establishes a 5 s settling requirement?",
+            "choices": [
+              "The average output alone",
+              "A timed response that stays within the defined band after 5 s",
+              "The first point that touches the target",
+              "A fast rise with no later record"
+            ],
+            "answer": 1,
+            "explain": "Settling concerns the entire subsequent response within a specified tolerance band."
+          }
+        ]
+      },
+      {
+        "id": "control-pid",
+        "questions": [
+          {
+            "q": "With gain 4 percentage points/cm and error 3 cm, what is proportional request?",
+            "choices": [
+              "12%",
+              "0.75%",
+              "7%",
+              "120%"
+            ],
+            "answer": 0,
+            "explain": "4 percentage points/cm × 3 cm = 12 percentage points of command."
+          },
+          {
+            "q": "A constant 2 cm error lasts 3 s. What is its error integral contribution?",
+            "choices": [
+              "6 cm/s",
+              "6 cm·s",
+              "0.67 cm/s",
+              "5 cm"
+            ],
+            "answer": 1,
+            "explain": "Integral accumulates error times elapsed time: 2 × 3 = 6 cm·s."
+          },
+          {
+            "q": "Why can derivative action respond strongly to noisy measurements?",
+            "choices": [
+              "It removes the need for a sensor",
+              "It responds only to average error",
+              "Small fast changes create large rate estimates",
+              "It sees future disturbances exactly"
+            ],
+            "answer": 2,
+            "explain": "Differentiation emphasizes rapid changes, including noise; practical designs consider filtering and sampling."
+          }
+        ]
+      },
+      {
+        "id": "control-limits",
+        "questions": [
+          {
+            "q": "P requests 80% and I requests 60%; the limit is 100%. What command is applied?",
+            "choices": [
+              "20%",
+              "100%",
+              "140%",
+              "60%"
+            ],
+            "answer": 1,
+            "explain": "The raw sum is 140%, but saturation limits the applied command to 100%."
+          },
+          {
+            "q": "What specifically distinguishes windup from ordinary output limiting?",
+            "choices": [
+              "The graph uses percentages",
+              "A sensor has a serial number",
+              "An integral state keeps accumulating during limited action",
+              "The actuator has a maximum rating"
+            ],
+            "answer": 2,
+            "explain": "Windup concerns accumulated controller state; saturation alone is the instantaneous output limit."
+          },
+          {
+            "q": "What record best supports diagnosing slow recovery from saturation?",
+            "choices": [
+              "Only the final target",
+              "Only a screenshot of the enabled button",
+              "A gain value without units",
+              "Time-aligned error, integral state, raw effort and applied effort"
+            ],
+            "answer": 3,
+            "explain": "These histories connect the changing error, stored demand and actual actuator action."
+          }
+        ]
+      },
+      {
+        "id": "control-sampling",
+        "questions": [
+          {
+            "q": "What is the sample rate for a 0.05 s interval?",
+            "choices": [
+              "0.05 Hz",
+              "50 Hz",
+              "20 Hz",
+              "5 Hz"
+            ],
+            "answer": 2,
+            "explain": "Sample rate = 1 / interval = 1 / 0.05 = 20 Hz."
+          },
+          {
+            "q": "Why can filtering destabilize an otherwise acceptable loop if ignored in design?",
+            "choices": [
+              "It always removes all noise instantly",
+              "It changes metres into seconds",
+              "It guarantees zero phase delay",
+              "Its added lag changes when corrective action responds"
+            ],
+            "answer": 3,
+            "explain": "Filtering can add delay and phase lag; the loop must be assessed with the actual measurement path."
+          },
+          {
+            "q": "Which test reveals a hidden repeated-last-value failure?",
+            "choices": [
+              "Stop new sample delivery and inspect timestamps plus fallback behaviour",
+              "Change the display theme",
+              "Repeat the same final-value screenshot",
+              "Increase shown decimal places"
+            ],
+            "answer": 0,
+            "explain": "An intentional stale-data test checks whether the loop distinguishes an old plausible value from a fresh observation."
+          }
+        ]
+      },
+      {
+        "id": "control-capstone",
+        "questions": [
+          {
+            "q": "Which nominal run meets all three stated requirements?",
+            "choices": [
+              "Run A",
+              "Both",
+              "Neither because final error must always be zero",
+              "Run B"
+            ],
+            "answer": 3,
+            "explain": "B has 3% overshoot, 7 s settling and 0.8 cm final error, all within the specified limits."
+          },
+          {
+            "q": "What additional test addresses data freshness?",
+            "choices": [
+              "Stop new sensor samples and verify the defined response",
+              "Only increase the target",
+              "Only inspect actuator colour",
+              "Repeat a screenshot while hiding timestamps"
+            ],
+            "answer": 0,
+            "explain": "A stopped sample stream directly tests stale-data detection and fallback."
+          },
+          {
+            "q": "What is the strongest acceptance statement?",
+            "choices": [
+              "Every controller should use B’s gains",
+              "B passed the stated nominal limits under recorded starting conditions",
+              "B can never become unstable",
+              "A is always preferable because it rises faster"
+            ],
+            "answer": 1,
+            "explain": "The evidence supports the specified conditions. Further disturbance and fault tests establish their own bounded claims."
+          }
+        ]
+      }
+    ]
+  },
+  "slides": {
+    "sections": [
+      {
+        "id": "control-loop",
+        "title": "Draw what the controller can actually see",
+        "bullets": [
+          "Error: target minus measured output",
+          "Feedback: the sensor closes the information path",
+          "Sign: verify which effort reduces the error"
+        ],
+        "notes": "The error is +4 cm. The sign of the required actuator effort depends on which direction positive effort moves the process. Yes. Feedback can make the reported value match the setpoint while a biased sensor hides a physical offset.",
+        "visual": "The output returns through a measurement path. The comparator uses target minus measurement; actuator direction must make that feedback corrective."
+      },
+      {
+        "id": "control-response",
+        "title": "Read a response as a sequence of tradeoffs",
+        "bullets": [
+          "Rise: early response speed",
+          "Overshoot: peak beyond the target",
+          "Settling: enter and stay in a stated band"
+        ],
+        "notes": "Settling requires remaining within the defined band; an oscillating curve can enter it several times before settling. It assumes a simple first-order step response without delay, not every possible closed-loop system.",
+        "visual": "Two normalized step responses share the target and time axes. A quick rise and a small peak are different properties."
+      },
+      {
+        "id": "control-pid",
+        "title": "Understand what each controller term contributes",
+        "bullets": [
+          "P: current error scaled by gain",
+          "I: error accumulated with elapsed time",
+          "D: rate estimate that can amplify noise"
+        ],
+        "notes": "The proportional request is 20% command before any bias or saturation. No. It can remove persistent offset in suitable systems, but saturation, windup and poor tuning can cause overshoot or instability.",
+        "visual": "Three parallel terms represent current error, accumulated error and estimated change rate. They contribute to one constrained actuator request."
+      },
+      {
+        "id": "control-limits",
+        "title": "Recognize saturation and hidden accumulation",
+        "bullets": [
+          "Saturation: actual effort hits a limit",
+          "Windup: integral demand can keep growing",
+          "Logging: retain raw and applied effort"
+        ],
+        "notes": "The applied effort is 100%. The internal raw value may still matter for windup and recovery. A large integral contribution can outweigh the new proportional contribution until that accumulation is reduced.",
+        "visual": "Requested effort continues upward while applied effort reaches a ceiling. The difference matters to integral-state handling."
+      },
+      {
+        "id": "control-sampling",
+        "title": "Delay and stale data change the loop",
+        "bullets": [
+          "Sampling: interval and rate are reciprocals",
+          "Delay: action can use past information",
+          "Freshness: value plus timestamp"
+        ],
+        "notes": "1 / 0.10 s = 10 samples per second, or 10 Hz. The measurement may be stale. Freshness must be verified before treating the displayed value as current process evidence.",
+        "visual": "The held sample trail lags the changing output between updates. This schematic shows timing effects rather than a recommended sample rate."
+      },
+      {
+        "id": "control-capstone",
+        "title": "Capstone: write a control acceptance plan",
+        "bullets": [
+          "Nominal pass: all three limits must hold",
+          "Repeatability: reset physical and controller state",
+          "Robustness: test disturbance, limits and stale data"
+        ],
+        "notes": "Its 12% overshoot exceeds the allowed 5%. A small final error does not erase a peak violation. An uncleared integral state can change the initial effort. Record or reset relevant controller state as well as process position.",
+        "visual": "The capstone compares complete requirements rather than selecting a run by one attractive number. B passes the nominal case; fault cases remain separate tests."
+      }
+    ]
+  },
+  "enrichment": {
+    "audioTitle": "Feedback Control: From Error to Stable Motion — reason it through",
+    "turns": [
+      {
+        "speaker": "teacher",
+        "line": "A machine that chases its target can become less accurate when you turn the gain up. Build a loop model, interpret its response and judge the evidence against a requirement."
+      },
+      {
+        "speaker": "student",
+        "line": "What will I make by the end?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Write a simulated control acceptance plan with measurable limits"
+      },
+      {
+        "speaker": "student",
+        "line": "What is error for a 50 cm target and 46 cm measurement?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "The error is +4 cm. The sign of the required actuator effort depends on which direction positive effort moves the process."
+      },
+      {
+        "speaker": "student",
+        "line": "Can a loop have zero measured error but wrong physical output?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Yes. Feedback can make the reported value match the setpoint while a biased sensor hides a physical offset."
+      },
+      {
+        "speaker": "student",
+        "line": "Why is first entry into a tolerance band not necessarily settling?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Settling requires remaining within the defined band; an oscillating curve can enter it several times before settling."
+      },
+      {
+        "speaker": "student",
+        "line": "What does 63% after one time constant assume?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "It assumes a simple first-order step response without delay, not every possible closed-loop system."
+      },
+      {
+        "speaker": "student",
+        "line": "At 5 percentage points per cm and 4 cm error, what P effort is requested?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "The proportional request is 20% command before any bias or saturation."
+      },
+      {
+        "speaker": "student",
+        "line": "Does integral action guarantee every loop becomes accurate and stable?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "No. It can remove persistent offset in suitable systems, but saturation, windup and poor tuning can cause overshoot or instability."
+      },
+      {
+        "speaker": "student",
+        "line": "A raw 140% request is clipped to 100%. Which value drives the actuator?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "The applied effort is 100%. The internal raw value may still matter for windup and recovery."
+      },
+      {
+        "speaker": "student",
+        "line": "Why can the actuator keep pushing after error changes sign?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "A large integral contribution can outweigh the new proportional contribution until that accumulation is reduced."
+      },
+      {
+        "speaker": "student",
+        "line": "What rate corresponds to a 0.10 s interval?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "1 / 0.10 s = 10 samples per second, or 10 Hz."
+      },
+      {
+        "speaker": "student",
+        "line": "Why is an unchanging on-target value suspicious when timestamps stop?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "The measurement may be stale. Freshness must be verified before treating the displayed value as current process evidence."
+      },
+      {
+        "speaker": "student",
+        "line": "Why does run A fail even with its smaller final error?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Its 12% overshoot exceeds the allowed 5%. A small final error does not erase a peak violation."
+      },
+      {
+        "speaker": "student",
+        "line": "What hidden initial condition could make two tests incomparable?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "An uncleared integral state can change the initial effort. Record or reset relevant controller state as well as process position."
+      }
+    ],
+    "nodes": [
+      {
+        "id": "root",
+        "parent": null,
+        "label": "Feedback control and automation",
+        "note": "A machine that chases its target can become less accurate when you turn the gain up. Build a loop model, interpret its response and judge the evidence against a requirement."
+      },
+      {
+        "id": "control-loop",
+        "parent": "root",
+        "label": "Draw what the controller can actually see",
+        "note": "Error: target minus measured output"
+      },
+      {
+        "id": "control-loop-detail-0",
+        "parent": "control-loop",
+        "label": "Feedback",
+        "note": "Feedback: the sensor closes the information path"
+      },
+      {
+        "id": "control-loop-detail-1",
+        "parent": "control-loop",
+        "label": "Sign",
+        "note": "Sign: verify which effort reduces the error"
+      },
+      {
+        "id": "control-response",
+        "parent": "root",
+        "label": "Read a response as a sequence of tradeoffs",
+        "note": "Rise: early response speed"
+      },
+      {
+        "id": "control-response-detail-0",
+        "parent": "control-response",
+        "label": "Overshoot",
+        "note": "Overshoot: peak beyond the target"
+      },
+      {
+        "id": "control-response-detail-1",
+        "parent": "control-response",
+        "label": "Settling",
+        "note": "Settling: enter and stay in a stated band"
+      },
+      {
+        "id": "control-pid",
+        "parent": "root",
+        "label": "Understand what each controller term contributes",
+        "note": "P: current error scaled by gain"
+      },
+      {
+        "id": "control-pid-detail-0",
+        "parent": "control-pid",
+        "label": "I",
+        "note": "I: error accumulated with elapsed time"
+      },
+      {
+        "id": "control-pid-detail-1",
+        "parent": "control-pid",
+        "label": "D",
+        "note": "D: rate estimate that can amplify noise"
+      },
+      {
+        "id": "control-limits",
+        "parent": "root",
+        "label": "Recognize saturation and hidden accumulation",
+        "note": "Saturation: actual effort hits a limit"
+      },
+      {
+        "id": "control-limits-detail-0",
+        "parent": "control-limits",
+        "label": "Windup",
+        "note": "Windup: integral demand can keep growing"
+      },
+      {
+        "id": "control-limits-detail-1",
+        "parent": "control-limits",
+        "label": "Logging",
+        "note": "Logging: retain raw and applied effort"
+      },
+      {
+        "id": "control-sampling",
+        "parent": "root",
+        "label": "Delay and stale data change the loop",
+        "note": "Sampling: interval and rate are reciprocals"
+      },
+      {
+        "id": "control-sampling-detail-0",
+        "parent": "control-sampling",
+        "label": "Delay",
+        "note": "Delay: action can use past information"
+      },
+      {
+        "id": "control-sampling-detail-1",
+        "parent": "control-sampling",
+        "label": "Freshness",
+        "note": "Freshness: value plus timestamp"
+      },
+      {
+        "id": "control-capstone",
+        "parent": "root",
+        "label": "Capstone: write a control acceptance plan",
+        "note": "Nominal pass: all three limits must hold"
+      },
+      {
+        "id": "control-capstone-detail-0",
+        "parent": "control-capstone",
+        "label": "Repeatability",
+        "note": "Repeatability: reset physical and controller state"
+      },
+      {
+        "id": "control-capstone-detail-1",
+        "parent": "control-capstone",
+        "label": "Robustness",
+        "note": "Robustness: test disturbance, limits and stale data"
+      }
+    ],
+    "mnemonics": []
+  },
+  "sources": [
+    {
+      "title": "WPILib — Introduction to PID",
+      "url": "https://docs.wpilib.org/en/stable/docs/software/advanced-controls/introduction/introduction-to-pid.html"
+    },
+    {
+      "title": "WPILib — PID Control in WPILib",
+      "url": "https://docs.wpilib.org/en/stable/docs/software/advanced-controls/controllers/pidcontroller.html"
+    },
+    {
+      "title": "University of Michigan — PID Controller Design",
+      "url": "https://ctms.engin.umich.edu/CTMS/index.php?example=Introduction&section=ControlPID"
+    }
+  ]
+}

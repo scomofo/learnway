@@ -1,0 +1,752 @@
+{
+  "meta": {
+    "title": "Experiments & Statistics: From Comparison to Evidence",
+    "topic": "Experimental design and statistics",
+    "level": "intermediate",
+    "estimatedMinutes": 65,
+    "tags": [
+      "statistics",
+      "experiments",
+      "evidence",
+      "field trials",
+      "data literacy"
+    ],
+    "createdAt": "2026-10-31T04:00:00.000Z",
+    "interests": "Agriculture, music, space, practical engineering and evidence-based technology",
+    "depth": "standard",
+    "model": "Learnway authored course"
+  },
+  "plan": {
+    "title": "Experiments & Statistics: From Comparison to Evidence",
+    "hook": "Hundreds of map pixels can still represent only one treatment trial. Learn what counts as evidence, design a fair comparison and report the effect without overstating certainty.",
+    "objectives": [
+      "Distinguish a population, sample, experimental unit and subsample",
+      "Design randomization and blocking around a concrete comparison",
+      "Calculate paired effects and an explicitly modeled uncertainty interval",
+      "Write a trial memo with effect, independent replication and limits"
+    ],
+    "prerequisites": [
+      "Means, percentages and square roots; Everyday Probability is a useful precursor"
+    ],
+    "sections": [
+      {
+        "id": "stats-summary",
+        "heading": "Keep the question, population and observations together",
+        "points": [
+          "Population: the target of inference",
+          "Sample: the observed subset",
+          "Summary: retain spread and units"
+        ]
+      },
+      {
+        "id": "stats-units",
+        "heading": "Count independent assignments, not just readings",
+        "points": [
+          "Experimental unit: independent treatment assignment",
+          "Subsample: repeated evidence within a unit",
+          "Pseudoreplication: claiming false independence"
+        ]
+      },
+      {
+        "id": "stats-design",
+        "heading": "Use randomization and blocking for different jobs",
+        "points": [
+          "Randomization: chance assignment",
+          "Blocking: group known nuisance conditions",
+          "Replication: independent comparisons"
+        ]
+      },
+      {
+        "id": "stats-uncertainty",
+        "heading": "An interval describes a method and its assumptions",
+        "points": [
+          "Standard error: sampling variation of the mean",
+          "Coverage: a repeated-procedure property",
+          "Limits: independence and bias matter"
+        ]
+      },
+      {
+        "id": "stats-testing",
+        "heading": "Separate a small p-value from a useful effect",
+        "points": [
+          "p-value: conditional on a stated model",
+          "Effect size: magnitude relevant to the decision",
+          "Multiplicity: many searches change interpretation"
+        ]
+      },
+      {
+        "id": "stats-capstone",
+        "heading": "Capstone: report a blocked comparison honestly",
+        "points": [
+          "Effect: paired mean difference is 2.5 units",
+          "Replication: four block comparisons",
+          "Claim: bounded by design, uncertainty and setting"
+        ]
+      }
+    ]
+  },
+  "reading": {
+    "sections": [
+      {
+        "id": "stats-summary",
+        "heading": "Keep the question, population and observations together",
+        "body": "A statistical summary is useful only relative to a question. The population is the set you want to learn about; the sample is what you observed. A sample from one convenient location may precisely describe that location while poorly representing the wider target.\n\nThe mean is the sum divided by observation count. The median is the middle ordered value, or the mean of the two middle values for an even count. Both groups 8, 9, 10, 11, 12 and 0, 5, 10, 15, 20 have mean 10, but their spread differs greatly. One centre value cannot describe all relevant variation.\n\nFor 10, 11, 12, 13 and 54, the mean is 20 and the median 12. The high observation strongly moves the mean. Do not delete it automatically: first ask whether it is a valid extreme, a unit error or a recording failure.\n\n**Try it:** Define a target population and how a convenience sample could miss part of it. Plot the raw values before choosing a summary. State units, collection method and missing-data handling along with the centre.",
+        "visual": "The two groups share the same centre but differ in spread. The individual points prevent the mean from hiding that distinction.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">One mean can hide very different observations</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Two fictional groups both have mean 10; individual values remain visible.</text><line x1=\"100\" y1=\"190\" x2=\"700\" y2=\"190\" stroke=\"#a8b9d0\" stroke-width=\"2\"/><line x1=\"100\" y1=\"285\" x2=\"700\" y2=\"285\" stroke=\"#a8b9d0\" stroke-width=\"2\"/><circle cx=\"324\" cy=\"190\" r=\"8\" fill=\"#69d9d0\"/><circle cx=\"352\" cy=\"190\" r=\"8\" fill=\"#69d9d0\"/><circle cx=\"380\" cy=\"190\" r=\"8\" fill=\"#69d9d0\"/><circle cx=\"408\" cy=\"190\" r=\"8\" fill=\"#69d9d0\"/><circle cx=\"436\" cy=\"190\" r=\"8\" fill=\"#69d9d0\"/><circle cx=\"100\" cy=\"285\" r=\"8\" fill=\"#f8bf70\"/><circle cx=\"240\" cy=\"285\" r=\"8\" fill=\"#f8bf70\"/><circle cx=\"380\" cy=\"285\" r=\"8\" fill=\"#f8bf70\"/><circle cx=\"520\" cy=\"285\" r=\"8\" fill=\"#f8bf70\"/><circle cx=\"660\" cy=\"285\" r=\"8\" fill=\"#f8bf70\"/><text x=\"100\" y=\"155\" fill=\"#69d9d0\" font-size=\"18\" font-family=\"sans-serif\" text-anchor=\"start\">Group A: 8, 9, 10, 11, 12</text><text x=\"100\" y=\"250\" fill=\"#f8bf70\" font-size=\"18\" font-family=\"sans-serif\" text-anchor=\"start\">Group B: 0, 5, 10, 15, 20</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">Both means are 10; spread and extremes differ. Display the observations as well.</text></svg>",
+        "questions": [
+          {
+            "q": "Why can equal means hide different behaviour?",
+            "hint": "The mean is only one feature of a distribution.",
+            "answer": "The observations can have different spread, extremes and shapes while sharing the same sum and count."
+          },
+          {
+            "q": "Should the value 54 be deleted because it changes the mean?",
+            "hint": "Distinguish error from a valid extreme.",
+            "answer": "Not automatically. Verify units, provenance and collection conditions; report the handling decision and its effect."
+          }
+        ]
+      },
+      {
+        "id": "stats-units",
+        "heading": "Count independent assignments, not just readings",
+        "body": "An experimental unit is the smallest unit independently assigned a treatment. If an entire plot receives one treatment, repeated sensor readings within that plot are subsamples, not new independent treatment assignments.\n\nSuppose one treated plot and one comparison plot each contain 100 yield-map pixels. There are 200 readings, but only two assigned plots. Treating every pixel as an independent treatment replicate is pseudoreplication. Nearby readings can share soil, weather, machinery and spatial correlation.\n\nRepeated readings can improve measurement of a plot’s response. They do not establish how treatment effects vary across independently treated plots or seasons. More subsamples and more independent replicates solve different problems.\n\n**Predict:** Would collecting a million readings from the same single treated plot remove confounding between treatment and plot identity? No. A plot-specific difference remains indistinguishable from treatment without a suitable design.\n\n**Try it:** For a training-method comparison assigned by classroom, identify the experimental unit and the student-level subsamples. Transfer the same logic back to field strips and machine tests.",
+        "visual": "Each large plot is one assigned unit. The smaller dots are subsamples, which must not be counted as independent treatment assignments.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">Many readings may share one experimental unit</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Two independently assigned plots; five subsamples in each do not make ten trials.</text><rect x=\"75\" y=\"110\" width=\"290\" height=\"215\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"91\" y=\"140\" fill=\"#69d9d0\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Plot A: treatment</text><text x=\"91\" y=\"172\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">One assigned plot</text><rect x=\"435\" y=\"110\" width=\"290\" height=\"215\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"451\" y=\"140\" fill=\"#f8bf70\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Plot B: comparison</text><text x=\"451\" y=\"172\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">One assigned plot</text><circle cx=\"115\" cy=\"260\" r=\"9\" fill=\"#69d9d0\"/><circle cx=\"161\" cy=\"260\" r=\"9\" fill=\"#69d9d0\"/><circle cx=\"207\" cy=\"260\" r=\"9\" fill=\"#69d9d0\"/><circle cx=\"253\" cy=\"260\" r=\"9\" fill=\"#69d9d0\"/><circle cx=\"299\" cy=\"260\" r=\"9\" fill=\"#69d9d0\"/><circle cx=\"475\" cy=\"260\" r=\"9\" fill=\"#f8bf70\"/><circle cx=\"521\" cy=\"260\" r=\"9\" fill=\"#f8bf70\"/><circle cx=\"567\" cy=\"260\" r=\"9\" fill=\"#f8bf70\"/><circle cx=\"613\" cy=\"260\" r=\"9\" fill=\"#f8bf70\"/><circle cx=\"659\" cy=\"260\" r=\"9\" fill=\"#f8bf70\"/><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">Subsamples describe within-plot variation. Independent treatment replication is separate.</text></svg>",
+        "questions": [
+          {
+            "q": "How many independent treatment units exist in the two-plot example?",
+            "hint": "Count assigned plots, not pixels.",
+            "answer": "Two plots. The 200 pixels are within-plot observations and do not create 200 independent treatment assignments."
+          },
+          {
+            "q": "What can extra within-plot readings improve?",
+            "hint": "Separate measurement from treatment variation.",
+            "answer": "They can characterize that plot’s response and internal variation, but cannot replace independent treatment replication."
+          }
+        ]
+      },
+      {
+        "id": "stats-design",
+        "heading": "Use randomization and blocking for different jobs",
+        "body": "A fair experiment separates treatment from other differences. A confounder changes with treatment and can explain the response. If every treated strip is uphill and every comparison strip downhill, treatment is entangled with position.\n\nRandom assignment makes treatment placement depend on a chance procedure rather than preference. It supports causal comparison under the design but does not guarantee perfect balance in every small trial. Blocking groups similar units before randomizing treatments within each group; it can reduce variation from known nuisance gradients such as soil or test time.\n\nReplication provides independent comparisons. A useful block can contain a treated and comparison unit, with their positions randomized within the block. Preserve the assignment record before observing results; moving labels afterward destroys the design.\n\n**Try it:** Sketch four blocks across a known field gradient. Within each block, describe a chance method for assigning A and B, then define the response and stopping rule in advance. Include consistent measurement and a plan for equipment failures. Randomization cannot repair an outcome measure that changes definition halfway through the trial.",
+        "visual": "Blocks organize similar conditions. The labels are a conceptual layout; a real experiment must record its actual chance assignments.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">Block similar conditions, randomize within</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Four conceptual blocks; treatment positions are illustrative, not a randomization record.</text><rect x=\"90\" y=\"125\" width=\"140\" height=\"160\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"160\" y=\"153\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"middle\">Block 1</text><rect x=\"100\" y=\"175\" width=\"55\" height=\"85\" rx=\"6\" fill=\"#69d9d0\" stroke=\"#69d9d0\"/><rect x=\"170\" y=\"175\" width=\"50\" height=\"85\" rx=\"6\" fill=\"#f8bf70\" stroke=\"#f8bf70\"/><text x=\"128\" y=\"220\" fill=\"#101a2a\" font-size=\"20\" font-family=\"sans-serif\" text-anchor=\"middle\">A</text><text x=\"195\" y=\"220\" fill=\"#101a2a\" font-size=\"20\" font-family=\"sans-serif\" text-anchor=\"middle\">B</text><rect x=\"255\" y=\"125\" width=\"140\" height=\"160\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"325\" y=\"153\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"middle\">Block 2</text><rect x=\"265\" y=\"175\" width=\"55\" height=\"85\" rx=\"6\" fill=\"#69d9d0\" stroke=\"#69d9d0\"/><rect x=\"335\" y=\"175\" width=\"50\" height=\"85\" rx=\"6\" fill=\"#f8bf70\" stroke=\"#f8bf70\"/><text x=\"293\" y=\"220\" fill=\"#101a2a\" font-size=\"20\" font-family=\"sans-serif\" text-anchor=\"middle\">A</text><text x=\"360\" y=\"220\" fill=\"#101a2a\" font-size=\"20\" font-family=\"sans-serif\" text-anchor=\"middle\">B</text><rect x=\"420\" y=\"125\" width=\"140\" height=\"160\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"490\" y=\"153\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"middle\">Block 3</text><rect x=\"430\" y=\"175\" width=\"55\" height=\"85\" rx=\"6\" fill=\"#69d9d0\" stroke=\"#69d9d0\"/><rect x=\"500\" y=\"175\" width=\"50\" height=\"85\" rx=\"6\" fill=\"#f8bf70\" stroke=\"#f8bf70\"/><text x=\"458\" y=\"220\" fill=\"#101a2a\" font-size=\"20\" font-family=\"sans-serif\" text-anchor=\"middle\">A</text><text x=\"525\" y=\"220\" fill=\"#101a2a\" font-size=\"20\" font-family=\"sans-serif\" text-anchor=\"middle\">B</text><rect x=\"585\" y=\"125\" width=\"140\" height=\"160\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"655\" y=\"153\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"middle\">Block 4</text><rect x=\"595\" y=\"175\" width=\"55\" height=\"85\" rx=\"6\" fill=\"#69d9d0\" stroke=\"#69d9d0\"/><rect x=\"665\" y=\"175\" width=\"50\" height=\"85\" rx=\"6\" fill=\"#f8bf70\" stroke=\"#f8bf70\"/><text x=\"623\" y=\"220\" fill=\"#101a2a\" font-size=\"20\" font-family=\"sans-serif\" text-anchor=\"middle\">A</text><text x=\"690\" y=\"220\" fill=\"#101a2a\" font-size=\"20\" font-family=\"sans-serif\" text-anchor=\"middle\">B</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">Random assignment within each block separates treatment from recorded nuisance gradients.</text></svg>",
+        "questions": [
+          {
+            "q": "Why randomize within blocks rather than put every treatment on one side?",
+            "hint": "Avoid aligning treatment with a gradient.",
+            "answer": "Within-block chance assignment reduces systematic association between treatment and position while comparisons account for the known block context."
+          },
+          {
+            "q": "Does randomization guarantee perfect balance in four blocks?",
+            "hint": "Chance can still produce uneven outcomes.",
+            "answer": "No. It provides a defensible assignment mechanism, not a guarantee of exact balance in a particular small experiment."
+          }
+        ]
+      },
+      {
+        "id": "stats-uncertainty",
+        "heading": "An interval describes a method and its assumptions",
+        "body": "A sample mean varies from sample to sample. Under independent observations with a known population standard deviation, the standard error of the mean equals that deviation divided by the square root of sample count. This is a model of sampling uncertainty, not a cure for bias.\n\nUse a deliberately simple normal model: population standard deviation is known to be 8 units, there are 64 independent observations and the sample mean is 52. Standard error is 8 / √64 = 1 unit. A 95% normal-theory interval is approximately 52 ± 1.96 × 1, or 50.04 to 53.96. When deviation must be estimated, a suitable t-based method or another design-aware analysis may be required instead.\n\nThe 95% refers to repeated-procedure coverage under its assumptions. It does not assign a 95% frequentist probability to a fixed parameter after this particular interval is observed. Larger biased samples can give narrow intervals around the wrong value.\n\n**Try it:** State which assumptions fail for 64 correlated pixels from one plot. Explain why increasing that pixel count does not justify treating the plot as 64 independently assigned units.",
+        "visual": "Repeated intervals change while the modeled true mean remains fixed. One illustrated interval misses it, showing what coverage means.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">A confidence procedure varies across samples</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Illustrative intervals for a fixed true mean, not a measured dataset.</text><line x1=\"410\" y1=\"100\" x2=\"410\" y2=\"330\" stroke=\"#f8bf70\" stroke-width=\"2\"/><text x=\"410\" y=\"91\" fill=\"#f8bf70\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">Fixed true mean</text><line x1=\"300\" y1=\"130\" x2=\"500\" y2=\"130\" stroke=\"#69d9d0\" stroke-width=\"5\"/><line x1=\"335\" y1=\"173\" x2=\"535\" y2=\"173\" stroke=\"#69d9d0\" stroke-width=\"5\"/><line x1=\"275\" y1=\"216\" x2=\"465\" y2=\"216\" stroke=\"#69d9d0\" stroke-width=\"5\"/><line x1=\"430\" y1=\"259\" x2=\"610\" y2=\"259\" stroke=\"#f69caf\" stroke-width=\"5\"/><line x1=\"310\" y1=\"302\" x2=\"490\" y2=\"302\" stroke=\"#69d9d0\" stroke-width=\"5\"/><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">Coverage describes a repeated procedure. It is not a probability that a fixed parameter moves.</text></svg>",
+        "questions": [
+          {
+            "q": "What is standard error for known deviation 8 and 64 independent observations?",
+            "hint": "Divide by the square root of count.",
+            "answer": "8 / √64 = 1 unit under the stated model."
+          },
+          {
+            "q": "Can a narrow interval establish that sampling bias is absent?",
+            "hint": "Precision differs from accuracy.",
+            "answer": "No. Sampling uncertainty can be small around a biased estimate; representativeness and measurement validity need separate evidence."
+          }
+        ]
+      },
+      {
+        "id": "stats-testing",
+        "heading": "Separate a small p-value from a useful effect",
+        "body": "A hypothesis test starts with a specified null model and a test statistic. A p-value is the probability, under that model, of a result at least as extreme as the observed statistic according to the stated test. It is not the probability that the null is true.\n\nA small p-value can indicate tension between data and the null model, but does not identify the cause. Bias, model failure and selective reporting remain possible. A tiny effect in a large clean sample can be statistically detectable while being practically unimportant. Report the effect size and uncertainty alongside any test.\n\nTrying many outcomes or stopping when a favourable result appears changes the analysis context. For independent tests each with a 5% false-positive rate under true nulls, the chance of at least one false positive across 20 tests is 1 − 0.95²⁰, about 64%. The independence and true-null assumptions are explicit in that calculation.\n\n**Try it:** Define one primary outcome, a practically meaningful effect and a stopping rule before a fictional comparison. Explain what you would report if the measured effect is too uncertain to support a decision.",
+        "visual": "The diagram distinguishes the conditional probability a test computes from questions it does not directly answer.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">A p-value conditions on a model</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">The null model and analysis choices must be specified before interpreting a tail.</text><rect x=\"60\" y=\"125\" width=\"325\" height=\"195\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"76\" y=\"155\" fill=\"#69d9d0\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Conditional question</text><text x=\"76\" y=\"187\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Assume the null model</text><text x=\"76\" y=\"214\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">How unusual is this statistic</text><text x=\"76\" y=\"241\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">or something more extreme?</text><rect x=\"415\" y=\"125\" width=\"325\" height=\"195\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"431\" y=\"155\" fill=\"#f8bf70\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Not answered directly</text><text x=\"431\" y=\"187\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Probability the null is true</text><text x=\"431\" y=\"214\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Practical importance</text><text x=\"431\" y=\"241\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Whether bias is absent</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">Repeated testing and selective reporting change the chance of finding a small value.</text></svg>",
+        "questions": [
+          {
+            "q": "Does p = 0.03 mean the null has a 3% probability of being true?",
+            "hint": "Reverse conditioning is the trap.",
+            "answer": "No. The p-value conditions on the null model and describes the tail probability of the statistic, not the probability that the model is true."
+          },
+          {
+            "q": "Why report effect size even after a small p-value?",
+            "hint": "Detectability differs from usefulness.",
+            "answer": "A detectable difference can be too small to matter. The magnitude, uncertainty and practical threshold are needed for a decision."
+          }
+        ]
+      },
+      {
+        "id": "stats-capstone",
+        "heading": "Capstone: report a blocked comparison honestly",
+        "body": "Four randomized blocks compare treatment A with B. Responses are in fictional standardized units. Block pairs (A, B) are (50, 53), (60, 62), (45, 49) and (55, 56). Assume assignment and measurement followed the recorded plan.\n\n**Your task:** Calculate B minus A for each block and their mean. Describe what the evidence supports, identify the independent comparisons and state a limit on generalization. Do not invent a p-value.\n\n**Worked solution:** Paired differences are 3, 2, 4 and 1 units. Their mean is (3 + 2 + 4 + 1) / 4 = 2.5 units in favour of B. The four block comparisons are the relevant replicated contrasts; many readings used to form each response do not become independent treatment assignments. A full analysis should respect the blocked design and quantify uncertainty. Positive observed differences alone do not prove the same effect on all fields or seasons.\n\n**Check your work:** Include response units, assignment method, all block differences, the mean effect, exclusions and uncertainty needs. Compare the effect with a threshold defined before the trial. If that threshold or precision requirement is not met, report the result as insufficient for that decision rather than calling every positive number a success.",
+        "visual": "Every paired difference is retained. The 2.5-unit mean is an observed effect in the stated trial, not a universal guarantee.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">Compare paired treatment differences</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Four randomized blocks; response units are fictional standardized units.</text><text x=\"195\" y=\"142\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"end\">Block 1</text><rect x=\"210\" y=\"120\" width=\"475\" height=\"30\" rx=\"6\" fill=\"none\" stroke=\"#33445e\"/><rect x=\"210\" y=\"120\" width=\"285.0\" height=\"30\" rx=\"6\" fill=\"#69d9d0\" stroke=\"#69d9d0\"/><text x=\"697\" y=\"142\" fill=\"#69d9d0\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">3 units</text><text x=\"195\" y=\"195\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"end\">Block 2</text><rect x=\"210\" y=\"173\" width=\"475\" height=\"30\" rx=\"6\" fill=\"none\" stroke=\"#33445e\"/><rect x=\"210\" y=\"173\" width=\"190.0\" height=\"30\" rx=\"6\" fill=\"#f8bf70\" stroke=\"#f8bf70\"/><text x=\"697\" y=\"195\" fill=\"#f8bf70\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">2 units</text><text x=\"195\" y=\"248\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"end\">Block 3</text><rect x=\"210\" y=\"226\" width=\"475\" height=\"30\" rx=\"6\" fill=\"none\" stroke=\"#33445e\"/><rect x=\"210\" y=\"226\" width=\"380.0\" height=\"30\" rx=\"6\" fill=\"#baa6ff\" stroke=\"#baa6ff\"/><text x=\"697\" y=\"248\" fill=\"#baa6ff\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">4 units</text><text x=\"195\" y=\"301\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"end\">Block 4</text><rect x=\"210\" y=\"279\" width=\"475\" height=\"30\" rx=\"6\" fill=\"none\" stroke=\"#33445e\"/><rect x=\"210\" y=\"279\" width=\"95.0\" height=\"30\" rx=\"6\" fill=\"#69d9d0\" stroke=\"#69d9d0\"/><text x=\"697\" y=\"301\" fill=\"#69d9d0\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">1 units</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">Paired differences 3, 2, 4, 1 have mean 2.5 units. Generalization remains bounded.</text></svg>",
+        "questions": [
+          {
+            "q": "What is the mean B-minus-A effect?",
+            "hint": "Compute paired differences before averaging.",
+            "answer": "The differences are 3, 2, 4 and 1 units; their mean is 2.5 units."
+          },
+          {
+            "q": "Why not claim the same benefit in every future field?",
+            "hint": "The trial covers particular conditions and finite replication.",
+            "answer": "Generalization requires evidence across relevant conditions and uncertainty analysis; four observed blocks do not represent every environment."
+          }
+        ]
+      }
+    ]
+  },
+  "quizzes": {
+    "sections": [
+      {
+        "id": "stats-summary",
+        "questions": [
+          {
+            "q": "For 10, 11, 12, 13 and 54, what is the mean?",
+            "choices": [
+              "20",
+              "12",
+              "13",
+              "54"
+            ],
+            "answer": 0,
+            "explain": "The sum is 100 and count is five, so the mean is 20."
+          },
+          {
+            "q": "What is the median of those ordered values?",
+            "choices": [
+              "54",
+              "12",
+              "20",
+              "11"
+            ],
+            "answer": 1,
+            "explain": "The third of five ordered observations is 12."
+          },
+          {
+            "q": "Which supports generalizing from sample to target population?",
+            "choices": [
+              "Deleting all unusual outcomes",
+              "Hiding missing observations",
+              "A sampling design that represents the target and its relevant variation",
+              "A very precise average from one convenient corner alone"
+            ],
+            "answer": 2,
+            "explain": "Representativeness and design matter in addition to numerical precision."
+          }
+        ]
+      },
+      {
+        "id": "stats-units",
+        "questions": [
+          {
+            "q": "One treated plot contains 100 measured pixels. How many treated experimental units are there?",
+            "choices": [
+              "Zero",
+              "One",
+              "One hundred",
+              "Two hundred"
+            ],
+            "answer": 1,
+            "explain": "The treatment was independently assigned once, to the whole plot."
+          },
+          {
+            "q": "What is the unit when a training method is assigned to whole classrooms?",
+            "choices": [
+              "Each answer digit",
+              "Every student automatically regardless of assignment",
+              "The classroom",
+              "Every test question"
+            ],
+            "answer": 2,
+            "explain": "Independent assignment occurs at classroom level; student results are nested within that design."
+          },
+          {
+            "q": "What best addresses plot-to-plot treatment variability?",
+            "choices": [
+              "More decimal places on one plot mean",
+              "More pixels in the same one plot alone",
+              "Repeating the same image screenshot",
+              "Independent treatment replication across suitable plots"
+            ],
+            "answer": 3,
+            "explain": "Independent units provide evidence about variation beyond a single treated location."
+          }
+        ]
+      },
+      {
+        "id": "stats-design",
+        "questions": [
+          {
+            "q": "All treated strips are uphill and all comparisons downhill. What is the main design problem?",
+            "choices": [
+              "Randomization has guaranteed balance",
+              "The sample mean cannot be calculated",
+              "Treatment is confounded with position",
+              "The units are too clearly labeled"
+            ],
+            "answer": 2,
+            "explain": "A position effect could explain the response, so the treatment effect is not cleanly separated."
+          },
+          {
+            "q": "What is blocking intended to address?",
+            "choices": [
+              "The need to report failures",
+              "All measurement error automatically",
+              "The definition of a byte",
+              "Known nuisance variation among groups of units"
+            ],
+            "answer": 3,
+            "explain": "Grouping similar conditions can improve the precision of within-block treatment comparisons."
+          },
+          {
+            "q": "When should assignment and primary response rules be recorded?",
+            "choices": [
+              "Before outcomes are inspected",
+              "After choosing the most favourable result",
+              "Only if the treatment appears successful",
+              "After deleting inconvenient plots"
+            ],
+            "answer": 0,
+            "explain": "Advance rules reduce selective assignment, outcome switching and reporting bias."
+          }
+        ]
+      },
+      {
+        "id": "stats-uncertainty",
+        "questions": [
+          {
+            "q": "Under the stated known-deviation model, what is the 95% interval around mean 52?",
+            "choices": [
+              "44 to 60",
+              "51.99 to 52.01",
+              "0 to 95",
+              "50.04 to 53.96"
+            ],
+            "answer": 3,
+            "explain": "Standard error is 1, so 52 ± 1.96 gives 50.04 to 53.96."
+          },
+          {
+            "q": "What does 95% coverage describe here?",
+            "choices": [
+              "The long-run success rate of the interval procedure under its assumptions",
+              "A 95% chance that every observed value lies inside",
+              "A guarantee against bias",
+              "The fraction of all possible causes proved"
+            ],
+            "answer": 0,
+            "explain": "Coverage concerns repeated intervals for the parameter under the model, not every data point or systematic error."
+          },
+          {
+            "q": "What must change if observations are correlated within plots?",
+            "choices": [
+              "Assume more pixels solve every issue",
+              "Use an analysis reflecting the design and dependence",
+              "Keep counting each as independent without question",
+              "Delete all unit labels"
+            ],
+            "answer": 1,
+            "explain": "The uncertainty calculation must respect clustering and the actual experimental units."
+          }
+        ]
+      },
+      {
+        "id": "stats-testing",
+        "questions": [
+          {
+            "q": "What does a p-value directly condition on?",
+            "choices": [
+              "The specified null model and test procedure",
+              "The conclusion that the treatment works",
+              "The truth of every alternative cause",
+              "The preferred business decision"
+            ],
+            "answer": 0,
+            "explain": "The tail probability is computed assuming the null model and specified statistic."
+          },
+          {
+            "q": "Which can be true of a tiny effect in a very large sample?",
+            "choices": [
+              "It needs no uncertainty report",
+              "It is statistically detectable but practically unimportant",
+              "It must be enormous in real units",
+              "It proves all bias is absent"
+            ],
+            "answer": 1,
+            "explain": "Statistical detectability and practical importance answer different questions."
+          },
+          {
+            "q": "What strengthens a study that could otherwise search many outcomes?",
+            "choices": [
+              "Changing the stopping rule after each favourable result",
+              "Hiding failed comparisons",
+              "A prespecified primary outcome and transparent reporting of additional analyses",
+              "Reporting only the smallest p-value"
+            ],
+            "answer": 2,
+            "explain": "Advance choices and transparent reporting reduce selective inference and help interpret multiplicity."
+          }
+        ]
+      },
+      {
+        "id": "stats-capstone",
+        "questions": [
+          {
+            "q": "What is B minus A in the third block?",
+            "choices": [
+              "94 units",
+              "4 units",
+              "−4 units",
+              "49 units"
+            ],
+            "answer": 1,
+            "explain": "49 − 45 = 4 units."
+          },
+          {
+            "q": "What is the mean of the four paired differences?",
+            "choices": [
+              "4 units",
+              "0.625 units",
+              "2.5 units",
+              "10 units"
+            ],
+            "answer": 2,
+            "explain": "(3 + 2 + 4 + 1) / 4 = 2.5 units."
+          },
+          {
+            "q": "Which final statement best matches the evidence?",
+            "choices": [
+              "B is guaranteed best everywhere",
+              "The experiment has hundreds of independent replicates because maps have many pixels",
+              "A p-value can be chosen from the mean alone",
+              "B averaged 2.5 units higher in these four recorded block comparisons; broader claims need uncertainty and context"
+            ],
+            "answer": 3,
+            "explain": "The bounded statement preserves the observed effect and the limits of the design."
+          }
+        ]
+      }
+    ]
+  },
+  "slides": {
+    "sections": [
+      {
+        "id": "stats-summary",
+        "title": "Keep the question, population and observations together",
+        "bullets": [
+          "Population: the target of inference",
+          "Sample: the observed subset",
+          "Summary: retain spread and units"
+        ],
+        "notes": "The observations can have different spread, extremes and shapes while sharing the same sum and count. Not automatically. Verify units, provenance and collection conditions; report the handling decision and its effect.",
+        "visual": "The two groups share the same centre but differ in spread. The individual points prevent the mean from hiding that distinction."
+      },
+      {
+        "id": "stats-units",
+        "title": "Count independent assignments, not just readings",
+        "bullets": [
+          "Experimental unit: independent treatment assignment",
+          "Subsample: repeated evidence within a unit",
+          "Pseudoreplication: claiming false independence"
+        ],
+        "notes": "Two plots. The 200 pixels are within-plot observations and do not create 200 independent treatment assignments. They can characterize that plot’s response and internal variation, but cannot replace independent treatment replication.",
+        "visual": "Each large plot is one assigned unit. The smaller dots are subsamples, which must not be counted as independent treatment assignments."
+      },
+      {
+        "id": "stats-design",
+        "title": "Use randomization and blocking for different jobs",
+        "bullets": [
+          "Randomization: chance assignment",
+          "Blocking: group known nuisance conditions",
+          "Replication: independent comparisons"
+        ],
+        "notes": "Within-block chance assignment reduces systematic association between treatment and position while comparisons account for the known block context. No. It provides a defensible assignment mechanism, not a guarantee of exact balance in a particular small experiment.",
+        "visual": "Blocks organize similar conditions. The labels are a conceptual layout; a real experiment must record its actual chance assignments."
+      },
+      {
+        "id": "stats-uncertainty",
+        "title": "An interval describes a method and its assumptions",
+        "bullets": [
+          "Standard error: sampling variation of the mean",
+          "Coverage: a repeated-procedure property",
+          "Limits: independence and bias matter"
+        ],
+        "notes": "8 / √64 = 1 unit under the stated model. No. Sampling uncertainty can be small around a biased estimate; representativeness and measurement validity need separate evidence.",
+        "visual": "Repeated intervals change while the modeled true mean remains fixed. One illustrated interval misses it, showing what coverage means."
+      },
+      {
+        "id": "stats-testing",
+        "title": "Separate a small p-value from a useful effect",
+        "bullets": [
+          "p-value: conditional on a stated model",
+          "Effect size: magnitude relevant to the decision",
+          "Multiplicity: many searches change interpretation"
+        ],
+        "notes": "No. The p-value conditions on the null model and describes the tail probability of the statistic, not the probability that the model is true. A detectable difference can be too small to matter. The magnitude, uncertainty and practical threshold are needed for a decision.",
+        "visual": "The diagram distinguishes the conditional probability a test computes from questions it does not directly answer."
+      },
+      {
+        "id": "stats-capstone",
+        "title": "Capstone: report a blocked comparison honestly",
+        "bullets": [
+          "Effect: paired mean difference is 2.5 units",
+          "Replication: four block comparisons",
+          "Claim: bounded by design, uncertainty and setting"
+        ],
+        "notes": "The differences are 3, 2, 4 and 1 units; their mean is 2.5 units. Generalization requires evidence across relevant conditions and uncertainty analysis; four observed blocks do not represent every environment.",
+        "visual": "Every paired difference is retained. The 2.5-unit mean is an observed effect in the stated trial, not a universal guarantee."
+      }
+    ]
+  },
+  "enrichment": {
+    "audioTitle": "Experiments & Statistics: From Comparison to Evidence — reason it through",
+    "turns": [
+      {
+        "speaker": "teacher",
+        "line": "Hundreds of map pixels can still represent only one treatment trial. Learn what counts as evidence, design a fair comparison and report the effect without overstating certainty."
+      },
+      {
+        "speaker": "student",
+        "line": "What will I make by the end?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Write a trial memo with effect, independent replication and limits"
+      },
+      {
+        "speaker": "student",
+        "line": "Why can equal means hide different behaviour?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "The observations can have different spread, extremes and shapes while sharing the same sum and count."
+      },
+      {
+        "speaker": "student",
+        "line": "Should the value 54 be deleted because it changes the mean?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Not automatically. Verify units, provenance and collection conditions; report the handling decision and its effect."
+      },
+      {
+        "speaker": "student",
+        "line": "How many independent treatment units exist in the two-plot example?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Two plots. The 200 pixels are within-plot observations and do not create 200 independent treatment assignments."
+      },
+      {
+        "speaker": "student",
+        "line": "What can extra within-plot readings improve?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "They can characterize that plot’s response and internal variation, but cannot replace independent treatment replication."
+      },
+      {
+        "speaker": "student",
+        "line": "Why randomize within blocks rather than put every treatment on one side?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Within-block chance assignment reduces systematic association between treatment and position while comparisons account for the known block context."
+      },
+      {
+        "speaker": "student",
+        "line": "Does randomization guarantee perfect balance in four blocks?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "No. It provides a defensible assignment mechanism, not a guarantee of exact balance in a particular small experiment."
+      },
+      {
+        "speaker": "student",
+        "line": "What is standard error for known deviation 8 and 64 independent observations?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "8 / √64 = 1 unit under the stated model."
+      },
+      {
+        "speaker": "student",
+        "line": "Can a narrow interval establish that sampling bias is absent?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "No. Sampling uncertainty can be small around a biased estimate; representativeness and measurement validity need separate evidence."
+      },
+      {
+        "speaker": "student",
+        "line": "Does p = 0.03 mean the null has a 3% probability of being true?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "No. The p-value conditions on the null model and describes the tail probability of the statistic, not the probability that the model is true."
+      },
+      {
+        "speaker": "student",
+        "line": "Why report effect size even after a small p-value?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "A detectable difference can be too small to matter. The magnitude, uncertainty and practical threshold are needed for a decision."
+      },
+      {
+        "speaker": "student",
+        "line": "What is the mean B-minus-A effect?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "The differences are 3, 2, 4 and 1 units; their mean is 2.5 units."
+      },
+      {
+        "speaker": "student",
+        "line": "Why not claim the same benefit in every future field?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Generalization requires evidence across relevant conditions and uncertainty analysis; four observed blocks do not represent every environment."
+      }
+    ],
+    "nodes": [
+      {
+        "id": "root",
+        "parent": null,
+        "label": "Experimental design and statistics",
+        "note": "Hundreds of map pixels can still represent only one treatment trial. Learn what counts as evidence, design a fair comparison and report the effect without overstating certainty."
+      },
+      {
+        "id": "stats-summary",
+        "parent": "root",
+        "label": "Keep the question, population and observations together",
+        "note": "Population: the target of inference"
+      },
+      {
+        "id": "stats-summary-detail-0",
+        "parent": "stats-summary",
+        "label": "Sample",
+        "note": "Sample: the observed subset"
+      },
+      {
+        "id": "stats-summary-detail-1",
+        "parent": "stats-summary",
+        "label": "Summary",
+        "note": "Summary: retain spread and units"
+      },
+      {
+        "id": "stats-units",
+        "parent": "root",
+        "label": "Count independent assignments, not just readings",
+        "note": "Experimental unit: independent treatment assignment"
+      },
+      {
+        "id": "stats-units-detail-0",
+        "parent": "stats-units",
+        "label": "Subsample",
+        "note": "Subsample: repeated evidence within a unit"
+      },
+      {
+        "id": "stats-units-detail-1",
+        "parent": "stats-units",
+        "label": "Pseudoreplication",
+        "note": "Pseudoreplication: claiming false independence"
+      },
+      {
+        "id": "stats-design",
+        "parent": "root",
+        "label": "Use randomization and blocking for different jobs",
+        "note": "Randomization: chance assignment"
+      },
+      {
+        "id": "stats-design-detail-0",
+        "parent": "stats-design",
+        "label": "Blocking",
+        "note": "Blocking: group known nuisance conditions"
+      },
+      {
+        "id": "stats-design-detail-1",
+        "parent": "stats-design",
+        "label": "Replication",
+        "note": "Replication: independent comparisons"
+      },
+      {
+        "id": "stats-uncertainty",
+        "parent": "root",
+        "label": "An interval describes a method and its assumptions",
+        "note": "Standard error: sampling variation of the mean"
+      },
+      {
+        "id": "stats-uncertainty-detail-0",
+        "parent": "stats-uncertainty",
+        "label": "Coverage",
+        "note": "Coverage: a repeated-procedure property"
+      },
+      {
+        "id": "stats-uncertainty-detail-1",
+        "parent": "stats-uncertainty",
+        "label": "Limits",
+        "note": "Limits: independence and bias matter"
+      },
+      {
+        "id": "stats-testing",
+        "parent": "root",
+        "label": "Separate a small p-value from a useful effect",
+        "note": "p-value: conditional on a stated model"
+      },
+      {
+        "id": "stats-testing-detail-0",
+        "parent": "stats-testing",
+        "label": "Effect size",
+        "note": "Effect size: magnitude relevant to the decision"
+      },
+      {
+        "id": "stats-testing-detail-1",
+        "parent": "stats-testing",
+        "label": "Multiplicity",
+        "note": "Multiplicity: many searches change interpretation"
+      },
+      {
+        "id": "stats-capstone",
+        "parent": "root",
+        "label": "Capstone: report a blocked comparison honestly",
+        "note": "Effect: paired mean difference is 2.5 units"
+      },
+      {
+        "id": "stats-capstone-detail-0",
+        "parent": "stats-capstone",
+        "label": "Replication",
+        "note": "Replication: four block comparisons"
+      },
+      {
+        "id": "stats-capstone-detail-1",
+        "parent": "stats-capstone",
+        "label": "Claim",
+        "note": "Claim: bounded by design, uncertainty and setting"
+      }
+    ],
+    "mnemonics": []
+  },
+  "sources": [
+    {
+      "title": "NIST — Choosing an experimental design",
+      "url": "https://www.itl.nist.gov/div898/handbook/pri/section3/pri3.htm"
+    },
+    {
+      "title": "NIST — Randomized block designs",
+      "url": "https://www.itl.nist.gov/div898/handbook/pri/section3/pri332.htm"
+    },
+    {
+      "title": "NIST — Confidence Limits for the Mean",
+      "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm"
+    }
+  ]
+}

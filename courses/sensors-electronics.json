@@ -1,0 +1,752 @@
+{
+  "meta": {
+    "title": "Sensors & Electronics: From Signal to Measurement",
+    "topic": "Sensors and practical electronics",
+    "level": "intermediate",
+    "estimatedMinutes": 65,
+    "tags": [
+      "sensors",
+      "electronics",
+      "ADC",
+      "calibration",
+      "microcontrollers"
+    ],
+    "createdAt": "2026-10-31T04:00:00.000Z",
+    "interests": "Agriculture, music, space, practical engineering and evidence-based technology",
+    "depth": "standard",
+    "model": "Learnway authored course"
+  },
+  "plan": {
+    "title": "Sensors & Electronics: From Signal to Measurement",
+    "hook": "A display can show four decimal places and still report the wrong temperature. Follow a physical signal through conditioning, conversion and calibration before trusting the result.",
+    "objectives": [
+      "Trace a sensor signal and distinguish resolution, accuracy and repeatability",
+      "Calculate an unloaded divider and an ideal ADC code step",
+      "Explain bias, filtering, freshness and output-driver limits",
+      "Build a calibration record with independent verification and a fault case"
+    ],
+    "prerequisites": [
+      "Voltage and simple circuits; use the paper examples or a simulator"
+    ],
+    "sections": [
+      {
+        "id": "sensor-chain",
+        "heading": "Separate the quantity from its representation",
+        "points": [
+          "Quantity: what you intend to measure",
+          "Resolution: representable step",
+          "Accuracy: agreement with a reference"
+        ]
+      },
+      {
+        "id": "sensor-divider",
+        "heading": "A voltage divider is a model with a load assumption",
+        "points": [
+          "Ratio: bottom resistance over total",
+          "Loading: the measuring input changes the circuit",
+          "Limits: voltage ratings remain separate"
+        ]
+      },
+      {
+        "id": "sensor-adc",
+        "heading": "Resolution is a staircase, not an accuracy certificate",
+        "points": [
+          "Codes: 2 raised to the bit count",
+          "Bin width: input span divided by code count",
+          "Accuracy: includes errors beyond quantization"
+        ]
+      },
+      {
+        "id": "sensor-filter",
+        "heading": "Filter noise without hiding the event",
+        "points": [
+          "Noise: random variation can be reduced",
+          "Bias: averaging preserves a stable offset",
+          "Lag: old samples delay a real change"
+        ]
+      },
+      {
+        "id": "sensor-driver",
+        "heading": "Keep information paths separate from power paths",
+        "points": [
+          "Command: bounded logic information",
+          "Driver: controls a separate energy path",
+          "Verification: ratings and fault states"
+        ]
+      },
+      {
+        "id": "sensor-capstone",
+        "heading": "Capstone: calibrate, then verify independently",
+        "points": [
+          "Fit: sensitivity is 0.010 V/°C",
+          "Verify: held-out residual is +1 °C",
+          "Accept: compare evidence with a defined tolerance"
+        ]
+      }
+    ]
+  },
+  "reading": {
+    "sections": [
+      {
+        "id": "sensor-chain",
+        "heading": "Separate the quantity from its representation",
+        "body": "A sensor turns a physical quantity into a signal. An interface conditions that signal, a converter represents it as numbers, and software assigns units. Each stage can introduce a different error. A stable displayed number may only mean that one stage is repeatable.\n\nAccuracy is agreement with a trusted reference under stated conditions. Repeatability concerns agreement across repeated measurements. Resolution is the smallest representable change. A thermometer can resolve 0.01 °C while remaining biased by 2 °C. More display digits do not remove that offset.\n\nFor a fictional temperature sensor, voltage equals 0.50 V plus 0.010 V per °C. At 30 °C it produces 0.80 V. To recover temperature, subtract 0.50 V and divide by 0.010 V/°C. The order matters: dividing first without removing the offset gives the wrong answer.\n\n**Try it:** Label quantity, signal, code and engineering units on a measurement chain. Add a timestamp and a valid/invalid flag. The fictional transfer function is a teaching model, not a specification for any real sensor.",
+        "visual": "A physical temperature becomes voltage and then a reported value. Each transformation needs its own model and quality checks.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">A number is the end of a measurement chain</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Keep physical quantity, electrical signal and reported value separate.</text><rect x=\"50\" y=\"125\" width=\"210\" height=\"170\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"66\" y=\"155\" fill=\"#f8bf70\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Temperature</text><text x=\"66\" y=\"187\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Physical quantity</text><text x=\"66\" y=\"214\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Reference: 30 °C</text><line x1=\"265\" y1=\"205\" x2=\"290\" y2=\"205\" stroke=\"#69d9d0\" stroke-width=\"3\"/><path d=\"M 282.10 209.31 L 290 205 L 282.10 200.69\" fill=\"none\" stroke=\"#69d9d0\" stroke-width=\"3\"/><rect x=\"295\" y=\"125\" width=\"210\" height=\"170\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"311\" y=\"155\" fill=\"#69d9d0\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Sensor voltage</text><text x=\"311\" y=\"187\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Electrical signal</text><text x=\"311\" y=\"214\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Example: 0.80 V</text><line x1=\"510\" y1=\"205\" x2=\"535\" y2=\"205\" stroke=\"#69d9d0\" stroke-width=\"3\"/><path d=\"M 527.10 209.31 L 535 205 L 527.10 200.69\" fill=\"none\" stroke=\"#69d9d0\" stroke-width=\"3\"/><rect x=\"540\" y=\"125\" width=\"210\" height=\"170\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"556\" y=\"155\" fill=\"#baa6ff\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Reported value</text><text x=\"556\" y=\"187\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Converted result</text><text x=\"556\" y=\"214\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Calibration matters</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">Conceptual model; assumptions and units are explained in the lesson.</text></svg>",
+        "questions": [
+          {
+            "q": "Can a repeatable reading still be inaccurate?",
+            "hint": "A stable offset repeats too.",
+            "answer": "Yes. A sensor with a constant calibration bias can repeat closely while disagreeing with a trusted reference."
+          },
+          {
+            "q": "What does 0.80 V mean under the fictional transfer function?",
+            "hint": "Subtract offset before dividing by sensitivity.",
+            "answer": "(0.80 − 0.50) / 0.010 = 30 °C. The conversion depends on that stated sensor model."
+          }
+        ]
+      },
+      {
+        "id": "sensor-divider",
+        "heading": "A voltage divider is a model with a load assumption",
+        "body": "Two series resistors can produce a fraction of a supply voltage. In an ideal unloaded divider, output measured from the junction to the lower reference equals supply times bottom resistance divided by the sum of both resistances.\n\nFor a 3.3 V supply with two 10 kΩ resistors, the ratio is 10 / (10 + 10) = 0.5, so output is 1.65 V. The kilo prefix cancels in the ratio because both resistances use the same unit.\n\nThe word unloaded matters. A measuring input draws some current; if its effective resistance is not large compared with the divider, it changes the lower branch and the output. Real converters also have acquisition-time and source-impedance requirements. The supply reference may vary, and resistor tolerances change the ratio.\n\n**Predict:** Is a divider automatically an adequate interface for any higher-voltage signal? No. Input ratings, transients, grounding, loading and protection remain separate requirements.\n\n**Try it:** Calculate the unloaded output with 20 kΩ on top and 10 kΩ below: 1.10 V. Then explain why an actual board’s input limits must be checked before any physical connection. No household or high-energy wiring is part of this course.",
+        "visual": "The unloaded divider places half of a 3.3 V supply across the lower equal resistor. The output arrow is a measurement reference, not a load-power path.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">Two resistors create a ratio</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Ideal unloaded divider; 3.3 V supply, two equal 10 kΩ resistors.</text><line x1=\"250\" y1=\"115\" x2=\"250\" y2=\"145\" stroke=\"#f8bf70\" stroke-width=\"2\"/><rect x=\"230\" y=\"145\" width=\"40\" height=\"55\" rx=\"6\" fill=\"none\" stroke=\"#f8bf70\"/><line x1=\"250\" y1=\"200\" x2=\"250\" y2=\"230\" stroke=\"#a8b9d0\" stroke-width=\"2\"/><circle cx=\"250\" cy=\"230\" r=\"6\" fill=\"#69d9d0\"/><rect x=\"230\" y=\"255\" width=\"40\" height=\"55\" rx=\"6\" fill=\"none\" stroke=\"#f8bf70\"/><line x1=\"250\" y1=\"230\" x2=\"250\" y2=\"255\" stroke=\"#a8b9d0\" stroke-width=\"2\"/><line x1=\"250\" y1=\"310\" x2=\"250\" y2=\"335\" stroke=\"#a8b9d0\" stroke-width=\"2\"/><line x1=\"220\" y1=\"335\" x2=\"280\" y2=\"335\" stroke=\"#a8b9d0\" stroke-width=\"2\"/><line x1=\"260\" y1=\"230\" x2=\"460\" y2=\"230\" stroke=\"#69d9d0\" stroke-width=\"3\"/><path d=\"M 452.10 234.31 L 460 230 L 452.10 225.69\" fill=\"none\" stroke=\"#69d9d0\" stroke-width=\"3\"/><text x=\"310\" y=\"140\" fill=\"#f8bf70\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">3.3 V</text><text x=\"310\" y=\"187\" fill=\"#e5edf9\" font-size=\"18\" font-family=\"sans-serif\" text-anchor=\"start\">R-top = 10 kΩ</text><text x=\"310\" y=\"300\" fill=\"#e5edf9\" font-size=\"18\" font-family=\"sans-serif\" text-anchor=\"start\">R-bottom = 10 kΩ</text><text x=\"490\" y=\"235\" fill=\"#69d9d0\" font-size=\"20\" font-family=\"sans-serif\" text-anchor=\"start\">Output: 1.65 V</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">Output assumes negligible loading. This drawing does not establish any board input rating.</text></svg>",
+        "questions": [
+          {
+            "q": "What is the unloaded equal-resistor output from 3.3 V?",
+            "hint": "The bottom resistor gets half the total voltage.",
+            "answer": "1.65 V, assuming equal resistances, a stable supply and negligible loading."
+          },
+          {
+            "q": "Why can connecting the measurement input change the value?",
+            "hint": "The input is part of the circuit.",
+            "answer": "Finite input resistance draws current and changes the effective lower branch; acquisition behaviour can add further error."
+          }
+        ]
+      },
+      {
+        "id": "sensor-adc",
+        "heading": "Resolution is a staircase, not an accuracy certificate",
+        "body": "An analog-to-digital converter, abbreviated ADC, maps a continuous input range to discrete codes. An ideal N-bit converter has 2 to the power N possible codes. Twelve bits provide 4,096 levels, numbered 0 through 4,095.\n\nFor an ideal 4.096 V span divided into 4,096 equal bins, one code step is 4.096 / 4,096 = 0.001 V, or 1 mV. Endpoint conversion conventions differ between devices, so use the data sheet’s transfer function for precise code-to-voltage conversion. This lesson’s bin-width model is explicit.\n\nQuantization replaces a continuous value with a discrete representation. Increasing bit depth reduces the ideal step width, but cannot fix sensor offset, reference error, noise, nonlinear response or an input that clips outside the allowed range.\n\n**Predict:** Would replacing a 12-bit converter with a higher-resolution one remove a 0.10 V sensor bias? No; it may describe the biased signal more finely.\n\n**Try it:** Compare an 8-bit and a 12-bit ideal converter over the same 4.096 V span. Their bin widths are 16 mV and 1 mV. State which property changed and which accuracy claims remain untested.",
+        "visual": "The staircase represents discrete bins. Its steps are conceptual; the stated 1 mV width applies to the lesson’s ideal 12-bit, 4.096 V model.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">More codes mean finer steps</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Ideal 12-bit converter spanning 4.096 V; not an accuracy claim.</text><line x1=\"90\" y1=\"315\" x2=\"730\" y2=\"315\" stroke=\"#a8b9d0\" stroke-width=\"2\"/><line x1=\"90\" y1=\"315\" x2=\"90\" y2=\"115\" stroke=\"#a8b9d0\" stroke-width=\"2\"/><text x=\"730\" y=\"346\" fill=\"#a8b9d0\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"end\">Input voltage</text><text x=\"90\" y=\"101\" fill=\"#a8b9d0\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Output code</text><path d=\"M 100 300 L 210 300 L 210 265 L 320 265 L 320 230 L 430 230 L 430 195 L 540 195 L 540 160 L 650 160 L 650 125 L 720 125\" fill=\"none\" stroke=\"#69d9d0\" stroke-width=\"3\"/><text x=\"405\" y=\"305\" fill=\"#f8bf70\" font-size=\"18\" font-family=\"sans-serif\" text-anchor=\"start\">One step = 1 mV</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">4.096 V / 4,096 levels = 0.001 V per ideal code step; sensor errors remain.</text></svg>",
+        "questions": [
+          {
+            "q": "How many levels and code labels does 12-bit conversion provide?",
+            "hint": "Distinguish count from highest label.",
+            "answer": "There are 4,096 levels, with integer labels 0 through 4,095."
+          },
+          {
+            "q": "Why does more bit depth fail to remove a fixed sensor bias?",
+            "hint": "The converter represents the signal it receives.",
+            "answer": "It divides the input range more finely but does not know the trusted physical value. Calibration and signal accuracy are separate."
+          }
+        ]
+      },
+      {
+        "id": "sensor-filter",
+        "heading": "Filter noise without hiding the event",
+        "body": "A measurement can combine a changing physical signal, random noise and systematic bias. Averaging several observations can suppress some random variation, but a stable offset remains in every average. It also mixes older information into the current estimate.\n\nFor a five-reading moving mean, add the newest five values and divide by five. Readings 20, 20, 20, 20 and 30 give a mean of 22. A sudden real jump to 30 therefore appears gradually while old readings remain in the window. Rejecting every abrupt change would also risk deleting real events.\n\nA mechanical switch may alternate briefly during one physical press. Debouncing accepts a state only after a defined stability condition, rather than interpreting each bounce as a new press. That rule introduces a delay and must match the application.\n\n**Try it:** Compare three fictional traces: random scatter around 20, a constant offset at 22 and a true step from 20 to 30. State which an average can smooth and which it cannot correct. Keep raw samples and timing when testing a filter, so a neat display does not conceal missing or stale data.",
+        "visual": "A smoothed trace reduces a spike but also follows a later change more slowly. The drawing is qualitative and is not a filter-performance specification.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">Averaging suppresses a spike and delays a change</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">A five-reading moving mean is shown conceptually.</text><line x1=\"90\" y1=\"315\" x2=\"730\" y2=\"315\" stroke=\"#a8b9d0\" stroke-width=\"2\"/><line x1=\"90\" y1=\"315\" x2=\"90\" y2=\"115\" stroke=\"#a8b9d0\" stroke-width=\"2\"/><text x=\"730\" y=\"346\" fill=\"#a8b9d0\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"end\">Sample time</text><text x=\"90\" y=\"101\" fill=\"#a8b9d0\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Value</text><path d=\"M 100.00 270.00 L 200.00 265.00 L 300.00 150.00 L 400.00 270.00 L 500.00 220.00 L 600.00 175.00 L 700.00 170.00\" fill=\"none\" stroke=\"#baa6ff\" stroke-width=\"3\"/><circle cx=\"100\" cy=\"270\" r=\"4\" fill=\"#baa6ff\"/><circle cx=\"200\" cy=\"265\" r=\"4\" fill=\"#baa6ff\"/><circle cx=\"300\" cy=\"150\" r=\"4\" fill=\"#baa6ff\"/><circle cx=\"400\" cy=\"270\" r=\"4\" fill=\"#baa6ff\"/><circle cx=\"500\" cy=\"220\" r=\"4\" fill=\"#baa6ff\"/><circle cx=\"600\" cy=\"175\" r=\"4\" fill=\"#baa6ff\"/><circle cx=\"700\" cy=\"170\" r=\"4\" fill=\"#baa6ff\"/><path d=\"M 100.00 270.00 L 200.00 268.00 L 300.00 230.00 L 400.00 240.00 L 500.00 235.00 L 600.00 216.00 L 700.00 197.00\" fill=\"none\" stroke=\"#69d9d0\" stroke-width=\"3\"/><circle cx=\"100\" cy=\"270\" r=\"4\" fill=\"#69d9d0\"/><circle cx=\"200\" cy=\"268\" r=\"4\" fill=\"#69d9d0\"/><circle cx=\"300\" cy=\"230\" r=\"4\" fill=\"#69d9d0\"/><circle cx=\"400\" cy=\"240\" r=\"4\" fill=\"#69d9d0\"/><circle cx=\"500\" cy=\"235\" r=\"4\" fill=\"#69d9d0\"/><circle cx=\"600\" cy=\"216\" r=\"4\" fill=\"#69d9d0\"/><circle cx=\"700\" cy=\"197\" r=\"4\" fill=\"#69d9d0\"/><text x=\"505\" y=\"130\" fill=\"#baa6ff\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">Raw</text><text x=\"590\" y=\"130\" fill=\"#69d9d0\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">Smoothed</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">Filtering cannot recover a clipped signal or remove a stable calibration bias.</text></svg>",
+        "questions": [
+          {
+            "q": "What is the mean of 20, 20, 20, 20 and 30?",
+            "hint": "Add all five values.",
+            "answer": "The sum is 110, so the mean is 22. The average only partly reflects the new value of 30."
+          },
+          {
+            "q": "Why should raw samples be retained during filter testing?",
+            "hint": "The processed result may hide a fault.",
+            "answer": "Raw values and timestamps reveal spikes, real steps and missing data that a smooth filtered trace can conceal."
+          }
+        ]
+      },
+      {
+        "id": "sensor-driver",
+        "heading": "Keep information paths separate from power paths",
+        "body": "A microcontroller output carries a logic command within specified voltage and current limits. It is not automatically a suitable energy source for a motor, solenoid or other load. A driver stage uses the command to control a separate power path.\n\nFor a fictional 12 V load drawing 2 A, electrical input power is voltage times current: 24 W. That does not establish what any logic pin can supply. The driver, wiring and supply must satisfy the load’s operating and transient requirements. Inductive loads store energy and need appropriate switching protection selected for the actual circuit.\n\nA control interface may require a shared signal reference, or it may use designed isolation. Neither can be assumed from the fact that connectors fit. Isolation separates specified electrical paths; it does not make every load or connection safe.\n\n**Predict:** Can a sensor-reading program prove that the output stage is correctly rated? No. Software success does not establish an electrical power rating.\n\n**Try it:** Draw command flow in one colour and energy flow in another. Add a load-off state and a power-loss case. This is a conceptual interface review, not a build instruction; use actual component documentation for implementation.",
+        "visual": "The controller sends information to a driver while the load receives energy through a separate supply path. Actual protection is circuit-specific.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">A logic signal is not a power supply</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Conceptual separation of information and load energy.</text><rect x=\"55\" y=\"130\" width=\"195\" height=\"155\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"71\" y=\"160\" fill=\"#baa6ff\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Logic output</text><text x=\"71\" y=\"192\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Small command</text><text x=\"71\" y=\"219\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Input limits apply</text><line x1=\"255\" y1=\"185\" x2=\"300\" y2=\"185\" stroke=\"#baa6ff\" stroke-width=\"3\"/><path d=\"M 292.10 189.31 L 300 185 L 292.10 180.69\" fill=\"none\" stroke=\"#baa6ff\" stroke-width=\"3\"/><rect x=\"305\" y=\"130\" width=\"195\" height=\"155\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"321\" y=\"160\" fill=\"#f8bf70\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Driver</text><text x=\"321\" y=\"192\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Switches power</text><text x=\"321\" y=\"219\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Protects interface</text><line x1=\"505\" y1=\"185\" x2=\"550\" y2=\"185\" stroke=\"#69d9d0\" stroke-width=\"3\"/><path d=\"M 542.10 189.31 L 550 185 L 542.10 180.69\" fill=\"none\" stroke=\"#69d9d0\" stroke-width=\"3\"/><rect x=\"555\" y=\"130\" width=\"190\" height=\"155\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"571\" y=\"160\" fill=\"#69d9d0\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Load</text><text x=\"571\" y=\"192\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Uses energy</text><text x=\"571\" y=\"219\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Separate supply</text><line x1=\"650\" y1=\"95\" x2=\"650\" y2=\"125\" stroke=\"#f8bf70\" stroke-width=\"3\"/><path d=\"M 645.69 117.10 L 650 125 L 654.31 117.10\" fill=\"none\" stroke=\"#f8bf70\" stroke-width=\"3\"/><text x=\"470\" y=\"105\" fill=\"#f8bf70\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Load energy</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">Select real drivers and protection from ratings; this is not a wiring procedure.</text></svg>",
+        "questions": [
+          {
+            "q": "What is input power for the fictional 12 V, 2 A load?",
+            "hint": "Use voltage times current.",
+            "answer": "12 V × 2 A = 24 W. This says nothing about a particular logic pin’s capability."
+          },
+          {
+            "q": "Why distinguish command from energy flow?",
+            "hint": "A small signal can control a large separate supply.",
+            "answer": "It prevents treating a logic output as the load’s power source and makes driver, reference and protection requirements visible."
+          }
+        ]
+      },
+      {
+        "id": "sensor-capstone",
+        "heading": "Capstone: calibrate, then verify independently",
+        "body": "A fictional linear temperature sensor gives 0.50 V at a 0 °C reference and 0.90 V at 40 °C. A separate held-out measurement at 20 °C gives 0.71 V. Assume stable references and an approximately linear response over this interval.\n\n**Your task:** Find sensitivity and offset, convert the held-out voltage, report its residual and propose a repeatability and fault check. Use no live hardware.\n\n**Worked solution:** Sensitivity is (0.90 − 0.50) V / 40 °C = 0.010 V/°C, with offset 0.50 V. The held-out voltage converts to (0.71 − 0.50) / 0.010 = 21 °C. Its residual, reported minus reference, is +1 °C. Keep that point out of the two-point fit so it remains an independent check. One residual cannot establish performance over every temperature.\n\nRepeat measurements at several references to assess scatter and nonlinearity. Simulate stale data and an out-of-range voltage; report invalid evidence explicitly rather than forcing it into a plausible temperature.\n\n**Check your work:** Preserve reference conditions, raw voltage, conversion, residual sign and timestamp. State a required tolerance before calling the sensor acceptable. Fine resolution and a fitted line are useful tools, but neither alone certifies the measurement.",
+        "visual": "The line is fitted through two references; the gold point is withheld for verification. Its converted +1 °C residual is assessed against a separately defined tolerance.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">Calibrate first; then test new evidence</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Fictional linear sensor: output V = 0.50 + 0.010 × temperature in °C.</text><line x1=\"90\" y1=\"315\" x2=\"730\" y2=\"315\" stroke=\"#a8b9d0\" stroke-width=\"2\"/><line x1=\"90\" y1=\"315\" x2=\"90\" y2=\"115\" stroke=\"#a8b9d0\" stroke-width=\"2\"/><text x=\"730\" y=\"346\" fill=\"#a8b9d0\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"end\">Reference temperature (°C)</text><text x=\"90\" y=\"101\" fill=\"#a8b9d0\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Voltage (V)</text><path d=\"M 150.00 290.00 L 630.00 140.00\" fill=\"none\" stroke=\"#69d9d0\" stroke-width=\"3\"/><circle cx=\"150\" cy=\"290\" r=\"4\" fill=\"#69d9d0\"/><circle cx=\"630\" cy=\"140\" r=\"4\" fill=\"#69d9d0\"/><circle cx=\"390\" cy=\"211.25\" r=\"7\" fill=\"#f8bf70\"/><text x=\"120\" y=\"325\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">0</text><text x=\"610\" y=\"325\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">40</text><text x=\"155\" y=\"273\" fill=\"#69d9d0\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">0.50 V</text><text x=\"605\" y=\"125\" fill=\"#69d9d0\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">0.90 V</text><text x=\"380\" y=\"195\" fill=\"#f8bf70\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">Held-out: 20 °C, 0.71 V</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">The held-out reading converts to 21 °C: a +1 °C residual, not a new fitted point.</text></svg>",
+        "questions": [
+          {
+            "q": "Why keep the 20 °C point out of the two-point fit?",
+            "hint": "A check should contain new evidence.",
+            "answer": "It tests the fitted relationship independently. Reusing every check point to fit the line weakens the verification claim."
+          },
+          {
+            "q": "Is +1 °C residual a pass?",
+            "hint": "What limit was specified?",
+            "answer": "A pass cannot be decided without a required tolerance and uncertainty. The residual is evidence to compare with that requirement."
+          }
+        ]
+      }
+    ]
+  },
+  "quizzes": {
+    "sections": [
+      {
+        "id": "sensor-chain",
+        "questions": [
+          {
+            "q": "The fictional sensor reports 0.75 V. What temperature does the model give?",
+            "choices": [
+              "75 °C",
+              "7.5 °C",
+              "0.25 °C",
+              "25 °C"
+            ],
+            "answer": 3,
+            "explain": "(0.75 − 0.50) / 0.010 = 25 °C."
+          },
+          {
+            "q": "Which property is improved by merely showing smaller display increments?",
+            "choices": [
+              "Displayed resolution",
+              "Guaranteed physical accuracy",
+              "Removal of sensor bias",
+              "Elimination of noise"
+            ],
+            "answer": 0,
+            "explain": "More digits change representation; reference agreement still needs measurement and calibration."
+          },
+          {
+            "q": "Which metadata makes an old plausible reading distinguishable from a current one?",
+            "choices": [
+              "A renamed variable alone",
+              "A measurement timestamp and validity state",
+              "The screen colour",
+              "The number of decimal places"
+            ],
+            "answer": 1,
+            "explain": "Freshness and validity must accompany the value to expose stale or failed measurements."
+          }
+        ]
+      },
+      {
+        "id": "sensor-divider",
+        "questions": [
+          {
+            "q": "With 3.3 V, 20 kΩ on top and 10 kΩ below, what is unloaded output?",
+            "choices": [
+              "1.10 V",
+              "2.20 V",
+              "1.65 V",
+              "3.30 V"
+            ],
+            "answer": 0,
+            "explain": "3.3 × 10 / (20 + 10) = 1.10 V."
+          },
+          {
+            "q": "Which assumption is required by the simple divider equation as used here?",
+            "choices": [
+              "No need for a reference node",
+              "Negligible measurement loading",
+              "Infinite source voltage",
+              "Zero resistance in both parts"
+            ],
+            "answer": 1,
+            "explain": "The simple calculation assumes the measuring input does not appreciably alter the resistor network."
+          },
+          {
+            "q": "What must be checked beyond the ideal voltage ratio for a real interface?",
+            "choices": [
+              "Only the resistor colour names",
+              "Nothing after the ratio is below supply",
+              "Input ratings, transients, reference and source-impedance requirements",
+              "Only the label font"
+            ],
+            "answer": 2,
+            "explain": "A safe and accurate interface depends on the complete electrical specifications, not only one nominal ratio."
+          }
+        ]
+      },
+      {
+        "id": "sensor-adc",
+        "questions": [
+          {
+            "q": "What is the ideal bin width for an 8-bit converter spanning 4.096 V?",
+            "choices": [
+              "256 mV",
+              "16 mV",
+              "1 mV",
+              "0.16 mV"
+            ],
+            "answer": 1,
+            "explain": "4.096 V / 256 = 0.016 V = 16 mV."
+          },
+          {
+            "q": "What is the highest code label for 4,096 levels starting at zero?",
+            "choices": [
+              "4,097",
+              "12",
+              "4,095",
+              "4,096"
+            ],
+            "answer": 2,
+            "explain": "Counting from zero gives labels 0 through 4,095."
+          },
+          {
+            "q": "Which problem can extra converter bits alone solve in the ideal model?",
+            "choices": [
+              "A stable 0.10 V sensor bias",
+              "An input beyond the allowed range",
+              "An incorrect physical unit",
+              "Coarse quantization steps"
+            ],
+            "answer": 3,
+            "explain": "Increasing ideal bit depth reduces bin width. Other errors need separate corrections or interface changes."
+          }
+        ]
+      },
+      {
+        "id": "sensor-filter",
+        "questions": [
+          {
+            "q": "Averaging many readings that all have +2 °C bias does what to that bias?",
+            "choices": [
+              "Makes bias exactly double every time",
+              "Changes Celsius into volts",
+              "Preserves approximately +2 °C bias",
+              "Guarantees zero bias"
+            ],
+            "answer": 2,
+            "explain": "A constant systematic offset is present in each sample and therefore in their mean."
+          },
+          {
+            "q": "What is the tradeoff of a longer moving-average window?",
+            "choices": [
+              "Perfect correction of every error",
+              "Guaranteed faster step response",
+              "No need for timestamps",
+              "Potentially less random variation but more lag"
+            ],
+            "answer": 3,
+            "explain": "Longer windows include more old information while reducing some random variation."
+          },
+          {
+            "q": "Why can a debounce rule miss a very short valid press?",
+            "choices": [
+              "Its required stable interval may exceed the press duration",
+              "It converts the switch into an ADC",
+              "Every press lasts forever",
+              "Noise and valid events have identical meanings"
+            ],
+            "answer": 0,
+            "explain": "Stability rules deliberately ignore short transitions; the interval must suit the intended event."
+          }
+        ]
+      },
+      {
+        "id": "sensor-driver",
+        "questions": [
+          {
+            "q": "What is electrical input power at 12 V and 2 A?",
+            "choices": [
+              "6 W",
+              "14 W",
+              "0.167 W",
+              "24 W"
+            ],
+            "answer": 3,
+            "explain": "Power equals voltage times current: 12 × 2 = 24 W."
+          },
+          {
+            "q": "What evidence establishes whether a logic pin can drive a particular load directly?",
+            "choices": [
+              "Actual pin and load ratings including transients",
+              "The program compiles",
+              "The connector fits",
+              "The code uses a variable named motor"
+            ],
+            "answer": 0,
+            "explain": "Electrical capability depends on specifications and circuit conditions, not software naming or compilation."
+          },
+          {
+            "q": "Why does an inductive load need switching analysis?",
+            "choices": [
+              "All logic pins absorb unlimited energy",
+              "It stores energy that can create a transient during switching",
+              "Its voltage is always zero",
+              "It cannot use a separate supply"
+            ],
+            "answer": 1,
+            "explain": "Stored magnetic energy must be handled by an appropriately designed driver and protection path."
+          }
+        ]
+      },
+      {
+        "id": "sensor-capstone",
+        "questions": [
+          {
+            "q": "What sensitivity follows from 0.50 V at 0 °C and 0.90 V at 40 °C?",
+            "choices": [
+              "0.010 V/°C",
+              "0.10 V/°C",
+              "0.40 V/°C",
+              "100 V/°C"
+            ],
+            "answer": 0,
+            "explain": "Voltage change 0.40 V divided by temperature change 40 °C gives 0.010 V/°C."
+          },
+          {
+            "q": "What is reported-minus-reference residual at the held-out point?",
+            "choices": [
+              "0 °C",
+              "+1 °C",
+              "−1 °C",
+              "+21 °C"
+            ],
+            "answer": 1,
+            "explain": "The model reports 21 °C for a 20 °C reference, so the residual is +1 °C."
+          },
+          {
+            "q": "What is the best response to an out-of-range simulated voltage?",
+            "choices": [
+              "Discard its timestamp only",
+              "Treat it as a perfect calibration point",
+              "Flag it with the reason instead of inventing a plausible temperature",
+              "Always clamp it to a normal-looking value silently"
+            ],
+            "answer": 2,
+            "explain": "Explicit invalid-state handling preserves the distinction between a measurement and a failed data path."
+          }
+        ]
+      }
+    ]
+  },
+  "slides": {
+    "sections": [
+      {
+        "id": "sensor-chain",
+        "title": "Separate the quantity from its representation",
+        "bullets": [
+          "Quantity: what you intend to measure",
+          "Resolution: representable step",
+          "Accuracy: agreement with a reference"
+        ],
+        "notes": "Yes. A sensor with a constant calibration bias can repeat closely while disagreeing with a trusted reference. (0.80 − 0.50) / 0.010 = 30 °C. The conversion depends on that stated sensor model.",
+        "visual": "A physical temperature becomes voltage and then a reported value. Each transformation needs its own model and quality checks."
+      },
+      {
+        "id": "sensor-divider",
+        "title": "A voltage divider is a model with a load assumption",
+        "bullets": [
+          "Ratio: bottom resistance over total",
+          "Loading: the measuring input changes the circuit",
+          "Limits: voltage ratings remain separate"
+        ],
+        "notes": "1.65 V, assuming equal resistances, a stable supply and negligible loading. Finite input resistance draws current and changes the effective lower branch; acquisition behaviour can add further error.",
+        "visual": "The unloaded divider places half of a 3.3 V supply across the lower equal resistor. The output arrow is a measurement reference, not a load-power path."
+      },
+      {
+        "id": "sensor-adc",
+        "title": "Resolution is a staircase, not an accuracy certificate",
+        "bullets": [
+          "Codes: 2 raised to the bit count",
+          "Bin width: input span divided by code count",
+          "Accuracy: includes errors beyond quantization"
+        ],
+        "notes": "There are 4,096 levels, with integer labels 0 through 4,095. It divides the input range more finely but does not know the trusted physical value. Calibration and signal accuracy are separate.",
+        "visual": "The staircase represents discrete bins. Its steps are conceptual; the stated 1 mV width applies to the lesson’s ideal 12-bit, 4.096 V model."
+      },
+      {
+        "id": "sensor-filter",
+        "title": "Filter noise without hiding the event",
+        "bullets": [
+          "Noise: random variation can be reduced",
+          "Bias: averaging preserves a stable offset",
+          "Lag: old samples delay a real change"
+        ],
+        "notes": "The sum is 110, so the mean is 22. The average only partly reflects the new value of 30. Raw values and timestamps reveal spikes, real steps and missing data that a smooth filtered trace can conceal.",
+        "visual": "A smoothed trace reduces a spike but also follows a later change more slowly. The drawing is qualitative and is not a filter-performance specification."
+      },
+      {
+        "id": "sensor-driver",
+        "title": "Keep information paths separate from power paths",
+        "bullets": [
+          "Command: bounded logic information",
+          "Driver: controls a separate energy path",
+          "Verification: ratings and fault states"
+        ],
+        "notes": "12 V × 2 A = 24 W. This says nothing about a particular logic pin’s capability. It prevents treating a logic output as the load’s power source and makes driver, reference and protection requirements visible.",
+        "visual": "The controller sends information to a driver while the load receives energy through a separate supply path. Actual protection is circuit-specific."
+      },
+      {
+        "id": "sensor-capstone",
+        "title": "Capstone: calibrate, then verify independently",
+        "bullets": [
+          "Fit: sensitivity is 0.010 V/°C",
+          "Verify: held-out residual is +1 °C",
+          "Accept: compare evidence with a defined tolerance"
+        ],
+        "notes": "It tests the fitted relationship independently. Reusing every check point to fit the line weakens the verification claim. A pass cannot be decided without a required tolerance and uncertainty. The residual is evidence to compare with that requirement.",
+        "visual": "The line is fitted through two references; the gold point is withheld for verification. Its converted +1 °C residual is assessed against a separately defined tolerance."
+      }
+    ]
+  },
+  "enrichment": {
+    "audioTitle": "Sensors & Electronics: From Signal to Measurement — reason it through",
+    "turns": [
+      {
+        "speaker": "teacher",
+        "line": "A display can show four decimal places and still report the wrong temperature. Follow a physical signal through conditioning, conversion and calibration before trusting the result."
+      },
+      {
+        "speaker": "student",
+        "line": "What will I make by the end?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Build a calibration record with independent verification and a fault case"
+      },
+      {
+        "speaker": "student",
+        "line": "Can a repeatable reading still be inaccurate?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Yes. A sensor with a constant calibration bias can repeat closely while disagreeing with a trusted reference."
+      },
+      {
+        "speaker": "student",
+        "line": "What does 0.80 V mean under the fictional transfer function?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "(0.80 − 0.50) / 0.010 = 30 °C. The conversion depends on that stated sensor model."
+      },
+      {
+        "speaker": "student",
+        "line": "What is the unloaded equal-resistor output from 3.3 V?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "1.65 V, assuming equal resistances, a stable supply and negligible loading."
+      },
+      {
+        "speaker": "student",
+        "line": "Why can connecting the measurement input change the value?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Finite input resistance draws current and changes the effective lower branch; acquisition behaviour can add further error."
+      },
+      {
+        "speaker": "student",
+        "line": "How many levels and code labels does 12-bit conversion provide?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "There are 4,096 levels, with integer labels 0 through 4,095."
+      },
+      {
+        "speaker": "student",
+        "line": "Why does more bit depth fail to remove a fixed sensor bias?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "It divides the input range more finely but does not know the trusted physical value. Calibration and signal accuracy are separate."
+      },
+      {
+        "speaker": "student",
+        "line": "What is the mean of 20, 20, 20, 20 and 30?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "The sum is 110, so the mean is 22. The average only partly reflects the new value of 30."
+      },
+      {
+        "speaker": "student",
+        "line": "Why should raw samples be retained during filter testing?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Raw values and timestamps reveal spikes, real steps and missing data that a smooth filtered trace can conceal."
+      },
+      {
+        "speaker": "student",
+        "line": "What is input power for the fictional 12 V, 2 A load?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "12 V × 2 A = 24 W. This says nothing about a particular logic pin’s capability."
+      },
+      {
+        "speaker": "student",
+        "line": "Why distinguish command from energy flow?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "It prevents treating a logic output as the load’s power source and makes driver, reference and protection requirements visible."
+      },
+      {
+        "speaker": "student",
+        "line": "Why keep the 20 °C point out of the two-point fit?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "It tests the fitted relationship independently. Reusing every check point to fit the line weakens the verification claim."
+      },
+      {
+        "speaker": "student",
+        "line": "Is +1 °C residual a pass?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "A pass cannot be decided without a required tolerance and uncertainty. The residual is evidence to compare with that requirement."
+      }
+    ],
+    "nodes": [
+      {
+        "id": "root",
+        "parent": null,
+        "label": "Sensors and practical electronics",
+        "note": "A display can show four decimal places and still report the wrong temperature. Follow a physical signal through conditioning, conversion and calibration before trusting the result."
+      },
+      {
+        "id": "sensor-chain",
+        "parent": "root",
+        "label": "Separate the quantity from its representation",
+        "note": "Quantity: what you intend to measure"
+      },
+      {
+        "id": "sensor-chain-detail-0",
+        "parent": "sensor-chain",
+        "label": "Resolution",
+        "note": "Resolution: representable step"
+      },
+      {
+        "id": "sensor-chain-detail-1",
+        "parent": "sensor-chain",
+        "label": "Accuracy",
+        "note": "Accuracy: agreement with a reference"
+      },
+      {
+        "id": "sensor-divider",
+        "parent": "root",
+        "label": "A voltage divider is a model with a load assumption",
+        "note": "Ratio: bottom resistance over total"
+      },
+      {
+        "id": "sensor-divider-detail-0",
+        "parent": "sensor-divider",
+        "label": "Loading",
+        "note": "Loading: the measuring input changes the circuit"
+      },
+      {
+        "id": "sensor-divider-detail-1",
+        "parent": "sensor-divider",
+        "label": "Limits",
+        "note": "Limits: voltage ratings remain separate"
+      },
+      {
+        "id": "sensor-adc",
+        "parent": "root",
+        "label": "Resolution is a staircase, not an accuracy certificate",
+        "note": "Codes: 2 raised to the bit count"
+      },
+      {
+        "id": "sensor-adc-detail-0",
+        "parent": "sensor-adc",
+        "label": "Bin width",
+        "note": "Bin width: input span divided by code count"
+      },
+      {
+        "id": "sensor-adc-detail-1",
+        "parent": "sensor-adc",
+        "label": "Accuracy",
+        "note": "Accuracy: includes errors beyond quantization"
+      },
+      {
+        "id": "sensor-filter",
+        "parent": "root",
+        "label": "Filter noise without hiding the event",
+        "note": "Noise: random variation can be reduced"
+      },
+      {
+        "id": "sensor-filter-detail-0",
+        "parent": "sensor-filter",
+        "label": "Bias",
+        "note": "Bias: averaging preserves a stable offset"
+      },
+      {
+        "id": "sensor-filter-detail-1",
+        "parent": "sensor-filter",
+        "label": "Lag",
+        "note": "Lag: old samples delay a real change"
+      },
+      {
+        "id": "sensor-driver",
+        "parent": "root",
+        "label": "Keep information paths separate from power paths",
+        "note": "Command: bounded logic information"
+      },
+      {
+        "id": "sensor-driver-detail-0",
+        "parent": "sensor-driver",
+        "label": "Driver",
+        "note": "Driver: controls a separate energy path"
+      },
+      {
+        "id": "sensor-driver-detail-1",
+        "parent": "sensor-driver",
+        "label": "Verification",
+        "note": "Verification: ratings and fault states"
+      },
+      {
+        "id": "sensor-capstone",
+        "parent": "root",
+        "label": "Capstone: calibrate, then verify independently",
+        "note": "Fit: sensitivity is 0.010 V/°C"
+      },
+      {
+        "id": "sensor-capstone-detail-0",
+        "parent": "sensor-capstone",
+        "label": "Verify",
+        "note": "Verify: held-out residual is +1 °C"
+      },
+      {
+        "id": "sensor-capstone-detail-1",
+        "parent": "sensor-capstone",
+        "label": "Accept",
+        "note": "Accept: compare evidence with a defined tolerance"
+      }
+    ],
+    "mnemonics": []
+  },
+  "sources": [
+    {
+      "title": "Arduino — analogRead reference",
+      "url": "https://docs.arduino.cc/language-reference/en/functions/analog-io/analogRead/"
+    },
+    {
+      "title": "Analog Devices — MT-001: Quantization and ADC performance",
+      "url": "https://www.analog.com/media/en/training-seminars/tutorials/MT-001.pdf"
+    },
+    {
+      "title": "Adafruit — Four-channel ADC overview",
+      "url": "https://learn.adafruit.com/adafruit-4-channel-adc-breakouts/overview"
+    }
+  ]
+}

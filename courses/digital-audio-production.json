@@ -1,0 +1,752 @@
+{
+  "meta": {
+    "title": "Digital Audio: Sampling, Signal Flow & Mixing",
+    "topic": "Digital audio and mixing",
+    "level": "intermediate",
+    "estimatedMinutes": 65,
+    "tags": [
+      "audio",
+      "recording",
+      "mixing",
+      "music",
+      "sampling"
+    ],
+    "createdAt": "2026-10-31T04:00:00.000Z",
+    "interests": "Agriculture, music, space, practical engineering and evidence-based technology",
+    "depth": "standard",
+    "model": "Learnway authored course"
+  },
+  "plan": {
+    "title": "Digital Audio: Sampling, Signal Flow & Mixing",
+    "hook": "A louder mix can seem better even when it clips. Trace the signal from sampled audio to the final export, then compare processing without letting level decide for you.",
+    "objectives": [
+      "Distinguish sample rate, bit depth, channel count and file size",
+      "Calculate buffer duration and interpret digital headroom",
+      "Explain equalization, dynamics and routing without confusing their roles",
+      "Create a reproducible mix-and-export plan with level-matched checks"
+    ],
+    "prerequisites": [
+      "Basic wave and frequency ideas; no instrument or audio software is required"
+    ],
+    "sections": [
+      {
+        "id": "audio-sampling",
+        "heading": "Sampling is a time grid, not little stairs",
+        "points": [
+          "Sample rate: time observations per channel",
+          "Nyquist: half the sample rate",
+          "Aliasing: out-of-band content can fold lower"
+        ]
+      },
+      {
+        "id": "audio-storage",
+        "heading": "Count frames before estimating file size",
+        "points": [
+          "Frame: one simultaneous sample per channel",
+          "Payload: rate × time × channels × bytes",
+          "Encoding: uncompressed and compressed differ"
+        ]
+      },
+      {
+        "id": "audio-gain",
+        "heading": "Trace gain and clipping through the whole route",
+        "points": [
+          "Gain: amplitude scaling",
+          "Headroom: distance to a relevant limit",
+          "Clipping: information lost at an overloaded stage"
+        ]
+      },
+      {
+        "id": "audio-dynamics",
+        "heading": "EQ and compression answer different questions",
+        "points": [
+          "EQ: frequency-dependent gain",
+          "Compression: level-dependent gain",
+          "Comparison: account for makeup gain"
+        ]
+      },
+      {
+        "id": "audio-latency",
+        "heading": "A buffer calculation is not the full round trip",
+        "points": [
+          "Buffer duration: frames over sample rate",
+          "Round trip: includes additional stages",
+          "Routing: duplicate paths can colour the result"
+        ]
+      },
+      {
+        "id": "audio-capstone",
+        "heading": "Capstone: document a repeatable mix and export",
+        "points": [
+          "Plan: preserve sources and document routing",
+          "Judge: level-match purposeful processing",
+          "Export: verify format, duration and output"
+        ]
+      }
+    ]
+  },
+  "reading": {
+    "sections": [
+      {
+        "id": "audio-sampling",
+        "heading": "Sampling is a time grid, not little stairs",
+        "body": "Digital audio represents a signal as samples spaced in time. Sample rate is the number of samples per second per channel, commonly expressed in hertz. At 48 kHz, a channel has 48,000 samples per second.\n\nFor ideal reconstruction, a band-limited signal must be sampled at a rate greater than twice its highest frequency. Half the sample rate is called the Nyquist frequency. A 48 kHz rate therefore has a 24 kHz Nyquist boundary; practical converters use filtering and a transition band, so the usable audio band is not simply an inclusive promise up to exactly 24 kHz.\n\nFrequencies beyond the valid band can appear as lower-frequency aliases if not removed before conversion. In an ideal simple example, a 30 kHz sinusoid sampled at 48 kHz aliases to 18 kHz. Later changing the file’s sample-rate label cannot recover the original input.\n\n**Try it:** Separate the time grid from the reconstructed waveform in a sketch. Explain why increasing sample rate is a different change from increasing amplitude resolution. No claim about audible improvement follows from sample-rate numbers alone.",
+        "visual": "Discrete observations lie on an underlying waveform. The picture supports the band-limited reconstruction model and does not depict a literal stair-stepped analog output.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">Samples measure points on a band-limited signal</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Illustrative waveform; the reconstruction model needs a bandwidth limit.</text><line x1=\"90\" y1=\"315\" x2=\"730\" y2=\"315\" stroke=\"#a8b9d0\" stroke-width=\"2\"/><line x1=\"90\" y1=\"315\" x2=\"90\" y2=\"115\" stroke=\"#a8b9d0\" stroke-width=\"2\"/><text x=\"730\" y=\"346\" fill=\"#a8b9d0\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"end\">Time →</text><text x=\"90\" y=\"101\" fill=\"#a8b9d0\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Amplitude</text><path d=\"M 100.0 220.0 L 106.0 205.4 L 112.0 191.5 L 118.0 178.9 L 124.0 168.0 L 130.0 159.4 L 136.0 153.4 L 142.0 150.4 L 148.0 150.4 L 154.0 153.4 L 160.0 159.4 L 166.0 168.0 L 172.0 178.9 L 178.0 191.5 L 184.0 205.4 L 190.0 220.0 L 196.0 234.6 L 202.0 248.5 L 208.0 261.1 L 214.0 272.0 L 220.0 280.6 L 226.0 286.6 L 232.0 289.6 L 238.0 289.6 L 244.0 286.6 L 250.0 280.6 L 256.0 272.0 L 262.0 261.1 L 268.0 248.5 L 274.0 234.6 L 280.0 220.0 L 286.0 205.4 L 292.0 191.5 L 298.0 178.9 L 304.0 168.0 L 310.0 159.4 L 316.0 153.4 L 322.0 150.4 L 328.0 150.4 L 334.0 153.4 L 340.0 159.4 L 346.0 168.0 L 352.0 178.9 L 358.0 191.5 L 364.0 205.4 L 370.0 220.0 L 376.0 234.6 L 382.0 248.5 L 388.0 261.1 L 394.0 272.0 L 400.0 280.6 L 406.0 286.6 L 412.0 289.6 L 418.0 289.6 L 424.0 286.6 L 430.0 280.6 L 436.0 272.0 L 442.0 261.1 L 448.0 248.5 L 454.0 234.6 L 460.0 220.0 L 466.0 205.4 L 472.0 191.5 L 478.0 178.9 L 484.0 168.0 L 490.0 159.4 L 496.0 153.4 L 502.0 150.4 L 508.0 150.4 L 514.0 153.4 L 520.0 159.4 L 526.0 168.0 L 532.0 178.9 L 538.0 191.5 L 544.0 205.4 L 550.0 220.0 L 556.0 234.6 L 562.0 248.5 L 568.0 261.1 L 574.0 272.0 L 580.0 280.6 L 586.0 286.6 L 592.0 289.6 L 598.0 289.6 L 604.0 286.6 L 610.0 280.6 L 616.0 272.0 L 622.0 261.1 L 628.0 248.5 L 634.0 234.6 L 640.0 220.0 L 646.0 205.4 L 652.0 191.5 L 658.0 178.9 L 664.0 168.0 L 670.0 159.4 L 676.0 153.4 L 682.0 150.4 L 688.0 150.4 L 694.0 153.4 L 700.0 159.4\" fill=\"none\" stroke=\"#baa6ff\" stroke-width=\"2\"/><line x1=\"100\" y1=\"315\" x2=\"100\" y2=\"220.0\" stroke=\"#69d9d0\" stroke-width=\"2\"/><circle cx=\"100\" cy=\"220.0\" r=\"5\" fill=\"#69d9d0\"/><line x1=\"160\" y1=\"315\" x2=\"160\" y2=\"159.37822173508928\" stroke=\"#69d9d0\" stroke-width=\"2\"/><circle cx=\"160\" cy=\"159.37822173508928\" r=\"5\" fill=\"#69d9d0\"/><line x1=\"220\" y1=\"315\" x2=\"220\" y2=\"280.6217782649107\" stroke=\"#69d9d0\" stroke-width=\"2\"/><circle cx=\"220\" cy=\"280.6217782649107\" r=\"5\" fill=\"#69d9d0\"/><line x1=\"280\" y1=\"315\" x2=\"280\" y2=\"220.00000000000009\" stroke=\"#69d9d0\" stroke-width=\"2\"/><circle cx=\"280\" cy=\"220.00000000000009\" r=\"5\" fill=\"#69d9d0\"/><line x1=\"340\" y1=\"315\" x2=\"340\" y2=\"159.37822173508926\" stroke=\"#69d9d0\" stroke-width=\"2\"/><circle cx=\"340\" cy=\"159.37822173508926\" r=\"5\" fill=\"#69d9d0\"/><line x1=\"400\" y1=\"315\" x2=\"400\" y2=\"280.6217782649107\" stroke=\"#69d9d0\" stroke-width=\"2\"/><circle cx=\"400\" cy=\"280.6217782649107\" r=\"5\" fill=\"#69d9d0\"/><line x1=\"460\" y1=\"315\" x2=\"460\" y2=\"220.00000000000017\" stroke=\"#69d9d0\" stroke-width=\"2\"/><circle cx=\"460\" cy=\"220.00000000000017\" r=\"5\" fill=\"#69d9d0\"/><line x1=\"520\" y1=\"315\" x2=\"520\" y2=\"159.37822173508926\" stroke=\"#69d9d0\" stroke-width=\"2\"/><circle cx=\"520\" cy=\"159.37822173508926\" r=\"5\" fill=\"#69d9d0\"/><line x1=\"580\" y1=\"315\" x2=\"580\" y2=\"280.62177826491063\" stroke=\"#69d9d0\" stroke-width=\"2\"/><circle cx=\"580\" cy=\"280.62177826491063\" r=\"5\" fill=\"#69d9d0\"/><line x1=\"640\" y1=\"315\" x2=\"640\" y2=\"220.00000000000006\" stroke=\"#69d9d0\" stroke-width=\"2\"/><circle cx=\"640\" cy=\"220.00000000000006\" r=\"5\" fill=\"#69d9d0\"/><line x1=\"700\" y1=\"315\" x2=\"700\" y2=\"159.3782217350893\" stroke=\"#69d9d0\" stroke-width=\"2\"/><circle cx=\"700\" cy=\"159.3782217350893\" r=\"5\" fill=\"#69d9d0\"/><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">Sample rate sets the time grid; reconstruction is not simply a staircase joining dots.</text></svg>",
+        "questions": [
+          {
+            "q": "What is the Nyquist frequency at 48 kHz sample rate?",
+            "hint": "Halve the sampling rate.",
+            "answer": "24 kHz. Practical anti-alias filtering needs a transition band; the ideal boundary is not a guarantee of usable response exactly there."
+          },
+          {
+            "q": "Why can a 30 kHz tone appear as 18 kHz at 48 kHz sampling?",
+            "hint": "Compare it with one sampling-rate interval.",
+            "answer": "Its sampled pattern aliases to the lower frequency 48 − 30 = 18 kHz in the ideal sinusoidal example."
+          }
+        ]
+      },
+      {
+        "id": "audio-storage",
+        "heading": "Count frames before estimating file size",
+        "body": "Bit depth describes the number of amplitude bits allocated to each fixed-point sample. A 24-bit sample uses 3 bytes because one byte is 8 bits. A sample frame contains one sample from each channel at a common time: stereo has two samples per frame.\n\nUncompressed payload size equals frames per second times duration times channels times bytes per sample. For 60 s of 48 kHz, 24-bit stereo: 48,000 × 60 × 2 × 3 = 17,280,000 bytes. That is 17.28 decimal megabytes, excluding headers and metadata. Binary mebibytes use a different divisor.\n\nLossless compression may reduce storage while preserving decoded samples. Lossy encoding discards information using a perceptual model. Their file sizes do not follow the uncompressed formula directly. Converting a lossy file into a larger PCM file does not restore information already removed.\n\n**Try it:** Calculate one minute of mono at the same rate and bit depth: 8.64 decimal MB. State every factor so stereo cannot accidentally be counted twice. A higher bit-depth container alone does not establish that the recording has equally high effective accuracy or low noise.",
+        "visual": "The size calculation counts time frames and per-frame channel bytes separately. Decimal MB is stated to avoid a hidden unit change.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">Frames, channels and bytes all count</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">One minute of uncompressed 48 kHz, 24-bit stereo; no headers.</text><rect x=\"55\" y=\"120\" width=\"210\" height=\"180\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"71\" y=\"150\" fill=\"#69d9d0\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Time grid</text><text x=\"71\" y=\"182\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">48,000 frames/s</text><text x=\"71\" y=\"209\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">60 seconds</text><text x=\"71\" y=\"236\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">2,880,000 frames</text><rect x=\"295\" y=\"120\" width=\"210\" height=\"180\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"311\" y=\"150\" fill=\"#f8bf70\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Each frame</text><text x=\"311\" y=\"182\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">2 channels</text><text x=\"311\" y=\"209\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">3 bytes/channel</text><text x=\"311\" y=\"236\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">6 bytes/frame</text><rect x=\"535\" y=\"120\" width=\"210\" height=\"180\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"551\" y=\"150\" fill=\"#baa6ff\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Total</text><text x=\"551\" y=\"182\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">17,280,000 bytes</text><text x=\"551\" y=\"209\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">17.28 decimal MB</text><text x=\"551\" y=\"236\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Before metadata</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">Conceptual model; assumptions and units are explained in the lesson.</text></svg>",
+        "questions": [
+          {
+            "q": "How many bytes are in a 24-bit sample?",
+            "hint": "There are eight bits per byte.",
+            "answer": "Three bytes. Stereo has two such samples in each frame."
+          },
+          {
+            "q": "Does converting a lossy recording to PCM restore lost detail?",
+            "hint": "A larger container cannot recreate discarded evidence.",
+            "answer": "No. It stores the decoded result in a larger representation without recovering information removed by the lossy encoding."
+          }
+        ]
+      },
+      {
+        "id": "audio-gain",
+        "heading": "Trace gain and clipping through the whole route",
+        "body": "Gain scales signal amplitude. Digital full scale is the reference for dBFS, a decibel level relative to the digital limit. A fixed-range final output cannot represent samples beyond its limit. Internal floating-point processing may allow values above that range, but the final conversion or export still needs valid output levels.\n\nFor amplitude ratios, decibel change equals 20 times the base-10 logarithm of the ratio. Halving amplitude gives about −6.02 dB; doubling gives about +6.02 dB. This is not a universal statement about perceived loudness.\n\nHeadroom is the distance from the relevant limit. A track peaking at −12 dBFS can still contribute to a clipping bus when combined with other tracks or boosts. Once a stage clips and discards peak shape, lowering a later fader does not reconstruct the lost values.\n\n**Try it:** Draw source, track processing, fader, bus and export. Mark the point where a boost occurs and where a limiter or fixed-range conversion might act. Peak level, average level and perceived loudness are different observations. Compare processed versions at similar listening level so a simple gain increase does not win automatically.",
+        "visual": "An overloaded peak is limited at the final output range. The retained flat top illustrates why later attenuation cannot recover the original shape.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">Headroom is distance from an output limit</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Illustrative sample values before final fixed-range export.</text><line x1=\"90\" y1=\"315\" x2=\"730\" y2=\"315\" stroke=\"#a8b9d0\" stroke-width=\"2\"/><line x1=\"90\" y1=\"315\" x2=\"90\" y2=\"115\" stroke=\"#a8b9d0\" stroke-width=\"2\"/><text x=\"730\" y=\"346\" fill=\"#a8b9d0\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"end\">Time →</text><text x=\"90\" y=\"101\" fill=\"#a8b9d0\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Sample amplitude</text><line x1=\"90\" y1=\"135\" x2=\"730\" y2=\"135\" stroke=\"#f69caf\" stroke-width=\"2\"/><text x=\"550\" y=\"120\" fill=\"#f69caf\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Output limit</text><path d=\"M 110 270 L 230 200 L 350 100 L 470 240 L 590 120 L 710 245\" fill=\"none\" stroke=\"#baa6ff\" stroke-width=\"3\"/><path d=\"M 110 270 L 230 200 L 308 135 L 382 135 L 470 240 L 570 135 L 606 135 L 710 245\" fill=\"none\" stroke=\"#69d9d0\" stroke-width=\"3\"/><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">Clipping loses peak shape. Lowering a later fader cannot restore the missing information.</text></svg>",
+        "questions": [
+          {
+            "q": "What decibel change approximately halves amplitude?",
+            "hint": "Use the amplitude rather than power convention.",
+            "answer": "About −6.02 dB. This is an amplitude relationship, not a claim that perceived loudness halves."
+          },
+          {
+            "q": "Why does lowering a later fader not repair earlier clipping?",
+            "hint": "The earlier stage already discarded peak shape.",
+            "answer": "It scales the distorted result down but does not recover the values that exceeded the earlier stage’s range."
+          }
+        ]
+      },
+      {
+        "id": "audio-dynamics",
+        "heading": "EQ and compression answer different questions",
+        "body": "Equalization, or EQ, changes gain as a function of frequency. Compression changes gain according to a level-dependent rule over time. Both can alter timbre and peaks, but their controls describe different mechanisms.\n\nIn a static hard-knee compression model, a 4:1 ratio means every 4 dB of input increase above threshold produces 1 dB of output increase above it. With threshold −18 dBFS and input −6 dBFS, the input is 12 dB above threshold. Output is 3 dB above it, or −15 dBFS, before makeup gain. Real attack, release, knee and detector behaviour affect the changing signal.\n\nMakeup gain can make a compressed version louder, masking whether the envelope change helped. A frequency cut can reduce masking between instruments without compression. Conversely, compressing a vocal cannot guarantee its frequency balance is suitable.\n\n**Try it:** Write separate goals: reduce a persistent low-frequency build-up; contain occasional vocal peaks; preserve a drum transient. Choose which mechanism addresses each, then specify a level-matched comparison. No universal EQ frequency or compressor setting suits every recording.",
+        "visual": "The static compression curve reduces the slope above threshold. It deliberately excludes the timing controls that govern real transient response.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">Compression changes slope above threshold</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Static 4:1 example; no attack, release, knee or makeup gain in this model.</text><line x1=\"90\" y1=\"315\" x2=\"730\" y2=\"315\" stroke=\"#a8b9d0\" stroke-width=\"2\"/><line x1=\"90\" y1=\"315\" x2=\"90\" y2=\"115\" stroke=\"#a8b9d0\" stroke-width=\"2\"/><text x=\"730\" y=\"346\" fill=\"#a8b9d0\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"end\">Input level (dBFS) →</text><text x=\"90\" y=\"101\" fill=\"#a8b9d0\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Output level (dBFS)</text><path d=\"M 100.00 310.00 L 500.00 180.00 L 710.00 162.00\" fill=\"none\" stroke=\"#69d9d0\" stroke-width=\"3\"/><circle cx=\"100\" cy=\"310\" r=\"4\" fill=\"#69d9d0\"/><circle cx=\"500\" cy=\"180\" r=\"4\" fill=\"#69d9d0\"/><circle cx=\"710\" cy=\"162\" r=\"4\" fill=\"#69d9d0\"/><line x1=\"500\" y1=\"315\" x2=\"500\" y2=\"180\" stroke=\"#f8bf70\" stroke-width=\"2\"/><text x=\"390\" y=\"344\" fill=\"#f8bf70\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Threshold −18</text><text x=\"530\" y=\"205\" fill=\"#69d9d0\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Input −6 → output −15</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">12 dB above threshold becomes 3 dB above threshold at a 4:1 ratio.</text></svg>",
+        "questions": [
+          {
+            "q": "At −18 dBFS threshold, 4:1 ratio and −6 dBFS input, what static output results?",
+            "hint": "Compress only the amount above threshold.",
+            "answer": "Input is 12 dB above threshold; 12 / 4 = 3 dB above gives −15 dBFS before makeup gain."
+          },
+          {
+            "q": "Why can makeup gain bias an effect comparison?",
+            "hint": "Louder can seem better.",
+            "answer": "The changed listening level can dominate preference, so compare at matched level when judging the compression itself."
+          }
+        ]
+      },
+      {
+        "id": "audio-latency",
+        "heading": "A buffer calculation is not the full round trip",
+        "body": "An audio buffer holds a block of sample frames for processing. Its duration equals frames divided by sample rate. At 48,000 frames per second, a 256-frame buffer spans 256 / 48,000 s ≈ 5.33 ms.\n\nThat is one buffer duration, not necessarily microphone-to-headphone latency. Input and output buffering, converters, drivers, scheduling and plugin lookahead can add delay. A system may use several buffers. A smaller buffer can reduce one contribution while making processing deadlines harder to meet, causing glitches if the machine cannot keep up.\n\nSignal routing also matters. Monitoring the same source both directly and through a delayed software path can create a doubled or comb-filtered result. Muting one route may address that duplication without changing buffer size.\n\n**Try it:** Draw the complete monitor path. List which stages a calculation includes and which need measurement. Compare 128, 256 and 512 frames at 48 kHz: about 2.67, 5.33 and 10.67 ms per buffer. The best operating choice meets stable real-time processing and usable monitoring requirements, rather than chasing one smallest number.",
+        "visual": "The bars compare individual buffer durations on one scale. They are components of, rather than measurements of, total round-trip latency.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">One buffer is only part of the trip</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Buffer duration at 48 kHz; full round-trip latency includes more stages.</text><text x=\"195\" y=\"152\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"end\">128 frames</text><rect x=\"210\" y=\"130\" width=\"475\" height=\"30\" rx=\"6\" fill=\"none\" stroke=\"#33445e\"/><rect x=\"210\" y=\"130\" width=\"105.56874999999998\" height=\"30\" rx=\"6\" fill=\"#69d9d0\" stroke=\"#69d9d0\"/><text x=\"697\" y=\"152\" fill=\"#69d9d0\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">2.667 ms</text><text x=\"195\" y=\"217\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"end\">256 frames</text><rect x=\"210\" y=\"195\" width=\"475\" height=\"30\" rx=\"6\" fill=\"none\" stroke=\"#33445e\"/><rect x=\"210\" y=\"195\" width=\"211.0979166666667\" height=\"30\" rx=\"6\" fill=\"#f8bf70\" stroke=\"#f8bf70\"/><text x=\"697\" y=\"217\" fill=\"#f8bf70\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">5.333 ms</text><text x=\"195\" y=\"282\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"end\">512 frames</text><rect x=\"210\" y=\"260\" width=\"475\" height=\"30\" rx=\"6\" fill=\"none\" stroke=\"#33445e\"/><rect x=\"210\" y=\"260\" width=\"422.23541666666665\" height=\"30\" rx=\"6\" fill=\"#baa6ff\" stroke=\"#baa6ff\"/><text x=\"697\" y=\"282\" fill=\"#baa6ff\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">10.667 ms</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">Frames / frames per second gives seconds. Driver, converters and plugins add latency.</text></svg>",
+        "questions": [
+          {
+            "q": "What is one 256-frame buffer duration at 48 kHz?",
+            "hint": "Divide frames by frames per second, then convert to milliseconds.",
+            "answer": "256 / 48,000 s ≈ 5.33 ms. This is not a complete round-trip measurement."
+          },
+          {
+            "q": "Why might a smaller buffer cause glitches?",
+            "hint": "Processing must meet a shorter deadline.",
+            "answer": "The processor and driver have less time to deliver each block; missed deadlines can create dropouts even though nominal buffering delay is smaller."
+          }
+        ]
+      },
+      {
+        "id": "audio-capstone",
+        "heading": "Capstone: document a repeatable mix and export",
+        "body": "Plan a fictional four-track session with drums, bass, guitar and vocal. Sources are 48 kHz, 24-bit mono PCM, each 60 s long. The task is a reproducible session plan; this authored course supplies diagrams and speech narration, not instrumental playback.\n\n**Your task:** Calculate total source payload, draw routes to a stereo bus, choose one frequency-balance goal and one dynamics goal, and specify export checks. Explain how you will compare a processed and unprocessed version fairly.\n\n**Worked solution:** One source uses 8,640,000 bytes; four use 34,560,000 bytes before headers. Preserve originals, route each track once to the intended bus and identify any separate monitor or effect-return paths. Use EQ for a stated masking concern and compression for a stated peak or envelope concern; then level-match the comparisons. Keep final output within the chosen export range and re-import the export to verify duration, channels and absence of unintended clipping or silence.\n\n**Check your work:** Include source format, routing, purpose of each process, peak/headroom checks, comparison levels and export format. A small file or a loud playback is not by itself proof of a good mix. If you later implement the plan, compare listening evidence as well as meter readings.",
+        "visual": "The capstone separates preserved session evidence from checks on the rendered result. It remains a written exercise that can later be implemented in audio software.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">A repeatable mix test needs fixed conditions</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Fictional four-track exercise; the output is a written session plan.</text><rect x=\"60\" y=\"120\" width=\"325\" height=\"200\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"76\" y=\"150\" fill=\"#69d9d0\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Preserve</text><text x=\"76\" y=\"182\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Original source files</text><text x=\"76\" y=\"209\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Track and bus routes</text><text x=\"76\" y=\"236\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Gain and effect decisions</text><text x=\"76\" y=\"263\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Uncompressed master</text><rect x=\"415\" y=\"120\" width=\"325\" height=\"200\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"431\" y=\"150\" fill=\"#f8bf70\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Verify</text><text x=\"431\" y=\"182\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Output peaks and clipping</text><text x=\"431\" y=\"209\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Level-matched A/B</text><text x=\"431\" y=\"236\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Mono compatibility</text><text x=\"431\" y=\"263\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Export re-import check</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">The course provides conceptual exercises and dialogue narration, not instrumental playback.</text></svg>",
+        "questions": [
+          {
+            "q": "What is the four-source uncompressed payload?",
+            "hint": "Multiply the mono one-minute payload by four.",
+            "answer": "4 × 8,640,000 = 34,560,000 bytes, excluding headers and metadata."
+          },
+          {
+            "q": "What makes the processing comparison repeatable?",
+            "hint": "Fix routing and comparison level.",
+            "answer": "Use the same source interval and routing, document settings and compare at matched listening levels before judging the result."
+          }
+        ]
+      }
+    ]
+  },
+  "quizzes": {
+    "sections": [
+      {
+        "id": "audio-sampling",
+        "questions": [
+          {
+            "q": "What is the Nyquist frequency at 44.1 kHz sample rate?",
+            "choices": [
+              "2.205 kHz",
+              "22.05 kHz",
+              "44.1 kHz",
+              "88.2 kHz"
+            ],
+            "answer": 1,
+            "explain": "The Nyquist frequency is half the sample rate: 44.1 / 2 = 22.05 kHz."
+          },
+          {
+            "q": "What prevents out-of-band input from aliasing during conversion?",
+            "choices": [
+              "Adding more display decimals",
+              "Changing the track colour",
+              "Appropriate filtering before sampling",
+              "Renaming the exported file"
+            ],
+            "answer": 2,
+            "explain": "Out-of-band energy must be limited before sampling; a later label cannot undo aliasing."
+          },
+          {
+            "q": "Which property changes directly when sample rate increases?",
+            "choices": [
+              "The number of amplitude bits automatically",
+              "The number of channels necessarily",
+              "The musical key",
+              "The spacing of observations in time"
+            ],
+            "answer": 3,
+            "explain": "Sample rate controls the temporal grid; bit depth and channel count are separate settings."
+          }
+        ]
+      },
+      {
+        "id": "audio-storage",
+        "questions": [
+          {
+            "q": "What is the uncompressed payload for 60 s of 48 kHz, 24-bit mono?",
+            "choices": [
+              "2,880,000 bytes",
+              "144,000 bytes",
+              "8,640,000 bytes",
+              "17,280,000 bytes"
+            ],
+            "answer": 2,
+            "explain": "48,000 × 60 × 1 × 3 = 8,640,000 bytes, before headers."
+          },
+          {
+            "q": "What does a stereo sample frame contain?",
+            "choices": [
+              "Two seconds of audio",
+              "Twenty-four channels",
+              "Only a file header",
+              "One sample from each of two channels"
+            ],
+            "answer": 3,
+            "explain": "A frame groups simultaneous samples across channels."
+          },
+          {
+            "q": "Which statement about a 24-bit container is justified by the label alone?",
+            "choices": [
+              "It allocates 24 amplitude bits per fixed-point sample",
+              "The microphone has perfect 24-bit accuracy",
+              "The file cannot contain noise",
+              "The music is necessarily louder"
+            ],
+            "answer": 0,
+            "explain": "Container resolution does not establish the effective accuracy or quality of the full recording chain."
+          }
+        ]
+      },
+      {
+        "id": "audio-gain",
+        "questions": [
+          {
+            "q": "An amplitude is doubled. What is its approximate level change?",
+            "choices": [
+              "+3.01 dB",
+              "+2 dB",
+              "−6.02 dB",
+              "+6.02 dB"
+            ],
+            "answer": 3,
+            "explain": "20 log10(2) is about +6.02 dB for amplitude."
+          },
+          {
+            "q": "Why can several individually safe tracks overload a final bus?",
+            "choices": [
+              "Their combined signals and processing can exceed its output range",
+              "Every safe track must stay safe in every sum",
+              "Stereo automatically prevents clipping",
+              "dBFS is a tempo unit"
+            ],
+            "answer": 0,
+            "explain": "Summation and boosts affect bus peaks; individual track peaks do not guarantee final headroom."
+          },
+          {
+            "q": "What makes an A/B processing comparison less biased by level?",
+            "choices": [
+              "Hide the original and change every effect at once",
+              "Match comparison listening levels",
+              "Always make B louder",
+              "Compare at unrelated playback volumes"
+            ],
+            "answer": 1,
+            "explain": "Level matching reduces the tendency to prefer a version simply because it is louder."
+          }
+        ]
+      },
+      {
+        "id": "audio-dynamics",
+        "questions": [
+          {
+            "q": "At threshold −20 dBFS, 2:1 ratio and input −10 dBFS, what is static output before makeup?",
+            "choices": [
+              "−15 dBFS",
+              "−5 dBFS",
+              "−20 dBFS",
+              "−10 dBFS"
+            ],
+            "answer": 0,
+            "explain": "The 10 dB excess becomes 5 dB, so output is −20 + 5 = −15 dBFS."
+          },
+          {
+            "q": "Which mechanism directly changes frequency balance?",
+            "choices": [
+              "The transport play button",
+              "EQ",
+              "Sample-rate relabelling",
+              "A file-name change"
+            ],
+            "answer": 1,
+            "explain": "EQ applies different gain at different frequencies, though other processes can also affect perceived timbre."
+          },
+          {
+            "q": "What is omitted by a static compression-curve calculation?",
+            "choices": [
+              "The stated ratio",
+              "All input and output levels",
+              "Attack, release and changing detector behaviour",
+              "The stated threshold"
+            ],
+            "answer": 2,
+            "explain": "The static relation does not determine how quickly gain changes on real time-varying material."
+          }
+        ]
+      },
+      {
+        "id": "audio-latency",
+        "questions": [
+          {
+            "q": "What is one 128-frame buffer duration at 48 kHz?",
+            "choices": [
+              "Exactly 48 ms",
+              "About 2.67 ms",
+              "About 26.7 ms",
+              "About 0.267 s"
+            ],
+            "answer": 1,
+            "explain": "128 / 48,000 × 1,000 ≈ 2.67 ms."
+          },
+          {
+            "q": "What can duplicate direct and delayed monitoring cause?",
+            "choices": [
+              "Restoration of clipped peaks",
+              "Automatic noise removal",
+              "A doubled or comb-filtered signal",
+              "Guaranteed phase-perfect reinforcement at all frequencies"
+            ],
+            "answer": 2,
+            "explain": "The delayed copy combines with the direct signal differently across frequencies."
+          },
+          {
+            "q": "Which is the strongest full-latency claim?",
+            "choices": [
+              "One buffer calculation alone",
+              "The file’s bit depth alone",
+              "A processor brand name alone",
+              "A measured end-to-end path under stated driver and plugin conditions"
+            ],
+            "answer": 3,
+            "explain": "The whole path includes delays beyond a single buffer and should be measured for the stated configuration."
+          }
+        ]
+      },
+      {
+        "id": "audio-capstone",
+        "questions": [
+          {
+            "q": "What total payload do the four specified mono sources use?",
+            "choices": [
+              "69,120,000 bytes",
+              "8,640,000 bytes",
+              "34,560,000 bytes",
+              "17,280,000 bytes"
+            ],
+            "answer": 2,
+            "explain": "Each source is 8,640,000 bytes; four total 34,560,000 bytes."
+          },
+          {
+            "q": "Which export check can reveal a routing mistake?",
+            "choices": [
+              "Only inspect the filename",
+              "Only enlarge the waveform display",
+              "Only compare file icons",
+              "Re-import and verify expected channels, duration and signal presence"
+            ],
+            "answer": 3,
+            "explain": "The rendered result can expose silent, duplicated or incorrectly routed output."
+          },
+          {
+            "q": "What makes an effect choice defensible?",
+            "choices": [
+              "A stated audible goal and a level-matched comparison",
+              "Using every available processor",
+              "Choosing the loudest preset automatically",
+              "Assuming bit depth decides the arrangement"
+            ],
+            "answer": 0,
+            "explain": "A purpose and controlled comparison connect the process to the intended musical result."
+          }
+        ]
+      }
+    ]
+  },
+  "slides": {
+    "sections": [
+      {
+        "id": "audio-sampling",
+        "title": "Sampling is a time grid, not little stairs",
+        "bullets": [
+          "Sample rate: time observations per channel",
+          "Nyquist: half the sample rate",
+          "Aliasing: out-of-band content can fold lower"
+        ],
+        "notes": "24 kHz. Practical anti-alias filtering needs a transition band; the ideal boundary is not a guarantee of usable response exactly there. Its sampled pattern aliases to the lower frequency 48 − 30 = 18 kHz in the ideal sinusoidal example.",
+        "visual": "Discrete observations lie on an underlying waveform. The picture supports the band-limited reconstruction model and does not depict a literal stair-stepped analog output."
+      },
+      {
+        "id": "audio-storage",
+        "title": "Count frames before estimating file size",
+        "bullets": [
+          "Frame: one simultaneous sample per channel",
+          "Payload: rate × time × channels × bytes",
+          "Encoding: uncompressed and compressed differ"
+        ],
+        "notes": "Three bytes. Stereo has two such samples in each frame. No. It stores the decoded result in a larger representation without recovering information removed by the lossy encoding.",
+        "visual": "The size calculation counts time frames and per-frame channel bytes separately. Decimal MB is stated to avoid a hidden unit change."
+      },
+      {
+        "id": "audio-gain",
+        "title": "Trace gain and clipping through the whole route",
+        "bullets": [
+          "Gain: amplitude scaling",
+          "Headroom: distance to a relevant limit",
+          "Clipping: information lost at an overloaded stage"
+        ],
+        "notes": "About −6.02 dB. This is an amplitude relationship, not a claim that perceived loudness halves. It scales the distorted result down but does not recover the values that exceeded the earlier stage’s range.",
+        "visual": "An overloaded peak is limited at the final output range. The retained flat top illustrates why later attenuation cannot recover the original shape."
+      },
+      {
+        "id": "audio-dynamics",
+        "title": "EQ and compression answer different questions",
+        "bullets": [
+          "EQ: frequency-dependent gain",
+          "Compression: level-dependent gain",
+          "Comparison: account for makeup gain"
+        ],
+        "notes": "Input is 12 dB above threshold; 12 / 4 = 3 dB above gives −15 dBFS before makeup gain. The changed listening level can dominate preference, so compare at matched level when judging the compression itself.",
+        "visual": "The static compression curve reduces the slope above threshold. It deliberately excludes the timing controls that govern real transient response."
+      },
+      {
+        "id": "audio-latency",
+        "title": "A buffer calculation is not the full round trip",
+        "bullets": [
+          "Buffer duration: frames over sample rate",
+          "Round trip: includes additional stages",
+          "Routing: duplicate paths can colour the result"
+        ],
+        "notes": "256 / 48,000 s ≈ 5.33 ms. This is not a complete round-trip measurement. The processor and driver have less time to deliver each block; missed deadlines can create dropouts even though nominal buffering delay is smaller.",
+        "visual": "The bars compare individual buffer durations on one scale. They are components of, rather than measurements of, total round-trip latency."
+      },
+      {
+        "id": "audio-capstone",
+        "title": "Capstone: document a repeatable mix and export",
+        "bullets": [
+          "Plan: preserve sources and document routing",
+          "Judge: level-match purposeful processing",
+          "Export: verify format, duration and output"
+        ],
+        "notes": "4 × 8,640,000 = 34,560,000 bytes, excluding headers and metadata. Use the same source interval and routing, document settings and compare at matched listening levels before judging the result.",
+        "visual": "The capstone separates preserved session evidence from checks on the rendered result. It remains a written exercise that can later be implemented in audio software."
+      }
+    ]
+  },
+  "enrichment": {
+    "audioTitle": "Digital Audio: Sampling, Signal Flow & Mixing — reason it through",
+    "turns": [
+      {
+        "speaker": "teacher",
+        "line": "A louder mix can seem better even when it clips. Trace the signal from sampled audio to the final export, then compare processing without letting level decide for you."
+      },
+      {
+        "speaker": "student",
+        "line": "What will I make by the end?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Create a reproducible mix-and-export plan with level-matched checks"
+      },
+      {
+        "speaker": "student",
+        "line": "What is the Nyquist frequency at 48 kHz sample rate?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "24 kHz. Practical anti-alias filtering needs a transition band; the ideal boundary is not a guarantee of usable response exactly there."
+      },
+      {
+        "speaker": "student",
+        "line": "Why can a 30 kHz tone appear as 18 kHz at 48 kHz sampling?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Its sampled pattern aliases to the lower frequency 48 − 30 = 18 kHz in the ideal sinusoidal example."
+      },
+      {
+        "speaker": "student",
+        "line": "How many bytes are in a 24-bit sample?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Three bytes. Stereo has two such samples in each frame."
+      },
+      {
+        "speaker": "student",
+        "line": "Does converting a lossy recording to PCM restore lost detail?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "No. It stores the decoded result in a larger representation without recovering information removed by the lossy encoding."
+      },
+      {
+        "speaker": "student",
+        "line": "What decibel change approximately halves amplitude?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "About −6.02 dB. This is an amplitude relationship, not a claim that perceived loudness halves."
+      },
+      {
+        "speaker": "student",
+        "line": "Why does lowering a later fader not repair earlier clipping?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "It scales the distorted result down but does not recover the values that exceeded the earlier stage’s range."
+      },
+      {
+        "speaker": "student",
+        "line": "At −18 dBFS threshold, 4:1 ratio and −6 dBFS input, what static output results?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Input is 12 dB above threshold; 12 / 4 = 3 dB above gives −15 dBFS before makeup gain."
+      },
+      {
+        "speaker": "student",
+        "line": "Why can makeup gain bias an effect comparison?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "The changed listening level can dominate preference, so compare at matched level when judging the compression itself."
+      },
+      {
+        "speaker": "student",
+        "line": "What is one 256-frame buffer duration at 48 kHz?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "256 / 48,000 s ≈ 5.33 ms. This is not a complete round-trip measurement."
+      },
+      {
+        "speaker": "student",
+        "line": "Why might a smaller buffer cause glitches?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "The processor and driver have less time to deliver each block; missed deadlines can create dropouts even though nominal buffering delay is smaller."
+      },
+      {
+        "speaker": "student",
+        "line": "What is the four-source uncompressed payload?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "4 × 8,640,000 = 34,560,000 bytes, excluding headers and metadata."
+      },
+      {
+        "speaker": "student",
+        "line": "What makes the processing comparison repeatable?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Use the same source interval and routing, document settings and compare at matched listening levels before judging the result."
+      }
+    ],
+    "nodes": [
+      {
+        "id": "root",
+        "parent": null,
+        "label": "Digital audio and mixing",
+        "note": "A louder mix can seem better even when it clips. Trace the signal from sampled audio to the final export, then compare processing without letting level decide for you."
+      },
+      {
+        "id": "audio-sampling",
+        "parent": "root",
+        "label": "Sampling is a time grid, not little stairs",
+        "note": "Sample rate: time observations per channel"
+      },
+      {
+        "id": "audio-sampling-detail-0",
+        "parent": "audio-sampling",
+        "label": "Nyquist",
+        "note": "Nyquist: half the sample rate"
+      },
+      {
+        "id": "audio-sampling-detail-1",
+        "parent": "audio-sampling",
+        "label": "Aliasing",
+        "note": "Aliasing: out-of-band content can fold lower"
+      },
+      {
+        "id": "audio-storage",
+        "parent": "root",
+        "label": "Count frames before estimating file size",
+        "note": "Frame: one simultaneous sample per channel"
+      },
+      {
+        "id": "audio-storage-detail-0",
+        "parent": "audio-storage",
+        "label": "Payload",
+        "note": "Payload: rate × time × channels × bytes"
+      },
+      {
+        "id": "audio-storage-detail-1",
+        "parent": "audio-storage",
+        "label": "Encoding",
+        "note": "Encoding: uncompressed and compressed differ"
+      },
+      {
+        "id": "audio-gain",
+        "parent": "root",
+        "label": "Trace gain and clipping through the whole route",
+        "note": "Gain: amplitude scaling"
+      },
+      {
+        "id": "audio-gain-detail-0",
+        "parent": "audio-gain",
+        "label": "Headroom",
+        "note": "Headroom: distance to a relevant limit"
+      },
+      {
+        "id": "audio-gain-detail-1",
+        "parent": "audio-gain",
+        "label": "Clipping",
+        "note": "Clipping: information lost at an overloaded stage"
+      },
+      {
+        "id": "audio-dynamics",
+        "parent": "root",
+        "label": "EQ and compression answer different questions",
+        "note": "EQ: frequency-dependent gain"
+      },
+      {
+        "id": "audio-dynamics-detail-0",
+        "parent": "audio-dynamics",
+        "label": "Compression",
+        "note": "Compression: level-dependent gain"
+      },
+      {
+        "id": "audio-dynamics-detail-1",
+        "parent": "audio-dynamics",
+        "label": "Comparison",
+        "note": "Comparison: account for makeup gain"
+      },
+      {
+        "id": "audio-latency",
+        "parent": "root",
+        "label": "A buffer calculation is not the full round trip",
+        "note": "Buffer duration: frames over sample rate"
+      },
+      {
+        "id": "audio-latency-detail-0",
+        "parent": "audio-latency",
+        "label": "Round trip",
+        "note": "Round trip: includes additional stages"
+      },
+      {
+        "id": "audio-latency-detail-1",
+        "parent": "audio-latency",
+        "label": "Routing",
+        "note": "Routing: duplicate paths can colour the result"
+      },
+      {
+        "id": "audio-capstone",
+        "parent": "root",
+        "label": "Capstone: document a repeatable mix and export",
+        "note": "Plan: preserve sources and document routing"
+      },
+      {
+        "id": "audio-capstone-detail-0",
+        "parent": "audio-capstone",
+        "label": "Judge",
+        "note": "Judge: level-match purposeful processing"
+      },
+      {
+        "id": "audio-capstone-detail-1",
+        "parent": "audio-capstone",
+        "label": "Export",
+        "note": "Export: verify format, duration and output"
+      }
+    ],
+    "mnemonics": []
+  },
+  "sources": [
+    {
+      "title": "Audacity — Digital Audio Fundamentals",
+      "url": "https://manual.audacityteam.org/man/digital_audio.html"
+    },
+    {
+      "title": "Audacity — Envelope Tool",
+      "url": "https://manual.audacityteam.org/man/envelope_tool.html"
+    },
+    {
+      "title": "Audacity — Compressor",
+      "url": "https://manual.audacityteam.org/man/compressor.html"
+    }
+  ]
+}
