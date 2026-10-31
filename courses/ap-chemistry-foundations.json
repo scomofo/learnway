@@ -3,53 +3,50 @@
     "title": "AP Chemistry: Particles, Reactions & Equilibrium",
     "topic": "AP Chemistry",
     "level": "advanced",
-    "estimatedMinutes": 25,
-    "tags": [
-      "chemistry",
-      "stoichiometry"
-    ],
-    "createdAt": "2026-10-08T20:06:50.000Z",
     "interests": "",
     "depth": "quick",
-    "model": "Learnway authored starter"
+    "model": "Learnway authored starter",
+    "createdAt": "2026-10-08T00:00:01.000Z",
+    "version": 1
   },
   "plan": {
     "title": "AP Chemistry: Particles, Reactions & Equilibrium",
-    "hook": "Chemistry keeps coming back to counting: count protons and electrons to get charge, count moles against a balanced ratio to find what runs out, and compare two numbers — Q and K — to know which way a reaction will move.",
+    "hook": "Connect particle bookkeeping to reaction yield and equilibrium. This focused AP-level sampler is not a complete AP course or an official College Board resource.",
     "objectives": [
-      "Compute an ion's net charge from its proton and electron counts and state what fixes an element's identity",
-      "Use a balanced equation's mole ratios to identify the limiting reactant and any leftover excess",
-      "Explain how equal forward and reverse rates can hold unequal concentrations, and how comparing Q with K predicts the direction of net reaction"
+      "Explain ionic charge using proton and electron counts.",
+      "Identify a limiting reactant using a balanced equation.",
+      "Compare a reaction quotient with an equilibrium constant."
     ],
     "prerequisites": [
-      "Basic ideas of atoms, elements, and chemical formulas"
+      "Atoms and chemical formulas",
+      "Moles and basic algebra"
     ],
     "sections": [
       {
         "id": "particles",
         "heading": "Charge counts particles, not atom size",
         "points": [
-          "Net charge is the difference between proton and electron counts",
-          "Proton count sets the element's identity",
-          "Electron count sets the charge — twelve protons and ten electrons give a net charge of +2"
+          "Net charge follows the difference between proton and electron counts.",
+          "An ionic formula gives the simplest charge-balanced ratio of constituent ions.",
+          "No. Element identity depends on proton count. Losing two electrons makes Mg²⁺ while leaving the nucleus unchanged."
         ]
       },
       {
         "id": "stoichiometry",
         "heading": "A balanced equation is a ratio",
         "points": [
-          "Coefficients in a balanced equation express mole ratios — 2 H₂ + O₂ → 2 H₂O needs two H₂ per O₂",
-          "The limiting reactant runs out first relative to the balanced ratio and sets how many batches can run",
-          "Worked example: 8 H₂ with 3 O₂ makes 6 H₂O, leaves 2 H₂, and O₂ is limiting"
+          "The limiting reactant runs out first relative to the balanced reaction ratio.",
+          "Percent yield is actual product divided by theoretical product, multiplied by 100%.",
+          "A reaction may require several moles of that reactant per mole of another. Limitation depends on the ratio, not raw mole counts."
         ]
       },
       {
         "id": "equilibrium",
         "heading": "Equal rates do not mean equal amounts",
         "points": [
-          "At equilibrium the forward and reverse rates are equal",
-          "Equal rates can maintain unequal, constant concentrations",
-          "Comparing Q with K at the same temperature predicts the direction of net reaction"
+          "Equal forward and reverse rates can maintain unequal, constant concentrations.",
+          "Comparing Q with K at the same temperature predicts the direction of net reaction.",
+          "Net forward reaction tends to form more Y and consume X until the ratio reaches its equilibrium value."
         ]
       }
     ]
@@ -59,59 +56,47 @@
       {
         "id": "particles",
         "heading": "Charge counts particles, not atom size",
-        "body": "Net charge follows the difference between proton and electron counts. Element identity depends on proton count.",
-        "visual": "Twelve positive proton charges and ten negative electron charges leave a net charge of +2.",
-        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"An ion has unequal proton and electron counts\"><title>An ion has unequal proton and electron counts</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">An ion has unequal proton and electron counts</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><circle cx=\"280\" cy=\"200\" r=\"90\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><g class=\"lw-step\"><circle cx=\"260\" cy=\"190\" r=\"10\" fill=\"#ffd479\"/><circle cx=\"300\" cy=\"190\" r=\"10\" fill=\"#ffd479\"/><circle cx=\"280\" cy=\"220\" r=\"10\" fill=\"#ffd479\"/><text x=\"280\" y=\"255\" fill=\"#ffd479\" font-size=\"15\" text-anchor=\"middle\">12 protons (+)</text></g><g class=\"lw-step\"><circle cx=\"200\" cy=\"160\" r=\"8\" fill=\"#7ee2a8\"/><circle cx=\"360\" cy=\"160\" r=\"8\" fill=\"#7ee2a8\"/><circle cx=\"180\" cy=\"220\" r=\"8\" fill=\"#7ee2a8\"/><circle cx=\"380\" cy=\"220\" r=\"8\" fill=\"#7ee2a8\"/><circle cx=\"220\" cy=\"260\" r=\"8\" fill=\"#7ee2a8\"/><circle cx=\"340\" cy=\"260\" r=\"8\" fill=\"#7ee2a8\"/><circle cx=\"250\" cy=\"140\" r=\"8\" fill=\"#7ee2a8\"/><circle cx=\"310\" cy=\"140\" r=\"8\" fill=\"#7ee2a8\"/><circle cx=\"200\" cy=\"200\" r=\"8\" fill=\"#7ee2a8\"/><circle cx=\"360\" cy=\"200\" r=\"8\" fill=\"#7ee2a8\"/><text x=\"280\" y=\"310\" fill=\"#7ee2a8\" font-size=\"15\" text-anchor=\"middle\">10 electrons (−)</text></g><g class=\"lw-step\"><text x=\"560\" y=\"180\" fill=\"#e8ecf1\" font-size=\"22\">Net charge</text><text x=\"560\" y=\"220\" fill=\"#ffd479\" font-size=\"36\">+2</text><text x=\"560\" y=\"260\" fill=\"#9aa6b8\" font-size=\"15\">12 − 10 = +2</text></g><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Protons set the element · electrons set the charge</text></svg>",
+        "body": "The number of protons identifies an element. A neutral atom has the same number of electrons as protons. Losing electrons creates a positive ion; gaining electrons creates a negative ion. Ordinary chemical ion formation changes electron count, not nuclear proton count.\n\nFor example, an ion with 12 protons and 10 electrons has net charge +2 because the twelve positive charges exceed the ten negative charges by two. It remains magnesium because its proton count is still 12. Isotopes of an element instead differ in neutron number.\n\nA chemical formula expresses composition. Magnesium chloride is MgCl₂ because one Mg²⁺ balances two Cl⁻ ions. The subscript belongs to the compound's composition; it is not a coefficient that may be adjusted freely while balancing a reaction. Ionic solids form extended structures, so a formula unit need not represent a separate little molecule.",
+        "visual": "Twelve positive proton charges and ten negative electron charges leave a net charge of +2. Changing electrons changes the ion charge; changing protons changes the element.",
         "questions": [
           {
-            "q": "An ion has 12 protons and 10 electrons. What is its net charge, and why?",
-            "hint": "Subtract the electron count from the proton count.",
-            "answer": "The net charge is +2, because net charge follows the difference between proton and electron counts: 12 − 10 = +2."
-          },
-          {
-            "q": "Which count decides what element an atom is, and which decides its charge?",
-            "hint": "The diagram separates the two jobs: one count names the element, the other sets the charge.",
-            "answer": "Proton count sets the element's identity. Electrons set the charge, because charge comes from the imbalance between protons and electrons."
+            "q": "Does losing two electrons change magnesium into another element?",
+            "hint": "Which particle count defines the element?",
+            "answer": "No. Element identity depends on proton count. Losing two electrons makes Mg²⁺ while leaving the nucleus unchanged."
           }
-        ]
+        ],
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"An ion has unequal proton and electron counts\"><title>An ion has unequal proton and electron counts</title><desc>Twelve positive proton charges and ten negative electron charges leave a net charge of +2. Changing electrons changes the ion charge; changing protons changes the element.</desc><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\" text-anchor=\"start\">An ion has unequal proton and electron counts</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><rect x=\"35\" y=\"83\" width=\"330\" height=\"238\" rx=\"12\" fill=\"#172331\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"53\" y=\"112\" fill=\"#ffd479\" font-size=\"18\" font-family=\"sans-serif\" text-anchor=\"start\">12 protons</text><rect x=\"425\" y=\"83\" width=\"340\" height=\"238\" rx=\"12\" fill=\"#172331\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"443\" y=\"112\" fill=\"#7cc7ff\" font-size=\"18\" font-family=\"sans-serif\" text-anchor=\"start\">10 electrons</text><circle cx=\"78\" cy=\"145\" r=\"17\" fill=\"#172331\" stroke=\"#ffd479\" stroke-width=\"2\"/><text x=\"78\" y=\"151\" fill=\"#ffd479\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">+</text><circle cx=\"154\" cy=\"145\" r=\"17\" fill=\"#172331\" stroke=\"#ffd479\" stroke-width=\"2\"/><text x=\"154\" y=\"151\" fill=\"#ffd479\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">+</text><circle cx=\"230\" cy=\"145\" r=\"17\" fill=\"#172331\" stroke=\"#ffd479\" stroke-width=\"2\"/><text x=\"230\" y=\"151\" fill=\"#ffd479\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">+</text><circle cx=\"306\" cy=\"145\" r=\"17\" fill=\"#172331\" stroke=\"#ffd479\" stroke-width=\"2\"/><text x=\"306\" y=\"151\" fill=\"#ffd479\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">+</text><circle cx=\"78\" cy=\"210\" r=\"17\" fill=\"#172331\" stroke=\"#ffd479\" stroke-width=\"2\"/><text x=\"78\" y=\"216\" fill=\"#ffd479\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">+</text><circle cx=\"154\" cy=\"210\" r=\"17\" fill=\"#172331\" stroke=\"#ffd479\" stroke-width=\"2\"/><text x=\"154\" y=\"216\" fill=\"#ffd479\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">+</text><circle cx=\"230\" cy=\"210\" r=\"17\" fill=\"#172331\" stroke=\"#ffd479\" stroke-width=\"2\"/><text x=\"230\" y=\"216\" fill=\"#ffd479\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">+</text><circle cx=\"306\" cy=\"210\" r=\"17\" fill=\"#172331\" stroke=\"#ffd479\" stroke-width=\"2\"/><text x=\"306\" y=\"216\" fill=\"#ffd479\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">+</text><circle cx=\"78\" cy=\"275\" r=\"17\" fill=\"#172331\" stroke=\"#ffd479\" stroke-width=\"2\"/><text x=\"78\" y=\"281\" fill=\"#ffd479\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">+</text><circle cx=\"154\" cy=\"275\" r=\"17\" fill=\"#172331\" stroke=\"#ffd479\" stroke-width=\"2\"/><text x=\"154\" y=\"281\" fill=\"#ffd479\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">+</text><circle cx=\"230\" cy=\"275\" r=\"17\" fill=\"#172331\" stroke=\"#ffd479\" stroke-width=\"2\"/><text x=\"230\" y=\"281\" fill=\"#ffd479\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">+</text><circle cx=\"306\" cy=\"275\" r=\"17\" fill=\"#172331\" stroke=\"#ffd479\" stroke-width=\"2\"/><text x=\"306\" y=\"281\" fill=\"#ffd479\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">+</text><circle cx=\"475\" cy=\"167\" r=\"17\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"475\" y=\"173\" fill=\"#7cc7ff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">−</text><circle cx=\"533\" cy=\"167\" r=\"17\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"533\" y=\"173\" fill=\"#7cc7ff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">−</text><circle cx=\"591\" cy=\"167\" r=\"17\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"591\" y=\"173\" fill=\"#7cc7ff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">−</text><circle cx=\"649\" cy=\"167\" r=\"17\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"649\" y=\"173\" fill=\"#7cc7ff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">−</text><circle cx=\"707\" cy=\"167\" r=\"17\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"707\" y=\"173\" fill=\"#7cc7ff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">−</text><circle cx=\"475\" cy=\"250\" r=\"17\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"475\" y=\"256\" fill=\"#7cc7ff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">−</text><circle cx=\"533\" cy=\"250\" r=\"17\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"533\" y=\"256\" fill=\"#7cc7ff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">−</text><circle cx=\"591\" cy=\"250\" r=\"17\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"591\" y=\"256\" fill=\"#7cc7ff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">−</text><circle cx=\"649\" cy=\"250\" r=\"17\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"649\" y=\"256\" fill=\"#7cc7ff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">−</text><circle cx=\"707\" cy=\"250\" r=\"17\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"707\" y=\"256\" fill=\"#7cc7ff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">−</text><text x=\"400\" y=\"215\" fill=\"#9aa6b8\" font-size=\"29\" font-family=\"sans-serif\" text-anchor=\"middle\">−</text><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Example: Mg²⁺ • 12 − 10 = +2 elementary charges</text></svg>",
+        "diagramTitle": "An ion has unequal proton and electron counts"
       },
       {
         "id": "stoichiometry",
         "heading": "A balanced equation is a ratio",
-        "body": "In 2 H₂ + O₂ → 2 H₂O, coefficients express mole ratios. The limiting reactant runs out first relative to the balanced ratio.",
-        "visual": "The balanced reaction needs two H₂ for each O₂. Eight H₂ and three O₂ allow three batches: six H₂O form and two H₂ remain.",
-        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"The limiting reactant sets the number of batches\"><title>The limiting reactant sets the number of batches</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">The limiting reactant sets the number of batches</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"80\" y=\"100\" fill=\"#7cc7ff\" font-size=\"18\">2 H₂ + O₂ → 2 H₂O</text><g class=\"lw-step\"><text x=\"80\" y=\"160\" fill=\"#7ee2a8\" font-size=\"18\">Start: 8 H₂ · 3 O₂</text></g><g class=\"lw-step\"><text x=\"80\" y=\"210\" fill=\"#ffd479\" font-size=\"18\">Need 2 H₂ per O₂</text></g><g class=\"lw-step\"><text x=\"80\" y=\"260\" fill=\"#b39dff\" font-size=\"18\">3 batches use 6 H₂ + 3 O₂</text></g><g class=\"lw-step\"><text x=\"80\" y=\"310\" fill=\"#e8ecf1\" font-size=\"18\">Make 6 H₂O · 2 H₂ left over</text></g><rect x=\"480\" y=\"100\" width=\"260\" height=\"200\" rx=\"12\" fill=\"#172331\" stroke=\"#344253\"/><text x=\"500\" y=\"140\" fill=\"#ffd479\" font-size=\"17\">Limiting: O₂</text><text x=\"500\" y=\"180\" fill=\"#9aa6b8\" font-size=\"15\">Runs out first</text><text x=\"500\" y=\"230\" fill=\"#7ee2a8\" font-size=\"17\">Excess: H₂</text><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Balanced equation is a ratio of batches</text></svg>",
+        "body": "In 2 H₂ + O₂ → 2 H₂O, the coefficients express particle or mole ratios: two moles of hydrogen react with one mole of oxygen to make two moles of water. They are not mass ratios, because different substances have different molar masses.\n\nSuppose 4 mol H₂ and 1 mol O₂ react completely according to this equation. The oxygen can consume only 2 mol H₂, producing 2 mol H₂O and leaving 2 mol H₂. Oxygen is the limiting reactant: it sets the theoretical maximum product. The substance with fewer moles is not automatically limiting; compare amounts against the coefficients.\n\nConvert any supplied masses to moles before applying the ratio, then convert the product amount back if needed. If an experiment collects 8 g of product when the theoretical yield is 10 g, the percent yield is (8/10) × 100 = 80%. Yield compares actual and theoretical amounts of the same product.",
+        "visual": "The balanced reaction needs two H₂ molecules for each O₂ molecule. Eight H₂ and three O₂ allow three batches: six H₂O molecules form and two H₂ molecules remain.",
         "questions": [
           {
-            "q": "In 2 H₂ + O₂ → 2 H₂O, what do the coefficients tell you?",
-            "hint": "They are not just bookkeeping — read them as a recipe ratio.",
-            "answer": "They express mole ratios: the reaction consumes two H₂ for every one O₂ and produces two H₂O. The balanced equation is a ratio of batches."
-          },
-          {
-            "q": "Starting with 8 H₂ and 3 O₂, which reactant is limiting and what remains?",
-            "hint": "Count how many full batches each reactant can support at the 2:1 ratio.",
-            "answer": "O₂ is limiting: 3 O₂ support three batches, using 6 H₂ and all the O₂ to make 6 H₂O. Two H₂ are left over in excess."
+            "q": "Why can the reactant with more moles still be limiting?",
+            "hint": "Compare available amounts with required coefficients.",
+            "answer": "A reaction may require several moles of that reactant per mole of another. Limitation depends on the ratio, not raw mole counts."
           }
-        ]
+        ],
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"The limiting reactant sets the number of batches\"><title>The limiting reactant sets the number of batches</title><desc>The balanced reaction needs two H₂ molecules for each O₂ molecule. Eight H₂ and three O₂ allow three batches: six H₂O molecules form and two H₂ molecules remain.</desc><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\" text-anchor=\"start\">The limiting reactant sets the number of batches</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><rect x=\"28\" y=\"78\" width=\"220\" height=\"253\" rx=\"12\" fill=\"#172331\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"46\" y=\"107\" fill=\"#7cc7ff\" font-size=\"18\" font-family=\"sans-serif\" text-anchor=\"start\">Available reactants</text><rect x=\"284\" y=\"78\" width=\"225\" height=\"253\" rx=\"12\" fill=\"#172331\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"302\" y=\"107\" fill=\"#7ee2a8\" font-size=\"18\" font-family=\"sans-serif\" text-anchor=\"start\">3 complete batches</text><rect x=\"546\" y=\"78\" width=\"226\" height=\"253\" rx=\"12\" fill=\"#172331\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"564\" y=\"107\" fill=\"#ffd479\" font-size=\"18\" font-family=\"sans-serif\" text-anchor=\"start\">Products + excess</text><circle cx=\"65\" cy=\"140\" r=\"17\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"65\" y=\"146\" fill=\"#7cc7ff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">H₂</text><circle cx=\"112\" cy=\"140\" r=\"17\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"112\" y=\"146\" fill=\"#7cc7ff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">H₂</text><circle cx=\"159\" cy=\"140\" r=\"17\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"159\" y=\"146\" fill=\"#7cc7ff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">H₂</text><circle cx=\"206\" cy=\"140\" r=\"17\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"206\" y=\"146\" fill=\"#7cc7ff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">H₂</text><circle cx=\"65\" cy=\"186\" r=\"17\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"65\" y=\"192\" fill=\"#7cc7ff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">H₂</text><circle cx=\"112\" cy=\"186\" r=\"17\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"112\" y=\"192\" fill=\"#7cc7ff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">H₂</text><circle cx=\"159\" cy=\"186\" r=\"17\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"159\" y=\"192\" fill=\"#7cc7ff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">H₂</text><circle cx=\"206\" cy=\"186\" r=\"17\" fill=\"#172331\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><text x=\"206\" y=\"192\" fill=\"#7cc7ff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">H₂</text><circle cx=\"73\" cy=\"251\" r=\"17\" fill=\"#172331\" stroke=\"#b39dff\" stroke-width=\"2\"/><text x=\"73\" y=\"257\" fill=\"#b39dff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">O₂</text><circle cx=\"136\" cy=\"251\" r=\"17\" fill=\"#172331\" stroke=\"#b39dff\" stroke-width=\"2\"/><text x=\"136\" y=\"257\" fill=\"#b39dff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">O₂</text><circle cx=\"199\" cy=\"251\" r=\"17\" fill=\"#172331\" stroke=\"#b39dff\" stroke-width=\"2\"/><text x=\"199\" y=\"257\" fill=\"#b39dff\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"middle\">O₂</text><text x=\"300\" y=\"147\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\" text-anchor=\"start\">2 H₂ + 1 O₂</text><text x=\"300\" y=\"170\" fill=\"#7ee2a8\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">→ 2 H₂O</text><text x=\"300\" y=\"216\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\" text-anchor=\"start\">2 H₂ + 1 O₂</text><text x=\"300\" y=\"239\" fill=\"#7ee2a8\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">→ 2 H₂O</text><text x=\"300\" y=\"285\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\" text-anchor=\"start\">2 H₂ + 1 O₂</text><text x=\"300\" y=\"308\" fill=\"#7ee2a8\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">→ 2 H₂O</text><text x=\"565\" y=\"154\" fill=\"#7ee2a8\" font-size=\"29\" font-family=\"sans-serif\" text-anchor=\"start\">6 H₂O</text><text x=\"565\" y=\"186\" fill=\"#9aa6b8\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">molecules produced</text><text x=\"565\" y=\"242\" fill=\"#7cc7ff\" font-size=\"20\" font-family=\"sans-serif\" text-anchor=\"start\">2 H₂ left over</text><text x=\"565\" y=\"280\" fill=\"#b39dff\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">O₂ runs out first</text><path d=\"M253 205 L277 205\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M268.1 209.6 L277 205 L268.1 200.4\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M517 205 L539 205\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M530.1 209.6 L539 205 L530.1 200.4\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Particle-count example • 2 H₂ + O₂ → 2 H₂O</text></svg>",
+        "diagramTitle": "The limiting reactant sets the number of batches"
       },
       {
         "id": "equilibrium",
         "heading": "Equal rates do not mean equal amounts",
-        "body": "Equal forward and reverse rates can maintain unequal, constant concentrations. Comparing Q with K predicts direction of net reaction.",
-        "visual": "At equilibrium, forward and reverse rates match even when amounts differ.",
-        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Equal rates, unequal amounts\"><title>Equal rates, unequal amounts</title><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\">Equal rates, unequal amounts</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"200\" y=\"180\" fill=\"#7cc7ff\" font-size=\"28\">X</text><text x=\"400\" y=\"180\" fill=\"#ffd479\" font-size=\"22\">⇌</text><text x=\"600\" y=\"180\" fill=\"#7ee2a8\" font-size=\"28\">Y</text><path d=\"M250 200 L350 200\" stroke=\"#7cc7ff\" stroke-width=\"3\" class=\"lw-flow\"/><path d=\"M550 220 L450 220\" stroke=\"#7ee2a8\" stroke-width=\"3\" class=\"lw-flow\"/><text x=\"400\" y=\"280\" fill=\"#9aa6b8\" font-size=\"16\" text-anchor=\"middle\">Rates equal · amounts need not be</text><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\">Compare Q with K at the same temperature</text></svg>",
+        "body": "A reversible reaction at equilibrium has equal forward and reverse rates. Both reactions continue, while macroscopic concentrations stay constant in an undisturbed system. The concentrations need not be equal to one another.\n\nFor the simplified reaction X ⇌ Y, define the concentration ratio Qc = [Y]/[X] at the current moment. Square brackets denote molar concentration. At equilibrium and a specified temperature, the corresponding ratio is Kc. A rigorous equilibrium constant uses activities; this concentration model is a useful introductory approximation.\n\nIf Kc = 2 but the current ratio is 0.5, Qc < Kc and net forward reaction tends to increase the ratio toward equilibrium. If Qc > Kc, net reverse reaction tends to lower it. A catalyst accelerates the approach in both directions without changing K at fixed temperature. Changing temperature can change K, so comparisons must refer to the same temperature.",
+        "visual": "Reactants become products while products become reactants at the same rate. The amounts remain constant, but the two sides need not contain equal amounts.",
         "questions": [
           {
-            "q": "At equilibrium the amounts of X and Y are unequal, yet nothing seems to change. How?",
-            "hint": "Separate the sizes of the amounts from the speeds of the two reactions.",
-            "answer": "The forward and reverse rates are equal, so the concentrations stay constant — but equal rates do not require equal amounts. The two concentrations can sit at different, steady values."
-          },
-          {
-            "q": "What comparison tells you which way a reaction will move toward equilibrium?",
-            "hint": "The diagram names two quantities to compare at the same temperature.",
-            "answer": "Compare Q with K. Their relative sizes predict the direction of net reaction needed to reach equilibrium."
+            "q": "If Qc is below Kc for X ⇌ Y, which net direction is favoured?",
+            "hint": "The ratio [Y]/[X] must rise toward Kc.",
+            "answer": "Net forward reaction tends to form more Y and consume X until the ratio reaches its equilibrium value."
           }
-        ]
+        ],
+        "diagram": "<svg viewBox=\"0 0 800 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Dynamic equilibrium keeps moving\"><title>Dynamic equilibrium keeps moving</title><desc>Reactants become products while products become reactants at the same rate. The amounts remain constant, but the two sides need not contain equal amounts.</desc><rect x=\"0\" y=\"0\" width=\"800\" height=\"400\" rx=\"16\" fill=\"#101923\"/><text x=\"28\" y=\"35\" fill=\"#e8ecf1\" font-size=\"21\" font-family=\"sans-serif\" text-anchor=\"start\">Dynamic equilibrium keeps moving</text><path d=\"M28 51 L772 51\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><rect x=\"40\" y=\"87\" width=\"235\" height=\"230\" rx=\"12\" fill=\"#172331\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"58\" y=\"116\" fill=\"#7cc7ff\" font-size=\"18\" font-family=\"sans-serif\" text-anchor=\"start\">Reactants</text><rect x=\"525\" y=\"87\" width=\"235\" height=\"230\" rx=\"12\" fill=\"#172331\" stroke=\"#344253\" stroke-width=\"2\"/><text x=\"543\" y=\"116\" fill=\"#b39dff\" font-size=\"18\" font-family=\"sans-serif\" text-anchor=\"start\">Products</text><circle cx=\"86\" cy=\"151\" r=\"4\" fill=\"#7cc7ff\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><circle cx=\"156\" cy=\"151\" r=\"4\" fill=\"#7cc7ff\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><circle cx=\"226\" cy=\"151\" r=\"4\" fill=\"#7cc7ff\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><circle cx=\"86\" cy=\"206\" r=\"4\" fill=\"#7cc7ff\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><circle cx=\"156\" cy=\"206\" r=\"4\" fill=\"#7cc7ff\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><circle cx=\"226\" cy=\"206\" r=\"4\" fill=\"#7cc7ff\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><circle cx=\"86\" cy=\"261\" r=\"4\" fill=\"#7cc7ff\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><circle cx=\"156\" cy=\"261\" r=\"4\" fill=\"#7cc7ff\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><circle cx=\"226\" cy=\"261\" r=\"4\" fill=\"#7cc7ff\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><circle cx=\"578\" cy=\"174\" r=\"4\" fill=\"#b39dff\" stroke=\"#b39dff\" stroke-width=\"2\"/><circle cx=\"642\" cy=\"174\" r=\"4\" fill=\"#b39dff\" stroke=\"#b39dff\" stroke-width=\"2\"/><circle cx=\"706\" cy=\"174\" r=\"4\" fill=\"#b39dff\" stroke=\"#b39dff\" stroke-width=\"2\"/><circle cx=\"578\" cy=\"241\" r=\"4\" fill=\"#b39dff\" stroke=\"#b39dff\" stroke-width=\"2\"/><circle cx=\"642\" cy=\"241\" r=\"4\" fill=\"#b39dff\" stroke=\"#b39dff\" stroke-width=\"2\"/><circle cx=\"706\" cy=\"241\" r=\"4\" fill=\"#b39dff\" stroke=\"#b39dff\" stroke-width=\"2\"/><path d=\"M290 173 L510 173\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lw-flow\"/><path d=\"M501.1 177.6 L510 173 L501.1 168.4\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M510 234 L290 234\" fill=\"none\" stroke=\"#b39dff\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lw-flow\"/><path d=\"M298.9 229.4 L290 234 L298.9 238.6\" fill=\"none\" stroke=\"#b39dff\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle cx=\"290\" cy=\"173\" r=\"6\" fill=\"#7cc7ff\" stroke=\"#7cc7ff\" stroke-width=\"2\" class=\"lw-eq-dot-fwd\"/><circle cx=\"510\" cy=\"234\" r=\"6\" fill=\"#b39dff\" stroke=\"#b39dff\" stroke-width=\"2\" class=\"lw-eq-dot-rev\"/><text x=\"400\" y=\"151\" fill=\"#7cc7ff\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"middle\">Forward rate</text><text x=\"400\" y=\"264\" fill=\"#b39dff\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"middle\">Reverse rate</text><text x=\"400\" y=\"211\" fill=\"#ffd479\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"middle\">equal</text><text x=\"400\" y=\"335\" fill=\"#e8ecf1\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"middle\">Constant amounts ≠ equal amounts</text><path d=\"M28 350 L772 350\" fill=\"none\" stroke=\"#344253\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><text x=\"28\" y=\"379\" fill=\"#9aa6b8\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Closed system at equilibrium • arrows represent reaction rates</text></svg>",
+        "diagramTitle": "Dynamic equilibrium keeps moving"
       }
     ]
   },
@@ -121,26 +106,26 @@
         "id": "particles",
         "questions": [
           {
-            "q": "A particle has 12 protons and 10 electrons. Its net charge and identity are determined as follows:",
+            "q": "An ion has 12 protons and 10 electrons. What is its charge?",
             "choices": [
-              "Net charge +2; the 12 protons set the element",
-              "Net charge −2; the 10 electrons set the element",
-              "Net charge +2; the larger atom size sets the element",
-              "Net charge 0; protons and electrons cancel by count of atoms"
+              "−2",
+              "0",
+              "+2",
+              "+12"
             ],
-            "answer": 0,
-            "explain": "Net charge follows the difference between proton and electron counts: 12 − 10 = +2. Element identity depends on proton count — electrons set the charge, not the element, and atom size plays no part."
+            "answer": 2,
+            "explain": "The net charge is 12 − 10 = +2 in units of elementary charge. Electrons have negative charge."
           },
           {
-            "q": "Two ions have the same number of protons but different numbers of electrons. What must be true?",
+            "q": "Why is magnesium chloride written MgCl₂?",
             "choices": [
-              "They are different elements with the same charge",
-              "They are the same element with different charges",
-              "They are the same element with the same charge",
-              "They cannot both exist as ions"
+              "One Mg²⁺ requires two Cl⁻ ions for charge balance",
+              "Every atom must have two protons",
+              "The equation needs any convenient subscript",
+              "It contains two magnesium atoms per chlorine atom"
             ],
-            "answer": 1,
-            "explain": "Proton count sets the element, so equal protons means the same element. Different electron counts change the proton–electron difference, so the charges differ."
+            "answer": 0,
+            "explain": "One +2 ion and two −1 ions sum to zero charge. Changing the subscript changes composition, not merely reaction amount."
           }
         ]
       },
@@ -148,26 +133,26 @@
         "id": "stoichiometry",
         "questions": [
           {
-            "q": "For 2 H₂ + O₂ → 2 H₂O, you start with 8 H₂ and 3 O₂. How much H₂O forms and what is left over?",
+            "q": "With 4 mol H₂ and 1 mol O₂, what is the maximum water yield under the stated reaction?",
             "choices": [
-              "8 H₂O, nothing left over",
-              "6 H₂O, with 2 H₂ left over",
-              "4 H₂O, with 3 O₂ left over",
-              "6 H₂O, with 2 O₂ left over"
+              "1 mol",
+              "2 mol",
+              "4 mol",
+              "5 mol"
             ],
             "answer": 1,
-            "explain": "The ratio needs 2 H₂ per O₂, so 3 O₂ run three batches: they use 6 H₂ and make 6 H₂O. O₂ runs out first — it is limiting — and 2 H₂ remain in excess."
+            "explain": "One mole of oxygen supports one stoichiometric batch and gives 2 mol water. Hydrogen is in excess."
           },
           {
-            "q": "\"Limiting reactant\" means the reactant that…",
+            "q": "Actual yield is 8 g and theoretical yield is 10 g. What is percent yield?",
             "choices": [
-              "Has the smallest mass in the mixture",
-              "Runs out first relative to the balanced ratio",
-              "Appears last in the balanced equation",
-              "Has the smallest coefficient in the equation"
+              "20%",
+              "125%",
+              "8%",
+              "80%"
             ],
-            "answer": 1,
-            "explain": "The limiting reactant runs out first relative to the balanced ratio, and that caps how many batches can run. In the worked example O₂ is limiting even though the mixture holds more H₂ by count."
+            "answer": 3,
+            "explain": "Use actual/theoretical × 100: 8/10 × 100 = 80%. Reversing the ratio would give 125%."
           }
         ]
       },
@@ -175,26 +160,26 @@
         "id": "equilibrium",
         "questions": [
           {
-            "q": "At equilibrium, a mixture holds much more Y than X, and both amounts stay constant. This is possible because…",
+            "q": "For X ⇌ Y, Kc = 2 and Qc = 0.5 at the same temperature. What is the net tendency?",
             "choices": [
-              "The forward reaction has stopped",
-              "The reverse reaction has stopped",
-              "Forward and reverse rates are equal even though amounts are not",
-              "Both reactions continue but only in one direction at a time"
+              "Reverse reaction",
+              "No molecular reactions",
+              "Forward reaction",
+              "A catalyst must change Kc"
             ],
             "answer": 2,
-            "explain": "Equal forward and reverse rates maintain the concentrations, and those rates can match while the amounts stay unequal. Neither reaction stops; they balance."
+            "explain": "Qc < Kc, so the current mixture has a smaller product/reactant ratio than at equilibrium. Net forward reaction increases it."
           },
           {
-            "q": "To predict the direction of net reaction for a mixture, you compare…",
+            "q": "At fixed temperature, what does adding a catalyst change?",
             "choices": [
-              "The amounts of products and reactants directly",
-              "Q with K at the same temperature",
-              "The forward rate with the starting concentration",
-              "The temperature with the equilibrium constant alone"
+              "The speed of approaching equilibrium",
+              "The equilibrium constant",
+              "The balanced coefficients",
+              "The requirement for mass conservation"
             ],
-            "answer": 1,
-            "explain": "The section and diagram both name the comparison: Q against K, at the same temperature, predicts the direction of net reaction."
+            "answer": 0,
+            "explain": "A catalyst speeds the approach to equilibrium without changing its position or equilibrium constant at that temperature."
           }
         ]
       }
@@ -204,36 +189,36 @@
     "sections": [
       {
         "id": "particles",
-        "title": "Protons name it, electrons charge it",
+        "title": "Charge counts particles, not atom size",
         "bullets": [
-          "Net charge = proton count − electron count.",
-          "12 protons and 10 electrons leave a net charge of +2.",
-          "Proton count sets the element; electrons set the charge."
+          "Net charge follows the difference between proton and electron counts.",
+          "An ionic formula gives the simplest charge-balanced ratio of constituent ions.",
+          "No. Element identity depends on proton count. Losing two electrons makes Mg²⁺ while leaving the nucleus unchanged."
         ],
-        "notes": "Charge is a counting problem, not a size problem. Count positive protons, count negative electrons, and subtract. The proton count alone tells you which element you have; the imbalance tells you the charge.",
-        "visual": "Twelve positive proton charges and ten negative electron charges leave a net charge of +2."
+        "notes": "The number of protons identifies an element. A neutral atom has the same number of electrons as protons. Losing electrons creates a positive ion; gaining electrons creates a negative ion. Ordinary chemical ion formation changes electron count, not nuclear proton count. No. Element identity depends on proton count. Losing two electrons makes Mg²⁺ while leaving the nucleus unchanged.",
+        "visual": "Twelve positive proton charges and ten negative electron charges leave a net charge of +2. Changing electrons changes the ion charge; changing protons changes the element."
       },
       {
         "id": "stoichiometry",
         "title": "A balanced equation is a ratio",
         "bullets": [
-          "2 H₂ + O₂ → 2 H₂O: two H₂ are needed for each O₂.",
-          "The limiting reactant runs out first relative to that ratio.",
-          "8 H₂ + 3 O₂ → three batches: 6 H₂O formed, 2 H₂ left over."
+          "The limiting reactant runs out first relative to the balanced reaction ratio.",
+          "Percent yield is actual product divided by theoretical product, multiplied by 100%.",
+          "A reaction may require several moles of that reactant per mole of another. Limitation depends on the ratio, not raw mole counts."
         ],
-        "notes": "Read the coefficients as a recipe ratio. Three oxygens can only partner with six hydrogens at two-to-one, so oxygen caps the run at three batches — six waters — and the extra hydrogen simply stays behind.",
-        "visual": "The balanced reaction needs two H₂ for each O₂. Eight H₂ and three O₂ allow three batches: six H₂O form and two H₂ remain."
+        "notes": "In 2 H₂ + O₂ → 2 H₂O, the coefficients express particle or mole ratios: two moles of hydrogen react with one mole of oxygen to make two moles of water. They are not mass ratios, because different substances have different molar masses. A reaction may require several moles of that reactant per mole of another. Limitation depends on the ratio, not raw mole counts.",
+        "visual": "The balanced reaction needs two H₂ molecules for each O₂ molecule. Eight H₂ and three O₂ allow three batches: six H₂O molecules form and two H₂ molecules remain."
       },
       {
         "id": "equilibrium",
-        "title": "Equal rates, unequal amounts",
+        "title": "Equal rates do not mean equal amounts",
         "bullets": [
-          "At equilibrium the forward and reverse rates match.",
-          "Concentrations stay constant without having to be equal.",
-          "Compare Q with K at the same temperature to predict the direction of net reaction."
+          "Equal forward and reverse rates can maintain unequal, constant concentrations.",
+          "Comparing Q with K at the same temperature predicts the direction of net reaction.",
+          "Net forward reaction tends to form more Y and consume X until the ratio reaches its equilibrium value."
         ],
-        "notes": "Equilibrium is a balance of speeds, not of amounts. Both reactions keep running at the same rate, so the mixture holds steady — and the Q-versus-K comparison tells you which way it will drift to get there.",
-        "visual": "At equilibrium, forward and reverse rates match even when amounts differ."
+        "notes": "A reversible reaction at equilibrium has equal forward and reverse rates. Both reactions continue, while macroscopic concentrations stay constant in an undisturbed system. The concentrations need not be equal to one another. Net forward reaction tends to form more Y and consume X until the ratio reaches its equilibrium value.",
+        "visual": "Reactants become products while products become reactants at the same rate. The amounts remain constant, but the two sides need not contain equal amounts."
       }
     ]
   },
@@ -242,63 +227,71 @@
     "turns": [
       {
         "speaker": "teacher",
-        "line": "This course is three counting problems. First: an ion with 12 protons and 10 electrons. What is its net charge?"
-      },
-      {
-        "speaker": "student",
-        "line": "Twelve plus ten is twenty-two... no — charge is the difference, so +2?"
+        "line": "Connect particle bookkeeping to reaction yield and equilibrium. This focused AP-level sampler is not a complete AP course or an official College Board resource."
       },
       {
         "speaker": "teacher",
-        "line": "Right — net charge follows the difference between proton and electron counts: 12 − 10 = +2. And what makes it the element it is — the protons or the electrons?"
+        "line": "Charge counts particles, not atom size. Net charge follows the difference between proton and electron counts. An ionic formula gives the simplest charge-balanced ratio of constituent ions."
       },
       {
         "speaker": "student",
-        "line": "The electrons, since they changed?"
+        "line": "Does losing two electrons change magnesium into another element?"
       },
       {
         "speaker": "teacher",
-        "line": "A common mix-up. Element identity depends on proton count. Electrons set the charge precisely because they are the count that can differ."
+        "line": "No. Element identity depends on proton count. Losing two electrons makes Mg²⁺ while leaving the nucleus unchanged."
       },
       {
         "speaker": "student",
-        "line": "So same protons, different electrons: same element, different charge."
+        "line": "An ion has 12 protons and 10 electrons. What is its charge?"
       },
       {
         "speaker": "teacher",
-        "line": "Exactly. Second problem: 2 H₂ + O₂ → 2 H₂O, starting with 8 H₂ and 3 O₂. How many batches can run?"
+        "line": "+2. The net charge is 12 − 10 = +2 in units of elementary charge. Electrons have negative charge."
+      },
+      {
+        "speaker": "teacher",
+        "line": "A balanced equation is a ratio. The limiting reactant runs out first relative to the balanced reaction ratio. Percent yield is actual product divided by theoretical product, multiplied by 100%."
       },
       {
         "speaker": "student",
-        "line": "Each batch needs two H₂ per O₂. Three O₂ need six H₂, so three batches — 6 H₂O, and 2 H₂ left over."
+        "line": "Why can the reactant with more moles still be limiting?"
       },
       {
         "speaker": "teacher",
-        "line": "And which reactant is limiting?"
+        "line": "A reaction may require several moles of that reactant per mole of another. Limitation depends on the ratio, not raw mole counts."
       },
       {
         "speaker": "student",
-        "line": "O₂ — it runs out first relative to the ratio, even though there is more H₂ around."
+        "line": "With 4 mol H₂ and 1 mol O₂, what is the maximum water yield under the stated reaction?"
       },
       {
         "speaker": "teacher",
-        "line": "Good. Third problem: at equilibrium the amounts of X and Y are unequal but constant. How can both be true?"
+        "line": "2 mol. One mole of oxygen supports one stoichiometric batch and gives 2 mol water. Hydrogen is in excess."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Equal rates do not mean equal amounts. Equal forward and reverse rates can maintain unequal, constant concentrations. Comparing Q with K at the same temperature predicts the direction of net reaction."
       },
       {
         "speaker": "student",
-        "line": "If the reactions stopped, amounts would freeze — but one side has more, so maybe only the bigger side stopped?"
+        "line": "If Qc is below Kc for X ⇌ Y, which net direction is favoured?"
       },
       {
         "speaker": "teacher",
-        "line": "Neither side stops. The forward and reverse rates are equal, so the concentrations hold steady — equal rates do not mean equal amounts."
+        "line": "Net forward reaction tends to form more Y and consume X until the ratio reaches its equilibrium value."
       },
       {
         "speaker": "student",
-        "line": "And to know which way a mixture will move, compare Q with K at the same temperature."
+        "line": "For X ⇌ Y, Kc = 2 and Qc = 0.5 at the same temperature. What is the net tendency?"
       },
       {
         "speaker": "teacher",
-        "line": "That is the whole course in one line: count charges, count batches against the ratio, and compare Q with K."
+        "line": "Forward reaction. Qc < Kc, so the current mixture has a smaller product/reactant ratio than at equilibrium. Net forward reaction increases it."
+      },
+      {
+        "speaker": "teacher",
+        "line": "To review: Explain ionic charge using proton and electron counts. Identify a limiting reactant using a balanced equation. Compare a reaction quotient with an equilibrium constant."
       }
     ],
     "nodes": [
@@ -306,51 +299,77 @@
         "id": "root",
         "parent": null,
         "label": "AP Chemistry: Particles, Reactions & Equilibrium",
-        "note": "Charge, reaction yield, and equilibrium direction all come from counting the right things."
+        "note": "Connect particle bookkeeping to reaction yield and equilibrium. This focused AP-level sampler is not a complete AP course or an official College Board resource."
       },
       {
         "id": "particles",
         "parent": "root",
-        "label": "Charge from counts",
-        "note": "Net charge is the difference between proton and electron counts."
+        "label": "Charge counts particles, not atom size",
+        "note": "No. Element identity depends on proton count. Losing two electrons makes Mg²⁺ while leaving the nucleus unchanged."
       },
       {
-        "id": "particles-identity",
+        "id": "particles-concept-1",
         "parent": "particles",
-        "label": "Protons set the element",
-        "note": "Element identity depends on proton count; electrons set the charge."
+        "label": "Ionic charge",
+        "note": "Net charge follows the difference between proton and electron counts."
+      },
+      {
+        "id": "particles-concept-2",
+        "parent": "particles",
+        "label": "Formula unit",
+        "note": "An ionic formula gives the simplest charge-balanced ratio of constituent ions."
       },
       {
         "id": "stoichiometry",
         "parent": "root",
-        "label": "Equations as ratios",
-        "note": "Balanced coefficients express mole ratios between reactants and products."
+        "label": "A balanced equation is a ratio",
+        "note": "A reaction may require several moles of that reactant per mole of another. Limitation depends on the ratio, not raw mole counts."
       },
       {
-        "id": "stoichiometry-limiting",
+        "id": "stoichiometry-concept-1",
         "parent": "stoichiometry",
         "label": "Limiting reactant",
-        "note": "The reactant that runs out first relative to the ratio caps the batches: 8 H₂ + 3 O₂ make 6 H₂O with 2 H₂ left."
+        "note": "The limiting reactant runs out first relative to the balanced reaction ratio."
+      },
+      {
+        "id": "stoichiometry-concept-2",
+        "parent": "stoichiometry",
+        "label": "Percent yield",
+        "note": "Percent yield is actual product divided by theoretical product, multiplied by 100%."
       },
       {
         "id": "equilibrium",
         "parent": "root",
-        "label": "Equal rates, unequal amounts",
-        "note": "At equilibrium forward and reverse rates match while concentrations stay constant and possibly unequal."
+        "label": "Equal rates do not mean equal amounts",
+        "note": "Net forward reaction tends to form more Y and consume X until the ratio reaches its equilibrium value."
       },
       {
-        "id": "equilibrium-qk",
+        "id": "equilibrium-concept-1",
         "parent": "equilibrium",
-        "label": "Compare Q with K",
-        "note": "Q versus K at the same temperature predicts the direction of net reaction."
+        "label": "Dynamic equilibrium",
+        "note": "Equal forward and reverse rates can maintain unequal, constant concentrations."
+      },
+      {
+        "id": "equilibrium-concept-2",
+        "parent": "equilibrium",
+        "label": "Reaction quotient",
+        "note": "Comparing Q with K at the same temperature predicts the direction of net reaction."
       }
     ],
     "mnemonics": []
   },
   "sources": [
     {
-      "title": "OpenStax — Chemistry 2e",
-      "url": "https://openstax.org/details/books/chemistry-2e"
+      "title": "College Board — AP Chemistry course scope",
+      "url": "https://apcentral.collegeboard.org/courses/ap-chemistry"
+    },
+    {
+      "title": "OpenStax — Reaction stoichiometry",
+      "url": "https://openstax.org/books/chemistry-2e/pages/4-3-reaction-stoichiometry"
+    },
+    {
+      "title": "OpenStax — Chemical equilibria",
+      "url": "https://openstax.org/books/chemistry-2e/pages/13-1-chemical-equilibria"
     }
   ]
 }
