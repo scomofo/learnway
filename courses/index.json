@@ -100,5 +100,65 @@
     "topic": "AI agents and reliable workflows",
     "level": "intermediate",
     "file": "courses/ai-agents-workflows.json"
+  },
+  {
+    "title": "Apollo Guidance & Navigation: Flying by Numbers",
+    "topic": "Apollo guidance and navigation",
+    "level": "advanced",
+    "file": "courses/apollo-gn.json"
+  },
+  {
+    "title": "ADAPT and ISOXML: The Data Model Under the Field",
+    "topic": "ADAPT and ISOXML precision-ag data",
+    "level": "advanced",
+    "file": "courses/adapt-isoxml.json"
+  },
+  {
+    "title": "Harmony & Voice Leading: Why Chords Move",
+    "topic": "harmony and voice leading",
+    "level": "intermediate",
+    "file": "courses/harmony.json"
+  },
+  {
+    "title": "North Korea: The Logic of the Hermit State",
+    "topic": "North Korea: history and strategic logic",
+    "level": "advanced",
+    "file": "courses/north-korea.json"
+  },
+  {
+    "title": "The Theory of Sleight of Hand: The Thinking Layer",
+    "topic": "theory of sleight of hand and misdirection",
+    "level": "advanced",
+    "file": "courses/sleight-theory.json"
+  },
+  {
+    "title": "Orbital Rendezvous & Docking: The Last Mile Is the Hardest",
+    "topic": "orbital rendezvous and docking",
+    "level": "advanced",
+    "file": "courses/rendezvous.json"
+  },
+  {
+    "title": "Canadian Personal Finance: Run the Numbers First",
+    "topic": "Canadian personal finance",
+    "level": "intermediate",
+    "file": "courses/canada-finance.json"
+  },
+  {
+    "title": "Subtractive Synthesis & Sound Design: Start From a Sawtooth",
+    "topic": "subtractive synthesis and sound design",
+    "level": "intermediate",
+    "file": "courses/synthesis.json"
+  },
+  {
+    "title": "Rhythm, Groove & Swing: Feel Is a Number You Bend",
+    "topic": "rhythm, groove and swing",
+    "level": "intermediate",
+    "file": "courses/rhythm.json"
+  },
+  {
+    "title": "The Manhattan Project: The Committee That Built the Sun",
+    "topic": "the Manhattan Project: history and decisions",
+    "level": "advanced",
+    "file": "courses/manhattan.json"
   }
 ]

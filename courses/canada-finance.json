@@ -1,0 +1,572 @@
+{
+ "meta": {
+  "title": "Canadian Personal Finance: Run the Numbers First",
+  "topic": "Canadian personal finance",
+  "level": "intermediate",
+  "interests": "",
+  "depth": "standard",
+  "model": "manual",
+  "createdAt": "2026-10-22T12:00:00.000Z",
+  "version": 1
+ },
+ "plan": {
+  "title": "Canadian Personal Finance: Run the Numbers First",
+  "hook": "The most expensive decision most Canadians make — buying the house — is usually made with the least arithmetic. This course fixes that: registered accounts, the rent-versus-own ledger, index investing, and the tax machinery, all reduced to numbers you can check yourself.",
+  "objectives": [
+   "Choose between an RRSP and a TFSA for a given income, and explain why the RRSP refund is deferred tax rather than a bonus.",
+   "Run an honest rent-versus-own comparison with the full cost stack on both sides, including opportunity cost.",
+   "Build a broad index portfolio, quantify what a 2% MER costs over 30 years, and rebalance it with simple rules.",
+   "Explain how interest, eligible dividends, and capital gains are each taxed in Canada, and place assets in the right accounts.",
+   "Time CPP and OAS using the published reduction and increase factors, and state the strongest case for and against Canadian housing."
+  ],
+  "prerequisites": [
+   "Arithmetic and a pay stub — nothing else.",
+   "A rough idea of your own income, your rent or mortgage payment, and your account balances."
+  ],
+  "sections": [
+   {
+    "id": "s1",
+    "heading": "The Registered Accounts",
+    "points": [
+     "RRSP room grows at 18% of earned income, up to an indexed annual dollar cap",
+     "The refund is the government's share handed back up front — tax is deferred, not forgiven",
+     "TFSA: taxed on the way in, never again; withdrawals restore room the following January 1",
+     "HBP and FHSA: the two home-buyer tools and their real trade-offs",
+     "Order of operations: employer match first, then the account that fits your bracket"
+    ]
+   },
+   {
+    "id": "s2",
+    "heading": "Rent vs. Own, Honestly",
+    "points": [
+     "The unrecoverable costs of owning: interest, property tax, maintenance, insurance",
+     "Principal repayment is forced saving, not a cost — but it is illiquid saving",
+     "Opportunity cost: the down payment could have been invested instead",
+     "A worked Camrose example: a $420,000 house against $1,850 rent",
+     "Toronto as the extreme case — and Alberta's missing land transfer tax"
+    ]
+   },
+   {
+    "id": "s3",
+    "heading": "Investing Without the Casino",
+    "points": [
+     "Asset allocation is the decision that matters; product selection barely does",
+     "MER drag: a 2% fee consumes about 43% of a 30-year ending value",
+     "Rebalancing rules you can actually keep",
+     "Why stock picking and crypto are entertainment, not a plan"
+    ]
+   },
+   {
+    "id": "s4",
+    "heading": "The Boring Machinery",
+    "points": [
+     "Marginal vs. effective tax rates — and which one prices your next dollar",
+     "Interest taxed in full; eligible dividends grossed up with a credit; capital gains half-included at 50% (as of 2026)",
+     "Asset location: which account should hold what, and why",
+     "CPP and OAS timing factors: −0.6%/month early, +0.7%/month CPP and +0.6%/month OAS late",
+     "Alberta's edge: among the lowest personal tax rates in Canada, first bracket at 8%"
+    ]
+   },
+   {
+    "id": "s5",
+    "heading": "The Housing Thesis, Stress-Tested",
+    "points": [
+     "The Greater Fool case at full strength: multiples, concentration, leverage",
+     "The steelman: forced saving, a real supply shortage, population growth",
+     "Renewal risk: what +2% at renewal does to the monthly payment",
+     "What evidence would actually change the conclusion",
+     "Writing your own one-page financial policy"
+    ]
+   }
+  ]
+ },
+ "reading": {
+  "sections": [
+   {
+    "id": "s1",
+    "heading": "The Registered Accounts",
+    "body": "Every spring, Canadians perform a ritual: they stuff money into an RRSP, collect a refund, and feel richer. They are not richer. Understanding why is the cheapest financial education available, so we start here.\n\nAn RRSP contribution earns you new room at 18% of earned income, up to an annual dollar cap that is indexed each year (roughly $33,000 in recent years, as of 2026 — check the current cap before quoting it). Contribute $10,000 at a 30% marginal tax rate and Ottawa sends back $3,000. That refund is not a bonus and it is not a reward. Think of the RRSP as a partnership: on every pre-tax dollar inside it, the government owns a share — whatever your tax rate turns out to be when you withdraw. The refund is simply the government handing you its share up front so the account can grow whole. When you retire and pull the money out, it is taxed as ordinary income, and you settle up. If your withdrawal rate equals your contribution rate, the RRSP works out to exactly tax-free growth on your share. If your rate drops in retirement — common, not guaranteed — you come out ahead. If it rises, you lose. The RRSP is a bet on your future tax rate, nothing more.\n\nThe TFSA is the mirror image. Contributions are after-tax, so there is no refund — but withdrawals are never taxed, and the room from any withdrawal is restored on the following January 1. New room arrives each year in an indexed amount (roughly $7,000 in recent years). For a young worker in a low bracket, the TFSA usually beats the RRSP: why bank a deduction worth 20% today in order to dodge a withdrawal tax that might be 30% later?\n\nTwo traps. First, RRSP withdrawals before retirement are hit with withholding tax at source — 10% up to $5,000, 20% from $5,001 to $15,000, 30% above $15,000 (federal rates; Quebec is different). That withholding is a prepayment, not the final bill, but people who raid the account are always surprised by it. Second, the Home Buyers' Plan lets you borrow up to $60,000 from your own RRSP for a first home (as of 2026), repayable over 15 years — miss a repayment and that year's amount is taxed as income. The newer First Home Savings Account is the rare product with no real downside: $8,000 a year up to $40,000, deductible going in, tax-free coming out for a qualifying home — and if you never buy, the money can move into your RRSP without using RRSP room.\n\nThe order of operations for most households: take any employer match first — it is a 100% return before markets get a say. Then the FHSA, if a home is a genuine goal. Then fill the TFSA. Use the RRSP when your marginal rate is high now and likely lower later.",
+    "visual": "A flowchart showing the order of operations for the next invested dollar: employer match first, then FHSA, then TFSA, then the RRSP when today's marginal rate is high.",
+    "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><rect x=\"20\" y=\"20\" width=\"360\" height=\"260\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><defs><marker id=\"ah\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L7,3 L0,6 Z\" fill=\"#ffd479\"/></marker></defs><text x=\"200\" y=\"44\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#ffd479\" text-anchor=\"middle\" font-weight=\"bold\">Where the Next Dollar Goes</text><rect x=\"90\" y=\"58\" width=\"220\" height=\"36\" fill=\"#1d2735\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"200\" y=\"74\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#e8ecf1\" text-anchor=\"middle\" font-weight=\"normal\">1. Employer match available?</text><text x=\"200\" y=\"88\" font-family=\"sans-serif\" font-size=\"10\" fill=\"#7ee2a8\" text-anchor=\"middle\" font-weight=\"normal\">Take it first — a 100% return</text><line x1=\"200\" y1=\"94\" x2=\"200\" y2=\"106\" stroke=\"#ffd479\" stroke-width=\"2\" marker-end=\"url(#ah)\"/><rect x=\"90\" y=\"108\" width=\"220\" height=\"36\" fill=\"#1d2735\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"200\" y=\"124\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#e8ecf1\" text-anchor=\"middle\" font-weight=\"normal\">2. First home a real goal?</text><text x=\"200\" y=\"138\" font-family=\"sans-serif\" font-size=\"10\" fill=\"#7ee2a8\" text-anchor=\"middle\" font-weight=\"normal\">FHSA: deductible in, tax-free out</text><line x1=\"200\" y1=\"144\" x2=\"200\" y2=\"156\" stroke=\"#ffd479\" stroke-width=\"2\" marker-end=\"url(#ah)\"/><rect x=\"90\" y=\"158\" width=\"220\" height=\"36\" fill=\"#1d2735\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"200\" y=\"174\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#e8ecf1\" text-anchor=\"middle\" font-weight=\"normal\">3. TFSA room left?</text><text x=\"200\" y=\"188\" font-family=\"sans-serif\" font-size=\"10\" fill=\"#7ee2a8\" text-anchor=\"middle\" font-weight=\"normal\">Taxed in, never taxed again</text><line x1=\"200\" y1=\"194\" x2=\"200\" y2=\"206\" stroke=\"#ffd479\" stroke-width=\"2\" marker-end=\"url(#ah)\"/><rect x=\"90\" y=\"208\" width=\"220\" height=\"36\" fill=\"#1d2735\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"200\" y=\"224\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#e8ecf1\" text-anchor=\"middle\" font-weight=\"normal\">4. RRSP</text><text x=\"200\" y=\"238\" font-family=\"sans-serif\" font-size=\"10\" fill=\"#7ee2a8\" text-anchor=\"middle\" font-weight=\"normal\">Best when your rate is high now</text><text x=\"200\" y=\"264\" font-family=\"sans-serif\" font-size=\"10\" fill=\"#9aa6b8\" text-anchor=\"middle\" font-weight=\"normal\">Order of operations for most households (2026)</text></svg>",
+    "questions": [
+     {
+      "q": "Your cousin calls his $3,000 RRSP refund 'free money from the government.' What is it actually?",
+      "answer": "It is the government's share of the account, handed back up front. RRSP money is pre-tax, so the refund is tax deferred, not forgiven — the full withdrawal, growth included, is taxed as income later.",
+      "hint": "Ask who else has a claim on the money inside the account, and when they collect."
+     },
+     {
+      "q": "You withdraw $8,000 from your TFSA in June 2026 to buy a car. When can you put that $8,000 back without penalty?",
+      "answer": "On January 1, 2027. TFSA withdrawals are tax-free, but the contribution room they free up is only restored at the start of the following calendar year.",
+      "hint": "The room returns on a calendar boundary, not on the anniversary of the withdrawal."
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "heading": "Rent vs. Own, Honestly",
+    "body": "Here is the comparison the real estate industry hopes you never run. Not 'rent is throwing money away' — a slogan — but two columns of numbers: what disappears forever if you own, and what disappears forever if you rent.\n\nTake a $420,000 house in Camrose, Alberta. Twenty percent down is $84,000, leaving a $336,000 mortgage at 4.5% over 25 years. The payment is about $1,868 a month. That sounds manageable, and most of the conversation stops there. It should not. In the first year, about $15,000 of those payments is interest — roughly $1,250 a month that never comes back. Add property tax at an illustrative 1% of value: $4,200 a year. Add maintenance at the standard 1%-of-value rule of thumb, another $4,200 — roofs and furnaces are not optional. Add insurance, about $1,800 a year. The total unrecoverable cost of owning: roughly $25,200 a year, about $2,100 a month.\n\nRenting a comparable Camrose house costs about $1,850 a month — all of it unrecoverable, but $250 a month less than the owner's leak, and the renter keeps the $84,000. Invested at 6%, that down payment becomes about $150,400 in ten years. The owner's offsetting entry is principal repayment: about $7,400 in year one. That is real saving, but it is forced saving into a single illiquid asset on one street, and you cannot spend home equity at the grocery store.\n\nTransaction costs widen the gap. Alberta has no provincial land transfer tax — only Land Titles registration fees of a few hundred dollars — which makes this the cheapest province in the country to run the experiment. Flag that as Alberta-specific: Ontario buyers pay a provincial land transfer tax, and Toronto charges a second one on top. Selling is the expensive end everywhere: budget about 4–5% of the price in real estate commissions and closing costs, roughly $17,000 to $21,000 on this house.\n\nThere is also a shortcut worth knowing: the old 5% rule estimates a home's unrecoverable costs at roughly 5% of its price per year. On $420,000 that is $21,000 — $1,750 a month — a rough cross-check on the detailed stack above, and a fast way to screen a listing before committing to the full arithmetic.\n\nToronto is the same arithmetic with the volume up: a $1.1-million house against a $120,000 household income is 9.2 times income, and every unrecoverable line scales with the price. At 4.0 times income, Camrose ownership is a defensible choice that survives honest math. At nine times income, you are not buying shelter; you are making a leveraged bet that a greater fool arrives on schedule. The point is not that renting always wins — at these Camrose numbers it is close, and appreciation tips it either way. The point is that 'close, depending on appreciation' is a very different claim from 'rent is throwing money away.'",
+    "visual": "A side-by-side bar comparison of monthly unrecoverable costs: the owner's stacked leak (interest, tax, maintenance, insurance) totalling about $2,100 against a $1,850 rent bar.",
+    "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><rect x=\"20\" y=\"20\" width=\"360\" height=\"260\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"200\" y=\"40\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#ffd479\" text-anchor=\"middle\" font-weight=\"bold\">Unrecoverable Cost per Month — Camrose Example</text><rect x=\"95\" y=\"138\" width=\"60\" height=\"112\" fill=\"#ff9d7a\"/><rect x=\"95\" y=\"107\" width=\"60\" height=\"31\" fill=\"#7cc7ff\"/><rect x=\"95\" y=\"76\" width=\"60\" height=\"31\" fill=\"#7ee2a8\"/><rect x=\"95\" y=\"62\" width=\"60\" height=\"14\" fill=\"#ffd479\"/><rect x=\"245\" y=\"83\" width=\"60\" height=\"167\" fill=\"#c9a7ff\"/><text x=\"125\" y=\"54\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#e8ecf1\" text-anchor=\"middle\" font-weight=\"bold\">$2,100/mo</text><text x=\"275\" y=\"74\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#c9a7ff\" text-anchor=\"middle\" font-weight=\"bold\">$1,850/mo</text><text x=\"125\" y=\"268\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#e8ecf1\" text-anchor=\"middle\" font-weight=\"normal\">Own</text><text x=\"275\" y=\"268\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#e8ecf1\" text-anchor=\"middle\" font-weight=\"normal\">Rent</text><text x=\"165\" y=\"196\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#ff9d7a\" text-anchor=\"start\" font-weight=\"normal\">Interest $1,250</text><text x=\"165\" y=\"124\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#7cc7ff\" text-anchor=\"start\" font-weight=\"normal\">Tax $350</text><text x=\"165\" y=\"94\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#7ee2a8\" text-anchor=\"start\" font-weight=\"normal\">Maintenance $350</text><text x=\"165\" y=\"70\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#ffd479\" text-anchor=\"start\" font-weight=\"normal\">Insurance $150</text></svg>",
+    "questions": [
+     {
+      "q": "In the Camrose example the payment is $1,868 a month, yet the owner's unrecoverable cost is about $2,100. How can the invisible cost exceed the payment?",
+      "answer": "Because the payment is not the cost. Only the interest portion — about $1,250 a month in year one — is truly consumed by the payment; the unrecoverable column also adds property tax, maintenance, and insurance, which never appear in the payment at all.",
+      "hint": "List everything an owner pays that builds no equity and never comes back."
+     },
+     {
+      "q": "Why does the renter's $84,000 down payment belong in the comparison at all?",
+      "answer": "Because the buyer had to lock that $84,000 into the house while the renter invests it instead. At 6% it grows to roughly $150,400 in ten years — ignoring it understates what owning costs.",
+      "hint": "Money committed in one place cannot earn a return somewhere else. There is a two-word name for that."
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "heading": "Investing Without the Casino",
+    "body": "Once money is invested, two decisions do nearly all the work: how it is split between stocks and bonds, and what you pay in fees. Everything else — which fund brand, which headline, which tip from a brother-in-law — is decoration.\n\nStart with fees, because the arithmetic is brutal. Put $10,000 in a broad index portfolio earning 7% a year before fees. In 30 years it grows to about $76,100. Now pay a typical Canadian mutual fund MER of 2%: your return drops to 5%, and the ending value is about $43,200. The fee did not cost you 2%. It cost you about $32,900 — roughly 43% of what you would have had — because every dollar paid in fees is a dollar that stops compounding. A low-cost index fund or asset-allocation ETF charging about 0.2% leaves you near $72,000. Same market, same stocks, roughly $29,000 apart, decided entirely by a number most investors never look up.\n\nAsset allocation is the split itself: the share in equities, which bring growth and volatility, versus fixed income, which brings stability and lower returns. Whether you land at 80/20 or 60/40 is not a personality test; it is a decision about how large a paper loss you can watch in a crash without selling at the bottom. The best allocation is the most aggressive one you will actually hold through a 30% downturn.\n\nRebalancing is how you keep the split you chose. Suppose a $100,000 portfolio starts 70/30 and stocks rise 20% while bonds sit still. Stocks become $84,000 of a $114,000 portfolio — 73.7%, not 70%. Rebalancing means selling about $4,200 of stocks and topping up bonds: selling high and buying low by rule rather than by mood. Two workable rules: rebalance once a year on a fixed date, or whenever an asset class drifts more than five percentage points from its target. Pick one and write it down. Both beat improvising.\n\nOne modern convenience deserves a mention: asset-allocation ETFs hold a complete stock-and-bond mix inside a single fund and rebalance internally, for a fee near 0.2%. They remove the two classic failure modes of the do-it-yourself approach — forgetting to rebalance, and tinkering — at the price of choosing your split from a short menu. For most households, that trade is worth it.\n\nAnd the casino. Individual stock picking asks you to out-guess professionals who do it full-time with better information. Cryptocurrency asks you to hold an asset with no cash flow and no underlying claim, whose value is purely the next buyer's enthusiasm — the greater fool mechanism wearing a hoodie. Neither is an investment plan. If you want to gamble, budget for it honestly as entertainment, in an amount whose total loss changes nothing about your life.",
+    "visual": "Two growth curves for $10,000 over 30 years diverging from the same start: the 7% gross line ending near $76,100 and the 5% net-of-2%-MER line ending near $43,200.",
+    "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><rect x=\"20\" y=\"20\" width=\"360\" height=\"260\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"200\" y=\"44\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#ffd479\" text-anchor=\"middle\" font-weight=\"bold\">MER Drag: $10,000 Growing for 30 Years</text><line x1=\"50\" y1=\"260\" x2=\"370\" y2=\"260\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><polyline points=\"50,233 157,206 263,154 370,51\" fill=\"none\" stroke=\"#7ee2a8\" stroke-width=\"3\"/><polyline points=\"50,233 157,215 263,187 370,141\" fill=\"none\" stroke=\"#ff9d7a\" stroke-width=\"3\"/><text x=\"368\" y=\"44\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#7ee2a8\" text-anchor=\"end\" font-weight=\"normal\">$76,100 — 0% fee</text><text x=\"368\" y=\"134\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#ff9d7a\" text-anchor=\"end\" font-weight=\"normal\">$43,200 — 2% MER</text><text x=\"50\" y=\"278\" font-family=\"sans-serif\" font-size=\"10\" fill=\"#9aa6b8\" text-anchor=\"middle\" font-weight=\"normal\">Year 0</text><text x=\"157\" y=\"278\" font-family=\"sans-serif\" font-size=\"10\" fill=\"#9aa6b8\" text-anchor=\"middle\" font-weight=\"normal\">Year 10</text><text x=\"263\" y=\"278\" font-family=\"sans-serif\" font-size=\"10\" fill=\"#9aa6b8\" text-anchor=\"middle\" font-weight=\"normal\">Year 20</text><text x=\"370\" y=\"278\" font-family=\"sans-serif\" font-size=\"10\" fill=\"#9aa6b8\" text-anchor=\"middle\" font-weight=\"normal\">Year 30</text></svg>",
+    "questions": [
+     {
+      "q": "A 2% MER sounds small. On $10,000 growing at 7% for 30 years, what does it actually cost?",
+      "answer": "About $32,900 — the difference between ending near $76,100 with no fee and about $43,200 at a net 5%. That is roughly 43% of the ending value, because every fee dollar also stops compounding.",
+      "hint": "Compare the ending values, not the annual percentages."
+     },
+     {
+      "q": "Your 70/30 portfolio's stocks rise 20% while bonds are flat. Why would you sell stocks right after a good run?",
+      "answer": "The run pushed stocks to 73.7% of the portfolio, above your target. Rebalancing sells about $4,200 back down to 70% — selling high and buying low by rule instead of by mood.",
+      "hint": "Work out what the drifted weights actually are before deciding nothing needs doing."
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "heading": "The Boring Machinery",
+    "body": "Taxes decide what you keep, and Canadian taxes run on distinctions most people blur together. Unblur them and several 'mysteries' of personal finance solve themselves.\n\nFirst: your marginal rate is the tax on your next dollar; your effective (average) rate is total tax divided by total income, and it is always lower. Every decision in this course — a bonus, an RRSP contribution, a capital gain — is priced at the marginal rate. A $5,000 bonus at a 30% marginal rate costs $1,500, no matter what your average rate happens to be.\n\nSecond: the type of income. Interest is taxed in full, every year, at your marginal rate — the harshest treatment on the menu. Eligible Canadian dividends are grossed up by 38% and then relieved by the dividend tax credit, which recognises the tax already paid inside the corporation; the result is a meaningfully lower effective rate than interest at most incomes. Capital gains get the best treatment: only 50% of a gain is included in income. That inclusion rate stands as of 2026 — the proposed increase to 66.67% above a threshold was cancelled in 2025, so do not let a 2024 headline do your 2026 math. Sell an investment for a $10,000 gain and you add $5,000 to your income; at a 30% marginal rate the tax is $1,500, an effective 15% on the gain.\n\nThird: location. Because interest is taxed hardest, interest-bearing assets belong inside the RRSP first, where tax is deferred entirely. US dividend stocks belong there too: the tax treaty exempts retirement accounts from the 15% US withholding tax, while the same dividend paid into a TFSA is withheld at source and unrecoverable — the treaty does not cover TFSAs. Canadian eligible dividends, lightly taxed anyway thanks to the credit, are the natural tenant of a non-registered account.\n\nFinally, the pensions, with their published factors (federal figures, as of 2026). CPP can start as early as 60, at a reduction of 0.6% for each month before 65: start at 60 and you take a permanent 36% cut — $640 a month on a $1,000 benefit. Delay past 65 and it grows by 0.7% a month to age 70, a 42% increase. OAS cannot be taken early; it starts at 65, and deferring to 70 adds 0.6% a month, a 36% increase — a $735 pension becomes about $1,000. Whether to start early or late is a longevity and cash-flow question, but at least argue it with the real factors. Note that these pension factors are identical across the country — CPP and OAS are federal — unlike the income tax rates above, which vary by province and change the asset-location answer at the margins. One Alberta note: this province has among the lowest personal tax rates in Canada, including an 8% first provincial bracket (Alberta figure, as of 2026) — one of the few structural breaks Albertans get.",
+    "visual": "Three bars showing one $1,000 CPP benefit at three start ages: $640 at 60, $1,000 at 65, $1,420 at 70.",
+    "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><rect x=\"20\" y=\"20\" width=\"360\" height=\"260\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"200\" y=\"40\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#ffd479\" text-anchor=\"middle\" font-weight=\"bold\">CPP Timing: Monthly Benefit per $1,000 at Age 65</text><line x1=\"40\" y1=\"245\" x2=\"370\" y2=\"245\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><rect x=\"70\" y=\"162\" width=\"55\" height=\"83\" fill=\"#7cc7ff\"/><rect x=\"172\" y=\"115\" width=\"55\" height=\"130\" fill=\"#7ee2a8\"/><rect x=\"274\" y=\"60\" width=\"55\" height=\"185\" fill=\"#ffd479\"/><text x=\"97\" y=\"153\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#7cc7ff\" text-anchor=\"middle\" font-weight=\"normal\">$640</text><text x=\"199\" y=\"106\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#7ee2a8\" text-anchor=\"middle\" font-weight=\"normal\">$1,000</text><text x=\"301\" y=\"51\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#ffd479\" text-anchor=\"middle\" font-weight=\"normal\">$1,420</text><text x=\"97\" y=\"262\" font-family=\"sans-serif\" font-size=\"10\" fill=\"#e8ecf1\" text-anchor=\"middle\" font-weight=\"normal\">Start at 60 (−36%)</text><text x=\"199\" y=\"262\" font-family=\"sans-serif\" font-size=\"10\" fill=\"#e8ecf1\" text-anchor=\"middle\" font-weight=\"normal\">Start at 65</text><text x=\"301\" y=\"262\" font-family=\"sans-serif\" font-size=\"10\" fill=\"#e8ecf1\" text-anchor=\"middle\" font-weight=\"normal\">Start at 70 (+42%)</text><text x=\"200\" y=\"278\" font-family=\"sans-serif\" font-size=\"9\" fill=\"#9aa6b8\" text-anchor=\"middle\" font-weight=\"normal\">OAS: starts at 65 only; deferring to 70 adds 36% · factors as published, 2026</text></svg>",
+    "questions": [
+     {
+      "q": "Where should a GIC and US dividend stocks live, and why?",
+      "answer": "Both belong in the RRSP first. Interest is taxed in full every year outside a shelter, and US dividends are exempt from the 15% US withholding tax inside an RRSP under the treaty — while the same withholding taken inside a TFSA is lost for good.",
+      "hint": "Match the harshest tax treatment to the strongest available shelter."
+     },
+     {
+      "q": "Your neighbour insists the capital gains inclusion rate is two-thirds now, because he read it in 2024. Is he right as of 2026?",
+      "answer": "No. The increase to 66.67% was proposed in 2024 but cancelled in 2025; the inclusion rate remains 50%, so only half of a capital gain is added to your income.",
+      "hint": "Proposed is not passed — and this particular proposal died."
+     }
+    ]
+   },
+   {
+    "id": "s5",
+    "heading": "The Housing Thesis, Stress-Tested",
+    "body": "Now the argument this course is named for, stated at full strength — then kicked, hard, from both directions.\n\nThe Greater Fool case: a house is an undiversified, leveraged, illiquid asset whose recent Canadian price history has been powered less by incomes than by the expectation of resale. Toronto at 9.2 times household income means the median family cannot buy the median house from earnings; prices at that level require the next buyer to be richer, more leveraged, or more desperate. Leverage cuts both ways. Put 20% down on a $420,000 house and a 15% price drop — $63,000 — erases three quarters of your $84,000 down payment, while the mortgage balance does not shrink by a cent. Renewal risk is real: renew a $336,000 mortgage at 6.5% instead of 4.5% on the same 25-year schedule and the payment jumps about $400 a month, or 21.5%, imposed on you with no negotiation. And concentration is the quiet killer: for most owners the house is 80% or more of net worth — one asset, one street, one town's economy.\n\nThe steelman, honestly built: most people will not invest the difference. The forced saving inside a mortgage payment has built more Canadian retirements than every TFSA strategy combined, because it demands no discipline after the signature. Supply is genuinely short — housing completions have lagged household formation for years, and population growth through immigration keeps pressure on shelter in the big metros. Renting carries its own risks: eviction for the landlord's use, rent inflation, and no control over your own home. And location matters more than ideology: at Camrose's roughly four times income, Section 2's own math shows owning costing about what renting costs, with equity building as a tiebreaker. Ownership also imposes a kind of stability some households rationally pay for: no landlord can end the tenancy at renewal time, and once the mortgage is gone, the largest monthly bill of a working life mostly stops. The thesis is at heart a Toronto-and-Vancouver argument that weakens as prices approach incomes; it is not a law of nature.\n\nWhat would change the conclusion? Sustained evidence, not a season: completions running ahead of household formation for a decade, real (inflation-adjusted) prices flat or falling over the same period, and big-city price-to-income multiples compressing toward the historical 3–4 range. If that shows up, the greater fool's chair is empty and the argument is over.\n\nUntil then, the deliverable of this course is not a verdict — it is a document. One page: your accounts in priority order, your allocation and rebalancing rule, your rent-versus-own numbers run on your actual shelter, and the evidence that would change your mind. Write it in a calm market. Sign it. The next time a headline, a realtor, or a brother-in-law applies pressure, read your own arithmetic first.",
+    "visual": "Two horizontal bars comparing house price-to-income multiples: Camrose at 4.0 times against Toronto at 9.2 times, with a dashed marker at the long-run 3–4 times norm.",
+    "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><rect x=\"20\" y=\"20\" width=\"360\" height=\"260\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"200\" y=\"44\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#ffd479\" text-anchor=\"middle\" font-weight=\"bold\">Price-to-Income: Where the Bet Gets Big</text><text x=\"28\" y=\"96\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#e8ecf1\" text-anchor=\"start\" font-weight=\"normal\">Camrose (illustrative)</text><text x=\"28\" y=\"146\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#e8ecf1\" text-anchor=\"start\" font-weight=\"normal\">Toronto (illustrative)</text><rect x=\"150\" y=\"82\" width=\"88\" height=\"20\" fill=\"#7ee2a8\"/><rect x=\"150\" y=\"132\" width=\"202\" height=\"20\" fill=\"#ff9d7a\"/><line x1=\"227\" y1=\"66\" x2=\"227\" y2=\"168\" stroke=\"#ffd479\" stroke-width=\"2\" stroke-dasharray=\"5,4\"/><text x=\"242\" y=\"96\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#7ee2a8\" text-anchor=\"start\" font-weight=\"normal\">4.0×</text><text x=\"356\" y=\"146\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#ff9d7a\" text-anchor=\"start\" font-weight=\"normal\">9.2×</text><text x=\"227\" y=\"182\" font-family=\"sans-serif\" font-size=\"10\" fill=\"#ffd479\" text-anchor=\"middle\" font-weight=\"normal\">Long-run norm ≈ 3–4×</text><text x=\"200\" y=\"222\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#9aa6b8\" text-anchor=\"middle\" font-weight=\"normal\">Camrose: $420,000 house ÷ $105,000 income</text><text x=\"200\" y=\"244\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#9aa6b8\" text-anchor=\"middle\" font-weight=\"normal\">Toronto: $1,100,000 house ÷ $120,000 income</text><text x=\"200\" y=\"266\" font-family=\"sans-serif\" font-size=\"10\" fill=\"#9aa6b8\" text-anchor=\"middle\" font-weight=\"normal\">Multiples as of 2026 — check current prices before quoting</text></svg>",
+    "questions": [
+     {
+      "q": "A 15% price drop hits a homeowner who put 20% down, and a renter with the same starting wealth. Why is the homeowner's percentage loss so much worse?",
+      "answer": "Leverage. The 15% drop is calculated on the full $420,000 price — $63,000 — but the owner's stake was only the $84,000 down payment, so the loss wipes out 75% of their equity while the debt stands still.",
+      "hint": "Divide the dollar loss by the equity actually at risk, not by the purchase price."
+     },
+     {
+      "q": "State one piece of evidence that would genuinely weaken the Greater Fool thesis.",
+      "answer": "Sustained housing completions running ahead of household formation, with real prices flat or falling and big-city price-to-income multiples compressing toward 3–4 times over a decade — shelter repricing to incomes instead of to the next buyer.",
+      "hint": "Think supply and multiples over years, not anecdotes or one hot spring market."
+     }
+    ]
+   }
+  ]
+ },
+ "quizzes": {
+  "sections": [
+   {
+    "id": "s1",
+    "questions": [
+     {
+      "q": "Priya earns $96,000 a year. How much new RRSP contribution room does she earn this year, before the annual dollar cap is considered?",
+      "choices": [
+       "$5,760",
+       "$17,280",
+       "$34,560",
+       "$96,000"
+      ],
+      "answer": 1,
+      "explain": "RRSP room grows at 18% of earned income: 0.18 × $96,000 = $17,280, subject to the indexed annual dollar cap. $5,760 is 6%, and $34,560 double-counts the rate at 36%."
+     },
+     {
+      "q": "You contribute $10,000 to an RRSP at a 30% marginal rate and receive a $3,000 refund. In retirement you withdraw the $10,000 at the same 30% rate. Ignoring growth, what is the RRSP's net tax benefit?",
+      "choices": [
+       "$3,000 — the refund is a bonus",
+       "$6,000 — you save tax at both ends",
+       "$1,500 — about half the refund is a real benefit",
+       "$0 — the refund was deferred tax, settled on withdrawal"
+      ],
+      "answer": 3,
+      "explain": "In: +$3,000 refund. Out: 30% × $10,000 = −$3,000 tax. Net: $0. The refund was the government's share of the pre-tax money, held by you until settlement. The RRSP pays off when the withdrawal rate is lower than the contribution rate — not from the refund itself."
+     },
+     {
+      "q": "You make a lump-sum RRSP withdrawal of $20,000 to cover an emergency. How much is withheld at source under the federal withholding rates?",
+      "choices": [
+       "$2,000",
+       "$4,000",
+       "$6,000",
+       "$10,000"
+      ],
+      "answer": 2,
+      "explain": "Federal withholding on RRSP withdrawals: 10% up to $5,000, 20% on $5,001–$15,000, and 30% above $15,000. A $20,000 withdrawal sits in the top band, so 30% × $20,000 = $6,000 is withheld. It is a prepayment, not the final tax — the bill is settled when you file. (Quebec applies its own rates.)"
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "questions": [
+     {
+      "q": "A $400,000 house carries these year-one costs: mortgage interest $15,800, property tax $4,000, maintenance $4,000, insurance $1,600 — plus about $6,900 of principal repayment. What is the owner's unrecoverable cost for the year?",
+      "choices": [
+       "$32,300 — everything the owner pays out",
+       "$18,400 — interest and property tax only",
+       "$25,400 — interest, tax, maintenance and insurance",
+       "$15,800 — only the interest is a real cost"
+      ],
+      "answer": 2,
+      "explain": "Unrecoverable means gone forever: $15,800 + $4,000 + $4,000 + $1,600 = $25,400. The $6,900 of principal is excluded because it becomes equity — counting it produces the $32,300 trap. Interest alone ($15,800) understates the leak."
+     },
+     {
+      "q": "A renter keeps the $84,000 that would have been a down payment and invests it at 6% compounded annually. What is it worth after 10 years?",
+      "choices": [
+       "$134,400",
+       "$92,400",
+       "$168,000",
+       "$150,431"
+      ],
+      "answer": 3,
+      "explain": "$84,000 × 1.06^10 = $84,000 × 1.7908 ≈ $150,431 — about $66,400 of growth. $134,400 comes from simple interest (10 × 6% = 60%, so $84,000 × 1.6), which ignores compounding. This forgone growth is the opportunity cost of the down payment."
+     },
+     {
+      "q": "The quick 5% rule estimates a home's unrecoverable costs at about 5% of its price per year. For a $600,000 Toronto condo, what monthly figure does the rule give, and how does it compare with renting the same unit at $2,300 a month?",
+      "choices": [
+       "$3,000 a month — owning still beats the rent",
+       "$2,500 a month — slightly more than the rent, so renting plus investing wins on the rule",
+       "$1,750 a month — owning wins comfortably",
+       "$5,000 a month — the down payment alone decides it"
+      ],
+      "answer": 1,
+      "explain": "5% × $600,000 = $30,000 a year ÷ 12 = $2,500 a month, which exceeds the $2,300 rent — on this rough rule the renter comes out ahead before any appreciation argument. ($1,750 is the same rule applied to a $420,000 house: the wrong price for this question.)"
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "questions": [
+     {
+      "q": "$10,000 is invested for 30 years and earns 7% a year before fees. In a fund charging a 2% MER, the net return is 5%. What is the fund worth at the end?",
+      "choices": [
+       "About $76,100",
+       "About $43,200",
+       "About $70,000",
+       "About $55,500"
+      ],
+      "answer": 1,
+      "explain": "At a net 5%: $10,000 × 1.05^30 ≈ $43,200. The $76,100 figure is the same money at the full 7% with no fee. The 2% MER sounds like it costs 2%; it actually consumed about $32,900 — roughly 43% of the ending value — because fees compound too."
+     },
+     {
+      "q": "A $100,000 portfolio is split 70/30 between stocks and bonds. Stocks rise 20%; bonds are flat. What does rebalancing back to 70/30 require?",
+      "choices": [
+       "Nothing — the portfolio is still 70/30",
+       "Sell $14,000 of stocks to restore the original dollar amounts",
+       "Buy $4,200 of bonds with new cash and leave stocks alone",
+       "Sell about $4,200 of stocks and buy bonds"
+      ],
+      "answer": 3,
+      "explain": "Stocks grow to $84,000 and the portfolio to $114,000, so stocks are now 73.7%. The 70% target is 0.70 × $114,000 = $79,800, so you sell $84,000 − $79,800 = $4,200. Restoring the original $70,000 would overshoot the target weight."
+     },
+     {
+      "q": "You invest $50,000 at 7% a year. A friend waits five years, then invests the same $50,000 at the same return. Measured at year 25, how far behind is the friend?",
+      "choices": [
+       "About $12,500 — the five missed years of simple interest",
+       "About $50,000 — exactly one contribution's worth",
+       "About $77,900 — compounding punishes the late start",
+       "Nothing — same money, same return, same result"
+      ],
+      "answer": 2,
+      "explain": "Yours compounds 25 years: $50,000 × 1.07^25 ≈ $271,400. Theirs compounds 20 years: $50,000 × 1.07^20 ≈ $193,500. The gap is about $77,900 — the five missing years were the most valuable ones, because they compound the longest."
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "questions": [
+     {
+      "q": "You sell an investment for a $10,000 capital gain. Your marginal tax rate is 30%. As of 2026, how much tax do you owe on the gain?",
+      "choices": [
+       "$3,000",
+       "$5,000",
+       "$1,500",
+       "$2,000"
+      ],
+      "answer": 2,
+      "explain": "The capital gains inclusion rate is 50% — the proposed increase to 66.67% was cancelled in 2025. Taxable amount: 50% × $10,000 = $5,000. Tax: 30% × $5,000 = $1,500, an effective 15% on the gain. Charging 30% on the full gain ($3,000) ignores the inclusion rule; $5,000 confuses the taxable amount with the tax."
+     },
+     {
+      "q": "Your CPP at 65 would be $1,000 a month. Using the published early-taking reduction of 0.6% per month, what do you receive if you start CPP at 60?",
+      "choices": [
+       "$700 a month",
+       "$820 a month",
+       "$600 a month",
+       "$640 a month"
+      ],
+      "answer": 3,
+      "explain": "Starting at 60 is 60 months early: 60 × 0.6% = a permanent 36% reduction. $1,000 × (1 − 0.36) = $640 a month. ($700 would come from a 0.5%-per-month factor — that was the pre-2012 rate, not the current published one.)"
+     },
+     {
+      "q": "You earn a $5,000 bonus. Your effective (average) tax rate is 22%, but your marginal rate is 30%. How much tax comes off the bonus?",
+      "choices": [
+       "$1,100 — at the effective rate",
+       "$1,500 — at the marginal rate",
+       "$0 — small bonuses are exempt",
+       "$2,600 — bonuses are taxed as capital gains"
+      ],
+      "answer": 1,
+      "explain": "New income is priced at the margin: 30% × $5,000 = $1,500. Your 22% effective rate is an average across all your existing income; it never prices the next dollar. There is no small-bonus exemption, and employment income is not a capital gain."
+     }
+    ]
+   },
+   {
+    "id": "s5",
+    "questions": [
+     {
+      "q": "A Toronto household earning $120,000 considers a $1,100,000 house. What is the price-to-income multiple, and what does it imply?",
+      "choices": [
+       "About 6.4 times — stretched, but normal for a big city",
+       "About 9.2 times — the price rests on the next buyer, not on the income",
+       "About 4.0 times — the long-run Canadian norm",
+       "About 11.0 times — high, but dual incomes make it sustainable"
+      ],
+      "answer": 1,
+      "explain": "$1,100,000 ÷ $120,000 = 9.17, about 9.2 times income. Long-run norms sit near 3–4 times (Camrose in this course is at 4.0). At 9.2 times, carrying the purchase from earnings alone is unrealistic — the price depends on resale to a richer or more leveraged buyer, which is the Greater Fool mechanism in a single number."
+     },
+     {
+      "q": "The $336,000 mortgage from Section 2 costs $1,868 a month at 4.5% over 25 years. If it renews at 6.5% on the same 25-year schedule, what happens to the payment?",
+      "choices": [
+       "It rises to about $2,269 a month — up roughly $401, or 21.5%",
+       "It rises to about $2,017 — up exactly 2% of the payment",
+       "It stays at $1,868 — payments are fixed when the mortgage is signed",
+       "It falls — higher rates automatically shorten the amortization"
+      ],
+      "answer": 0,
+      "explain": "At 6.5%: $336,000 × (0.065/12) ÷ (1 − (1 + 0.065/12)^−300) ≈ $2,269 a month. That is about $401 more every month — a 21.5% increase — imposed at renewal whether you like it or not. A fixed rate fixes the payment for the term only, never for the life of the mortgage."
+     },
+     {
+      "q": "A household's net worth is $500,000, of which the house is $420,000 and the rest is diversified investments and cash. House prices fall 15%. What happens to the household's net worth?",
+      "choices": [
+       "It falls 15%, to $425,000",
+       "It falls $63,000 — 12.6% — to $437,000",
+       "It falls $63,000, which is only 7.5% of net worth",
+       "Nothing changes until the house is sold"
+      ],
+      "answer": 1,
+      "explain": "15% × $420,000 = a $63,000 loss, and $63,000 ÷ $500,000 = 12.6% of net worth, leaving $437,000. One asset falling 15% cost the household an eighth of its wealth because the house was 84% of everything — concentration did the damage, not the percentage on the house itself."
+     }
+    ]
+   }
+  ]
+ },
+ "slides": {
+  "sections": [
+   {
+    "id": "s1",
+    "title": "The Registered Accounts",
+    "bullets": [
+     "New RRSP room: 18% of earned income, up to an indexed annual cap",
+     "The refund is deferred tax — the government owns a share of every RRSP dollar",
+     "TFSA: after-tax in, tax-free out, room restored the following January 1",
+     "Withholding on RRSP withdrawals runs 10% / 20% / 30% — a prepayment, not the final bill",
+     "Order: employer match, FHSA, TFSA, then RRSP when your bracket is high"
+    ],
+    "notes": "Open with the spring ritual: the refund cheque and the feeling of being richer. Then dismantle it gently. The RRSP is a partnership with Ottawa — the refund is the government's share handed to you up front, and you settle when you withdraw. The TFSA flips it: no refund, no tax ever again, room back next January. Close with the pecking order — match, FHSA, TFSA, RRSP — and remind everyone every figure here is stamped 'as of 2026.'",
+    "visual": "A flowchart of the dollar's journey: match first, then FHSA, TFSA, and finally the RRSP gate guarded by 'is your rate high now?'"
+   },
+   {
+    "id": "s2",
+    "title": "Rent vs. Own, Honestly",
+    "bullets": [
+     "Unrecoverable costs of owning: interest, property tax, maintenance, insurance",
+     "Camrose worked example: about $2,100 a month leaks from a $420,000 house",
+     "Principal repayment is forced saving — real, but illiquid",
+     "The renter's $84,000, invested at 6%, reaches about $150,400 in ten years",
+     "Alberta has no land transfer tax; Toronto pays two. Check your province"
+    ],
+    "notes": "Walk the two columns slowly. The owner's $1,868 payment looks fine until you open it up: $1,250 of it is interest in year one, and tax, maintenance, and insurance push the true leak to about $2,100 a month. The renter leaks $1,850 and keeps the $84,000 working. Then concede the owner's real point — principal repayment is genuine saving — and land on the honest verdict: at Camrose prices it is close, and close is not a slogan.",
+    "visual": "Two bars side by side: the owner's stacked leak at about $2,100 a month against the single $1,850 rent bar."
+   },
+   {
+    "id": "s3",
+    "title": "Investing Without the Casino",
+    "bullets": [
+     "Allocation and fees do nearly all the work; product choice is decoration",
+     "$10,000 at 7% for 30 years: about $76,100 with no fee, about $43,200 at a 2% MER",
+     "A 2% MER consumes roughly 43% of the ending value — fees compound too",
+     "Rebalance on a fixed date, or when a class drifts five points from target",
+     "Stock tips and crypto are entertainment budgets, not plans"
+    ],
+    "notes": "This is the fee slide, and the numbers carry it: same market, same thirty years, and the 2% MER quietly takes about $32,900 of a $76,100 ending value. Then allocation — pick a split you can hold through a crash — and rebalancing as the discipline that enforces it. End by naming the casino for what it is: entertainment that should be budgeted like entertainment.",
+    "visual": "Two diverging growth curves from a single starting point, the gap between them shaded and labelled 'the fee.'"
+   },
+   {
+    "id": "s4",
+    "title": "The Boring Machinery",
+    "bullets": [
+     "Marginal rate prices every new dollar; effective rate is just the average",
+     "Interest is taxed in full; eligible dividends get a gross-up and credit",
+     "Capital gains: 50% inclusion as of 2026 — the 66.67% increase was cancelled in 2025",
+     "Asset location: interest and US dividends in the RRSP; Canadian dividends outside",
+     "CPP: −0.6%/month early, +0.7%/month late. OAS: starts at 65, +0.6%/month to 70"
+    ],
+    "notes": "Three blurs to unblur. Marginal versus average — the bonus is taxed at the margin. Type of income — interest harshest, dividends credited, capital gains half-included, and yes, the famous two-thirds inclusion rate is dead; it was cancelled in 2025. Then location, then the pension factors on one line each. Alberta listeners get their one structural break: the 8% first provincial bracket, flagged as an Alberta figure.",
+    "visual": "Three bars of one $1,000 CPP benefit at ages 60, 65, and 70: $640, $1,000, $1,420."
+   },
+   {
+    "id": "s5",
+    "title": "The Housing Thesis, Stress-Tested",
+    "bullets": [
+     "The Greater Fool case: multiples, concentration, leverage, renewal risk",
+     "The steelman: forced saving works, supply is short, renting has risks too",
+     "At 4 times income the course's own math calls it close; at 9.2 times it is a bet",
+     "Evidence that would end the argument: a decade of completions beating household formation",
+     "Deliverable: a one-page financial policy, signed in a calm market"
+    ],
+    "notes": "Give the thesis its full voice first — 9.2 times income, 75% of a down payment gone on a 15% dip, a $401 renewal shock — then build the strongest case against it: forced saving, real shortage, the risks of renting. Refuse to declare a winner. The winner is the document: each listener's one-page policy, written from their own numbers, with the evidence that would change their mind stated in advance.",
+    "visual": "Two bars, Camrose at 4.0 times income and Toronto at 9.2, split by a dashed line at the long-run 3–4 times norm."
+   }
+  ]
+ },
+ "enrichment": {
+  "audioTitle": "The House on the Ledger: A Bull and a Sceptic Run One Camrose Decision",
+  "turns": [
+   {
+    "speaker": "teacher",
+    "line": "Your brother is buying the $420,000 house in Camrose. Before we argue about whether he should, answer me this: what does the place actually cost him per month, all-in?"
+   },
+   {
+    "speaker": "student",
+    "line": "The payment is about $1,868 on a $336,000 mortgage at four and a half percent. He's renting a similar place now for $1,850. So it's basically a wash — except he builds equity and I don't."
+   },
+   {
+    "speaker": "teacher",
+    "line": "The payment is the smallest part of the story. Of that $1,868, roughly $1,250 in the first year is interest — gone forever. Add property tax around $350 a month, maintenance another $350 if he's honest about roofs and furnaces, and insurance at $150. His real leak is about $2,100 a month. Your rent is $1,850, and that is your entire leak."
+   },
+   {
+    "speaker": "student",
+    "line": "You're charging him maintenance like the roof caves in every spring."
+   },
+   {
+    "speaker": "teacher",
+    "line": "Averaged over the years he owns it, something expensive does give out — roof, furnace, driveway, windows. One percent of the home's value per year is the standard rule of thumb, and owners who keep receipts rarely argue with it. And you still haven't mentioned his $84,000."
+   },
+   {
+    "speaker": "student",
+    "line": "The down payment? It's not gone. It's in the house. It IS the equity."
+   },
+   {
+    "speaker": "teacher",
+    "line": "It is in the house, earning whatever the Camrose market feels like paying. Invested at 6%, it becomes about $150,400 in ten years. He gave that up. Might still be worth it — but it goes on his side of the ledger, not in a footnote."
+   },
+   {
+    "speaker": "student",
+    "line": "And the $7,400 a year of principal he pays down? Your model renter only wins if he actually invests the difference every month, and most people don't. The mortgage is the one savings plan with enforcement built in."
+   },
+   {
+    "speaker": "teacher",
+    "line": "Granted — that is the strongest argument for buying, and I won't pretend otherwise. Forced saving works. But notice what it is: an argument about behaviour, not about houses. A $250 automatic transfer on payday enforces the same discipline without the leverage."
+   },
+   {
+    "speaker": "student",
+    "line": "Leverage — there it is. If the house rises 15%, he's made $63,000 on an $84,000 stake. Your index fund never does that."
+   },
+   {
+    "speaker": "teacher",
+    "line": "And if it falls 15%, he has lost $63,000 — three quarters of everything he put in — while still owing the same $336,000. Leverage is not a feature or a flaw; it is a multiplier on whichever way the coin lands. On one house, on one street."
+   },
+   {
+    "speaker": "student",
+    "line": "This is Alberta, not Toronto. Four times his income, not nine. You're fighting the last war."
+   },
+   {
+    "speaker": "teacher",
+    "line": "Also granted. At four times income, my own math says owning costs about what renting costs here, and the equity argument can carry the day. My objection was never to this house at this price — it is to buying it on a slogan instead of these numbers. So, last question: what happens at renewal if rates are six and a half?"
+   },
+   {
+    "speaker": "student",
+    "line": "The payment jumps to about $2,270 a month. He would feel that. Though rates could just as easily be lower."
+   },
+   {
+    "speaker": "teacher",
+    "line": "They could. Which is why the deliverable is not my opinion — it is his one-page policy: the cost stack we just built, his investment allocation, and the evidence that would change his mind, all written before possession day. If he still signs after reading his own arithmetic, that is a decision. Signing because 'rent is throwing money away' is a slogan with a mortgage attached."
+   },
+   {
+    "speaker": "student",
+    "line": "Fine. This weekend I run the stack with him, line by line, same as you did. And if the numbers still say buy, I'll hold the ladder while he cleans the eavestroughs."
+   }
+  ],
+  "nodes": [
+   {
+    "id": "root",
+    "label": "Run the Numbers First",
+    "parent": null,
+    "note": "Every Canadian money decision reduced to arithmetic you can check yourself."
+   },
+   {
+    "id": "n1",
+    "label": "The Registered Accounts",
+    "parent": "root",
+    "note": "RRSP, TFSA, FHSA and HBP: what each shelter is actually worth, and in what order to fill them."
+   },
+   {
+    "id": "n2",
+    "label": "Rent vs. Own, Honestly",
+    "parent": "root",
+    "note": "The full unrecoverable cost stack on both sides, including the down payment's opportunity cost."
+   },
+   {
+    "id": "n3",
+    "label": "Investing Without the Casino",
+    "parent": "root",
+    "note": "Broad index portfolios, the 30-year cost of a 2% MER, and rebalancing rules that survive contact with real life."
+   },
+   {
+    "id": "n4",
+    "label": "The Boring Machinery",
+    "parent": "root",
+    "note": "Marginal rates, the three treatments of investment income, and asset location."
+   },
+   {
+    "id": "n5",
+    "label": "CPP and OAS Timing",
+    "parent": "root",
+    "note": "The published factors: −0.6%/month CPP early, +0.7% late; OAS +0.6%/month deferred to 70."
+   },
+   {
+    "id": "n6",
+    "label": "The Housing Thesis, Stress-Tested",
+    "parent": "root",
+    "note": "The Greater Fool case at full strength, the steelman against it, and the evidence that would settle it."
+   }
+  ],
+  "mnemonics": [
+   {
+    "for": "The order for filling accounts: employer match, FHSA, TFSA, then RRSP when your marginal rate is high",
+    "aid": "Match, Home, TFSA, RRSP-when-rich-in-rate — take the free money first and the deduction when it is worth the most."
+   },
+   {
+    "for": "The four unrecoverable costs of owning: Interest, Tax, Maintenance, Insurance",
+    "aid": "ITMI — 'It Took My Income.' If it builds no equity and never comes back, it is rent by another name."
+   },
+   {
+    "for": "CPP timing factors: −0.6% per month before 65, +0.7% per month after 65 (to age 70)",
+    "aid": "Six down, seven up."
+   }
+  ]
+ }
+}

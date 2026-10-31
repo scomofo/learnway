@@ -1,0 +1,569 @@
+{
+ "meta": {
+  "title": "Apollo Guidance & Navigation: Flying by Numbers",
+  "topic": "Apollo guidance and navigation",
+  "level": "advanced",
+  "interests": "",
+  "depth": "standard",
+  "model": "manual",
+  "createdAt": "2026-10-22T12:00:00.000Z",
+  "version": 1
+ },
+ "plan": {
+  "title": "Apollo Guidance & Navigation: Flying by Numbers",
+  "hook": "The Apollo Guidance Computer had 0.004% of a modern phone's memory and landed on the Moon anyway -- because the guidance scheme, not the hardware, was the achievement.",
+  "objectives": [
+   "Read a state vector and a REFSMMAT alignment the way a crew member does",
+   "Follow what P63 and P64 are actually computing during a powered descent",
+   "Explain why the 1202 program alarms on Apollo 11 were survivable, and why the go call was right",
+   "Trace how the IMU, the optics, the radars, and the ground's uplinks divided the navigation work"
+  ],
+  "prerequisites": [
+   "Orbital mechanics basics, including comfort with position and velocity vectors",
+   "Familiarity with the Apollo flight plan and the CSM/LM division of labour"
+  ],
+  "sections": [
+   {
+    "id": "s1",
+    "heading": "The Navigation Problem",
+    "points": [
+     "Why dead reckoning fails in cislunar space: small errors compound over 384,000 km",
+     "The state vector: six numbers that pin the spacecraft to its conic",
+     "The triangle of responsibility: ground tracking, onboard sensors, and the computer",
+     "Uplinks and updates: the ground sends better state vectors and the computer refines them (P27)"
+    ]
+   },
+   {
+    "id": "s2",
+    "heading": "The IMU and Its Universe",
+    "points": [
+     "Three gimbals, three gyros, three accelerometers: a stable platform floating inside the vehicle",
+     "REFSMMAT: the matrix that defines where the platform should point in inertial space",
+     "Drift is real: platforms are realigned against pairs of stars with the sextant (P52)",
+     "Gimbal lock: when the middle gimbal reaches 90 degrees, one axis of attitude knowledge disappears"
+    ]
+   },
+   {
+    "id": "s3",
+    "heading": "The AGC as a Crew Member",
+    "points": [
+     "Core rope: 36,864 words of fixed memory woven by hand; 2,048 words of erasable memory",
+     "DSKY grammar: verbs act, nouns name -- and Verb 37 changes the major program",
+     "The executive: priority scheduling and restart protection when the machine overloads",
+     "Programs by number: P11 monitors a burn phase, P40 runs one, P63 lands"
+    ]
+   },
+   {
+    "id": "s4",
+    "heading": "Guidance in Action",
+    "points": [
+     "P63 braking: the guidance equation flies a computed path while landing radar corrects the altitude",
+     "P64 approach: the landing point designator puts the target on a number the commander can see through the window",
+     "P66 rate-of-descent: the computer holds the descent rate, the commander flies",
+     "Two guidance systems in the LM: PNGS aims, AGS waits -- an independent strapdown backup",
+     "Rendezvous radar versus VHF ranging: two ways to measure the CSM, flown for different jobs"
+    ]
+   },
+   {
+    "id": "s5",
+    "heading": "When It Nearly Broke",
+    "points": [
+     "Apollo 11: a coupled rendezvous radar ate roughly 15 percent of the computer's capacity in spurious interrupts",
+     "1202 and 1201: the executive announcing it was shedding work -- and restarting clean",
+     "The go call: Garman's handwritten alarm list, Bales on the GUIDANCE console, seconds to decide",
+     "Apollo 13: debris defeats the stars, so the alignment is transferred and checked against the Sun",
+     "The design lesson: restartable software, dissimilar backups, and a ground that knew the failure vocabulary"
+    ]
+   }
+  ]
+ },
+ "reading": {
+  "sections": [
+   {
+    "id": "s1",
+    "heading": "The Navigation Problem",
+    "body": "Dead reckoning works on a ship because the ocean corrects you slowly and the coast eventually shows up. In cislunar space nothing shows up. A velocity error of one foot per second, left alone for the three-day coast to the Moon, grows into a miss measured in miles -- the difference between an entry corridor you can fly and one that kills you. Apollo's answer was to stop pretending the spacecraft could navigate itself in isolation and run navigation instead as a continuous negotiation among three parties: the ground, the crew, and the computer.\n\nThe object of the negotiation is the state vector: three numbers for position, three for velocity, tagged with a time. Given a state vector and a gravity model, the trajectory is a conic that the guidance computer can propagate forward -- which is exactly what it does between updates. Everything else in Apollo navigation is machinery for keeping that vector honest.\n\nThe ground owned the best absolute measurements. The Manned Space Flight Network tracked the spacecraft from three stations by radio, building state vectors out of ranging and Doppler data far more precisely than anything onboard could manage. Those vectors were uplinked and loaded through P27, the computer update program, replacing or refining the onboard estimate. A good state vector from Houston was the single most valuable piece of data in the system, and the flight plan was built to keep them coming.\n\nOnboard sensing had a different job. The command module's sextant and scanning telescope measured angles between stars and the Earth or Moon horizon, and the navigation programs turned those sightings into corrections to the propagated state. That mattered most where the ground was blind: behind the Moon, and during rendezvous, where the number that counts is not where the LM is relative to Earth but where it is relative to the CSM, a few miles away. The LM measured that directly, with rendezvous radar and later VHF ranging. Each source had a regime where it was best, and the procedures assigned them accordingly.\n\nThe computer owned the next few minutes. It propagated the state, held the burn targets the ground had computed, and flew them with an immediacy no radio loop could match -- Earth-Moon light time alone is over a second each way, before a human relays anything. The crew owned judgment: watching what the computer claimed against what they could see out the window and on the DSKY, accepting or rejecting sensor updates, holding the abort handles.\n\nRead Apollo procedures with that triangle in mind and they stop looking like checklists and start looking like interfaces. A noun on the DSKY is a quantity someone is accountable for. A program is a contract about who decides what for the next phase of flight. The failures that actually threatened Apollo missions were rarely geometric navigation failures; they were failures of capacity, of alignment, or of attention -- which is why this course spends as much time on the computer and the platform as on the trajectory itself.",
+    "visual": "A data-flow diagram: ground tracking, sextant star sightings, and the two radars feeding the AGC's state vector, which in turn produces burn targets.",
+    "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><rect x=\"20\" y=\"40\" width=\"105\" height=\"46\" fill=\"#161b22\" stroke=\"#9aa6b8\"/><text x=\"72\" y=\"60\" text-anchor=\"middle\" font-size=\"11\" fill=\"#d5dde8\" font-family=\"monospace\">GROUND</text><text x=\"72\" y=\"76\" text-anchor=\"middle\" font-size=\"11\" fill=\"#d5dde8\" font-family=\"monospace\">TRACKING</text><rect x=\"20\" y=\"130\" width=\"105\" height=\"46\" fill=\"#161b22\" stroke=\"#9aa6b8\"/><text x=\"72\" y=\"150\" text-anchor=\"middle\" font-size=\"11\" fill=\"#d5dde8\" font-family=\"monospace\">SEXTANT +</text><text x=\"72\" y=\"166\" text-anchor=\"middle\" font-size=\"11\" fill=\"#d5dde8\" font-family=\"monospace\">STAR SIGHTS</text><rect x=\"20\" y=\"220\" width=\"105\" height=\"46\" fill=\"#161b22\" stroke=\"#9aa6b8\"/><text x=\"72\" y=\"240\" text-anchor=\"middle\" font-size=\"11\" fill=\"#d5dde8\" font-family=\"monospace\">RADARS</text><text x=\"72\" y=\"256\" text-anchor=\"middle\" font-size=\"11\" fill=\"#d5dde8\" font-family=\"monospace\">LAND / RDZ</text><rect x=\"185\" y=\"118\" width=\"120\" height=\"70\" fill=\"#161b22\" stroke=\"#9aa6b8\"/><text x=\"245\" y=\"143\" text-anchor=\"middle\" font-size=\"12\" fill=\"#ffd76a\" font-family=\"monospace\">AGC</text><text x=\"245\" y=\"161\" text-anchor=\"middle\" font-size=\"11\" fill=\"#d5dde8\" font-family=\"monospace\">STATE VECTOR</text><text x=\"245\" y=\"177\" text-anchor=\"middle\" font-size=\"10\" fill=\"#d5dde8\" font-family=\"monospace\">P27 UPDATES</text><line x1=\"125\" y1=\"63\" x2=\"185\" y2=\"135\" stroke=\"#9aa6b8\"/><line x1=\"125\" y1=\"153\" x2=\"185\" y2=\"153\" stroke=\"#9aa6b8\"/><line x1=\"125\" y1=\"243\" x2=\"185\" y2=\"172\" stroke=\"#9aa6b8\"/><rect x=\"330\" y=\"118\" width=\"58\" height=\"70\" fill=\"#161b22\" stroke=\"#9aa6b8\"/><text x=\"359\" y=\"148\" text-anchor=\"middle\" font-size=\"11\" fill=\"#d5dde8\" font-family=\"monospace\">BURN</text><text x=\"359\" y=\"164\" text-anchor=\"middle\" font-size=\"11\" fill=\"#d5dde8\" font-family=\"monospace\">TARGETS</text><line x1=\"305\" y1=\"153\" x2=\"330\" y2=\"153\" stroke=\"#9aa6b8\"/><polygon points=\"330,153 322,149 322,157\" fill=\"#9aa6b8\"/><text x=\"200\" y=\"24\" text-anchor=\"middle\" font-size=\"12\" fill=\"#d5dde8\" font-family=\"monospace\">WHO MEASURES WHAT: THE NAV DATA FLOW</text></svg>",
+    "questions": [
+     {
+      "q": "Why can't the spacecraft simply integrate its accelerometers all the way to the Moon and trust the result?",
+      "answer": "Integration accumulates every small error. A tiny velocity error at departure grows hour over hour into a miss of miles, so the propagated state must be corrected by outside measurements.",
+      "hint": "Think about what happens to a one-foot-per-second error over a three-day coast."
+     },
+     {
+      "q": "Which party in the Apollo navigation triangle owned the most accurate absolute state vector, and how did it reach the spacecraft?",
+      "answer": "The ground. Its tracking network built state vectors from radio ranging and Doppler, and they were uplinked and loaded into the computer through P27, the update program.",
+      "hint": "Three tracking stations, a radio link, and a program number in the twenties."
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "heading": "The IMU and Its Universe",
+    "body": "The inertial measurement unit is a small room the spacecraft carries for its own sense of direction. At its centre sits the stable member: a platform holding three gyros and three accelerometers, carried on three nested gimbals -- inner, middle, and outer. Torquing motors drive the gimbals to cancel whatever the gyros sense, so the platform holds one fixed orientation in inertial space while the spacecraft rotates around it. Read the gimbal angles and you know the vehicle's attitude. Read the accelerometers and you know every velocity change imposed since the last reading. That is the whole trick. Everything difficult about Apollo guidance follows from keeping the trick working.\n\nThe platform's orientation is not arbitrary. It is set by REFSMMAT, the reference stable member matrix: a 3x3 rotation that maps the platform's axes onto the reference coordinate system the guidance equations are written in. Different phases of flight want different REFSMMATs -- one suited to launch, another to translunar coast, another to descent -- each chosen so the maneuvers planned for that phase keep the gimbals comfortably inside their travel. When a checklist says the platform is aligned 'to the descent REFSMMAT,' it means the platform's private universe has been deliberately rotated, in advance, into the orientation the landing mathematics prefers.\n\nNo gyro is perfect, so the platform drifts: slowly, measurably, enough over hours of coast to matter. The correction is a star alignment. In the command module, programs P51 and P52 walk the crew through it: the sextant sights a star whose inertial direction is known, then a second star. The computer compares where the platform believes those stars are with where the optics actually find them, computes the misalignment, and torques the platform back to truth. Two sightings pin two axes; the third follows from the geometry. In the LM the same work is done with the alignment optical telescope. Between alignments, gyro drift is the slow leak that every navigation solution has to budget for, which is why alignments were scheduled events in the flight plan rather than repairs.\n\nThe failure everyone rehearsed was gimbal lock. Three gimbals provide three rotational degrees of freedom only while they stay out of one plane. Swing the middle gimbal to 90 degrees and the inner and outer gimbal axes line up: one degree of freedom vanishes, the platform is free to tumble, and its attitude knowledge is gone until the crew realigns it from scratch. The defence was procedural and mathematical at once -- the gimbal angles were a displayed, guarded quantity (call up noun 20 and there they are), and trajectory design with its REFSMMAT choices kept the middle gimbal boring. Gimbal lock never bit an Apollo crew in flight. It stayed famous anyway, because it was the one platform failure that could not be fixed by waiting for it to get better: only a fresh alignment against the stars could resurrect the reference, and that took time, a working platform drive, and stars you could actually see -- a dependency that matters later in this course.",
+    "visual": "Three concentric gimbal rings around a central stable member, with the middle-gimbal 90-degree lock condition called out and noun 20 noted as the crew's window on the angles.",
+    "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><circle cx=\"200\" cy=\"150\" r=\"105\" fill=\"none\" stroke=\"#9aa6b8\"/><circle cx=\"200\" cy=\"150\" r=\"76\" fill=\"none\" stroke=\"#9aa6b8\"/><circle cx=\"200\" cy=\"150\" r=\"47\" fill=\"none\" stroke=\"#9aa6b8\"/><rect x=\"168\" y=\"128\" width=\"64\" height=\"44\" fill=\"#161b22\" stroke=\"#9aa6b8\"/><text x=\"200\" y=\"147\" text-anchor=\"middle\" font-size=\"10\" fill=\"#ffd76a\" font-family=\"monospace\">STABLE</text><text x=\"200\" y=\"161\" text-anchor=\"middle\" font-size=\"10\" fill=\"#ffd76a\" font-family=\"monospace\">MEMBER</text><text x=\"200\" y=\"30\" text-anchor=\"middle\" font-size=\"12\" fill=\"#d5dde8\" font-family=\"monospace\">THE PLATFORM AND ITS THREE GIMBALS</text><text x=\"312\" y=\"66\" font-size=\"11\" fill=\"#d5dde8\" font-family=\"monospace\">OUTER</text><text x=\"286\" y=\"102\" font-size=\"11\" fill=\"#d5dde8\" font-family=\"monospace\">MIDDLE</text><text x=\"256\" y=\"128\" font-size=\"11\" fill=\"#d5dde8\" font-family=\"monospace\">INNER</text><line x1=\"305\" y1=\"70\" x2=\"272\" y2=\"88\" stroke=\"#9aa6b8\"/><line x1=\"276\" y1=\"104\" x2=\"252\" y2=\"118\" stroke=\"#9aa6b8\"/><text x=\"30\" y=\"240\" font-size=\"11\" fill=\"#d5dde8\" font-family=\"monospace\">INSIDE: 3 GYROS + 3 ACCELEROMETERS</text><text x=\"30\" y=\"262\" font-size=\"11\" fill=\"#ffd76a\" font-family=\"monospace\">MIDDLE GIMBAL AT 90 DEG = LOCK</text><text x=\"30\" y=\"284\" font-size=\"11\" fill=\"#d5dde8\" font-family=\"monospace\">NOUN 20 DISPLAYS THE GIMBAL ANGLES</text></svg>",
+    "questions": [
+     {
+      "q": "What does REFSMMAT actually specify?",
+      "answer": "The desired orientation of the IMU's stable member in inertial space: a 3x3 matrix mapping the platform's axes onto the reference coordinate system used by the guidance equations.",
+      "hint": "It is chosen per flight phase, partly to keep the gimbals away from their limits."
+     },
+     {
+      "q": "Why does a star alignment need two stars rather than one?",
+      "answer": "One sighting constrains the platform's orientation only partly. Two stars with known inertial directions pin two axes, and the third axis follows from the geometry.",
+      "hint": "Count the axes a rigid platform needs fixed."
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "heading": "The AGC as a Crew Member",
+    "body": "Call the Apollo Guidance Computer a computer and you undersell its place in the cockpit. It flew as a third crew member with a narrow, formal way of speaking, and the crew answered in the same grammar. Its entire memory was 38,912 words of fifteen bits each: 36,864 words of fixed memory and 2,048 words of erasable memory. The fixed part was core rope -- software woven, literally, through magnetic cores by hand at Raytheon, working from listings produced by Margaret Hamilton's team at the MIT Instrumentation Laboratory. A program's bits were physical objects, threaded through or around a core to make a one or a zero. Rope could not be patched, uploaded over, or fixed in flight. What flew was what had been woven months earlier, which is why Apollo software was reviewed the way other programs review bridge steel.\n\nThe 2,048 erasable words were the scratchpad: state vectors, burn targets, intermediate sums, the restart tables. Two thousand words is nothing, and the discipline of what deserved scratchpad space shaped how every program was written.\n\nThe crew talked to this crew member through the DSKY: two five-digit numeric display registers, a row of status lights, and nineteen keys. Its grammar had two parts of speech. A verb said what to do -- display, load, monitor. A noun said what to do it to -- a quantity, a register, one of the computer's own data. Verb 16, noun 20, enter: monitor the gimbal angles, live, in decimal. Verb 37 changed the subject entirely: it called a major program. Programs were numbered by vehicle and phase. P11 watched over launch and translunar injection in the command module. P40 ran an SPS burn. P63 braked the LM toward the lunar surface. The crew did not 'run software'; they asked the third crew member to take on a job, and watched the COMP ACTY light flicker while it worked.\n\nUnderneath the grammar sat the executive, a priority scheduler, and the design assumed from the start that overload would happen. Jobs carried priorities. Guidance-critical work sat at the top. If the machine fell behind, it could restart: shed the lowest-priority jobs, preserve the critical state -- which lived in erasable memory precisely so a restart could not hurt it -- and resume. To the crew, a restart announced itself plainly: the PROG light, and a program alarm code in the display.\n\nThat machinery was not an edge case bolted onto the design. Restart protection, protected state, and a published vocabulary of alarm codes were the design -- built deliberately so that the computer would fail the way a good crew member fails: announce the problem in words you have heard before, drop what does not matter, and keep flying the vehicle. Hold that picture, and what happened over the Sea of Tranquility four days into Apollo 11 stops looking like a malfunction and starts looking like the machine doing, under maximum pressure, exactly what it had been built to do.",
+    "visual": "A DSKY front panel: verb and noun windows, program display, three data registers, status lights, and the keypad the crew used to speak to the computer.",
+    "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><rect x=\"55\" y=\"35\" width=\"290\" height=\"230\" fill=\"#161b22\" stroke=\"#9aa6b8\"/><text x=\"200\" y=\"58\" text-anchor=\"middle\" font-size=\"12\" fill=\"#d5dde8\" font-family=\"monospace\">DSKY</text><rect x=\"75\" y=\"72\" width=\"80\" height=\"24\" fill=\"#0e1116\" stroke=\"#9aa6b8\"/><text x=\"115\" y=\"89\" text-anchor=\"middle\" font-size=\"13\" fill=\"#ffd76a\" font-family=\"monospace\">16  20</text><text x=\"115\" y=\"110\" text-anchor=\"middle\" font-size=\"9\" fill=\"#d5dde8\" font-family=\"monospace\">VERB  NOUN</text><rect x=\"245\" y=\"72\" width=\"80\" height=\"24\" fill=\"#0e1116\" stroke=\"#9aa6b8\"/><text x=\"285\" y=\"89\" text-anchor=\"middle\" font-size=\"13\" fill=\"#ffd76a\" font-family=\"monospace\">63</text><text x=\"285\" y=\"110\" text-anchor=\"middle\" font-size=\"9\" fill=\"#d5dde8\" font-family=\"monospace\">PROG</text><rect x=\"75\" y=\"125\" width=\"250\" height=\"22\" fill=\"#0e1116\" stroke=\"#9aa6b8\"/><text x=\"85\" y=\"141\" font-size=\"12\" fill=\"#d5dde8\" font-family=\"monospace\">R1  +00550</text><rect x=\"75\" y=\"153\" width=\"250\" height=\"22\" fill=\"#0e1116\" stroke=\"#9aa6b8\"/><text x=\"85\" y=\"169\" font-size=\"12\" fill=\"#d5dde8\" font-family=\"monospace\">R2  -00042</text><rect x=\"75\" y=\"181\" width=\"250\" height=\"22\" fill=\"#0e1116\" stroke=\"#9aa6b8\"/><text x=\"85\" y=\"197\" font-size=\"12\" fill=\"#d5dde8\" font-family=\"monospace\">R3  +01480</text><circle cx=\"95\" cy=\"228\" r=\"7\" fill=\"none\" stroke=\"#9aa6b8\"/><circle cx=\"125\" cy=\"228\" r=\"7\" fill=\"none\" stroke=\"#9aa6b8\"/><circle cx=\"155\" cy=\"228\" r=\"7\" fill=\"none\" stroke=\"#9aa6b8\"/><circle cx=\"185\" cy=\"228\" r=\"7\" fill=\"none\" stroke=\"#9aa6b8\"/><text x=\"215\" y=\"232\" font-size=\"10\" fill=\"#d5dde8\" font-family=\"monospace\">KEYS: VERB NOUN ENTR</text><text x=\"75\" y=\"288\" text-anchor=\"middle\" font-size=\"11\" fill=\"#d5dde8\" font-family=\"monospace\"></text><text x=\"200\" y=\"288\" text-anchor=\"middle\" font-size=\"11\" fill=\"#ffd76a\" font-family=\"monospace\">PROG LIGHT + ALARM CODE = TROUBLE, ANNOUNCED</text></svg>",
+    "questions": [
+     {
+      "q": "Why could a software defect in a major program not be fixed from the ground once the mission was flying?",
+      "answer": "The main programs lived in core rope: fixed memory physically woven through magnetic cores. It could not be rewritten in flight; only data in the 2,048 words of erasable memory could be changed.",
+      "hint": "One part of the memory was hardware you could hold in your hand."
+     },
+     {
+      "q": "A crew keys Verb 37 and then 63. What have they asked the computer to do?",
+      "answer": "Change the major program to P63 -- hand the computer the powered-descent braking job.",
+      "hint": "Verb 37 is the one verb that changes what the machine's current job is."
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "heading": "Guidance in Action",
+    "body": "Powered descent is where every thread in this course gets pulled at once. It begins at roughly 50,000 feet, the LM moving at about 5,500 feet per second, and it runs on three programs in sequence.\n\nIn P63, the braking phase, the descent guidance equation does the flying. The equation is given a target -- a position, a velocity, and a time to be there -- and it continuously recomputes the thrust direction and throttle needed to arrive on a feasible path. Every guidance cycle it solves the problem again with the freshest state, so errors are not flown, they are re-planned away. For most of P63 the surface is a rumour. What the crew watches is the state: altitude and altitude-rate against the plan, and the behaviour of the landing radar waking up beneath them.\n\nThe landing radar is this section's quiet hero. The platform's accelerometers integrate every push the engine makes, but integration drifts from the truth. The radar measures the real thing: height above the actual surface and closing velocity against it. Its readings are differenced against the computer's belief and offered as corrections -- delta-H, the altitude discrepancy, was displayed for the crew, who held the authority to accept or reject the updates. On Apollo 11 the radar data was good, it was accepted, and it shifted the computer's altitude belief by a couple of thousand feet. The inertial state said one thing; the Moon said another; the design let the Moon win.\n\nAt roughly 7,500 feet -- high gate -- P64, the approach phase, takes over, and its gift to the commander is the landing point designator. The computer knows where it is going; the LPD turns that knowledge into a number, the angle at which the target should appear in the commander's window, read against a scale etched in degrees on the glass. Look at the LPD angle and you are looking at your landing site. If it is wrong -- a boulder field, a crater wall -- a click of the hand controller redesignates: the aim point nudges downrange or crossrange, and the guidance equation quietly re-plans around the new destination. Armstrong used it. Later commanders used it more.\n\nBelow a few hundred feet the crew can select P66, the rate-of-descent program: the computer holds a commanded descent rate while the commander flies attitude and translation by hand, with the machine doing the bookkeeping. Armstrong selected P66 at about 500 feet, flew past the boulder-strewn floor of West Crater, and landed long, with the ground doing famous arithmetic about the fuel that remained.\n\nTwo more systems complete the picture. In orbit, the LM and CSM measured each other with rendezvous radar -- the LM's Ku-band set, giving range, range-rate, and angles for an active rendezvous -- backed up on later flights by VHF ranging, a simpler tone-based measurement of range alone. And in the LM, the primary guidance system, PNGS, never flew alone: beside it sat AGS, the abort guidance system, an independent and deliberately simpler strapdown computer with its own inertial sensors, built for one job -- fly an abort back to orbit if the primary failed anywhere in descent. It never had to. That it existed, dissimilar in hardware, software, and sensors, states the architecture's rule plainly: any single box may fail; the mission degrades; it does not end.",
+    "visual": "A descent profile from PDI at 50,000 feet to touchdown, divided into the P63 braking, P64 approach, and P66 rate-of-descent segments, with high gate marked near 7,500 feet.",
+    "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><line x1=\"40\" y1=\"250\" x2=\"380\" y2=\"250\" stroke=\"#9aa6b8\"/><line x1=\"40\" y1=\"250\" x2=\"40\" y2=\"40\" stroke=\"#9aa6b8\"/><path d=\"M 48 62 C 140 70, 210 110, 268 168 C 305 205, 335 232, 362 246\" fill=\"none\" stroke=\"#ffd76a\" stroke-width=\"2\"/><text x=\"52\" y=\"52\" font-size=\"11\" fill=\"#ffd76a\" font-family=\"monospace\">PDI 50,000 FT</text><line x1=\"225\" y1=\"120\" x2=\"225\" y2=\"250\" stroke=\"#9aa6b8\" stroke-dasharray=\"4 4\"/><line x1=\"318\" y1=\"205\" x2=\"318\" y2=\"250\" stroke=\"#9aa6b8\" stroke-dasharray=\"4 4\"/><text x=\"130\" y=\"275\" text-anchor=\"middle\" font-size=\"12\" fill=\"#d5dde8\" font-family=\"monospace\">P63 BRAKING</text><text x=\"270\" y=\"275\" text-anchor=\"middle\" font-size=\"12\" fill=\"#d5dde8\" font-family=\"monospace\">P64 APPROACH</text><text x=\"352\" y=\"275\" text-anchor=\"middle\" font-size=\"12\" fill=\"#d5dde8\" font-family=\"monospace\">P66</text><text x=\"225\" y=\"108\" text-anchor=\"middle\" font-size=\"10\" fill=\"#d5dde8\" font-family=\"monospace\">HIGH GATE</text><text x=\"225\" y=\"96\" text-anchor=\"middle\" font-size=\"10\" fill=\"#d5dde8\" font-family=\"monospace\">~7,500 FT</text><text x=\"362\" y=\"232\" text-anchor=\"middle\" font-size=\"10\" fill=\"#ffd76a\" font-family=\"monospace\">TD</text><text x=\"200\" y=\"24\" text-anchor=\"middle\" font-size=\"12\" fill=\"#d5dde8\" font-family=\"monospace\">POWERED DESCENT: THREE PROGRAMS, ONE PATH</text></svg>",
+    "questions": [
+     {
+      "q": "What does the landing point designator actually give the commander?",
+      "answer": "An angle. The computer displays the angle at which the target should appear in the commander's window, so he can look along that angle on the etched scale and see the actual landing site the guidance is aiming at.",
+      "hint": "It converts the computer's target into something eyes can check through glass."
+     },
+     {
+      "q": "Landing radar and the inertial platform disagree about altitude during P63. Which one is the design built to believe, and through what mechanism?",
+      "answer": "The radar's measurement of the real surface, incorporated as a correction (delta-H) to the inertial state -- with the crew holding accept/reject authority over the updates.",
+      "hint": "Integration drifts; a direct measurement of the ground does not."
+     }
+    ]
+   },
+   {
+    "id": "s5",
+    "heading": "When It Nearly Broke",
+    "body": "Five times during Eagle's descent, the PROG light came on and the display showed an alarm: 1202, and once 1201. In the computer's formal vocabulary those codes are not failures. They are the executive announcing that it has run out of room -- 1202, no core sets available; 1201, no VAC areas available. Jobs were arriving faster than the machine could schedule them. Each time, the computer did precisely what it had been built to do: it restarted, shed the lowest-priority work, protected the guidance state sitting safely in erasable memory, and picked the descent back up. Guidance never stopped cycling. The trajectory never noticed. The hiccups were seconds long.\n\nThe thief was the rendezvous radar. Checklist discipline kept it powered and coupled during the descent -- ready for an abort rendezvous, a sensible precaution. But its interface fed the computer a stream of spurious counting pulses, an artifact of a phase disagreement between power supplies in the coupling units. By the standard reconstruction, the radar stole on the order of twelve thousand extra interrupts a second, roughly fifteen percent of the machine's total capacity, spent counting nothing. Guidance still fit, because guidance held the top priorities. What overflowed was the margin around it.\n\nWhy 'go' was the right call is a story about preparation, not luck. Program alarms had bitten in training: an alarm of this family, mishandled, had cost a simulated crew its landing, and the lesson landed hard on the guidance team. Jack Garman, in the back room, compiled a handwritten list of the program alarms and what each one meant for the mission -- which were fatal and which were tolerable if guidance kept cycling. When the real 1202 arrived, guidance officer Steve Bales had that list, had the simulations behind him, and had seconds to answer. His call was 'go,' and he made it again, correctly, through every recurrence, with flight director Gene Kranz backing him. The lesson is not that alarms can be waved off. It is that a failure you have named, listed, and rehearsed is a different object from a failure you meet for the first time in the middle of a landing.\n\nApollo 13 presented the opposite failure shape: nothing overflowed, but the reference itself went dark. With the command module powered down to preserve its batteries for entry, its platform's hard-won alignment had to be transferred into the LM before shutdown -- a computed transfer, torqued into the LM's platform on trust. A transferred alignment is a claim, not a fact, and the obvious verification was nearly defeated: the crippled spacecraft travelled inside a cloud of its own glittering debris, every sunlit fleck a false star waiting to corrupt a sighting. The check the crew and ground settled on used the one reference in the sky too bright to counterfeit -- the Sun, sighted through the LM's alignment telescope -- and it confirmed the platform was true enough to fly the burns that brought the crew home.\n\nPut the two flights side by side and one doctrine emerges. The computer announced its distress in a vocabulary someone had written down before it was needed. Critical state lived where a restart could not hurt it. Every crucial function had a second, dissimilar path: another guidance system, another way to check an alignment, another officer who knew the list. Graceful degradation was not a feature added to Apollo's guidance at the end. It was the design, from the first alarm list to the last backup sensor.",
+    "visual": "A decision chain for the Apollo 11 alarms: the 1202 code is read out, identified against Garman's list by the GUIDANCE officer, and answered with a go while the computer restarts clean.",
+    "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><rect x=\"115\" y=\"28\" width=\"170\" height=\"38\" fill=\"#161b22\" stroke=\"#9aa6b8\"/><text x=\"200\" y=\"52\" text-anchor=\"middle\" font-size=\"12\" fill=\"#ffd76a\" font-family=\"monospace\">PROG ALARM: 1202</text><line x1=\"200\" y1=\"66\" x2=\"200\" y2=\"84\" stroke=\"#9aa6b8\"/><polygon points=\"200,88 195,78 205,78\" fill=\"#9aa6b8\"/><rect x=\"100\" y=\"88\" width=\"200\" height=\"38\" fill=\"#161b22\" stroke=\"#9aa6b8\"/><text x=\"200\" y=\"104\" text-anchor=\"middle\" font-size=\"11\" fill=\"#d5dde8\" font-family=\"monospace\">CREW READS THE CODE OUT</text><text x=\"200\" y=\"119\" text-anchor=\"middle\" font-size=\"10\" fill=\"#d5dde8\" font-family=\"monospace\">EXECUTIVE OVERFLOW -- SHEDDING WORK</text><line x1=\"200\" y1=\"126\" x2=\"200\" y2=\"144\" stroke=\"#9aa6b8\"/><polygon points=\"200,148 195,138 205,138\" fill=\"#9aa6b8\"/><rect x=\"85\" y=\"148\" width=\"230\" height=\"38\" fill=\"#161b22\" stroke=\"#9aa6b8\"/><text x=\"200\" y=\"164\" text-anchor=\"middle\" font-size=\"11\" fill=\"#d5dde8\" font-family=\"monospace\">GUIDANCE (BALES) + GARMAN LIST</text><text x=\"200\" y=\"179\" text-anchor=\"middle\" font-size=\"10\" fill=\"#d5dde8\" font-family=\"monospace\">IS GUIDANCE STILL CYCLING? YES</text><line x1=\"200\" y1=\"186\" x2=\"200\" y2=\"204\" stroke=\"#9aa6b8\"/><polygon points=\"200,208 195,198 205,198\" fill=\"#9aa6b8\"/><rect x=\"140\" y=\"208\" width=\"120\" height=\"38\" fill=\"#161b22\" stroke=\"#9aa6b8\"/><text x=\"200\" y=\"232\" text-anchor=\"middle\" font-size=\"13\" fill=\"#ffd76a\" font-family=\"monospace\">\"GO\"</text><text x=\"200\" y=\"272\" text-anchor=\"middle\" font-size=\"11\" fill=\"#d5dde8\" font-family=\"monospace\">DESCENT CONTINUES -- COMPUTER RESTARTS CLEAN</text></svg>",
+    "questions": [
+     {
+      "q": "State precisely what a 1202 alarm meant, in the executive's own terms.",
+      "answer": "No core sets available: the executive had run out of scheduling room because jobs were arriving faster than it could clear them. It responded by restarting and shedding low-priority work while protecting guidance.",
+      "hint": "It is a statement about the job queue, not about guidance failing."
+     },
+     {
+      "q": "Why couldn't Apollo 13's crew simply verify the LM platform with ordinary star sightings?",
+      "answer": "The spacecraft was surrounded by a cloud of sunlit debris from the explosion, and the glittering particles acted as false stars that would corrupt a sighting. The verification used the Sun instead, checked through the alignment telescope.",
+      "hint": "The sky around the spacecraft was full of bright impostors."
+     }
+    ]
+   }
+  ]
+ },
+ "quizzes": {
+  "sections": [
+   {
+    "id": "s1",
+    "questions": [
+     {
+      "q": "Your state vector was uplinked an hour ago and no maneuvers have been made since. What is most actively degrading it?",
+      "choices": [
+       "Unmodelled accelerations and gravity-model error accumulating since the update",
+       "Wear in the core rope memory",
+       "The DSKY's display refresh rate",
+       "Drift in the erasable memory cells"
+      ],
+      "answer": 0,
+      "explain": "A propagated state is only as good as the model carrying it. Small unmodelled forces and an imperfect gravity model accumulate with time, which is why fresh uplinks and onboard sightings keep correcting it."
+     },
+     {
+      "q": "The LM is behind the Moon, out of ground contact, preparing a rendezvous correction. Whose navigation solution flies the burn?",
+      "choices": [
+       "Houston's, computed before loss of signal and never refined",
+       "The onboard one: computer propagation corrected by the LM's own sensor measurements of the CSM",
+       "The command module pilot's, estimated visually through the window",
+       "No burn is possible until contact resumes"
+      ],
+      "answer": 1,
+      "explain": "Behind the Moon the ground is blind and silent. The onboard solution -- propagation plus direct measurement of the other vehicle -- is the only one that exists there, which is why the LM carried its own rendezvous sensors."
+     },
+     {
+      "q": "Mid-flight, the crew calls P27. What is about to happen?",
+      "choices": [
+       "A burn program is starting",
+       "A platform alignment is beginning",
+       "A ground-computed state vector is being loaded into the computer",
+       "The landing radar is being self-tested"
+      ],
+      "answer": 2,
+      "explain": "P27 is the update program: it accepts ground-computed data -- above all fresh state vectors -- into erasable memory, refining or replacing the onboard estimate."
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "questions": [
+     {
+      "q": "After eight hours of translunar coast, a scheduled star check shows a small, steady platform misalignment. The most likely cause is:",
+      "choices": [
+       "The platform has entered gimbal lock",
+       "Gyro drift accumulated since the last alignment",
+       "The REFSMMAT was loaded incorrectly at launch",
+       "An accelerometer has failed outright"
+      ],
+      "answer": 1,
+      "explain": "Slow, steady, small: that is the signature of gyro drift, and it is exactly what periodic star alignments exist to measure and torque out. Gimbal lock is sudden and total, not gradual."
+     },
+     {
+      "q": "During a maneuver the middle gimbal angle creeps toward 90 degrees. What is lost if it gets there?",
+      "choices": [
+       "All accelerometer data",
+       "The state vector held in erasable memory",
+       "The REFSMMAT stored in the computer",
+       "One rotational degree of freedom -- the inner and outer gimbal axes align and the platform can tumble"
+      ],
+      "answer": 3,
+      "explain": "Gimbal lock is a geometry failure, not an electronics failure: with the middle gimbal at 90 degrees two axes coincide, the platform loses an axis of reference, and only a fresh star alignment can restore it."
+     },
+     {
+      "q": "A P52 alignment sights two stars instead of stopping at one because:",
+      "choices": [
+       "The sextant can only store two sightings",
+       "One star is a spare in case the other is misidentified",
+       "Two sightings with known inertial directions pin two platform axes, and the third follows from the geometry",
+       "Each gyro requires its own star"
+      ],
+      "answer": 2,
+      "explain": "Fixing a rigid platform's orientation in three axes takes two independent direction measurements; the third axis is then determined. One star leaves the platform free to be wrong by a rotation about that star's line of sight."
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "questions": [
+     {
+      "q": "On the LM DSKY you key VERB 37, ENTER, 6, 3, ENTER. You have just:",
+      "choices": [
+       "Changed the major program to P63, the braking phase of powered descent",
+       "Loaded 63 seconds into the burn timer",
+       "Displayed register 63 on the DSKY",
+       "Armed the abort guidance system"
+      ],
+      "answer": 0,
+      "explain": "Verb 37 is the program-change verb. Following it with 63 hands the computer its new job: P63, powered descent braking."
+     },
+     {
+      "q": "A bug is found in P40 a month before launch -- fixable. The same bug is noticed during the mission. Why is the in-flight case fundamentally worse?",
+      "choices": [
+       "The uplink is too slow for program data",
+       "Major programs live in core rope, physically woven memory that cannot be rewritten in flight",
+       "The DSKY has no verb for loading programs",
+       "The crew is not trained to load software"
+      ],
+      "answer": 1,
+      "explain": "Only erasable memory -- 2,048 words of data -- can change in flight. The programs themselves are bits threaded through magnetic cores; a fix means reweaving rope, which is why pre-flight software review was so severe."
+     },
+     {
+      "q": "You call up VERB 16, NOUN 20 on the DSKY. The registers are now showing you, live:",
+      "choices": [
+       "Propellant remaining in the descent tanks",
+       "Altitude and altitude-rate",
+       "The IMU gimbal angles",
+       "The last three program alarm codes"
+      ],
+      "answer": 2,
+      "explain": "Noun 20 is the gimbal angle noun -- the crew's direct window on the platform's geometry, and the display you would watch if you were worried about the middle gimbal's approach to 90 degrees."
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "questions": [
+     {
+      "q": "In P64 the DSKY gives the commander an LPD angle of 42. His correct next action is to:",
+      "choices": [
+       "Enter 42 as a redesignation command",
+       "Compare 42 against the fuel quantity",
+       "Read the angle to Houston for confirmation",
+       "Look through the window at the 42 mark on the etched scale and see the actual terrain the computer is aiming at"
+      ],
+      "answer": 3,
+      "explain": "The landing point designator converts the computer's chosen target into a line of sight. Looking along it tells the commander what the guidance cannot: whether the spot is landable."
+     },
+     {
+      "q": "In P63, delta-H shows the landing radar measuring the surface a couple of thousand feet from where the inertial state believes it is. The designed response is:",
+      "choices": [
+       "Accept valid radar data as a correction to the inertial state, under crew accept/reject authority",
+       "Reject the radar -- the platform's integrated state is always senior",
+       "Restart P63 from the beginning",
+       "Switch immediately to AGS guidance"
+      ],
+      "answer": 0,
+      "explain": "Integration drifts; the radar measures the real surface. Feeding its data in as a correction is the designed behaviour -- on Apollo 11 it moved the altitude belief by thousands of feet, correctly."
+     },
+     {
+      "q": "PNGS fails irrecoverably at 20,000 feet during descent. What flies the abort back to orbit?",
+      "choices": [
+       "The command module's computer, by radio link",
+       "AGS -- the independent abort guidance system, with its own strapdown sensors and its own software",
+       "The crew, flying fully manually all the way to orbit",
+       "P66, extended beyond its design altitude"
+      ],
+      "answer": 1,
+      "explain": "AGS existed for exactly this case: a dissimilar backup -- different hardware, different sensors, simpler software -- so that no single failure in the primary system could strand the crew in descent."
+     }
+    ]
+   },
+   {
+    "id": "s5",
+    "questions": [
+     {
+      "q": "PROG light: 1202, mid-descent. Guidance displays are cycling normally and the ground has the alarm list. The correct reading of the situation is:",
+      "choices": [
+       "Guidance has failed; abort on AGS immediately",
+       "The core rope is damaged; nothing can be done",
+       "Executive overflow -- the computer is shedding low-priority work and restarting clean; continue the descent while guidance cycles",
+       "The landing radar has failed; descend on inertial data alone"
+      ],
+      "answer": 2,
+      "explain": "1202 means the job queue overflowed, not that guidance broke. The executive's designed response -- restart, shed, protect the critical state -- is what kept Apollo 11's descent alive, and it is what Bales verified before calling go."
+     },
+     {
+      "q": "What was actually consuming the Apollo 11 computer's capacity during the descent?",
+      "choices": [
+       "Spurious counting pulses from the rendezvous radar interface -- on the order of 15 percent of the machine, spent counting nothing",
+       "The landing radar's data processing",
+       "Crew keystrokes on the DSKY",
+       "An error in the P63 guidance equation itself"
+      ],
+      "answer": 0,
+      "explain": "The rendezvous radar, left coupled per checklist, generated a stream of spurious interrupts through its coupling units. Guidance still fit in the remaining capacity; the scheduling margin around it did not."
+     },
+     {
+      "q": "Apollo 13's LM platform carries an alignment transferred from the dying command module, and the star field is full of glittering debris. The workable verification is:",
+      "choices": [
+       "Wait in hope the debris disperses, then do a normal two-star alignment",
+       "Check the transferred alignment against the Sun through the alignment telescope -- the one reference too bright for debris to counterfeit",
+       "Estimate the platform error from the Earth's horizon by eye",
+       "Skip verification; transferred alignments are exact by construction"
+      ],
+      "answer": 1,
+      "explain": "A transfer is a computed claim, and claims get checked. With false stars everywhere, the Sun was the one sighting the crew and ground could trust, and it confirmed the platform was true enough for the burns home."
+     }
+    ]
+   }
+  ]
+ },
+ "slides": {
+  "sections": [
+   {
+    "id": "s1",
+    "title": "The Navigation Problem",
+    "bullets": [
+     "Dead reckoning fails over cislunar distances: small errors compound into miles of miss.",
+     "The state vector -- position plus velocity at a time -- is the object all navigation maintains.",
+     "Ground tracking owns the best absolute state; updates are uplinked through P27.",
+     "Onboard optics and radars own the regimes the ground cannot see: far side of the Moon, rendezvous.",
+     "The computer owns the next few minutes; the crew owns judgment."
+    ],
+    "notes": "Open with the compounding-error point: one foot per second of uncorrected velocity error is a failed mission by lunar arrival. Then draw the triangle -- ground, sensors, computer -- and stress that every later procedure in this course is an interface between two corners of it.",
+    "visual": "A triangle diagram linking ground tracking, onboard sensors, and the AGC, with the state vector at its centre."
+   },
+   {
+    "id": "s2",
+    "title": "The IMU and Its Universe",
+    "bullets": [
+     "The stable member floats on three gimbals, holding one orientation in inertial space.",
+     "REFSMMAT defines that orientation per flight phase, chosen to keep gimbals mid-travel.",
+     "Gyros drift; star alignments with the sextant (P52) measure the drift and torque it out.",
+     "Middle gimbal at 90 degrees is gimbal lock: one axis of attitude knowledge vanishes.",
+     "Noun 20 is the crew's live window on the gimbal angles."
+    ],
+    "notes": "Emphasise that the platform is a physical reference, not a calculation -- everything else in guidance trusts it. The lock is a geometry failure, which is why the defence was trajectory design and REFSMMAT choice rather than better electronics.",
+    "visual": "Three concentric gimbal rings around a stable member, with the middle-gimbal lock condition flagged."
+   },
+   {
+    "id": "s3",
+    "title": "The AGC as a Crew Member",
+    "bullets": [
+     "36,864 words of core rope -- hand-woven, unchangeable in flight -- plus 2,048 words of erasable memory.",
+     "DSKY grammar: verbs act, nouns name; Verb 37 changes the major program.",
+     "The executive schedules by priority and can restart: shed the low work, protect the critical state.",
+     "Programs are jobs with numbers: P11 monitors, P40 burns, P63 lands.",
+     "Alarms are a published vocabulary, designed to be spoken aloud under pressure."
+    ],
+    "notes": "Frame the computer as a crew member with formal speech, not a black box. The memory numbers are worth saying slowly: the entire flight software lived in less storage than a single modern photograph, and it could not be patched after launch.",
+    "visual": "A DSKY front panel with verb/noun windows, data registers, and the PROG light labelled."
+   },
+   {
+    "id": "s4",
+    "title": "Guidance in Action",
+    "bullets": [
+     "P63 braking: the guidance equation re-solves the path to the target every cycle.",
+     "Landing radar corrects the inertial state; delta-H is the crew-supervised handshake.",
+     "P64 approach: the LPD turns the target into an angle the commander reads on the window glass.",
+     "P66 rate-of-descent: computer holds the rate, commander flies -- Armstrong from about 500 feet.",
+     "PNGS never flies alone: AGS waits as a dissimilar backup; rendezvous radar and VHF ranging measure the CSM."
+    ],
+    "notes": "Walk the descent as a relay: equation, then eyes, then hands. The through-line is authority passing smoothly from ground-computed targets to the computer's equation to the commander's judgment, with the radar and AGS as the safety net under each handoff.",
+    "visual": "A descent profile curve split into P63, P64, and P66 segments with high gate and touchdown marked."
+   },
+   {
+    "id": "s5",
+    "title": "When It Nearly Broke",
+    "bullets": [
+     "Apollo 11: five program alarms in descent -- 1202s and a 1201 -- all executive overflows.",
+     "Cause: spurious interrupts from the coupled rendezvous radar, roughly 15 percent of capacity.",
+     "The go call rested on preparation: Garman's handwritten alarm list and simulation scars.",
+     "Apollo 13: a transferred alignment, verified against the Sun because debris made false stars.",
+     "Doctrine: name failures in advance, protect critical state, keep a dissimilar second path."
+    ],
+    "notes": "Tell both flights as one argument: Apollo 11's save was rehearsed vocabulary, Apollo 13's was a rehearsed distrust of single references. Neither crew improvised the principle; they executed designs and habits built before the crisis.",
+    "visual": "A four-step decision chain from the 1202 alarm to the go call."
+   }
+  ]
+ },
+ "enrichment": {
+  "audioTitle": "Descent, As Flown: A Guidance Walkthrough",
+  "turns": [
+   {
+    "speaker": "teacher",
+    "line": "Walk me through a descent the way the guidance team lived it. Where are we at the start?"
+   },
+   {
+    "speaker": "student",
+    "line": "Powered descent initiation, about 50,000 feet up, moving at roughly 5,500 feet per second. P63 is running. Before anything else, I want the state vector confirmed -- whose number are we flying?"
+   },
+   {
+    "speaker": "teacher",
+    "line": "The ground's, refined onboard. Houston's tracking built the best absolute state and uplinked it; the computer propagates it from there. Your first discipline in P63 is watching altitude and altitude-rate against the plan. What are you waiting to wake up?"
+   },
+   {
+    "speaker": "student",
+    "line": "The landing radar. Once it locks on, its altitude gets differenced against the inertial state -- delta-H. If the data is good, we accept it and let the Moon correct the platform's arithmetic."
+   },
+   {
+    "speaker": "teacher",
+    "line": "Good. On Apollo 11 that correction was a couple of thousand feet, and accepting it was routine, not drama. Now the PROG light comes on. Code is 1202. Talk."
+   },
+   {
+    "speaker": "student",
+    "line": "First: do not reach for the abort handle. 1202 is the executive saying it has no core sets left -- a scheduling overflow. The question that matters is whether guidance is still cycling. If the displays keep updating, the computer is shedding work and restarting clean. On the ground, the GUIDANCE officer checks the code against a list that exists because a simulation taught them to write it -- Garman's list says this alarm, with guidance healthy, is a go. Bales calls it, Kranz backs it. That call is preparation, not nerve."
+   },
+   {
+    "speaker": "teacher",
+    "line": "What was eating the machine?"
+   },
+   {
+    "speaker": "student",
+    "line": "The rendezvous radar, coupled per the checklist, feeding spurious pulses through its interface -- around fifteen percent of the computer's capacity spent counting nothing. The margin overflowed. Guidance never did; it held the top priorities."
+   },
+   {
+    "speaker": "teacher",
+    "line": "Alarms quiet down. You are at high gate, roughly 7,500 feet, and P64 takes over. What changes for the commander?"
+   },
+   {
+    "speaker": "student",
+    "line": "He gets eyes. The LPD gives him an angle; he reads it against the scale etched on his window and he is looking at the actual landing site. If it is a boulder field, he redesignates with the hand controller and the guidance equation re-plans around his judgment."
+   },
+   {
+    "speaker": "teacher",
+    "line": "Five hundred feet. The site below is West Crater's rubble. Your move."
+   },
+   {
+    "speaker": "student",
+    "line": "P66. The computer holds my rate of descent; I fly attitude and translation. I take us long, past the boulders, and put it down in the clear ground beyond -- with Houston reading fuel numbers nobody wants to say out loud."
+   },
+   {
+    "speaker": "teacher",
+    "line": "Engines off, on the surface. One more scenario, different flight. Apollo 13: your platform alignment arrived by transfer from a dying spacecraft, and the sky is full of glittering debris. How do you trust it?"
+   },
+   {
+    "speaker": "student",
+    "line": "I don't trust it -- I check it, against the one reference the debris cannot fake. A Sun sighting through the alignment telescope. If the platform agrees with the Sun, it is true enough to fly the burns home."
+   },
+   {
+    "speaker": "teacher",
+    "line": "That is the doctrine of this whole course in one sentence: never one reference, never one computer, never one officer's memory. Everything critical had a second way to be known."
+   },
+   {
+    "speaker": "student",
+    "line": "And the failures that came were the ones already named -- an alarm code on a handwritten list, a backup system that never had to fire. The design expected trouble and rehearsed its vocabulary."
+   }
+  ],
+  "nodes": [
+   {
+    "id": "root",
+    "label": "Apollo Guidance & Navigation",
+    "parent": null,
+    "note": "One system, three parties -- ground, sensors, computer -- maintaining a single state vector."
+   },
+   {
+    "id": "n1",
+    "label": "The State Vector",
+    "parent": "root",
+    "note": "Six numbers plus a clock. Everything else in the course exists to keep them honest."
+   },
+   {
+    "id": "n2",
+    "label": "The Platform (IMU)",
+    "parent": "root",
+    "note": "Gimbals, gyros, REFSMMAT, drift, star alignments -- the physical reference under all the math."
+   },
+   {
+    "id": "n3",
+    "label": "The Computer (AGC)",
+    "parent": "root",
+    "note": "Core rope, DSKY grammar, the priority executive, and restart protection."
+   },
+   {
+    "id": "n4",
+    "label": "Descent Guidance",
+    "parent": "root",
+    "note": "P63 brakes, P64 shows the commander the site, P66 hands him the flying."
+   },
+   {
+    "id": "n5",
+    "label": "Failure Vocabulary",
+    "parent": "root",
+    "note": "1201/1202 named and listed in advance -- alarms as information, not surprises."
+   },
+   {
+    "id": "n6",
+    "label": "Dissimilar Backups",
+    "parent": "root",
+    "note": "AGS beside PNGS, the Sun beside the stars, a second officer beside the first."
+   }
+  ],
+  "mnemonics": [
+   {
+    "for": "Descent programs in order -- P63 braking, P64 approach, P66 rate-of-descent",
+    "aid": "63 puts on the Brakes, 64 Approaches, 66 comes Down by hand."
+   },
+   {
+    "for": "Telling 1201 from 1202",
+    "aid": "One has no VACs, Two has no core sets -- both mean the executive is shedding, not dying."
+   },
+   {
+    "for": "DSKY grammar",
+    "aid": "Verbs do, nouns name -- and 37 changes the job."
+   }
+  ]
+ }
+}

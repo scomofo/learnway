@@ -1,0 +1,573 @@
+{
+  "meta": {
+    "title": "ADAPT and ISOXML: The Data Model Under the Field",
+    "topic": "ADAPT and ISOXML precision-ag data",
+    "level": "advanced",
+    "interests": "",
+    "depth": "standard",
+    "model": "manual",
+    "createdAt": "2026-10-22T12:00:00.000Z",
+    "version": 1
+  },
+  "plan": {
+    "title": "ADAPT and ISOXML: The Data Model Under the Field",
+    "hook": "Every 'invalid file' in Operations Center is the data model telling you exactly what's wrong — once you can read its grammar. This course teaches that grammar: how an ADAPT package is put together, what actually decides whether a pass is called seeding or application, and how to predict an import verdict before you upload.",
+    "objectives": [
+      "Navigate an ADAPT package's object graph from grower to farm to field to task to logged data without getting lost.",
+      "Explain how products, crops, and operation types link together — and why one missing or malformed link reclassifies an entire pass.",
+      "Read a package forensically: inventory it, diff it at field level, and separate data that is wrong from data that is merely unusual.",
+      "Predict what Operations Center will do with a package — processed, invalid, or misclassified — before you upload it.",
+      "Stage test uploads so each verdict tests exactly one change and stays unambiguous."
+    ],
+    "prerequisites": [
+      "At least one real TASKDATA package you have imported (or tried to import) into Operations Center",
+      "Basic protobuf awareness: fields are numbered, not named, and a record is mostly references to other objects"
+    ],
+    "sections": [
+      {
+        "id": "s1",
+        "heading": "Two Standards, One File",
+        "points": [
+          "ISOXML (ISO 11783-10) describes task data as XML documents — TASKDATA.XML plus binary logged data — built for interchange between systems",
+          "ADAPT is AgGateway's object model: the same farm data as a graph of linked objects (grower, farm, field, catalog, task, logged data), not documents",
+          "Deere's ADM packages are protobuf: metadata.json plus an adm/ folder of Catalog, LoggedData, OperationData, Meter, and Section documents",
+          "'AdmWrapped' means a tool (here, Onsite) parsed ISOXML and re-wrapped it as ADM — and the wrap bakes in choices the original data never stated",
+          "Every debugging question is answered at a translation boundary: figure out which copy of the data made the decision you dislike"
+        ]
+      },
+      {
+        "id": "s2",
+        "heading": "The Catalog",
+        "points": [
+          "The catalog is the package's dictionary: products, crops, units, and machines that everything else references by id",
+          "Records rarely carry names — they carry links; the name on a layer is resolved by walking operation → product → crop → name",
+          "If a crop name shows in Operations Center but nowhere in the package, it came from the field's setup in the platform, not from your data",
+          "Products carry composition and a crop link; equipment configurations (tractor plus implement) are catalog objects too",
+          "The importer validates referenced catalog objects strictly: a minimally defined new object can import where a full clone of an existing one fails"
+        ]
+      },
+      {
+        "id": "s3",
+        "heading": "Tasks and Logged Data",
+        "points": [
+          "Operation type is a classification recorded with the work, not a label the platform computes from the measurements",
+          "In Deere packages the classification follows the equipment configuration: a planter profile records seeding, an applicator profile records application",
+          "Logged data is spatial records — timestamped positions carrying variable values — organized by configuration, meter, and section",
+          "Seed-rate variables on the meters mean seed was metered, whatever the layer is called; when label and meters disagree, believe the meters about the physics",
+          "Channels matter: seed and fertilizer in the same pass are separate channels, and reclassifying one must never drag the other with it"
+        ]
+      },
+      {
+        "id": "s4",
+        "heading": "Reading a Package Forensically",
+        "points": [
+          "Inventory before you touch anything: list documents, count datasets, extract the catalog, map every cross-reference",
+          "Diff sibling datasets at field level: everything they share is background, and the few fields that differ are your suspect list",
+          "Separate wrong from unusual: a fertilizer blend placed with seed looks like application data but is a legitimate seeding pass",
+          "Bisect: one hypothesis per test package — change one thing, upload, record the verdict and the layer name it produced",
+          "Originals stay untouched, every experiment is a named copy, and the log of changes and verdicts outlives the session"
+        ]
+      },
+      {
+        "id": "s5",
+        "heading": "What the Importer Enforces",
+        "points": [
+          "The importer validates the whole object graph, not the file format: unresolved or contradictory references fail the import",
+          "Imports cannot be deleted — only archived — so a bad experimental import is permanent; catch errors before upload and test small",
+          "An upload stuck on 'inspecting' for many hours is a wedged server-side job, not a verdict on your package; only Deere support can clear it",
+          "Hold further test uploads while a job is wedged, so two experiments never share one ambiguous queue state",
+          "Verdicts are information: a package that processes as 'Seeding: Unspecified Crop' is telling you exactly which link the importer could not follow"
+        ]
+      }
+    ]
+  },
+  "reading": {
+    "sections": [
+      {
+        "id": "s1",
+        "heading": "Two Standards, One File",
+        "body": "Open the zip from a Deere workflow and the first surprise is what's missing: there is no TASKDATA.XML. Instead you get a metadata.json file and an adm/ folder holding Catalog.adm, a set of LoggedData documents, OperationData, Meter, and Section documents, plus an AdmVersion.info that names the serialization version. Nothing is broken. You are not holding ISOXML at all — you are holding ADM, John Deere's protobuf serialization of the ADAPT data model, and the difference explains most of the confusing behaviour you will meet later.\n\nISOXML is the file format defined by ISO 11783-10, the task-data part of the standard that governs tractor and implement electronics. It describes work as XML documents: a task, the devices that will do it, the products involved, the field, and prescription grids, with the actual recorded work stored as binary time logs alongside. It was designed for interchange — any compliant display or farm management system should be able to read any other's tasks — and it thinks in documents that travel between systems.\n\nADAPT, AgGateway's Agricultural Data Application Programming Toolkit, makes a different bet. It defines an object model instead of a document layout: growers, farms, and fields; a catalog of products, crops, units, and machines; tasks; and logged data, all as objects that reference each other by id. Serialized as protobuf, those objects become compact, field-numbered messages — fast to write, strict to read, and meaningless without the object graph that gives the ids their names. Where ISOXML asks 'what does the document say?', ADAPT asks 'what does this object point at?' Neither model is a subset of the other; they are two different answers to the same question — how does a piece of farm work get described so that another system, built by another company, can understand it?\n\nThe packages Operations Center receives from a display workflow have usually crossed from the first world into the second before you ever see them. The tell is the source stamp on the logged data: Onsite.ISO11783.LoggedDataParser. Onsite read the ISOXML, built ADAPT objects from it, and serialized them as ADM — the 'ISOXML AdmWrapped' label in Operations Center is this history, worn openly. Wrapping is not copying. To build ADAPT objects, the parser must choose things the XML left implicit: which equipment configuration each dataset belongs to, and how each operation is classified. Those choices are baked into the wrapped package as data.\n\nThat is why the debugging rule for everything that follows is: figure out which boundary made the decision you dislike. If a pass is labelled application, the label was probably not chosen by Operations Center, which only displays what the package asserts, and possibly not by the original ISOXML either. It was chosen in the wrap, or in the display setup the wrap faithfully transcribed. You debug the copy you hold — but you explain it by the copies it came from.",
+        "visual": "A left-to-right flow: an ISOXML TASKDATA.XML document passes through the Onsite parser and comes out as an ADM package (metadata.json plus Catalog, LoggedData, and OperationData documents), which then uploads into Operations Center.",
+        "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><text x=\"200\" y=\"28\" text-anchor=\"middle\" font-size=\"14\" fill=\"#dbe4f0\">Two standards, one file</text><rect x=\"12\" y=\"80\" width=\"108\" height=\"120\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"66\" y=\"106\" text-anchor=\"middle\" font-size=\"13\" fill=\"#dbe4f0\">ISOXML</text><text x=\"66\" y=\"124\" text-anchor=\"middle\" font-size=\"10\" fill=\"#9aa6b8\">ISO 11783-10</text><text x=\"66\" y=\"150\" text-anchor=\"middle\" font-size=\"10\" fill=\"#dbe4f0\">TASKDATA.XML</text><text x=\"66\" y=\"168\" text-anchor=\"middle\" font-size=\"10\" fill=\"#dbe4f0\">TSK - DVC - PDT</text><text x=\"66\" y=\"186\" text-anchor=\"middle\" font-size=\"10\" fill=\"#9aa6b8\">binary time logs</text><line x1=\"120\" y1=\"140\" x2=\"148\" y2=\"140\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><polygon points=\"148,134 160,140 148,146\" fill=\"#7cc7ff\"/><text x=\"140\" y=\"126\" text-anchor=\"middle\" font-size=\"9\" fill=\"#9aa6b8\">Onsite parser</text><text x=\"140\" y=\"162\" text-anchor=\"middle\" font-size=\"9\" fill=\"#9aa6b8\">re-wrap</text><rect x=\"160\" y=\"70\" width=\"120\" height=\"140\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"220\" y=\"96\" text-anchor=\"middle\" font-size=\"13\" fill=\"#dbe4f0\">ADM package</text><text x=\"220\" y=\"113\" text-anchor=\"middle\" font-size=\"9\" fill=\"#9aa6b8\">protobuf, field-numbered</text><text x=\"220\" y=\"138\" text-anchor=\"middle\" font-size=\"10\" fill=\"#dbe4f0\">metadata.json</text><text x=\"220\" y=\"157\" text-anchor=\"middle\" font-size=\"10\" fill=\"#dbe4f0\">Catalog.adm</text><text x=\"220\" y=\"176\" text-anchor=\"middle\" font-size=\"10\" fill=\"#dbe4f0\">LoggedData-*.adm</text><text x=\"220\" y=\"195\" text-anchor=\"middle\" font-size=\"10\" fill=\"#dbe4f0\">OperationData-*.adm</text><line x1=\"280\" y1=\"140\" x2=\"296\" y2=\"140\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><polygon points=\"296,134 308,140 296,146\" fill=\"#7cc7ff\"/><text x=\"294\" y=\"126\" text-anchor=\"middle\" font-size=\"9\" fill=\"#9aa6b8\">upload</text><rect x=\"308\" y=\"90\" width=\"84\" height=\"100\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"350\" y=\"120\" text-anchor=\"middle\" font-size=\"12\" fill=\"#dbe4f0\">Operations</text><text x=\"350\" y=\"138\" text-anchor=\"middle\" font-size=\"12\" fill=\"#dbe4f0\">Center</text><text x=\"350\" y=\"164\" text-anchor=\"middle\" font-size=\"9\" fill=\"#9aa6b8\">layers - maps</text><text x=\"200\" y=\"242\" text-anchor=\"middle\" font-size=\"11\" fill=\"#dbe4f0\">AdmWrapped = your file was translated once already</text><text x=\"200\" y=\"264\" text-anchor=\"middle\" font-size=\"10\" fill=\"#9aa6b8\">Debug the boundary where the choice was made</text></svg>",
+        "questions": [
+          {
+            "q": "Your zip contains metadata.json and an adm/ folder, but no TASKDATA.XML. What are you actually holding?",
+            "answer": "An ADM package: ISOXML task data that a tool — here Onsite — already parsed and re-wrapped into ADAPT protobuf objects. The ISOXML was consumed upstream; the zip is the wrapped copy.",
+            "hint": "Look at the source stamp on the logged data documents."
+          },
+          {
+            "q": "Why does the ISOXML-versus-ADAPT distinction matter when you're debugging a wrong work type?",
+            "answer": "Because the classification was likely chosen during the wrap, when the parser assigned an equipment configuration and operation type — not in the original ISOXML and not in Operations Center. Each format puts the decision in a different place.",
+            "hint": "Ask where each format records what kind of work a pass was."
+          }
+        ]
+      },
+      {
+        "id": "s2",
+        "heading": "The Catalog",
+        "body": "The catalog is the package's dictionary, and reading a package without reading its catalog first is like reading pointers without the memory they point into. Catalog.adm defines the shared reference objects: products, crops, units of measure, and machine descriptions. Records elsewhere in the package rarely spell any of this out. A logged operation does not say 'green peas' or 'kilograms per hectare'; it carries ids, and the names you eventually see are what those ids resolve to.\n\nFollow one resolution chain all the way through, because the whole course hangs on it. An operation in the logged data references a product. The product, in the catalog, carries a crop link — a reference to a crop object. The crop object carries the name. So when a layer appears in Operations Center as 'Seeding: Green Peas', the 'Green Peas' half of that label arrived by walking operation to product to crop to name. If you want to change what a layer is called, that chain — not the layer, not the field — is where the name lives.\n\nThe same chain explains a genuine puzzle from a real package. Users saw the work associated with peas, yet the package's catalog contained exactly one crop: Wheat. The string 'peas' appeared nowhere in the file. The association was coming from Operations Center's own field and crop setup for that field, which fills gaps the data leaves open. Two lessons follow. First, when a name surprises you, search the package for it before theorizing — absence is evidence. Second, a platform can lend your data names you never gave it, and those lent names are not in your file to fix.\n\nProducts earn their catalog place with more than a name. A product definition can carry its composition — the 0-30-15-0 blend in the examined package is a fertilizer analysis — along with density and its crop link. Units matter just as much: a rate is a number until its unit object says whether it is mass per hectare or seeds per hectare, and seed-rate work lives in that distinction. Machines, too, are catalog citizens: the equipment configurations that operations reference — tractor plus implement, named as a unit — are defined here, which is why the next section's classification story starts in this file.\n\nFinally, treat the catalog as the importer's strictest reading. Operations Center resolves and validates the objects your records reference, and reference data that contradicts itself is treated as poison. In bisection testing on a real package, a crop added as a minimal object — essentially an id and a name, linked from a product — imported and processed cleanly. A full clone of an existing crop, complete attribute block and all, made the same package invalid. The importer was not being arbitrary: the clone carried identifiers and relationships that collided with the original it was copied from. Keep catalog edits small, single-purpose, and free of borrowed baggage.",
+        "visual": "An object-graph map: Grower points to Farm, Farm to Field, Field to Task and its Logged Data, while the Catalog — products, crops, units, machines — feeds the chain through reference links, with the product's crop link picked out.",
+        "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><text x=\"200\" y=\"26\" text-anchor=\"middle\" font-size=\"14\" fill=\"#dbe4f0\">The object graph - everything is a link</text><rect x=\"14\" y=\"44\" width=\"118\" height=\"34\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"73\" y=\"66\" text-anchor=\"middle\" font-size=\"12\" fill=\"#dbe4f0\">Grower</text><line x1=\"73\" y1=\"78\" x2=\"73\" y2=\"90\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><polygon points=\"69,88 77,88 73,96\" fill=\"#9aa6b8\"/><rect x=\"14\" y=\"96\" width=\"118\" height=\"34\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"73\" y=\"118\" text-anchor=\"middle\" font-size=\"12\" fill=\"#dbe4f0\">Farm</text><line x1=\"73\" y1=\"130\" x2=\"73\" y2=\"142\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><polygon points=\"69,140 77,140 73,148\" fill=\"#9aa6b8\"/><rect x=\"14\" y=\"148\" width=\"118\" height=\"34\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"73\" y=\"170\" text-anchor=\"middle\" font-size=\"12\" fill=\"#dbe4f0\">Field</text><line x1=\"73\" y1=\"182\" x2=\"73\" y2=\"194\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><polygon points=\"69,192 77,192 73,200\" fill=\"#9aa6b8\"/><rect x=\"14\" y=\"200\" width=\"118\" height=\"34\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"73\" y=\"222\" text-anchor=\"middle\" font-size=\"12\" fill=\"#dbe4f0\">Task</text><line x1=\"73\" y1=\"234\" x2=\"73\" y2=\"246\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><polygon points=\"69,244 77,244 73,252\" fill=\"#9aa6b8\"/><rect x=\"14\" y=\"252\" width=\"118\" height=\"34\" fill=\"#161b22\" stroke=\"#7cc7ff\" stroke-width=\"1\"/><text x=\"73\" y=\"274\" text-anchor=\"middle\" font-size=\"12\" fill=\"#dbe4f0\">Logged Data</text><rect x=\"196\" y=\"44\" width=\"190\" height=\"242\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"291\" y=\"66\" text-anchor=\"middle\" font-size=\"12\" fill=\"#9aa6b8\">CATALOG</text><rect x=\"208\" y=\"76\" width=\"166\" height=\"38\" fill=\"#0e1116\" stroke=\"#7cc7ff\" stroke-width=\"1\"/><text x=\"291\" y=\"92\" text-anchor=\"middle\" font-size=\"11\" fill=\"#dbe4f0\">Product</text><text x=\"291\" y=\"107\" text-anchor=\"middle\" font-size=\"9\" fill=\"#9aa6b8\">0-30-15-0 Seed Placed</text><line x1=\"291\" y1=\"114\" x2=\"291\" y2=\"124\" stroke=\"#7cc7ff\" stroke-width=\"2\" stroke-dasharray=\"3 2\"/><polygon points=\"287,122 295,122 291,130\" fill=\"#7cc7ff\"/><rect x=\"208\" y=\"130\" width=\"166\" height=\"38\" fill=\"#0e1116\" stroke=\"#7cc7ff\" stroke-width=\"1\"/><text x=\"291\" y=\"146\" text-anchor=\"middle\" font-size=\"11\" fill=\"#dbe4f0\">Crop</text><text x=\"291\" y=\"161\" text-anchor=\"middle\" font-size=\"9\" fill=\"#9aa6b8\">the name lives here</text><text x=\"330\" y=\"126\" font-size=\"8\" fill=\"#7cc7ff\">crop link</text><rect x=\"208\" y=\"180\" width=\"166\" height=\"38\" fill=\"#0e1116\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"291\" y=\"196\" text-anchor=\"middle\" font-size=\"11\" fill=\"#dbe4f0\">Units</text><text x=\"291\" y=\"211\" text-anchor=\"middle\" font-size=\"9\" fill=\"#9aa6b8\">kg/ha - seeds/ha</text><rect x=\"208\" y=\"230\" width=\"166\" height=\"38\" fill=\"#0e1116\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"291\" y=\"246\" text-anchor=\"middle\" font-size=\"11\" fill=\"#dbe4f0\">Machines</text><text x=\"291\" y=\"261\" text-anchor=\"middle\" font-size=\"9\" fill=\"#9aa6b8\">tractor + implement configs</text><line x1=\"196\" y1=\"217\" x2=\"136\" y2=\"217\" stroke=\"#9aa6b8\" stroke-width=\"1\" stroke-dasharray=\"4 3\"/><line x1=\"196\" y1=\"269\" x2=\"136\" y2=\"269\" stroke=\"#9aa6b8\" stroke-width=\"1\" stroke-dasharray=\"4 3\"/><text x=\"163\" y=\"208\" text-anchor=\"middle\" font-size=\"8\" fill=\"#9aa6b8\">refs by id</text></svg>",
+        "questions": [
+          {
+            "q": "Operations Center shows a layer under 'Green Peas', but the string 'peas' appears nowhere in your package. Where did the name come from?",
+            "answer": "From Operations Center's own field and crop setup for that field, not from the package — in the examined package the catalog's only crop was Wheat. A platform can lend your data names the data never gave it.",
+            "hint": "Search the package for the name first; absence is evidence."
+          },
+          {
+            "q": "You need to add a crop object so a product can link to it. Which is the safer first attempt: a full clone of an existing crop with every attribute copied, or a minimal object with just an id and a name?",
+            "answer": "The minimal object. In bisection testing the minimal crop imported and processed, while the full attribute-block clone made the package invalid — the clone carried identifiers and relationships that collided with the original.",
+            "hint": "The importer validates referenced objects, not just the records that point at them."
+          }
+        ]
+      },
+      {
+        "id": "s3",
+        "heading": "Tasks and Logged Data",
+        "body": "A task says what was supposed to happen. Logged data says what did. In an ADAPT package, the logged data for a pass is a stream of spatial records: timestamped positions, each carrying the values the equipment was measuring at that moment — rates asked for, rates achieved, totals accumulating, sections on or off. The stream is organized by the equipment that produced it: a configuration, its meters, and their sections, so every value arrives with its provenance attached.\n\nSitting above the stream is the operation's classification: seeding, application, tillage, harvest. Treat this as what it is — a classification recorded with the work, not a caption added by the software that displays it, and not a summary computed from the measurements. In Deere's world the classification follows the equipment configuration the work was recorded under. Deere's own display documentation says the same thing from the other side: the machine or implement configuration determines the operation types recorded, and a single air cart can carry a seeding operation or a product application operation per tank. The profile is the verdict.\n\nThe examined package makes this concrete. It held three logged datasets from the same operation. Two were bound to a configuration named 'Tractor 11695 + Applicator'; one to 'Tractor 11695 + Planter'. Operations Center labelled the first two Application and the third Seeding — politely, consistently, and without the slightest interest in what the machines had actually done. What they had actually done is in the meters: all three Meter documents record seed-rate variables, target and actual mass rates. Seed was metered on every pass. When the label and the meters disagree, believe the meters about the physics and the configuration about the paperwork.\n\nChannels are where a careless fix does real damage. A modern pass is often several operations sharing a trip across the field: the examined pass placed a 0-30-15-0 fertilizer blend with the seed — which is likely how an applicator profile entered the story in the first place. Seed and fertilizer are separate channels in the data, with separate meters and separate rates. Reclassifying the pass means correcting the seed channel's classification; the fertilizer channel was, truthfully, an application. An edit that flips every operation record in the package manufactures a new error to replace the old one.\n\nHow small is the classification, physically? In the packages bisected for this course, it came down to an operation-level value: the applicator datasets carried one number, the planter dataset another, and changing that single value on a test copy — nothing else touched — changed how the importer classified the resulting layer. Verify the mechanism in your own package rather than trusting the numbers from someone else's; field layouts differ between sources. The durable point is that the classification is data: small, findable, and testable, not a judgement rendered by the platform.",
+        "visual": "One logged-data record annotated field by field: timestamp, position, the meter's seed-rate target and actual, its channel, and the operation-type classification it inherited from its equipment configuration.",
+        "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><text x=\"200\" y=\"26\" text-anchor=\"middle\" font-size=\"14\" fill=\"#dbe4f0\">One logged-data record, annotated</text><rect x=\"20\" y=\"44\" width=\"360\" height=\"118\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"34\" y=\"66\" font-size=\"11\" fill=\"#9aa6b8\">SPATIAL RECORD - one moment of the pass</text><text x=\"34\" y=\"92\" font-size=\"11\" fill=\"#dbe4f0\">time: 2026-05-11 14:03:22</text><text x=\"34\" y=\"116\" font-size=\"11\" fill=\"#dbe4f0\">position: GPS fix, in-field</text><text x=\"34\" y=\"140\" font-size=\"11\" fill=\"#dbe4f0\">channel: seed</text><text x=\"212\" y=\"92\" font-size=\"11\" fill=\"#dbe4f0\">vrSeedRateMassTarget</text><text x=\"212\" y=\"116\" font-size=\"11\" fill=\"#dbe4f0\">vrSeedRateMassActual</text><text x=\"212\" y=\"140\" font-size=\"11\" fill=\"#ffb454\">op type: Application</text><rect x=\"20\" y=\"180\" width=\"360\" height=\"98\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><circle cx=\"36\" cy=\"204\" r=\"3\" fill=\"#7cc7ff\"/><text x=\"48\" y=\"208\" font-size=\"11\" fill=\"#dbe4f0\">The meters say seed was metered - the physical truth.</text><circle cx=\"36\" cy=\"230\" r=\"3\" fill=\"#ffb454\"/><text x=\"48\" y=\"234\" font-size=\"11\" fill=\"#dbe4f0\">The op type says Application - inherited from the</text><text x=\"48\" y=\"250\" font-size=\"11\" fill=\"#dbe4f0\">Applicator equipment configuration, not measured.</text><circle cx=\"36\" cy=\"264\" r=\"3\" fill=\"#7cc7ff\"/><text x=\"48\" y=\"268\" font-size=\"11\" fill=\"#dbe4f0\">Label and measurement are two different facts.</text></svg>",
+        "questions": [
+          {
+            "q": "Two passes over the same field metered the same seed, but one shows as Application and the other as Seeding. What most likely differs between them?",
+            "answer": "The equipment configuration each dataset is bound to — applicator profile versus planter profile. The classification follows the configuration recorded with the work, not what the meters measured.",
+            "hint": "Compare what each LoggedData references, not what it contains."
+          },
+          {
+            "q": "A pass placed seed and a fertilizer blend at the same time, and you're fixing its classification. Why is flipping every operation record in the package the wrong move?",
+            "answer": "Because the fertilizer channel genuinely was an application. Channels are separate streams in the data; flipping the fertilizer records corrupts good data in order to fix the seed records.",
+            "hint": "Seed and fertilizer in one pass are two channels, not one."
+          }
+        ]
+      },
+      {
+        "id": "s4",
+        "heading": "Reading a Package Forensically",
+        "body": "Forensic reading starts with a rule: inventory before you touch anything. Unzip a copy — never the original — and list what you actually have. Count the documents by type. Read the version file so you know the serialization dialect. Extract the catalog's contents: which machines and configurations exist, which products, which crops, which units. Then map the references: which logged dataset binds to which configuration and which product. Most 'mysteries' in task data are solved at this stage, because most of them are a reference pointing somewhere the reader didn't expect.\n\nWith the inventory in hand, diff. Protobuf records are field-numbered, so two sibling datasets — same field, same day, same machine — form a natural control group: everything they share is background, and the handful of fields where they differ is your suspect list. In the examined package, diffing the applicator-bound datasets against the planter-bound one reduced a work-type mystery spanning thousands of spatial records to a short list: a configuration reference, an implement id, and an operation-type value. You are not looking for the interesting fields. You are eliminating the uninteresting thousands.\n\nLearn to separate wrong from unusual, because farms generate unusual data professionally. A starter fertilizer blend placed with the seed is unusual-looking — a 'seeding' pass carrying product-application baggage — and entirely legitimate. A prescription that exists for one field and not its neighbour is unusual. Rates that swing across a pass are usually the prescription working. Wrong is narrower: a reference to a configuration the catalog doesn't define, a classification that contradicts the meter variables, a crop name that exists in neither the package nor the field's setup. Unusual data describes the farming. Wrong data describes a defect in the chain that carried it.\n\nWhen you do start changing things, bisect. Build test packages from a known base, each changing exactly one thing — a diagnostic package that flips only the operation type is worth more than a 'fixed' package that changes five things and imports, because the second tells you nothing about which change mattered and the first tells you everything. Upload, and record the verdict in a log: the change, the verdict, and the layer name that resulted. When a combined package failed in our ladder, splitting it back into single changes convicted the guilty field on its own — including one innocuous-looking catalog field whose solo change invalidated every package that carried it, and which no amount of staring at the combined package would have identified.\n\nKeep the paperwork like it matters, because it does. Originals stay untouched; every experiment is a named copy whose name states its change; the log outlives the session. Task data is a farm's records, not scratch space, and the difference between a careful operator and a cautionary tale is usually just this file of notes.",
+        "visual": "A four-step forensic loop drawn as a flowchart: inventory the package, diff sibling datasets at field level, form one hypothesis, test it with a single-change package, then loop back carrying the verdict.",
+        "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><text x=\"200\" y=\"26\" text-anchor=\"middle\" font-size=\"14\" fill=\"#dbe4f0\">The forensic loop</text><rect x=\"8\" y=\"64\" width=\"84\" height=\"46\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"50\" y=\"84\" text-anchor=\"middle\" font-size=\"11\" fill=\"#dbe4f0\">1. Inventory</text><text x=\"50\" y=\"100\" text-anchor=\"middle\" font-size=\"8\" fill=\"#9aa6b8\">list - count - map</text><line x1=\"92\" y1=\"87\" x2=\"102\" y2=\"87\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><polygon points=\"102,82 112,87 102,92\" fill=\"#7cc7ff\"/><rect x=\"112\" y=\"64\" width=\"84\" height=\"46\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"154\" y=\"84\" text-anchor=\"middle\" font-size=\"11\" fill=\"#dbe4f0\">2. Diff</text><text x=\"154\" y=\"100\" text-anchor=\"middle\" font-size=\"8\" fill=\"#9aa6b8\">siblings, field level</text><line x1=\"196\" y1=\"87\" x2=\"206\" y2=\"87\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><polygon points=\"206,82 216,87 206,92\" fill=\"#7cc7ff\"/><rect x=\"216\" y=\"64\" width=\"84\" height=\"46\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"258\" y=\"84\" text-anchor=\"middle\" font-size=\"11\" fill=\"#dbe4f0\">3. Hypothesis</text><text x=\"258\" y=\"100\" text-anchor=\"middle\" font-size=\"8\" fill=\"#9aa6b8\">exactly one</text><line x1=\"300\" y1=\"87\" x2=\"310\" y2=\"87\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><polygon points=\"310,82 320,87 310,92\" fill=\"#7cc7ff\"/><rect x=\"320\" y=\"64\" width=\"76\" height=\"46\" fill=\"#161b22\" stroke=\"#7cc7ff\" stroke-width=\"1\"/><text x=\"358\" y=\"84\" text-anchor=\"middle\" font-size=\"11\" fill=\"#dbe4f0\">4. Test</text><text x=\"358\" y=\"100\" text-anchor=\"middle\" font-size=\"8\" fill=\"#9aa6b8\">single change</text><line x1=\"358\" y1=\"110\" x2=\"358\" y2=\"146\" stroke=\"#9aa6b8\" stroke-width=\"1\" stroke-dasharray=\"4 3\"/><polygon points=\"354,144 362,144 358,152\" fill=\"#9aa6b8\"/><rect x=\"58\" y=\"152\" width=\"284\" height=\"56\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"200\" y=\"176\" text-anchor=\"middle\" font-size=\"11\" fill=\"#dbe4f0\">Record the verdict</text><text x=\"200\" y=\"195\" text-anchor=\"middle\" font-size=\"10\" fill=\"#9aa6b8\">PROCESSED (under which layer name?) - or INVALID</text><path d=\"M 58 180 L 30 180 L 30 118\" fill=\"none\" stroke=\"#9aa6b8\" stroke-width=\"1\" stroke-dasharray=\"4 3\"/><polygon points=\"26,120 34,120 30,110\" fill=\"#9aa6b8\"/><text x=\"200\" y=\"248\" text-anchor=\"middle\" font-size=\"12\" fill=\"#dbe4f0\">One change, one upload, one verdict</text><text x=\"200\" y=\"270\" text-anchor=\"middle\" font-size=\"10\" fill=\"#9aa6b8\">A combined package that fails convicts nothing in particular</text></svg>",
+        "questions": [
+          {
+            "q": "Your first test package changes three things at once and comes back INVALID. What have you learned, and what's the next move?",
+            "answer": "Almost nothing — any of the three changes, or an interaction between them, could be the poison. Split it: rebuild as three single-change packages off the same base and test each one alone.",
+            "hint": "A verdict convicts the package you uploaded, not any single change inside it."
+          },
+          {
+            "q": "A package's meters record seed-rate variables, but the layer says Application. Is that wrong data or unusual data — and how do you decide?",
+            "answer": "It's a wrong classification on real work: the meters prove seed was metered. Decide by separating what physically happened (the meter variables) from how it was labelled (the configuration and operation type).",
+            "hint": "Unusual describes the farming; wrong describes the labelling."
+          }
+        ]
+      },
+      {
+        "id": "s5",
+        "heading": "What the Importer Enforces",
+        "body": "Operations Center does not validate your zip file. It validates the graph inside it: every id resolves, every referenced catalog object is consistent with itself, and the relationships the importer needs — operation to configuration, product to crop — are present and uncontradictory. This is why a package can be perfectly well-formed protobuf and still be refused: the importer is not complaining about your syntax. It is refusing a contradiction, and 'INVALID' is the sound of a reference failing to resolve into a story it can file.\n\nExpect the strictness to be uneven, because it is mapped empirically, not published. Bisection on a real package found edits that cost nothing: changing the operation-type value reclassified the layer exactly as intended, and a minimal new crop object linked from a product processed without complaint. It also found poison: a full attribute-block clone of an existing crop invalidated the package, and one particular catalog field value, changed alone, invalidated everything it touched. There is no table of these rules available to you. The practical consequence is the method from the last section — small changes, solo tests, verdicts recorded — because the rulebook only reveals itself one experiment at a time.\n\nPrice your experiments by what cannot be undone. Operations Center offers archive, not delete: an imported dataset can be archived out of sight, but the import happened, and a bad experiment leaves permanent clutter in an organization's records. So test on the smallest package that can return a verdict — one field, one dataset, one change — and only promote a proven recipe to the big bundle. The season's full TASKDATA is the last thing you upload, not the first.\n\nThen there is the failure that is not a failure. An upload can sit at 'inspecting file' for many hours — in one observed case roughly fifteen, spanning an evening and the next morning — with no way to cancel or delete the stuck entry from the user's side. Read this correctly: it is a wedged server-side import job, not a verdict on your package. The sensible moves are to check from a fresh session or the mobile app whether the import quietly completed anyway, and, if it is still stuck, to raise it with Deere support, who are the only ones who can clear it. While a job is wedged, hold your next test upload. Two experiments sharing one ambiguous queue state will cost you the clean verdicts the whole method depends on.\n\nRead verdicts as information, not just outcomes. A test package that processes and lands as 'Seeding: Unspecified Crop' has told you two precise things: the operation-type change was accepted, and no crop name resolved through the product's link. That is the importer showing you exactly which link it followed and which it could not. Every verdict, pass or fail, is the data model describing itself — which is where this course came in.",
+        "visual": "A verdict flowchart for an upload: the package enters graph validation, then branches to a processed layer (named through the product's crop link), an INVALID refusal on a contradictory reference, or a wedged 'inspecting' state that only support can clear.",
+        "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><text x=\"200\" y=\"26\" text-anchor=\"middle\" font-size=\"14\" fill=\"#dbe4f0\">An upload meets the importer</text><rect x=\"148\" y=\"42\" width=\"104\" height=\"34\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"200\" y=\"64\" text-anchor=\"middle\" font-size=\"12\" fill=\"#dbe4f0\">Upload package</text><line x1=\"200\" y1=\"76\" x2=\"200\" y2=\"88\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><polygon points=\"196,86 204,86 200,94\" fill=\"#9aa6b8\"/><polygon points=\"200,94 270,124 200,154 130,124\" fill=\"#161b22\" stroke=\"#7cc7ff\" stroke-width=\"1\"/><text x=\"200\" y=\"120\" text-anchor=\"middle\" font-size=\"11\" fill=\"#dbe4f0\">Graph</text><text x=\"200\" y=\"136\" text-anchor=\"middle\" font-size=\"11\" fill=\"#dbe4f0\">consistent?</text><line x1=\"130\" y1=\"124\" x2=\"118\" y2=\"124\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><polygon points=\"120,120 120,128 110,124\" fill=\"#9aa6b8\"/><text x=\"124\" y=\"112\" text-anchor=\"middle\" font-size=\"9\" fill=\"#9aa6b8\">no</text><rect x=\"6\" y=\"102\" width=\"104\" height=\"46\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"58\" y=\"122\" text-anchor=\"middle\" font-size=\"11\" fill=\"#dbe4f0\">INVALID</text><text x=\"58\" y=\"138\" text-anchor=\"middle\" font-size=\"8\" fill=\"#9aa6b8\">contradiction refused</text><line x1=\"270\" y1=\"124\" x2=\"282\" y2=\"124\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><polygon points=\"280,120 280,128 290,124\" fill=\"#9aa6b8\"/><text x=\"276\" y=\"112\" text-anchor=\"middle\" font-size=\"9\" fill=\"#9aa6b8\">yes</text><rect x=\"290\" y=\"102\" width=\"104\" height=\"46\" fill=\"#161b22\" stroke=\"#7cc7ff\" stroke-width=\"1\"/><text x=\"342\" y=\"120\" text-anchor=\"middle\" font-size=\"11\" fill=\"#dbe4f0\">PROCESSED</text><text x=\"342\" y=\"135\" text-anchor=\"middle\" font-size=\"8\" fill=\"#9aa6b8\">named via product,</text><text x=\"342\" y=\"145\" text-anchor=\"middle\" font-size=\"8\" fill=\"#9aa6b8\">crop link</text><line x1=\"200\" y1=\"154\" x2=\"200\" y2=\"186\" stroke=\"#ffb454\" stroke-width=\"1\" stroke-dasharray=\"4 3\"/><polygon points=\"196,184 204,184 200,192\" fill=\"#ffb454\"/><text x=\"212\" y=\"174\" font-size=\"9\" fill=\"#ffb454\">no verdict at all</text><rect x=\"102\" y=\"194\" width=\"196\" height=\"58\" fill=\"#161b22\" stroke=\"#ffb454\" stroke-width=\"1\"/><text x=\"200\" y=\"216\" text-anchor=\"middle\" font-size=\"11\" fill=\"#ffb454\">Still inspecting after hours</text><text x=\"200\" y=\"234\" text-anchor=\"middle\" font-size=\"9\" fill=\"#dbe4f0\">wedged job - Deere support clears it</text><text x=\"200\" y=\"246\" text-anchor=\"middle\" font-size=\"9\" fill=\"#9aa6b8\">hold further test uploads</text></svg>",
+        "questions": [
+          {
+            "q": "Your test upload has shown 'inspecting file' for about fifteen hours. What do you conclude, and what do you do?",
+            "answer": "Conclude nothing about the package — the import job is wedged server-side. Check from a fresh session or the app whether it completed anyway; if not, raise it with Deere support to clear, and hold further test uploads so verdicts don't cross.",
+            "hint": "A stuck spinner is a state of the queue, not of your data."
+          },
+          {
+            "q": "Why does archive-only (no delete) change how you should test package edits?",
+            "answer": "Because every import is permanent — a bad test doesn't come back out, it only gets archived. So test small: one field, one change, the smallest package that can return a verdict.",
+            "hint": "Price the experiment by what you can't undo."
+          }
+        ]
+      }
+    ]
+  },
+  "quizzes": {
+    "sections": [
+      {
+        "id": "s1",
+        "questions": [
+          {
+            "q": "You unzip a TASKDATA package from a Deere display workflow and find metadata.json and an adm/ folder — no TASKDATA.XML anywhere. Which statement is right?",
+            "choices": [
+              "The export is corrupt; the XML was lost on the way out of the display",
+              "It's an ADM package: ISOXML that a tool already parsed and re-wrapped as ADAPT protobuf objects",
+              "It's a newer revision of ISO 11783 that dropped XML entirely",
+              "Operations Center will refuse it because it contains no XML"
+            ],
+            "answer": 1,
+            "explain": "metadata.json plus .adm documents (Catalog, LoggedData, OperationData) is the AdmWrapped shape. The XML isn't lost — it was consumed upstream by the parser that built this package, which is why the source stamp names a LoggedData parser."
+          },
+          {
+            "q": "Every LoggedData document in a package is stamped with the source Onsite.ISO11783.LoggedDataParser, and a seeding pass is labelled Application. Where do you look first?",
+            "choices": [
+              "Operations Center's import settings — it must be misreading the file",
+              "The field's boundary and crop setup in Operations Center",
+              "The wrap: the parser chose an equipment configuration and classification when it built the ADAPT objects from the ISOXML",
+              "The display's clock — mislabelled work usually means corrupt timestamps"
+            ],
+            "answer": 2,
+            "explain": "The stamp tells you a translation happened, and translation is where implicit choices get baked in as data. Operations Center displays what the package asserts; the original ISOXML may never have stated a classification at all."
+          },
+          {
+            "q": "What does wrapping ISOXML into ADM actually buy the platform?",
+            "choices": [
+              "One object model the importer can validate as a graph, in a compact field-numbered serialization",
+              "A guarantee that operation types come out correct",
+              "Smaller fields on the map",
+              "XML that validates itself"
+            ],
+            "answer": 0,
+            "explain": "Protobuf ADM gives compactness and a single linked object graph to validate. It does not guarantee the wrapper's choices were right — a faithfully wrapped applicator profile still produces Application layers."
+          }
+        ]
+      },
+      {
+        "id": "s2",
+        "questions": [
+          {
+            "q": "A layer appears in Operations Center as 'Seeding: Green Peas'. Where was the 'Green Peas' half of that name decided?",
+            "choices": [
+              "Typed into the logged-data records as text at record time",
+              "Copied from the field's name in the catalog",
+              "Resolved by following the operation's product link to the product's crop link — the crop object carries the name",
+              "Guessed by the importer from the product's formulation numbers"
+            ],
+            "answer": 2,
+            "explain": "Layers don't carry crop names as text. The importer resolves the chain operation → product → crop link → crop name. Fix the name by fixing the chain, not the layer."
+          },
+          {
+            "q": "Users see peas associated with a field, but the package's catalog contains only Wheat and the string 'peas' appears nowhere in the file. The best conclusion is:",
+            "choices": [
+              "The peas association lives in Operations Center's own field/crop setup for that field, not in this data",
+              "The package is missing its peas crop and the import must have partially failed",
+              "The crop is present but stored under a code you haven't decoded yet",
+              "The wrap stripped all crop data out of the package"
+            ],
+            "answer": 0,
+            "explain": "Absence is evidence: if the name isn't in the package, the platform supplied it. In the examined package the catalog's only crop was Wheat, and the peas association came from the field's setup in Operations Center."
+          },
+          {
+            "q": "You must add a Crop object so a product can point at it. Bisection experience says the safer first attempt is:",
+            "choices": [
+              "A byte-for-byte clone of an existing crop's full attribute block, renamed",
+              "A minimal object — essentially an id and a name — referenced from the product",
+              "No new object at all: edit the existing crop's name in place",
+              "A crop copied intact from a different package, links and all"
+            ],
+            "answer": 1,
+            "explain": "The full clone invalidated the package — its identifiers and relationships collided with the original it was copied from — while the minimal object processed. Renaming the existing crop in place would rename it everywhere it is already used."
+          }
+        ]
+      },
+      {
+        "id": "s3",
+        "questions": [
+          {
+            "q": "Three datasets come from one field and one operation. Two are bound to a 'Tractor + Applicator' configuration, one to 'Tractor + Planter'. Every Meter document records seed-rate variables. Predict the layers in Operations Center.",
+            "choices": [
+              "All three Seeding — seed was metered on every pass",
+              "Two Application and one Seeding — classification follows the equipment configuration each dataset is bound to",
+              "All three Application — a fertilizer blend was placed during the operation",
+              "All three take whatever type the field's crop setup declares"
+            ],
+            "answer": 1,
+            "explain": "This is the examined package's actual outcome. The importer follows the configuration, not the meters: applicator-bound datasets land as Application even though their meters prove seed was metered."
+          },
+          {
+            "q": "The applicator-configured datasets were physically seeding passes. Which evidence inside the package proves the machine metered seed?",
+            "choices": [
+              "The operation-type value on the records",
+              "The product's fertilizer analysis, which lists no nitrogen for a starter",
+              "The Meter documents' seed-rate variables — target and actual mass rates",
+              "The sheer number of spatial records in each dataset"
+            ],
+            "answer": 2,
+            "explain": "Meters record what the machine did: vrSeedRateMassTarget and vrSeedRateMassActual were present on all three passes. The operation type records how the work was classified — a different fact, and the one that was wrong."
+          },
+          {
+            "q": "You're repairing a pass that placed seed and a fertilizer blend together. The safe edit is the one that:",
+            "choices": [
+              "Changes the seed channel's classification and leaves the fertilizer channel's records exactly as they are",
+              "Reclassifies every operation record in the package to seeding",
+              "Deletes the fertilizer channel so the pass reads unambiguously",
+              "Renames the product so it sounds like a seed product"
+            ],
+            "answer": 0,
+            "explain": "Channels are separate streams. The fertilizer channel truthfully was an application; flipping or deleting it manufactures a new error while fixing the old one. Aim at the seed channel only."
+          }
+        ]
+      },
+      {
+        "id": "s4",
+        "questions": [
+          {
+            "q": "A 1.15 GB season bundle may need its misclassified seeding passes repaired. What's the correct first step?",
+            "choices": [
+              "Inventory it: document list, dataset count, catalog contents, and which dataset references which configuration and product",
+              "Run the transform on a copy and check the resulting map",
+              "Upload it and see what the importer says",
+              "Diff it against last year's bundle and work from the differences"
+            ],
+            "answer": 0,
+            "explain": "You cannot aim a fix at datasets you haven't mapped. Inventory first — and flag the seed products mislabelled as application for review — before any byte changes. Uploading the bundle as a diagnostic wastes your one clean look at it."
+          },
+          {
+            "q": "A combined test package (operation-type change plus a catalog field change) returns INVALID. The operation-type change alone processed cleanly earlier. What is convicted?",
+            "choices": [
+              "The operation-type change — the combined result overrides its solo pass",
+              "Nothing; INVALID verdicts on ADM packages are effectively random",
+              "The catalog field change, alone or in combination — the operation-type change is cleared by its solo pass",
+              "The base package the tests were built from"
+            ],
+            "answer": 2,
+            "explain": "This is the whole point of the ladder: a change that processes solo is exonerated, so the remaining change carries the conviction. It's exactly how a harmless-looking catalog field got convicted on its own in the real bisection."
+          },
+          {
+            "q": "Which of these is 'unusual' data rather than 'wrong' data?",
+            "choices": [
+              "A dataset that references an equipment configuration the catalog never defines",
+              "A starter fertilizer blend placed with the seed, so a seeding pass carries an applicator-configured dataset",
+              "A layer whose crop name exists in neither the package nor the field's setup",
+              "A seeding layer whose meters record no seed-rate variables at all"
+            ],
+            "answer": 1,
+            "explain": "Blends placed with seed are ordinary farming that happens to look like application data. The other three are defects: a dangling reference, a name from nowhere, and a classification its own meters contradict."
+          }
+        ]
+      },
+      {
+        "id": "s5",
+        "questions": [
+          {
+            "q": "A test package processes, and the layer lands as 'Seeding: Unspecified Crop'. What has the importer just told you?",
+            "choices": [
+              "The package is finished and correct",
+              "The operation-type classification was accepted, but no crop name resolved through the product's crop link",
+              "The crop object is malformed and must be replaced with a full clone",
+              "Corrected packages always display 'Unspecified' the first time"
+            ],
+            "answer": 1,
+            "explain": "A processed verdict answers two questions: did it import, and what did the links produce? 'Unspecified Crop' means the op-type side of the fix worked and the crop-link side has not been made yet — progress with an address on it."
+          },
+          {
+            "q": "An upload sits at 'inspecting file' overnight — roughly fifteen hours — and the entry can't be cancelled or deleted from your side. The correct response is:",
+            "choices": [
+              "Re-upload the same package until one copy goes through",
+              "Treat the package as invalid and rebuild it from scratch",
+              "Check from a fresh session or the app whether it completed server-side anyway; if still stuck, open a Deere support case — and hold further test uploads meanwhile",
+              "Archive the field and rebuild it so the queue resets"
+            ],
+            "answer": 2,
+            "explain": "A wedged import is a server-side job state, not a verdict on the package. Only Deere support can clear it, and uploading more tests into a stuck queue crosses your verdicts — you lose the clean one-change-one-verdict chain."
+          },
+          {
+            "q": "Why test a classification fix on one field's small package instead of the full season bundle?",
+            "choices": [
+              "Small packages import faster, and speed is the whole point",
+              "The importer silently ignores bundles above a certain size",
+              "Imports can't be deleted — only archived — so every experimental import is permanent; small tests keep the cost of a wrong verdict small",
+              "Operations Center charges per imported hectare"
+            ],
+            "answer": 2,
+            "explain": "Archive-only changes the economics of experimenting: a bad test import stays in the organization's records forever, merely archived. Prove the recipe on the smallest package that can return a verdict, then promote it."
+          }
+        ]
+      }
+    ]
+  },
+  "slides": {
+    "sections": [
+      {
+        "id": "s1",
+        "title": "Two Standards, One File",
+        "bullets": [
+          "No TASKDATA.XML in the zip? You're holding ADM — ADAPT objects serialized as protobuf, not raw ISOXML.",
+          "ISOXML (ISO 11783-10) thinks in documents; ADAPT thinks in linked objects with ids.",
+          "The AdmWrapped label and the parser source stamp tell you a translation already happened upstream.",
+          "The wrap bakes in choices — equipment configuration, operation classification — as data.",
+          "Debug the boundary where the decision you dislike was made."
+        ],
+        "notes": "Start with the file itself. If you've only ever seen ISOXML, the Deere zip looks wrong — no XML at all, just metadata and a folder of .adm documents. That folder is the course in miniature: the data was already translated once, by a parser whose name is stamped on it, and translation is interpretation. Every confusing behaviour later in this course traces back to a choice made at that boundary, so keep one question loaded at all times: which copy of this data made this decision?",
+        "visual": "The same three-panel flow as the reading diagram: ISOXML document, Onsite parser arrow, ADM package, upload arrow, Operations Center."
+      },
+      {
+        "id": "s2",
+        "title": "The Catalog",
+        "bullets": [
+          "The catalog is the dictionary: products, crops, units, machines — everything else references it by id.",
+          "A layer's crop name resolves by walking operation → product → crop link → crop name.",
+          "A name that appears in Operations Center but nowhere in the package came from the platform's field setup.",
+          "Products carry composition and a crop link; configurations are catalog objects too.",
+          "Catalog edits: minimal and surgical import; full clones of existing objects poison the package."
+        ],
+        "notes": "Read the catalog before you read a single record, because the records are mostly pointers into it. The chain to memorise is operation, product, crop, name — that walk is where every layer label comes from. And respect the importer's strictness here: in real testing, a crop added as little more than an id and a name sailed through, while a lovingly complete clone of an existing crop sank the whole package. Small, single-purpose, no borrowed baggage.",
+        "visual": "The object-graph map from the reading: the grower-to-logged-data chain on one side, the catalog panel on the other, the product's crop link highlighted."
+      },
+      {
+        "id": "s3",
+        "title": "Tasks and Logged Data",
+        "bullets": [
+          "Logged data is spatial records: timestamped positions carrying measured values, organized by configuration, meter, section.",
+          "Operation type is recorded with the work and follows the equipment configuration — planter profile, seeding; applicator profile, application.",
+          "The meters are the ground truth: seed-rate variables mean seed was metered, whatever the layer says.",
+          "Real case: two applicator-bound datasets labelled Application, one planter-bound dataset labelled Seeding, seed in all three.",
+          "Seed and fertilizer are separate channels — never reclassify one by dragging the other."
+        ],
+        "notes": "Here is the mechanism the whole course turns on. The classification is not computed from what the machine measured; it follows the equipment configuration the work was recorded under. That's how one field ends up with two Application layers and one Seeding layer for the same seeding job — and why the fix targets a small classification value and a configuration reference, never the thousands of honest spatial records underneath.",
+        "visual": "The annotated spatial record from the reading: one moment of a pass, its seed-rate variables, its channel, and the operation type it inherited."
+      },
+      {
+        "id": "s4",
+        "title": "Reading a Package Forensically",
+        "bullets": [
+          "Inventory first: documents, dataset count, catalog contents, reference map — most mysteries die here.",
+          "Diff sibling datasets at field level; the few differing fields are the suspect list.",
+          "Unusual is the farming (blends with seed, prescriptions); wrong is the labelling (dangling refs, contradicted classifications).",
+          "Bisect with single-change test packages; log every change, verdict, and resulting layer name.",
+          "Originals untouched; experiments are named copies; the log outlives the session."
+        ],
+        "notes": "Forensics is mostly patience with good bookkeeping. The inventory feels slow and solves half the problem. The diff feels tedious and reduces the other half to a handful of fields. And bisection feels almost insultingly simple — one change, one upload, one verdict — until a combined package fails and you realize a solo test is the only way to know which change did it. Keep the log like an auditor will read it, because someday one might.",
+        "visual": "The forensic loop from the reading: inventory, diff, one hypothesis, single-change test, verdict recorded, loop."
+      },
+      {
+        "id": "s5",
+        "title": "What the Importer Enforces",
+        "bullets": [
+          "The importer validates the object graph: unresolved or contradictory references are what INVALID means.",
+          "Strictness is uneven and unpublished — mapped empirically, one solo test at a time.",
+          "Archive, not delete: every import is permanent, so test on the smallest package that returns a verdict.",
+          "An upload stuck 'inspecting' for hours is a wedged server-side job: fresh-session check, then Deere support, and hold further uploads.",
+          "Read every verdict fully — 'Seeding: Unspecified Crop' names the exact link that still needs making."
+        ],
+        "notes": "Close with the importer's personality. It is strict about consistency, silent about its rules, and incapable of forgetting anything you upload. That combination dictates the whole working style: small tests, solo changes, verdicts treated as messages. Even its failures talk to you — a processed layer with the wrong name is the importer showing you which link it followed. Learn to listen and the 'invalid file' stops being an insult and becomes a diagnosis.",
+        "visual": "The verdict flowchart from the reading: upload, graph-consistency check, PROCESSED or INVALID branches, and the wedged 'inspecting' path to support."
+      }
+    ]
+  },
+  "enrichment": {
+    "audioTitle": "Two Implementers, One Misclassified Pass",
+    "turns": [
+      {
+        "speaker": "teacher",
+        "line": "So the grower's peas pass from May is sitting in Operations Center labelled Application. Before we touch anything — what do you actually have in hand?"
+      },
+      {
+        "speaker": "student",
+        "line": "A zip. But when I opened it there was no TASKDATA.XML, just metadata.json and an adm folder. I nearly wrote it off as a corrupt export."
+      },
+      {
+        "speaker": "teacher",
+        "line": "It's not corrupt — it's wrapped. That's ADM: ADAPT objects as protobuf. The source stamp on the logged data names the parser that read the original ISOXML and built these objects. Somebody already translated your data once."
+      },
+      {
+        "speaker": "student",
+        "line": "Fine. Inventory first, then. Three logged datasets. Two are bound to a configuration called Tractor plus Applicator, one to Tractor plus Planter. Same tractor, same operation."
+      },
+      {
+        "speaker": "teacher",
+        "line": "And what do the meters say the machine was doing on those applicator-bound passes?"
+      },
+      {
+        "speaker": "student",
+        "line": "Seed. Every Meter document has seed-rate target and actual. All three passes metered seed, including the two that now say Application."
+      },
+      {
+        "speaker": "teacher",
+        "line": "There's the split to keep straight: the meters tell you what physically happened, the configuration tells you why the label says what it says. The classification follows the equipment profile the work was recorded under — applicator profile, application layer. Operations Center just displays the package's assertion."
+      },
+      {
+        "speaker": "student",
+        "line": "It gets stranger. The crew swears the field shows under Green Peas, but the catalog's only crop is Wheat. 'Peas' isn't anywhere in the file."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Then the peas came from Operations Center's own field setup, not from this data — the platform lent your package a name. Remember the chain: a layer's crop name resolves by walking operation to product to the product's crop link. No link, no name from the data."
+      },
+      {
+        "speaker": "student",
+        "line": "So the repair is: flip the operation-type value on the seed channels of the applicator-bound datasets, and give the seed product a crop link to a proper crop object. One test package with both changes?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Never both. One change, one upload, one verdict. On the real ladder, the operation-type flip alone processed and the layer came back 'Seeding: Unspecified Crop' — the importer announcing the classification worked and the crop link was still missing. A combined package that fails tells you nothing."
+      },
+      {
+        "speaker": "student",
+        "line": "The catalog side scares me more. My instinct was to clone the existing crop in full and rename the clone."
+      },
+      {
+        "speaker": "teacher",
+        "line": "That exact move invalidated the package in testing — the clone's identifiers and relationships collide with the original. A minimal crop, an id and a name and nothing else, processed cleanly. And convict catalog fields solo: one harmless-looking field change, tested alone, turned out to poison every package that carried it."
+      },
+      {
+        "speaker": "student",
+        "line": "Then once the recipe is proven on this field's small package, we run it across the whole season bundle — it's over a gigabyte."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Not until the bundle gets the same treatment: inventory first, flag every seed product sitting under an application classification for a human to review, and transform second. One hard rule on the big pass — the fertilizer channels were honestly application. We fix the seed channels and touch nothing else."
+      },
+      {
+        "speaker": "student",
+        "line": "And the upload discipline to close it out — I've lived this one: if an upload sits at 'inspecting' overnight and can't be cancelled, that's a wedged server-side job, not a verdict on the package. Fresh-session check to see whether it completed anyway, then Deere support if it's still stuck, and nothing else goes up meanwhile or the verdicts cross. Every import is archive-only and permanent, so experiments stay small. One change, one upload, one verdict."
+      }
+    ],
+    "nodes": [
+      {
+        "id": "root",
+        "label": "ADAPT & ISOXML Data Model",
+        "parent": null,
+        "note": "How precision-ag task data is structured, wrapped, classified, and judged by the importer."
+      },
+      {
+        "id": "n1",
+        "label": "Two Standards",
+        "parent": "root",
+        "note": "ISOXML documents (ISO 11783-10) versus ADAPT's linked object model, and what the AdmWrapped protobuf package in your hand really is."
+      },
+      {
+        "id": "n2",
+        "label": "The Catalog",
+        "parent": "root",
+        "note": "Products, crops, units, and machines — the dictionary every record references by id, and the strictest part of an import."
+      },
+      {
+        "id": "n3",
+        "label": "Name Resolution Chain",
+        "parent": "n2",
+        "note": "Operation → product → crop link → crop name: the walk that decides what a layer is called."
+      },
+      {
+        "id": "n4",
+        "label": "Tasks & Logged Data",
+        "parent": "root",
+        "note": "Spatial records, meters, and channels — and the operation-type classification that follows the equipment configuration, not the measurements."
+      },
+      {
+        "id": "n5",
+        "label": "Forensic Method",
+        "parent": "root",
+        "note": "Inventory, field-level diffing, wrong-versus-unusual, and single-change bisection with a verdict log."
+      },
+      {
+        "id": "n6",
+        "label": "The Importer",
+        "parent": "root",
+        "note": "Operations Center validates the object graph, archives instead of deleting, and occasionally wedges — read every verdict as information."
+      }
+    ],
+    "mnemonics": [
+      {
+        "for": "Where a layer's crop name comes from",
+        "aid": "Follow the product — the crop does the naming."
+      },
+      {
+        "for": "Forensic testing discipline",
+        "aid": "One change, one upload, one verdict."
+      },
+      {
+        "for": "The order of a forensic read",
+        "aid": "Catalog first, records second — every record is just pointers into the catalog."
+      }
+    ]
+  }
+}
