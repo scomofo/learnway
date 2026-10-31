@@ -1,0 +1,571 @@
+{
+ "meta": {
+  "title": "Orbital Rendezvous & Docking: The Last Mile Is the Hardest",
+  "topic": "orbital rendezvous and docking",
+  "level": "advanced",
+  "interests": "",
+  "depth": "standard",
+  "model": "manual",
+  "createdAt": "2026-10-22T12:00:00.000Z",
+  "version": 1
+ },
+ "plan": {
+  "title": "Orbital Rendezvous & Docking: The Last Mile Is the Hardest",
+  "hook": "Every instinct from driving a car is wrong in orbit: throttle up to catch the station ahead of you and you climb into a slower orbit and watch it pull away. Rendezvous is the discipline of unlearning that - trading raw speed for period, phase, and patience, all the way to the last hundred metres, where the rules change one final time and flying becomes docking.",
+  "objectives": [
+   "Predict a chaser's catch-up rate from its altitude difference with the target, using orbital period as the exchange rate between height and phase.",
+   "Read relative motion in the LVLH frame: the secular drift, the in-plane 2-by-1 ellipse, and why a burn's effect shows up half an orbit later.",
+   "Plan a two-impulse rendezvous from a Lambert solution and lay out the coelliptic sequence - CSI, CDH, TPI, midcourse corrections - in order.",
+   "Walk a terminal phase through its braking gates, matching closing rate to range and stating what soft capture and hard capture must each accomplish.",
+   "Diagnose the historical failures - Gemini 4, Apollo 14, Progress M-34 - and name the abort option each profile kept open."
+  ],
+  "prerequisites": [
+   "Two-body orbital mechanics: energy, period, and Hohmann transfers",
+   "Comfort with rotating reference frames and first-order linear differential equations"
+  ],
+  "sections": [
+   {
+    "id": "s1",
+    "heading": "Why You Can't Just Aim at It",
+    "points": [
+     "Orbital speed falls as radius grows: v = sqrt(mu/r), and period stretches as r^(3/2)",
+     "Phasing: a lower chaser laps a higher target; the period difference is the exchange rate",
+     "Aiming at the target misses it - an impulse mostly re-shapes your orbit and changes your period",
+     "Gemini 4, 1965: McDivitt chases the spent Titan II stage, drifts away, and teaches the founding lesson"
+    ]
+   },
+   {
+    "id": "s2",
+    "heading": "Relative Motion",
+    "points": [
+     "The LVLH frame riding on the target: x radially out, y along-track, z along the orbit normal",
+     "The Hill / Clohessy-Wiltshire equations read as three rules for relative motion",
+     "Thrust-free motion: a steady along-track drift plus a bounded 2-by-1 ellipse, long axis along-track",
+     "The football orbit and natural motion circumnavigation: same period, closed ellipse, no fuel",
+     "A prograde burn raises your orbit, lengthens your period, and drops you back - the CW equations show why"
+    ]
+   },
+   {
+    "id": "s3",
+    "heading": "Targeting the Intercept",
+    "points": [
+     "Lambert's problem: two positions and a time of flight pick out one conic and its two impulses",
+     "CSI: the burn that raises the chaser into a coelliptic orbit running a fixed height below the target",
+     "CDH: trimming the differential height that sets the closing rate and the terminal phase angle",
+     "TPI: a Lambert-targeted burn at a computed phase angle, with midcourse corrections budgeted after it",
+     "The rendezvous radar: range and range-rate that turn a paper plan into a measured state"
+    ]
+   },
+   {
+    "id": "s4",
+    "heading": "Terminal Phase and Capture",
+    "points": [
+     "Braking gates: closing rate budgeted against range, stepped down at every gate",
+     "Station-keeping on the V-bar and R-bar while the crew inspects, aligns, and waits for light",
+     "Approach corridors, keep-out zones, and plume constraints on the final hundred metres",
+     "Probe and drogue (Apollo) versus the peripheral APAS and IDSS mechanisms",
+     "Soft capture restrains and aligns; hard capture drives the joint rigid and pressure-tight"
+    ]
+   },
+   {
+    "id": "s5",
+    "heading": "When Rendezvous Goes Wrong",
+    "points": [
+     "Apollo 14: five clean contacts, capture latches that would not fire, and a powered push that seated the probe",
+     "Progress M-34, 1997: a manual TORU redocking test, a blind spot behind the arrays, and Spektr holed",
+     "The exits a profile keeps open: hold, retreat to station-keeping, or wave off to a safe phasing orbit",
+     "The common thread: relative navigation and closure discipline fail before hardware does"
+    ]
+   }
+  ]
+ },
+ "reading": {
+  "sections": [
+   {
+    "id": "s1",
+    "heading": "Why You Can't Just Aim at It",
+    "body": "Start with the failure, because everyone learns this the same way. On 3 June 1965, James McDivitt, flying Gemini 4, tried to station-keep with the spent Titan II second stage that had just put him in orbit. The booster was right there, tumbling slowly, close enough to see clearly. When he thrust toward it, it slid away. When he dropped below it to gain on it the way you would on a road, the geometry shifted again. The two vehicles were never in danger, but NASA's first attempt at rendezvous produced the founding lesson of the discipline: in orbit, point at the target and thrust, and you reliably miss it.\n\nThe reason is that an orbit is not a road. Your speed is fixed by your radius: v = sqrt(mu/r). Fly lower and you must fly faster; fly higher and you move slower, and your period - the time per revolution - stretches as r^(3/2). Two vehicles in nearby circular orbits are therefore two clocks running at different rates. A chaser holding 10 km below a target in low Earth orbit gains on it at roughly 17 metres per second of along-track drift - on the order of 95 km per orbit - without burning a gram of propellant. That is the whole game in one number. Rendezvous is mostly phasing: choosing a height difference that sets a closing rate, then waiting, sometimes for many orbits, while geometry does the work for free. The burns that matter are small and precise. The waiting is the propulsion.\n\nWhy does thrusting at the target fail? Because an impulse does not mainly move you toward where you point it; it re-shapes your orbit. Thrust prograde and you raise the far side of the orbit. Your period grows, so over the next half revolution you fall behind, not ahead. Thrust across the line of sight and you tilt and offset the ellipse, so that half an orbit later you are somewhere else entirely: the relative path curves because both vehicles are being swung around the Earth the whole time. A car chase runs in a fixed frame. A rendezvous runs in a rotating one, on two independent clocks, and the map between a burn and its consequence runs through Kepler, not through the windshield.\n\nMcDivitt's difficulties compounded the lesson: Gemini 4 carried no rendezvous radar, the maneuvering propellant was limited, and the crew had trained for a simpler picture than the one physics presented. Ed White's spacewalk was the mission's public triumph; the failed station-keeping was its quiet curriculum. NASA rewrote its rendezvous doctrine around phasing, relative navigation, and planned burn sequences - and six months later Gemini 6 and 7 held formation within feet of each other, with Armstrong and Scott docking to an Agena the following spring. Everything after - coelliptic profiles, terminal phase initiation, braking gates - is the institutional memory of that first surprise, formalised.\n\nHold three rules before going further. Lower is faster, in phase if not in feel. A burn changes your period first and your position second. And the target is not a point to aim at but a trajectory to join: you are not flying to where the station is, you are arranging for your orbit and its orbit to become the same orbit at the same time. Sections 2 and 3 build the machinery for doing exactly that.",
+    "visual": "Two concentric orbits around Earth: a target on the higher, slower orbit and a chaser below it, with the phase gap between them marked as it closes each revolution.",
+    "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><rect x=\"20\" y=\"20\" width=\"360\" height=\"260\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><circle cx=\"200\" cy=\"155\" r=\"26\" fill=\"#23354d\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"200\" y=\"159\" font-size=\"10\" text-anchor=\"middle\" font-family=\"sans-serif\" fill=\"#e8ecf1\">EARTH</text><circle cx=\"200\" cy=\"155\" r=\"68\" fill=\"none\" stroke=\"#7ee2a8\" stroke-width=\"1.5\" stroke-dasharray=\"5 4\"/><circle cx=\"200\" cy=\"155\" r=\"108\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"1.5\"/><line x1=\"200\" y1=\"155\" x2=\"272\" y2=\"97\" stroke=\"#9aa6b8\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><line x1=\"200\" y1=\"155\" x2=\"255\" y2=\"200\" stroke=\"#9aa6b8\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><circle cx=\"272\" cy=\"97\" r=\"5\" fill=\"#7cc7ff\"/><circle cx=\"255\" cy=\"200\" r=\"5\" fill=\"#7ee2a8\"/><path d=\"M 132 108 A 82 82 0 0 1 158 80\" fill=\"none\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><path d=\"M 158 80 l -11 1 l 6 9 z\" fill=\"#7ee2a8\"/><text x=\"288\" y=\"92\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#e8ecf1\">TARGET</text><text x=\"288\" y=\"106\" font-size=\"9\" font-family=\"sans-serif\" fill=\"#9fb2c8\">higher, longer period</text><text x=\"266\" y=\"216\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#e8ecf1\">CHASER</text><text x=\"266\" y=\"230\" font-size=\"9\" fill=\"#9fb2c8\">lower, shorter period</text><text x=\"46\" y=\"52\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#e8ecf1\">phase gap closes</text><text x=\"46\" y=\"66\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#e8ecf1\">every orbit</text></svg>",
+    "questions": [
+     {
+      "q": "You're holding in a circular orbit 15 km below the station, same inclination. Are you catching up, falling behind, or holding station - and why?",
+      "answer": "Catching up. A lower orbit has a shorter period, so you gain phase every revolution without burning anything.",
+      "hint": "Compare the two orbital periods. Period, not ground speed, is what sets the phase rate."
+     },
+     {
+      "q": "Below and behind the target, you make a prograde burn to speed up the chase. What goes wrong over the next half orbit?",
+      "answer": "The burn raises your orbit and lengthens your period, so the catch-up rate dies - and if you raise yourself above the target's orbit, you begin drifting backward.",
+      "hint": "A prograde burn buys energy and altitude. What does altitude do to your period?"
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "heading": "Relative Motion",
+    "body": "To stop chasing your tail, change coordinates. Park a frame on the target: origin at the target's centre of mass, x pointing radially outward from the Earth, z along the orbit normal - the direction of the target's angular momentum - and y completing the triad, pointing along the flight path. This is the LVLH frame (local vertical, local horizontal), and it rotates once per orbit at the target's mean motion n. In this frame the target sits still at the origin and the chaser's wanderings become a small, readable picture. Operations gave the axes nicknames that stuck: the flight-path line is the V-bar, the radial line the R-bar, and final approaches are still flown along those corridors today.\n\nLinearise gravity about the target's circular orbit and the chaser's motion comes out as three coupled equations - written by George Hill in 1878 for the motion of the Moon, and re-derived by Clohessy and Wiltshire in 1960 for exactly this problem. In words: the radial acceleration equals 3n^2 times the radial offset, plus a Coriolis term from along-track velocity; the along-track acceleration is a counter-Coriolis term from radial velocity alone; and the cross-track acceleration is simply -n^2 times the cross-track displacement. Read them as rules. Cross-track motion is a pendulum: displaced out of plane, you oscillate through the plane once per orbit, cleanly decoupled from everything else. Radial offsets, by contrast, do not sit still - the 3n^2 term is gravity gradient fighting centrifugal effect in the rotating frame, and it wins.\n\nSolve the in-plane pair with no thrust and two ingredients appear. The first is a steady drift: if the motion is centred a fixed radial offset x0 from the target's orbit, the whole pattern slides along-track at -(3/2) n x0. Centre it above the target's orbit and it drifts backward; below, forward; only a centre exactly on the target's orbit - same semi-major axis, same period - holds still. The second ingredient is a closed ellipse, twice as long along-track as it is radial: the 2-by-1 'football'. Released 500 m radially above the target at rest, you do not stay there; you swing backward around that ellipse, crossing the target's altitude about a kilometre behind at the quarter-orbit mark, mirroring below, and returning - while your ellipse's off-centre drift walks the whole pattern backwards underneath you.\n\nThe special case where the ellipse is centred on the target is natural motion circumnavigation. Give yourself the target's period with slightly different eccentricity or inclination and you circle it once per orbit, indefinitely, no fuel - which is why inspection fly-arounds and departure trajectories are designed as NMCs rather than held by thrust.\n\nNow the burns, and the course's central claim. An impulsive prograde burn adds energy: semi-major axis grows, period grows. If you were below and behind, chasing, the burn feels like 'go' and does the opposite of helping - you climb toward the target's altitude, your forward drift dies, and overshoot in height starts you drifting backward. A retrograde burn from the same spot deepens your phasing advantage instead. The Clohessy-Wiltshire solution makes this mechanical rather than mystical: every impulse re-seeds the ellipse's size, phase, and centre offset, and one line of algebra says where you will be an orbit later. Apollo's onboard relative-motion displays, and the approach trajectories flown to the station today, are this solution, drawn.",
+    "visual": "The LVLH football: a 2-by-1 ellipse centred on the target, long axis along the V-bar, with the target at the origin and a chaser shown a quarter-orbit into its swing.",
+    "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><rect x=\"20\" y=\"20\" width=\"360\" height=\"260\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><line x1=\"45\" y1=\"150\" x2=\"355\" y2=\"150\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><line x1=\"200\" y1=\"45\" x2=\"200\" y2=\"255\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><ellipse cx=\"200\" cy=\"150\" rx=\"95\" ry=\"47\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><circle cx=\"200\" cy=\"150\" r=\"5\" fill=\"#ffd479\"/><circle cx=\"200\" cy=\"103\" r=\"4\" fill=\"#7ee2a8\"/><circle cx=\"295\" cy=\"150\" r=\"4\" fill=\"#7ee2a8\"/><path d=\"M 246 112 A 95 47 0 0 1 282 132\" fill=\"none\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><path d=\"M 282 132 l -12 -2 l 5 10 z\" fill=\"#7ee2a8\"/><text x=\"200\" y=\"143\" font-size=\"11\" text-anchor=\"middle\" font-family=\"sans-serif\" fill=\"#e8ecf1\">TARGET</text><text x=\"330\" y=\"140\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#e8ecf1\">V-bar</text><text x=\"330\" y=\"154\" font-size=\"9\" fill=\"#9fb2c8\">(along-track)</text><text x=\"208\" y=\"58\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#e8ecf1\">R-bar (radial)</text><text x=\"200\" y=\"88\" font-size=\"10\" text-anchor=\"middle\" fill=\"#9fb2c8\">1 unit radial</text><text x=\"200\" y=\"235\" font-size=\"10\" text-anchor=\"middle\" fill=\"#9fb2c8\">2 units along-track - one ellipse per orbit</text></svg>",
+    "questions": [
+     {
+      "q": "You're released 500 m radially above the target with zero relative velocity. Why don't you simply stay there?",
+      "answer": "That state is not an equilibrium of the Clohessy-Wiltshire equations. You trace a 2-by-1 ellipse whose centre drifts backward, because a higher orbit means a longer period and the target pulls away ahead of you.",
+      "hint": "Your ellipse is centred 500 m above the target's orbit. What does the drift term do with a nonzero radial centre offset?"
+     },
+     {
+      "q": "You want a fuel-free fly-around that circles the target once per orbit, indefinitely. What single condition must your orbit satisfy?",
+      "answer": "The same period - the same semi-major axis - as the target, with the ellipse centred on it. In CW terms: zero centre offset, so there is no secular drift.",
+      "hint": "Any period mismatch appears as the ellipse's centre sliding along-track."
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "heading": "Targeting the Intercept",
+    "body": "Phasing delivers the neighbourhood; targeting delivers the door. The core question is classical: given where you are now and where the target will be at a chosen future time, which conic connects the two points, and what two impulses put you on it and take you off it at arrival? That is Lambert's problem, posed in the eighteenth century. Two position vectors and a time of flight determine the transfer ellipse, and the velocity mismatches at its two ends are the burn plan. Every rendezvous targeting cycle since - Gemini's onboard computer, Apollo's ground-and-crew loop, today's station software - is Lambert's problem dressed in operational clothing: choose the arrival time, solve, burn, re-measure, solve again.\n\nApollo and Gemini did not, however, fire Lambert arcs straight out of the phasing orbit. They staged the approach so the terminal geometry stayed predictable and the corrections stayed small. The workhorse is the coelliptic profile. First, CSI - coelliptic sequence initiation - raises the chaser from its phasing orbit into one that is coelliptic with the target's: same shape, running parallel at a fixed height difference below it - about 15 nautical miles in Apollo's lunar-orbit scheme. Because the two orbits now share a shape, the height difference holds constant all the way around, and with it the along-track closing rate: the wandering football of section 2 has been ironed into a conveyor belt. CDH - constant delta height - then trims that differential height to the precise value that delivers the required phase angle at the required time.\n\nThe payoff burn is TPI, terminal phase initiation: a Lambert-targeted impulse flown at a computed phase angle - in the classic coelliptic geometry, on the order of 130 degrees of orbital travel before intercept - that lifts the chaser out of its parallel track and onto an arc arriving at the target's position with matched velocity. Two small midcourse corrections are budgeted along that arc, because no burn is ever exactly the burn that was planned. Later Apollo flights compressed the scheme into a direct-ascent profile, but the structure survived the compression: stage the geometry, target the intercept, correct the dispersions.\n\nWhat makes any of it real is measurement. The rendezvous radar returns range, range-rate, and line-of-sight angles to the target; the computer filters those observations into a relative state estimate, re-solves the Lambert problem against the measured state, and sizes the next correction. Read the profile again with that loop in mind and its shape explains itself: CSI and CDH exist to make the geometry so regular that the final targeting problem is small, well-observed, and forgiving. Rendezvous is not a firing solution computed once on the ground. It is a feedback system that burns, measures, and re-plans its way in - and section 4 begins where the loop hands over to the crew's eyes and a schedule of gates.",
+    "visual": "A coelliptic profile drawn flat: the target's orbit as a top line, the chaser's parallel coelliptic track below it, and the TPI arc curving up from CDH to the intercept point.",
+    "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><rect x=\"20\" y=\"20\" width=\"360\" height=\"260\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><line x1=\"40\" y1=\"90\" x2=\"360\" y2=\"90\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><line x1=\"40\" y1=\"200\" x2=\"300\" y2=\"200\" stroke=\"#7ee2a8\" stroke-width=\"2\"/><path d=\"M 90 200 L 190 200 Q 290 200 322 96\" fill=\"none\" stroke=\"#ffd479\" stroke-width=\"2\"/><circle cx=\"70\" cy=\"200\" r=\"5\" fill=\"#7ee2a8\"/><circle cx=\"190\" cy=\"200\" r=\"5\" fill=\"#7ee2a8\"/><circle cx=\"255\" cy=\"185\" r=\"5\" fill=\"#ffd479\"/><circle cx=\"330\" cy=\"90\" r=\"6\" fill=\"#7cc7ff\"/><line x1=\"330\" y1=\"104\" x2=\"330\" y2=\"186\" stroke=\"#9aa6b8\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><text x=\"40\" y=\"76\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#e8ecf1\">TARGET ORBIT</text><text x=\"40\" y=\"222\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#e8ecf1\">COELLIPTIC ORBIT (fixed height below)</text><text x=\"58\" y=\"182\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#e8ecf1\">CSI</text><text x=\"172\" y=\"182\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#e8ecf1\">CDH</text><text x=\"238\" y=\"168\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#e8ecf1\">TPI</text><text x=\"330\" y=\"76\" font-size=\"11\" text-anchor=\"end\" font-family=\"sans-serif\" fill=\"#e8ecf1\">INTERCEPT</text><text x=\"336\" y=\"150\" font-size=\"9\" fill=\"#9fb2c8\">delta-h</text></svg>",
+    "questions": [
+     {
+      "q": "Why fly CSI and CDH at all, instead of one Lambert burn straight from the phasing orbit to the target?",
+      "answer": "The coelliptic setup makes the geometry boring on purpose: a constant height difference gives a steady, known closing rate and a predictable terminal phase, with measurement and correction points built in. A direct burn arrives carrying whatever dispersions the phasing orbit had.",
+      "hint": "Think about what a constant differential height does to the closing rate - and to the size of the final targeting problem."
+     },
+     {
+      "q": "Radar tracking shows the closing geometry is slightly off the plan at a midcourse point. What does the targeting cycle do with that information?",
+      "answer": "It re-solves the intercept from the measured state and sizes a small midcourse correction. Rendezvous targeting is a feedback loop - burn, measure, re-solve - not a single firing solution.",
+      "hint": "Lambert's problem takes measured positions as inputs. New measurements, new solution."
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "heading": "Terminal Phase and Capture",
+    "body": "Inside the last few kilometres, rendezvous stops being orbital mechanics and becomes traffic control with consequences. The governing device is the braking gate: a schedule that pairs range with a maximum permitted closing rate, so that the energy still to be shed is always proportional to the room left to shed it in. Early gates are generous - tens of metres per second at several kilometres. The gates then step down relentlessly: a couple of metres per second at a kilometre, a fraction of that in the last few hundred metres, a walking pace at contact. The exact tables differ by vehicle and era - the LM flew its gates against radar range in feet per second, the Shuttle and the station use their own - but the shape never changes, and neither does the gate's second job: every gate is a decision point at which the approach can be held, or waved off, with propellant and geometry to spare.\n\nBefore the final run-in, the chaser typically station-keeps: it parks at a point on one of the two approach corridors - the V-bar, along the target's flight path, or the R-bar, along the local vertical - and holds position while the crew inspects the target, verifies alignment, and waits for lighting and communications to come right. Holding is not free. Section 2's coupling is still running: any small radial error becomes along-track drift within a quarter orbit, so station-keeping is a budgeted series of small corrections, and an approach axis is chosen partly for how its natural motion behaves if a burn is missed. Corridors and keep-out spheres drawn around a station exist for the same reason - and for one more: a chaser's thruster plumes must never sandblast the target's arrays and optics at close range.\n\nCapture itself is a two-stage promise. Soft capture is the first mechanical handshake: one mechanism's capture latches engage the other's, the vehicles are restrained but still loosely joined, misalignments of a few degrees and a few centimetres are absorbed, and the residual relative motion is damped out. Hard capture completes the contract: structural latches drive the two interfaces together and compress the seals until the joint is rigid and pressure-tight, able to carry structural loads and hold cabin pressure with hatches open between the vehicles.\n\nApollo implemented the promise with a probe and drogue. The command module's extendable probe, tipped with a capture head, speared the conical drogue mounted in the LM's docking target; capture latches clicked, the probe retracted and hauled the two docking rings together, and twelve structural latches around the ring made the joint hard. The probe and drogue were then removed and stowed to clear the tunnel - a detail section 5 will put to work. The APAS mechanism, built for the Apollo-Soyuz docking in 1975, moved everything to the periphery: an androgynous ring around a clear central tunnel, either side able to play the active role, nothing to dismantle before the crew can pass. Its descendant interface, standardised as IDSS and flown today as the station's docking adapters, is the same idea with the lessons folded in. Sixty years on, the mechanisms are more forgiving and fully standardised - but the terminal phase is still flown gate by gate, because docking is the one manoeuvre with no undo at contact, so all of the undo is built into the approach.",
+    "visual": "A braking-gate staircase: range falling in steps from kilometres to metres while the permitted closing rate steps down with it, ending in a hold point and then contact at walking pace.",
+    "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><rect x=\"20\" y=\"20\" width=\"360\" height=\"260\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><line x1=\"50\" y1=\"240\" x2=\"350\" y2=\"240\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><line x1=\"50\" y1=\"240\" x2=\"50\" y2=\"50\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><polyline points=\"60,70 130,120 200,165 265,200 320,222\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><circle cx=\"60\" cy=\"70\" r=\"4\" fill=\"#ffd479\"/><circle cx=\"130\" cy=\"120\" r=\"4\" fill=\"#ffd479\"/><circle cx=\"200\" cy=\"165\" r=\"4\" fill=\"#ffd479\"/><circle cx=\"265\" cy=\"200\" r=\"4\" fill=\"#ffd479\"/><circle cx=\"320\" cy=\"222\" r=\"4\" fill=\"#7ee2a8\"/><text x=\"60\" y=\"56\" font-size=\"10\" text-anchor=\"middle\" font-family=\"sans-serif\" fill=\"#e8ecf1\">9 km</text><text x=\"60\" y=\"262\" font-size=\"9\" text-anchor=\"middle\" fill=\"#9fb2c8\">28 m/s</text><text x=\"130\" y=\"106\" font-size=\"10\" text-anchor=\"middle\" font-family=\"sans-serif\" fill=\"#e8ecf1\">5 km</text><text x=\"130\" y=\"262\" font-size=\"9\" text-anchor=\"middle\" fill=\"#9fb2c8\">12 m/s</text><text x=\"200\" y=\"151\" font-size=\"10\" text-anchor=\"middle\" font-family=\"sans-serif\" fill=\"#e8ecf1\">1 km</text><text x=\"200\" y=\"262\" font-size=\"9\" text-anchor=\"middle\" fill=\"#9fb2c8\">2 m/s</text><text x=\"265\" y=\"186\" font-size=\"10\" text-anchor=\"middle\" font-family=\"sans-serif\" fill=\"#e8ecf1\">250 m</text><text x=\"265\" y=\"262\" font-size=\"9\" text-anchor=\"middle\" fill=\"#9fb2c8\">0.5 m/s - HOLD</text><text x=\"320\" y=\"208\" font-size=\"10\" text-anchor=\"middle\" font-family=\"sans-serif\" fill=\"#e8ecf1\">30 m</text><text x=\"320\" y=\"262\" font-size=\"9\" text-anchor=\"middle\" fill=\"#9fb2c8\">0.1 m/s</text><text x=\"200\" y=\"36\" font-size=\"11\" text-anchor=\"middle\" font-family=\"sans-serif\" fill=\"#e8ecf1\">BRAKING GATES: max closing rate vs range</text></svg>",
+    "questions": [
+     {
+      "q": "At a braking gate 1 km out, you're closing well above the gate's budgeted rate. What's required, and why do the gates exist at all?",
+      "answer": "Brake to the gate rate. The gates keep the closure energy proportional to the range remaining, so that at every point a stop - or a wave-off - is still affordable in propellant, time, and geometry.",
+      "hint": "What must remain possible at every single point of the approach?"
+     },
+     {
+      "q": "Capture latches have just clicked, but the hatches stay shut and nobody celebrates. What's still missing?",
+      "answer": "Hard capture. The structural latches must still drive the two rings together, compress the seals, and make the joint rigid and pressure-tight. Soft capture only restrains and aligns the pair.",
+      "hint": "Two stages: a loose handshake that holds you together, then the structural joint that carries pressure and loads."
+     }
+    ]
+   },
+   {
+    "id": "s5",
+    "heading": "When Rendezvous Goes Wrong",
+    "body": "Failures teach the shape of the discipline better than successes. Take Apollo 14, early 1971. The rendezvous itself had gone cleanly; Stuart Roosa, alone in the command module Kitty Hawk, brought it into contact with the LM Antares - and the capture latches at the probe's head did not fire. He backed off and tried again. Five times in all, over nearly two hours, the probe met the drogue and nothing caught, while the LM's consumables clock ran down on the surface timeline it had just left. The sixth attempt changed the recipe: Roosa thrust into contact and kept thrusting, holding the probe compressed in the drogue while the latches were worked - and they caught. The leading explanation afterwards was contamination in the capture-latch mechanism. Note what failed and what did not: the flying - phasing, targeting, braking, alignment - was never the problem. The last centimetre was.\n\nProgress M-34 is the colder story. In June 1997 the freighter was flown back toward Mir as a test of TORU, the manual teleoperator docking mode, meant to prove a crew could redock a Progress by hand more cheaply than the automated Kurs system. The freighter was uncrewed; Vasily Tsibliyev flew it from inside Mir, watching a television picture from the Progress's own camera. Mir's solar arrays blocked that picture's view of the approaching freighter until dangerously late, the crew's range and closing-rate cues were poor, and the closure was too fast. M-34 clipped a solar array and struck the Spektr module, puncturing its pressure hull. The crew sealed Spektr off - living to do so because the hatch could be isolated - but the module and most of its power were lost for good. Nothing about the orbital mechanics was exotic. A vehicle closed on a station with inadequate relative navigation and no honest way to stop, and physics collected its fee.\n\nSet the three cases side by side and the pattern is the course in miniature. Gemini 4: thrust without a relative picture, and the phase geometry walks away with your propellant. Apollo 14: a perfect relative picture and a failed handshake, survived because time, force, and a workaround existed at the gate. M-34: a closing trajectory flown on a degraded picture, with the stop option effectively gone before anyone knew it. The variable that predicts the outcome is never the engine. It is the quality of the relative navigation and the discipline of closure.\n\nThat is why every sound profile is designed as a chain of exits. Before TPI, you can simply wait: the phasing orbit is stable and patient. Inside the terminal phase, each braking gate doubles as a hold point, and a hold can always be converted into a retreat - a small separating burn that drops the chaser back to a safe, predictable drift for another attempt on another day. Even Apollo 14's worst case had a floor under it: had docking failed outright, the fallback was an EVA transfer of the crew and the film from LM to CSM, because the rendezvous - the hard part - had already succeeded. Build the exits first, keep the picture honest, and let the gates do their work: that is how you fly the last mile.",
+    "visual": "Three case cards in a row - Gemini 4 (instinct vs geometry), Apollo 14 (failed latches), Progress M-34 (blind closure) - under one banner: the picture fails before the hardware does.",
+    "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><rect x=\"20\" y=\"20\" width=\"360\" height=\"260\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"200\" y=\"48\" font-size=\"12\" text-anchor=\"middle\" font-family=\"sans-serif\" fill=\"#e8ecf1\">THREE FAILURES, ONE LESSON</text><rect x=\"40\" y=\"70\" width=\"320\" height=\"46\" fill=\"#1b2432\" stroke=\"#ff8a7a\" stroke-width=\"1\"/><text x=\"52\" y=\"90\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#e8ecf1\">GEMINI 4 - 1965</text><text x=\"52\" y=\"106\" font-size=\"10\" fill=\"#9fb2c8\">instinct vs geometry: thrust at the booster, drift away</text><rect x=\"40\" y=\"132\" width=\"320\" height=\"46\" fill=\"#1b2432\" stroke=\"#ffd479\" stroke-width=\"1\"/><text x=\"52\" y=\"152\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#e8ecf1\">APOLLO 14 - 1971</text><text x=\"52\" y=\"168\" font-size=\"10\" fill=\"#9fb2c8\">perfect flying, capture latches that would not fire</text><rect x=\"40\" y=\"194\" width=\"320\" height=\"46\" fill=\"#1b2432\" stroke=\"#ff8a7a\" stroke-width=\"1\"/><text x=\"52\" y=\"214\" font-size=\"11\" font-family=\"sans-serif\" fill=\"#e8ecf1\">PROGRESS M-34 - 1997</text><text x=\"52\" y=\"230\" font-size=\"10\" fill=\"#9fb2c8\">manual TORU test, blind closure, Spektr holed</text><text x=\"200\" y=\"266\" font-size=\"11\" text-anchor=\"middle\" fill=\"#7ee2a8\">the picture fails before the hardware does</text></svg>",
+    "questions": [
+     {
+      "q": "Apollo 14's probe met the drogue five times without capturing. What actually fixed it on the sixth attempt?",
+      "answer": "Sustained force. Roosa thrust the command module into contact and held the probe compressed in the drogue while the capture latches were worked, and they engaged. The fault was in the capture-latch mechanism - debris was the leading explanation - not in the flying.",
+      "hint": "The rendezvous was fine every time. Which stage of section 4's two-stage capture was failing?"
+     },
+     {
+      "q": "What single failure ties Gemini 4 and Progress M-34 together, 32 years apart?",
+      "answer": "Relative navigation, not propulsion. McDivitt had no radar and a false mental model of the geometry; M-34's crew had a blocked, cue-poor television picture and misjudged the closure. In both cases the picture of where things were failed before any hardware did.",
+      "hint": "One had thrust but no picture. The other had a vehicle under control and a blind spot. What's the shared missing piece?"
+     }
+    ]
+   }
+  ]
+ },
+ "quizzes": {
+  "sections": [
+   {
+    "id": "s1",
+    "questions": [
+     {
+      "q": "You are the chaser, in a circular orbit 20 km below the target and 80 km behind it, and you make no burns. Over the next few orbits you will:",
+      "choices": [
+       "Drift farther behind, because the higher vehicle is faster",
+       "Catch up steadily, because the lower orbit has a shorter period",
+       "Hold the 80 km gap, since both vehicles are effectively in the same orbit",
+       "Catch up for one orbit, then fall behind as the geometry reverses"
+      ],
+      "answer": 1,
+      "explain": "Period scales as r^(3/2): lower means a shorter lap time, so the chaser gains phase continuously - on the order of 30 m/s of along-track closure for a 20 km height difference in low Earth orbit. Ground speed is a distraction; phase rate is what closes the gap."
+     },
+     {
+      "q": "Below and behind the target, impatient, you make a healthy prograde burn to speed up the chase. By half an orbit later:",
+      "choices": [
+       "You are closing twice as fast, right on profile",
+       "You have arrived early and must brake hard",
+       "You have raised your orbit and lengthened your period, killing the catch-up rate - possibly reversing it",
+       "Nothing has changed; burns only matter once you reach the target"
+      ],
+      "answer": 2,
+      "explain": "A prograde impulse adds energy: the far side of the orbit rises, the period stretches, and the phase gain - the only thing that was closing the gap - shrinks or flips sign. The correct instinct below a target is patience, or at most a small retrograde burn to deepen the phasing advantage."
+     },
+     {
+      "q": "Your programme sets you 25 km below the target to phase in rather than manoeuvring directly. The trade you have accepted is:",
+      "choices": [
+       "Time for propellant: the height difference closes the phase gap for free, and you pay in orbits of waiting instead of fuel",
+       "Accuracy for speed: phasing is faster but sloppier",
+       "Safety for complexity: lower orbits are inherently safer",
+       "Nothing in particular - phasing is just how the diagram is drawn"
+      ],
+      "answer": 0,
+      "explain": "Phasing converts altitude difference into closure rate at no propellant cost beyond entering and leaving the phasing orbit. The bill is paid in time, which is why rendezvous timelines are planned in orbits, not minutes."
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "questions": [
+     {
+      "q": "Released from the target with a small push purely out of plane (the +z direction), with no in-plane offset, your motion is:",
+      "choices": [
+       "An oscillation through the target's plane once per orbit, independent of the in-plane motion",
+       "A slow spiral out of plane that never returns",
+       "A helix that drifts steadily ahead of the target",
+       "A fixed displacement - cross-track offsets are neutrally stable"
+      ],
+      "answer": 0,
+      "explain": "The cross-track equation is a simple oscillator, z-double-dot = -n^2 z, decoupled from the in-plane pair. Cross-track errors are the polite kind: bounded, periodic, and exactly visible at each plane crossing."
+     },
+     {
+      "q": "You are flying a natural-motion circumnavigation. A quarter of an orbit after passing 300 m directly below the target, you are:",
+      "choices": [
+       "Still below the target, sliding sideways",
+       "At the target's altitude, roughly 600 m along-track from it",
+       "300 m directly above the target",
+       "Back at the point where you started the pass"
+      ],
+      "answer": 1,
+      "explain": "The football is 2-by-1: a 300 m radial amplitude means a 600 m along-track amplitude, reached a quarter period later as the ellipse carries you through the target's altitude. Half an orbit after passing below, you would be 300 m above."
+     },
+     {
+      "q": "Your circumnavigation ellipse is centred 2 km below the target's orbit (centre offset x0 = -2 km), otherwise closed. Over many orbits, the whole pattern:",
+      "choices": [
+       "Stays pinned to the target - offsets do not drift",
+       "Slides steadily ahead of the target, because a lower centre means a shorter period",
+       "Slides steadily behind the target",
+       "Precesses out of the target's plane"
+      ],
+      "answer": 1,
+      "explain": "The secular drift rate is -(3/2) n x0. A negative x0 - a centre below the target's orbit - gives positive along-track drift. Only a zero radial offset, a matched period, keeps the ellipse pinned to the target."
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "questions": [
+     {
+      "q": "Lambert targeting needs, at minimum:",
+      "choices": [
+       "The target's complete ephemeris for the next day",
+       "Both vehicles' thrust profiles and propellant masses",
+       "Your position now, the target's position at a chosen arrival time, and the transfer time between them",
+       "A continuous radar lock from the burn to the intercept"
+      ],
+      "answer": 2,
+      "explain": "Lambert's theorem: two position vectors and a time of flight fix the connecting conic. The velocity mismatches at the two ends of that conic are exactly the departure and arrival impulses - which is why re-solving with fresh radar states is cheap, and done constantly."
+     },
+     {
+      "q": "Between CDH and TPI, tracking shows you will reach the terminal phase with a phase angle 3 degrees wider than planned. The profile's answer is:",
+      "choices": [
+       "Abort to the phasing orbit - the profile is broken",
+       "Absorb it with the planned midcourse correction and a re-timed, re-sized TPI computed from the measured state",
+       "Burn radially to slide sideways into the correct angle",
+       "Ignore it - 3 degrees is inside the radar's own error"
+      ],
+      "answer": 1,
+      "explain": "The profile is a feedback loop by design: measured state, re-solved Lambert intercept, small correction. A 3-degree phase error at midcourse is precisely what the correction budget exists to absorb. Aborts are for lost navigation or failed burns, not for correctable dispersions."
+     },
+     {
+      "q": "Why does the coelliptic leg hold a constant differential height instead of spiralling continuously upward toward the target?",
+      "choices": [
+       "To save the radar from tracking a constantly changing range",
+       "Because the chaser's engines cannot feed a long continuous burn",
+       "Tradition - Gemini flew it that way and nobody changed it",
+       "Because a constant delta-h produces a constant, known closing rate, turning the terminal phase into a scheduled event instead of a continuous estimation problem"
+      ],
+      "answer": 3,
+      "explain": "Same shape, fixed height difference: the geometry repeats every orbit and the closing rate is steady and known in advance. That regularity is what makes the final targeting problem small, observable, and forgiving - the entire point of staging the profile."
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "questions": [
+     {
+      "q": "Between one braking gate and the next, the range to the target has halved. Your closing rate should have:",
+      "choices": [
+       "Stayed the same - braking only matters in the last kilometre",
+       "Roughly halved as well - the schedule budgets closure against range at every gate",
+       "Doubled, to make up the time spent braking earlier",
+       "Dropped to zero - gates are full stops"
+      ],
+      "answer": 1,
+      "explain": "The gates pair range with a maximum closing rate that falls as range falls, keeping the energy still to be killed proportional to the room left to kill it in - and preserving a stop or a wave-off at every step."
+     },
+     {
+      "q": "Soft capture is confirmed: latches engaged, vehicles loosely joined, relative motion damping out. The docking is still not complete, because:",
+      "choices": [
+       "The structural latches have not yet driven the rings together into a rigid, pressure-tight joint",
+       "The target vehicle has not confirmed capture on its own panel",
+       "Hatches may only be opened after one full orbit",
+       "Soft capture does not count unless relative motion is exactly zero"
+      ],
+      "answer": 0,
+      "explain": "Soft capture restrains and aligns the pair. Hard capture - structural latches pulling the interfaces together and compressing the seals - makes a joint that can carry loads and hold cabin pressure. Until then, you are two vehicles holding on to each other, not one vehicle."
+     },
+     {
+      "q": "Final approach, 150 m out on the V-bar, and a caution tells you the relative navigation solution has degraded. The profile's designed answer is:",
+      "choices": [
+       "Press on - at 150 m the eyeball is better than the filter anyway",
+       "Translate radially to the R-bar and re-approach from below",
+       "Brake to a hold at the next gate and rebuild the solution before continuing",
+       "Speed up, to spend less time in the degraded state"
+      ],
+      "answer": 2,
+      "explain": "Every gate doubles as a hold point precisely for this case. The approach is built so that stopping is always cheap and always available; pressing on with a broken picture is how section 5's accidents happened."
+     }
+    ]
+   },
+   {
+    "id": "s5",
+    "questions": [
+     {
+      "q": "On Apollo 14's sixth docking attempt, after five clean contacts had failed to capture, what changed?",
+      "choices": [
+       "A replacement probe was installed during an EVA",
+       "The LM dropped to a lower orbit for more closing speed",
+       "The drogue was removed so the tunnel could mate bare",
+       "The command module thrust into contact and stayed thrusting, holding the probe compressed while the capture latches cycled - and they caught"
+      ],
+      "answer": 3,
+      "explain": "The rendezvous flying had been perfect all along; the failure lived in a latch mechanism the size of a fist, with debris the leading suspect afterwards. Sustained compression seated it. And the unused plan B - an EVA crew transfer - existed only because the hard part, the rendezvous, had already succeeded."
+     },
+     {
+      "q": "Progress M-34 was being flown manually by television picture from inside Mir when it struck the station. The collision's core cause was:",
+      "choices": [
+       "The TORU hand controller failed outright",
+       "Mir's solar arrays blocked the view of the approaching freighter until late, range and closure were misjudged, and the braking came too late",
+       "The Kurs system was switched off by ground commanders mid-approach",
+       "Spektr's docking target was misaligned by several degrees"
+      ],
+      "answer": 1,
+      "explain": "The TORU test's premise - manual backup flying - replaced automated ranging with a camera picture that could not supply it. The arrays masked the Progress until the geometry was already bad, and a too-fast closure judged by eye ended in the array and Spektr's hull. Navigation information, not thrust, was the missing system."
+     },
+     {
+      "q": "You are 40 km behind and below the target in a safe phasing orbit when your rendezvous radar fails completely. The profile-minded call is:",
+      "choices": [
+       "Burn for a direct intercept on ground tracking alone - the geometry is known",
+       "Start the coelliptic sequence on schedule; the radar usually comes back",
+       "Stay in the phasing orbit: it is stable and predictable, and keeps every option open while the failure is worked",
+       "Make the final approach on the target's lights as a visual reference"
+      ],
+      "answer": 2,
+      "explain": "A phasing orbit is the rendezvous holding pattern: no divergence, no closure, propellant largely unspent, ground in the loop. Every disaster in this section came from pressing on with a broken picture; none came from waiting one more orbit."
+     }
+    ]
+   }
+  ]
+ },
+ "slides": {
+  "sections": [
+   {
+    "id": "s1",
+    "title": "Why You Can't Just Aim at It",
+    "bullets": [
+     "Speed is set by radius: v = sqrt(mu/r); period grows as r^(3/2).",
+     "A chaser 10 km below a target laps it at roughly 17 m/s of phase drift - for free.",
+     "A burn changes your period first and your position second; prograde from below kills the chase.",
+     "Gemini 4, 1965: McDivitt thrusts at the Titan booster and watches it walk away.",
+     "Rendezvous is phasing: buy closure with altitude difference, pay with time."
+    ],
+    "notes": "Open with the Gemini 4 story and let the class sit with the paradox: the booster was visible, close, and unreachable by direct thrust. Then derive the drift number - the whole course hangs on period, not speed, being the currency of rendezvous.",
+    "visual": "Two concentric orbits with the phase gap between chaser and target marked, closing a fixed amount each revolution."
+   },
+   {
+    "id": "s2",
+    "title": "Relative Motion",
+    "bullets": [
+     "LVLH rides on the target: x radial, y along-track, z along the orbit normal.",
+     "Hill / Clohessy-Wiltshire: cross-track is a pendulum; in-plane motion is drift plus an ellipse.",
+     "The thrust-free ellipse is 2-by-1, long axis along-track, traversed once per orbit.",
+     "A radial centre offset makes the whole ellipse drift at -(3/2) n x0.",
+     "Centre the ellipse on the target and you have natural motion circumnavigation - a free fly-around."
+    ],
+    "notes": "Draw the football and walk it quarter-orbit by quarter-orbit: above, behind, below, ahead. The one result to burn in is the drift term - it explains phasing, station-keeping costs, and why radial errors are never free.",
+    "visual": "The 2-by-1 relative-motion ellipse centred on the target, V-bar and R-bar axes labeled, traversal direction shown."
+   },
+   {
+    "id": "s3",
+    "title": "Targeting the Intercept",
+    "bullets": [
+     "Lambert: two positions plus a time of flight determine the transfer conic and both impulses.",
+     "CSI puts the chaser in a coelliptic orbit a fixed height below the target - about 15 nmi in Apollo's lunar scheme.",
+     "CDH trims the differential height to deliver the planned phase angle on time.",
+     "TPI is the Lambert burn onto the intercept arc, flown at a computed phase angle, with two midcourse corrections budgeted.",
+     "Radar turns the plan into a loop: burn, measure, re-solve, correct."
+    ],
+    "notes": "Stress the staging logic: each burn makes the next problem smaller and better observed. The coelliptic leg looks like a detour and is actually the mechanism that makes the terminal phase schedulable to the minute.",
+    "visual": "The flat coelliptic profile: target orbit above, parallel chaser track below, TPI arc rising to the intercept point."
+   },
+   {
+    "id": "s4",
+    "title": "Terminal Phase and Capture",
+    "bullets": [
+     "Braking gates pair every range with a maximum closing rate; each gate is also a hold point.",
+     "Station-keeping on the V-bar or R-bar buys inspection time - and costs a budget of small corrections.",
+     "Soft capture restrains and aligns; hard capture makes the joint rigid and pressure-tight.",
+     "Apollo: probe into drogue, retract, twelve ring latches. APAS/IDSS: an androgynous peripheral ring, tunnel always clear.",
+     "No undo exists at contact - so all of it is built into the approach."
+    ],
+    "notes": "Run the gate table from kilometres to metres and keep asking what a stop costs at each line - the answer is the design. Then contrast the two capture philosophies: Apollo's spear-and-haul versus the peripheral ring that never blocks its own tunnel.",
+    "visual": "A descending staircase of gates - range against maximum closing rate - with a hold point flagged at 250 m."
+   },
+   {
+    "id": "s5",
+    "title": "When Rendezvous Goes Wrong",
+    "bullets": [
+     "Apollo 14: five failed captures, fixed by sustained thrust holding the probe compressed; debris the leading suspect.",
+     "Progress M-34, 1997: a manual TORU redocking test, a picture blocked by Mir's arrays, closure misjudged, Spektr holed and sealed off.",
+     "Gemini 4, Apollo 14, M-34: thrust, latches, and judgement differed - the relative picture is the common variable.",
+     "Design the exits first: wait in phasing, hold at any gate, retreat to a safe drift.",
+     "The picture fails before the hardware does."
+    ],
+    "notes": "Close the course by lining the three failures up against the profile built in sections 1 to 4: each accident is a specific earlier lesson, violated. Apollo 14 also shows the floor a good profile provides - even total docking failure had an EVA answer, because the rendezvous itself had succeeded.",
+    "visual": "Three case cards - 1965, 1971, 1997 - each tagged with the one thing that failed: picture, latches, picture."
+   }
+  ]
+ },
+ "enrichment": {
+  "audioTitle": "Gate by Gate: Flying the Last Ten Kilometres",
+  "turns": [
+   {
+    "speaker": "teacher",
+    "line": "Flight, FIDO. We're TPI plus twenty minutes: range nine kilometres, closing at twenty-eight metres a second, radar solid, state vector tight. Call the gates as you see them."
+   },
+   {
+    "speaker": "student",
+    "line": "Copy. Nine kilometres at twenty-eight a second - that closure sounds hot for this range. Where should I be?"
+   },
+   {
+    "speaker": "teacher",
+    "line": "Right on the schedule, for now. Think of the budget as a staircase, not a slope: the closer we get, the less closure we're allowed. Next gate is five kilometres, and I want you at twelve metres a second or under when we cross it."
+   },
+   {
+    "speaker": "student",
+    "line": "Twelve at five K. Braking burn in ninety seconds, small retrograde push. And if the burn underperforms?"
+   },
+   {
+    "speaker": "teacher",
+    "line": "Then we re-solve. Nothing from here on is assumed - the radar hands me range and range-rate, I hand you a correction. Dispersions are expected. Absorbing them is literally what the midcourse budget is for."
+   },
+   {
+    "speaker": "student",
+    "line": "Five kilometres. Eleven metres a second. Gate's green."
+   },
+   {
+    "speaker": "teacher",
+    "line": "Green. One-kilometre gate next: two metres a second, and I want the line-of-sight rate near zero. If the station starts drifting sideways in the reticle, that's your radial error trying to become a football."
+   },
+   {
+    "speaker": "student",
+    "line": "Understood - kill the drift with small lateral pulses and don't chase it. Every burn re-seeds the ellipse, so tiny inputs, then wait and watch."
+   },
+   {
+    "speaker": "teacher",
+    "line": "You've got it. That's the whole terminal phase in one sentence: the geometry does most of the flying, your job is to keep it honest."
+   },
+   {
+    "speaker": "student",
+    "line": "One kilometre, one-point-eight metres a second. Steady in the window. This part actually looks like the simulator."
+   },
+   {
+    "speaker": "teacher",
+    "line": "It should - this is the regime your instincts were built for. Two hundred fifty metres next: half a metre a second, and we hold there for the inspection and the lighting."
+   },
+   {
+    "speaker": "student",
+    "line": "Hold at two-fifty. Before I come off it - if I call a wave-off from the hold, where exactly do I go?"
+   },
+   {
+    "speaker": "teacher",
+    "line": "Brake to zero relative, then one small separating burn drops you below and behind into a phasing drift. Stable, predictable, full set of options tomorrow. The hold is never a dead end; it's a door."
+   },
+   {
+    "speaker": "student",
+    "line": "Coming off the hold. Final gate, thirty metres, closing at point one. Capture latches armed. It still feels wrong, flying this slowly at something this big."
+   },
+   {
+    "speaker": "teacher",
+    "line": "That's the last instinct to retire. Contact at walking pace or don't contact at all - the mechanism forgives misalignment, it does not forgive energy. Call it when you see it."
+   },
+   {
+    "speaker": "student",
+    "line": "Contact. Capture light... soft capture confirmed, structural latches driving... hard capture. FIDO, we're docked. And for the record - the ground was right. The last mile was the hardest part of the whole flight."
+   }
+  ],
+  "nodes": [
+   {
+    "id": "root",
+    "label": "Orbital Rendezvous and Docking",
+    "parent": null,
+    "note": "From phasing geometry to a pressure-tight joint: how two vehicles in orbit become one."
+   },
+   {
+    "id": "n1",
+    "label": "Phasing",
+    "parent": "root",
+    "note": "Altitude difference buys phase rate. Period, not speed, is the currency of the chase."
+   },
+   {
+    "id": "n2",
+    "label": "Relative Motion",
+    "parent": "root",
+    "note": "The LVLH frame and the Hill / Clohessy-Wiltshire solution: secular drift plus the 2-by-1 football ellipse."
+   },
+   {
+    "id": "n3",
+    "label": "Targeting",
+    "parent": "root",
+    "note": "Lambert's problem, the coelliptic profile (CSI, CDH), and TPI inside a burn-measure-correct loop."
+   },
+   {
+    "id": "n4",
+    "label": "Braking Gates",
+    "parent": "root",
+    "note": "Closing rate budgeted against range at every gate; every gate keeps a stop and a wave-off alive."
+   },
+   {
+    "id": "n5",
+    "label": "Capture",
+    "parent": "root",
+    "note": "Soft capture restrains and aligns; hard capture drives the joint rigid and pressure-tight. Probe-and-drogue to IDSS."
+   },
+   {
+    "id": "n6",
+    "label": "Failure Lessons",
+    "parent": "root",
+    "note": "Gemini 4, Apollo 14, Progress M-34: the relative picture fails before the hardware does."
+   }
+  ],
+  "mnemonics": [
+   {
+    "for": "Which way a chaser drifts relative to its target",
+    "aid": "Down is fast, up is slow - drop below the target and the laps come to you."
+   },
+   {
+    "for": "The proportions of the natural-motion ellipse",
+    "aid": "Two along, one up: the football is always twice as long as it is tall."
+   },
+   {
+    "for": "The braking-gate rule",
+    "aid": "Range sets the rate: halve the distance, halve the closure."
+   }
+  ]
+ }
+}

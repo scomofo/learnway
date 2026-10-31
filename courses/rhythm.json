@@ -1,0 +1,569 @@
+{
+ "meta": {
+  "title": "Rhythm, Groove & Swing: Feel Is a Number You Bend",
+  "topic": "rhythm, groove and swing",
+  "level": "intermediate",
+  "interests": "",
+  "depth": "standard",
+  "model": "manual",
+  "createdAt": "2026-10-22T12:00:00.000Z",
+  "version": 1
+ },
+ "plan": {
+  "title": "Rhythm, Groove & Swing: Feel Is a Number You Bend",
+  "hook": "A drum machine plays perfectly on the grid and still grooves — because groove was never about sloppiness; it's about where the notes are placed on purpose.",
+  "objectives": [
+   "Read and build patterns on a 16-step grid, placing accents deliberately",
+   "Set a swing ratio and predict the feel it produces at a given tempo",
+   "Layer 3:2 and 4:3 polyrhythms and the son clave without losing the one",
+   "Tell systematic microtiming (feel) from random jitter (sloppiness), and program the difference"
+  ],
+  "prerequisites": [
+   "You can count bars and beats in 4/4 and clap on 2 and 4",
+   "No other theory assumed"
+  ],
+  "sections": [
+   {
+    "id": "s1",
+    "heading": "The Grid",
+    "points": [
+     "Meter and subdivision: note values as ratios of one bar",
+     "The 16-step grid as a map: rows are instruments, columns are time",
+     "The backbeat skeleton — kick on 1 and 3, snare on 5 and 13",
+     "Accents: same steps, different weight",
+     "What a fixed grid cannot draw: triplets inside a beat"
+    ]
+   },
+   {
+    "id": "s2",
+    "heading": "Swing and Shuffle",
+    "points": [
+     "The swing ratio defined: where the offbeat eighth lands inside the pair",
+     "50% straight, 66.7% triplet, 75% dotted — one number, three feels",
+     "MPC swing percentages and what the delay is worth in milliseconds",
+     "Genre neighbourhoods from boogie to boom-bap, and tempo's effect on the ratio"
+    ]
+   },
+   {
+    "id": "s3",
+    "heading": "Layers: Polyrhythm and Clave",
+    "points": [
+     "3:2 and 4:3 — two cycles sharing one downbeat, realigning on the LCM",
+     "Hemiola: regrouping six eighths as 3+3 against 2+2+2",
+     "Son clave on a 16-step eighth-note grid, 3-2 and 2-3, and the tresillo inside it",
+     "Clave as an organising pattern other parts answer to",
+     "Metric modulation: the same trick at the scale of whole bars"
+    ]
+   },
+   {
+    "id": "s4",
+    "heading": "Human Timing",
+    "points": [
+     "What microtiming research shows: placement is systematic, not random",
+     "The laid-back backbeat and the pocket between kick and snare",
+     "Velocity and ghost notes: feel with zero timing deviation",
+     "Dilla's unquantized MPC work as the studied extreme"
+    ]
+   },
+   {
+    "id": "s5",
+    "heading": "Programming Feel on Machines",
+    "points": [
+     "The tools in order of power: swing, per-step nudge, velocity, then humanize",
+     "Humanize functions judged honestly: randomness has no memory",
+     "One groove built three ways: quantized, swung, finger-drummed",
+     "Translating between the grid and the pads in both directions"
+    ]
+   }
+  ]
+ },
+ "reading": {
+  "sections": [
+   {
+    "id": "s1",
+    "heading": "The Grid",
+    "body": "Every rhythm you will ever program is a set of decisions about one bar of time. Start with the bar itself. In 4/4 there are four quarter-note beats, and every other note value is a ratio of that whole: a half note is half the bar, an eighth is an eighth of it, a sixteenth is a sixteenth. Nothing here is mystical — it is fractions with drums attached. A step sequencer makes the fractions visible. It slices the bar into sixteen equal sixteenth-note steps and lays them left to right, one row per instrument: hats on top, snare in the middle, kick at the bottom, or whatever order your machine prefers. Columns are time. Rows are voices. A filled step is an instruction: play this, here.\n\nLearn to read that map the way you read a street grid. Beats fall on steps 1, 5, 9, and 13 — every fourth step. The classic backbeat skeleton is almost insultingly simple on this map: kick on steps 1 and 9 (beats 1 and 3), snare on steps 5 and 13 (beats 2 and 4), hats ticking the eighth notes on every odd step. Thousands of records are this skeleton with better clothes. When you look at an unfamiliar pattern, find the skeleton first: where are 2 and 4? Everything else in the bar is commentary on those two snare hits.\n\nThe second thing the grid shows you is weight. Two patterns can use identical steps and feel nothing alike, because steps are not just on or off — they have velocity. An accent is simply a hit played harder, and the accent pattern is a rhythm inside the rhythm: hats ticking all sixteen steps at one flat volume are a conveyor belt; the same hats with accents on the beats and whispers between them are a groove. On the 303 and 404 your accent is a button per step; on pads it is how hard your finger lands. Either way, program accents on purpose, the same way you program the hits themselves.\n\nThe third thing to learn is what the grid cannot draw. Sixteen steps divide the bar by two, four, eight, sixteen — powers of two. A triplet does not divide that way: three eighth-note triplets inside one beat would need to land at positions the grid does not have, since a beat is four steps and four is not divisible by three. Machines handle this with finer resolution or with swing, which is the next section's whole subject. For now, hold the honest picture: the grid is a map with a fixed scale. It shows you placement and weight beautifully. Anything that lives between its lines, you will have to bend the lines to reach.",
+    "visual": "A 16-step grid of one 4/4 bar with hat, snare, and kick rows; snare on steps 5 and 13, kick on 1 and 9, accents marked in gold.",
+    "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><text x=\"200\" y=\"26\" fill=\"#e8ecf5\" font-size=\"13\" text-anchor=\"middle\" font-family=\"monospace\">ONE BAR OF 4/4 — 16 SIXTEENTH STEPS</text><text x=\"58\" y=\"42\" fill=\"#9fb2d8\" font-size=\"10\" text-anchor=\"middle\">1</text><line x1=\"48\" y1=\"50\" x2=\"48\" y2=\"146\" stroke=\"#9aa6b8\" stroke-width=\"0.5\" opacity=\"0.45\"/><text x=\"140\" y=\"42\" fill=\"#9fb2d8\" font-size=\"10\" text-anchor=\"middle\">2</text><line x1=\"130\" y1=\"50\" x2=\"130\" y2=\"146\" stroke=\"#9aa6b8\" stroke-width=\"0.5\" opacity=\"0.45\"/><text x=\"222\" y=\"42\" fill=\"#9fb2d8\" font-size=\"10\" text-anchor=\"middle\">3</text><line x1=\"212\" y1=\"50\" x2=\"212\" y2=\"146\" stroke=\"#9aa6b8\" stroke-width=\"0.5\" opacity=\"0.45\"/><text x=\"304\" y=\"42\" fill=\"#9fb2d8\" font-size=\"10\" text-anchor=\"middle\">4</text><line x1=\"294\" y1=\"50\" x2=\"294\" y2=\"146\" stroke=\"#9aa6b8\" stroke-width=\"0.5\" opacity=\"0.45\"/><text x=\"48\" y=\"68\" fill=\"#e8ecf5\" font-size=\"10\" text-anchor=\"end\" font-family=\"monospace\">HAT</text><line x1=\"54\" y1=\"64\" x2=\"371.5\" y2=\"64\" stroke=\"#9aa6b8\" stroke-width=\"0.6\" opacity=\"0.6\"/><circle cx=\"58\" cy=\"64\" r=\"7\" fill=\"#ffd76a\"/><text x=\"58\" y=\"53\" fill=\"#ffd76a\" font-size=\"10\" text-anchor=\"middle\">&gt;</text><circle cx=\"78\" cy=\"64\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"99\" cy=\"64\" r=\"5.5\" fill=\"#7adfff\"/><circle cx=\"120\" cy=\"64\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"140\" cy=\"64\" r=\"7\" fill=\"#ffd76a\"/><text x=\"140\" y=\"53\" fill=\"#ffd76a\" font-size=\"10\" text-anchor=\"middle\">&gt;</text><circle cx=\"160\" cy=\"64\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"181\" cy=\"64\" r=\"5.5\" fill=\"#7adfff\"/><circle cx=\"202\" cy=\"64\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"222\" cy=\"64\" r=\"7\" fill=\"#ffd76a\"/><text x=\"222\" y=\"53\" fill=\"#ffd76a\" font-size=\"10\" text-anchor=\"middle\">&gt;</text><circle cx=\"242\" cy=\"64\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"263\" cy=\"64\" r=\"5.5\" fill=\"#7adfff\"/><circle cx=\"284\" cy=\"64\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"304\" cy=\"64\" r=\"7\" fill=\"#ffd76a\"/><text x=\"304\" y=\"53\" fill=\"#ffd76a\" font-size=\"10\" text-anchor=\"middle\">&gt;</text><circle cx=\"324\" cy=\"64\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"345\" cy=\"64\" r=\"5.5\" fill=\"#7adfff\"/><circle cx=\"366\" cy=\"64\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><text x=\"48\" y=\"102\" fill=\"#e8ecf5\" font-size=\"10\" text-anchor=\"end\" font-family=\"monospace\">SNR</text><line x1=\"54\" y1=\"98\" x2=\"371.5\" y2=\"98\" stroke=\"#9aa6b8\" stroke-width=\"0.6\" opacity=\"0.6\"/><circle cx=\"58\" cy=\"98\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"78\" cy=\"98\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"99\" cy=\"98\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"120\" cy=\"98\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"140\" cy=\"98\" r=\"7\" fill=\"#ffd76a\"/><text x=\"140\" y=\"87\" fill=\"#ffd76a\" font-size=\"10\" text-anchor=\"middle\">&gt;</text><circle cx=\"160\" cy=\"98\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"181\" cy=\"98\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"202\" cy=\"98\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"222\" cy=\"98\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"242\" cy=\"98\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"263\" cy=\"98\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"284\" cy=\"98\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"304\" cy=\"98\" r=\"7\" fill=\"#ffd76a\"/><text x=\"304\" y=\"87\" fill=\"#ffd76a\" font-size=\"10\" text-anchor=\"middle\">&gt;</text><circle cx=\"324\" cy=\"98\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"345\" cy=\"98\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"366\" cy=\"98\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><text x=\"48\" y=\"136\" fill=\"#e8ecf5\" font-size=\"10\" text-anchor=\"end\" font-family=\"monospace\">KCK</text><line x1=\"54\" y1=\"132\" x2=\"371.5\" y2=\"132\" stroke=\"#9aa6b8\" stroke-width=\"0.6\" opacity=\"0.6\"/><circle cx=\"58\" cy=\"132\" r=\"7\" fill=\"#ffd76a\"/><text x=\"58\" y=\"121\" fill=\"#ffd76a\" font-size=\"10\" text-anchor=\"middle\">&gt;</text><circle cx=\"78\" cy=\"132\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"99\" cy=\"132\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"120\" cy=\"132\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"140\" cy=\"132\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"160\" cy=\"132\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"181\" cy=\"132\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"202\" cy=\"132\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"222\" cy=\"132\" r=\"5.5\" fill=\"#7adfff\"/><circle cx=\"242\" cy=\"132\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"263\" cy=\"132\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"284\" cy=\"132\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"304\" cy=\"132\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"324\" cy=\"132\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"345\" cy=\"132\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"366\" cy=\"132\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><text x=\"200\" y=\"188\" fill=\"#9fb2d8\" font-size=\"10.5\" text-anchor=\"middle\">Gold = accented. Snare owns beats 2 and 4 (steps 5, 13).</text></svg>",
+    "questions": [
+     {
+      "q": "In a 16-step bar, which steps carry the snare backbeat, and which beat of the bar is each one?",
+      "answer": "Steps 5 and 13 — beats 2 and 4. Beats land every four steps (1, 5, 9, 13), and the backbeat is the second and fourth of them.",
+      "hint": "Count the beats first: each quarter note is four sixteenth steps."
+     },
+     {
+      "q": "Why can't a plain 16-step grid place an eighth-note triplet inside one beat exactly?",
+      "answer": "A beat is four sixteenth steps, and three equal triplet divisions don't fall on whole steps — the middle triplet hit lands between steps. The grid's resolution is in powers of two; triplets divide by three.",
+      "hint": "How many steps make one beat, and does three divide it evenly?"
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "heading": "Swing and Shuffle",
+    "body": "Take a pair of eighth notes inside one beat: the downbeat hit and the offbeat, the 'and'. In straight time the offbeat sits exactly halfway through the beat. Swing moves it late, and the swing ratio is simply where it lands, expressed as a percentage of the pair. At 50% the pair is even — straight. At 66.7% the offbeat waits until two-thirds of the beat has passed, which is exactly an eighth-note triplet's second slot: the pair now lasts 2:1, long-short, and that lilt is the shuffle. At 75% the split is 3:1, a dotted eighth followed by a sixteenth — the hardest common swing. One number, three very different walks.\n\nThis is not an abstract scale; your machines already speak it. Roger Linn's MPC swing — the percentage on the screen of every MPC since the MPC60 — delays the offbeat sixteenths by exactly this logic, over a 50% to 75% range. The delay in real time depends on tempo, which is why the same setting feels bigger on a slow record. Work it once: at 120 BPM a beat is 500 milliseconds and a sixteenth is 125. A 66% swing pushes each offbeat sixteenth 16% of 125 ms late — about 20 milliseconds. Twenty milliseconds is nothing on a clock and everything in a groove; your ear resolves placement differences far smaller than the gap between two film frames.\n\nGenres live at addresses on this line, as neighbourhoods rather than laws. Straight 50% is the home of techno and most four-on-the-floor. Boom-bap hip-hop famously camps in the high 50s and low 60s — a nod, not a lurch. The triplet point, 66.7%, is where blues shuffle and boogie live, and where swing-era jazz spends its slow and medium tempos. Up toward 75% you find the hard, dotted lope of slow swing and New Orleans second-line feels. Treat these as starting coordinates for your ears, not borders: a good player's ratio drifts a few points bar to bar, on purpose.\n\nOne more wrinkle, and it matters: in jazz, the measured swing ratio is tempo-dependent. Drummers' ride patterns sit near the triplet ratio at slow tempos and straighten toward even as the tempo climbs — at burning speeds there is physically less room to delay the offbeat, and the feel compresses. So when you set a swing value on the 404 for a fast pattern and it feels like nothing happened, the machine is telling the truth twice: the milliseconds shrank, and history agrees with it. Swing is a number, but it is a number you bend — per tempo, per genre, per bar.\n\nLearn the line by ear, not by number alone. Take one two-bar loop you know cold and walk the setting up in small steps — 54, 58, 62, 66 — playing each for a full minute before moving on. Somewhere in that walk the loop stops sounding corrected and starts sounding like a place. Note the value, but also note the tempo, because the address moves: the setting that shuffled beautifully at 90 BPM will barely stir the same pattern at 130. Producers who print their swing settings in track notes are really printing a tempo-and-swing pair, whether they know it or not.",
+    "visual": "A horizontal swing-ratio line from 50% to 75% with stops for straight, boom-bap, triplet shuffle, and hard dotted swing, plus three eighth-note pairs split at each landmark ratio.",
+    "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><text x=\"200\" y=\"26\" fill=\"#e8ecf5\" font-size=\"13\" text-anchor=\"middle\" font-family=\"monospace\">THE SWING RATIO — WHERE THE OFFBEAT LANDS</text><rect x=\"24\" y=\"52\" width=\"352\" height=\"196\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><line x1=\"52\" y1=\"118\" x2=\"348\" y2=\"118\" stroke=\"#e8ecf5\" stroke-width=\"2\"/><circle cx=\"52\" cy=\"118\" r=\"6\" fill=\"#e8ecf5\"/><text x=\"52\" y=\"102\" fill=\"#e8ecf5\" font-size=\"11\" text-anchor=\"middle\">50%</text><text x=\"52\" y=\"144\" fill=\"#e8ecf5\" font-size=\"10.5\" text-anchor=\"middle\">STRAIGHT</text><text x=\"52\" y=\"160\" fill=\"#9fb2d8\" font-size=\"9\" text-anchor=\"middle\">techno, house</text><text x=\"52\" y=\"173\" fill=\"#9fb2d8\" font-size=\"9\" text-anchor=\"middle\">(near enough)</text><circle cx=\"147\" cy=\"118\" r=\"6\" fill=\"#7adfff\"/><text x=\"147\" y=\"102\" fill=\"#7adfff\" font-size=\"11\" text-anchor=\"middle\">58%</text><text x=\"147\" y=\"144\" fill=\"#e8ecf5\" font-size=\"10.5\" text-anchor=\"middle\">LIGHT</text><text x=\"147\" y=\"160\" fill=\"#9fb2d8\" font-size=\"9\" text-anchor=\"middle\">boom-bap</text><text x=\"147\" y=\"173\" fill=\"#9fb2d8\" font-size=\"9\" text-anchor=\"middle\">neighbourhood</text><circle cx=\"250\" cy=\"118\" r=\"6\" fill=\"#ffd76a\"/><text x=\"250\" y=\"102\" fill=\"#ffd76a\" font-size=\"11\" text-anchor=\"middle\">66.7%</text><text x=\"250\" y=\"144\" fill=\"#e8ecf5\" font-size=\"10.5\" text-anchor=\"middle\">TRIPLET</text><text x=\"250\" y=\"160\" fill=\"#9fb2d8\" font-size=\"9\" text-anchor=\"middle\">shuffle, blues,</text><text x=\"250\" y=\"173\" fill=\"#9fb2d8\" font-size=\"9\" text-anchor=\"middle\">swing-era jazz</text><circle cx=\"348\" cy=\"118\" r=\"6\" fill=\"#c07aff\"/><text x=\"348\" y=\"102\" fill=\"#c07aff\" font-size=\"11\" text-anchor=\"middle\">75%</text><text x=\"348\" y=\"144\" fill=\"#e8ecf5\" font-size=\"10.5\" text-anchor=\"middle\">HARD</text><text x=\"348\" y=\"160\" fill=\"#9fb2d8\" font-size=\"9\" text-anchor=\"middle\">dotted feel,</text><text x=\"348\" y=\"173\" fill=\"#9fb2d8\" font-size=\"9\" text-anchor=\"middle\">slow-tempo swing</text><rect x=\"62\" y=\"224\" width=\"42\" height=\"12\" fill=\"#e8ecf5\"/><rect x=\"104\" y=\"224\" width=\"42\" height=\"12\" fill=\"none\" stroke=\"#e8ecf5\" stroke-width=\"1.2\"/><text x=\"104\" y=\"219\" fill=\"#9fb2d8\" font-size=\"9\" text-anchor=\"middle\">50% pair</text><rect x=\"170\" y=\"224\" width=\"56\" height=\"12\" fill=\"#ffd76a\"/><rect x=\"226\" y=\"224\" width=\"28\" height=\"12\" fill=\"none\" stroke=\"#ffd76a\" stroke-width=\"1.2\"/><text x=\"212\" y=\"219\" fill=\"#9fb2d8\" font-size=\"9\" text-anchor=\"middle\">66.7% pair</text><rect x=\"278\" y=\"224\" width=\"63\" height=\"12\" fill=\"#c07aff\"/><rect x=\"341\" y=\"224\" width=\"21\" height=\"12\" fill=\"none\" stroke=\"#c07aff\" stroke-width=\"1.2\"/><text x=\"320\" y=\"219\" fill=\"#9fb2d8\" font-size=\"9\" text-anchor=\"middle\">75% pair</text><text x=\"200\" y=\"282\" fill=\"#9fb2d8\" font-size=\"10\" text-anchor=\"middle\">Genre stops are neighbourhoods, not laws — players bend them bar to bar.</text></svg>",
+    "questions": [
+     {
+      "q": "A pair of eighths is swung at 66.7%. How are the two notes' durations divided, and what is that feel called?",
+      "answer": "The onbeat note takes two-thirds of the beat and the offbeat one-third — a 2:1 long-short split, which is triplet swing: the shuffle.",
+      "hint": "66.7% is two-thirds. What fraction of the beat is left for the second note?"
+     },
+     {
+      "q": "Why does the same swing percentage feel weaker on a fast pattern than on a slow one?",
+      "answer": "The delay is a percentage of the beat, so at faster tempos the beat — and therefore the absolute delay in milliseconds — is smaller. Less time moved means a subtler feel; jazz drummers' ratios also compress toward straight as tempo rises.",
+      "hint": "Swing delays a fraction of the beat. What happens to a fraction when the beat itself shrinks?"
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "heading": "Layers: Polyrhythm and Clave",
+    "body": "Layers are what happen when two patterns share a bar but not a grid. The simplest is 3:2: one voice plays three evenly spaced hits in the time another plays two. Over a span of six small units, the three-voice lands on units 1, 3, and 5 while the two-voice lands on 1 and 4; they coincide only on unit 1, and the whole combined pattern repeats every six units — the least common multiple of 3 and 2. Scale up to 4:3 and the cycle stretches to twelve units: the four-voice on 1, 4, 7, 10, the three-voice on 1, 5, 9, meeting again only at the top. The skill is not playing either line; it is never losing the shared one, the downbeat both voices agree on.\n\nHemiola is the same regrouping heard inside one line: six eighth notes grouped as two threes (3+3) instead of three twos (2+2+2). Nothing changes but the accents, and the floor tilts — you will meet it again as the front half of the clave.\n\nNow the clave, stated carefully, because a wrong clave grid is the one unforgivable error in this course. Everything here is written on eighth notes across two bars of 4/4: sixteen steps total, eight per bar. Son clave has five hits. In 3-2 form, bar 1 carries the three-side: steps 1, 4, and 7 — that is beat 1, the 'and of 2', and beat 4. Bar 2 carries the two-side: steps 11 and 13 — beats 2 and 3 of that bar. Written out: X..X..X. | ..X.X... The first three hits, spaced 3, 3, and 2 eighth notes apart, are the tresillo, the cell half the Afro-Cuban world is built from. Flip the bars — two-side first, three-side second — and you have 2-3 clave: ..X.X... | X..X..X. Same five hits, different sentence. Direction matters: musicians arrange to the clave's direction, and a part that fights it sounds wrong in a way beginners can hear but not name.\n\nTreat the clave as an organising pattern, not a drum part. In a salsa arrangement the bass, piano, and horns phrase around it whether or not anyone is playing it aloud; it is the bar's constitution. The same idea, at the scale of whole sections, is metric modulation: a note value changes jobs — the old eighth becomes the new quarter — and the tempo appears to gear-shift while a pulse stays continuous. Same trick, bigger: two frameworks, one shared reference point.\n\nTo get the clave into your hands, practise it the way drummers do: step quarter notes with your feet, left-right-left-right, and clap the 3-side against them until the two layers stop interfering — then swap, feet still walking, and clap the 2-side. The moment you can hold a conversation while your hands keep the pattern, it has moved from arithmetic to furniture: something other parts of a groove can be arranged around. On the pads, that is the test that matters — not whether you can enter the five hits into a grid, but whether your hands know which bar of the two they are standing in without counting.",
+    "visual": "Two 16-step eighth-note grids across two bars showing son clave in 3-2 (hits 1, 4, 7, 11, 13) and 2-3 orientations, with 3-side and 2-side brackets labelled.",
+    "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><text x=\"200\" y=\"24\" fill=\"#e8ecf5\" font-size=\"12.5\" text-anchor=\"middle\" font-family=\"monospace\">SON CLAVE — EIGHTH-NOTE GRID, TWO BARS</text><text x=\"26\" y=\"78\" fill=\"#ffd76a\" font-size=\"12\" font-family=\"monospace\">3-2</text><rect x=\"44.0\" y=\"54\" width=\"168.0\" height=\"46\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"0.7\"/><text x=\"128.0\" y=\"48\" fill=\"#9fb2d8\" font-size=\"9\" text-anchor=\"middle\">bar 1</text><rect x=\"204.0\" y=\"54\" width=\"168.0\" height=\"46\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"0.7\"/><text x=\"288.0\" y=\"48\" fill=\"#9fb2d8\" font-size=\"9\" text-anchor=\"middle\">bar 2</text><text x=\"112.0\" y=\"114\" fill=\"#ffd76a\" font-size=\"9.5\" text-anchor=\"middle\">3-side</text><text x=\"282.0\" y=\"114\" fill=\"#ffd76a\" font-size=\"9.5\" text-anchor=\"middle\">2-side</text><circle cx=\"52\" cy=\"74\" r=\"6.5\" fill=\"#ffd76a\"/><circle cx=\"72\" cy=\"74\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"92\" cy=\"74\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"112\" cy=\"74\" r=\"6.5\" fill=\"#ffd76a\"/><circle cx=\"132\" cy=\"74\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"152\" cy=\"74\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"172\" cy=\"74\" r=\"6.5\" fill=\"#ffd76a\"/><circle cx=\"192\" cy=\"74\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"212\" cy=\"74\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"232\" cy=\"74\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"252\" cy=\"74\" r=\"6.5\" fill=\"#ffd76a\"/><circle cx=\"272\" cy=\"74\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"292\" cy=\"74\" r=\"6.5\" fill=\"#ffd76a\"/><circle cx=\"312\" cy=\"74\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"332\" cy=\"74\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"352\" cy=\"74\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><text x=\"26\" y=\"174\" fill=\"#7adfff\" font-size=\"12\" font-family=\"monospace\">2-3</text><rect x=\"44.0\" y=\"150\" width=\"168.0\" height=\"46\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"0.7\"/><text x=\"128.0\" y=\"144\" fill=\"#9fb2d8\" font-size=\"9\" text-anchor=\"middle\">bar 1</text><rect x=\"204.0\" y=\"150\" width=\"168.0\" height=\"46\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"0.7\"/><text x=\"288.0\" y=\"144\" fill=\"#9fb2d8\" font-size=\"9\" text-anchor=\"middle\">bar 2</text><text x=\"112.0\" y=\"210\" fill=\"#7adfff\" font-size=\"9.5\" text-anchor=\"middle\">2-side</text><text x=\"282.0\" y=\"210\" fill=\"#7adfff\" font-size=\"9.5\" text-anchor=\"middle\">3-side</text><circle cx=\"52\" cy=\"170\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"72\" cy=\"170\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"92\" cy=\"170\" r=\"6.5\" fill=\"#7adfff\"/><circle cx=\"112\" cy=\"170\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"132\" cy=\"170\" r=\"6.5\" fill=\"#7adfff\"/><circle cx=\"152\" cy=\"170\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"172\" cy=\"170\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"192\" cy=\"170\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"212\" cy=\"170\" r=\"6.5\" fill=\"#7adfff\"/><circle cx=\"232\" cy=\"170\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"252\" cy=\"170\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"272\" cy=\"170\" r=\"6.5\" fill=\"#7adfff\"/><circle cx=\"292\" cy=\"170\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"312\" cy=\"170\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"332\" cy=\"170\" r=\"6.5\" fill=\"#7adfff\"/><circle cx=\"352\" cy=\"170\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><text x=\"200\" y=\"272\" fill=\"#9fb2d8\" font-size=\"10\" text-anchor=\"middle\">3-2 hits: steps 1, 4, 7 | 11, 13 — the 3-side opens with the tresillo (gaps 3-3-2).</text><text x=\"200\" y=\"288\" fill=\"#9fb2d8\" font-size=\"10\" text-anchor=\"middle\">2-3 is the same two bars in the other order.</text></svg>",
+    "questions": [
+     {
+      "q": "In 3-2 son clave on the course's eighth-note grid, which steps does the 2-side occupy, and which beats of its bar are they?",
+      "answer": "Steps 11 and 13 of the 16-step grid — beats 2 and 3 of bar 2. Bar 2 starts at step 9, so its beats land on steps 9, 11, 13, 15.",
+      "hint": "The 2-side lives in the second bar. Count that bar's beats from step 9."
+     },
+     {
+      "q": "You layer 4 against 3 over a shared downbeat. After how many small units do both voices land together again?",
+      "answer": "Twelve — the least common multiple of 4 and 3. The four-voice hits 1, 4, 7, 10 and the three-voice hits 1, 5, 9 within each 12-unit cycle.",
+      "hint": "You need the smallest span that both 4 and 3 divide evenly."
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "heading": "Human Timing",
+    "body": "Quantize a great drummer's performance to the grid and you will find the hits are not on it. The surprise from timing research is what they are instead: not scattered randomly around the beat, but placed — the same drummer puts the same drum in the same offset, bar after bar. A funk drummer's snare backbeat typically sits behind the beat, consistently, while the kick may sit on it or push ahead of it. That stable relationship between the voices is the pocket, and it is a signature: measured closely, players are recognisable by their placement the way singers are by tone. Sloppiness is real, but it means something specific — deviation that wanders. Feel is deviation that repeats.\n\nThis is why the grid alone can't explain groove, and why two of groove's main tools aren't about timing at all. Velocity shapes a bar even when every hit is dead on its step: accents that lean on the beats, offbeats kept small, and ghost notes — snare whispers at a fraction of the backbeat's volume, felt as much as heard — give a pattern its breathing. A drummer can play a bar with machine-exact timing and unmistakable feel, purely by how the loudness is sculpted. When you program, velocity is not decoration on the groove; half the time it is the groove.\n\nThe studied extreme of all this is J Dilla's work on the MPC. Dilla famously programmed with quantize off, playing kick, snare, and hats in by hand and leaving each voice with its own consistent placement — the snare dragging where he wanted it, hats leaning their own way, loops that analysts have since measured and transcribed precisely because the offsets are stable enough to transcribe. His records don't feel human because they're imprecise; they feel human because every part keeps its own time, the way a band does. That is the standard to steal: not 'off the grid', but off it the same way every bar.\n\nThe practical lesson for your own bench is a diagnostic. Record yourself finger drumming, then look at where your hits landed — not whether they were on the steps, but whether each drum's offset is consistent across bars. Where it's consistent, that's your feel; write it down and keep it. Where it wanders, that's the part to practise — or, if you're programming, the part to place deliberately instead of leaving to a random number. The next section takes that apart on the machines themselves.\n\nOne more consequence, and it scales from one drummer to a whole band: the pocket is a relationship between players, not a property of any single part. A bassist who locks to the kick's placement — not to the abstract grid — makes the whole rhythm section sound placed, and two players with beautiful individual timing can still fight if their reference points differ. That is why the same drummer grooves with one bassist and merely plays with another. On your bench the band is your own voices: kick, snare, and hats each keeping their own consistent time is not three problems. It is one relationship, and it is the thing you are actually building.",
+    "visual": "A beat grid with kick on the line, snare consistently behind it, and hats fractionally ahead (offsets exaggerated), above a velocity lane showing accents and a ghost note.",
+    "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><text x=\"200\" y=\"26\" fill=\"#e8ecf5\" font-size=\"13\" text-anchor=\"middle\" font-family=\"monospace\">MICROTIMING — SMALL, SYSTEMATIC, YOURS</text><rect x=\"24\" y=\"48\" width=\"352\" height=\"150\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><line x1=\"66\" y1=\"66\" x2=\"66\" y2=\"182\" stroke=\"#9aa6b8\" stroke-width=\"0.8\" opacity=\"0.7\"/><text x=\"66\" y=\"60\" fill=\"#9fb2d8\" font-size=\"9\" text-anchor=\"middle\">1</text><line x1=\"150\" y1=\"66\" x2=\"150\" y2=\"182\" stroke=\"#9aa6b8\" stroke-width=\"0.8\" opacity=\"0.7\"/><text x=\"150\" y=\"60\" fill=\"#9fb2d8\" font-size=\"9\" text-anchor=\"middle\">2</text><line x1=\"234\" y1=\"66\" x2=\"234\" y2=\"182\" stroke=\"#9aa6b8\" stroke-width=\"0.8\" opacity=\"0.7\"/><text x=\"234\" y=\"60\" fill=\"#9fb2d8\" font-size=\"9\" text-anchor=\"middle\">3</text><line x1=\"318\" y1=\"66\" x2=\"318\" y2=\"182\" stroke=\"#9aa6b8\" stroke-width=\"0.8\" opacity=\"0.7\"/><text x=\"318\" y=\"60\" fill=\"#9fb2d8\" font-size=\"9\" text-anchor=\"middle\">4</text><text x=\"56\" y=\"96\" fill=\"#e8ecf5\" font-size=\"10\" text-anchor=\"end\" font-family=\"monospace\">KCK</text><line x1=\"62\" y1=\"92\" x2=\"389.0\" y2=\"92\" stroke=\"#9aa6b8\" stroke-width=\"0.6\" opacity=\"0.6\"/><circle cx=\"66\" cy=\"92\" r=\"5.5\" fill=\"#7adfff\"/><circle cx=\"249\" cy=\"92\" r=\"5.5\" fill=\"#7adfff\"/><text x=\"56\" y=\"132\" fill=\"#e8ecf5\" font-size=\"10\" text-anchor=\"end\" font-family=\"monospace\">SNR</text><line x1=\"62\" y1=\"128\" x2=\"389.0\" y2=\"128\" stroke=\"#9aa6b8\" stroke-width=\"0.6\" opacity=\"0.6\"/><circle cx=\"159\" cy=\"128\" r=\"5.5\" fill=\"#ffd76a\"/><circle cx=\"327\" cy=\"128\" r=\"5.5\" fill=\"#ffd76a\"/><circle cx=\"388\" cy=\"128\" r=\"5.5\" fill=\"#ffd76a\"/><text x=\"56\" y=\"168\" fill=\"#e8ecf5\" font-size=\"10\" text-anchor=\"end\" font-family=\"monospace\">HAT</text><line x1=\"62\" y1=\"164\" x2=\"389.0\" y2=\"164\" stroke=\"#9aa6b8\" stroke-width=\"0.6\" opacity=\"0.6\"/><circle cx=\"63\" cy=\"164\" r=\"5.5\" fill=\"#7dffb0\"/><circle cx=\"105\" cy=\"164\" r=\"5.5\" fill=\"#7dffb0\"/><circle cx=\"147\" cy=\"164\" r=\"5.5\" fill=\"#7dffb0\"/><circle cx=\"189\" cy=\"164\" r=\"5.5\" fill=\"#7dffb0\"/><circle cx=\"231\" cy=\"164\" r=\"5.5\" fill=\"#7dffb0\"/><circle cx=\"273\" cy=\"164\" r=\"5.5\" fill=\"#7dffb0\"/><circle cx=\"315\" cy=\"164\" r=\"5.5\" fill=\"#7dffb0\"/><circle cx=\"357\" cy=\"164\" r=\"5.5\" fill=\"#7dffb0\"/><text x=\"200\" y=\"216\" fill=\"#9fb2d8\" font-size=\"10\" text-anchor=\"middle\">Offsets exaggerated. Snare sits behind the line every time — that consistency IS the feel.</text><text x=\"26\" y=\"244\" fill=\"#e8ecf5\" font-size=\"10.5\" font-family=\"monospace\">VELOCITY — the same 16 steps, loudness as shape:</text><rect x=\"61\" y=\"242\" width=\"10\" height=\"40\" fill=\"#ffd76a\"/><rect x=\"82\" y=\"267\" width=\"10\" height=\"15\" fill=\"#9fb2d8\"/><rect x=\"103\" y=\"259\" width=\"10\" height=\"23\" fill=\"#7adfff\"/><rect x=\"124\" y=\"267\" width=\"10\" height=\"15\" fill=\"#9fb2d8\"/><rect x=\"145\" y=\"240\" width=\"10\" height=\"42\" fill=\"#ffd76a\"/><rect x=\"166\" y=\"267\" width=\"10\" height=\"15\" fill=\"#9fb2d8\"/><rect x=\"187\" y=\"259\" width=\"10\" height=\"23\" fill=\"#7adfff\"/><rect x=\"208\" y=\"269\" width=\"10\" height=\"13\" fill=\"#9fb2d8\"/><rect x=\"229\" y=\"242\" width=\"10\" height=\"40\" fill=\"#ffd76a\"/><rect x=\"250\" y=\"267\" width=\"10\" height=\"15\" fill=\"#9fb2d8\"/><rect x=\"271\" y=\"259\" width=\"10\" height=\"23\" fill=\"#7adfff\"/><rect x=\"292\" y=\"267\" width=\"10\" height=\"15\" fill=\"#9fb2d8\"/><rect x=\"313\" y=\"240\" width=\"10\" height=\"42\" fill=\"#ffd76a\"/><rect x=\"334\" y=\"267\" width=\"10\" height=\"15\" fill=\"#9fb2d8\"/><rect x=\"355\" y=\"257\" width=\"10\" height=\"25\" fill=\"#7adfff\"/><rect x=\"376\" y=\"273\" width=\"10\" height=\"9\" fill=\"#9fb2d8\"/><text x=\"200\" y=\"297\" fill=\"#9fb2d8\" font-size=\"9\" text-anchor=\"middle\">Tall gold = accents on the beats. Short bar at step 16 = a ghost note.</text></svg>",
+    "questions": [
+     {
+      "q": "In timing terms, what separates a drummer's 'feel' from plain sloppiness?",
+      "answer": "Consistency. Feel is systematic deviation — the same drum placed the same distance from the beat, bar after bar. Sloppiness is deviation that wanders randomly and can't be predicted or repeated.",
+      "hint": "It's not the size of the offset. It's whether the offset is the same every bar."
+     },
+     {
+      "q": "Can a pattern with every hit exactly on its grid step still groove? How?",
+      "answer": "Yes — through velocity. Accents, small offbeats, and ghost notes sculpt the bar's shape even with zero timing deviation; listeners read that loudness contour as feel.",
+      "hint": "This section names a second groove tool that has nothing to do with when a hit lands."
+     }
+    ]
+   },
+   {
+    "id": "s5",
+    "heading": "Programming Feel on Machines",
+    "body": "Your machines give you four tools for feel, and they are not equal. Strongest is the one you already know: the swing control, which moves every offbeat by the same amount — a policy, applied consistently, exactly like a drummer's habit. Next is per-step nudge, where your sequencer lets you drag individual steps early or late: this is how you build the pocket deliberately, snare steps pushed a few percent late, kick left home, because you decided it, once, for every bar. Third is velocity, programmed step by step — accents and ghosts from section 4, typed in instead of played. Weakest, and most oversold, is the humanize button.\n\nJudge humanize honestly. What it does is add random timing and velocity offsets, fresh every bar. Randomness has no memory, and feel — everything in this course says so — is precisely a pattern's memory of itself. A randomised pattern doesn't sound like a person; it sounds like a machine that can't decide, which is why a heavy humanize setting reads as sloppiness to anyone listening closely. Used small, on hats only, it can take the sterilised edge off a loop. But it will never manufacture a pocket, because a pocket is a relationship between voices, and the randomiser treats every voice — every bar — as a stranger.\n\nNow build the course's running groove three ways. The pattern, on the 16-step grid: kick on 1, 7, and 10; snare on 5 and 13 with a ghost on 16; hats on every step, accented on the beats. Build one, quantized: every hit dead on its step. It is correct and it is stiff — a diagram of a groove. Build two, swung: set swing near the triplet point and let every even step slide late. The hats start to limp in a good way; the kick on 7 leans into the snare. Build three, finger-drummed: turn quantize off, play it on the pads, and keep the take where your hands repeated themselves. Compare the three honestly. The notes never changed. Their addresses did.\n\nTranslation runs both ways. From grid to pads: keep the kick and snare placement relationships and the accent shape exactly — those are the groove's identity — and let your hands re-voice the velocities, because fingers aren't faders. From pads to grid: transcribe your own offsets before you 'fix' them. The take you liked has data in it; quantizing it away and then paying a humanize knob to invent randomness is the one truly wasteful move on this bench. Feel is a number you bend — but you bend it, the same way, every bar.\n\nA last piece of machine craft: know whether your sequencer stores a nudge as a percentage of the step or as a fixed time offset, because the two age differently. A percentage travels with the tempo — slow the track down and the pocket widens proportionally, the way a drummer's would. A fixed millisecond offset does not: raise the tempo and it quietly becomes a bigger slice of every beat, until a groove that sat at 92 BPM is lurching at 130. Neither is wrong, but only one of them is the feel you dialled in. Check which one your machine keeps, especially when a pattern you love moves to a track at a different speed.",
+    "visual": "The running groove (kick 1, 7, 10; snare 5, 13, ghost 16; hats accented on beats) as a step grid, captioned with its swung and finger-drummed builds.",
+    "diagram": "<svg viewBox=\"0 0 400 352\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"352\" fill=\"#0e1116\"/><text x=\"200\" y=\"24\" fill=\"#e8ecf5\" font-size=\"13\" text-anchor=\"middle\" font-family=\"monospace\">ONE GROOVE, THREE BUILDS</text><text x=\"54\" y=\"44\" fill=\"#ffd76a\" font-size=\"10.5\" font-family=\"monospace\">BUILD 1 — PROGRAMMED</text><text x=\"58\" y=\"55\" fill=\"#9fb2d8\" font-size=\"9\" text-anchor=\"middle\">1</text><text x=\"140\" y=\"55\" fill=\"#9fb2d8\" font-size=\"9\" text-anchor=\"middle\">2</text><text x=\"222\" y=\"55\" fill=\"#9fb2d8\" font-size=\"9\" text-anchor=\"middle\">3</text><text x=\"304\" y=\"55\" fill=\"#9fb2d8\" font-size=\"9\" text-anchor=\"middle\">4</text><line x1=\"58\" y1=\"66\" x2=\"58\" y2=\"114\" stroke=\"#9aa6b8\" stroke-width=\"0.5\" opacity=\"0.45\"/><line x1=\"140\" y1=\"66\" x2=\"140\" y2=\"114\" stroke=\"#9aa6b8\" stroke-width=\"0.5\" opacity=\"0.45\"/><line x1=\"222\" y1=\"66\" x2=\"222\" y2=\"114\" stroke=\"#9aa6b8\" stroke-width=\"0.5\" opacity=\"0.45\"/><line x1=\"304\" y1=\"66\" x2=\"304\" y2=\"114\" stroke=\"#9aa6b8\" stroke-width=\"0.5\" opacity=\"0.45\"/><text x=\"48\" y=\"80\" fill=\"#e8ecf5\" font-size=\"10\" text-anchor=\"end\" font-family=\"monospace\">HAT</text><line x1=\"54\" y1=\"77\" x2=\"371.5\" y2=\"77\" stroke=\"#9aa6b8\" stroke-width=\"0.6\" opacity=\"0.6\"/><circle cx=\"58\" cy=\"77\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"78\" cy=\"77\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"99\" cy=\"77\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"120\" cy=\"77\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"140\" cy=\"77\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"160\" cy=\"77\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"181\" cy=\"77\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"202\" cy=\"77\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"222\" cy=\"77\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"242\" cy=\"77\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"263\" cy=\"77\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"284\" cy=\"77\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"304\" cy=\"77\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"324\" cy=\"77\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"345\" cy=\"77\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"366\" cy=\"77\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"58\" cy=\"77\" r=\"5.5\" fill=\"#ffd76a\"/><text x=\"58\" y=\"67\" fill=\"#ffd76a\" font-size=\"10\" text-anchor=\"middle\">&gt;</text><circle cx=\"78\" cy=\"77\" r=\"4.5\" fill=\"#7adfff\"/><circle cx=\"99\" cy=\"77\" r=\"4.5\" fill=\"#7adfff\"/><circle cx=\"120\" cy=\"77\" r=\"4.5\" fill=\"#7adfff\"/><circle cx=\"140\" cy=\"77\" r=\"5.5\" fill=\"#ffd76a\"/><text x=\"140\" y=\"67\" fill=\"#ffd76a\" font-size=\"10\" text-anchor=\"middle\">&gt;</text><circle cx=\"160\" cy=\"77\" r=\"4.5\" fill=\"#7adfff\"/><circle cx=\"181\" cy=\"77\" r=\"4.5\" fill=\"#7adfff\"/><circle cx=\"202\" cy=\"77\" r=\"4.5\" fill=\"#7adfff\"/><circle cx=\"222\" cy=\"77\" r=\"5.5\" fill=\"#ffd76a\"/><text x=\"222\" y=\"67\" fill=\"#ffd76a\" font-size=\"10\" text-anchor=\"middle\">&gt;</text><circle cx=\"242\" cy=\"77\" r=\"4.5\" fill=\"#7adfff\"/><circle cx=\"263\" cy=\"77\" r=\"4.5\" fill=\"#7adfff\"/><circle cx=\"284\" cy=\"77\" r=\"4.5\" fill=\"#7adfff\"/><circle cx=\"304\" cy=\"77\" r=\"5.5\" fill=\"#ffd76a\"/><text x=\"304\" y=\"67\" fill=\"#ffd76a\" font-size=\"10\" text-anchor=\"middle\">&gt;</text><circle cx=\"324\" cy=\"77\" r=\"4.5\" fill=\"#7adfff\"/><circle cx=\"345\" cy=\"77\" r=\"4.5\" fill=\"#7adfff\"/><circle cx=\"366\" cy=\"77\" r=\"4.5\" fill=\"#7adfff\"/><text x=\"48\" y=\"96\" fill=\"#e8ecf5\" font-size=\"10\" text-anchor=\"end\" font-family=\"monospace\">SNR</text><line x1=\"54\" y1=\"93\" x2=\"371.5\" y2=\"93\" stroke=\"#9aa6b8\" stroke-width=\"0.6\" opacity=\"0.6\"/><circle cx=\"58\" cy=\"93\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"78\" cy=\"93\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"99\" cy=\"93\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"120\" cy=\"93\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"140\" cy=\"93\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"160\" cy=\"93\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"181\" cy=\"93\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"202\" cy=\"93\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"222\" cy=\"93\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"242\" cy=\"93\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"263\" cy=\"93\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"284\" cy=\"93\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"304\" cy=\"93\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"324\" cy=\"93\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"345\" cy=\"93\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"366\" cy=\"93\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"140\" cy=\"93\" r=\"5.5\" fill=\"#ffd76a\"/><text x=\"140\" y=\"83\" fill=\"#ffd76a\" font-size=\"10\" text-anchor=\"middle\">&gt;</text><circle cx=\"304\" cy=\"93\" r=\"5.5\" fill=\"#ffd76a\"/><text x=\"304\" y=\"83\" fill=\"#ffd76a\" font-size=\"10\" text-anchor=\"middle\">&gt;</text><circle cx=\"366\" cy=\"93\" r=\"2.5\" fill=\"#9fb2d8\" opacity=\"0.7\"/><text x=\"48\" y=\"112\" fill=\"#e8ecf5\" font-size=\"10\" text-anchor=\"end\" font-family=\"monospace\">KIK</text><line x1=\"54\" y1=\"109\" x2=\"371.5\" y2=\"109\" stroke=\"#9aa6b8\" stroke-width=\"0.6\" opacity=\"0.6\"/><circle cx=\"58\" cy=\"109\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"78\" cy=\"109\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"99\" cy=\"109\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"120\" cy=\"109\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"140\" cy=\"109\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"160\" cy=\"109\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"181\" cy=\"109\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"202\" cy=\"109\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"222\" cy=\"109\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"242\" cy=\"109\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"263\" cy=\"109\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"284\" cy=\"109\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"304\" cy=\"109\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"324\" cy=\"109\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"345\" cy=\"109\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"366\" cy=\"109\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"58\" cy=\"109\" r=\"5.5\" fill=\"#ffd76a\"/><circle cx=\"181\" cy=\"109\" r=\"5.5\" fill=\"#ffd76a\"/><circle cx=\"242\" cy=\"109\" r=\"5.5\" fill=\"#ffd76a\"/><text x=\"200\" y=\"127\" fill=\"#9fb2d8\" font-size=\"10\" text-anchor=\"middle\">Quantized: every hit dead on its step — correct, and stiff.</text><text x=\"54\" y=\"144\" fill=\"#ffd76a\" font-size=\"10.5\" font-family=\"monospace\">BUILD 2 — SWUNG</text><text x=\"58\" y=\"155\" fill=\"#9fb2d8\" font-size=\"9\" text-anchor=\"middle\">1</text><text x=\"140\" y=\"155\" fill=\"#9fb2d8\" font-size=\"9\" text-anchor=\"middle\">2</text><text x=\"222\" y=\"155\" fill=\"#9fb2d8\" font-size=\"9\" text-anchor=\"middle\">3</text><text x=\"304\" y=\"155\" fill=\"#9fb2d8\" font-size=\"9\" text-anchor=\"middle\">4</text><line x1=\"58\" y1=\"166\" x2=\"58\" y2=\"214\" stroke=\"#9aa6b8\" stroke-width=\"0.5\" opacity=\"0.45\"/><line x1=\"140\" y1=\"166\" x2=\"140\" y2=\"214\" stroke=\"#9aa6b8\" stroke-width=\"0.5\" opacity=\"0.45\"/><line x1=\"222\" y1=\"166\" x2=\"222\" y2=\"214\" stroke=\"#9aa6b8\" stroke-width=\"0.5\" opacity=\"0.45\"/><line x1=\"304\" y1=\"166\" x2=\"304\" y2=\"214\" stroke=\"#9aa6b8\" stroke-width=\"0.5\" opacity=\"0.45\"/><text x=\"48\" y=\"180\" fill=\"#e8ecf5\" font-size=\"10\" text-anchor=\"end\" font-family=\"monospace\">HAT</text><line x1=\"54\" y1=\"177\" x2=\"371.5\" y2=\"177\" stroke=\"#9aa6b8\" stroke-width=\"0.6\" opacity=\"0.6\"/><circle cx=\"58\" cy=\"177\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"78\" cy=\"177\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"99\" cy=\"177\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"120\" cy=\"177\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"140\" cy=\"177\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"160\" cy=\"177\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"181\" cy=\"177\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"202\" cy=\"177\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"222\" cy=\"177\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"242\" cy=\"177\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"263\" cy=\"177\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"284\" cy=\"177\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"304\" cy=\"177\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"324\" cy=\"177\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"345\" cy=\"177\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"366\" cy=\"177\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"58\" cy=\"177\" r=\"5.5\" fill=\"#ffd76a\"/><text x=\"58\" y=\"167\" fill=\"#ffd76a\" font-size=\"10\" text-anchor=\"middle\">&gt;</text><circle cx=\"84\" cy=\"177\" r=\"4.5\" fill=\"#7adfff\"/><circle cx=\"99\" cy=\"177\" r=\"4.5\" fill=\"#7adfff\"/><circle cx=\"126\" cy=\"177\" r=\"4.5\" fill=\"#7adfff\"/><circle cx=\"140\" cy=\"177\" r=\"5.5\" fill=\"#ffd76a\"/><text x=\"140\" y=\"167\" fill=\"#ffd76a\" font-size=\"10\" text-anchor=\"middle\">&gt;</text><circle cx=\"166\" cy=\"177\" r=\"4.5\" fill=\"#7adfff\"/><circle cx=\"181\" cy=\"177\" r=\"4.5\" fill=\"#7adfff\"/><circle cx=\"208\" cy=\"177\" r=\"4.5\" fill=\"#7adfff\"/><circle cx=\"222\" cy=\"177\" r=\"5.5\" fill=\"#ffd76a\"/><text x=\"222\" y=\"167\" fill=\"#ffd76a\" font-size=\"10\" text-anchor=\"middle\">&gt;</text><circle cx=\"248\" cy=\"177\" r=\"4.5\" fill=\"#7adfff\"/><circle cx=\"263\" cy=\"177\" r=\"4.5\" fill=\"#7adfff\"/><circle cx=\"290\" cy=\"177\" r=\"4.5\" fill=\"#7adfff\"/><circle cx=\"304\" cy=\"177\" r=\"5.5\" fill=\"#ffd76a\"/><text x=\"304\" y=\"167\" fill=\"#ffd76a\" font-size=\"10\" text-anchor=\"middle\">&gt;</text><circle cx=\"330\" cy=\"177\" r=\"4.5\" fill=\"#7adfff\"/><circle cx=\"345\" cy=\"177\" r=\"4.5\" fill=\"#7adfff\"/><circle cx=\"372\" cy=\"177\" r=\"4.5\" fill=\"#7adfff\"/><text x=\"48\" y=\"196\" fill=\"#e8ecf5\" font-size=\"10\" text-anchor=\"end\" font-family=\"monospace\">SNR</text><line x1=\"54\" y1=\"193\" x2=\"371.5\" y2=\"193\" stroke=\"#9aa6b8\" stroke-width=\"0.6\" opacity=\"0.6\"/><circle cx=\"58\" cy=\"193\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"78\" cy=\"193\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"99\" cy=\"193\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"120\" cy=\"193\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"140\" cy=\"193\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"160\" cy=\"193\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"181\" cy=\"193\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"202\" cy=\"193\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"222\" cy=\"193\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"242\" cy=\"193\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"263\" cy=\"193\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"284\" cy=\"193\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"304\" cy=\"193\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"324\" cy=\"193\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"345\" cy=\"193\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"366\" cy=\"193\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"140\" cy=\"193\" r=\"5.5\" fill=\"#ffd76a\"/><text x=\"140\" y=\"183\" fill=\"#ffd76a\" font-size=\"10\" text-anchor=\"middle\">&gt;</text><circle cx=\"304\" cy=\"193\" r=\"5.5\" fill=\"#ffd76a\"/><text x=\"304\" y=\"183\" fill=\"#ffd76a\" font-size=\"10\" text-anchor=\"middle\">&gt;</text><circle cx=\"372\" cy=\"193\" r=\"2.5\" fill=\"#9fb2d8\" opacity=\"0.7\"/><text x=\"48\" y=\"212\" fill=\"#e8ecf5\" font-size=\"10\" text-anchor=\"end\" font-family=\"monospace\">KIK</text><line x1=\"54\" y1=\"209\" x2=\"371.5\" y2=\"209\" stroke=\"#9aa6b8\" stroke-width=\"0.6\" opacity=\"0.6\"/><circle cx=\"58\" cy=\"209\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"78\" cy=\"209\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"99\" cy=\"209\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"120\" cy=\"209\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"140\" cy=\"209\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"160\" cy=\"209\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"181\" cy=\"209\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"202\" cy=\"209\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"222\" cy=\"209\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"242\" cy=\"209\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"263\" cy=\"209\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"284\" cy=\"209\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"304\" cy=\"209\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"324\" cy=\"209\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"345\" cy=\"209\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"366\" cy=\"209\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"58\" cy=\"209\" r=\"5.5\" fill=\"#ffd76a\"/><circle cx=\"181\" cy=\"209\" r=\"5.5\" fill=\"#ffd76a\"/><circle cx=\"248\" cy=\"209\" r=\"5.5\" fill=\"#ffd76a\"/><text x=\"200\" y=\"227\" fill=\"#9fb2d8\" font-size=\"10\" text-anchor=\"middle\">Swung: every even step slides late — the same shift, every bar.</text><text x=\"54\" y=\"244\" fill=\"#ffd76a\" font-size=\"10.5\" font-family=\"monospace\">BUILD 3 — FINGER-DRUMMED</text><text x=\"58\" y=\"255\" fill=\"#9fb2d8\" font-size=\"9\" text-anchor=\"middle\">1</text><text x=\"140\" y=\"255\" fill=\"#9fb2d8\" font-size=\"9\" text-anchor=\"middle\">2</text><text x=\"222\" y=\"255\" fill=\"#9fb2d8\" font-size=\"9\" text-anchor=\"middle\">3</text><text x=\"304\" y=\"255\" fill=\"#9fb2d8\" font-size=\"9\" text-anchor=\"middle\">4</text><line x1=\"58\" y1=\"266\" x2=\"58\" y2=\"314\" stroke=\"#9aa6b8\" stroke-width=\"0.5\" opacity=\"0.45\"/><line x1=\"140\" y1=\"266\" x2=\"140\" y2=\"314\" stroke=\"#9aa6b8\" stroke-width=\"0.5\" opacity=\"0.45\"/><line x1=\"222\" y1=\"266\" x2=\"222\" y2=\"314\" stroke=\"#9aa6b8\" stroke-width=\"0.5\" opacity=\"0.45\"/><line x1=\"304\" y1=\"266\" x2=\"304\" y2=\"314\" stroke=\"#9aa6b8\" stroke-width=\"0.5\" opacity=\"0.45\"/><text x=\"48\" y=\"280\" fill=\"#e8ecf5\" font-size=\"10\" text-anchor=\"end\" font-family=\"monospace\">HAT</text><line x1=\"54\" y1=\"277\" x2=\"371.5\" y2=\"277\" stroke=\"#9aa6b8\" stroke-width=\"0.6\" opacity=\"0.6\"/><circle cx=\"58\" cy=\"277\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"78\" cy=\"277\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"99\" cy=\"277\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"120\" cy=\"277\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"140\" cy=\"277\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"160\" cy=\"277\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"181\" cy=\"277\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"202\" cy=\"277\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"222\" cy=\"277\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"242\" cy=\"277\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"263\" cy=\"277\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"284\" cy=\"277\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"304\" cy=\"277\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"324\" cy=\"277\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"345\" cy=\"277\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"366\" cy=\"277\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"61\" cy=\"277\" r=\"5.5\" fill=\"#ffd76a\"/><text x=\"61\" y=\"267\" fill=\"#ffd76a\" font-size=\"10\" text-anchor=\"middle\">&gt;</text><circle cx=\"81\" cy=\"277\" r=\"4.5\" fill=\"#7adfff\"/><circle cx=\"102\" cy=\"277\" r=\"4.5\" fill=\"#7adfff\"/><circle cx=\"123\" cy=\"277\" r=\"4.5\" fill=\"#7adfff\"/><circle cx=\"143\" cy=\"277\" r=\"5.5\" fill=\"#ffd76a\"/><text x=\"143\" y=\"267\" fill=\"#ffd76a\" font-size=\"10\" text-anchor=\"middle\">&gt;</text><circle cx=\"163\" cy=\"277\" r=\"4.5\" fill=\"#7adfff\"/><circle cx=\"184\" cy=\"277\" r=\"4.5\" fill=\"#7adfff\"/><circle cx=\"205\" cy=\"277\" r=\"4.5\" fill=\"#7adfff\"/><circle cx=\"225\" cy=\"277\" r=\"5.5\" fill=\"#ffd76a\"/><text x=\"225\" y=\"267\" fill=\"#ffd76a\" font-size=\"10\" text-anchor=\"middle\">&gt;</text><circle cx=\"245\" cy=\"277\" r=\"4.5\" fill=\"#7adfff\"/><circle cx=\"266\" cy=\"277\" r=\"4.5\" fill=\"#7adfff\"/><circle cx=\"287\" cy=\"277\" r=\"4.5\" fill=\"#7adfff\"/><circle cx=\"307\" cy=\"277\" r=\"5.5\" fill=\"#ffd76a\"/><text x=\"307\" y=\"267\" fill=\"#ffd76a\" font-size=\"10\" text-anchor=\"middle\">&gt;</text><circle cx=\"327\" cy=\"277\" r=\"4.5\" fill=\"#7adfff\"/><circle cx=\"348\" cy=\"277\" r=\"4.5\" fill=\"#7adfff\"/><circle cx=\"369\" cy=\"277\" r=\"4.5\" fill=\"#7adfff\"/><text x=\"48\" y=\"296\" fill=\"#e8ecf5\" font-size=\"10\" text-anchor=\"end\" font-family=\"monospace\">SNR</text><line x1=\"54\" y1=\"293\" x2=\"371.5\" y2=\"293\" stroke=\"#9aa6b8\" stroke-width=\"0.6\" opacity=\"0.6\"/><circle cx=\"58\" cy=\"293\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"78\" cy=\"293\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"99\" cy=\"293\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"120\" cy=\"293\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"140\" cy=\"293\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"160\" cy=\"293\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"181\" cy=\"293\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"202\" cy=\"293\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"222\" cy=\"293\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"242\" cy=\"293\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"263\" cy=\"293\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"284\" cy=\"293\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"304\" cy=\"293\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"324\" cy=\"293\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"345\" cy=\"293\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"366\" cy=\"293\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"145\" cy=\"293\" r=\"5.5\" fill=\"#ffd76a\"/><text x=\"145\" y=\"283\" fill=\"#ffd76a\" font-size=\"10\" text-anchor=\"middle\">&gt;</text><circle cx=\"309\" cy=\"293\" r=\"5.5\" fill=\"#ffd76a\"/><text x=\"309\" y=\"283\" fill=\"#ffd76a\" font-size=\"10\" text-anchor=\"middle\">&gt;</text><circle cx=\"371\" cy=\"293\" r=\"2.5\" fill=\"#9fb2d8\" opacity=\"0.7\"/><text x=\"48\" y=\"312\" fill=\"#e8ecf5\" font-size=\"10\" text-anchor=\"end\" font-family=\"monospace\">KIK</text><line x1=\"54\" y1=\"309\" x2=\"371.5\" y2=\"309\" stroke=\"#9aa6b8\" stroke-width=\"0.6\" opacity=\"0.6\"/><circle cx=\"58\" cy=\"309\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"78\" cy=\"309\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"99\" cy=\"309\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"120\" cy=\"309\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"140\" cy=\"309\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"160\" cy=\"309\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"181\" cy=\"309\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"202\" cy=\"309\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"222\" cy=\"309\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"242\" cy=\"309\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"263\" cy=\"309\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"284\" cy=\"309\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"304\" cy=\"309\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"324\" cy=\"309\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"345\" cy=\"309\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"366\" cy=\"309\" r=\"1.6\" fill=\"#9fb2d8\" opacity=\"0.55\"/><circle cx=\"60\" cy=\"309\" r=\"5.5\" fill=\"#ffd76a\"/><circle cx=\"183\" cy=\"309\" r=\"5.5\" fill=\"#ffd76a\"/><circle cx=\"244\" cy=\"309\" r=\"5.5\" fill=\"#ffd76a\"/><text x=\"200\" y=\"327\" fill=\"#9fb2d8\" font-size=\"10\" text-anchor=\"middle\">Played live: small offsets per voice, repeated — hands remember.</text><text x=\"200\" y=\"345\" fill=\"#e8ecf5\" font-size=\"10.5\" text-anchor=\"middle\">The notes never changed. Their addresses did.</text></svg>",
+    "questions": [
+     {
+      "q": "Why can't a humanize function manufacture a pocket, no matter the amount?",
+      "answer": "A pocket is a consistent relationship between voices — the same offsets, repeated every bar. Humanize applies fresh random offsets each bar and each voice independently, so the relationship never repeats long enough to be one.",
+      "hint": "What does a random number do the second bar that it didn't do the first?"
+     },
+     {
+      "q": "You're translating a programmed groove to finger drumming. What do you preserve exactly, and what do you let your hands reinterpret?",
+      "answer": "Preserve the placement relationships (which steps, how the swing sits) and the accent shape — that's the groove's identity. Let your hands re-voice the exact velocities; fingers produce their own loudness contour and fighting that wastes the take.",
+      "hint": "Identity first: what makes this groove this groove, if you strip the velocities off?"
+     }
+    ]
+   }
+  ]
+ },
+ "quizzes": {
+  "sections": [
+   {
+    "id": "s1",
+    "questions": [
+     {
+      "q": "A grid reads: KICK on steps 1 and 9 only; SNARE on steps 5 and 13; HAT on every odd step. What have you got?",
+      "choices": [
+       "A broken pattern — the kick is missing beats 2 and 4",
+       "The backbeat skeleton: kick on 1 and 3, snare on 2 and 4, eighth-note hats",
+       "A half-time pattern",
+       "A four-on-the-floor pattern"
+      ],
+      "answer": 1,
+      "explain": "Steps 1, 5, 9, 13 are the four beats. Kick on 1 and 9 is beats 1 and 3; snare on 5 and 13 is the backbeat on 2 and 4; odd steps are the eighth notes. Four-on-the-floor would need kick on all four beats."
+     },
+     {
+      "q": "Two patterns use the exact same steps. Pattern A plays every hat at one volume. Pattern B accents the hats on steps 1, 5, 9, 13 and drops the rest low. Why does B groove harder?",
+      "choices": [
+       "B has more notes, so the bar feels fuller",
+       "B's accents are faster",
+       "B has a velocity shape — the accent pattern is a rhythm inside the rhythm",
+       "It doesn't; identical steps always feel identical"
+      ],
+      "answer": 2,
+      "explain": "Placement is only half the information in a pattern. The accent contour gives the ear a loud-soft shape to lock onto, which is why the same steps can read as a conveyor belt or as a groove."
+     },
+     {
+      "q": "You want to program an eighth-note triplet figure inside beat 3 on a 16-step grid. What goes wrong?",
+      "choices": [
+       "The triplet's middle hit falls between steps, because a beat is 4 steps and 3 doesn't divide 4",
+       "Nothing — triplets are steps 9, 11, 13",
+       "The sequencer will refuse to save the pattern",
+       "Triplets can only be played in 3/4"
+      ],
+      "answer": 0,
+      "explain": "Beat 3 spans steps 9–12. Three equal divisions of four steps land at 9, 10⅓, and 11⅔ — the grid has no steps there. You need finer resolution or swing to fake the lean."
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "questions": [
+     {
+      "q": "A loop's offbeat 16ths are all shifted late by 25% of a sixteenth. What swing setting is the machine using?",
+      "choices": [
+       "25%",
+       "50%",
+       "66.7%",
+       "75%"
+      ],
+      "answer": 3,
+      "explain": "Swing percentage names where the offbeat sits inside its pair. At 50% it is unmoved; delaying it by 25% of the step puts it at the 75% position — the hard, dotted-eighth end of the range."
+     },
+     {
+      "q": "Which described pattern is triplet shuffle?",
+      "choices": [
+       "Eighth notes perfectly even, each taking half the beat",
+       "Eighths split long-short at 2:1 — the first takes two-thirds of the beat",
+       "Eighths split 3:1, dotted eighth into sixteenth",
+       "Sixteenth notes with every fourth one accented"
+      ],
+      "answer": 1,
+      "explain": "At 66.7% the offbeat lands on the triplet grid's second slot, so the pair divides 2:1. That long-short lilt over eighth notes is the shuffle."
+     },
+     {
+      "q": "A producer sets 60% swing on a two-bar loop and swears bar 2 feels straighter than bar 1. Looking at the grid, bar 2's third offbeat sits exactly on its step while every other offbeat is delayed. What broke?",
+      "choices": [
+       "Nothing — 60% swing only applies to bar 1",
+       "The tempo changed between bars",
+       "One offbeat in bar 2 missed the swing offset, breaking the pattern's own rule",
+       "The third offbeat is supposed to be straight in 60% swing"
+      ],
+      "answer": 2,
+      "explain": "Swing is a policy applied to every offbeat. A single straight offbeat in a field of delayed ones sticks out precisely because the rule was consistent everywhere else — the break is audible as a stumble, not a variation."
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "questions": [
+     {
+      "q": "On the course's 16-step eighth-note grid, a pattern reads: X..X..X. | ..X.X... What is it?",
+      "choices": [
+       "3-2 son clave",
+       "2-3 son clave",
+       "Rumba clave in 6/8",
+       "A tresillo with two extra hits"
+      ],
+      "answer": 0,
+      "explain": "Bar 1 carries three hits (steps 1, 4, 7 — the tresillo) and bar 2 carries two (steps 11, 13), so the three-side leads: 3-2 son clave. Reverse the bars and it becomes 2-3."
+     },
+     {
+      "q": "You layer a voice playing 3 evenly over a voice playing 2, sharing the downbeat. Their combined pattern repeats every…",
+      "choices": [
+       "5 units",
+       "6 units",
+       "3 units, since 3 is the larger number",
+       "It never repeats exactly"
+      ],
+      "answer": 1,
+      "explain": "The cycle length is the least common multiple of 3 and 2, which is 6: the three-voice hits units 1, 3, 5 and the two-voice hits 1 and 4, and they coincide again only at the next unit 1, six units on."
+     },
+     {
+      "q": "Six eighth notes are accented first as 2+2+2, then re-accented as 3+3 without moving a single note. What is this called, and what changed?",
+      "choices": [
+       "Syncopation; the notes moved earlier",
+       "Quantizing; the timing was corrected",
+       "Metric modulation; the tempo changed",
+       "Hemiola; only the grouping — and therefore the felt metre — changed"
+      ],
+      "answer": 3,
+      "explain": "Hemiola is regrouping: the same six eighths heard as three twos or two threes. No note moves and the tempo is untouched; the accent pattern alone tilts the floor."
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "questions": [
+     {
+      "q": "A drummer's snare lands behind the beat on every single bar, always by about the same amount; her kick sits right on it. A student copying her quantizes everything to the grid and the feel vanishes. What did the student remove?",
+      "choices": [
+       "Her speed — quantized drums are always slower",
+       "The systematic offset between the voices — the pocket itself",
+       "Her dynamics, which quantizing also erases",
+       "Nothing; the feel should have survived"
+      ],
+      "answer": 1,
+      "explain": "Her feel lived in a consistent relationship: snare placed late against an on-time kick, repeated bar after bar. Snapping both voices to the same grid deletes exactly that relationship."
+     },
+     {
+      "q": "A snare row reads: step 5 LOUD, step 13 LOUD, step 16 very soft. All exactly on their steps. What is the step-16 hit doing?",
+      "choices": [
+       "It's a mistake that should be deleted",
+       "It's a flam",
+       "It's a ghost note — shaping the groove through velocity, not timing",
+       "It's the start of a fill"
+      ],
+      "answer": 2,
+      "explain": "A ghost note is a real hit played at a fraction of the backbeat's volume. It contributes touch and motion you feel more than hear, and it does so with zero timing deviation — feel via loudness alone."
+     },
+     {
+      "q": "Two 'unquantized' loops: in loop A, the snare drags by the same amount every bar while the hats lean slightly ahead, every bar. In loop B, every hit's offset is freshly randomised each bar. Which one reads as Dilla-like, and why?",
+      "choices": [
+       "Loop A — each voice keeps its own consistent placement, like a band; B's wandering offsets read as sloppiness",
+       "Loop B — randomness is what 'human' means",
+       "Neither — unquantized always reads as sloppy",
+       "Both equally — the ear can't tell them apart"
+      ],
+      "answer": 0,
+      "explain": "Dilla's studied feel comes from per-voice consistency: stable offsets you could transcribe. Loop A's voices each keep their own time; loop B has no pattern to learn, so the ear files it as imprecision."
+     }
+    ]
+   },
+   {
+    "id": "s5",
+    "questions": [
+     {
+      "q": "You build the running groove (kick 1, 7, 10; snare 5, 13, ghost 16) three ways. Version X: every hit dead on its step. Version Y: every even step delayed by the same amount. Version Z: offsets small but slightly different for kick, snare, and hats — and identical in every bar. Name them.",
+      "choices": [
+       "X quantized, Y swung, Z finger-drummed (played live and kept)",
+       "X swung, Y quantized, Z humanized",
+       "X finger-drummed, Y humanized, Z quantized",
+       "X humanized, Y quantized, Z swung"
+      ],
+      "answer": 0,
+      "explain": "Dead-on is quantized. A uniform delay on all offbeats is swing. Small per-voice offsets that repeat bar to bar are the fingerprint of a played take — a humanize knob would re-randomise them each bar, which Z does not do."
+     },
+     {
+      "q": "Your loop feels sterile and you reach for the humanize knob. Used heavily, what will it actually give you?",
+      "choices": [
+       "A drummer's pocket, automatically",
+       "The exact feel of the selected preset drummer",
+       "Nothing — humanize only changes velocity",
+       "Fresh random offsets every bar: a pattern that can't settle, reading as sloppiness rather than feel"
+      ],
+      "answer": 3,
+      "explain": "Humanize randomises timing (and usually velocity) per bar. Feel is a repeated relationship; a relationship that changes every bar isn't one. Small doses on hats can de-sterilise a loop, but the knob cannot manufacture a pocket."
+     },
+     {
+      "q": "A swung loop plays four bars. Bars 1, 2, and 4 have every offbeat delayed; in bar 3 the offbeats sit straight on the grid. A listener calls bar 3 'the mistake'. Are they right, and why?",
+      "choices": [
+       "No — swing legally applies to odd bars only",
+       "Yes — the loop established a rule (all offbeats delayed) and bar 3 breaks it; consistency is what made the swing read as feel",
+       "No — one straight bar is the standard turnaround",
+       "Yes, but only because bar 3 is where the fill goes"
+      ],
+      "answer": 1,
+      "explain": "Nothing in swing theory bans a straight bar — but this loop taught the ear a policy for three bars and then broke it without musical intent. The same break, placed deliberately as a lift, could work; as an accident it reads as an error because the rule around it is so consistent."
+     }
+    ]
+   }
+  ]
+ },
+ "slides": {
+  "sections": [
+   {
+    "id": "s1",
+    "title": "The Grid",
+    "bullets": [
+     "One bar of 4/4 = 16 sixteenth steps; beats land on steps 1, 5, 9, 13.",
+     "Rows are instruments, columns are time — read the map before you fill it.",
+     "The backbeat skeleton: kick on 1 and 3, snare on 2 and 4.",
+     "Accents are velocity, and velocity is a rhythm inside the rhythm.",
+     "The grid divides by powers of two — triplets live between its lines."
+    ],
+    "notes": "Start by clapping the skeleton: kick steps spoken, snare clapped on 2 and 4. Then show how the same steps with flat velocity versus accents turn a diagram into a groove. The triplet limitation at the end is a promise — swing exists because of it.",
+    "visual": "The 16-step backbeat grid with gold accents on the beats."
+   },
+   {
+    "id": "s2",
+    "title": "Swing and Shuffle",
+    "bullets": [
+     "Swing ratio = where the offbeat lands inside the pair of eighths.",
+     "50% straight · 66.7% triplet shuffle (2:1) · 75% dotted hard swing (3:1).",
+     "MPC swing speaks the same percentages; at 120 BPM, 66% ≈ 20 ms late.",
+     "Neighbourhoods: boom-bap high-50s/low-60s, blues at the triplet point.",
+     "Jazz ratios compress toward straight as tempo climbs."
+    ],
+    "notes": "Play or tap the same two-bar loop at 50, 60, 66.7, and 75 percent and let the room hear the walk change. Stress the millisecond math once — it makes the percentage physical — then move on to genre addresses, with the warning that they're neighbourhoods, not borders.",
+    "visual": "The swing-ratio line from 50% to 75% with genre stops and split-pair brackets."
+   },
+   {
+    "id": "s3",
+    "title": "Layers: Polyrhythm and Clave",
+    "bullets": [
+     "3:2 realigns every 6 units; 4:3 every 12 — the cycle is the LCM.",
+     "Hemiola: six eighths regrouped 3+3 against 2+2+2, accents only.",
+     "Son clave, eighth grid over two bars: 3-2 = X..X..X. | ..X.X...",
+     "The tresillo (gaps 3-3-2) is the 3-side's front half.",
+     "Clave direction is a constitution other parts phrase around."
+    ],
+    "notes": "Clap the 3-side while stepping the 2-side if the room is brave. Land the clave grid slowly and in the stated resolution — eighth notes over two bars — because every other representation argument starts from mixing resolutions. Direction matters: flip the bars and arrangements built on it fall over.",
+    "visual": "Son clave grids in 3-2 and 2-3 orientations with side brackets and the tresillo marked."
+   },
+   {
+    "id": "s4",
+    "title": "Human Timing",
+    "bullets": [
+     "Research consensus: good players' offsets are systematic, not random.",
+     "The pocket is a relationship — e.g., snare laid back against an on-time kick.",
+     "Velocity and ghost notes create feel with zero timing deviation.",
+     "Dilla's unquantized MPC: each voice keeping its own consistent time.",
+     "Diagnostic: consistency across bars is feel; wandering is thepractice target."
+    ],
+    "notes": "The honest summary of the science is one sentence: deviation that repeats is feel, deviation that wanders is error. Use Dilla as the proof by extremes — his offsets were stable enough for analysts to transcribe. Then have everyone record four bars and inspect their own consistency before judging it.",
+    "visual": "Exaggerated microtiming offsets over a beat grid, with a velocity lane beneath."
+   },
+   {
+    "id": "s5",
+    "title": "Programming Feel on Machines",
+    "bullets": [
+     "Tool ranking: swing (a policy) > per-step nudge > velocity > humanize.",
+     "Humanize randomises per bar — randomness has no memory, feel is memory.",
+     "One groove, three builds: quantized (stiff), swung (limp in a good way), finger-drummed (kept).",
+     "Grid → pads: keep placement and accent shape; let hands re-voice velocity.",
+     "Pads → grid: transcribe your offsets before you quantize them away."
+    ],
+    "notes": "Build the running groove live in all three versions and A/B them without announcing which is which — the room will identify the played take. Close on the wasteful move to avoid: quantizing your own good take away, then paying a randomiser to invent a worse one.",
+    "visual": "The running groove as a step grid, captioned with its swung and finger-drummed builds."
+   }
+  ]
+ },
+ "enrichment": {
+  "audioTitle": "One Groove, Three Feels: Counting the Bend",
+  "turns": [
+   {
+    "speaker": "teacher",
+    "line": "One pattern, start to finish. Sixteen steps. Kick on 1, 7, and 10 — count it with me: ONE two three four, five six SEVEN, eight nine TEN. Hear where 7 leans?"
+   },
+   {
+    "speaker": "student",
+    "line": "I've got it. Snare where — 5 and 13, the backbeat? And a little ghost on 16, barely there."
+   },
+   {
+    "speaker": "teacher",
+    "line": "Right. Hats on every step, accents on the beats. Now play it dead straight, everything exactly on its step. ONE e and a, TWO e and a — metronome-honest."
+   },
+   {
+    "speaker": "student",
+    "line": "Done. It's… correct. It's also a diagram. Nothing walks."
+   },
+   {
+    "speaker": "teacher",
+    "line": "Good ears. Now bend it: swing near the triplet point. Every even step slides late. Same count, but let the 'and' wait — ONE… and, TWO… and. Feel the limp?"
+   },
+   {
+    "speaker": "student",
+    "line": "The hats are shuffling now. The kick on 7 leans into the snare instead of just standing next to it."
+   },
+   {
+    "speaker": "teacher",
+    "line": "That's the ratio doing its job — two-thirds of the beat for the onbeat, one-third for the off. Now keep the swing and add weight: accents harder on 1, 5, 9, 13, and let that ghost on 16 whisper."
+   },
+   {
+    "speaker": "student",
+    "line": "Same timing, but now it breathes. The loud-soft shape is carrying half the feel, isn't it?"
+   },
+   {
+    "speaker": "teacher",
+    "line": "Half is about right. Now the last layer. I'm going to clap a five-hit pattern over two bars — ONE, and-of-two, FOUR, then two, three. Three-side first. That's son clave, 3-2. Keep your groove under it."
+   },
+   {
+    "speaker": "student",
+    "line": "My kick on 7 and 10 is arguing with your clave a little, but the one still lands for both of us. They share the downbeat and negotiate the rest."
+   },
+   {
+    "speaker": "teacher",
+    "line": "Exactly — layers agree at the top and argue politely below it. Now drop my clave, keep the swing, and play the groove on the pads, quantize off, like a person."
+   },
+   {
+    "speaker": "student",
+    "line": "Played it. My snare's sitting back a touch, my hats are pushing, and it's the same every bar. I didn't plan that."
+   },
+   {
+    "speaker": "teacher",
+    "line": "Your hands planned it — that's your placement, and it repeated, so it's feel, not error. If we quantize that take, what do we lose? And what would a humanize knob do instead?"
+   },
+   {
+    "speaker": "student",
+    "line": "The snare's drag and the hats' lean — we'd get the diagram back. And a humanize knob would be worse: random offsets, different every bar, strangers every time the loop comes around. No pocket, because nothing repeats."
+   },
+   {
+    "speaker": "teacher",
+    "line": "Then you have the whole course in one loop: place it on purpose, bend the number, keep what repeats. Start from the grid — then leave it, the same way, every bar."
+   },
+   {
+    "speaker": "student",
+    "line": "Place it on purpose, bend the number, keep what repeats. Got it — same time next week, and I'm bringing my own offsets."
+   }
+  ],
+  "nodes": [
+   {
+    "id": "root",
+    "label": "Rhythm, Groove & Swing",
+    "parent": null,
+    "note": "Feel is deliberate placement — of hits, of accents, and of time itself."
+   },
+   {
+    "id": "n1",
+    "label": "The Grid",
+    "parent": "root",
+    "note": "16 steps per bar; rows are voices, columns are time; beats on 1, 5, 9, 13."
+   },
+   {
+    "id": "n2",
+    "label": "The Swing Ratio",
+    "parent": "root",
+    "note": "Where the offbeat lands: 50% straight, 66.7% triplet, 75% dotted."
+   },
+   {
+    "id": "n3",
+    "label": "Layers & Clave",
+    "parent": "root",
+    "note": "3:2 and 4:3 cycles, hemiola, and son clave as the organising pattern."
+   },
+   {
+    "id": "n4",
+    "label": "Human Timing",
+    "parent": "root",
+    "note": "Systematic microtiming and velocity — the pocket lives here."
+   },
+   {
+    "id": "n5",
+    "label": "Programming Feel",
+    "parent": "root",
+    "note": "Swing and nudge beat humanize: bend the number, the same way, every bar."
+   },
+   {
+    "id": "n6",
+    "label": "Accents & Velocity",
+    "parent": "n1",
+    "note": "The rhythm inside the rhythm: accent shape and ghost notes."
+   }
+  ],
+  "mnemonics": [
+   {
+    "for": "Swing landmarks: 50% straight, 66.7% triplet, 75% dotted",
+    "aid": "Half is honest, two-thirds trips, three-quarters limps."
+   },
+   {
+    "for": "Son clave 3-side: hits on 1, the and of 2, and 4 (gaps of 3, 3, 2 eighths)",
+    "aid": "Chant the tresillo: 'ONE — and-of-TWO — FOUR', then let the 2-side answer on 2 and 3."
+   },
+   {
+    "for": "Polyrhythm meeting points: 3:2 every 6 units, 4:3 every 12",
+    "aid": "Multiply the pair to find the handshake: 3×2 meet at 6, 4×3 at 12."
+   }
+  ]
+ }
+}

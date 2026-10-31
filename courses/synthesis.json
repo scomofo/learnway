@@ -1,0 +1,573 @@
+{
+ "meta": {
+  "topic": "subtractive synthesis and sound design",
+  "level": "intermediate",
+  "interests": "",
+  "depth": "standard",
+  "model": "manual",
+  "title": "Subtractive Synthesis & Sound Design: Start From a Sawtooth",
+  "createdAt": "2026-10-22T12:00:00.000Z",
+  "version": 1
+ },
+ "plan": {
+  "title": "Subtractive Synthesis & Sound Design: Start From a Sawtooth",
+  "hook": "Every classic patch you've ever loved is a sawtooth, a filter, and two envelopes arranged with intent.",
+  "objectives": [
+   "Predict a patch's sound from its oscillator, filter, and envelope settings before playing a note.",
+   "Choose waveform, filter, and envelope settings to hit a described target sound: bass, pad, lead, pluck, or tuned percussion.",
+   "State the harmonic recipe of the sawtooth, square, pulse, and triangle waves, and what each one offers the filter.",
+   "Use modulation (LFO, pulse-width modulation, vibrato) with a stated rate, depth, and reason.",
+   "Recognize oscillator sync and ring modulation by ear, and know what produces them and where they do not live."
+  ],
+  "prerequisites": [
+   "Basic sound physics: what harmonics are, and how amplitude behaves over time",
+   "Any subtractive synth within reach, hardware or software, to try settings as you read"
+  ],
+  "sections": [
+   {
+    "id": "s1",
+    "heading": "The Raw Material: Oscillators and Harmonic Recipes",
+    "points": [
+     "Subtractive synthesis defined: start harmonically rich, then carve",
+     "Sawtooth: all harmonics, amplitudes falling as 1/n — the default starting point",
+     "Square and pulse: odd harmonics only at 50 percent width; narrowing the pulse brings the even harmonics back",
+     "Triangle and sine: odd harmonics at 1/n squared, and almost nothing — mellow by subtraction",
+     "Three oscillators as ingredients: octave layers, a square sub, detune in cents, and analog drift"
+    ]
+   },
+   {
+    "id": "s2",
+    "heading": "The Filter: Cutoff, Resonance, and the Ladder Character",
+    "points": [
+     "Cutoff as a moving ceiling: the lowpass filter and where the wall stands",
+     "Four poles means 24 dB per octave of slope past the cutoff",
+     "Resonance (emphasis): a peak at the cutoff — and the low end it costs you on a ladder filter",
+     "Self-oscillation: at maximum resonance the filter is a sine-wave oscillator",
+     "Keyboard tracking: keeping brightness honest across the range, and tuning the self-oscillation trick"
+    ]
+   },
+   {
+    "id": "s3",
+    "heading": "Envelopes: Shape Over Time",
+    "points": [
+     "An envelope is a parameter's journey: loudness envelope runs the amp, contour envelope sweeps the filter",
+     "Attack, decay, sustain, release — and the classic panel's release borrowing the decay time",
+     "Exponential versus linear segments, and why analog decays feel natural",
+     "Why a pluck is a filter story, not a volume story",
+     "Contour amount and filter sustain: where brightness starts, and where it settles"
+    ]
+   },
+   {
+    "id": "s4",
+    "heading": "Modulation: Movement With a Reason",
+    "points": [
+     "Rate decides character: slow modulation is movement, audio-rate modulation is new timbre",
+     "Oscillator 3 as the LFO: the Minimoog way of getting a modulator, and the mod wheel as performed depth",
+     "Vibrato that serves the note: slow rate, small depth, faded in on held notes",
+     "Pulse-width modulation: chorus-like motion from a single oscillator",
+     "Sync and ring modulation: what they do, what they sound like, and an honest note on where they live"
+    ]
+   },
+   {
+    "id": "s5",
+    "heading": "Five Canonical Patches",
+    "points": [
+     "Method first: a patch is a hypothesis — predict, set, play one note, change one knob",
+     "Bass: saw plus square sub, contour punch; variation: squelchy funk with glide",
+     "Pad: detuned saws, slow attack, low cutoff; variation: oscillator 3 breathing through the filter",
+     "Lead: open filter, glide for legato slides, wheel vibrato; variation: hollow square lead",
+     "Pluck and tuned percussion: the filter envelope snaps shut; triangle with sustain at zero"
+    ]
+   }
+  ]
+ },
+ "reading": {
+  "sections": [
+   {
+    "id": "s1",
+    "heading": "The Raw Material: Oscillators and Harmonic Recipes",
+    "body": "Subtractive synthesis starts with too much. An oscillator produces a harmonically rich waveform, and everything downstream exists to remove parts of it. The signal path on a Minimoog-style instrument is fixed and short: three oscillators feed a mixer, the mixer feeds a lowpass filter, the filter feeds an amplifier, and two envelopes plus a low-frequency source push the filter and the amplifier around while a note plays. Sound design on this architecture is therefore two decisions repeated: what goes in, and what gets taken away.\n\nThe sawtooth is the default raw material because it is complete. It contains every harmonic of the fundamental — the 2nd, 3rd, 4th, and so on — with amplitudes falling as 1/n: the second harmonic is half as loud as the fundamental, the third a third, the tenth a tenth. That slow falloff leaves usable content at every frequency the filter might visit, which is exactly what a subtractive instrument wants. A filter cannot add brightness that was never there; it can only reveal it by moving.\n\nThe square wave is the sawtooth's opposite temperament. At a 50 percent duty cycle it holds only the odd harmonics — 1st, 3rd, 5th — still falling as 1/n, which is why it sounds hollow, like a clarinet or a reed. The pulse family lives around it: narrow the pulse toward 25 or 10 percent and the even harmonics return, the sound thins out and turns nasal, and relatively more energy sits up high. Pulse width is a recipe dial, not a detail.\n\nThe triangle wave keeps the odd harmonics too, but they fall as 1/n squared, so the third harmonic is already down to a ninth and the fifth to a twenty-fifth. The result is a near-sine with a faint halo — flute-like, soft, useful when a patch needs pitch without aggression. A sine itself is the limiting case: one frequency, nothing to carve, which is why it serves as a sub, a test tone, or the ringing voice of a self-oscillating filter. Noise completes the pantry: every frequency at once, no pitch, ready to become breath, hiss, wind, or the click at the front of a drum.\n\nThree oscillators are ingredients, not a trio. One classic layering is a sawtooth at pitch, a second sawtooth detuned by a few cents so the two beat slowly against each other and the sound thickens, and a square wave one octave down acting as a sub that you feel as much as hear. Detune is measured in cents and small numbers do the work: 5 cents shimmers, 15 cents choruses, 50 cents is a honky-tonk. Analog oscillators also drift slightly with temperature and age. That is not a defect to apologise for — it is a large part of why old recordings sound alive — but it does mean you tune before the take, and you expect the unison to breathe a little.\n\nBefore touching the filter, be able to say what your raw mix contains: which harmonics, at what levels, moving or still. Every later section is bookkeeping on that inventory.",
+    "visual": "Bar spectra for sawtooth, square, and triangle waves side by side, stems dropping as 1/n for the first two and 1/n squared for the triangle, above a signal-chain block diagram.",
+    "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><rect x=\"14\" y=\"14\" width=\"372\" height=\"272\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"200\" y=\"36\" font-size=\"12\" text-anchor=\"middle\" fill=\"#dbe4f0\" font-family=\"sans-serif\">THE SUBTRACTIVE SIGNAL CHAIN</text><rect x=\"28\" y=\"46\" width=\"66\" height=\"38\" fill=\"#1d2635\" stroke=\"#7cc7ff\" stroke-width=\"1\"/><text x=\"61.0\" y=\"62\" font-size=\"10\" text-anchor=\"middle\" fill=\"#dbe4f0\" font-family=\"sans-serif\">OSC 1-3</text><text x=\"61.0\" y=\"76\" font-size=\"8\" text-anchor=\"middle\" fill=\"#9aa6b8\" font-family=\"sans-serif\">sources</text><line x1=\"94\" y1=\"65\" x2=\"104\" y2=\"65\" stroke=\"#7cc7ff\" stroke-width=\"1.5\"/><path d=\"M 104 65 l -5 -3 l 0 6 z\" fill=\"#7cc7ff\"/><rect x=\"104\" y=\"46\" width=\"54\" height=\"38\" fill=\"#1d2635\" stroke=\"#7cc7ff\" stroke-width=\"1\"/><text x=\"131.0\" y=\"62\" font-size=\"10\" text-anchor=\"middle\" fill=\"#dbe4f0\" font-family=\"sans-serif\">MIXER</text><text x=\"131.0\" y=\"76\" font-size=\"8\" text-anchor=\"middle\" fill=\"#9aa6b8\" font-family=\"sans-serif\">balance</text><line x1=\"158\" y1=\"65\" x2=\"168\" y2=\"65\" stroke=\"#7cc7ff\" stroke-width=\"1.5\"/><path d=\"M 168 65 l -5 -3 l 0 6 z\" fill=\"#7cc7ff\"/><rect x=\"168\" y=\"46\" width=\"62\" height=\"38\" fill=\"#1d2635\" stroke=\"#7cc7ff\" stroke-width=\"1\"/><text x=\"199.0\" y=\"62\" font-size=\"10\" text-anchor=\"middle\" fill=\"#dbe4f0\" font-family=\"sans-serif\">FILTER</text><text x=\"199.0\" y=\"76\" font-size=\"8\" text-anchor=\"middle\" fill=\"#9aa6b8\" font-family=\"sans-serif\">carves</text><line x1=\"230\" y1=\"65\" x2=\"240\" y2=\"65\" stroke=\"#7cc7ff\" stroke-width=\"1.5\"/><path d=\"M 240 65 l -5 -3 l 0 6 z\" fill=\"#7cc7ff\"/><rect x=\"240\" y=\"46\" width=\"52\" height=\"38\" fill=\"#1d2635\" stroke=\"#7cc7ff\" stroke-width=\"1\"/><text x=\"266.0\" y=\"62\" font-size=\"10\" text-anchor=\"middle\" fill=\"#dbe4f0\" font-family=\"sans-serif\">AMP</text><text x=\"266.0\" y=\"76\" font-size=\"8\" text-anchor=\"middle\" fill=\"#9aa6b8\" font-family=\"sans-serif\">shapes</text><line x1=\"292\" y1=\"65\" x2=\"302\" y2=\"65\" stroke=\"#7cc7ff\" stroke-width=\"1.5\"/><path d=\"M 302 65 l -5 -3 l 0 6 z\" fill=\"#7cc7ff\"/><rect x=\"302\" y=\"46\" width=\"62\" height=\"38\" fill=\"#1d2635\" stroke=\"#7cc7ff\" stroke-width=\"1\"/><text x=\"333.0\" y=\"62\" font-size=\"10\" text-anchor=\"middle\" fill=\"#dbe4f0\" font-family=\"sans-serif\">OUT</text><text x=\"333.0\" y=\"76\" font-size=\"8\" text-anchor=\"middle\" fill=\"#9aa6b8\" font-family=\"sans-serif\">speaker</text><rect x=\"104\" y=\"98\" width=\"180\" height=\"20\" fill=\"none\" stroke=\"#ffd479\" stroke-width=\"1\" stroke-dasharray=\"4 3\"/><text x=\"194\" y=\"112\" font-size=\"8.5\" text-anchor=\"middle\" fill=\"#ffd479\" font-family=\"sans-serif\">ENVELOPES + LFO move FILTER and AMP</text><text x=\"70\" y=\"150\" font-size=\"10\" text-anchor=\"middle\" fill=\"#dbe4f0\" font-family=\"sans-serif\">SAWTOOTH</text><rect x=\"36\" y=\"176\" width=\"7\" height=\"62\" fill=\"#7cc7ff\"/><text x=\"39\" y=\"250\" font-size=\"7\" text-anchor=\"middle\" fill=\"#9aa6b8\" font-family=\"sans-serif\">1</text><rect x=\"47\" y=\"207\" width=\"7\" height=\"31\" fill=\"#7cc7ff\"/><text x=\"50\" y=\"250\" font-size=\"7\" text-anchor=\"middle\" fill=\"#9aa6b8\" font-family=\"sans-serif\">2</text><rect x=\"58\" y=\"217\" width=\"7\" height=\"21\" fill=\"#7cc7ff\"/><text x=\"61\" y=\"250\" font-size=\"7\" text-anchor=\"middle\" fill=\"#9aa6b8\" font-family=\"sans-serif\">3</text><rect x=\"69\" y=\"222\" width=\"7\" height=\"16\" fill=\"#7cc7ff\"/><text x=\"72\" y=\"250\" font-size=\"7\" text-anchor=\"middle\" fill=\"#9aa6b8\" font-family=\"sans-serif\">4</text><rect x=\"80\" y=\"226\" width=\"7\" height=\"12\" fill=\"#7cc7ff\"/><text x=\"83\" y=\"250\" font-size=\"7\" text-anchor=\"middle\" fill=\"#9aa6b8\" font-family=\"sans-serif\">5</text><rect x=\"91\" y=\"228\" width=\"7\" height=\"10\" fill=\"#7cc7ff\"/><text x=\"94\" y=\"250\" font-size=\"7\" text-anchor=\"middle\" fill=\"#9aa6b8\" font-family=\"sans-serif\">6</text><rect x=\"102\" y=\"229\" width=\"7\" height=\"9\" fill=\"#7cc7ff\"/><text x=\"105\" y=\"250\" font-size=\"7\" text-anchor=\"middle\" fill=\"#9aa6b8\" font-family=\"sans-serif\">7</text><text x=\"70\" y=\"266\" font-size=\"8\" text-anchor=\"middle\" fill=\"#9aa6b8\" font-family=\"sans-serif\">all harmonics, 1/n</text><text x=\"200\" y=\"150\" font-size=\"10\" text-anchor=\"middle\" fill=\"#dbe4f0\" font-family=\"sans-serif\">SQUARE</text><rect x=\"166\" y=\"176\" width=\"7\" height=\"62\" fill=\"#7cc7ff\"/><text x=\"169\" y=\"250\" font-size=\"7\" text-anchor=\"middle\" fill=\"#9aa6b8\" font-family=\"sans-serif\">1</text><text x=\"180\" y=\"250\" font-size=\"7\" text-anchor=\"middle\" fill=\"#9aa6b8\" font-family=\"sans-serif\">2</text><rect x=\"188\" y=\"217\" width=\"7\" height=\"21\" fill=\"#7cc7ff\"/><text x=\"191\" y=\"250\" font-size=\"7\" text-anchor=\"middle\" fill=\"#9aa6b8\" font-family=\"sans-serif\">3</text><text x=\"202\" y=\"250\" font-size=\"7\" text-anchor=\"middle\" fill=\"#9aa6b8\" font-family=\"sans-serif\">4</text><rect x=\"210\" y=\"226\" width=\"7\" height=\"12\" fill=\"#7cc7ff\"/><text x=\"213\" y=\"250\" font-size=\"7\" text-anchor=\"middle\" fill=\"#9aa6b8\" font-family=\"sans-serif\">5</text><text x=\"224\" y=\"250\" font-size=\"7\" text-anchor=\"middle\" fill=\"#9aa6b8\" font-family=\"sans-serif\">6</text><rect x=\"232\" y=\"229\" width=\"7\" height=\"9\" fill=\"#7cc7ff\"/><text x=\"235\" y=\"250\" font-size=\"7\" text-anchor=\"middle\" fill=\"#9aa6b8\" font-family=\"sans-serif\">7</text><text x=\"200\" y=\"266\" font-size=\"8\" text-anchor=\"middle\" fill=\"#9aa6b8\" font-family=\"sans-serif\">odd only, 1/n</text><text x=\"330\" y=\"150\" font-size=\"10\" text-anchor=\"middle\" fill=\"#dbe4f0\" font-family=\"sans-serif\">TRIANGLE</text><rect x=\"296\" y=\"176\" width=\"7\" height=\"62\" fill=\"#7cc7ff\"/><text x=\"299\" y=\"250\" font-size=\"7\" text-anchor=\"middle\" fill=\"#9aa6b8\" font-family=\"sans-serif\">1</text><text x=\"310\" y=\"250\" font-size=\"7\" text-anchor=\"middle\" fill=\"#9aa6b8\" font-family=\"sans-serif\">2</text><rect x=\"318\" y=\"231\" width=\"7\" height=\"7\" fill=\"#7cc7ff\"/><text x=\"321\" y=\"250\" font-size=\"7\" text-anchor=\"middle\" fill=\"#9aa6b8\" font-family=\"sans-serif\">3</text><text x=\"332\" y=\"250\" font-size=\"7\" text-anchor=\"middle\" fill=\"#9aa6b8\" font-family=\"sans-serif\">4</text><rect x=\"340\" y=\"235.5\" width=\"7\" height=\"2.5\" fill=\"#7cc7ff\"/><text x=\"343\" y=\"250\" font-size=\"7\" text-anchor=\"middle\" fill=\"#9aa6b8\" font-family=\"sans-serif\">5</text><text x=\"354\" y=\"250\" font-size=\"7\" text-anchor=\"middle\" fill=\"#9aa6b8\" font-family=\"sans-serif\">6</text><rect x=\"362\" y=\"236.8\" width=\"7\" height=\"1.2\" fill=\"#7cc7ff\"/><text x=\"365\" y=\"250\" font-size=\"7\" text-anchor=\"middle\" fill=\"#9aa6b8\" font-family=\"sans-serif\">7</text><text x=\"330\" y=\"266\" font-size=\"8\" text-anchor=\"middle\" fill=\"#9aa6b8\" font-family=\"sans-serif\">odd only, 1/n squared</text></svg>",
+    "questions": [
+     {
+      "q": "Why is the sawtooth, rather than the sine, the classic starting waveform on a subtractive synth?",
+      "answer": "Because it contains every harmonic with amplitudes falling as 1/n, so the filter has material to work with at every frequency; a sine has only the fundamental and gives the filter nothing to carve.",
+      "hint": "Think about what a filter can and cannot add."
+     },
+     {
+      "q": "What changes in the harmonic recipe when a pulse wave is narrowed from 50 percent toward 10 percent?",
+      "answer": "The even harmonics, which are absent at exactly 50 percent (a square wave), come back, and the sound turns thinner and more nasal with relatively more energy in the high harmonics.",
+      "hint": "At 50 percent the wave is a square. What was missing there?"
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "heading": "The Filter: Cutoff, Resonance, and the Ladder Character",
+    "body": "The lowpass filter is a ceiling that moves. Below the cutoff frequency, harmonics pass nearly untouched; above it, they are rolled off at a rate set by the filter's slope. The Minimoog's ladder filter stacks four poles — four stages of rolloff — giving 24 dB per octave past the cutoff. That steepness is why the instrument can sound vocal and dramatic rather than merely muffled: a note's harmonic series can be sliced at a precise height, and sweeping the cutoff slides that slice up and down the series.\n\nResonance — labelled emphasis on the classic panel — feeds some of the filter's output back to its input. The feedback builds a peak of gain right at the cutoff frequency, so harmonics near the ceiling get louder instead of merely surviving. Low settings add a nasal edge and make a sweep speak; high settings whistle. But the ladder design pays for that peak: as resonance rises, the passband below the cutoff loses level, and the low end thins out audibly. This is the classic Moog behaviour and it catches everyone once — a bass patch that was huge turns wiry the moment you crank the emphasis. The fixes are craft, not mystery: keep resonance modest on bass, raise the oscillator level, or accept the trade and let another part carry the bottom.\n\nPush resonance to maximum and the feedback loop sustains itself: the filter self-oscillates, ringing at its cutoff frequency with a clean sine wave. The oscillators become optional. That sine is a genuine sound source — pure test-tone whistles, and, with the envelope trick from the percussion patch later, the body of tuned drums. To play it in tune across the keyboard, the cutoff has to follow the keys, which is the job of keyboard tracking.\n\nKeyboard tracking scales the cutoff with the pitch played. With no tracking, high notes lose their top harmonics to a fixed ceiling and sound duller than low notes; with full tracking, the ceiling rises in step with the note and brightness stays roughly constant from bottom to top of the keyboard. Partial tracking — the classic panel offers stepped amounts — is the usual musical compromise. Tracking is also the calibration that makes self-oscillation track the keyboard accurately enough to play melodies on the filter alone.\n\nWork the filter in a fixed order and settings stop being random. First set the raw oscillator mix. Then place the cutoff with resonance at zero and listen to where the ceiling sits against the note. Then add emphasis a little at a time, re-checking the low end after each move. Only then hand the cutoff to the envelope and the tracking. Every famous filter sound is that short procedure with different numbers.",
+    "visual": "Two lowpass response curves on one graph: a gentle 24 dB per octave slope, and the same filter with a resonance peak at the cutoff plus a visibly lower bass shelf.",
+    "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><rect x=\"14\" y=\"14\" width=\"372\" height=\"272\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"200\" y=\"36\" font-size=\"12\" text-anchor=\"middle\" fill=\"#dbe4f0\" font-family=\"sans-serif\">THE LADDER FILTER: FOUR POLES, 24 dB/OCTAVE</text><line x1=\"45\" y1=\"245\" x2=\"360\" y2=\"245\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><line x1=\"45\" y1=\"245\" x2=\"45\" y2=\"60\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"355\" y=\"260\" font-size=\"8.5\" text-anchor=\"end\" fill=\"#9aa6b8\" font-family=\"sans-serif\">frequency</text><text x=\"38\" y=\"66\" font-size=\"8.5\" text-anchor=\"end\" fill=\"#9aa6b8\" font-family=\"sans-serif\">level</text><path d=\"M 45 95 L 150 95 L 205 130 L 265 200 L 330 238\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><path d=\"M 45 120 L 140 120 L 168 78 L 190 105 L 235 175 L 300 232\" fill=\"none\" stroke=\"#ffd479\" stroke-width=\"2\"/><text x=\"150\" y=\"86\" font-size=\"9\" fill=\"#dbe4f0\" font-family=\"sans-serif\">cutoff, low resonance</text><text x=\"176\" y=\"70\" font-size=\"9\" fill=\"#ffd479\" font-family=\"sans-serif\">resonance peak</text><text x=\"52\" y=\"134\" font-size=\"9\" fill=\"#ffd479\" font-family=\"sans-serif\">same patch, high resonance: low end thins</text><text x=\"268\" y=\"196\" font-size=\"9\" fill=\"#9aa6b8\" font-family=\"sans-serif\">slope falls 24 dB</text><text x=\"268\" y=\"209\" font-size=\"9\" fill=\"#9aa6b8\" font-family=\"sans-serif\">per octave past cutoff</text><text x=\"200\" y=\"278\" font-size=\"8.5\" text-anchor=\"middle\" fill=\"#9aa6b8\" font-family=\"sans-serif\">at maximum resonance the filter self-oscillates: a playable sine</text></svg>",
+    "questions": [
+     {
+      "q": "What does a four-pole filter's 24 dB per octave slope actually describe?",
+      "answer": "How fast harmonics are attenuated once they pass the cutoff frequency: each octave above the cutoff, the level drops by about 24 dB.",
+      "hint": "It is a rate measured past the cutoff, not at it."
+     },
+     {
+      "q": "Your bass patch loses its bottom end when you raise the emphasis. Why, and what are two honest fixes?",
+      "answer": "On a ladder filter, resonance is bought with passband level: feedback builds the peak at the cutoff by thinning what is below it. Fixes: use less resonance on bass patches, or compensate by raising oscillator level / lowering the cutoff so more fundamental survives.",
+      "hint": "The peak at the cutoff is not free. What paid for it?"
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "heading": "Envelopes: Shape Over Time",
+    "body": "An envelope is a shape a parameter follows over the life of a note. The architecture has two, and the whole craft of articulation is the difference between their jobs. The loudness envelope drives the amplifier: it decides when the note starts, how loud it settles, and how it ends. The filter envelope — the contour — sweeps the cutoff: it decides how bright the note starts and where its brightness settles. Play one note with both envelopes set identically and the sound is a blob. Split their shapes and the note gains a front, a middle, and an end.\n\nThe four stages are the standard vocabulary. Attack is the time to climb from zero to peak. Decay is the fall from that peak to the sustain level. Sustain is not a time but a level — where the parameter sits while the key is held. Release is the fall to zero after the key lets go. Know your panel, though: on the classic Minimoog layout the envelopes are attack, decay, and sustain, and release is not a separate control — engage the release (decay) switch and the note's tail simply reuses the decay time. Plenty of patches are designed around exactly that economy.\n\nSegments have shapes as well as times. Analog envelope circuits charge and discharge capacitors, so their curves are exponential: fast movement at first, easing as they approach the target. Ears read that as natural, because most real sounds behave that way. A linear decay spends equal time at every level and tends to sound like it hovers, then falls off a cliff at the end. When a digital envelope offers curve choices, exponential or logarithmic shapes are the ones that make percussive sounds feel right.\n\nNow the pluck, which is this section's thesis: a pluck is a filter story, not a volume story. On a plucked string, the bright, harmonic-rich attack dies quickly while the quieter fundamental rings on. Translate directly: the filter envelope gets a fast decay down to a low sustain, so brightness collapses within a few hundred milliseconds, while the loudness envelope decays more slowly and keeps the note audible. The contour amount knob sets how far the filter envelope travels — how high above the resting cutoff the note starts. The filter's sustain level is where the brightness ends up living. Get the ratio of the two decays right and a Minimoog does a passable clavinet; get it backwards and you have a note that goes dark and then hangs around being dull.\n\nOne honest limitation: the classic panel has no velocity sensitivity. How hard you strike the key changes nothing, which is why expression on this instrument lives in phrasing, glide, and the mod wheel rather than in your fingers' force. On synths that do route velocity — usually to filter amount or loudness — treat it as a second pair of hands and spend it on the filter first.",
+    "visual": "Two ADSR curves drawn on shared axes: the filter envelope peaking higher and decaying fast to a low sustain while the amp envelope decays gently to a higher sustain.",
+    "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><rect x=\"14\" y=\"14\" width=\"372\" height=\"272\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"200\" y=\"36\" font-size=\"12\" text-anchor=\"middle\" fill=\"#dbe4f0\" font-family=\"sans-serif\">TWO ENVELOPES, TWO JOBS</text><line x1=\"45\" y1=\"240\" x2=\"365\" y2=\"240\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><path d=\"M 45 240 L 70 90 L 105 130 L 260 130 L 300 240\" fill=\"none\" stroke=\"#ffd479\" stroke-width=\"2\"/><path d=\"M 45 240 L 70 62 L 120 205 L 260 205 L 285 240\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"2\"/><line x1=\"45\" y1=\"130\" x2=\"365\" y2=\"130\" stroke=\"#ffd479\" stroke-width=\"0.7\" stroke-dasharray=\"3 4\"/><line x1=\"45\" y1=\"205\" x2=\"365\" y2=\"205\" stroke=\"#7cc7ff\" stroke-width=\"0.7\" stroke-dasharray=\"3 4\"/><text x=\"300\" y=\"122\" font-size=\"9\" fill=\"#ffd479\" font-family=\"sans-serif\">AMP sustain</text><text x=\"300\" y=\"197\" font-size=\"9\" fill=\"#7cc7ff\" font-family=\"sans-serif\">FILTER sustain</text><text x=\"70\" y=\"256\" font-size=\"9\" text-anchor=\"middle\" fill=\"#9aa6b8\" font-family=\"sans-serif\">A</text><text x=\"120\" y=\"256\" font-size=\"9\" text-anchor=\"middle\" fill=\"#9aa6b8\" font-family=\"sans-serif\">D</text><text x=\"200\" y=\"256\" font-size=\"9\" text-anchor=\"middle\" fill=\"#9aa6b8\" font-family=\"sans-serif\">S (held)</text><text x=\"292\" y=\"256\" font-size=\"9\" text-anchor=\"middle\" fill=\"#9aa6b8\" font-family=\"sans-serif\">R</text><text x=\"200\" y=\"278\" font-size=\"8.5\" text-anchor=\"middle\" fill=\"#9aa6b8\" font-family=\"sans-serif\">the pluck: brightness (blue) dies long before volume (gold) does</text></svg>",
+    "questions": [
+     {
+      "q": "What is the difference between the sustain stage and the other three envelope stages?",
+      "answer": "Attack, decay, and release are times; sustain is a level — the value the parameter holds at while the key stays down.",
+      "hint": "Three of the four are measured in seconds. One is measured in amount."
+     },
+     {
+      "q": "To imitate a plucked string, which envelope should decay faster, and why?",
+      "answer": "The filter (contour) envelope. On a real string the bright harmonics die first while the fundamental rings on, so brightness should collapse quickly to a low sustain while the loudness envelope decays more slowly.",
+      "hint": "Think about what actually disappears first on a guitar string."
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "heading": "Modulation: Movement With a Reason",
+    "body": "Modulation is a control signal moving a parameter for you. The rate decides what kind of thing it is. Below roughly 20 Hz, modulation is heard as movement — wobble, sweep, pulse. Push the source up into the audio range and it stops being movement and becomes new timbre: sidebands and growl. Every modulation decision in a patch should be answerable in one sentence: what moves, how fast, how far, and why.\n\nOn a Minimoog-style panel there is no separate LFO box, because oscillator 3 is the modulator. Switch oscillator 3 out of keyboard control and slow it down, and its waveform becomes the LFO shape; route it to the oscillators and you have vibrato, route it to the filter and you have a sweeping wah, blend in the noise source and you get random, wind-like motion. The modulation amount rides on the mod wheel, which makes depth a performed thing: the wheel stays down for plain notes and comes up when a note is held and needs to sing. That performance habit, more than any setting, is the sound of the classic records.\n\nVibrato is the destination that punishes excess. The settings that serve the note are a rate around 5 to 6 Hz — close to a singer's or string player's natural vibrato — a depth of only a few tens of cents, and, above all, a delay: the note speaks plainly first and the vibrato fades in as it sustains. Constant, wide, instant vibrato reads as a cartoon of emotion; narrow and late reads as expression. Where the panel offers no fade-in, your left hand on the wheel is the fade-in.\n\nPulse-width modulation is the elegant cheat. Take one pulse oscillator, aim a slow LFO at its width, and the harmonic recipe keeps rewriting itself between hollow square and thin nasal pulse. The ear hears the slow spectral drift as width and motion — one oscillator impersonating two detuned ones, which is why PWM is the backbone of so many string and pad sounds on small instruments. An honesty note: on the strict classic layout the pulse widths are fixed switch positions rather than a continuously modulated width, so the same job is done with two detuned oscillators instead. Know which instrument you are standing at.\n\nTwo special cases complete the map, and both deserve a clear label: the classic Minimoog architecture does not have them. Oscillator sync forces a slave oscillator to restart its cycle every time a master completes one; sweeping the slave's pitch then cannot change the output pitch, so the energy comes out as a tearing sweep of harmonics — the snarling lead sound. Ring modulation multiplies two signals and emits their sum and difference frequencies while suppressing the originals; at simple ratios (octaves, fifths) the result stays harmonic, and at unrelated ratios it turns inharmonic and bell-like. Learn to recognize both, borrow sync's attitude on this panel with audio-rate oscillator-3 modulation of the filter — and reach for the real things, deliberately, when you are at an instrument that offers them.",
+    "visual": "Three pulse waveforms stacked at 50, 25, and 10 percent widths with their harmonic consequences labelled, showing what pulse-width modulation sweeps between.",
+    "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><rect x=\"14\" y=\"14\" width=\"372\" height=\"272\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"200\" y=\"34\" font-size=\"12\" text-anchor=\"middle\" fill=\"#dbe4f0\" font-family=\"sans-serif\">PULSE WIDTH CHANGES THE RECIPE</text><path d=\"M 60 106 L 60 78 L 200.0 78 L 200.0 106 L 340 106 L 340 78 L 480.0 78\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"1.6\"/><text x=\"60\" y=\"68\" font-size=\"9.5\" fill=\"#dbe4f0\" font-family=\"sans-serif\">WIDTH 50% = SQUARE</text><text x=\"340\" y=\"68\" font-size=\"8.5\" text-anchor=\"end\" fill=\"#9aa6b8\" font-family=\"sans-serif\">odd harmonics only, hollow</text><path d=\"M 60 176 L 60 148 L 130.0 148 L 130.0 176 L 340 176 L 340 148 L 410.0 148\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"1.6\"/><text x=\"60\" y=\"138\" font-size=\"9.5\" fill=\"#dbe4f0\" font-family=\"sans-serif\">WIDTH 25%</text><text x=\"340\" y=\"138\" font-size=\"8.5\" text-anchor=\"end\" fill=\"#9aa6b8\" font-family=\"sans-serif\">even harmonics return, thinner</text><path d=\"M 60 246 L 60 218 L 88.0 218 L 88.0 246 L 340 246 L 340 218 L 368.0 218\" fill=\"none\" stroke=\"#7cc7ff\" stroke-width=\"1.6\"/><text x=\"60\" y=\"208\" font-size=\"9.5\" fill=\"#dbe4f0\" font-family=\"sans-serif\">WIDTH 10%</text><text x=\"340\" y=\"208\" font-size=\"8.5\" text-anchor=\"end\" fill=\"#9aa6b8\" font-family=\"sans-serif\">nasal, reed-like, strong top</text><text x=\"200\" y=\"282\" font-size=\"8.5\" text-anchor=\"middle\" fill=\"#9aa6b8\" font-family=\"sans-serif\">an LFO on the width is PWM: one oscillator that sounds like two drifting</text></svg>",
+    "questions": [
+     {
+      "q": "On a Minimoog-style synth, where does the LFO come from?",
+      "answer": "From oscillator 3: switch it out of keyboard control, slow it down, and its waveform becomes the modulation source for pitch or filter, with depth performed on the mod wheel.",
+      "hint": "There is no separate LFO box on the panel. One of the sound sources has a second job."
+     },
+     {
+      "q": "What does ring modulation output, and why does it sound like bells at unrelated frequency ratios?",
+      "answer": "It outputs the sum and difference of the two input frequencies and suppresses the originals. At unrelated ratios those products are not harmonics of any common fundamental, so the ear hears an inharmonic, bell-like clang.",
+      "hint": "Multiply 300 Hz by 517 Hz in your head: what two frequencies appear?"
+     }
+    ]
+   },
+   {
+    "id": "s5",
+    "heading": "Five Canonical Patches",
+    "body": "A patch is a hypothesis. State the sound you want, set every knob as a prediction, play one note, and change one thing at a time. The five patches below use only what this architecture has — three oscillators, a mixer with noise, the ladder filter with contour and tracking, two envelopes, glide, and oscillator 3 as a modulator. Write your settings down or photograph the panel; on this class of instrument, paper is the preset memory.\n\nBass. Oscillator 1 sawtooth at pitch, oscillator 2 square one octave below as the sub, oscillator 3 off. Cutoff low, resonance modest — remember what emphasis costs down here — contour amount moderate, filter decay short, filter sustain low: the front of the note punches bright, then the sound settles into weight. Loudness envelope: instant attack, high sustain, release sharing the decay. Variation: raise the contour and the emphasis and add a little glide and the same patch turns squelchy and funky, sliding between notes.\n\nPad. Two sawtooths detuned about 8 to 10 cents apart, the third oscillator a triangle an octave up, mixed low, for air. Cutoff low, contour small, loudness attack slow — a second or more — sustain high, release long. Nothing in the patch moves fast, which is the point: the detune beating is the motion. Play chords and let them bloom. Variation: switch oscillator 3 from the triangle layer to LFO duty and ease the mod wheel up, and the pad starts breathing through the filter instead.\n\nLead. Two sawtooths lightly detuned, filter open with a high filter sustain so the note keeps its edge for as long as you hold it, contour moderate. The performance controls are the patch: glide at a moderate rate so legato lines slide like a voice changing notes, and vibrato from oscillator 3 brought in on the mod wheel only on held notes. Variation: switch both oscillators to square and the lead goes hollow and reedy — closer to a wind instrument — and wants a slower glide.\n\nPluck and keys. This is section three with knobs on: a sawtooth and a square blended, cutoff starting high, contour amount large, filter decay a few hundred milliseconds down to a low sustain, loudness decay a touch longer than the filter's. The brightness snaps shut while the note is still audible — the clavinet gesture. Variation: shorten the loudness decay toward the filter's and it dries out into a banjo-ish snap.\n\nTuned percussion. One triangle oscillator — or the filter self-oscillating with tracking on, for a purer sine — instant attack, decay of a few hundred milliseconds, sustain at zero on the loudness envelope. Because the tone itself is the pitch, the keyboard plays it like an instrument: roots for kicks, fifths for toms. A breath of noise in the mixer and a fast contour blip give the hit its skin. Variation: lengthen the decay and add a little emphasis sweep and it leans toward a resonant electronic tom.\n\nFive patches, one chain of decisions: recipe, ceiling, shape, movement. Describe any sound you hear on a record in those four words and you are most of the way to rebuilding it.",
+    "visual": "Five patch cards — bass, pad, lead, pluck, tuned percussion — each with its one-line recipe, arranged around the shared signal chain.",
+    "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><rect x=\"14\" y=\"14\" width=\"372\" height=\"272\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"200\" y=\"38\" font-size=\"12\" text-anchor=\"middle\" fill=\"#dbe4f0\" font-family=\"sans-serif\">FIVE PATCHES, ONE SIGNAL CHAIN</text><rect x=\"28\" y=\"58\" width=\"168\" height=\"62\" fill=\"#1d2635\" stroke=\"#7cc7ff\" stroke-width=\"1\"/><text x=\"112.0\" y=\"82\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#dbe4f0\" font-family=\"sans-serif\">BASS</text><text x=\"112.0\" y=\"102\" font-size=\"8\" text-anchor=\"middle\" fill=\"#9aa6b8\" font-family=\"sans-serif\">saw + square sub, contour punch</text><rect x=\"208\" y=\"58\" width=\"168\" height=\"62\" fill=\"#1d2635\" stroke=\"#7cc7ff\" stroke-width=\"1\"/><text x=\"292.0\" y=\"82\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#dbe4f0\" font-family=\"sans-serif\">PAD</text><text x=\"292.0\" y=\"102\" font-size=\"8\" text-anchor=\"middle\" fill=\"#9aa6b8\" font-family=\"sans-serif\">detuned saws, slow attack</text><rect x=\"28\" y=\"134\" width=\"168\" height=\"62\" fill=\"#1d2635\" stroke=\"#7cc7ff\" stroke-width=\"1\"/><text x=\"112.0\" y=\"158\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#dbe4f0\" font-family=\"sans-serif\">LEAD</text><text x=\"112.0\" y=\"178\" font-size=\"8\" text-anchor=\"middle\" fill=\"#9aa6b8\" font-family=\"sans-serif\">saws, glide, wheel vibrato</text><rect x=\"208\" y=\"134\" width=\"168\" height=\"62\" fill=\"#1d2635\" stroke=\"#7cc7ff\" stroke-width=\"1\"/><text x=\"292.0\" y=\"158\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#dbe4f0\" font-family=\"sans-serif\">PLUCK / KEYS</text><text x=\"292.0\" y=\"178\" font-size=\"8\" text-anchor=\"middle\" fill=\"#9aa6b8\" font-family=\"sans-serif\">filter envelope snaps shut</text><rect x=\"118\" y=\"210\" width=\"168\" height=\"62\" fill=\"#1d2635\" stroke=\"#7cc7ff\" stroke-width=\"1\"/><text x=\"202.0\" y=\"234\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#dbe4f0\" font-family=\"sans-serif\">TUNED PERCUSSION</text><text x=\"202.0\" y=\"254\" font-size=\"8\" text-anchor=\"middle\" fill=\"#9aa6b8\" font-family=\"sans-serif\">triangle, sustain at zero</text></svg>",
+    "questions": [
+     {
+      "q": "In the bass patch, why is oscillator 2 a square wave one octave below oscillator 1 rather than another sawtooth at the same pitch?",
+      "answer": "The octave-down square is a sub: its odd-harmonic recipe adds weight and fundamental support without competing with the sawtooth's full series at pitch, and its hollowness keeps the low end clean rather than buzzy.",
+      "hint": "Think about what job each oscillator is hired to do."
+     },
+     {
+      "q": "Which single change converts the pluck patch into the banjo-like variation?",
+      "answer": "Shorten the loudness envelope's decay until it nearly matches the filter envelope's, so the volume dies almost as fast as the brightness instead of ringing on after it.",
+      "hint": "The base patch is defined by a ratio between two decays. Close the gap."
+     }
+    ]
+   }
+  ]
+ },
+ "quizzes": {
+  "sections": [
+   {
+    "id": "s1",
+    "questions": [
+     {
+      "q": "You solo each oscillator playing the same note. One is full and buzzy with content at every harmonic, one is hollow like a clarinet, and one is soft and nearly pure. The hollow one is the:",
+      "choices": [
+       "Triangle wave",
+       "Sawtooth wave",
+       "Square wave",
+       "Sine wave"
+      ],
+      "answer": 2,
+      "explain": "The square wave contains only odd harmonics (1st, 3rd, 5th...), and that missing even series is exactly the hollow, reed-like quality. The sawtooth has every harmonic, and the triangle is the soft, nearly pure one."
+     },
+     {
+      "q": "A sawtooth's fourth harmonic has what amplitude compared with its fundamental?",
+      "choices": [
+       "One quarter — sawtooth harmonics fall as 1/n",
+       "One half",
+       "The same amplitude",
+       "One sixteenth — harmonics fall as 1/n squared"
+      ],
+      "answer": 0,
+      "explain": "Sawtooth harmonic amplitudes follow 1/n, so the 4th harmonic is 1/4 of the fundamental. The 1/n squared rule belongs to the triangle wave, which is why it sounds so much softer."
+     },
+     {
+      "q": "You want one held note to thicken and slowly shimmer, as if two players were playing it slightly apart. The right move is to:",
+      "choices": [
+       "Move one oscillator up a full octave",
+       "Mix in as much noise as possible",
+       "Set both oscillators to triangle waves",
+       "Detune one oscillator by a few cents against the other"
+      ],
+      "answer": 3,
+      "explain": "Two oscillators a few cents apart beat against each other, and that slow beating is heard as thickness and shimmer. An octave changes the recipe, noise adds pitchless hiss, and triangle waves only make the pair softer."
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "questions": [
+     {
+      "q": "Your bass patch was huge until you raised the resonance (emphasis), and now the bottom end is thin. What happened, and what is the fix?",
+      "choices": [
+       "The oscillators drifted out of tune; retune them",
+       "The ladder filter pays for its cutoff peak with low end — back the emphasis off, or compensate with oscillator level and cutoff",
+       "The filter overheated; let the synth warm down",
+       "Resonance always adds bass, so the monitors must be at fault"
+      ],
+      "answer": 1,
+      "explain": "On the Moog ladder design, the feedback that builds the resonance peak also attenuates the passband below the cutoff. Modest resonance for bass, or make up the lost weight with level and cutoff placement."
+     },
+     {
+      "q": "A four-pole lowpass filter rolls off a harmonic sitting one octave above its cutoff by roughly:",
+      "choices": [
+       "3 dB",
+       "6 dB",
+       "12 dB",
+       "24 dB"
+      ],
+      "answer": 3,
+      "explain": "Each pole contributes 6 dB per octave, so four poles give 24 dB per octave past the cutoff — the steep wall that lets a sweep slice harmonics at a precise height."
+     },
+     {
+      "q": "With resonance at maximum and the oscillators turned down, the filter rings as a clean sine. To play that sine in tune across the keyboard you need:",
+      "choices": [
+       "Keyboard tracking on the filter, set so the cutoff follows pitch fully",
+       "Glide turned most of the way up",
+       "The contour amount at maximum",
+       "Oscillator 3 switched out of keyboard control"
+      ],
+      "answer": 0,
+      "explain": "The self-oscillation rings at the cutoff frequency, so the cutoff must track the keys at full (100 percent) tracking for the pitch to land on the notes. Glide only smears the tuning, and the other options do not move the cutoff with pitch."
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "questions": [
+     {
+      "q": "A patch's brightness dies within 200 milliseconds, but the note itself rings on audibly for a second. Which envelope is doing that, and how is it set?",
+      "choices": [
+       "The loudness envelope, with a very fast decay",
+       "Neither envelope — that behaviour comes from resonance",
+       "The filter (contour) envelope: fast decay to a low sustain, while the loudness envelope decays more slowly",
+       "The LFO, sweeping the filter down once per note"
+      ],
+      "answer": 2,
+      "explain": "That is the pluck recipe: brightness is the filter's business, so the contour envelope collapses quickly to a low sustain while the loudness envelope keeps the note alive. If the loudness envelope died in 200 ms, there would be no note left to hear."
+     },
+     {
+      "q": "On the classic Minimoog-style panel the envelopes are attack, decay, and sustain. The release stage:",
+      "choices": [
+       "Has its own dedicated knob",
+       "Reuses the decay time when the release (decay) switch is engaged",
+       "Is always instantaneous",
+       "Is set by the glide control"
+      ],
+      "answer": 1,
+      "explain": "The classic design saves a control: switch release in and the tail of the note falls using the same time as the decay stage. Many classic patches are built around that economy."
+     },
+     {
+      "q": "A linear digital decay tends to sound like it hovers and then falls off a cliff, while an analog decay feels natural. Analog (RC) envelope segments are:",
+      "choices": [
+       "Perfectly straight lines",
+       "Random, from component noise",
+       "Built from small discrete steps",
+       "Exponential — fast at first, easing as they approach the target"
+      ],
+      "answer": 3,
+      "explain": "Capacitor charge and discharge curves are exponential: rapid movement early, gentle arrival late. Spending equal time at every level, as a linear segment does, reads to the ear as hovering followed by a sudden drop."
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "questions": [
+     {
+      "q": "A single oscillator, with no detuned partner, has a slow chorus-like movement in its tone. The likely cause is:",
+      "choices": [
+       "An LFO modulating the pulse width",
+       "Resonance at maximum",
+       "Glide set halfway",
+       "Noise mixed into the oscillator"
+      ],
+      "answer": 0,
+      "explain": "Pulse-width modulation keeps rewriting the harmonic recipe between hollow and nasal, and the ear hears that spectral drift as chorus-like width from one oscillator. The other options add growl, smear, or hiss — not this motion."
+     },
+     {
+      "q": "On a synth with hard sync, you sweep the slave oscillator's pitch while it is synced to a fixed master. The output pitch stays at the master's, but the timbre tears and sweeps, because sync:",
+      "choices": [
+       "Lowers the slave oscillator's volume as it is detuned",
+       "Converts the slave into a sine wave",
+       "Forces the slave to restart its waveform cycle every time the master completes one",
+       "Adds the two oscillator pitches together"
+      ],
+      "answer": 2,
+      "explain": "Restarting the slave's cycle on every master cycle locks the output pitch to the master while the slave's incomplete cycles pile up as sweeping harmonics — the sync growl. Neither original oscillator pitch simply adds or disappears."
+     },
+     {
+      "q": "You ring-modulate two unrelated frequencies, 300 Hz and 517 Hz. The output contains:",
+      "choices": [
+       "A clean two-note chord at 300 and 517 Hz",
+       "Sum and difference frequencies — 817 Hz and 217 Hz — inharmonic sidebands that sound bell-like",
+       "Only the difference frequency, 217 Hz",
+       "A sub-octave at 150 Hz"
+      ],
+      "answer": 1,
+      "explain": "Ring modulation emits f1 + f2 and f2 − f1 while suppressing the inputs: 817 Hz and 217 Hz. Neither is a harmonic of the other, so the result is clangorous and bell-like rather than a chord."
+     }
+    ]
+   },
+   {
+    "id": "s5",
+    "questions": [
+     {
+      "q": "Target sound: a vocal, singing lead that slides between legato notes and only gets vibrato on held notes. The recipe is:",
+      "choices": [
+       "One triangle, filter closed, decay fast and sustain at zero",
+       "Two saws with a very slow attack and a low cutoff",
+       "Maximum resonance with the filter self-oscillating and no oscillators",
+       "Two lightly detuned saws, filter open with a high sustain, glide on for the slides, vibrato added by hand on the mod wheel"
+      ],
+      "answer": 3,
+      "explain": "Singing leads need sustained brightness (open filter, high filter sustain), a voice-like slide (glide), and vibrato performed rather than constant — the mod wheel brings oscillator 3's vibrato in only on held notes. The other options are a percussion hit, a pad, and a test tone."
+     },
+     {
+      "q": "Target sound: a warm string pad that swells in slowly and never bites. The recipe is:",
+      "choices": [
+       "Square sub plus saw, cutoff low, contour punching hard with a short decay",
+       "Two detuned sawtooths, low cutoff, small contour, slow loudness attack, high sustain, long release",
+       "One pulse at 10 percent width, cutoff wide open, heavy emphasis",
+       "Triangle with sustain at zero and a few hundred milliseconds of decay"
+      ],
+      "answer": 1,
+      "explain": "Pads are defined by what does not happen fast: detuned saws for width, a low ceiling so nothing bites, and a loudness envelope that takes a second or more to bloom. Every other option is a bass, a nasal lead, or a drum."
+     },
+     {
+      "q": "Target sound: a tuned kick or tom you can play at different pitches from the keyboard. The recipe is:",
+      "choices": [
+       "Noise alone, filter sweeping down with heavy resonance",
+       "Two detuned saws with a slow attack and long release",
+       "A triangle — or the self-oscillating filter's sine — with instant attack, a few hundred milliseconds of decay, and sustain at zero",
+       "A square wave with glide up and vibrato from the wheel"
+      ],
+      "answer": 2,
+      "explain": "A drum is a pitched tone with an envelope that ends: a near-sine source keeps it clean, instant attack gives it a front, and zero sustain means the decay is the whole sound. The keyboard supplies the tuning, so roots play as kicks and fifths as toms."
+     }
+    ]
+   }
+  ]
+ },
+ "slides": {
+  "sections": [
+   {
+    "id": "s1",
+    "title": "The Raw Material: Oscillators and Harmonic Recipes",
+    "bullets": [
+     "Subtractive design: start with too much harmonic content, then carve it away",
+     "Sawtooth: every harmonic, falling as 1/n — the default starting point",
+     "Square (50 percent pulse): odd harmonics only; narrow the pulse and the evens return",
+     "Triangle: odd harmonics at 1/n squared — a near-sine; sine and noise complete the pantry",
+     "Layering: detune in cents for beating, square an octave down for a sub, drift as character"
+    ],
+    "notes": "Open with the inventory idea: before any knob downstream matters, you should be able to say what your oscillator mix contains. Walk the three spectra left to right — sawtooth full, square hollow, triangle nearly empty — and point out that the filter can only reveal or remove what is already there. End on layering: cents of detune for width, an octave-down square for weight.",
+    "visual": "The spectrum bar chart from the reading, with the signal chain drawn above it."
+   },
+   {
+    "id": "s2",
+    "title": "The Filter: Cutoff, Resonance, and the Ladder Character",
+    "bullets": [
+     "Cutoff is a moving ceiling; the lowpass rolloff past it is 24 dB per octave on four poles",
+     "Resonance (emphasis) is feedback: a peak of gain right at the cutoff",
+     "The ladder trade: more resonance means a thinner low end — plan bass patches accordingly",
+     "At maximum resonance the filter self-oscillates into a playable sine",
+     "Keyboard tracking keeps brightness consistent across the range and tunes the self-oscillation"
+    ],
+    "notes": "Demonstrate the working order live if you can: raw mix, cutoff placed with resonance at zero, emphasis added slowly while listening to the bottom, then tracking. The low-end trade is the slide everyone remembers — it explains half the 'my patch went thin' moments on this instrument. Self-oscillation is the party trick with a real use: a fourth sound source.",
+    "visual": "The two response curves: plain rolloff versus resonance peak with the thinned bass shelf."
+   },
+   {
+    "id": "s3",
+    "title": "Envelopes: Shape Over Time",
+    "bullets": [
+     "Two envelopes, two jobs: loudness runs the amp, the contour sweeps the filter",
+     "Attack, decay, release are times; sustain is a level",
+     "Classic panel economy: release reuses the decay time when switched in",
+     "Analog segments are exponential — fast first, easing in — and ears read that as natural",
+     "A pluck is a filter story: brightness decays fast, volume decays slowly"
+    ],
+    "notes": "Keep returning to the split: one envelope for loudness, one for brightness. The pluck is the proof — if the audience understands why the filter envelope must die before the loudness envelope, they understand envelopes. Mention the classic panel's missing release knob before someone hunts for it, and the missing velocity: expression lives in phrasing and the wheel.",
+    "visual": "The paired ADSR diagram: filter envelope collapsing to a low sustain while the amp envelope holds higher."
+   },
+   {
+    "id": "s4",
+    "title": "Modulation: Movement With a Reason",
+    "bullets": [
+     "Rate decides character: slow modulation is movement, audio-rate modulation is new timbre",
+     "Oscillator 3 is the LFO on this panel; the mod wheel performs the depth",
+     "Vibrato that serves the note: 5-6 Hz, a few tens of cents, faded in on held notes",
+     "PWM: one oscillator impersonating two, via a slowly rewritten harmonic recipe",
+     "Sync and ring modulation: know the sounds — and know the classic panel does not have them"
+    ],
+    "notes": "Frame every modulation as a sentence: what moves, how fast, how far, why. Oscillator 3 moonlighting as the LFO is the architectural fact that unlocks the panel, and the wheel is a performance control, not a set-and-forget depth knob. Be straight about sync and ring modulation: teach the sounds, name the absence, and show the attitude you can borrow via audio-rate filter modulation.",
+    "visual": "The three pulse-width traces, showing the recipe range that PWM sweeps between."
+   },
+   {
+    "id": "s5",
+    "title": "Five Canonical Patches",
+    "bullets": [
+     "Method: a patch is a hypothesis — predict, set, play one note, change one knob",
+     "Bass: saw plus square sub, contour punch, modest resonance; funk variation adds glide",
+     "Pad: detuned saws, slow attack, low cutoff; variation swaps oscillator 3 to LFO duty",
+     "Lead: open filter, glide for legato, wheel vibrato; square variation goes reedy",
+     "Pluck and tuned percussion: filter snaps shut; triangle with sustain at zero, played as an instrument"
+    ],
+    "notes": "Run the five as a single chain of decisions: recipe, ceiling, shape, movement. Each patch reuses an earlier section's lesson — the bass spends the resonance trade wisely, the pluck is section three with knobs on, the percussion spends self-oscillation and zero sustain. Finish with the paperwork: on an instrument without presets, your notebook is the memory.",
+    "visual": "The five patch cards with their one-line recipes."
+   }
+  ]
+ },
+ "enrichment": {
+  "audioTitle": "Building a Bass Patch: Predict, Set, Listen",
+  "turns": [
+   {
+    "speaker": "teacher",
+    "line": "Today we build a bass patch from nothing, and we predict every change before we make it. Oscillator 1: a sawtooth at pitch. Oscillator 2: a square, one octave down. Before I open the mixer — what should that raw blend sound like, filter wide open?"
+   },
+   {
+    "speaker": "student",
+    "line": "Bright and buzzy on top from the saw, but with a hollow weight underneath, because the square an octave down is mostly fundamental and odd harmonics. More body than either one alone."
+   },
+   {
+    "speaker": "teacher",
+    "line": "That is exactly it. Mixer set: saw full, square sub at two-thirds, so the saw's edge stays in charge. Now the filter: cutoff comes down to low, resonance at zero. Predict."
+   },
+   {
+    "speaker": "student",
+    "line": "The buzz disappears and it goes round and dark — mostly the fundamental and the first few harmonics left. It will sound smaller until the envelope gives it a front."
+   },
+   {
+    "speaker": "teacher",
+    "line": "Right. Now I add emphasis — resonance — just a little, say a quarter. Two things happen. Name them."
+   },
+   {
+    "speaker": "student",
+    "line": "A peak builds at the cutoff, so there is a slight nasal edge right where the filter sits. And the ladder trade: some of the low end underneath thins out, so I should not overdo it on a bass patch."
+   },
+   {
+    "speaker": "teacher",
+    "line": "You remembered the tax. Now the contour envelope: contour amount moderate, filter attack instant, decay short, sustain low. Play the note in your head — what does the shape do?"
+   },
+   {
+    "speaker": "student",
+    "line": "The note starts brighter than its resting state, then the cutoff falls quickly, so there is a punch at the front and the sustain is all weight. The brightness is a guest, not a resident."
+   },
+   {
+    "speaker": "teacher",
+    "line": "Beautifully put. Loudness envelope: instant attack, sustain high, and the release switch in so the tail reuses the decay time. Predict the end of the note."
+   },
+   {
+    "speaker": "student",
+    "line": "It stops tight and short when I lift the key — same time constant as the decay, so the patch feels consistent front to back. No separate release to set."
+   },
+   {
+    "speaker": "teacher",
+    "line": "Now detune. Oscillator 2's square sub stays locked, but I nudge nothing there — instead, what would detuning do here, and why am I skipping it?"
+   },
+   {
+    "speaker": "student",
+    "line": "Detune needs two oscillators at the same pitch to beat against each other. The sub is an octave down, so detuning it would just make the low end seasick. Skip it — this patch wants a locked bottom."
+   },
+   {
+    "speaker": "teacher",
+    "line": "Correct, and knowing when not to use a tool is the course in one line. Last control: a touch of glide. What does it buy a bass line?"
+   },
+   {
+    "speaker": "student",
+    "line": "Legato notes slide into each other instead of stepping, so a walking line feels played by fingers on a string. Too much glide and the pitch arrives late — a little goes a long way."
+   },
+   {
+    "speaker": "teacher",
+    "line": "Play it. Saw for the teeth, square sub for the floor, low cutoff, a quarter of emphasis, contour punch, tight envelope, locked tuning, a breath of glide. Read me back the chain of decisions in order."
+   },
+   {
+    "speaker": "student",
+    "line": "Recipe first: saw plus sub. Ceiling second: cutoff low, resonance modest so the bass survives it. Shape third: the contour gives the note its front, the loudness envelope keeps it tight. Movement last — and here the right movement was almost none, just glide. Predict, set, listen."
+   }
+  ],
+  "nodes": [
+   {
+    "id": "root",
+    "label": "Subtractive Synthesis",
+    "parent": null,
+    "note": "Start harmonically rich, then carve: oscillators, filter, envelopes, modulation, patches."
+   },
+   {
+    "id": "n1",
+    "label": "Raw Material: Harmonic Recipes",
+    "parent": "root",
+    "note": "Sawtooth all harmonics at 1/n, square odd only, triangle odd at 1/n squared; detune and the square sub."
+   },
+   {
+    "id": "n2",
+    "label": "The Ladder Filter",
+    "parent": "root",
+    "note": "Cutoff, the 24 dB per octave slope, resonance and its low-end cost, self-oscillation, keyboard tracking."
+   },
+   {
+    "id": "n3",
+    "label": "Envelopes: Shape Over Time",
+    "parent": "root",
+    "note": "Loudness versus contour envelopes; exponential segments; a pluck is a filter story."
+   },
+   {
+    "id": "n4",
+    "label": "Modulation With a Reason",
+    "parent": "root",
+    "note": "Oscillator 3 as LFO, performed vibrato, PWM; sync and ring modulation recognized, and honestly absent here."
+   },
+   {
+    "id": "n5",
+    "label": "Five Canonical Patches",
+    "parent": "root",
+    "note": "Bass, pad, lead, pluck, tuned percussion — recipes with one variation each, on Minimoog architecture only."
+   },
+   {
+    "id": "n6",
+    "label": "Method: Predict, Set, Listen",
+    "parent": "root",
+    "note": "A patch is a hypothesis. Change one knob at a time; write the settings down — paper is the preset memory."
+   }
+  ],
+  "mnemonics": [
+   {
+    "for": "The signal chain (oscillators, mixer, filter, amplifier)",
+    "aid": "Oscillators Offer, Filters Filter, Amps Answer."
+   },
+   {
+    "for": "Harmonic recipes (sawtooth = all, square = odd only, triangle = odd at 1/n squared)",
+    "aid": "Saw takes All, Square takes the Odds, Triangle takes the Odds Squared — greed in alphabetical order."
+   },
+   {
+    "for": "Envelope stage order (attack, decay, sustain, release)",
+    "aid": "Arrive, Drop, Stay, Release."
+   }
+  ]
+ }
+}

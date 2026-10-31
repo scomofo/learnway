@@ -1,0 +1,571 @@
+{
+  "meta": {
+    "title": "North Korea: The Logic of the Hermit State",
+    "topic": "North Korea: history and strategic logic",
+    "level": "advanced",
+    "interests": "",
+    "depth": "standard",
+    "model": "manual",
+    "createdAt": "2026-10-22T12:00:00.000Z",
+    "version": 1
+  },
+  "plan": {
+    "title": "North Korea: The Logic of the Hermit State",
+    "hook": "North Korea's behaviour looks irrational only from outside its own logic; inside that logic, the provocations are the policy. This course reconstructs that logic from the evidence \u2014 and grades the evidence as it goes.",
+    "objectives": [
+      "Trace how the Kim regime's founding myth became its operating system, from the partisan legend of the 1930s to hereditary succession.",
+      "Explain songbun and the control architecture \u2014 party, state, security services, neighbourhood units \u2014 and how information control leaks in practice.",
+      "Evaluate the nuclear program as regime insurance, including the Iraq and Libya lessons as Pyongyang itself reads them.",
+      "Judge outside assessments \u2014 defector testimony, satellite imagery, official statements \u2014 by their evidentiary weight, and state conclusions with the uncertainty they actually carry."
+    ],
+    "prerequisites": [
+      "General awareness of the Cold War and of the Korean War; no Korea-specific study assumed."
+    ],
+    "sections": [
+      {
+        "id": "s1",
+        "heading": "Founding and Myth",
+        "points": [
+          "Korea was divided at the 38th parallel in 1945 as a temporary surrender arrangement that hardened into two states by 1948.",
+          "The Korean War (1950-53) ended in armistice, not a peace treaty, so the founding emergency never officially closed.",
+          "Kim Il Sung's anti-Japanese partisan record was real but modest; state historiography enlarged it into a founding myth centred on Mt. Paektu.",
+          "The myth turned hereditary: the 'Paektu bloodline' frames succession as inheritance rather than selection.",
+          "Because legitimacy rests on the founding story, history itself is treated as a matter of state security."
+        ]
+      },
+      {
+        "id": "s2",
+        "heading": "The Control System",
+        "points": [
+          "Songbun classifies every citizen by family political background into core, wavering, and hostile classes, with life chances to match.",
+          "Party, state, and security services overlap deliberately, so each layer of the apparatus also watches the others.",
+          "Inminban neighbourhood units make surveillance local, continuous, and personal.",
+          "Information control is near-total by design: state media monopoly, receiving sets fixed to domestic broadcasts, no open internet.",
+          "The leaks are structural anyway \u2014 smuggled media on USB sticks, market trade, and Chinese mobile networks along the border."
+        ]
+      },
+      {
+        "id": "s3",
+        "heading": "Juche Economics and the Market Underneath",
+        "points": [
+          "Juche (self-reliance) justified a centrally planned economy in which the Public Distribution System fed citizens according to workplace and status.",
+          "The famine of the mid-1990s was the system's stress test, and state distribution failed it; death figures are demographic estimates and come only as ranges.",
+          "Jangmadang markets grew out of survival trading during the famine into the economy's real distribution network.",
+          "The regime alternates between taxing markets it cannot replace and cracking down on wealth it cannot control \u2014 the 2009 currency reform is the clearest case.",
+          "Most households now live in both economies at once, a structural fact the ideology has never absorbed."
+        ]
+      },
+      {
+        "id": "s4",
+        "heading": "The Nuclear Program as Insurance",
+        "points": [
+          "The chronology runs from the Yongbyon plutonium program through the 1994 Agreed Framework freeze, the 2002 collapse, and six nuclear tests between 2006 and 2017.",
+          "Pyongyang's stated lessons are Iraq and Libya: Saddam had no deterrent and was invaded; Gaddafi surrendered his program and was overthrown anyway.",
+          "Read through deterrence logic, the arsenal is regime insurance, not a bargaining chip priced for full trade.",
+          "Negotiations keep failing on sequencing: complete denuclearisation first, versus phased and reciprocal steps with trust neither side supplies.",
+          "Nuclear status written into a 2022 law and the 2023 constitution signals that Pyongyang intends the capability to be permanent."
+        ]
+      },
+      {
+        "id": "s5",
+        "heading": "Reading North Korea from Outside",
+        "points": [
+          "Every source class misleads in its own characteristic way: defectors, imagery, signals intelligence, and official statements each have a signature distortion.",
+          "Defector testimony is rich on lived experience and skewed in sample \u2014 border provinces, mostly women, people with reasons and means to leave.",
+          "Satellite imagery is hard evidence about things that cast shadows and weak evidence about intentions.",
+          "Three decades of confidently predicted collapse that never came is itself data about the system's adaptive durability.",
+          "The careful reader triangulates across sources, keeps estimates as ranges, and separates what is known from what is inferred."
+        ]
+      }
+    ]
+  },
+  "reading": {
+    "sections": [
+      {
+        "id": "s1",
+        "heading": "Founding and Myth",
+        "body": "North Korea begins with a line drawn by other people. In August 1945, with Japan's empire collapsing, American and Soviet officers divided the Korean peninsula at the 38th parallel as a temporary arrangement for accepting the Japanese surrender \u2014 Soviet forces in the north, American forces in the south. Temporary arrangements in geopolitics have a way of hardening. By 1948 there were two Korean states, each claiming to be the only legitimate one, and in the north a government led by Kim Il Sung, a former anti-Japanese guerrilla who had spent the war years partly in the Soviet Union and returned with Soviet backing.\n\nOn 25 June 1950 the North invaded the South, and the argument over legitimacy became a war. It drew in the United States and a United Nations coalition on one side and, from the autumn of 1950, Chinese forces on the other. The fighting devastated the peninsula; American bombing reduced much of the North's urban and industrial fabric to rubble, a fact North Korean memory keeps and American memory mostly does not. When the guns stopped on 27 July 1953, they stopped under an armistice \u2014 a ceasefire signed by military commanders \u2014 not a peace treaty. The peninsula's founding emergency was never formally closed. That legal detail matters for everything that follows in this course: a state that is technically still at war can present permanent mobilisation as simple fact rather than as a choice.\n\nLayered on top of the war is the founding myth, and the seminar's first task is to hold two truths at once. Kim Il Sung really did fight the Japanese. Guerrilla bands operated in Manchuria in the 1930s, and the 1937 raid on Pochonbo, just inside the Korean border, really happened. But the historical record assembled by outside scholars describes a modest partisan career \u2014 one commander among several, operating from Soviet territory in the war's later years \u2014 while North Korean state historiography rebuilt that record into the centre of national identity: the leader as the nation's founding warrior, Mt. Paektu, the peninsula's highest peak, as the sacred geography of resistance, and the guerrilla camp as the true birthplace of the state.\n\nThe gap between record and myth is easiest to see in the next generation. Official biography holds that Kim Jong Il was born in a secret guerrilla camp on Mt. Paektu in 1942. Soviet archival records indicate he was born a year earlier in the Soviet Union, near Khabarovsk, where his father's unit was stationed. A discrepancy of one year and one border would be trivia in most countries. In North Korea it is structural, because the Paektu birth is not decoration \u2014 it is the mechanism by which leadership became hereditary, the so-called Paektu bloodline transmitting the founder's authority to his son and then his grandson. North Korea remains the only self-described socialist state to have passed power father to son to grandson, and the myth is what makes that inheritance legible to its own citizens as continuity rather than monarchy.\n\nThis is why historians of the country treat the myth as an operating system rather than as propaganda in the loose sense. Propaganda persuades; an operating system defines what can be thought. The founding story sets the terms of legitimacy (authority flows from the anti-Japanese struggle, not from elections or economic performance), explains the permanent emergency (the war that made the state never ended), and pre-answers the succession question that destroys most personalist regimes. It also explains the regime's otherwise puzzling sensitivity about history itself: archives, biographies, and monuments are guarded like weapons facilities because, in the state's own logic, that is close to what they are.\n\nKeep the double vision. The myth is enlarged \u2014 that is a finding about evidence. The myth is also believed, taught, mourned over, and built into the landscape \u2014 that is a finding about how the country works. A reader who holds only the first will keep being surprised by the regime's durability. A reader who holds only the second has simply moved to Pyongyang. This course aims at neither error.",
+        "visual": "A timeline running 1945 to the present: division at the 38th parallel, the DPRK's founding in 1948, the Korean War and its armistice, Kim Il Sung's death and the famine in 1994, the first nuclear test in 2006, Kim Jong Un's succession in 2011, and the 2018 summits.",
+        "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><rect x=\"12\" y=\"12\" width=\"376\" height=\"276\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"200\" y=\"38\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#e8ecf1\" text-anchor=\"middle\">1945 to the Present: The Founding Timeline</text><line x1=\"30\" y1=\"150\" x2=\"370\" y2=\"150\" stroke=\"#9aa6b8\" stroke-width=\"2\"/><circle cx=\"45\" cy=\"150\" r=\"4\" fill=\"#7cc7ff\"/><line x1=\"45\" y1=\"146\" x2=\"45\" y2=\"112\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"45\" y=\"100\" font-family=\"sans-serif\" font-size=\"10\" fill=\"#ffd479\" text-anchor=\"middle\">1945</text><text x=\"45\" y=\"88\" font-family=\"sans-serif\" font-size=\"9\" fill=\"#e8ecf1\" text-anchor=\"middle\">Division at the</text><text x=\"45\" y=\"77\" font-family=\"sans-serif\" font-size=\"9\" fill=\"#e8ecf1\" text-anchor=\"middle\">38th parallel</text><circle cx=\"88\" cy=\"150\" r=\"4\" fill=\"#7cc7ff\"/><line x1=\"88\" y1=\"154\" x2=\"88\" y2=\"186\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"88\" y=\"200\" font-family=\"sans-serif\" font-size=\"10\" fill=\"#ffd479\" text-anchor=\"middle\">1948</text><text x=\"88\" y=\"213\" font-family=\"sans-serif\" font-size=\"9\" fill=\"#e8ecf1\" text-anchor=\"middle\">DPRK founded,</text><text x=\"88\" y=\"225\" font-family=\"sans-serif\" font-size=\"9\" fill=\"#e8ecf1\" text-anchor=\"middle\">Kim Il Sung leads</text><circle cx=\"138\" cy=\"150\" r=\"4\" fill=\"#ff9d7a\"/><line x1=\"138\" y1=\"146\" x2=\"138\" y2=\"112\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"138\" y=\"100\" font-family=\"sans-serif\" font-size=\"10\" fill=\"#ffd479\" text-anchor=\"middle\">1950-53</text><text x=\"138\" y=\"88\" font-family=\"sans-serif\" font-size=\"9\" fill=\"#e8ecf1\" text-anchor=\"middle\">Korean War ends in</text><text x=\"138\" y=\"77\" font-family=\"sans-serif\" font-size=\"9\" fill=\"#e8ecf1\" text-anchor=\"middle\">armistice, not peace</text><circle cx=\"212\" cy=\"150\" r=\"4\" fill=\"#7cc7ff\"/><line x1=\"212\" y1=\"154\" x2=\"212\" y2=\"186\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"212\" y=\"200\" font-family=\"sans-serif\" font-size=\"10\" fill=\"#ffd479\" text-anchor=\"middle\">1994</text><text x=\"212\" y=\"213\" font-family=\"sans-serif\" font-size=\"9\" fill=\"#e8ecf1\" text-anchor=\"middle\">Kim Il Sung dies;</text><text x=\"212\" y=\"225\" font-family=\"sans-serif\" font-size=\"9\" fill=\"#e8ecf1\" text-anchor=\"middle\">famine begins</text><circle cx=\"272\" cy=\"150\" r=\"4\" fill=\"#ff9d7a\"/><line x1=\"272\" y1=\"146\" x2=\"272\" y2=\"112\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"272\" y=\"100\" font-family=\"sans-serif\" font-size=\"10\" fill=\"#ffd479\" text-anchor=\"middle\">2006</text><text x=\"272\" y=\"88\" font-family=\"sans-serif\" font-size=\"9\" fill=\"#e8ecf1\" text-anchor=\"middle\">First nuclear</text><text x=\"272\" y=\"77\" font-family=\"sans-serif\" font-size=\"9\" fill=\"#e8ecf1\" text-anchor=\"middle\">test</text><circle cx=\"318\" cy=\"150\" r=\"4\" fill=\"#7cc7ff\"/><line x1=\"318\" y1=\"154\" x2=\"318\" y2=\"186\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"318\" y=\"200\" font-family=\"sans-serif\" font-size=\"10\" fill=\"#ffd479\" text-anchor=\"middle\">2011</text><text x=\"318\" y=\"213\" font-family=\"sans-serif\" font-size=\"9\" fill=\"#e8ecf1\" text-anchor=\"middle\">Kim Jong Un</text><text x=\"318\" y=\"225\" font-family=\"sans-serif\" font-size=\"9\" fill=\"#e8ecf1\" text-anchor=\"middle\">succeeds</text><circle cx=\"360\" cy=\"150\" r=\"4\" fill=\"#7ee2a8\"/><line x1=\"360\" y1=\"146\" x2=\"360\" y2=\"112\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"360\" y=\"100\" font-family=\"sans-serif\" font-size=\"10\" fill=\"#ffd479\" text-anchor=\"middle\">2018</text><text x=\"360\" y=\"88\" font-family=\"sans-serif\" font-size=\"9\" fill=\"#e8ecf1\" text-anchor=\"middle\">Summit</text><text x=\"360\" y=\"77\" font-family=\"sans-serif\" font-size=\"9\" fill=\"#e8ecf1\" text-anchor=\"middle\">diplomacy</text><text x=\"200\" y=\"262\" font-family=\"sans-serif\" font-size=\"9\" fill=\"#9aa6b8\" text-anchor=\"middle\">Spacing compressed after 1953; every later section of this course hangs on this line.</text></svg>",
+        "questions": [
+          {
+            "q": "Why does it matter, for understanding the regime, that the Korean War ended in an armistice rather than a peace treaty?",
+            "answer": "Because the war was never legally concluded, the founding emergency remains the state's official present tense rather than its past \u2014 permanent mobilisation can be presented as a plain legal fact, and the siege framing needs no fresh justification.",
+            "hint": "Ask what a peace treaty would have changed about the state's story, and notice that it was never signed."
+          },
+          {
+            "q": "What do Soviet records indicate about Kim Jong Il's birth, and why is the discrepancy with the official biography more than trivia?",
+            "answer": "They indicate he was born in 1941 in the Soviet Union, near Khabarovsk, not in a guerrilla camp on Mt. Paektu in 1942 as official biography claims. The discrepancy matters because the Paektu birth anchors the hereditary 'bloodline' that legitimises succession, so a biographical fact functions as a security matter.",
+            "hint": "Compare the official biography with the archival record, then ask what work the official version does."
+          }
+        ]
+      },
+      {
+        "id": "s2",
+        "heading": "The Control System",
+        "body": "Every North Korean carries a file, and the file is older than they are. Songbun \u2014 the classification of citizens by the political reliability of their family background \u2014 sorts the population into three broad classes: the core class, descended from those who served the revolution well; the wavering class, whose ancestors were ambiguous; and the hostile class, descended from landlords, collaborators with the Japanese or the South, religious believers, and other categories the state counts as tainted. Researchers who have reconstructed the system from defector accounts commonly describe three classes subdivided into some fifty categories, assigned not on anything the individual has done but on the documented conduct of parents and grandparents.\n\nThe sorting began with investigations in the late 1950s and was formalised and deepened through the 1960s and again around 1980, when the state re-registered the population across three generations. Its consequences were concrete. Songbun shaped who could live in Pyongyang, the showcase capital; who could attend university and in what subject; who held a responsible job; and, under the old distribution system, who ate first and best. A hostile-class file did not usually mean arrest. It meant a ceiling \u2014 a life assigned to a mine, a farm, or a remote county, with the file following every application the person ever made. Analysts describe songbun as hereditary political caste, and the comparison is fair \u2014 though this caste was built by bureaucrats with forms, not inherited from antiquity.\n\nAround the classified citizen stands the architecture. At the top sits the leader, and beneath him three great institutions whose jurisdictions deliberately overlap: the Workers' Party, which controls ideology, appointments, and organisational life down to the workplace cell; the state, centred since 2016 on the State Affairs Commission, which formally governs; and the Korean People's Army, which for decades absorbed a commanding share of the country's resources. The security services split the watching: the Ministry of State Security acts as political police, guarding loyalty and holding the songbun files, while the Ministry of Social Security does ordinary policing. The overlap is not inefficiency. Each layer reports upward, and each is itself reported on; a system in which the watchers are watched requires no single point of trust.\n\nAt street level the unit of control is the inminban, the neighbourhood unit of roughly twenty to forty households. Its head \u2014 typically a woman appointed by the local authorities \u2014 keeps track of who lives where, registers overnight visitors, organises communal labour and study sessions, and notices anything unusual. Internal travel requires permits. The inminban does not need to be feared every day to work; it needs only to make privacy unreliable: anything organised outside the state's sight must first solve the problem of the neighbours.\n\nInformation control follows the same design: monopoly at the source, unreliability of privacy at the edge. Domestic media \u2014 the Rodong Sinmun newspaper, Korean Central Television, state radio \u2014 are the only legal broadcasters. Receiving sets sold in the country are reported by defector accounts and outside researchers to be fixed or sealed to domestic frequencies, with inspections to check the seals. There is no public internet; a closed national intranet, Kwangmyong, serves a small official minority. The Ten Principles for the Establishment of a Monolithic Ideological System, first issued in 1974 and revised after Kim Jong Il's death, function as the loyalty code above the constitution: the leader's authority is the system's first article.\n\nYet the blockade leaks, and it leaks structurally. The markets that spread during the famine built distribution networks the state does not run, and goods moving through them include information: South Korean dramas and music on USB sticks and memory cards, passed hand to hand. Near the northern border, Chinese mobile networks reach across the river, and smuggled Chinese phones let residents call outside the domestic system entirely. Defector surveys consistently find that exposure to foreign media has grown over the past two decades. The state's response \u2014 confiscations, crackdowns, a 2020 law against 'reactionary ideology and culture' \u2014 confirms the traffic it is trying to stop. Control in North Korea is real, pervasive, and designed into daily life. It is also, at the edges, contested every day.",
+        "visual": "A structure map of the control architecture: the Supreme Leader above the Workers' Party, the State Affairs Commission, and the People's Army, with the two security ministries beneath them and every citizen \u2014 songbun file, inminban unit, workplace \u2014 at the base.",
+        "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><rect x=\"12\" y=\"12\" width=\"376\" height=\"276\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"200\" y=\"36\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#e8ecf1\" text-anchor=\"middle\">The Control Architecture</text><rect x=\"125\" y=\"48\" width=\"150\" height=\"30\" fill=\"#161b22\" stroke=\"#ffd479\" stroke-width=\"1.5\"/><text x=\"200\" y=\"67\" font-family=\"sans-serif\" font-size=\"10\" fill=\"#e8ecf1\" text-anchor=\"middle\">Supreme Leader</text><line x1=\"200\" y1=\"78\" x2=\"200\" y2=\"90\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><line x1=\"75\" y1=\"90\" x2=\"325\" y2=\"90\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><line x1=\"75\" y1=\"90\" x2=\"75\" y2=\"100\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><line x1=\"200\" y1=\"90\" x2=\"200\" y2=\"100\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><line x1=\"325\" y1=\"90\" x2=\"325\" y2=\"100\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><rect x=\"20\" y=\"100\" width=\"110\" height=\"36\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"75\" y=\"115\" font-family=\"sans-serif\" font-size=\"9.5\" fill=\"#e8ecf1\" text-anchor=\"middle\">Workers' Party</text><text x=\"75\" y=\"128\" font-family=\"sans-serif\" font-size=\"8.5\" fill=\"#9aa6b8\" text-anchor=\"middle\">ideology, cadres</text><rect x=\"145\" y=\"100\" width=\"110\" height=\"36\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"200\" y=\"115\" font-family=\"sans-serif\" font-size=\"9.5\" fill=\"#e8ecf1\" text-anchor=\"middle\">State Affairs</text><text x=\"200\" y=\"128\" font-family=\"sans-serif\" font-size=\"8.5\" fill=\"#9aa6b8\" text-anchor=\"middle\">government, command</text><rect x=\"270\" y=\"100\" width=\"110\" height=\"36\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"325\" y=\"115\" font-family=\"sans-serif\" font-size=\"9.5\" fill=\"#e8ecf1\" text-anchor=\"middle\">People's Army</text><text x=\"325\" y=\"128\" font-family=\"sans-serif\" font-size=\"8.5\" fill=\"#9aa6b8\" text-anchor=\"middle\">armed forces</text><line x1=\"140\" y1=\"136\" x2=\"140\" y2=\"148\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><line x1=\"260\" y1=\"136\" x2=\"260\" y2=\"148\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><rect x=\"55\" y=\"148\" width=\"170\" height=\"36\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"140\" y=\"163\" font-family=\"sans-serif\" font-size=\"9.5\" fill=\"#e8ecf1\" text-anchor=\"middle\">Ministry of State Security</text><text x=\"140\" y=\"176\" font-family=\"sans-serif\" font-size=\"8.5\" fill=\"#9aa6b8\" text-anchor=\"middle\">political police, songbun files</text><rect x=\"235\" y=\"148\" width=\"140\" height=\"36\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"305\" y=\"163\" font-family=\"sans-serif\" font-size=\"9.5\" fill=\"#e8ecf1\" text-anchor=\"middle\">Ministry of Social Security</text><text x=\"305\" y=\"176\" font-family=\"sans-serif\" font-size=\"8.5\" fill=\"#9aa6b8\" text-anchor=\"middle\">ordinary policing</text><line x1=\"200\" y1=\"184\" x2=\"200\" y2=\"200\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><rect x=\"60\" y=\"200\" width=\"280\" height=\"42\" fill=\"#161b22\" stroke=\"#7cc7ff\" stroke-width=\"1.5\"/><text x=\"200\" y=\"218\" font-family=\"sans-serif\" font-size=\"10\" fill=\"#e8ecf1\" text-anchor=\"middle\">Every citizen: a songbun file, an inminban unit,</text><text x=\"200\" y=\"232\" font-family=\"sans-serif\" font-size=\"10\" fill=\"#e8ecf1\" text-anchor=\"middle\">a workplace, a neighbourhood watch</text><text x=\"200\" y=\"266\" font-family=\"sans-serif\" font-size=\"9\" fill=\"#9aa6b8\" text-anchor=\"middle\">Each layer reports upward \u2014 and on the layers beside it.</text></svg>",
+        "questions": [
+          {
+            "q": "What is songbun, and what does it actually decide in a person's life?",
+            "answer": "Songbun is the hereditary classification of every citizen by family political background into core, wavering, and hostile classes. It has shaped where a person may live (including access to Pyongyang), what education and jobs are open to them, and historically how the state fed them \u2014 a ceiling on a life rather than usually a sentence.",
+            "hint": "It is assigned from your grandparents' record, not your own opinions \u2014 think about which life decisions a file like that would touch."
+          },
+          {
+            "q": "Why does the information blockade leak most at the northern border and in the markets?",
+            "answer": "Because the leaks ride on infrastructure the state does not control: Chinese mobile networks reach across the border, and the market distribution networks built since the famine move goods \u2014 including smuggled media on USB sticks \u2014 through channels the state taxes but does not run.",
+            "hint": "Follow the physical carriers: a signal from across a river, and a trader's bag."
+          }
+        ]
+      },
+      {
+        "id": "s3",
+        "heading": "Juche Economics and the Market Underneath",
+        "body": "The ideology has a name, a date, and a promise. In a speech in December 1955, Kim Il Sung called for juche \u2014 self-reliance \u2014 in ideology, politics, the economy, and defence: Korea would stop copying foreign models, including Soviet and Chinese ones, and stand on its own resources. As economic doctrine it justified a command economy of a familiar socialist type: state ownership, central plans, production quotas, heavy industry first. What made the North Korean version distinctive was the distribution system. The Public Distribution System tied the citizen's food and goods to the workplace and to songbun status \u2014 rations were not a safety net under the economy but the economy's main channel, and the state fed you, or did not, as an employer and as a judge of your file.\n\nBy the late 1980s the model was exhausted, and then its external supports were kicked away. The Soviet Union, which had supplied fuel, fertiliser, and machinery on concessional terms, dissolved in 1991. China began demanding harder payment. harvests faltered in the mid-1990s, with floods in 1995 and 1996 landing on a farm system already dependent on chemical fertiliser and pumped irrigation it could no longer energise. The Public Distribution System \u2014 the channel through which most urban North Koreans ate \u2014 broke down across much of the country.\n\nThe famine that followed, remembered inside the country as the Arduous March, is generally dated from about 1994 to 1998. Its death toll cannot be stated as a fact, and this course will not pretend otherwise. North Korea published no trustworthy mortality statistics, so every figure is a reconstruction \u2014 from demographic balancing, from food-supply estimates, from refugee accounts \u2014 and the reconstructions disagree. Commonly cited estimates run from a few hundred thousand deaths to around a million, with some earlier claims running higher still. The honest finding is the range, and what it establishes even at its low end: a state that had organised all distribution through itself failed, at scale, to distribute.\n\nWhat grew in the gap was not on any plan. Households traded to survive \u2014 a private plot's produce, a possession sold, food carried from a rural relative to a town buyer \u2014 and the trading places, the jangmadang, generalised from emergency expedients into standing markets. When the state could not restore the old system, the markets stayed. Satellite-based researchers have counted several hundred officially situated marketplaces across the country, and defector surveys consistently describe market activity, not state wages, as the main source of income for most households \u2014 findings to hold with the sample cautions of the final section, but consistent across too many independent accounts to dismiss. The state adapted in its own way: stall fees and market taxes turned the markets into revenue, and the traders \u2014 disproportionately women, whose nominal state jobs were often easier to leave \u2014 became a commercial class the ideology says cannot exist.\n\nThe regime's relationship to this second economy is a cycle, not a settlement: tolerate what it cannot replace, strike at what it cannot control. The clearest strike was the currency redenomination of November 2009, which exchanged old notes for new at a punishing rate with low caps \u2014 a design that wiped out market savings in a stroke. The result was disruption severe enough to force a rare retreat; the official held responsible for the reform was reportedly executed the following year. Under Kim Jong Un the pattern has settled into something like management: markets taxed and regulated rather than abolished, some enterprise managers given more room to respond to prices, and periodic campaigns against the wealth and culture that markets carry in.\n\nThe result is a dual economy with a dual citizen. The same person holds a nominal state job \u2014 attendance still matters, because the workplace is also a unit of surveillance \u2014 and earns a living in trade the plan does not record. Juche remains the official account of the country. The jangmadang is the operating one, and the distance between the two accounts is where most North Koreans actually live.",
+        "visual": "Two columns feeding one household: the formal economy of plan and Public Distribution System on the left, the jangmadang market economy on the right, with the household living off both.",
+        "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><rect x=\"12\" y=\"12\" width=\"376\" height=\"276\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"200\" y=\"38\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#e8ecf1\" text-anchor=\"middle\">Two Economies, One Household</text><rect x=\"25\" y=\"58\" width=\"160\" height=\"86\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"105\" y=\"80\" font-family=\"sans-serif\" font-size=\"10.5\" fill=\"#ffd479\" text-anchor=\"middle\">THE FORMAL ECONOMY</text><text x=\"105\" y=\"100\" font-family=\"sans-serif\" font-size=\"9.5\" fill=\"#e8ecf1\" text-anchor=\"middle\">Central plan and quotas</text><text x=\"105\" y=\"116\" font-family=\"sans-serif\" font-size=\"9.5\" fill=\"#e8ecf1\" text-anchor=\"middle\">Public Distribution System</text><text x=\"105\" y=\"132\" font-family=\"sans-serif\" font-size=\"9.5\" fill=\"#e8ecf1\" text-anchor=\"middle\">State wages, juche doctrine</text><rect x=\"215\" y=\"58\" width=\"160\" height=\"86\" fill=\"#161b22\" stroke=\"#7ee2a8\" stroke-width=\"1.5\"/><text x=\"295\" y=\"80\" font-family=\"sans-serif\" font-size=\"10.5\" fill=\"#ffd479\" text-anchor=\"middle\">THE MARKET ECONOMY</text><text x=\"295\" y=\"100\" font-family=\"sans-serif\" font-size=\"9.5\" fill=\"#e8ecf1\" text-anchor=\"middle\">Jangmadang stalls and fees</text><text x=\"295\" y=\"116\" font-family=\"sans-serif\" font-size=\"9.5\" fill=\"#e8ecf1\" text-anchor=\"middle\">Private plots and trade</text><text x=\"295\" y=\"132\" font-family=\"sans-serif\" font-size=\"9.5\" fill=\"#e8ecf1\" text-anchor=\"middle\">Smuggled goods, cash prices</text><line x1=\"105\" y1=\"144\" x2=\"105\" y2=\"186\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><polygon points=\"100,184 110,184 105,194\" fill=\"#9aa6b8\"/><line x1=\"295\" y1=\"144\" x2=\"295\" y2=\"186\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><polygon points=\"290,184 300,184 295,194\" fill=\"#9aa6b8\"/><rect x=\"55\" y=\"196\" width=\"290\" height=\"44\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"200\" y=\"215\" font-family=\"sans-serif\" font-size=\"10.5\" fill=\"#e8ecf1\" text-anchor=\"middle\">THE HOUSEHOLD</text><text x=\"200\" y=\"231\" font-family=\"sans-serif\" font-size=\"9.5\" fill=\"#9aa6b8\" text-anchor=\"middle\">Nominal state job on paper; market income in practice</text><text x=\"200\" y=\"266\" font-family=\"sans-serif\" font-size=\"9\" fill=\"#9aa6b8\" text-anchor=\"middle\">After the 1990s famine, the right-hand box did the feeding.</text></svg>",
+        "questions": [
+          {
+            "q": "Why did the famine produce markets rather than simply economic collapse, full stop?",
+            "answer": "When the Public Distribution System stopped delivering food, households traded to survive; the networks built for survival persisted after the emergency because the state never restored the distribution system they replaced, so emergency trading hardened into the standing jangmadang economy.",
+            "hint": "Start from what a household does the month the rations stop, and ask what happens to that behaviour when rations never fully return."
+          },
+          {
+            "q": "Why are famine death figures in this course always given as ranges?",
+            "answer": "North Korea published no trustworthy mortality data, so every figure is a demographic reconstruction resting on contestable assumptions \u2014 food balances, population balancing, refugee accounts. The estimates disagree by hundreds of thousands, so the range is not vagueness; it is the accurate statement of what is known.",
+            "hint": "Ask what raw numbers a demographer would need, and whether anyone collected them."
+          }
+        ]
+      },
+      {
+        "id": "s4",
+        "heading": "The Nuclear Program as Insurance",
+        "body": "Begin with the chronology, because arguments about motive float free without it. North Korea's nuclear work started with Soviet assistance: a research reactor at Yongbyon in the 1960s, and by the 1980s indigenous reactors and reprocessing plants suited to producing plutonium. The country joined the Nuclear Non-Proliferation Treaty in 1985 but delayed its safeguards agreement, and when inspectors found inconsistencies in its declarations, the first nuclear crisis followed. It ended \u2014 temporarily \u2014 with the 1994 Agreed Framework: Pyongyang froze its plutonium program under inspection in exchange for fuel oil and two replacement power reactors.\n\nThe freeze held for most of a decade and then collapsed in the recriminations of 2002, when Washington confronted Pyongyang over a suspected clandestine uranium enrichment program. Inspectors were expelled, the seals came off, and in 2003 North Korea withdrew from the Non-Proliferation Treaty \u2014 the only state ever to do so. Six-Party Talks produced a 2005 joint statement committing the North to abandon all nuclear weapons and programs for aid and security assurances; implementation then foundered on verification disputes and on a fight over North Korean funds frozen in a Macau bank \u2014 a small sum that both sides treated as a test of the other's sincerity. On 9 October 2006, North Korea conducted its first nuclear test. The yield was small \u2014 under a kiloton by outside estimates \u2014 and widely assessed as a partial success at best. It was not the last. Tests followed in 2009 and 2013, twice in 2016, and in September 2017 a sixth explosion far larger than the rest, which Pyongyang called a hydrogen bomb. Outside agencies' yield estimates varied widely \u2014 commonly cited at one hundred to a few hundred kilotons \u2014 but no serious assessment treated it as anything but a major thermonuclear-scale event. The same year, flight tests of the Hwasong-14 and Hwasong-15 missiles demonstrated intercontinental range.\n\nWhy not trade it away? The regime answers the question itself, from recent history. Iraq's Saddam Hussein, Pyongyang notes, had no working nuclear deterrent and was invaded in 2003 and hanged. Libya's Muammar Gaddafi surrendered his nuclear and chemical programs in a 2003 bargain with Washington and London \u2014 and in 2011, during a civil war, NATO airpower helped the rebels who overthrew and killed him. North Korean state media drew the lesson explicitly: a state that gives up its deterrent at the West's request has signed its own warrant. Analysts argue about the weight of this motive against others \u2014 prestige, domestic legitimation, leverage over Seoul \u2014 but the deterrence reading has the regime's own statements behind it, and it predicts what the others do not: the arsenal is insurance, held against the worst case, and insurance is not sold back to the party you fear.\n\nSummitry tested the proposition. In June 2018 Kim Jong Un and Donald Trump met in Singapore and signed a declaration committing the North, in general words, to work toward denuclearisation. The follow-up summit at Hanoi in February 2019 collapsed without agreement, and post-mortems on both sides describe the same mechanical failure: sequencing. Pyongyang offered to dismantle the Yongbyon complex in exchange for the lifting of the harshest sanctions; Washington wanted broader disarmament steps and offered less relief, later. Each side's proposed first step was close to the other's proposed last step, and neither trusted the other's later moves enough to move first. The 1994 and 2005 agreements had died at the same joint, over verification and order \u2014 the sequencing problem is not a pretext layered over the dispute; in large part it is the dispute.\n\nSince the diplomacy froze, Pyongyang has written permanence into its own texts. A nuclear forces law adopted in September 2022 sets out conditions for use, including pre-emptive use in defined circumstances; in September 2023 the constitution enshrined nuclear-force development as state policy. Laws can be signalling \u2014 a point the final section will insist on \u2014 but combined with thirty years of behaviour across three leaders, the costly-to-fake signal points one way: the program is treated inside the system as a settled fact of the state's survival, and the negotiations outsiders keep proposing are about something it has already decided.",
+        "visual": "A staircase of the six nuclear tests from 2006 to 2017, each step higher than the last, ending with the large 2017 test and the year's ICBM flights.",
+        "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><rect x=\"12\" y=\"12\" width=\"376\" height=\"276\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"200\" y=\"38\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#e8ecf1\" text-anchor=\"middle\">Six Tests: The Staircase, 2006-2017</text><rect x=\"35\" y=\"196\" width=\"58\" height=\"40\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"64\" y=\"188\" font-family=\"sans-serif\" font-size=\"9.5\" fill=\"#ffd479\" text-anchor=\"middle\">2006</text><text x=\"64\" y=\"213\" font-family=\"sans-serif\" font-size=\"8.5\" fill=\"#e8ecf1\" text-anchor=\"middle\">1st test</text><text x=\"64\" y=\"225\" font-family=\"sans-serif\" font-size=\"8.5\" fill=\"#9aa6b8\" text-anchor=\"middle\">small yield</text><rect x=\"103\" y=\"172\" width=\"58\" height=\"64\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"132\" y=\"164\" font-family=\"sans-serif\" font-size=\"9.5\" fill=\"#ffd479\" text-anchor=\"middle\">2009</text><text x=\"132\" y=\"201\" font-family=\"sans-serif\" font-size=\"8.5\" fill=\"#e8ecf1\" text-anchor=\"middle\">2nd test</text><rect x=\"171\" y=\"148\" width=\"58\" height=\"88\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"200\" y=\"140\" font-family=\"sans-serif\" font-size=\"9.5\" fill=\"#ffd479\" text-anchor=\"middle\">2013</text><text x=\"200\" y=\"189\" font-family=\"sans-serif\" font-size=\"8.5\" fill=\"#e8ecf1\" text-anchor=\"middle\">3rd test</text><rect x=\"239\" y=\"118\" width=\"58\" height=\"118\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"268\" y=\"110\" font-family=\"sans-serif\" font-size=\"9.5\" fill=\"#ffd479\" text-anchor=\"middle\">2016</text><text x=\"268\" y=\"171\" font-family=\"sans-serif\" font-size=\"8.5\" fill=\"#e8ecf1\" text-anchor=\"middle\">4th and 5th</text><text x=\"268\" y=\"183\" font-family=\"sans-serif\" font-size=\"8.5\" fill=\"#e8ecf1\" text-anchor=\"middle\">tests</text><rect x=\"307\" y=\"82\" width=\"58\" height=\"154\" fill=\"#161b22\" stroke=\"#ff9d7a\" stroke-width=\"1.5\"/><text x=\"336\" y=\"74\" font-family=\"sans-serif\" font-size=\"9.5\" fill=\"#ffd479\" text-anchor=\"middle\">2017</text><text x=\"336\" y=\"150\" font-family=\"sans-serif\" font-size=\"8.5\" fill=\"#e8ecf1\" text-anchor=\"middle\">6th test,</text><text x=\"336\" y=\"162\" font-family=\"sans-serif\" font-size=\"8.5\" fill=\"#e8ecf1\" text-anchor=\"middle\">largest yet;</text><text x=\"336\" y=\"174\" font-family=\"sans-serif\" font-size=\"8.5\" fill=\"#e8ecf1\" text-anchor=\"middle\">ICBM flights</text><line x1=\"30\" y1=\"236\" x2=\"370\" y2=\"236\" stroke=\"#9aa6b8\" stroke-width=\"1.5\"/><text x=\"200\" y=\"262\" font-family=\"sans-serif\" font-size=\"9\" fill=\"#9aa6b8\" text-anchor=\"middle\">Each step raised the value Pyongyang assigns the program \u2014 and the price of giving it up.</text></svg>",
+        "questions": [
+          {
+            "q": "State the Libya lesson as Pyongyang presents it.",
+            "answer": "Gaddafi surrendered his nuclear and chemical weapons programs in a 2003 bargain with Washington and London, and in 2011 NATO airpower helped the rebels who overthrew and killed him. Pyongyang's stated conclusion is that a state which gives up its deterrent on the West's request invites exactly the fate the deterrent existed to prevent.",
+            "hint": "Two dates carry the argument: 2003, when the program was traded away, and 2011, when the regime fell."
+          },
+          {
+            "q": "What is the 'sequencing' problem that has repeatedly killed denuclearisation agreements?",
+            "answer": "It is the fight over who moves first. Washington has demanded complete denuclearisation before full sanctions relief and security guarantees; Pyongyang insists on phased, reciprocal action-for-action steps. Each side's proposed first step resembles the other's last step, and neither trusts the other's later moves \u2014 the deadlock is the order of concessions itself.",
+            "hint": "It is not mainly an argument about the destination. It is an argument about the order of the journey, between parties who do not trust each other."
+          }
+        ]
+      },
+      {
+        "id": "s5",
+        "heading": "Reading North Korea from Outside",
+        "body": "North Korea is the hardest reporting problem on earth: a country of some twenty-six million people (the population figure itself is an outside estimate) that admits almost no independent observers. Everything known arrives through a few channels, and each channel bends what passes through it in a characteristic direction. The skill this course has been building \u2014 reading the regime's internal logic \u2014 is only as good as the evidence discipline underneath it. This section grades the windows.\n\nThe largest window is people who left. More than thirty thousand North Koreans have resettled in South Korea over the past three decades, and their testimony is the source of most of what is known about daily life: how songbun files are kept, how markets actually run, what a bribe costs, what people watch in secret. The testimony is indispensable and it is not a sample. Defectors come disproportionately from the northern provinces bordering China, where escape is geographically possible; roughly seven in ten resettlers are women; and they are by definition the people the system failed or repelled \u2014 the loyal and the comfortable do not defect. None of this makes the accounts false. It means they are evidence about the country the defectors left, drawn heavily from its most disaffected regions. High-profile revisions make the same point from the other side: in 2015 the camp survivor Shin Dong-hyuk, whose account had shaped global understanding of the prison camps, acknowledged that parts of his story were inaccurate \u2014 a warning to any reader tempted to rest the whole structure on a single witness.\n\nThe second window is the sky. Satellite imagery does not care about access: it has mapped the country's several hundred marketplaces roof by roof, watched the test site at Punggye-ri and the missile facilities between launches, and fixed the locations of the political prison camps defectors described \u2014 corroboration that helped the UN Commission of Inquiry of 2014 build its findings of crimes against humanity. Imagery's strength is also its limit. It settles questions about things that cast shadows: construction, activity, capacity. It is weak to the point of silence about intentions, orders, and beliefs, and its absences prove little \u2014 a tunnel not seen may be a tunnel concealed. Analysts at monitoring projects such as 38 North publish their imagery reasoning openly, which is what makes it checkable \u2014 and checking shows how often a supposed new facility turns out to be a fertiliser plant.\n\nThe third window is the regime talking: laws, editorials, leaders' speeches, and the choreography of summits. This is evidence about what Pyongyang wants believed \u2014 sometimes what it believes, sometimes not \u2014 and the reader's job is cost accounting. A slogan costs nothing. A constitutional amendment costs little more. Behaviour that burns real resources \u2014 six tests over eleven years, a missile program pursued under sanctions \u2014 is expensive to fake, and consistency across three leaders raises the price further.\n\nFinally, the track record, because it is the discipline's report card. When Kim Il Sung died in 1994, collapse was widely predicted; when famine followed, it was predicted again; when Kim Jong Il died in 2011, the succession was expected to fracture. The system endured all three, through repression and through the unplanned adaptation of the markets. The misses ran the other way too: the pace of the 2017 missile advances surprised many governments. A forecasting record like that does not teach that prediction is useless. It teaches that outside models mistook rigidity for brittleness, and underweighted the regime's talent for absorbing stress without changing shape.\n\nThe method, then: triangulate, attribute, and keep the ranges as ranges. Say 'defector accounts report' where that is the source and 'imagery shows' where that is the source. Treat any single number about this country \u2014 famine deaths, market share, warhead counts \u2014 as a claim with a method behind it, and ask after the method. And hold the course's central lens with the same care: reconstructing the regime's internal logic explains its behaviour. It does not certify that the logic is true, and it is not sympathy. It is the difference between being surprised by North Korea and understanding it.",
+        "visual": "Three windows arranged around a single triangulated view: defector testimony, satellite imagery, and official signals, each labelled with what it can and cannot establish.",
+        "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><rect x=\"12\" y=\"12\" width=\"376\" height=\"276\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"200\" y=\"38\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#e8ecf1\" text-anchor=\"middle\">Three Windows, None of Them Clear</text><rect x=\"22\" y=\"56\" width=\"112\" height=\"62\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"78\" y=\"76\" font-family=\"sans-serif\" font-size=\"9.5\" fill=\"#ffd479\" text-anchor=\"middle\">DEFECTOR</text><text x=\"78\" y=\"89\" font-family=\"sans-serif\" font-size=\"9.5\" fill=\"#ffd479\" text-anchor=\"middle\">TESTIMONY</text><text x=\"78\" y=\"104\" font-family=\"sans-serif\" font-size=\"8.5\" fill=\"#e8ecf1\" text-anchor=\"middle\">lived texture;</text><text x=\"78\" y=\"114\" font-family=\"sans-serif\" font-size=\"8.5\" fill=\"#e8ecf1\" text-anchor=\"middle\">skewed sample</text><rect x=\"266\" y=\"56\" width=\"112\" height=\"62\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"322\" y=\"76\" font-family=\"sans-serif\" font-size=\"9.5\" fill=\"#ffd479\" text-anchor=\"middle\">SATELLITE</text><text x=\"322\" y=\"89\" font-family=\"sans-serif\" font-size=\"9.5\" fill=\"#ffd479\" text-anchor=\"middle\">IMAGERY</text><text x=\"322\" y=\"104\" font-family=\"sans-serif\" font-size=\"8.5\" fill=\"#e8ecf1\" text-anchor=\"middle\">capacity yes;</text><text x=\"322\" y=\"114\" font-family=\"sans-serif\" font-size=\"8.5\" fill=\"#e8ecf1\" text-anchor=\"middle\">intentions no</text><rect x=\"144\" y=\"196\" width=\"112\" height=\"62\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"200\" y=\"216\" font-family=\"sans-serif\" font-size=\"9.5\" fill=\"#ffd479\" text-anchor=\"middle\">OFFICIAL SIGNALS</text><text x=\"200\" y=\"231\" font-family=\"sans-serif\" font-size=\"8.5\" fill=\"#e8ecf1\" text-anchor=\"middle\">laws and statements;</text><text x=\"200\" y=\"243\" font-family=\"sans-serif\" font-size=\"8.5\" fill=\"#e8ecf1\" text-anchor=\"middle\">cheap or costly</text><circle cx=\"200\" cy=\"152\" r=\"27\" fill=\"#161b22\" stroke=\"#7cc7ff\" stroke-width=\"1.5\"/><text x=\"200\" y=\"148\" font-family=\"sans-serif\" font-size=\"8.5\" fill=\"#e8ecf1\" text-anchor=\"middle\">TRIANGU-</text><text x=\"200\" y=\"159\" font-family=\"sans-serif\" font-size=\"8.5\" fill=\"#e8ecf1\" text-anchor=\"middle\">LATED</text><text x=\"200\" y=\"170\" font-family=\"sans-serif\" font-size=\"8.5\" fill=\"#e8ecf1\" text-anchor=\"middle\">VIEW</text><line x1=\"110\" y1=\"112\" x2=\"176\" y2=\"140\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><line x1=\"290\" y1=\"112\" x2=\"224\" y2=\"140\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><line x1=\"200\" y1=\"196\" x2=\"200\" y2=\"180\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"200\" y=\"282\" font-family=\"sans-serif\" font-size=\"9\" fill=\"#9aa6b8\" text-anchor=\"middle\">No single window settles a claim. Agreement between windows is what evidence means here.</text></svg>",
+        "questions": [
+          {
+            "q": "Why can't defector testimony be read as a representative sample of North Korean life?",
+            "answer": "Because those who leave are not drawn evenly from the population: they come disproportionately from the northern border provinces, are roughly seven in ten women, and are by definition the people the system failed or repelled. Their accounts are real evidence about the country they left, but the missing \u2014 the loyal, the settled, the unreachable provinces \u2014 are missing from the sample.",
+            "hint": "Ask who is not in the sample, and why their absence is systematic rather than random."
+          },
+          {
+            "q": "What can a satellite photograph of a missile facility settle, and what can it never settle?",
+            "answer": "It can settle physical facts \u2014 construction, expansion, activity consistent with preparation \u2014 and so establish capability. It cannot settle intentions, orders, or decisions, because purpose does not cast a shadow; every claim about intent built on imagery is an inference and should be labelled as one.",
+            "hint": "Separate what casts a shadow from what does not."
+          }
+        ]
+      }
+    ]
+  },
+  "quizzes": {
+    "sections": [
+      {
+        "id": "s1",
+        "questions": [
+          {
+            "q": "A school textbook states that Kim Jong Il was born in a guerrilla camp on Mt. Paektu in 1942. Which evidence most directly tests that claim?",
+            "choices": [
+              "The official DPRK biography published in Pyongyang, which tells the story in detail",
+              "Soviet archival records from the Khabarovsk region documenting where Kim Il Sung's family and unit actually were in 1941-42",
+              "A defector's memoir recalling what he was taught about the birth in school",
+              "The number and scale of monuments commemorating the birth on Mt. Paektu"
+            ],
+            "answer": 1,
+            "explain": "Contemporaneous records kept by a third party (the Soviet Union) bear directly on where the family was, and were not created to support the claim. The official biography is the claim itself, not a test of it. The memoir is good evidence of what North Koreans are taught, which is a different question. The monuments measure how much the state invests in the story, not whether it is true."
+          },
+          {
+            "q": "Analysts call the partisan founding myth 'load-bearing' for the regime. Which observation best supports that reading?",
+            "choices": [
+              "The myth is very old and appears in many North Korean films",
+              "Foreign textbooks have begun repeating parts of the myth",
+              "Succession passed from father to son to grandson in 1994 and 2011 while being publicly justified in bloodline terms drawn from the myth",
+              "Mt. Paektu is the peninsula's highest mountain and a natural symbol"
+            ],
+            "answer": 2,
+            "explain": "'Load-bearing' means the structure would change if the myth were removed. Hereditary succession \u2014 the regime's most consequential recurring act \u2014 is legitimated publicly through the Paektu bloodline, which is direct evidence the myth does structural work. Age, film appearances, foreign repetition, and the mountain's geography say nothing about what the myth holds up."
+          },
+          {
+            "q": "A historian wants to assess how destructive the Korean War was for the North. Which source pairing is strongest?",
+            "choices": [
+              "United States bombing records and North Korean postwar reconstruction data, read against each other",
+              "Two postwar North Korean novels about the war",
+              "A single defector's childhood recollection of ruins",
+              "A South Korean school textbook's chapter on the war"
+            ],
+            "answer": 0,
+            "explain": "The bombing side's own operational records and the receiving side's reconstruction figures were produced independently, for different purposes, and can be checked against each other \u2014 that independence is what makes corroboration strong. Novels and textbooks are shaped narratives; a single recollection, however honest, cannot carry a claim about scale."
+          }
+        ]
+      },
+      {
+        "id": "s2",
+        "questions": [
+          {
+            "q": "A commentator claims songbun no longer matters because markets let anyone prosper. Which evidence would best test that claim?",
+            "choices": [
+              "A state media editorial insisting the class system is just and permanent",
+              "One wealthy market trader's memoir describing her rise",
+              "Survey and interview data from many defectors on whether songbun still predicts Pyongyang residence, university admission, and official jobs \u2014 read with its sample biases in mind",
+              "A satellite count of how many marketplaces exist in the country"
+            ],
+            "answer": 2,
+            "explain": "The claim is about whether the classification still predicts life outcomes, so the testing evidence must measure outcomes against classification across many cases \u2014 defector-derived data can do that if its skew is handled openly. An editorial asserts the system; a memoir is one case; market counts measure markets, not whether a hostile-class trader still hits a ceiling."
+          },
+          {
+            "q": "A defector reports that home radios were inspected to check they stayed fixed to state stations. How should a careful reader weight this testimony?",
+            "choices": [
+              "Accept it entirely, including the implication that every home was inspected \u2014 defectors have no reason to embellish",
+              "Weight it most where it converges with many independent accounts and with documented state practice (sealed sets, state-only broadcasting), and least on universal details like 'every home'",
+              "Discount it entirely, because defectors are hostile witnesses by definition",
+              "Check it against Korean Central News Agency reporting on radio policy"
+            ],
+            "answer": 1,
+            "explain": "Testimony gains weight through convergence: when many witnesses who did not coordinate describe the same mechanism, and the mechanism matches known state practice, the mechanism is well supported. Universal quantifiers \u2014 every home, always, never \u2014 are where memory and emphasis inflate, so those are discounted first. Blanket acceptance and blanket rejection are the same failure with opposite signs, and the state broadcaster is an interested party, not an arbiter."
+          },
+          {
+            "q": "Which finding would most weaken the claim that information control in North Korea remains near-total?",
+            "choices": [
+              "The launch of a new propaganda campaign honouring the leader",
+              "A rise in the number of state television channels from three to four",
+              "A new law prescribing harsher punishments for foreign media",
+              "Survey data showing a large share of border-province residents routinely use Chinese-network phones and watch foreign media"
+            ],
+            "answer": 3,
+            "explain": "Near-total control is a claim about what people actually receive, so the weakening evidence must measure actual reception \u2014 widespread routine use of foreign signals and media directly contradicts it. New campaigns and channels describe the state's output, not the audience's input, and a harsher law may testify to the state's anxiety about leakage rather than to its success at stopping it."
+          }
+        ]
+      },
+      {
+        "id": "s3",
+        "questions": [
+          {
+            "q": "An analyst asserts that markets now supply most North Korean households' income. Which evidence best supports \u2014 or refutes \u2014 that claim?",
+            "choices": [
+              "Household-income surveys of defectors, adjusted openly for their border-province and gender skew, cross-checked against what is known of market fees and state wages",
+              "Satellite counts of marketplace roofs, which show how many markets exist",
+              "A Rodong Sinmun article celebrating socialist commerce",
+              "One trader's account of her family's earnings in a good year"
+            ],
+            "answer": 0,
+            "explain": "An income-share claim needs income data. Defector surveys ask households where their money came from, so they bear on the claim directly \u2014 provided the known skew of the sample is treated as part of the analysis, not ignored. Imagery counts markets but cannot see earnings; state media is the interested party; one trader is an anecdote, not a share."
+          },
+          {
+            "q": "A documentary states flatly: 'One million people died in the North Korean famine.' How should a careful viewer respond?",
+            "choices": [
+              "Accept it \u2014 a round figure suggests the producers did careful demographic work",
+              "Reject the famine entirely, since the number cannot be exact",
+              "Split the difference between the documentary's figure and the North Korean government's account",
+              "Treat the figure as one point inside a contested range of demographic reconstructions, and ask what method produced it \u2014 food balances, population balancing, refugee data \u2014 because no reliable mortality statistics were ever published"
+            ],
+            "answer": 3,
+            "explain": "The famine's death toll is genuinely unknowable as a single number: all estimates are reconstructions built on assumptions, and credible ones span from a few hundred thousand to around a million or more. Precision here is a warning sign, not a virtue. Rejecting the famine because the number is soft throws away strong evidence (demographic deficits, food data, mass testimony) along with the weak figure, and averaging with an interested party's silence is not a method."
+          },
+          {
+            "q": "The 2009 currency redenomination, which wiped out market savings and was partly reversed after severe disruption, is best read as evidence for which claim?",
+            "choices": [
+              "The market economy was too marginal to be worth the regime's attention",
+              "The regime was willing to damage the market economy to reassert control over private wealth \u2014 and discovered limits to how much damage stability could absorb",
+              "Juche planning was working and the reform fine-tuned it",
+              "China effectively dictated North Korean monetary policy"
+            ],
+            "answer": 1,
+            "explain": "The reform's design \u2014 a punishing exchange rate with low conversion caps \u2014 targeted accumulated market cash specifically, which only makes sense as a control operation against a market economy large enough to matter. The forced retreat then measures the constraint: the state could hurt the markets but not do without them. A marginal economy would not have warranted the operation or the retreat."
+          }
+        ]
+      },
+      {
+        "id": "s4",
+        "questions": [
+          {
+            "q": "A negotiator proposes that North Korea will trade away its entire arsenal for sufficient sanctions relief and aid. Which evidence cuts hardest against that assumption?",
+            "choices": [
+              "A KCNA editorial denouncing the proposal in strong language",
+              "The enthusiastic tone of the 2018 Singapore joint declaration",
+              "Nuclear status entrenched in a 2022 law and a 2023 constitutional amendment, on top of thirty years and three leaders of behaviour consistent with keeping the program",
+              "A defector's opinion that the leadership is pragmatic about money"
+            ],
+            "answer": 2,
+            "explain": "Editorials and summit communiqu\u00e9s are cheap signals \u2014 they cost nothing to issue or abandon. Legislation and constitutional text cost more, and three decades of resource-burning behaviour across three leaderships cost the most; a claim that the arsenal is for sale has to explain why a seller keeps raising its own price of parting. The defector's opinion is one person's inference about people he never met in power."
+          },
+          {
+            "q": "Outside agencies published differing yield estimates for the September 2017 test, commonly cited from roughly one hundred to a few hundred kilotons. The spread mainly reflects the fact that:",
+            "choices": [
+              "The test was underground, so yield must be inferred from seismic signals, and the conversion depends on geological assumptions that differ between agencies",
+              "Different agencies were reporting different tests and the figures were conflated",
+              "North Korea published several contradictory official yields",
+              "Satellites cannot detect underground explosions at all"
+            ],
+            "answer": 0,
+            "explain": "There was no instrument at the test site reporting to outsiders. Seismic magnitude is measured precisely, but converting it to explosive yield requires assumptions about the rock the explosion was coupled into \u2014 and reasonable assumptions differ, so honest estimates spread. The variation is a property of the measurement method, not of anyone's politics; satellites are irrelevant to this particular measurement."
+          },
+          {
+            "q": "To test whether the 'Libya lesson' genuinely shapes Pyongyang's negotiating position, rather than decorating it, the best evidence is:",
+            "choices": [
+              "Whether foreign newspaper editorials mention Libya when covering North Korea",
+              "North Korea's own state media and negotiators invoking Libya's fate when rejecting disarmament-first terms, repeatedly and across negotiating rounds",
+              "Libya's economic statistics for the years after 2003",
+              "A defector's guess about what the leadership privately fears"
+            ],
+            "answer": 1,
+            "explain": "A motive claim about negotiators is tested at the negotiating table and in the regime's own addressed-to-outsiders messaging: if Pyongyang itself raises Libya when refusing disarmament-first sequencing, the example is functioning as part of its stated position, not as commentary imposed from outside. Foreign editorials measure foreign preoccupations; Libyan statistics cannot speak for Pyongyang; a guess about private fears is the weakest evidence class there is."
+          }
+        ]
+      },
+      {
+        "id": "s5",
+        "questions": [
+          {
+            "q": "A viral post, citing a single unnamed source via a defector-run outlet, reports that a senior North Korean official has been executed. What is the careful reader's next step?",
+            "choices": [
+              "Share it \u2014 the outlet's sources have been right before",
+              "Hold it as unverified and wait for corroboration, knowing that reported executions and purges have repeatedly been contradicted when the official later reappeared in state media",
+              "Assume the opposite happened, since such reports are always fabricated",
+              "Check whether the official's songbun class made him vulnerable"
+            ],
+            "answer": 1,
+            "explain": "This exact claim type has a track record: single-source execution reports have been wrong often enough \u2014 with the 'executed' official later photographed at public events \u2014 that the base rate itself demands corroboration. Waiting is not credulity toward Pyongyang; it is charging this source class the discount its history has earned. Assuming the opposite is the same error inverted, and songbun does not adjudicate specific personnel news."
+          },
+          {
+            "q": "Satellite imagery shows the roofed area of a provincial marketplace roughly doubling over five years. The strongest justified conclusion is:",
+            "choices": [
+              "The regime has decided to liberalise the economy",
+              "Songbun has ceased to operate in that province",
+              "Physical market capacity at that site grew substantially \u2014 consistent with broader marketisation, but not by itself proof of a policy shift or of income effects",
+              "The famine-era food emergency has been permanently solved"
+            ],
+            "answer": 2,
+            "explain": "Imagery establishes physical facts: a bigger market exists. Liberalisation is a claim about intentions and rules, which roofs cannot show; songbun and food security are not visible from orbit at all. The discipline is to let the evidence conclude exactly what it reaches \u2014 growth in capacity, corroborating other marketisation evidence \u2014 and no further."
+          },
+          {
+            "q": "Imminent collapse of the North Korean regime was confidently predicted in the mid-1990s, again during the famine, and again at the 2011 succession \u2014 and did not occur. Three decades of failed predictions most support which conclusion?",
+            "choices": [
+              "The regime must be genuinely popular with its population",
+              "Collapse is therefore certain within the next few years",
+              "Sanctions and pressure have had no effects worth measuring",
+              "Outside models systematically underweighted the system's adaptive capacity \u2014 repression, elite management, and the unplanned market economy absorbing shocks that were expected to break it"
+            ],
+            "answer": 3,
+            "explain": "A long run of one-directional misses is information about the models, not just the country: they treated rigidity as brittleness and missed the adaptation mechanisms, markets included, that absorbed the shocks. Popularity is unmeasurable from outside and unnecessary to the explanation; rescheduling the same prediction is not learning; and effects of pressure are a separate question that failed collapse forecasts do not answer."
+          }
+        ]
+      }
+    ]
+  },
+  "slides": {
+    "sections": [
+      {
+        "id": "s1",
+        "title": "Founding and Myth",
+        "bullets": [
+          "August 1945: the peninsula divided at the 38th parallel as a temporary surrender arrangement between the US and USSR.",
+          "1948: two rival Korean states; Kim Il Sung, a former guerrilla with Soviet backing, leads the North.",
+          "1950-53: total war ends in armistice, not a peace treaty \u2014 the founding emergency was never legally closed.",
+          "The partisan record was real but modest; state historiography rebuilt it into the founding myth centred on Mt. Paektu.",
+          "The myth turned hereditary: the 'Paektu bloodline' made succession an inheritance and history a security matter."
+        ],
+        "notes": "Start with the line on the map, because everything else is commentary on it. A temporary occupation boundary from 1945 became two states by 1948 and a war by 1950 \u2014 and the war was never formally ended, which means the state's founding emergency is still, legally, its present. Then hold the double vision on Kim Il Sung: the guerrilla record is genuine and also much smaller than the myth built on it. That gap is not a footnote. It is the mechanism \u2014 the enlarged legend is what lets power pass from father to son to grandson while calling itself a revolution.",
+        "visual": "A horizontal timeline from 1945 to today, the war and the two successions marked \u2014 the spine every later section hangs on."
+      },
+      {
+        "id": "s2",
+        "title": "The Control System",
+        "bullets": [
+          "Songbun sorts every citizen into core, wavering, or hostile classes by their grandparents' record \u2014 some fifty subcategories in researchers' reconstructions.",
+          "The file decides residence, education, occupation, and historically rations: a ceiling on a life, not usually a sentence.",
+          "Party, state, army, and two security ministries overlap on purpose, so the watchers are themselves watched.",
+          "The inminban, twenty to forty households per unit, makes privacy unreliable at street level.",
+          "The information monopoly leaks anyway \u2014 smuggled media, market networks, and Chinese phone signals along the border."
+        ],
+        "notes": "Songbun is the key that unlocks this section, so say plainly what it is: a hereditary file on your family's political past that quietly caps where you can live, study, and work. Around that file stands an architecture designed with deliberate redundancy \u2014 party, state, army, and security services all watching the citizen and each other \u2014 and at the bottom, the inminban, the neighbourhood unit that makes surveillance a face you know. Then make the turn the section insists on: the system is pervasive and the system leaks. Markets, USB sticks, and Chinese mobile signals have been eroding the information monopoly for twenty years, and the crackdowns are the proof of the traffic.",
+        "visual": "An organisation chart drawn as a net rather than a pyramid \u2014 layers overlapping all the way down to the neighbourhood unit."
+      },
+      {
+        "id": "s3",
+        "title": "Juche Economics and the Market Underneath",
+        "bullets": [
+          "Juche promised self-reliance; the Public Distribution System made the state the feeder of first and last resort.",
+          "When Soviet support ended and harvests failed, distribution collapsed \u2014 the mid-1990s famine, whose deaths can only be estimated, across a wide range.",
+          "Survival trading hardened into the jangmadang: several hundred marketplaces, and market income at the centre of most households' survival.",
+          "The state's cycle is tax what it cannot replace, strike what it cannot control \u2014 the 2009 currency reform and its forced retreat.",
+          "Today's citizen holds a state job on paper and earns a market living in practice."
+        ],
+        "notes": "The formal economy and the real economy parted company in the 1990s, and this section keeps them in separate columns. On paper: juche, plans, and the Public Distribution System. In practice, after that system failed during the famine, the feeding was done by markets that grew out of survival trading and never went away. Be careful with the famine numbers when you present them \u2014 they are demographic reconstructions, and the range is the honest figure. The 2009 currency reform is your case study in the regime's dilemma: it struck at market wealth, caused chaos, and had to retreat, because the state now depends on the economy its ideology says should not exist.",
+        "visual": "Two columns, plan and market, with arrows from both converging on a single household."
+      },
+      {
+        "id": "s4",
+        "title": "The Nuclear Program as Insurance",
+        "bullets": [
+          "Chronology: the Yongbyon plutonium program, the 1994 Agreed Framework freeze, the 2002 collapse, withdrawal from the NPT, and six tests from 2006 to 2017.",
+          "Pyongyang's stated lessons: Saddam had no deterrent and fell; Gaddafi traded his program away in 2003 and fell anyway in 2011.",
+          "Insurance logic: a deterrent held against the worst case is not priced for sale, whatever the offer.",
+          "Every negotiation has broken on the same joint \u2014 sequencing: who moves first, and who trusts the other's later steps.",
+          "After Hanoi failed in 2019, the 2022 nuclear forces law and the 2023 constitutional amendment wrote permanence into the state's own texts."
+        ],
+        "notes": "Keep the chronology in front of the argument, because the argument is a reading of the chronology. The program survived a freeze, a collapse, six-party talks, and two summits \u2014 and the thing that kept killing agreements was not the destination but the order of travel: sequencing. Then give Pyongyang's own stated reasoning a fair hearing: Iraq and Libya are, in its telling, the two exhibits of what happens to regimes without a deterrent or foolish enough to surrender one. You do not have to accept the lesson to see that a state which believes it will not sell its insurance. The 2022 law and 2023 constitutional text are what that belief looks like when it is written down.",
+        "visual": "A rising staircase of the six tests from 2006 to 2017, with the 2018-19 summit years marked as a plateau that never descended."
+      },
+      {
+        "id": "s5",
+        "title": "Reading North Korea from Outside",
+        "bullets": [
+          "Defector testimony: unmatched texture on daily life, drawn from a skewed sample \u2014 border provinces, roughly seven in ten women, the people the system failed.",
+          "Satellite imagery: decisive on capacity and construction, silent on intentions; its absences prove little.",
+          "Official signals: grade them by cost \u2014 slogans are cheap, laws cost more, three decades of resource-burning behaviour costs most.",
+          "The prediction record \u2014 collapse confidently expected in 1994, during the famine, and in 2011 \u2014 is evidence about the models as much as about the country.",
+          "Method: triangulate across windows, attribute every claim to its source, keep ranges as ranges, and label inferences as inferences."
+        ],
+        "notes": "Close by grading the windows the whole course has been looking through. Defectors give us the texture of daily life and come from a sample skewed by geography, gender, and grievance \u2014 use their accounts heavily and representatively never. Satellites settle what casts a shadow and say nothing about what anyone intends. The regime's own words are evidence priced by cost: behaviour that burns resources over thirty years is the expensive signal. And end with the report card: the collapse that kept not happening. A model that is wrong the same way for thirty years is telling you something about itself. The careful reader's job is to hear it.",
+        "visual": "Three labelled windows \u2014 people who left, the sky, and the regime's own voice \u2014 converging on a single cautious picture."
+      }
+    ]
+  },
+  "enrichment": {
+    "audioTitle": "Two Logics, One Launch: Analysts Argue a Missile Test",
+    "turns": [
+      {
+        "speaker": "teacher",
+        "line": "Take last month's long-range missile test. My read starts outside the country: the launch window sat inside a joint US-South Korean exercise, the trajectory demonstrated range without overflying anyone, and the message was addressed to Washington \u2014 we can reach you, price your pressure accordingly. That is deterrence logic, and the timing is the tell."
+      },
+      {
+        "speaker": "student",
+        "line": "Or start inside the country, where I begin. The test fell a week before a major party anniversary, and domestic coverage led with the leader personally guiding the launch. For the audience that actually lives under this regime, the broadcast was the event: the shield works, and it has a father's face on it. That is legitimacy logic, and the coverage is the tell."
+      },
+      {
+        "speaker": "teacher",
+        "line": "But notice what the test itself had to prove. A lofted trajectory that demonstrates re-entry and range answers questions posed by foreign analysts and American planners. A parade proves nothing about range. If the domestic audience were the only one that mattered, a cheaper spectacle would do."
+      },
+      {
+        "speaker": "student",
+        "line": "Proving range is the domestic product. The founding story promises that the revolution, encircled, defends itself \u2014 the missile is that promise made visible over the home islands. Citizens are not asked to admire a parade prop; they are shown the guarantee their sacrifices purchased. The technical proof is precisely what makes the legitimacy story credible at home."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Then explain the cost side. A test like that invites a fresh sanctions round and tightens the coalition against them. States pay costs like that for external effects \u2014 deterrence value \u2014 not for internal theatre they could stage more cheaply."
+      },
+      {
+        "speaker": "student",
+        "line": "Unless the cost is itself convertible. Hardship after a sanctions round is folded straight back into the founding narrative: the blockade proves the siege, the siege proves the need for the shield, the shield proves the leader. Inside that logic the sanctions are not pure loss; they are raw material. You keep treating the domestic audience as the cheap audience. For this regime it is the expensive one \u2014 it is the one that must not stop believing."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Let me test your ordering with behaviour, not broadcasts. Watch what they develop, not when they show it. The 2017 programme chased re-entry vehicles and solid fuel \u2014 capabilities that answer American questions about survivability and warning time. No domestic broadcast can even display a re-entry vehicle's performance. The engineering budget votes for deterrence."
+      },
+      {
+        "speaker": "student",
+        "line": "And I will test yours with the photo release. The images chosen for domestic front pages centre the leader among the engineers, being embraced, being thanked. The weapon is presented as his personal gift to the nation \u2014 the partisan founder's grandson completing the shield. That framing is not decoration on the deterrence message; for the home audience it is the message, and it is doing succession work no warhead can do alone."
+      },
+      {
+        "speaker": "teacher",
+        "line": "We may be arguing about one object with two addresses. A test can deter Washington and legitimate Pyongyang in the same morning. The analytical question is ordering: if only one audience could be reached, which one would the regime choose to reach? That counterfactual tells you which logic is load-bearing."
+      },
+      {
+        "speaker": "student",
+        "line": "Then run it. Suppose the deterrence message fails completely \u2014 Washington shrugs, no statement, no response. The regime still banks the domestic story, the anniversary, the photograph. Now suppose the domestic story fails \u2014 elites stop believing the shield narrative. Deterrence alone does not hold the internal bargain together. On your own counterfactual, the internal audience is the one that cannot be lost."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Careful \u2014 elites are not held by stories alone. They are held by songbun files, by surveillance, and by the knowledge that foreign-backed change would put them in front of tribunals. The arsenal underwrites that too: it makes outside sponsorship of internal change too dangerous to attempt. Deterrence protects the internal order; it does not merely coexist with it."
+      },
+      {
+        "speaker": "student",
+        "line": "Granted, the two logics interlock \u2014 that may be the real finding. But when they have conflicted, watch the revealed preference. In the famine years, with the state failing to feed its people, what was protected first? The military, the capital, the myth's monuments. Survival resources flowed to the story and the sword before the ration line. The internal hierarchy of values showed itself under stress."
+      },
+      {
+        "speaker": "teacher",
+        "line": "And in 2017 the counter-case: the regime accepted genuine economic pain \u2014 sanctions with real teeth \u2014 to finish the intercontinental deterrent before sitting down to negotiate. When the external shield and domestic comfort competed for the same resources, the shield won. That is my revealed preference, and it points the other way."
+      },
+      {
+        "speaker": "student",
+        "line": "Or the shield won because it completes the founding story \u2014 the grandson finishing what the grandfather's partisans began \u2014 so the purchase was legitimacy spending in deterrence currency. You see why I distrust any single-ledger account of this country: every external act has a domestic price and a domestic meaning, and the conversion rate is the regime's core competence."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Then we end where a seminar should: agreeing on method while keeping our disagreement. Read every event twice \u2014 once in the deterrence ledger, once in the legitimacy ledger \u2014 and price both before choosing."
+      },
+      {
+        "speaker": "student",
+        "line": "And grade the evidence underneath both readings. A launch is a fact; its audience is an inference; its motive is an inference about an inference. The country's whole difficulty, in one event \u2014 hold the three apart and you are already ahead of most of what gets published about it."
+      }
+    ],
+    "nodes": [
+      {
+        "id": "root",
+        "label": "North Korea: The Logic of the Hermit State",
+        "parent": null,
+        "note": "One state, read through its own founding logic \u2014 and through the evidence discipline needed to check that reading."
+      },
+      {
+        "id": "n1",
+        "label": "Founding Myth",
+        "parent": "root",
+        "note": "The 1945 division, the war that never formally ended, and the Paektu legend that made power hereditary."
+      },
+      {
+        "id": "n2",
+        "label": "The Control System",
+        "parent": "root",
+        "note": "Songbun files, deliberately overlapping institutions, the inminban \u2014 and the leaks at the system's edges."
+      },
+      {
+        "id": "n3",
+        "label": "The Market Underneath",
+        "parent": "root",
+        "note": "Juche's paper economy versus the jangmadang that actually feeds the country since the famine."
+      },
+      {
+        "id": "n4",
+        "label": "The Nuclear Insurance",
+        "parent": "root",
+        "note": "Six tests, the Iraq and Libya lessons as Pyongyang reads them, and negotiations that die on sequencing."
+      },
+      {
+        "id": "n5",
+        "label": "Reading from Outside",
+        "parent": "root",
+        "note": "Defectors, satellites, and official signals \u2014 each window graded for its characteristic distortion."
+      },
+      {
+        "id": "n6",
+        "label": "Evidence Discipline",
+        "parent": "n5",
+        "note": "Triangulate, attribute, keep ranges as ranges: the method the whole course runs on."
+      }
+    ],
+    "mnemonics": [
+      {
+        "for": "The three songbun classes \u2014 core, wavering, hostile",
+        "aid": "Trusted kin at the Core, the Watched in the middle, the Cast-out at the edge: Core, Wavering, Hostile."
+      },
+      {
+        "for": "The six nuclear tests \u2014 2006, 2009, 2013, twice in 2016, and 2017",
+        "aid": "Three-year steps to start \u2014 '06, '09, '13 \u2014 then a double in '16 and the big one in '17."
+      },
+      {
+        "for": "Testing any claim about North Korea before believing it",
+        "aid": "Ask three questions: Who saw it? What casts a shadow? Who profits if I believe it? \u2014 testimony, imagery, incentives."
+      }
+    ]
+  }
+}

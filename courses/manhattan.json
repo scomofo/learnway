@@ -1,0 +1,573 @@
+{
+ "meta": {
+  "topic": "the Manhattan Project: history and decisions",
+  "level": "advanced",
+  "interests": "",
+  "depth": "standard",
+  "model": "manual",
+  "title": "The Manhattan Project: The Committee That Built the Sun",
+  "createdAt": "2026-10-22T12:00:00.000Z",
+  "version": 1
+ },
+ "plan": {
+  "title": "The Manhattan Project: The Committee That Built the Sun",
+  "hook": "It was less a physics problem than an organisation problem: three enrichment methods pursued in parallel because nobody could wait to find out which one worked.",
+  "objectives": [
+   "Explain why the project pursued parallel isotope-separation and plutonium paths at once, and what each path cost in money, labour, and time.",
+   "Follow the 1944 Pu-240 spontaneous-fission finding from measurement to the collapse of the plutonium gun design and the turn to implosion.",
+   "Judge the 1945 use decision from the documents — Interim Committee recommendation, Franck Report, Szilárd petition — rather than from later memoir and myth.",
+   "Distinguish what the documentary record settles from what historians still genuinely dispute, including Hasegawa's argument on Soviet entry.",
+   "Trace the project's organisational template — the AEC, the national laboratories, compartmented big science — into the postwar order."
+  ],
+  "prerequisites": [
+   "General awareness of the Second World War's course and chronology; no specialist history assumed.",
+   "No physics assumed — fission, isotopes, and criticality are taught at concept level where the argument needs them."
+  ],
+  "sections": [
+   {
+    "id": "s1",
+    "heading": "The Letter and the Decision",
+    "points": [
+     "The Einstein–Szilárd letter of August 1939 and its modest immediate yield: a committee, not a programme",
+     "Frisch and Peierls's critical-mass calculation and the MAUD report's conversion of possibility into feasibility",
+     "Roosevelt's go-ahead and the Army's takeover of the effort",
+     "Groves takes command, September 1942; Oppenheimer at Los Alamos — the essential pairing",
+     "Three decisions before the physics was proven: possible (MAUD), urgent (the German fear), buildable (industry plus laboratory under one command)"
+    ]
+   },
+   {
+    "id": "s2",
+    "heading": "An Industrial Base in Secret",
+    "points": [
+     "Oak Ridge's parallel bets: Y-12 electromagnetic, K-25 gaseous diffusion, S-50 thermal diffusion — and how they fed one another",
+     "Why the centrifuge, sound in physics, lost the wartime round on bearings and materials",
+     "Hanford: Fermi's pile scaled up, the B Reactor, and the xenon-135 poisoning scare of September 1944",
+     "Compartmentalisation as a conscious engineering tax: security purchased with coordination",
+     "The production map's output column: kilograms of fissile material against billions of dollars and some 600,000 workers"
+    ]
+   },
+   {
+    "id": "s3",
+    "heading": "The Plutonium Surprise and Trinity",
+    "points": [
+     "Segrè's 1944 measurements: Pu-240's spontaneous fission in reactor-bred plutonium",
+     "Why a gun assembly loses the race against stray neutrons — the fizzle — and Thin Man is abandoned",
+     "Implosion: explosive lenses, von Neumann's concept, Kistiakowsky's explosives programme",
+     "Little Boy stays a gun design and is trusted untested; the plutonium device cannot be",
+     "Trinity, July 16, 1945: a measurement first, and a message second — Potsdam opens the next day"
+    ]
+   },
+   {
+    "id": "s4",
+    "heading": "The Use Decision from the Record",
+    "points": [
+     "The Interim Committee, June 1, 1945: use as soon as possible, on a military target amid workers' housing, without warning",
+     "The scientific panel, June 16: no technical demonstration likely to end the war",
+     "Dissent before the fact: the Franck Report (June 11) and the Szilárd petition (July), and the petition's fate in channels",
+     "The target list: Stimson removes Kyoto; on August 9, cloud over Kokura diverts the mission to Nagasaki",
+     "The boundary of the record: sequence is settled, causation is not — Hasegawa versus Frank on Soviet entry"
+    ]
+   },
+   {
+    "id": "s5",
+    "heading": "The Inheritance",
+    "points": [
+     "The McMahon Act of 1946: atomic energy passes from the Army to the civilian Atomic Energy Commission on January 1, 1947",
+     "The Baruch Plan fails on sequence and on enforcement without a great-power veto; the Soviet test follows in 1949",
+     "'Born secret': the 1946 settlement restricts sharing even with Britain, the ally whose report started it all",
+     "The template generalised: national laboratories, clearance systems, secrecy as an engineering constraint",
+     "The Oppenheimer hearing, 1954: loyalty affirmed 2–1, clearance revoked anyway — the system's bill comes due"
+    ]
+   }
+  ]
+ },
+ "reading": {
+  "sections": [
+   {
+    "id": "s1",
+    "heading": "The Letter and the Decision",
+    "body": "Fission reached the United States as a rumour among refugees. In the summer of 1939, Leo Szilárd — Hungarian-born, working in New York — concluded that a weapon built on a neutron chain reaction was no longer a theorist's fancy, and that the physicists who understood it best were, many of them, assembled in Germany. Because Szilárd was unknown to anyone with power, he went to Albert Einstein. The letter the two composed, signed by Einstein and dated August 2, 1939, warned President Franklin D. Roosevelt that uranium might yield 'extremely powerful bombs of a new type' and that Germany had already stopped selling uranium from the Czech mines it had seized. The letter reached Roosevelt in October, carried by the economist Alexander Sachs, and it produced an advisory committee and a few thousand dollars. It did not, by itself, produce a bomb programme.\n\nWhat changed the American calculation came from Britain. In 1940 two émigré physicists at Birmingham, Otto Frisch and Rudolf Peierls, calculated that the critical mass of uranium-235 might be measured in pounds rather than tons — small enough to carry by air. The official committee formed to evaluate their memorandum, known by the codename MAUD, reported in the summer of 1941 that a bomb was feasible and could plausibly be built within the war. The MAUD report crossed the Atlantic and did what the Einstein letter had not: it converted a possibility into an engineering proposition. Mark Oliphant, one of its members, travelled to the United States that August and pressed the case directly on American physicists, including Ernest Lawrence. By the time Vannevar Bush carried the matter to Roosevelt, the question had shifted from whether to how.\n\nRoosevelt authorised full speed in the autumn of 1941, and after Pearl Harbor the effort passed from the scientists' committees to the Army. In September 1942 the command went to Leslie R. Groves, a colonel in the Corps of Engineers temporarily promoted to brigadier general for the task, fresh from building the Pentagon. Groves was abrasive, decisive, and — the trait that mattered most — unwilling to wait for certainty. Within days he had secured the Tennessee site that became Oak Ridge; within months he had acquired the ground in New Mexico that became Los Alamos, chosen partly because J. Robert Oppenheimer knew and loved that country.\n\nThe pairing of Groves and Oppenheimer is the project's first organisational lesson, and Rhodes's account returns to it repeatedly. Groves was a builder of plants; the weapons laboratory needed a director who could hold theoretical physicists, chemists, ordnance engineers, and explosives men in one argument. Oppenheimer had no Nobel Prize, no experience managing anything larger than a seminar, and a file of left-wing associations that would have ended most appointments. Groves saw the seminar-leader's gift for the whole problem, waived the security objections by personal certification, and got a laboratory that worked like a university seminar wired to a factory schedule. The Manhattan Engineer District — named, with bureaucratic camouflage, for the district office where it began — was therefore not one decision but three: that a bomb was possible (MAUD), that it was urgent (the German programme, real or imagined), and that industry and laboratory could be yoked to a single command. Everything in the sections that follow is a consequence of those three decisions being made before anyone knew whether the physics would cooperate.",
+    "visual": "A three-step decision chain from the 1939 letter, through the 1941 MAUD report, to Groves's assumption of command in September 1942, with Oppenheimer's Los Alamos appointment branching from the final step.",
+    "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><rect x=\"14\" y=\"14\" width=\"372\" height=\"272\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"200\" y=\"42\" font-size=\"14\" fill=\"#e8ecf5\" font-family=\"sans-serif\" text-anchor=\"middle\">From Warning to Programme</text><rect x=\"30\" y=\"70\" width=\"150\" height=\"56\" fill=\"#232b38\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"105\" y=\"92\" font-size=\"12\" fill=\"#e8ecf5\" font-family=\"sans-serif\" text-anchor=\"middle\">Aug 1939</text><text x=\"105\" y=\"110\" font-size=\"11\" fill=\"#9fb2d8\" font-family=\"sans-serif\" text-anchor=\"middle\">Einstein–Szilárd letter</text><rect x=\"220\" y=\"70\" width=\"150\" height=\"56\" fill=\"#232b38\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"295\" y=\"92\" font-size=\"12\" fill=\"#e8ecf5\" font-family=\"sans-serif\" text-anchor=\"middle\">Summer 1941</text><text x=\"295\" y=\"110\" font-size=\"11\" fill=\"#9fb2d8\" font-family=\"sans-serif\" text-anchor=\"middle\">MAUD report: feasible</text><line x1=\"180\" y1=\"98\" x2=\"220\" y2=\"98\" stroke=\"#9aa6b8\" stroke-width=\"1.5\"/><polygon points=\"220,98 212,94 212,102\" fill=\"#9aa6b8\"/><text x=\"200\" y=\"90\" font-size=\"10\" fill=\"#9fb2d8\" font-family=\"sans-serif\" text-anchor=\"middle\">pounds, not tons</text><rect x=\"125\" y=\"160\" width=\"150\" height=\"56\" fill=\"#232b38\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"200\" y=\"182\" font-size=\"12\" fill=\"#e8ecf5\" font-family=\"sans-serif\" text-anchor=\"middle\">Sept 1942</text><text x=\"200\" y=\"200\" font-size=\"11\" fill=\"#9fb2d8\" font-family=\"sans-serif\" text-anchor=\"middle\">Groves takes command</text><line x1=\"295\" y1=\"126\" x2=\"230\" y2=\"160\" stroke=\"#9aa6b8\" stroke-width=\"1.5\"/><polygon points=\"228,162 236,158 228,152\" fill=\"#9aa6b8\"/><rect x=\"125\" y=\"238\" width=\"150\" height=\"34\" fill=\"#232b38\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"200\" y=\"259\" font-size=\"11\" fill=\"#e8ecf5\" font-family=\"sans-serif\" text-anchor=\"middle\">Oppenheimer → Los Alamos</text><line x1=\"200\" y1=\"216\" x2=\"200\" y2=\"238\" stroke=\"#9aa6b8\" stroke-width=\"1.5\"/><polygon points=\"200,238 196,230 204,230\" fill=\"#9aa6b8\"/></svg>",
+    "questions": [
+     {
+      "q": "Why did the MAUD report move Washington further than the Einstein–Szilárd letter had?",
+      "answer": "The letter warned that a bomb was possible in principle; the MAUD report, following Frisch and Peierls's critical-mass calculation, said one was feasible to build within the war — pounds of U-235, not tons, and deliverable by air.",
+      "hint": "Think about what changed in the numbers between 1939 and 1941."
+     },
+     {
+      "q": "What did Groves personally certify in appointing Oppenheimer, against the security advice?",
+      "answer": "Oppenheimer's clearance — Groves waived the objections arising from Oppenheimer's left-wing associations and certified him by his own authority.",
+      "hint": "It concerned the Los Alamos directorship and a file the security officers wanted to disqualify him."
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "heading": "An Industrial Base in Secret",
+    "body": "By the end of 1942 the United States had committed to producing fissile material at industrial scale before a single weapon design had been proven. Because no one could say which method would work, Groves refused to choose. Oak Ridge, Tennessee, became a city of parallel bets: three different separation plants arranged along the Clinch River, each exploiting a different physical property of uranium's isotopes, each racing the others.\n\nThe electromagnetic plant, Y-12, came from Ernest Lawrence's cyclotron work at Berkeley. Its calutrons bent a beam of ionised uranium in a magnetic field; the heavier U-238 ions curved slightly less than U-235, and collectors caught the enriched fraction. The method was wasteful, labour-intensive, and — decisive in 1942 — the closest to something that demonstrably worked. The gaseous diffusion plant, K-25, pushed uranium hexafluoride gas through miles of porous barrier; the lighter molecules passed marginally faster, so enrichment required thousands of stages in cascade, inside what became the largest building under one roof in the world. A third method, thermal diffusion, was added in 1944 as the S-50 plant: liquid uranium hexafluoride in tall columns between hot and cold surfaces, exploiting the slight tendency of the isotopes to separate in a temperature gradient. S-50's output was too lean to finish the job but valuable as feed for the other two.\n\nOne method conspicuously lost the wartime round: the centrifuge. Spinning uranium gas at high speed separates isotopes efficiently and, in peacetime arithmetic, cheaply — but 1942's bearings and materials could not be made reliable at the required speeds and scale, and Jesse Beams's programme was set aside. The physics was sound; the engineering was not yet. Rhodes's narrative is unsparing about the logic: in wartime the question is never which method is best but which will certainly be ready.\n\nSimultaneously, a second industrial empire rose at Hanford, Washington, around an entirely different element. Enrico Fermi's Chicago pile had shown in December 1942 that a reactor could sustain a chain reaction; scaled up, such reactors would breed plutonium-239 from uranium-238, an element that had barely existed before. DuPont built the Hanford works, including the B Reactor, which went critical in September 1944 — and nearly failed within hours, as an unsuspected fission product, xenon-135, poisoned the reaction until the cause was diagnosed and the reactor's spare capacity absorbed it.\n\nLos Alamos, the third city, existed to turn these materials into a weapon. Around it, Groves enforced compartmentalisation: each site knew its task and, in principle, nothing else. The system protected the secret and repeatedly obstructed the work — engineers at Oak Ridge calibrated equipment without knowing what it was for, and Hanford's chemists developed a separation process for an element whose properties they were measuring as they went. The project's historians, Rhodes among them, treat this not as bureaucratic folly but as a real engineering constraint, a tax consciously paid for secrecy. The material that reached Los Alamos — the output column of the production map — was measured in kilograms, against an industrial input of billions of dollars, some 600,000 workers at peak, and sites the size of small nations. The parallel paths had been expensive precisely because they were parallel. They were also, by the spring of 1945, delivering.",
+    "visual": "A production map: three Oak Ridge plants (Y-12 electromagnetic, K-25 gaseous diffusion, S-50 thermal diffusion) and Hanford's reactor line converging by arrow into Los Alamos, with the output labelled in kilograms.",
+    "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><rect x=\"14\" y=\"14\" width=\"372\" height=\"272\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"200\" y=\"40\" font-size=\"14\" fill=\"#e8ecf5\" font-family=\"sans-serif\" text-anchor=\"middle\">The Parallel Production Paths</text><text x=\"90\" y=\"62\" font-size=\"11\" fill=\"#9fb2d8\" font-family=\"sans-serif\" text-anchor=\"middle\">OAK RIDGE — uranium</text><rect x=\"26\" y=\"72\" width=\"128\" height=\"38\" fill=\"#232b38\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"90\" y=\"88\" font-size=\"11\" fill=\"#e8ecf5\" font-family=\"sans-serif\" text-anchor=\"middle\">Y-12</text><text x=\"90\" y=\"103\" font-size=\"10\" fill=\"#9fb2d8\" font-family=\"sans-serif\" text-anchor=\"middle\">electromagnetic</text><rect x=\"26\" y=\"120\" width=\"128\" height=\"38\" fill=\"#232b38\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"90\" y=\"136\" font-size=\"11\" fill=\"#e8ecf5\" font-family=\"sans-serif\" text-anchor=\"middle\">K-25</text><text x=\"90\" y=\"151\" font-size=\"10\" fill=\"#9fb2d8\" font-family=\"sans-serif\" text-anchor=\"middle\">gaseous diffusion</text><rect x=\"26\" y=\"168\" width=\"128\" height=\"38\" fill=\"#232b38\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"90\" y=\"184\" font-size=\"11\" fill=\"#e8ecf5\" font-family=\"sans-serif\" text-anchor=\"middle\">S-50</text><text x=\"90\" y=\"199\" font-size=\"10\" fill=\"#9fb2d8\" font-family=\"sans-serif\" text-anchor=\"middle\">thermal diffusion</text><text x=\"90\" y=\"230\" font-size=\"11\" fill=\"#9fb2d8\" font-family=\"sans-serif\" text-anchor=\"middle\">HANFORD — plutonium</text><rect x=\"26\" y=\"240\" width=\"128\" height=\"38\" fill=\"#232b38\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"90\" y=\"256\" font-size=\"11\" fill=\"#e8ecf5\" font-family=\"sans-serif\" text-anchor=\"middle\">B Reactor</text><text x=\"90\" y=\"271\" font-size=\"10\" fill=\"#9fb2d8\" font-family=\"sans-serif\" text-anchor=\"middle\">breeds Pu-239</text><line x1=\"154\" y1=\"91\" x2=\"238\" y2=\"130\" stroke=\"#9aa6b8\" stroke-width=\"1.5\"/><line x1=\"154\" y1=\"139\" x2=\"238\" y2=\"142\" stroke=\"#9aa6b8\" stroke-width=\"1.5\"/><line x1=\"154\" y1=\"187\" x2=\"238\" y2=\"154\" stroke=\"#9aa6b8\" stroke-width=\"1.5\"/><line x1=\"154\" y1=\"259\" x2=\"238\" y2=\"168\" stroke=\"#9aa6b8\" stroke-width=\"1.5\"/><rect x=\"240\" y=\"118\" width=\"132\" height=\"56\" fill=\"#232b38\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"306\" y=\"140\" font-size=\"12\" fill=\"#e8ecf5\" font-family=\"sans-serif\" text-anchor=\"middle\">LOS ALAMOS</text><text x=\"306\" y=\"157\" font-size=\"10\" fill=\"#9fb2d8\" font-family=\"sans-serif\" text-anchor=\"middle\">weapon design</text><text x=\"306\" y=\"200\" font-size=\"11\" fill=\"#9fb2d8\" font-family=\"sans-serif\" text-anchor=\"middle\">output: kilograms</text><text x=\"306\" y=\"216\" font-size=\"11\" fill=\"#9fb2d8\" font-family=\"sans-serif\" text-anchor=\"middle\">of fissile material</text><text x=\"306\" y=\"86\" font-size=\"10\" fill=\"#9fb2d8\" font-family=\"sans-serif\" text-anchor=\"middle\">centrifuge: set aside</text><text x=\"306\" y=\"100\" font-size=\"10\" fill=\"#9fb2d8\" font-family=\"sans-serif\" text-anchor=\"middle\">(bearings, not physics)</text></svg>",
+    "questions": [
+     {
+      "q": "Why was the centrifuge — the most efficient method on paper — set aside during the war?",
+      "answer": "Its physics was sound but 1940s bearings and materials could not run reliably at the speeds and scale required; Groves could not bet the schedule on engineering that did not yet exist.",
+      "hint": "Distinguish the physics question from the wartime engineering question."
+     },
+     {
+      "q": "What nearly shut down Hanford's B Reactor within hours of its first start-up in September 1944?",
+      "answer": "Poisoning by xenon-135, a fission product that absorbs neutrons; it was diagnosed and the reactor's over-built capacity absorbed the effect.",
+      "hint": "A fission product with a large appetite for neutrons."
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "heading": "The Plutonium Surprise and Trinity",
+    "body": "The Hanford path carried a flaw that no one could measure until the reactors ran. Plutonium bred in a reactor is not pure plutonium-239; the longer fuel sits in the neutron flux, the more Pu-240 it accumulates. In mid-1944, Emilio Segrè's group at Los Alamos measured the spontaneous fission rate of reactor-bred plutonium and found it far higher than in the cyclotron-produced samples studied before: stray neutrons from Pu-240's spontaneous fission would start the chain reaction in a gun-type weapon too early, before the two halves of the core had fully assembled — a fizzle, in the laboratory's blunt term.\n\nThe consequence arrived at Los Alamos in July 1944 and reorganised the laboratory. The plutonium gun design, Thin Man, was abandoned. Oppenheimer created new divisions for implosion — the only alternative: instead of firing one piece of plutonium into another, surround a subcritical sphere with precisely shaped high-explosive lenses that would squeeze it, symmetrically and in microseconds, to critical density. The problem belonged as much to mathematics and ordnance as to physics. John von Neumann had proposed the explosive-lens concept in 1943; Seth Neddermeyer's implosion experiments, initially discouraging, were industrialised under George Kistiakowsky's explosives division, while lens theory and the initiator were attacked by groups across the laboratory. Diagnostic crews photographed test implosions with X-rays and timing instruments, iterating the lens shapes against the readings until the compression ran symmetric. The uranium weapon, Little Boy, stayed a gun design — uranium's low spontaneous-fission rate made it safe — and was considered reliable enough that it would be used without a full test. The plutonium device could not be trusted untested.\n\nHence Trinity. In the desert at Alamogordo, on July 16, 1945, the implosion device — the Gadget — was fired from a steel tower in the Jornada del Muerto. It worked, with a yield the watching scientists had wagered on in a pool that ranged from zero to figures far above the roughly twenty kilotons later assigned to it. (Yield estimates of the day were guesses refined afterward; Rhodes treats the number as an inference from instruments, not a reading.) Trinity was a measurement: it converted implosion from a gamble into a deliverable weapon, and it fixed the behaviour of a design whose physics could be calculated but, before that morning, never observed at scale.\n\nBut Rhodes insists on Trinity's second function: it was also a message, and the men who watched it understood that before the fireball cooled. The Potsdam Conference opened the following day; Truman, who had learned of the test's success in brief messages while negotiating with Stalin, carried himself differently in the sessions that followed — Churchill noticed the change without yet knowing its cause. Whether the test was timed for Potsdam, and how much weight to give that timing, remains a subject on which the documents support argument rather than verdict. What the record does establish is that by July 16 the question before the government was no longer whether a working weapon existed. It was what to do with it — and that question, unlike the physics, had committees.",
+    "visual": "A comparison diagram: the gun assembly (two core halves fired together, marked too slow against Pu-240's stray neutrons) beside the implosion assembly (explosive lenses squeezing a sphere), with Trinity's date below as the implosion design's proof.",
+    "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><rect x=\"14\" y=\"14\" width=\"372\" height=\"272\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"200\" y=\"40\" font-size=\"14\" fill=\"#e8ecf5\" font-family=\"sans-serif\" text-anchor=\"middle\">Two Ways to Assemble a Core</text><text x=\"105\" y=\"66\" font-size=\"12\" fill=\"#e8ecf5\" font-family=\"sans-serif\" text-anchor=\"middle\">THE GUN</text><rect x=\"34\" y=\"120\" width=\"52\" height=\"26\" fill=\"#232b38\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><rect x=\"124\" y=\"120\" width=\"52\" height=\"26\" fill=\"#232b38\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><line x1=\"88\" y1=\"133\" x2=\"120\" y2=\"133\" stroke=\"#9aa6b8\" stroke-width=\"2\"/><polygon points=\"122,133 114,129 114,137\" fill=\"#9aa6b8\"/><text x=\"105\" y=\"104\" font-size=\"10\" fill=\"#9fb2d8\" font-family=\"sans-serif\" text-anchor=\"middle\">one half fired into</text><text x=\"105\" y=\"116\" font-size=\"10\" fill=\"#9fb2d8\" font-family=\"sans-serif\" text-anchor=\"middle\">the other</text><text x=\"105\" y=\"176\" font-size=\"11\" fill=\"#e8ecf5\" font-family=\"sans-serif\" text-anchor=\"middle\">fine for uranium</text><text x=\"105\" y=\"194\" font-size=\"11\" fill=\"#e8ecf5\" font-family=\"sans-serif\" text-anchor=\"middle\">TOO SLOW for plutonium:</text><text x=\"105\" y=\"210\" font-size=\"10\" fill=\"#9fb2d8\" font-family=\"sans-serif\" text-anchor=\"middle\">Pu-240 neutrons fire early</text><text x=\"105\" y=\"224\" font-size=\"10\" fill=\"#9fb2d8\" font-family=\"sans-serif\" text-anchor=\"middle\">— a fizzle</text><text x=\"298\" y=\"66\" font-size=\"12\" fill=\"#e8ecf5\" font-family=\"sans-serif\" text-anchor=\"middle\">IMPLOSION</text><circle cx=\"298\" cy=\"133\" r=\"17\" fill=\"#232b38\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><polygon points=\"298,84 290,100 306,100\" fill=\"#9aa6b8\"/><polygon points=\"298,182 290,166 306,166\" fill=\"#9aa6b8\"/><polygon points=\"249,133 265,125 265,141\" fill=\"#9aa6b8\"/><polygon points=\"347,133 331,125 331,141\" fill=\"#9aa6b8\"/><text x=\"298\" y=\"104\" font-size=\"10\" fill=\"#9fb2d8\" font-family=\"sans-serif\" text-anchor=\"middle\">explosive lenses</text><text x=\"298\" y=\"194\" font-size=\"11\" fill=\"#e8ecf5\" font-family=\"sans-serif\" text-anchor=\"middle\">squeezed to critical</text><text x=\"298\" y=\"210\" font-size=\"11\" fill=\"#e8ecf5\" font-family=\"sans-serif\" text-anchor=\"middle\">density in microseconds</text><rect x=\"215\" y=\"238\" width=\"166\" height=\"30\" fill=\"#232b38\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"298\" y=\"257\" font-size=\"11\" fill=\"#e8ecf5\" font-family=\"sans-serif\" text-anchor=\"middle\">TRINITY — July 16, 1945</text><rect x=\"19\" y=\"238\" width=\"166\" height=\"30\" fill=\"#232b38\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"102\" y=\"257\" font-size=\"11\" fill=\"#e8ecf5\" font-family=\"sans-serif\" text-anchor=\"middle\">THIN MAN — abandoned 1944</text></svg>",
+    "questions": [
+     {
+      "q": "Why did Pu-240's spontaneous fission kill the plutonium gun design but not the uranium one?",
+      "answer": "A gun assembles its core relatively slowly; stray neutrons from Pu-240 would ignite the chain reaction before full assembly — a fizzle. Uranium's spontaneous-fission rate is low enough that the gun's assembly time is safe.",
+      "hint": "It is a race between assembly speed and stray neutrons."
+     },
+     {
+      "q": "Why was the plutonium implosion device tested at Trinity while the uranium gun device was used untested?",
+      "answer": "Implosion's symmetry and timing could not be certified by calculation alone — no one could be sure the lenses would squeeze evenly. The gun mechanism, by contrast, was a well-understood, artillery-like device with adequate margins.",
+      "hint": "Which design's behaviour could not be observed in pieces beforehand?"
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "heading": "The Use Decision from the Record",
+    "body": "The decision to use the bomb is usually argued from memoir. It is better argued from paper, and the paper is unusually complete. Three documents of the summer of 1945 frame the question: a committee's recommendation, a report of dissent, and a petition that arrived too late to matter. Read together, they show a decision made incrementally, by default as much as by deliberation.\n\nThe Interim Committee, convened by Secretary of War Henry Stimson in May 1945 to advise on the weapon's use and postwar control, concluded on June 1 that the bomb should be used against Japan as soon as possible, on a military target surrounded by workers' housing, without prior warning. The committee's scientific panel — Oppenheimer, Fermi, Lawrence, and Arthur Compton — reported on June 16 that they saw no technical demonstration likely to end the war and could propose no alternative to direct military use. These are the texts usually cited, in James B. Conant's and Vannevar Bush's later recollections as much as in the minutes, as the decision's formal core. They were advisory. No document exists in which a president weighs alternatives and chooses; Truman's own later account presents the use as the natural continuation of a weapon built to be used, and the archive supports him on the absence of a single deciding moment.\n\nThe dissent was also filed before the fact, not after. The Franck Report, signed by James Franck and six colleagues at Chicago's Metallurgical Laboratory on June 11, 1945, urged a demonstration on an uninhabited area before any use on a city, arguing chiefly political grounds: a surprise attack would sacrifice world confidence and start an arms race the United States could not control. It was classified, transmitted upward, and answered by the scientific panel's conclusion above. In July, Szilárd organised a petition to the President arguing that the use of atomic bombs would open an era of devastation and that the United States bore a responsibility of restraint; dozens of scientists at Chicago and Oak Ridge signed — the surviving versions carry roughly seventy names. Groves's office held the petition in channels; it did not reach Truman before the bombs were used, and was declassified only in 1961.\n\nThe target list tells its own story in the record. The Target Committee's criteria — a city of military value, largely undamaged so the weapon's effects could be measured — produced a short list headed in practice by Hiroshima. Kyoto, Japan's ancient capital, was removed by Stimson personally, over military objection, because he judged its destruction as a cultural and religious centre would embitter the peace; he recorded the reasoning in his diary, and repeated the intervention until it stuck. On August 9, the second mission's primary target was Kokura; cloud and smoke obscured it, and the aircraft diverted to the secondary, Nagasaki. The second bomb's different decision shape is visible in the orders themselves: after the first mission, the standing directive authorised further drops as weapons became available, so Nagasaki required no new presidential decision at all.\n\nWhat remains disputed, the seminar should say plainly, is weight, not sequence. Tsuyoshi Hasegawa, working from Japanese and Soviet records, argues that the Soviet declaration of war on August 8–9 mattered more to Tokyo's decision than either bomb; other historians, including Richard Frank, dispute the weighting from the Japanese military's own documents. The 1945 paper settles what was recommended, what was dissented, and what was ordered. It cannot settle how the war would have ended otherwise — and the honest course is to mark that boundary rather than cross it.",
+    "visual": "A horizontal decision timeline, May to August 1945: Interim Committee formed, June 1 recommendation, June 11 Franck Report, July 16 Trinity, the July petition held in channels, August 6 Hiroshima, August 9 Kokura-to-Nagasaki.",
+    "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><rect x=\"14\" y=\"14\" width=\"372\" height=\"272\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"200\" y=\"40\" font-size=\"14\" fill=\"#e8ecf5\" font-family=\"sans-serif\" text-anchor=\"middle\">The Decision on Paper: May–August 1945</text><line x1=\"28\" y1=\"150\" x2=\"372\" y2=\"150\" stroke=\"#9aa6b8\" stroke-width=\"2\"/><circle cx=\"48\" cy=\"150\" r=\"5\" fill=\"#e8ecf5\"/><circle cx=\"112\" cy=\"150\" r=\"5\" fill=\"#e8ecf5\"/><circle cx=\"150\" cy=\"150\" r=\"5\" fill=\"#e8ecf5\"/><circle cx=\"196\" cy=\"150\" r=\"5\" fill=\"#e8ecf5\"/><circle cx=\"238\" cy=\"150\" r=\"5\" fill=\"#e8ecf5\"/><circle cx=\"300\" cy=\"150\" r=\"5\" fill=\"#e8ecf5\"/><circle cx=\"352\" cy=\"150\" r=\"5\" fill=\"#e8ecf5\"/><text x=\"48\" y=\"128\" font-size=\"10\" fill=\"#e8ecf5\" font-family=\"sans-serif\" text-anchor=\"middle\">May</text><text x=\"48\" y=\"176\" font-size=\"9\" fill=\"#9fb2d8\" font-family=\"sans-serif\" text-anchor=\"middle\">Interim Cttee</text><text x=\"48\" y=\"188\" font-size=\"9\" fill=\"#9fb2d8\" font-family=\"sans-serif\" text-anchor=\"middle\">formed</text><text x=\"112\" y=\"128\" font-size=\"10\" fill=\"#e8ecf5\" font-family=\"sans-serif\" text-anchor=\"middle\">Jun 1</text><text x=\"112\" y=\"176\" font-size=\"9\" fill=\"#9fb2d8\" font-family=\"sans-serif\" text-anchor=\"middle\">recommendation:</text><text x=\"112\" y=\"188\" font-size=\"9\" fill=\"#9fb2d8\" font-family=\"sans-serif\" text-anchor=\"middle\">use, no warning</text><text x=\"150\" y=\"128\" font-size=\"10\" fill=\"#e8ecf5\" font-family=\"sans-serif\" text-anchor=\"middle\">Jun 11</text><text x=\"150\" y=\"176\" font-size=\"9\" fill=\"#9fb2d8\" font-family=\"sans-serif\" text-anchor=\"middle\">Franck Report</text><text x=\"150\" y=\"188\" font-size=\"9\" fill=\"#9fb2d8\" font-family=\"sans-serif\" text-anchor=\"middle\">(dissent)</text><text x=\"196\" y=\"128\" font-size=\"10\" fill=\"#e8ecf5\" font-family=\"sans-serif\" text-anchor=\"middle\">Jul 16</text><text x=\"196\" y=\"176\" font-size=\"9\" fill=\"#9fb2d8\" font-family=\"sans-serif\" text-anchor=\"middle\">Trinity</text><text x=\"238\" y=\"128\" font-size=\"10\" fill=\"#e8ecf5\" font-family=\"sans-serif\" text-anchor=\"middle\">July</text><text x=\"238\" y=\"176\" font-size=\"9\" fill=\"#9fb2d8\" font-family=\"sans-serif\" text-anchor=\"middle\">Szilárd petition</text><text x=\"238\" y=\"188\" font-size=\"9\" fill=\"#9fb2d8\" font-family=\"sans-serif\" text-anchor=\"middle\">held in channels</text><text x=\"300\" y=\"128\" font-size=\"10\" fill=\"#e8ecf5\" font-family=\"sans-serif\" text-anchor=\"middle\">Aug 6</text><text x=\"300\" y=\"176\" font-size=\"9\" fill=\"#9fb2d8\" font-family=\"sans-serif\" text-anchor=\"middle\">Hiroshima</text><text x=\"352\" y=\"128\" font-size=\"10\" fill=\"#e8ecf5\" font-family=\"sans-serif\" text-anchor=\"middle\">Aug 9</text><text x=\"352\" y=\"176\" font-size=\"9\" fill=\"#9fb2d8\" font-family=\"sans-serif\" text-anchor=\"middle\">Kokura obscured</text><text x=\"352\" y=\"188\" font-size=\"9\" fill=\"#9fb2d8\" font-family=\"sans-serif\" text-anchor=\"middle\">→ Nagasaki</text><rect x=\"86\" y=\"222\" width=\"228\" height=\"34\" fill=\"#232b38\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"200\" y=\"236\" font-size=\"10\" fill=\"#e8ecf5\" font-family=\"sans-serif\" text-anchor=\"middle\">Kyoto: removed by Stimson</text><text x=\"200\" y=\"250\" font-size=\"10\" fill=\"#9fb2d8\" font-family=\"sans-serif\" text-anchor=\"middle\">(diary records the reasoning)</text></svg>",
+    "questions": [
+     {
+      "q": "What exactly did the Interim Committee recommend on June 1, 1945?",
+      "answer": "Use against Japan as soon as possible, on a military target surrounded by workers' housing, without prior warning — and its scientific panel added, on June 16, that no technical demonstration was likely to end the war.",
+      "hint": "Three specifics: timing, target type, warning."
+     },
+     {
+      "q": "Why did the Szilárd petition have no effect on the August decisions?",
+      "answer": "It was held in official channels — Groves's office among them — and never reached President Truman before the bombs were used; it was declassified only in 1961.",
+      "hint": "Follow the paper's route, not its arguments."
+     }
+    ]
+   },
+   {
+    "id": "s5",
+    "heading": "The Inheritance",
+    "body": "The project's afterlife began before the war ended, in the argument over who would own the atom. The scientists who had built the weapon in secret emerged in 1945 determined that secrecy itself was the danger; the military and much of Congress assumed the opposite. The legislative fight produced the Atomic Energy Act of 1946 — the McMahon Act, after Senator Brien McMahon — which removed atomic energy from the Army and placed it in a civilian Atomic Energy Commission, with a congressional Joint Committee watching it. Groves's Manhattan District handed over its plants, laboratories, and secrets on January 1, 1947. The Act also made atomic information 'born secret' and sharply restricted sharing with allies — including Britain, whose MAUD report had started the American programme and whose scientists had worked inside it.\n\nInternational control failed in the same season. In June 1946 the United States presented the Baruch Plan at the new United Nations: an international authority would own or control dangerous atomic activities, inspections would precede enforcement, and — the clause on which it foundered — punishment of violators would not be subject to the great powers' veto. The Soviet Union countered with a demand for prohibition and destruction of stockpiles before an inspection regime; the two sequences were incompatible, each rational to its authors, and no third sequence existed that both governments could accept. The Soviet Union tested its own device in August 1949, years earlier than the American consensus had expected. The seminar need not assign blame for the plan's failure; the documents show the impasse plainly enough.\n\nThe template, however, survived every failure. The Manhattan Project had demonstrated that a state could mobilise science at industrial scale under compartmented secrecy and meet a deadline — and postwar America generalised the lesson into institutions: the national laboratories (Los Alamos, Oak Ridge, Argonne, and the rest) as permanent fixtures; the Atomic Energy Commission's dual mandate to promote and police atomic energy, a conflict written into the 1946 settlement; the security-clearance system as a standing instrument of personnel policy. Its costs became visible in the project's own director. In 1953–54, Oppenheimer's clearance was reviewed in a hearing driven by his associations, his opposition to the hydrogen bomb programme — the 'Super,' pursued after Truman's 1950 decision and first tested in 1952 — and the enmity of AEC chairman Lewis Strauss. The board's 2–1 verdict found him loyal and a security risk in the same document; the Commission let the clearance lapse — revoked, in effect, a day before it expired.\n\nRhodes closes his account not with the hearing but with the scale of what the project normalised: weapons in the tens of thousands, arsenals whose logic his narrative has been quietly indicting since Trinity. The inheritance section of this course ends where an honest seminar should — with the observation that the organisational inventions outlasted their purpose. Parallel development under uncertainty, the laboratory as an instrument of state, secrecy as an engineering constraint: all three were solutions to a 1942 problem. All three are still, in various uniforms, with us.",
+    "visual": "An inheritance diagram: the Manhattan Project at the top branching to the civilian AEC (1947), the permanent national laboratories, the 'born secret' doctrine, and — on a dashed line — the failed Baruch Plan of 1946.",
+    "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><rect x=\"14\" y=\"14\" width=\"372\" height=\"272\" fill=\"#161b22\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"200\" y=\"40\" font-size=\"14\" fill=\"#e8ecf5\" font-family=\"sans-serif\" text-anchor=\"middle\">What the Project Left Behind</text><rect x=\"110\" y=\"58\" width=\"180\" height=\"36\" fill=\"#232b38\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"200\" y=\"80\" font-size=\"12\" fill=\"#e8ecf5\" font-family=\"sans-serif\" text-anchor=\"middle\">THE MANHATTAN PROJECT</text><line x1=\"140\" y1=\"94\" x2=\"80\" y2=\"130\" stroke=\"#9aa6b8\" stroke-width=\"1.5\"/><line x1=\"185\" y1=\"94\" x2=\"185\" y2=\"130\" stroke=\"#9aa6b8\" stroke-width=\"1.5\"/><line x1=\"230\" y1=\"94\" x2=\"290\" y2=\"130\" stroke=\"#9aa6b8\" stroke-width=\"1.5\"/><rect x=\"24\" y=\"132\" width=\"112\" height=\"46\" fill=\"#232b38\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"80\" y=\"150\" font-size=\"11\" fill=\"#e8ecf5\" font-family=\"sans-serif\" text-anchor=\"middle\">AEC, 1947</text><text x=\"80\" y=\"165\" font-size=\"9\" fill=\"#9fb2d8\" font-family=\"sans-serif\" text-anchor=\"middle\">civilian control</text><rect x=\"144\" y=\"132\" width=\"112\" height=\"46\" fill=\"#232b38\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"200\" y=\"150\" font-size=\"11\" fill=\"#e8ecf5\" font-family=\"sans-serif\" text-anchor=\"middle\">National labs</text><text x=\"200\" y=\"165\" font-size=\"9\" fill=\"#9fb2d8\" font-family=\"sans-serif\" text-anchor=\"middle\">permanent big science</text><rect x=\"264\" y=\"132\" width=\"112\" height=\"46\" fill=\"#232b38\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"320\" y=\"150\" font-size=\"11\" fill=\"#e8ecf5\" font-family=\"sans-serif\" text-anchor=\"middle\">“Born secret”</text><text x=\"320\" y=\"165\" font-size=\"9\" fill=\"#9fb2d8\" font-family=\"sans-serif\" text-anchor=\"middle\">allies cut off, 1946</text><line x1=\"200\" y1=\"178\" x2=\"200\" y2=\"212\" stroke=\"#9aa6b8\" stroke-width=\"1.5\" stroke-dasharray=\"4,3\"/><rect x=\"110\" y=\"214\" width=\"180\" height=\"40\" fill=\"#232b38\" stroke=\"#9aa6b8\" stroke-width=\"1\"/><text x=\"200\" y=\"231\" font-size=\"11\" fill=\"#e8ecf5\" font-family=\"sans-serif\" text-anchor=\"middle\">BARUCH PLAN, 1946</text><text x=\"200\" y=\"246\" font-size=\"9\" fill=\"#9fb2d8\" font-family=\"sans-serif\" text-anchor=\"middle\">failed: sequence + the veto</text><text x=\"200\" y=\"276\" font-size=\"10\" fill=\"#9fb2d8\" font-family=\"sans-serif\" text-anchor=\"middle\">Soviet test follows, August 1949</text></svg>",
+    "questions": [
+     {
+      "q": "What institutional change did the McMahon Act (1946) make, and when did it take effect?",
+      "answer": "It created the civilian Atomic Energy Commission and transferred the project's plants and laboratories from the Army's Manhattan District to it, effective January 1, 1947.",
+      "hint": "From uniform to civilian control."
+     },
+     {
+      "q": "On what clause did the Baruch Plan founder in 1946?",
+      "answer": "Enforcement without a great-power veto — violations were to be punishable without the Security Council veto, which the Soviet Union would not accept; the sequencing dispute (control first vs. disarmament first) made agreement impossible.",
+      "hint": "It concerned punishment of violators at the United Nations."
+     }
+    ]
+   }
+  ]
+ },
+ "quizzes": {
+  "sections": [
+   {
+    "id": "s1",
+    "questions": [
+     {
+      "q": "A textbook claims: 'Einstein's letter launched the American bomb programme at full speed.' Which document best corrects that claim?",
+      "choices": [
+       "The MAUD report of 1941, which established feasibility within the war and triggered full commitment",
+       "The Franck Report, which discussed the bomb's political consequences",
+       "The Szilárd petition, which Einstein declined to sign",
+       "The Interim Committee's report of June 1945"
+      ],
+      "answer": 0,
+      "explain": "The 1939 letter produced an advisory committee and modest funding. It was the British MAUD report — built on Frisch and Peierls's critical-mass calculation — that persuaded Washington a bomb could be built during the war."
+     },
+     {
+      "q": "A caption reads: 'Oppenheimer was chosen because he was the most decorated senior physicist available.' What does the appointment record show instead?",
+      "choices": [
+       "He had already won the Nobel Prize for work on fission",
+       "He was the Army's own candidate, imposed on reluctant scientists",
+       "Groves chose him for his grasp of the whole problem and personally waived the security objections to clearing him",
+       "The choice was made by the MAUD committee in London"
+      ],
+      "answer": 2,
+      "explain": "Oppenheimer had neither a Nobel Prize nor management experience. Groves saw a seminar-leader's command of the whole problem and certified his clearance himself, over the objections raised by his associations."
+     },
+     {
+      "q": "A student writes: 'The Manhattan Engineer District was named after the project's first laboratory.' The documentary record says the name came from —",
+      "choices": [
+       "Los Alamos, after the site",
+       "a code word drawn at random",
+       "the borough where Einstein signed the letter",
+       "the Manhattan district office of the Corps of Engineers, where the effort was first headquartered"
+      ],
+      "answer": 3,
+      "explain": "Army engineer districts were named for their headquarters city. The new district began in the Corps of Engineers' Manhattan office, and the bland geographic name served as camouflage."
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "questions": [
+     {
+      "q": "A museum panel claims Oak Ridge ran three separation plants 'because each was best for a different isotope.' The production record shows the three methods were actually —",
+      "choices": [
+       "pursued in parallel because none was proven, and chained in practice, with lean S-50 output feeding K-25 and Y-12",
+       "fully independent, and two of the three never produced anything",
+       "identical backups in case of bombing",
+       "a single method described three ways for secrecy"
+      ],
+      "answer": 0,
+      "explain": "Y-12 (electromagnetic), K-25 (gaseous diffusion), and S-50 (thermal diffusion) were simultaneous bets under uncertainty; in operation, S-50's partially enriched product became feed for the other two."
+     },
+     {
+      "q": "A caption reads: 'The centrifuge method failed because the physics was wrong.' Contemporary assessments, Rhodes's included, attribute the wartime decision instead to —",
+      "choices": [
+       "sabotage at the pilot plant",
+       "a patent dispute with émigré scientists",
+       "bearings and materials that could not yet run reliably at production scale",
+       "Groves's personal dislike of Jesse Beams"
+      ],
+      "answer": 2,
+      "explain": "Centrifugation was physically sound and later became the standard enrichment method. In 1942–43 it was an engineering risk the schedule could not carry, so Beams's programme was set aside."
+     },
+     {
+      "q": "A commentator claims compartmentalisation was 'pure security theatre that never affected the engineering.' Which episode from the record counts against that reading?",
+      "choices": [
+       "Einstein's exclusion from the project",
+       "The naming of the Manhattan Engineer District",
+       "Szilárd's arguments with Groves over patents",
+       "Oak Ridge operators calibrating calutrons without knowing what the plant produced — secrecy taxed coordination throughout the project"
+      ],
+      "answer": 3,
+      "explain": "Compartmentalisation protected the secret and measurably obstructed the work: operators and engineers routinely solved problems without knowing the purpose of their equipment, a cost the project's historians treat as real."
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "questions": [
+     {
+      "q": "A popular history says: 'Trinity tested the design that was dropped on Hiroshima.' The ordnance record shows Trinity tested —",
+      "choices": [
+       "the uranium gun design later used as Little Boy",
+       "the plutonium implosion design later used as Fat Man; the uranium gun weapon was used untested",
+       "a thermonuclear prototype",
+       "whichever design finished first, chosen by lot"
+      ],
+      "answer": 1,
+      "explain": "The Gadget at Trinity was a plutonium implosion device, the Fat Man type. Little Boy, the uranium gun weapon used on Hiroshima, was never test-fired as a complete weapon."
+     },
+     {
+      "q": "A student writes: 'Thin Man was cancelled because plutonium proved impossible to purify chemically.' Segrè's 1944 measurements established instead that the problem was —",
+      "choices": [
+       "plutonium's critical mass was too large to carry",
+       "plutonium corroded gun barrels",
+       "reactor-bred plutonium's Pu-240 content caused spontaneous fission that would pre-detonate a gun assembly",
+       "the Hanford reactors could not breed plutonium at all"
+      ],
+      "answer": 2,
+      "explain": "The chemistry worked; the neutronics did not. Pu-240's spontaneous fission flooded a slowly assembling gun core with stray neutrons, forcing the turn to implosion in July 1944."
+     },
+     {
+      "q": "A documentary narrator says: 'Everyone at Trinity knew the yield in advance.' The record — the scientists' betting pool and the instrument data — supports which statement?",
+      "choices": [
+       "Predictions ranged from a fizzle to far above the eventual figure; the yield was reconstructed from measurements after the shot",
+       "The yield was fixed by theory at exactly 20 kilotons",
+       "The yield was classified, so no records exist",
+       "Oppenheimer alone knew, from the implosion calculations"
+      ],
+      "answer": 0,
+      "explain": "The Los Alamos pool spanned zero to very large figures. The yield figure associated with Trinity was an inference from instruments afterward, not a value known beforehand."
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "questions": [
+     {
+      "q": "A claim is made: 'Japan was warned specifically about the atomic bomb before Hiroshima.' The Interim Committee's recommendation of June 1, 1945, as recorded, was use —",
+      "choices": [
+       "after a public presidential warning naming the weapon",
+       "only after a demonstration the Japanese were invited to watch",
+       "without prior warning, on a military target surrounded by workers' housing",
+       "only if Germany used one first"
+      ],
+      "answer": 2,
+      "explain": "The committee recommended use as soon as possible, without warning, on a military target amid workers' housing. The later Potsdam Declaration threatened destruction in general terms but did not describe the weapon."
+     },
+     {
+      "q": "A lecturer claims: 'No scientist objected before the bombs were used.' Which pre-August 1945 document refutes that directly?",
+      "choices": [
+       "Oppenheimer's 1954 hearing testimony",
+       "The Franck Report of June 11, 1945, urging a demonstration before any use on a city",
+       "Stimson's 1947 Harper's article defending the decision",
+       "The Baruch Plan of 1946"
+      ],
+      "answer": 1,
+      "explain": "The Franck Report was written at Chicago's Metallurgical Laboratory and transmitted upward in June 1945 — before Trinity — arguing on political grounds for a demonstration first. The Szilárd petition likewise predates the attacks, though it never reached Truman."
+     },
+     {
+      "q": "A caption claims: 'Nagasaki was the intended primary target on August 9.' The mission record shows —",
+      "choices": [
+       "Nagasaki was primary, Kokura the backup",
+       "the crew chose freely between four cities",
+       "Nagasaki was struck by mistake and the fact concealed",
+       "Kokura was the primary target and was obscured by cloud and smoke; the aircraft diverted to Nagasaki, the secondary"
+      ],
+      "answer": 3,
+      "explain": "Bockscar's primary was the Kokura arsenal; obscured aiming points forced the diversion to Nagasaki. Kyoto, meanwhile, had been removed from the target list entirely by Stimson."
+     }
+    ]
+   },
+   {
+    "id": "s5",
+    "questions": [
+     {
+      "q": "A textbook states: 'The United States simply kept the bomb programme under the Army after the war.' The McMahon Act record shows instead that —",
+      "choices": [
+       "the programme passed to a civilian Atomic Energy Commission at the start of 1947",
+       "the programme was abolished in 1946",
+       "control passed to the United Nations under the Baruch Plan",
+       "Groves retained personal command until 1954"
+      ],
+      "answer": 0,
+      "explain": "The Atomic Energy Act of 1946 (the McMahon Act) created the civilian AEC, and the Manhattan District's plants and laboratories transferred to it on January 1, 1947 — over the Army's preference for continued military control."
+     },
+     {
+      "q": "A claim circulates: 'Oppenheimer lost his clearance because a board found him disloyal.' The 1954 record shows —",
+      "choices": [
+       "a unanimous finding of disloyalty",
+       "a criminal conviction for espionage",
+       "a 2–1 board verdict finding him loyal but a security risk, after which the Commission declined to renew the clearance",
+       "no hearing took place; the clearance simply lapsed unnoticed"
+      ],
+      "answer": 2,
+      "explain": "The Personnel Security Board split 2–1: loyal, but a security risk — citing his associations and his opposition to the hydrogen bomb. The AEC then let the clearance expire, revoking it in effect a day early."
+     },
+     {
+      "q": "A speaker claims: 'Britain, having started the American programme with MAUD, shared fully in the postwar atomic partnership.' The 1946 settlement shows —",
+      "choices": [
+       "full sharing continued without interruption",
+       "the McMahon Act made atomic information restricted data and cut off sharing even with Britain, rupturing wartime collaboration for years",
+       "Britain declined any further involvement",
+       "sharing continued, but only on fusion research"
+      ],
+      "answer": 1,
+      "explain": "The 1946 Act's 'born secret' doctrine ended the wartime interchange with Britain and Canada — a standing grievance in London until the 1958 mutual defence agreement restored cooperation."
+     }
+    ]
+   }
+  ]
+ },
+ "slides": {
+  "sections": [
+   {
+    "id": "s1",
+    "title": "The Letter and the Decision",
+    "bullets": [
+     "August 1939: the Einstein–Szilárd letter warns Roosevelt — and buys a committee, not a programme",
+     "1940–41: Frisch and Peierls cut the critical mass to pounds; the MAUD report declares the bomb feasible within the war",
+     "Autumn 1941: Roosevelt authorises full speed; the Army inherits the effort",
+     "September 1942: Groves takes command; Oppenheimer to direct Los Alamos, cleared by Groves's personal certification",
+     "Three decisions preceded the proof: possible, urgent, buildable"
+    ],
+    "notes": "Open with the asymmetry the seminar will keep returning to: the famous letter mattered less than the obscure report. MAUD is the hinge because it changed a number — critical mass — and a changed number changed what governments believed they could schedule.",
+    "visual": "The decision-chain diagram from the reading: letter, MAUD report, Groves, with the Los Alamos appointment branching off."
+   },
+   {
+    "id": "s2",
+    "title": "An Industrial Base in Secret",
+    "bullets": [
+     "Oak Ridge ran three separation methods in parallel: Y-12 electromagnetic, K-25 gaseous diffusion, S-50 thermal diffusion",
+     "The centrifuge was set aside: sound physics, unready bearings and materials",
+     "Hanford bred a second element: B Reactor, September 1944, and the xenon-135 poisoning scare",
+     "Compartmentalisation protected the secret and taxed the engineering — deliberately",
+     "Output was kilograms; input was billions of dollars and some 600,000 workers"
+    ],
+    "notes": "Stress the wartime logic: parallel paths are waste purchased to kill schedule risk. The production map is the section's core image — note how S-50's lean output fed the other plants, so the 'race' ended as a chain.",
+    "visual": "The parallel production-paths map: Oak Ridge and Hanford converging on Los Alamos."
+   },
+   {
+    "id": "s3",
+    "title": "The Plutonium Surprise and Trinity",
+    "bullets": [
+     "Segrè, 1944: reactor-bred plutonium carries Pu-240, whose spontaneous fission floods a core with stray neutrons",
+     "A gun assembles too slowly: pre-detonation means a fizzle — Thin Man abandoned, July 1944",
+     "Implosion: explosive lenses squeeze a sphere to critical density in microseconds",
+     "Little Boy, the uranium gun, is trusted untested; the plutonium device is not",
+     "Trinity, July 16, 1945: implosion converted from gamble to weapon — the day before Potsdam opens"
+    ],
+    "notes": "The plutonium surprise is the course's clearest case of a measurement reorganising an institution: one group's counting rate dissolved a design, a division, and a schedule in a month. Trinity then retires the risk the measurement created.",
+    "visual": "The gun-versus-implosion comparison diagram from the reading."
+   },
+   {
+    "id": "s4",
+    "title": "The Use Decision from the Record",
+    "bullets": [
+     "June 1, 1945: the Interim Committee recommends use as soon as possible, without warning, on a military target amid workers' housing",
+     "June 16: the scientific panel finds no demonstration likely to end the war",
+     "June 11: the Franck Report dissents before the fact; July: the Szilárd petition is held in channels and never reaches Truman",
+     "Stimson removes Kyoto; on August 9, cloud over Kokura diverts the second mission to Nagasaki under standing orders",
+     "Sequence is settled by the documents; causation is not — Hasegawa versus Frank on Soviet entry"
+    ],
+    "notes": "Teach the boundary explicitly: the paper settles what was recommended, dissented, and ordered, in that order and on those dates. It cannot settle the counterfactual, and students should watch historians like Hasegawa and Frank argue weight, not facts.",
+    "visual": "The May–August 1945 decision timeline from the reading."
+   },
+   {
+    "id": "s5",
+    "title": "The Inheritance",
+    "bullets": [
+     "The McMahon Act (1946) moves the atom from the Army to the civilian AEC on January 1, 1947",
+     "The Baruch Plan fails on sequence and on enforcement without a great-power veto; the Soviet test follows in 1949",
+     "'Born secret': the 1946 settlement cuts off even Britain, whose MAUD report started the programme",
+     "The template generalises: national laboratories, clearances, secrecy as an engineering constraint",
+     "1954: Oppenheimer — loyal, 2–1, and a security risk; the clearance dies a day early"
+    ],
+    "notes": "Close on the institutional point: the project's inventions were organisational before they were military, and organisations outlive their purposes. The Oppenheimer hearing is the template examining its own builder.",
+    "visual": "The inheritance diagram from the reading, with the Baruch Plan on its dashed line."
+   }
+  ]
+ },
+ "enrichment": {
+  "audioTitle": "Two Historians, One File: The Use Decision from the Documents",
+  "turns": [
+   {
+    "speaker": "teacher",
+    "line": "Let's argue it from paper, not memoir. Your opening position: the bombs ended the war, full stop. Which document carries that weight for you?"
+   },
+   {
+    "speaker": "student",
+    "line": "The Interim Committee's recommendation of June 1, 1945, and the scientific panel's report of June 16. The men closest to the weapon said no demonstration would work and no alternative to direct use existed."
+   },
+   {
+    "speaker": "teacher",
+    "line": "Closest to the weapon — and advisory. Show me the document where Truman weighs alternatives and chooses. There isn't one, is there?"
+   },
+   {
+    "speaker": "student",
+    "line": "There isn't. But the absence cuts both ways: the standing orders after Hiroshima authorised further use as weapons became available. Nagasaki needed no second presidential decision. That tells me use was the default, not a fresh choice."
+   },
+   {
+    "speaker": "teacher",
+    "line": "Default is exactly my word. Now the dissent. The Franck Report — June 11, before Trinity, note — argued for a demonstration on political grounds: surprise use would poison the postwar world and start an arms race. Was it answered, or buried?"
+   },
+   {
+    "speaker": "student",
+    "line": "Answered, in writing, by the scientific panel: no technical demonstration likely to end the war. You may find that answer thin, but the record shows the objection was considered and rejected, not suppressed unread."
+   },
+   {
+    "speaker": "teacher",
+    "line": "Considered in committee. The Szilárd petition, though — dozens of signatures in July, and it sits in official channels until 1961. If we are arguing from documents, the petition's journey is a document too."
+   },
+   {
+    "speaker": "student",
+    "line": "Its journey shows the machinery working as designed: the petition went up through the Manhattan District, whose commanding general decided what was urgent. Nothing in the record shows Truman asking for it and being refused."
+   },
+   {
+    "speaker": "teacher",
+    "line": "Convenient design. Turn to the end itself. Hasegawa, working from Japanese and Soviet archives: the Soviet declaration of war on August 8 destroyed Tokyo's hope of a mediated settlement — the bombs were secondary. Your answer?"
+   },
+   {
+    "speaker": "student",
+    "line": "Richard Frank's: the Japanese military's own records show the army still preparing to resist invasion after both bombs and Soviet entry, and it took the Emperor's intervention, twice, to break the deadlock. Two archives, two weightings."
+   },
+   {
+    "speaker": "teacher",
+    "line": "Then the honest line is that the 1945 paper settles sequence but not causation. One more document, though — Stimson's diary, removing Kyoto from the target list because destroying it would embitter the peace. What does that do to your 'default' reading?"
+   },
+   {
+    "speaker": "student",
+    "line": "It complicates it, properly. A system that produced Kyoto's reprieve, and a second mission diverted by weather over Kokura, was not a machine on rails. It was men reading papers — some of which argued the other way."
+   },
+   {
+    "speaker": "teacher",
+    "line": "So our verdict is narrow: the record establishes what was recommended on June 1, what was dissented on June 11, and what was ordered for August 6 and 9."
+   },
+   {
+    "speaker": "student",
+    "line": "And what it cannot establish is the counterfactual — how the war ends without the bombs. I'll sign that, provided the seminar also records that everyone in the file, dissenters included, was arguing about a weapon that already existed."
+   },
+   {
+    "speaker": "teacher",
+    "line": "Agreed. Which is perhaps the bleakest document-shaped fact of all: not one of the summer's papers — recommendation, report, or petition — proposes that the weapon simply not be built. That decision, if it was ever available, predates the file."
+   },
+   {
+    "speaker": "student",
+    "line": "Then the seminar's last word belongs to the chronology: letter, report, committee, petition, order. Five kinds of paper, and the war ended inside the sequence they made."
+   }
+  ],
+  "nodes": [
+   {
+    "id": "root",
+    "label": "The Manhattan Project",
+    "parent": null,
+    "note": "An organisation problem solved in parallel: decide, produce, argue, inherit."
+   },
+   {
+    "id": "n1",
+    "label": "The Letter and the Decision",
+    "parent": "root",
+    "note": "The Einstein–Szilárd letter warns; the MAUD report convinces; Groves and Oppenheimer execute."
+   },
+   {
+    "id": "n2",
+    "label": "Parallel Production Paths",
+    "parent": "root",
+    "note": "Y-12, K-25, S-50 at Oak Ridge; reactors at Hanford; all feeding Los Alamos in kilograms."
+   },
+   {
+    "id": "n3",
+    "label": "The Plutonium Surprise",
+    "parent": "root",
+    "note": "Pu-240's spontaneous fission kills the gun design; implosion and Trinity follow from one measurement."
+   },
+   {
+    "id": "n4",
+    "label": "The Use Decision on Paper",
+    "parent": "root",
+    "note": "Interim Committee, June 1: use without warning. Advisory paper, default outcome."
+   },
+   {
+    "id": "n5",
+    "label": "Dissent Before the Fact",
+    "parent": "n4",
+    "note": "Franck Report answered in committee; Szilárd petition held in channels until 1961."
+   },
+   {
+    "id": "n6",
+    "label": "The Postwar Inheritance",
+    "parent": "root",
+    "note": "AEC and McMahon Act, the failed Baruch Plan, national laboratories, the 1954 hearing."
+   }
+  ],
+  "mnemonics": [
+   {
+    "for": "The three Oak Ridge separation methods (electromagnetic, gaseous diffusion, thermal diffusion)",
+    "aid": "Magnets bend it, gas sieves it, heat leans it — Y-12, K-25, S-50."
+   },
+   {
+    "for": "The summer 1945 documents in order (Interim Committee recommendation, Franck Report, Szilárd petition)",
+    "aid": "Recommend, Report, Petition — R, R, P: June 1, June 11, July; each step further from power."
+   },
+   {
+    "for": "Why implosion replaced the gun for plutonium",
+    "aid": "Pu-240 fires early — a gun assembles too slowly to beat the stray neutrons. Squeeze, don't shoot."
+   }
+  ]
+ }
+}

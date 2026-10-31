@@ -1,0 +1,568 @@
+{
+  "meta": {
+    "title": "The Theory of Sleight of Hand: The Thinking Layer",
+    "topic": "theory of sleight of hand and misdirection",
+    "level": "advanced",
+    "interests": "",
+    "depth": "standard",
+    "model": "manual",
+    "createdAt": "2026-10-22T12:00:00.000Z",
+    "version": 1
+  },
+  "plan": {
+    "title": "The Theory of Sleight of Hand: The Thinking Layer",
+    "hook": "A sleight succeeds or fails in the spectator's memory, not in your hands — the move is the least of it.",
+    "objectives": [
+      "Analyse any trick as an attention problem: what was sampled, what was skipped, what got rebuilt afterwards",
+      "Explain misdirection in its physical, psychological, and temporal forms, and name the mechanism at work in a live example",
+      "Read Erdnase's The Expert at the Card Table as theory — advantage-play standards and uniformity of action — rather than as a move catalogue",
+      "Apply Vernon's standard to your own repertoire: naturalness, a motivation for every action, economy of handling",
+      "Design an effect backwards, starting from the sentence you want the spectator to say afterwards, and test it on one honest spectator"
+    ],
+    "prerequisites": [
+      "A working repertoire of card sleights (the hands are assumed; this course is about the spectator's mind)",
+      "No specific texts assumed — the classic sources are introduced as they are used"
+    ],
+    "sections": [
+      {
+        "id": "s1",
+        "heading": "What a Spectator Actually Sees",
+        "points": [
+          "Attention as a sampling process with a small budget — the gorilla experiment (Simons & Chabris)",
+          "Change blindness: continuity of summary replaces comparison of detail (the door study)",
+          "Memory as reconstruction: gaps are filled with what must have been true",
+          "Why the method must be forgotten before the effect is remembered"
+        ]
+      },
+      {
+        "id": "s2",
+        "heading": "Misdirection, Properly Defined",
+        "points": [
+          "Fitzkee's analysis: attention is a spotlight with a budget, not a fog",
+          "The big motion covers the small one — in plain view, not under cover",
+          "Physical vs. psychological misdirection; Ramsay's casual, meaning-settled actions",
+          "Temporal separation: do the work early, let the effect arrive late; the question-answer rhythm"
+        ]
+      },
+      {
+        "id": "s3",
+        "heading": "Erdnase as Theory",
+        "points": [
+          "The Expert at the Card Table (1902): advantage play written for hostile observers",
+          "The operational test: would it survive a suspicious man whose money is on the table?",
+          "Uniformity of action — the false action must be the genuine action",
+          "Why 'the hand is quicker than the eye' is the wrong slogan; speed is a confession"
+        ]
+      },
+      {
+        "id": "s4",
+        "heading": "Vernon and the Inner Life of a Trick",
+        "points": [
+          "Dai Vernon: be a performer, not a magician — cleverness edited out of the picture",
+          "Naturalness as discipline: sleights rebuilt inside your genuine everyday actions",
+          "Meaning over method: a plain-words motivation for every action in the routine",
+          "Economy: every extra second is footage the spectator can cross-examine"
+        ]
+      },
+      {
+        "id": "s5",
+        "heading": "Designing an Effect",
+        "points": [
+          "Start from the memory: the sentence you want the spectator to say afterwards",
+          "Derive the conditions that must seem true; let them, not the method catalogue, be the brief",
+          "Script beats and pauses; place secret work in the off-beat, after the climax releases attention",
+          "Test on one honest spectator and judge by the retelling, then revise the beat — not the move"
+        ]
+      }
+    ]
+  },
+  "reading": {
+    "sections": [
+      {
+        "id": "s1",
+        "heading": "What a Spectator Actually Sees",
+        "body": "Ask a roomful of spectators to describe a trick an hour later and you will hear about an event that never quite happened. The card was never out of sight — except it was, twice. Your hands never went near your pockets — except once, openly, to fetch a pen. The witnesses are not lying and they are not stupid. They are reporting the version their minds built, and the building work started while you were still performing. That is the spectator's real experience of magic, and it is the only one that matters: the effect does not live in your hands. It lives in a reconstruction, assembled afterwards, out of partial evidence, by a brain that would rather have a clean story than an accurate one.\n\nStart with how little evidence there is. Vision feels like a video feed, but attention is a sampling process with a small budget. In the best-known demonstration, Daniel Simons and Christopher Chabris asked viewers to count basketball passes between players in white shirts; roughly half the viewers never noticed a person in a gorilla suit walk into the middle of the scene, thump its chest, and walk out. The gorilla was not hidden. It was unattended — the counting task had spent the whole attention budget. Your spectators are always counting something: following your patter, watching the card they think matters, waiting for the ending you promised. Everything outside that assignment gets sampled thinly or not at all.\n\nChange blindness is the companion finding, and it is worse. In the door study run by Simons and Daniel Levin, a pedestrian asking directions was briefly hidden by a door carried between him and the experimenter — and behind the door, one experimenter was swapped for a different person, differently dressed. About half the pedestrians simply carried on the conversation with the new man. Continuity of the scene papered over a change of the scene's main character. For a performer the lesson is direct: the audience does not compare what is on the table now with a stored photograph of what was there before. They compare it with a summary — \"the deck, the coin, his hands\" — and summaries do not record which coin, in which hand, at which second.\n\nThen memory finishes the job. Recall is reconstruction, not playback: gaps get filled with whatever must have been true, and the filling feels like remembering. A spectator who concludes the deck was ordinary will \"remember\" you handling it casually the whole time, whether you did or not. This is why the method must be forgotten before the effect is remembered. If, afterwards, a spectator can still reconstruct your procedure — \"wait, he put it in his left hand when he turned\" — the effect collapses into a puzzle they half-solved, and puzzles get retold as explanations, not miracles. The strong effects are the ones where the reconstruction has nothing to build on: every suspicious moment has been edited out of the record by the spectator's own mind.\n\nNone of this requires fooling anyone's eyes. The eye is a decent instrument; it is the editor you are working with. So the performer's real questions change. Not \"was the move visible?\" but \"was anyone assigned to watch it?\" Not \"did they catch it?\" but \"what will they say happened at dinner?\" Design for the editor, and the hands can be almost disappointingly ordinary.",
+        "visual": "A three-stage flow: the seen event, the gap, and the remembered effect.",
+        "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><text x=\"200\" y=\"30\" font-size=\"14\" fill=\"#ffd76a\" text-anchor=\"middle\" font-family=\"sans-serif\" font-weight=\"bold\">WHAT THE SPECTATOR TAKES HOME</text><rect x=\"40\" y=\"55\" width=\"320\" height=\"60\" rx=\"8\" fill=\"#161b22\" stroke=\"#9aa6b8\"/><text x=\"200\" y=\"82\" font-size=\"13\" fill=\"#e8ecf5\" text-anchor=\"middle\" font-family=\"sans-serif\" font-weight=\"bold\">THE SEEN EVENT</text><text x=\"200\" y=\"102\" font-size=\"10.5\" fill=\"#9aa6b8\" text-anchor=\"middle\" font-family=\"sans-serif\" font-weight=\"normal\">a partial sample — eyes sample only what attention selects</text><line x1=\"200\" y1=\"115\" x2=\"200\" y2=\"140\" stroke=\"#ffd76a\" stroke-width=\"2\"/><rect x=\"40\" y=\"140\" width=\"320\" height=\"60\" rx=\"8\" fill=\"#161b22\" stroke=\"#9aa6b8\"/><text x=\"200\" y=\"167\" font-size=\"13\" fill=\"#ff9a3d\" text-anchor=\"middle\" font-family=\"sans-serif\" font-weight=\"bold\">THE GAP</text><text x=\"200\" y=\"187\" font-size=\"10.5\" fill=\"#9aa6b8\" text-anchor=\"middle\" font-family=\"sans-serif\" font-weight=\"normal\">unseen method, dropped frames, unasked questions</text><line x1=\"200\" y1=\"200\" x2=\"200\" y2=\"225\" stroke=\"#ffd76a\" stroke-width=\"2\"/><rect x=\"40\" y=\"225\" width=\"320\" height=\"60\" rx=\"8\" fill=\"#161b22\" stroke=\"#9aa6b8\"/><text x=\"200\" y=\"252\" font-size=\"13\" fill=\"#7dffb0\" text-anchor=\"middle\" font-family=\"sans-serif\" font-weight=\"bold\">THE REMEMBERED EFFECT</text><text x=\"200\" y=\"272\" font-size=\"10.5\" fill=\"#9aa6b8\" text-anchor=\"middle\" font-family=\"sans-serif\" font-weight=\"normal\">rebuilt afterwards — stronger and cleaner than the event</text></svg>",
+        "questions": [
+          {
+            "q": "In the Simons and Chabris experiment, why did so many viewers miss the gorilla?",
+            "answer": "Their attention budget was fully spent on the assigned task — counting passes. The gorilla was visible but unattended, and unattended events are sampled thinly or not at all.",
+            "hint": "Think about what the viewers were told to do, not about how well the gorilla was hidden."
+          },
+          {
+            "q": "What does it mean to say the method must be forgotten before the effect is remembered?",
+            "answer": "If spectators can still reconstruct your procedure afterwards, the effect collapses into a half-solved puzzle. A strong effect leaves the reconstruction with nothing to build on, so only the impossible fact survives.",
+            "hint": "It is about what the spectator can rebuild at dinner, not about what they saw in the moment."
+          }
+        ]
+      },
+      {
+        "id": "s2",
+        "heading": "Misdirection, Properly Defined",
+        "body": "Misdirection is the most used and least understood word in magic, usually treated as a synonym for pointing somewhere else. Dariel Fitzkee spent a trilogy of books in the 1940s arguing it is something more exact: the management of attention, analysed the way an engineer analyses a mechanism. Attention, in his treatment, is not a fog you thicken but a spotlight with a budget — it lands somewhere definite, for definite reasons, and it cannot be in two places at full strength at once. Your job is not to hide the method. It is to make sure the budget is spent, legitimately and completely, on something that is not the method.\n\nThe reasons attention lands are knowable. It goes to motion, especially motion that begins; to faces, and above all to eyes; to novelty and to contrast; to whatever a question has just made relevant; to the largest action in the visual field. That last one gives the oldest working rule in the craft: a big motion covers a small one. A hand that travels to the pocket to produce a handkerchief spends the audience's motion budget so completely that the other hand's small adjustment never gets sampled. Notice the rule is not \"do it quickly\" or \"do it under cover.\" The small action happens in plain view, unhidden, inside a moment whose attention is already bought and paid for.\n\nFitzkee's other useful cut is between physical and psychological misdirection. Physical misdirection steers the eyes — a gesture, a glance, a body turn. Psychological misdirection steers the interpretation: the audience sees everything and files it under the wrong heading. An action done as a joke, a correction, or an afterthought is seen and dismissed in the same instant. The Scottish master John Ramsay was the great documented case of the second kind joined to perfect timing: spectators swore his hands never left their sight, and they were right — his secret work happened inside actions whose meaning seemed already settled. Ramsay also understood the eyes: people look where you look, so he looked where he wanted them, and looked away from the method with the timing of a man glancing at his watch — casually, because the moment did not matter.\n\nTiming is the third form, and it is the one beginners skip. A method moment fused to its effect is easy to reconstruct afterwards: cause and effect sit side by side and the memory joins them. Separate them — do the secret work early, under one pretext, and let the effect arrive later, after other business has overwritten the moment — and the reconstruction has no thread to follow. The question-answer rhythm is the performer's metronome for all of this: ask a question and every eye comes to your face while they consider the answer; that is a bought second. Make a statement and gesture, and eyes follow the gesture. Skilled performers are not doing more moves than you. They are doing them inside purchased moments, and the purchasing is the real technique.",
+        "visual": "Two timelines of one effect: the actual order of events and the spectator's perceived order.",
+        "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><text x=\"200\" y=\"28\" font-size=\"14\" fill=\"#ffd76a\" text-anchor=\"middle\" font-family=\"sans-serif\" font-weight=\"bold\">ONE EFFECT, TWO TIMELINES</text><text x=\"60\" y=\"78\" font-size=\"11\" fill=\"#9aa6b8\" text-anchor=\"start\" font-family=\"sans-serif\" font-weight=\"normal\">ACTUAL</text><line x1=\"60\" y1=\"95\" x2=\"340\" y2=\"95\" stroke=\"#9aa6b8\" stroke-width=\"3\"/><circle cx=\"120\" cy=\"95\" r=\"7\" fill=\"#5b8def\"/><text x=\"120\" y=\"122\" font-size=\"10\" fill=\"#e8ecf5\" text-anchor=\"middle\" font-family=\"sans-serif\" font-weight=\"normal\">display</text><circle cx=\"205\" cy=\"95\" r=\"9\" fill=\"#ff5c5c\"/><text x=\"205\" y=\"122\" font-size=\"10\" fill=\"#ff9a3d\" text-anchor=\"middle\" font-family=\"sans-serif\" font-weight=\"normal\">THE MOVE</text><circle cx=\"290\" cy=\"95\" r=\"7\" fill=\"#5b8def\"/><text x=\"290\" y=\"122\" font-size=\"10\" fill=\"#e8ecf5\" text-anchor=\"middle\" font-family=\"sans-serif\" font-weight=\"normal\">reveal</text><text x=\"60\" y=\"168\" font-size=\"11\" fill=\"#9aa6b8\" text-anchor=\"start\" font-family=\"sans-serif\" font-weight=\"normal\">PERCEIVED</text><line x1=\"60\" y1=\"185\" x2=\"340\" y2=\"185\" stroke=\"#9aa6b8\" stroke-width=\"3\"/><rect x=\"80\" y=\"172\" width=\"240\" height=\"26\" rx=\"6\" fill=\"#2a1e14\" stroke=\"#ff9a3d\"/><text x=\"200\" y=\"190\" font-size=\"9.5\" fill=\"#ff9a3d\" text-anchor=\"middle\" font-family=\"sans-serif\" font-weight=\"normal\">ATTENTION ELSEWHERE — TIME FEELS CONTINUOUS</text><rect x=\"60\" y=\"225\" width=\"280\" height=\"48\" rx=\"8\" fill=\"#161b22\" stroke=\"#9aa6b8\"/><text x=\"200\" y=\"245\" font-size=\"11\" fill=\"#e8ecf5\" text-anchor=\"middle\" font-family=\"sans-serif\" font-weight=\"normal\">The move happens in the open.</text><text x=\"200\" y=\"263\" font-size=\"11\" fill=\"#e8ecf5\" text-anchor=\"middle\" font-family=\"sans-serif\" font-weight=\"normal\">It is the timeline that is edited.</text></svg>",
+        "questions": [
+          {
+            "q": "In Fitzkee's terms, what is wrong with treating misdirection as 'making them look over there'?",
+            "answer": "Attention is a spotlight with a budget, not a fog. It lands somewhere definite for definite reasons; the performer's job is to spend that budget legitimately on something that is not the method, not merely to point elsewhere.",
+            "hint": "What does attention do when it is not being directed at all?"
+          },
+          {
+            "q": "What is temporal misdirection, and why does it defeat reconstruction?",
+            "answer": "Separating the secret work from the effect in time — doing the work early under one pretext and letting the effect arrive later — so the spectator's memory has no cause sitting next to its effect to join together.",
+            "hint": "Cause and effect placed side by side are easy to connect afterwards. What breaks the connection?"
+          }
+        ]
+      },
+      {
+        "id": "s3",
+        "heading": "Erdnase as Theory",
+        "body": "In 1902 a Chicago publisher issued a book by an author nobody has ever identified, writing as S. W. Erdnase: The Expert at the Card Table. It is two books wearing one cover. The first teaches card-table artifice — the moves of the professional gambler, the advantage player working a faro or poker game. The second teaches legerdemain for the parlour. Read it as a collection of moves and it is a museum. Read it as theory and it is the sharpest short course in deception ever written, because its author was not performing for applause. He was playing for money against people who would hurt him if they caught on, and everything in the book is priced accordingly.\n\nThe advantage mindset is the first lesson. The sharp does not ask \"is this move good?\" but \"what does this move earn, and what does it cost if it fails?\" Failure at the card table was not embarrassment; it was expulsion or worse. So the book's standards are operational, not artistic: a technique is worth using only if it survives hostile, motivated, repeated observation by people sitting closer than any audience. Transferred to performance, that standard is a gift. Most sleights taught today are designed to survive a mirror. Erdnase's test — would it survive a suspicious man whose wallet is on the table — is stricter and more useful.\n\nThe second lesson is the one the book states in its structure: uniformity of action. Every false action must be indistinguishable from the genuine one it imitates — same grip, same tempo, same visible reason for happening. A dealer's honest deal and false deal should be one motion, not two similar ones. The principle generalises past cards to everything: if your real take of a coin and your pretend take differ in speed, height, or intent, the difference is a signpost, and spectators read signposts without knowing they have seen anything. They just feel that something was off, and the feeling survives into the retelling as suspicion.\n\nWhich is why \"the hand is quicker than the eye\" is the wrong slogan, and Erdnase's book is the standing disproof of it. Speed is a confession. A move that must be fast is a move that cannot bear to be seen, and audiences smell it: the blur itself announces that something happened at exactly the moment the performer least wants attention. The sharp cannot afford a blur — a blur across a money game starts fights. What he uses instead is method that looks like nothing, timed inside natural action, plus the spectators' own assumptions doing the guarding. The famous endurance of the book follows from this. Moves date; fashions in cards and clothes date; but a theory built on what observers actually notice, priced by what failure actually costs, does not date at all. Read the moves for history. Read the standards for use.",
+        "visual": "Two handling profiles — genuine action and false action — drawn to be identical.",
+        "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><text x=\"200\" y=\"30\" font-size=\"14\" fill=\"#ffd76a\" text-anchor=\"middle\" font-family=\"sans-serif\" font-weight=\"bold\">UNIFORMITY OF ACTION</text><rect x=\"35\" y=\"60\" width=\"330\" height=\"85\" rx=\"8\" fill=\"#161b22\" stroke=\"#9aa6b8\"/><text x=\"200\" y=\"84\" font-size=\"12\" fill=\"#7dffb0\" text-anchor=\"middle\" font-family=\"sans-serif\" font-weight=\"bold\">THE GENUINE ACTION</text><line x1=\"70\" y1=\"112\" x2=\"330\" y2=\"112\" stroke=\"#7dffb0\" stroke-width=\"3\"/><text x=\"200\" y=\"134\" font-size=\"10.5\" fill=\"#9aa6b8\" text-anchor=\"middle\" font-family=\"sans-serif\" font-weight=\"normal\">one speed, one grip, one reason</text><rect x=\"35\" y=\"165\" width=\"330\" height=\"85\" rx=\"8\" fill=\"#161b22\" stroke=\"#9aa6b8\"/><text x=\"200\" y=\"189\" font-size=\"12\" fill=\"#ff9a3d\" text-anchor=\"middle\" font-family=\"sans-serif\" font-weight=\"bold\">THE FALSE ACTION</text><line x1=\"70\" y1=\"217\" x2=\"330\" y2=\"217\" stroke=\"#ff9a3d\" stroke-width=\"3\"/><text x=\"200\" y=\"239\" font-size=\"10.5\" fill=\"#9aa6b8\" text-anchor=\"middle\" font-family=\"sans-serif\" font-weight=\"normal\">must match the genuine one in every visible respect</text><text x=\"200\" y=\"282\" font-size=\"11.5\" fill=\"#e8ecf5\" text-anchor=\"middle\" font-family=\"sans-serif\" font-weight=\"normal\">Any difference is a signpost pointing at the method.</text></svg>",
+        "questions": [
+          {
+            "q": "What test does the advantage-play mindset apply to a technique?",
+            "answer": "An operational one: would it survive hostile, motivated, repeated observation at close range — Erdnase's world being a money game where failure meant expulsion or worse, not embarrassment.",
+            "hint": "Compare 'would it fool my mirror?' with the card table's actual stakes."
+          },
+          {
+            "q": "Why is speed a confession, in this framework?",
+            "answer": "A move that must be fast is a move that cannot bear to be seen; the blur itself announces that something happened at exactly the wrong moment. Method that looks like nothing, timed inside natural action, carries no such announcement.",
+            "hint": "What does a fast moment tell the audience, even if they see nothing of the move itself?"
+          }
+        ]
+      },
+      {
+        "id": "s4",
+        "heading": "Vernon and the Inner Life of a Trick",
+        "body": "Dai Vernon, born David Verner in Ottawa in 1894, spent most of the twentieth century as the card table's resident philosopher, and his influence runs through nearly every serious performer since — the man Houdini reportedly could not follow, who devoted years of his life to hunting the identity of Erdnase. But Vernon's real legacy is not a set of moves. It is a standard of thought, summed up in the attitude every student of his repeats: be a performer, not a magician. The magician, in Vernon's sense, is the man showing you his cleverness. The performer is showing you something impossible, and his cleverness has been edited out of the picture.\n\nThe first principle is naturalness, and it is stricter than it sounds. Naturalness is not relaxation or charm; it is the discipline that every visible action in a routine must be the action an honest person would take in the same situation. If you would not hold the deck that way to deal a friendly game, you may not hold it that way to do the move. Vernon pushed students to study how they actually performed ordinary actions — how they really picked up a glass, really turned a page — and to rebuild their sleights inside those genuine patterns. This is Erdnase's uniformity of action carried one step further: the false action does not merely match the genuine one, it is the genuine one, slightly repurposed.\n\nSecond: meaning over method, and a motivation for every action. In a Vernon routine, nothing happens because the script needs it to happen. The performer moves the glass because it is in the way; he picks up the wand because he is about to use it; he stands because the chair is uncomfortable. Each action carries a plain-words reason a spectator could state if asked — and because spectators do ask, silently, all the time, an unmotivated action is the one thing the reconstructed memory keeps circling back to. \"Why did he do that, just then?\" is the loose thread that unravels effects an hour later. Vernon sewed every thread in advance.\n\nThird: economy. The Vernon routine has no fat — no flourish that exists to display practise, no second climax after the climax, no handling that takes ten seconds to do a two-second thing. Economy is not minimalism for its own sake; it is respect for the spectator's reconstruction. Every extra second is extra footage the audience can study, extra incidents to remember and cross-examine. What survives of a routine, in his thinking, should be the effect and nothing else — the method invisible, the performer's effort invisible, even the structure invisible, until all that is left in the spectator's mind is the impossible fact itself. That is a demanding standard to build to, and most of us fall short of it on most nights. But it explains Vernon's longevity as a teacher: he was not handing down secrets. He was handing down questions — why this action, why now, why at all — that improve any trick they are honestly applied to.",
+        "visual": "A chain from intent to action to effect — every link must justify the next.",
+        "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><text x=\"200\" y=\"30\" font-size=\"14\" fill=\"#ffd76a\" text-anchor=\"middle\" font-family=\"sans-serif\" font-weight=\"bold\">EVERY ACTION EARNS ITS PLACE</text><rect x=\"30\" y=\"70\" width=\"100\" height=\"62\" rx=\"8\" fill=\"#161b22\" stroke=\"#9aa6b8\"/><text x=\"80\" y=\"97\" font-size=\"12\" fill=\"#e8ecf5\" text-anchor=\"middle\" font-family=\"sans-serif\" font-weight=\"bold\">INTENT</text><text x=\"80\" y=\"116\" font-size=\"9.5\" fill=\"#9aa6b8\" text-anchor=\"middle\" font-family=\"sans-serif\" font-weight=\"normal\">why move at all?</text><line x1=\"130\" y1=\"101\" x2=\"158\" y2=\"101\" stroke=\"#ffd76a\" stroke-width=\"2\"/><rect x=\"160\" y=\"70\" width=\"100\" height=\"62\" rx=\"8\" fill=\"#161b22\" stroke=\"#9aa6b8\"/><text x=\"210\" y=\"97\" font-size=\"12\" fill=\"#e8ecf5\" text-anchor=\"middle\" font-family=\"sans-serif\" font-weight=\"bold\">ACTION</text><text x=\"210\" y=\"116\" font-size=\"9.5\" fill=\"#9aa6b8\" text-anchor=\"middle\" font-family=\"sans-serif\" font-weight=\"normal\">the ordinary move</text><line x1=\"260\" y1=\"101\" x2=\"288\" y2=\"101\" stroke=\"#ffd76a\" stroke-width=\"2\"/><rect x=\"290\" y=\"70\" width=\"85\" height=\"62\" rx=\"8\" fill=\"#161b22\" stroke=\"#9aa6b8\"/><text x=\"332\" y=\"97\" font-size=\"12\" fill=\"#e8ecf5\" text-anchor=\"middle\" font-family=\"sans-serif\" font-weight=\"bold\">EFFECT</text><text x=\"332\" y=\"116\" font-size=\"9.5\" fill=\"#9aa6b8\" text-anchor=\"middle\" font-family=\"sans-serif\" font-weight=\"normal\">what lands</text><rect x=\"60\" y=\"175\" width=\"280\" height=\"70\" rx=\"8\" fill=\"#161b22\" stroke=\"#9aa6b8\"/><text x=\"200\" y=\"202\" font-size=\"11.5\" fill=\"#e8ecf5\" text-anchor=\"middle\" font-family=\"sans-serif\" font-weight=\"normal\">If the intent cannot be said in plain words,</text><text x=\"200\" y=\"222\" font-size=\"11.5\" fill=\"#e8ecf5\" text-anchor=\"middle\" font-family=\"sans-serif\" font-weight=\"normal\">the action is decoration — and decoration is suspicion.</text></svg>",
+        "questions": [
+          {
+            "q": "How is Vernon's naturalness different from just being relaxed on stage?",
+            "answer": "It is a discipline, not a manner: every visible action must be one an honest person would take in the same situation, and sleights are rebuilt inside your genuine everyday patterns of handling — the false action effectively is the genuine action.",
+            "hint": "Think about how you really pick up a glass when nobody is watching."
+          },
+          {
+            "q": "Why does Vernon-style economy protect an effect?",
+            "answer": "Every extra second of handling is footage the spectator can study and cross-examine later. Cutting everything that does not serve the effect leaves the reconstruction with only the impossible fact to work on.",
+            "hint": "What does the audience take home more of, the longer a routine runs?"
+          }
+        ]
+      },
+      {
+        "id": "s5",
+        "heading": "Designing an Effect",
+        "body": "Most tricks are built forwards: a method catches your eye, you learn it, and then you shop for a presentation to dress it in. The result is a repertoire of solutions looking for problems, and audiences can feel it — the effect exists because the move does. Designing an effect runs the construction backwards. You start at the end, in the spectator's memory, with the sentence you want them to say afterwards: \"He never touched the deck.\" \"The coin was in her hand the whole time.\" That sentence is the product. Everything else — conditions, method, script — is manufacturing, and it is judged only by whether the sentence survives.\n\nFrom the target memory, derive the conditions. For the sentence to be sayable, certain things must seem true: the deck was never near your hands after the shuffle; the coin was shown both sides; no switch was possible because nothing was ever hidden. List them. This list, not the method catalogue, is your real design brief — because methods are interchangeable in a way conditions are not. Any competent move that satisfies the conditions will do, and the cheapest, most ordinary method that satisfies them is the right one. Performers who design backwards waste far less time mastering exotic sleights, because the brief usually asks for something plain, done at the right moment, under the right description.\n\nNow script the beats. A routine is not continuous; it is a sequence of beats and pauses, and the pauses are structural. There is a moment performers in Ascanio's tradition call the off-beat: the instant just after a climax, when tension releases, laughter or applause starts, and attention — its budget spent on the climax — briefly stands down. That is when secret work belongs, when it belongs anywhere near a climax at all. Beats also protect the conditions: a pause after the shuffle lets \"the deck was shuffled and left alone\" settle into the record before anything else happens; rush past it and the condition never gets registered, and the memory sentence fails even though the method was clean. Script what you say, and equally, script what you do not say — every claim you make is a condition the spectator will check, so claim less than you deliver.\n\nLast, test honestly, which almost nobody does. Show the piece to one spectator who will tell you the truth — not a magician, who will watch your hands, and not a friend, who will protect your feelings — and afterwards ask the only question that matters: \"Tell me what happened.\" Do not ask if they saw anything; ask for the retelling, and listen to which conditions survived in it and which died. If they say \"and then you put the deck down and picked it up again,\" a thread is loose, and it is a scripting problem far more often than a sleight problem. Revise the beat, not the move. Iterate until the retelling is the sentence you designed. That is the whole workshop: the memory is the brief, conditions are the spec, method is the cheapest supplier, and one honest spectator is the inspector.",
+        "visual": "The design worksheet: memory first, then conditions, method, and script-and-test.",
+        "diagram": "<svg viewBox=\"0 0 400 300\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"300\" fill=\"#0e1116\"/><text x=\"200\" y=\"28\" font-size=\"14\" fill=\"#ffd76a\" text-anchor=\"middle\" font-family=\"sans-serif\" font-weight=\"bold\">DESIGN BACKWARDS</text><rect x=\"25\" y=\"52\" width=\"350\" height=\"44\" rx=\"8\" fill=\"#161b22\" stroke=\"#9aa6b8\"/><text x=\"200\" y=\"79\" font-size=\"11.5\" fill=\"#e8ecf5\" text-anchor=\"middle\" font-family=\"sans-serif\" font-weight=\"bold\">1 · THE MEMORY — what they will swear happened</text><rect x=\"25\" y=\"106\" width=\"350\" height=\"44\" rx=\"8\" fill=\"#161b22\" stroke=\"#9aa6b8\"/><text x=\"200\" y=\"133\" font-size=\"11.5\" fill=\"#e8ecf5\" text-anchor=\"middle\" font-family=\"sans-serif\" font-weight=\"normal\">2 · THE CONDITIONS — what must seem true for that memory</text><rect x=\"25\" y=\"160\" width=\"350\" height=\"44\" rx=\"8\" fill=\"#161b22\" stroke=\"#9aa6b8\"/><text x=\"200\" y=\"187\" font-size=\"11.5\" fill=\"#e8ecf5\" text-anchor=\"middle\" font-family=\"sans-serif\" font-weight=\"normal\">3 · THE METHOD — the cheapest honest machinery</text><rect x=\"25\" y=\"214\" width=\"350\" height=\"44\" rx=\"8\" fill=\"#161b22\" stroke=\"#9aa6b8\"/><text x=\"200\" y=\"241\" font-size=\"11.5\" fill=\"#e8ecf5\" text-anchor=\"middle\" font-family=\"sans-serif\" font-weight=\"normal\">4 · SCRIPT + TEST — beats, pauses, one honest spectator</text><text x=\"200\" y=\"284\" font-size=\"11\" fill=\"#9aa6b8\" text-anchor=\"middle\" font-family=\"sans-serif\" font-weight=\"normal\">Most tricks are built 3 → 1. Build 1 → 4 instead.</text></svg>",
+        "questions": [
+          {
+            "q": "What is the first thing you design when building an effect backwards?",
+            "answer": "The memory — the exact sentence you want the spectator to say afterwards, such as 'He never touched the deck.' Conditions, method, and script are all manufacturing in service of that sentence.",
+            "hint": "It is something the spectator says, not something you do."
+          },
+          {
+            "q": "After a test performance, what should you ask the spectator, and what do you listen for?",
+            "answer": "Ask 'tell me what happened' and listen to the retelling: which designed conditions survived in it and which died. A loose thread in the retelling is usually a scripting problem, so you revise the beat rather than the move.",
+            "hint": "The retelling is the product being inspected — not the sleight."
+          }
+        ]
+      }
+    ]
+  },
+  "quizzes": {
+    "sections": [
+      {
+        "id": "s1",
+        "questions": [
+          {
+            "q": "During a card routine, the performer asks the spectator to name any card aloud while he openly fans the deck toward her. Afterwards she insists his hands 'never did anything.' The best explanation is:",
+            "choices": [
+              "His sleight was simply too fast to see",
+              "Spectators politely pretend not to notice method",
+              "Naming the card spent her attention budget on a task, so concurrent handling went unsampled",
+              "The fan of cards physically blocked her view of his hands"
+            ],
+            "answer": 2,
+            "explain": "Like the pass-counting viewers who missed the gorilla, a spectator given a task spends her attention budget on it. Unattended handling is not seen-and-forgiven; it is never sampled in the first place."
+          },
+          {
+            "q": "A performer replaces the deck with a stacked one while an assistant carries a tray across the table; afterwards, nobody remembers a switch. Which finding does this rely on most directly?",
+            "choices": [
+              "Inattentional blindness to the gorilla",
+              "Change blindness: continuity of the summary ('the deck on the table') replaces comparison of the object itself",
+              "The audience's short-term memory lasts only seven seconds",
+              "People cannot track more than one object at a time"
+            ],
+            "answer": 1,
+            "explain": "As in the door study, where half the pedestrians kept talking to a swapped person, observers compare the scene with a summary, not a photograph. The summary — a deck, on the table — stayed true, so the change never registered."
+          },
+          {
+            "q": "A trick tests well live, but a week later friends describe a version where the performer 'never went near the box,' though he handled it openly twice. What happened?",
+            "choices": [
+              "Memory is reconstruction: having concluded the box was untouched, they filled gaps with what must have been true — and that is the effect working as intended",
+              "The friends are misremembering out of politeness",
+              "The performer subconsciously used hypnosis",
+              "Open handling is impossible to remember"
+            ],
+            "answer": 0,
+            "explain": "Recall rebuilds the event from conclusions. Once their model said 'untouched box,' the rebuild edited out the handling — which is precisely why designing for the reconstruction beats designing for the live moment."
+          }
+        ]
+      },
+      {
+        "id": "s2",
+        "questions": [
+          {
+            "q": "A coin vanish fails in a close-up set: the spectator says 'you put it in your other hand when you reached for the wand.' Applying the big-cover-small rule, the best fix is:",
+            "choices": [
+              "Practise the transfer until it is faster",
+              "Do the transfer under a cloth",
+              "Make the reaching action bigger and more purposeful — a full gesture that spends the motion budget — while the transfer stays small and ordinary",
+              "Never use a wand again"
+            ],
+            "answer": 2,
+            "explain": "A large motion buys the audience's motion attention outright, leaving nothing to sample the small one. Speed and cover treat the problem as hiding; the rule works by outspending, in plain view."
+          },
+          {
+            "q": "A performer does the secret move at the exact instant of the reveal, every time, and audiences keep 'almost catching it.' The missing tool is:",
+            "choices": [
+              "Psychological misdirection — make the move look like a joke",
+              "Temporal misdirection — separate the work from the effect so memory cannot join cause to effect",
+              "A bigger gesture at the reveal",
+              "Faster hands"
+            ],
+            "answer": 1,
+            "explain": "Fused cause and effect are trivial to reconstruct afterwards. Moving the work earlier, under its own pretext, leaves the reveal standing alone in the spectator's timeline."
+          },
+          {
+            "q": "The performer asks, 'Would you like it in the red box or the blue box?' and, while the spectator deliberates, calmly tidies the table — including the secret adjustment. Which mechanisms are stacked here?",
+            "choices": [
+              "Only the question; tidying is just tidying",
+              "The question pulls eyes to the performer's face and spends attention on a decision, while the tidying is filed as a settled, meaningless action — question-answer rhythm plus psychological misdirection",
+              "Pure speed",
+              "The boxes do all the work"
+            ],
+            "answer": 1,
+            "explain": "The question buys the face-glance and the deliberation; the tidying is seen but interpreted as housekeeping, the Ramsay pattern — secret work inside actions whose meaning seems already settled."
+          }
+        ]
+      },
+      {
+        "id": "s3",
+        "questions": [
+          {
+            "q": "Judged by the Erdnase standard, which practice habit is the real red flag?",
+            "choices": [
+              "Practising with a mirror until a move survives it",
+              "Learning moves from a century-old book",
+              "Preferring simple methods",
+              "A move that only works at performance speed, in a blur, and has never been tested against a hostile, close, motivated observer"
+            ],
+            "answer": 3,
+            "explain": "Erdnase's techniques were priced by failure at a money game. A blur-dependent move fails that pricing: speed announces the moment it tries to protect. The mirror test is far weaker than the suspicious observer whose wallet is on the table."
+          },
+          {
+            "q": "A performer's false take of a coin looks almost like his real take — slightly higher, slightly slower. A spectator says only, 'Something felt off there.' What principle was violated?",
+            "choices": [
+              "Economy of motion",
+              "Uniformity of action: the false action must be indistinguishable from the genuine one — any difference is a signpost spectators read without knowing it",
+              "The off-beat",
+              "Temporal separation"
+            ],
+            "answer": 1,
+            "explain": "Erdnase's standard is one action, not two similar ones. The unmatched details are exactly what survives into the retelling as formless suspicion."
+          },
+          {
+            "q": "Why does The Expert at the Card Table still repay reading when its card fashions are a century old?",
+            "choices": [
+              "Its moves are still undetectable",
+              "It is short",
+              "Its theory is priced by real failure costs and built on what observers actually notice — standards that do not date even when moves do",
+              "Nostalgia"
+            ],
+            "answer": 2,
+            "explain": "Moves and fashions date; a theory of deception tested against hostile observation does not. That is why the course reads it as theory rather than as a museum of moves."
+          }
+        ]
+      },
+      {
+        "id": "s4",
+        "questions": [
+          {
+            "q": "Mid-routine, a performer picks up a pen, moves it to the other side of the table, sets it down, and never uses it. An hour later a spectator keeps asking, 'But why did he move the pen?' In Vernon's terms, the fault is:",
+            "choices": [
+              "The pen was the wrong colour",
+              "An unmotivated action — no plain-words reason a spectator could state — leaves a loose thread the reconstruction keeps circling",
+              "The routine was too economical",
+              "The performer was too natural"
+            ],
+            "answer": 1,
+            "explain": "Vernon required a motivation for every action. Spectators silently ask 'why that, why now' throughout; the question with no answer is what the memory keeps, and it unravels effects afterwards."
+          },
+          {
+            "q": "A student rebuilds his coin take by first filming how he genuinely picks up a coin when paying for coffee, then fits the sleight inside that pattern. He is applying:",
+            "choices": [
+              "Vernon's naturalness as discipline: the false action built inside the genuine one, not merely resembling it",
+              "Fitzkee's question-answer rhythm",
+              "Change blindness",
+              "The advantage-play test"
+            ],
+            "answer": 0,
+            "explain": "Vernon pushed students to study their own ordinary handling and rebuild sleights within it — Erdnase's uniformity carried further, until the false action is the genuine action repurposed."
+          },
+          {
+            "q": "A routine has two climaxes, a flourishy shuffle display, and runs four minutes for a one-minute effect. The Vernon objection is:",
+            "choices": [
+              "Audiences dislike skill",
+              "Four minutes is a hard limit in close-up",
+              "Every extra second and flourish is footage for cross-examination and a display of the performer's cleverness — the opposite of 'be a performer, not a magician'",
+              "Two climaxes cancel out"
+            ],
+            "answer": 2,
+            "explain": "Economy protects the reconstruction: what survives should be the effect, not the performer's effort. Display turns the show into a demonstration of cleverness, which is the magician Vernon told his students not to be."
+          }
+        ]
+      },
+      {
+        "id": "s5",
+        "questions": [
+          {
+            "q": "You want spectators to say, 'She never touched the deck after the shuffle.' Which design sequence follows from that sentence?",
+            "choices": [
+              "Learn the most advanced false shuffle available, then write patter",
+              "List the conditions that must seem true (deck set down, hands visibly empty and idle, no reason to approach it), then pick the cheapest method satisfying them, then script beats that register each condition",
+              "Write the patter first and trust it to carry the claim",
+              "Perform it often and hope the sentence emerges"
+            ],
+            "answer": 1,
+            "explain": "The memory sentence is the brief; conditions are the spec derived from it. Methods are interchangeable suppliers — the cheapest honest one that satisfies the conditions wins."
+          },
+          {
+            "q": "The secret load must happen somewhere in a routine with a strong final revelation. The design-sound place for it is:",
+            "choices": [
+              "Simultaneously with the revelation, for maximum surprise",
+              "During the explanation of the rules",
+              "Before the audience arrives",
+              "In the off-beat just after an earlier climax, when laughter or applause starts and the attention budget stands down"
+            ],
+            "answer": 3,
+            "explain": "The off-beat is the structural pause after tension releases — attention briefly unassigned. Placing the load there keeps it out of both the climax's spotlight and the reconstruction's timeline."
+          },
+          {
+            "q": "A test spectator retells your new piece as: '…then he put the deck down, picked it up again, and my card was just there.' The method was clean. The correct revision is:",
+            "choices": [
+              "Replace the sleight with a harder one",
+              "Add a flourish so the pickup looks intentional",
+              "Revise the beat: the pickup needs a stated motivation and a pause that registers 'the deck was left alone' as a settled condition — a scripting fix, not a move fix",
+              "Drop the effect"
+            ],
+            "answer": 2,
+            "explain": "The retelling shows a condition died: 'deck left alone' never registered. Clean method plus a loose thread in the retelling means the beat — motivation and pause — is what gets redesigned."
+          }
+        ]
+      }
+    ]
+  },
+  "slides": {
+    "sections": [
+      {
+        "id": "s1",
+        "title": "What a Spectator Actually Sees",
+        "bullets": [
+          "Attention is a sampling process with a small budget — not a video feed",
+          "Simons & Chabris: half the viewers missed a gorilla in plain sight while counting passes",
+          "Change blindness: the scene is compared with a summary, not a photograph",
+          "Memory reconstructs: gaps fill with what must have been true",
+          "The effect lives in the reconstruction — design for the editor, not the eye"
+        ],
+        "notes": "Open with the dinner-party test: what will they say happened? Walk through the gorilla and door studies as demonstrations the audience can verify from their own experience of being fooled. Land the section's rule: the method must be forgotten before the effect is remembered.",
+        "visual": "Three stacked panels: seen event, gap, remembered effect."
+      },
+      {
+        "id": "s2",
+        "title": "Misdirection, Properly Defined",
+        "bullets": [
+          "Fitzkee: attention is a spotlight with a budget, landing for knowable reasons",
+          "A big motion covers a small one — in plain view, not under cover",
+          "Physical misdirection steers the eyes; psychological misdirection steers the filing",
+          "Ramsay: secret work inside actions whose meaning seems already settled",
+          "Separate the work from the effect in time; questions buy seconds"
+        ],
+        "notes": "Contrast 'look over there' with budget management. Demonstrate the question-answer rhythm live: ask the room a question and watch every face come up — that is a purchased second. Stress that nothing here requires hiding anything.",
+        "visual": "Two timelines of one effect: actual events vs. perceived order."
+      },
+      {
+        "id": "s3",
+        "title": "Erdnase as Theory",
+        "bullets": [
+          "The Expert at the Card Table (1902): written for money games, not applause",
+          "The operational test: survive a hostile observer whose wallet is on the table",
+          "Uniformity of action: the false action must be the genuine action",
+          "Speed is a confession — a blur announces the moment it protects",
+          "Moves date; standards priced by real failure costs do not"
+        ],
+        "notes": "Frame the book as two books — artifice and legerdemain — and read it for standards, not moves. Invite the room to re-price one of their own sleights by the card-table test: what happens if this fails in front of a suspicious man at close range?",
+        "visual": "Genuine and false handling profiles drawn identically."
+      },
+      {
+        "id": "s4",
+        "title": "Vernon and the Inner Life of a Trick",
+        "bullets": [
+          "Dai Vernon (1894–1992): be a performer, not a magician",
+          "Naturalness is a discipline: sleights rebuilt inside genuine everyday actions",
+          "Every action needs a plain-words motivation a spectator could state",
+          "Economy: extra seconds are footage for the spectator's cross-examination",
+          "What should survive is the effect — not the method, not the effort"
+        ],
+        "notes": "Use the pen example: one unmotivated action, remembered an hour later, unravelling an otherwise clean piece. Vernon's questions — why this action, why now, why at all — are the section's working tool; apply them to a routine the group knows.",
+        "visual": "An intent → action → effect chain; remove any link and the routine leaks."
+      },
+      {
+        "id": "s5",
+        "title": "Designing an Effect",
+        "bullets": [
+          "Start from the sentence you want said afterwards — that sentence is the product",
+          "Derive the conditions that must seem true; they are the real design brief",
+          "Choose the cheapest method that satisfies the conditions",
+          "Script beats and pauses; put secret work in the off-beat, after a climax",
+          "Test on one honest spectator; judge by the retelling; revise the beat, not the move"
+        ],
+        "notes": "Run the worksheet on a familiar trick in the room: write its memory sentence, list its conditions, and check which conditions the current routine actually registers. Close the course by assigning the full design loop to one piece in each student's repertoire.",
+        "visual": "The four-step design worksheet, memory first."
+      }
+    ]
+  },
+  "enrichment": {
+    "audioTitle": "From Opposite Sides of the Table: Reconstructing a Vanish",
+    "turns": [
+      {
+        "speaker": "teacher",
+        "line": "Let me do it once more, slowly. The coin is in my right hand — watch — I place it in my left, close my left, and it's gone. Now: tell me what happened."
+      },
+      {
+        "speaker": "student",
+        "line": "You put the coin in your left hand. I saw it go in. Then your right hand went down to the table, and when you opened your left, nothing. Which is impossible, so somewhere in there you're lying to me."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Somewhere in there. When did my right hand go to the table — before or after the coin went into my left?"
+      },
+      {
+        "speaker": "student",
+        "line": "After. It had finished its job, so it just… rested. Honestly, I stopped paying it any attention the second the coin was in your left hand."
+      },
+      {
+        "speaker": "teacher",
+        "line": "That sentence is the whole course. You stopped paying attention to the right hand because its story was finished. The coin never left it — but the hand's meaning was settled, so your mind filed the hand under 'done' and spent everything on the fist."
+      },
+      {
+        "speaker": "student",
+        "line": "But I was watching for exactly that. I came in tonight determined not to be fooled by the old hand-switch."
+      },
+      {
+        "speaker": "teacher",
+        "line": "And that determination helped me. You were counting something — like the people counting basketball passes who never saw the gorilla walk through. Your budget was assigned to 'watch for the switch,' and the switch you imagined was a fast one, in the wrong hand."
+      },
+      {
+        "speaker": "student",
+        "line": "So when did the actual secret thing happen? During the place into the left hand?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Earlier than you think, and slower. It happened inside an action you'd already decided was ordinary — which is Ramsay's whole lesson. You didn't miss a fast move. You correctly watched a slow one and filed it under the wrong heading."
+      },
+      {
+        "speaker": "student",
+        "line": "That's worse, somehow. If it were speed I could train my eyes. You're telling me my eyes were fine and my filing system betrayed me."
+      },
+      {
+        "speaker": "teacher",
+        "line": "Your eyes are fine instruments. Everyone's are. That's why good magic never fights the eyes — it negotiates with the editor who decides what the eyes' footage means afterwards."
+      },
+      {
+        "speaker": "student",
+        "line": "Then explain the ending. When you opened your left hand and it was empty, I felt the impossibility then — not during any move. Why does the feeling land at the reveal?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Because the effect was designed backwards from that moment. I chose the sentence first — 'the coin was in his left hand the whole time' — then built every condition that sentence needs: you saw it placed, my right hand finished and rested, nothing was hidden because nothing needed hiding."
+      },
+      {
+        "speaker": "student",
+        "line": "And if I'd grabbed your right hand at the end?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "You'd have caught a coin — and proved the design worked. During the performance it never occurred to you to grab it, because resting hands don't get grabbed; their story is finished. The frame was doing the guarding, not my fingers."
+      },
+      {
+        "speaker": "student",
+        "line": "The frame was the trick, then. The settled meanings, the spent attention — and the sleight in the middle was the cheap part all along."
+      }
+    ],
+    "nodes": [
+      {
+        "id": "root",
+        "label": "The Thinking Layer",
+        "parent": null,
+        "note": "Sleight of hand succeeds in the spectator's memory, not in the performer's hands."
+      },
+      {
+        "id": "n1",
+        "label": "The Spectator's Mind",
+        "parent": "root",
+        "note": "Attention samples; memory reconstructs. Gorilla and door studies; the method must be forgotten first."
+      },
+      {
+        "id": "n2",
+        "label": "Misdirection",
+        "parent": "root",
+        "note": "Fitzkee's budget: physical, psychological, and temporal forms; big covers small; the question-answer rhythm."
+      },
+      {
+        "id": "n3",
+        "label": "Erdnase's Standard",
+        "parent": "root",
+        "note": "Advantage-play pricing of technique; uniformity of action; speed is a confession."
+      },
+      {
+        "id": "n4",
+        "label": "Vernon's Standard",
+        "parent": "root",
+        "note": "Be a performer, not a magician: naturalness, motivated action, economy."
+      },
+      {
+        "id": "n5",
+        "label": "Design Backwards",
+        "parent": "root",
+        "note": "Memory sentence → conditions → cheapest method → scripted beats and the off-beat."
+      },
+      {
+        "id": "n6",
+        "label": "The Honest Test",
+        "parent": "root",
+        "note": "One truthful spectator; judge by the retelling; revise the beat, not the move."
+      }
+    ],
+    "mnemonics": [
+      {
+        "for": "The three forms of misdirection (physical, psychological, temporal)",
+        "aid": "Eyes, Filing, Clock — steer what they see, how they file it, and when it happens."
+      },
+      {
+        "for": "The backwards design order (memory, conditions, method, script)",
+        "aid": "Sentence first, machinery last: Say it, Settle it, Solve it, Script it."
+      },
+      {
+        "for": "Vernon's three checks on any action (natural, motivated, economical)",
+        "aid": "Would I? Why now? Why at all?"
+      }
+    ]
+  }
+}
