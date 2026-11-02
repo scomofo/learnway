@@ -1,0 +1,752 @@
+{
+  "meta": {
+    "title": "Remote Sensing: From Pixels to Field Decisions",
+    "topic": "Remote sensing for agriculture",
+    "level": "intermediate",
+    "estimatedMinutes": 65,
+    "tags": [
+      "remote sensing",
+      "agriculture",
+      "NDVI",
+      "satellites",
+      "field data"
+    ],
+    "createdAt": "2026-10-31T04:00:00.000Z",
+    "interests": "Agriculture, music, space, practical engineering and evidence-based technology",
+    "depth": "standard",
+    "model": "Learnway authored course"
+  },
+  "plan": {
+    "title": "Remote Sensing: From Pixels to Field Decisions",
+    "hook": "A low vegetation-index patch tells you where to look, but rarely tells you the cause. Connect pixels, reflectance, image quality and field evidence before making a decision.",
+    "objectives": [
+      "Explain spatial, spectral and temporal resolution",
+      "Calculate NDVI from compatible reflectance measurements",
+      "Identify cloud, registration and missing-data pitfalls",
+      "Prepare an image-led scouting plan that tests more than one cause"
+    ],
+    "prerequisites": [
+      "Ratios and map coordinates; no imagery subscription required"
+    ],
+    "sections": [
+      {
+        "id": "remote-pixels",
+        "heading": "Match the image scale to the question",
+        "points": [
+          "Spatial: footprint and resolvable detail",
+          "Spectral: wavelength bands",
+          "Temporal: observation timing"
+        ]
+      },
+      {
+        "id": "remote-spectrum",
+        "heading": "Distinguish reflectance from brightness",
+        "points": [
+          "Signal: depends on surface and observation conditions",
+          "Reflectance: calibrated physical fraction",
+          "Comparability: inspect product scaling and flags"
+        ]
+      },
+      {
+        "id": "remote-ndvi",
+        "heading": "Calculate the index, then limit the claim",
+        "points": [
+          "Formula: near infrared minus red over their sum",
+          "Interpretation: spectral contrast",
+          "Limit: equal index does not imply equal cause"
+        ]
+      },
+      {
+        "id": "remote-quality",
+        "heading": "Check timing, clouds and alignment",
+        "points": [
+          "Quality: mask invalid observations",
+          "Coverage: report valid area or count",
+          "Alignment: compare the same ground footprint"
+        ]
+      },
+      {
+        "id": "remote-ground",
+        "heading": "Design a field check that can contradict the map story",
+        "points": [
+          "Hypotheses: several mechanisms can fit one pattern",
+          "Matched checks: inspect typical and low areas",
+          "Decision: define what evidence would change it"
+        ]
+      },
+      {
+        "id": "remote-capstone",
+        "heading": "Capstone: turn a contrast into a scouting plan",
+        "points": [
+          "Compute: 0.50 versus about 0.286",
+          "Conclude: spectral difference under stated assumptions",
+          "Act: matched scouting before causal attribution"
+        ]
+      }
+    ]
+  },
+  "reading": {
+    "sections": [
+      {
+        "id": "remote-pixels",
+        "heading": "Match the image scale to the question",
+        "body": "Remote sensing measures a surface from a distance. An optical image pixel summarizes a ground footprint through a sensor’s response; it is not a direct label for an individual plant. A footprint can include crop, bare soil, residue and shadow.\n\nSpatial resolution concerns ground detail. Spectral resolution concerns which wavelength ranges can be distinguished. Temporal resolution concerns observation timing. None guarantees the others. Frequent observations with coarse footprints may answer seasonal questions better than a single very fine image.\n\nA 20 m square pixel covers 20 × 20 = 400 m². A feature only 2 m wide can contribute to several mixed pixels without becoming cleanly resolved. Enlarging the image changes display size, not the original information content. Interpolation can make a smoother map without creating new independent measurements.\n\n**Try it:** Choose between a field-wide growth trend and an individual blocked nozzle as an imaging question. Explain why the required spatial and timing evidence differ. The 20 m example is fictional; actual products have band-specific footprints and processing details.",
+        "visual": "Each cell represents a ground footprint. Colour variation is conceptual and illustrates mixed responses, not crop diagnoses.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">A pixel is a footprint, not a plant</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">A 20 m × 20 m teaching grid; colours represent mixed surface responses.</text><rect x=\"100\" y=\"115\" width=\"42\" height=\"42\" rx=\"6\" fill=\"#69d9d0\" stroke=\"none\"/><rect x=\"145\" y=\"115\" width=\"42\" height=\"42\" rx=\"6\" fill=\"#f8bf70\" stroke=\"none\"/><rect x=\"190\" y=\"115\" width=\"42\" height=\"42\" rx=\"6\" fill=\"#baa6ff\" stroke=\"none\"/><rect x=\"235\" y=\"115\" width=\"42\" height=\"42\" rx=\"6\" fill=\"#455670\" stroke=\"none\"/><rect x=\"100\" y=\"160\" width=\"42\" height=\"42\" rx=\"6\" fill=\"#f8bf70\" stroke=\"none\"/><rect x=\"145\" y=\"160\" width=\"42\" height=\"42\" rx=\"6\" fill=\"#baa6ff\" stroke=\"none\"/><rect x=\"190\" y=\"160\" width=\"42\" height=\"42\" rx=\"6\" fill=\"#455670\" stroke=\"none\"/><rect x=\"235\" y=\"160\" width=\"42\" height=\"42\" rx=\"6\" fill=\"#69d9d0\" stroke=\"none\"/><rect x=\"100\" y=\"205\" width=\"42\" height=\"42\" rx=\"6\" fill=\"#baa6ff\" stroke=\"none\"/><rect x=\"145\" y=\"205\" width=\"42\" height=\"42\" rx=\"6\" fill=\"#455670\" stroke=\"none\"/><rect x=\"190\" y=\"205\" width=\"42\" height=\"42\" rx=\"6\" fill=\"#69d9d0\" stroke=\"none\"/><rect x=\"235\" y=\"205\" width=\"42\" height=\"42\" rx=\"6\" fill=\"#f8bf70\" stroke=\"none\"/><rect x=\"100\" y=\"250\" width=\"42\" height=\"42\" rx=\"6\" fill=\"#455670\" stroke=\"none\"/><rect x=\"145\" y=\"250\" width=\"42\" height=\"42\" rx=\"6\" fill=\"#69d9d0\" stroke=\"none\"/><rect x=\"190\" y=\"250\" width=\"42\" height=\"42\" rx=\"6\" fill=\"#f8bf70\" stroke=\"none\"/><rect x=\"235\" y=\"250\" width=\"42\" height=\"42\" rx=\"6\" fill=\"#baa6ff\" stroke=\"none\"/><rect x=\"360\" y=\"135\" width=\"360\" height=\"150\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"376\" y=\"165\" fill=\"#69d9d0\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">One pixel</text><text x=\"376\" y=\"197\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Area: 400 m²</text><text x=\"376\" y=\"224\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">May include crop, soil and shadow</text><text x=\"376\" y=\"251\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Zooming cannot unmix the signal</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">Conceptual model; assumptions and units are explained in the lesson.</text></svg>",
+        "questions": [
+          {
+            "q": "What is the area of a 20 m square pixel?",
+            "hint": "Multiply both horizontal dimensions.",
+            "answer": "400 m². It may summarize several surface types within that area."
+          },
+          {
+            "q": "Does zooming reveal new independent ground observations?",
+            "hint": "Display pixels differ from sensor footprints.",
+            "answer": "No. Zoom or interpolation changes representation, not the information originally measured."
+          }
+        ]
+      },
+      {
+        "id": "remote-spectrum",
+        "heading": "Distinguish reflectance from brightness",
+        "body": "An optical sensor measures incoming radiation in wavelength bands. The recorded signal depends on illumination, atmosphere, surface properties, viewing geometry and instrument response. A bright digital number is not automatically a high surface reflectance unless the product’s calibration and scaling are understood.\n\nReflectance is the fraction of incident radiation reflected under a stated measurement definition. Green vegetation typically absorbs strongly in red wavelengths and reflects more in near infrared because pigments and leaf structure affect the two bands differently. Soil, water, shadows and crop stage also change the measured spectrum.\n\nSurface-reflectance products attempt to account for atmospheric effects. They still carry uncertainty and quality flags. Band names and stored integers may need scale factors or offsets before comparison; applying a ratio to incompatible quantities can produce a convincing but meaningless index.\n\n**Predict:** Would a darker image after a cloudy acquisition prove that vegetation declined? No. Illumination, atmosphere or contamination could explain it.\n\n**Try it:** Write a product checklist: quantity, units or scaling, band identity, date, spatial reference and quality flags. State which checks establish comparability and which still require field evidence.",
+        "visual": "The schematic spectrum shows contrasting red and near-infrared responses. It explains band choice without claiming to measure a specific field.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">Different bands reveal different responses</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Illustrative vegetation reflectance, not a measured spectral library.</text><line x1=\"90\" y1=\"315\" x2=\"730\" y2=\"315\" stroke=\"#a8b9d0\" stroke-width=\"2\"/><line x1=\"90\" y1=\"315\" x2=\"90\" y2=\"115\" stroke=\"#a8b9d0\" stroke-width=\"2\"/><text x=\"730\" y=\"346\" fill=\"#a8b9d0\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"end\">Wavelength →</text><text x=\"90\" y=\"101\" fill=\"#a8b9d0\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Reflectance</text><path d=\"M 110.00 270.00 L 220.00 245.00 L 330.00 280.00 L 420.00 255.00 L 485.00 145.00 L 600.00 130.00 L 710.00 140.00\" fill=\"none\" stroke=\"#69d9d0\" stroke-width=\"3\"/><circle cx=\"110\" cy=\"270\" r=\"4\" fill=\"#69d9d0\"/><circle cx=\"220\" cy=\"245\" r=\"4\" fill=\"#69d9d0\"/><circle cx=\"330\" cy=\"280\" r=\"4\" fill=\"#69d9d0\"/><circle cx=\"420\" cy=\"255\" r=\"4\" fill=\"#69d9d0\"/><circle cx=\"485\" cy=\"145\" r=\"4\" fill=\"#69d9d0\"/><circle cx=\"600\" cy=\"130\" r=\"4\" fill=\"#69d9d0\"/><circle cx=\"710\" cy=\"140\" r=\"4\" fill=\"#69d9d0\"/><text x=\"260\" y=\"312\" fill=\"#f69caf\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">Red</text><text x=\"555\" y=\"312\" fill=\"#f8bf70\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">Near infrared</text><text x=\"390\" y=\"107\" fill=\"#a8b9d0\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Reflectance is a fraction, not raw brightness</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">Conceptual model; assumptions and units are explained in the lesson.</text></svg>",
+        "questions": [
+          {
+            "q": "Why are raw stored band integers not always ready for an index?",
+            "hint": "Check the product’s conversion rules.",
+            "answer": "They may require scale factors and offsets, and the bands must represent compatible quantities before arithmetic is meaningful."
+          },
+          {
+            "q": "Why does vegetation often contrast between red and near infrared?",
+            "hint": "Pigments and leaf structure affect different wavelengths.",
+            "answer": "Pigments absorb strongly in red while internal leaf structure supports greater near-infrared reflection; the contrast is not a unique diagnosis."
+          }
+        ]
+      },
+      {
+        "id": "remote-ndvi",
+        "heading": "Calculate the index, then limit the claim",
+        "body": "The normalized difference vegetation index, or NDVI, compares near-infrared and red reflectance. Subtract red from near infrared, then divide by their sum. The normalization makes a contrast, rather than preserving the absolute magnitude of either band.\n\nFor near-infrared reflectance 0.60 and red 0.20, the difference is 0.40 and the sum is 0.80. NDVI is 0.40 / 0.80 = 0.50. For nonnegative inputs and a positive denominator, values lie between −1 and +1. A zero or invalid denominator needs explicit handling, not an invented zero index.\n\nDifferent pairs can yield the same result: 0.30 and 0.10 also give 0.50. NDVI therefore does not retain every detail of the spectrum. It can also become less sensitive at dense canopy conditions, and soil background affects sparse cover.\n\n**Try it:** Calculate the index for 0.45 near infrared and 0.25 red: 0.20 / 0.70 ≈ 0.286. Describe it as lower spectral contrast than the first example. Water stress, nutrient status, disease, crop stage and background remain competing explanations; the number alone chooses none of them.",
+        "visual": "The two bars supply both parts of the NDVI calculation. A valid arithmetic answer still needs a bounded interpretation.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">A normalized contrast between two bands</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Fictional surface reflectances: near infrared 0.60 and red 0.20.</text><text x=\"195\" y=\"152\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"end\">Near infrared</text><rect x=\"210\" y=\"130\" width=\"475\" height=\"30\" rx=\"6\" fill=\"none\" stroke=\"#33445e\"/><rect x=\"210\" y=\"130\" width=\"356.25\" height=\"30\" rx=\"6\" fill=\"#69d9d0\" stroke=\"#69d9d0\"/><text x=\"697\" y=\"152\" fill=\"#69d9d0\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">0.6 </text><text x=\"195\" y=\"217\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"end\">Red</text><rect x=\"210\" y=\"195\" width=\"475\" height=\"30\" rx=\"6\" fill=\"none\" stroke=\"#33445e\"/><rect x=\"210\" y=\"195\" width=\"118.75\" height=\"30\" rx=\"6\" fill=\"#f69caf\" stroke=\"#f69caf\"/><text x=\"697\" y=\"217\" fill=\"#f69caf\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">0.2 </text><text x=\"100\" y=\"305\" fill=\"#f8bf70\" font-size=\"22\" font-family=\"sans-serif\" text-anchor=\"start\">NDVI = (0.60 − 0.20) / (0.60 + 0.20) = 0.50</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">The value describes a spectral contrast; it does not identify the cause of crop stress.</text></svg>",
+        "questions": [
+          {
+            "q": "What NDVI follows from 0.60 near infrared and 0.20 red?",
+            "hint": "Compute numerator and denominator separately.",
+            "answer": "(0.60 − 0.20) / (0.60 + 0.20) = 0.40 / 0.80 = 0.50."
+          },
+          {
+            "q": "Does a lower NDVI prove nitrogen deficiency?",
+            "hint": "Separate a measured contrast from its possible causes.",
+            "answer": "No. Several crop, background and observation conditions can change the index. A field check must distinguish them."
+          }
+        ]
+      },
+      {
+        "id": "remote-quality",
+        "heading": "Check timing, clouds and alignment",
+        "body": "A time-series difference can be biological change, observation error or both. Compare acquisition dates, crop stage, sun and view conditions, product processing and spatial alignment. A pixel shifted across a field boundary can change its apparent value without any crop change.\n\nQuality-assessment information can identify cloud, shadow, snow, saturation or missing data. Mask unsuitable observations before summarizing them. A masked pixel means no usable observation for that calculation; replacing it with zero changes the statistic and can create an artificial decline.\n\nSuppose usable index values are 0.50, 0.60 and 0.70, plus one cloudy observation. The mean of usable values is 0.60. Substituting zero for cloud gives 0.45 and invents a lower result. Record the valid-pixel count or valid area along with any mean.\n\n**Try it:** Design a comparison between two dates with different cloud coverage. Use a common valid footprint where appropriate, report coverage, and explain what was excluded. The same colour ramp and legend limits should be used; automatically stretched colours can make equal values look different.",
+        "visual": "The missing cloud observation stays visibly missing. Connecting it to zero would create a false downward event.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">A missing observation is not a zero</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">A fictional time series with one masked cloud observation.</text><line x1=\"90\" y1=\"315\" x2=\"730\" y2=\"315\" stroke=\"#a8b9d0\" stroke-width=\"2\"/><line x1=\"90\" y1=\"315\" x2=\"90\" y2=\"115\" stroke=\"#a8b9d0\" stroke-width=\"2\"/><text x=\"730\" y=\"346\" fill=\"#a8b9d0\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"end\">Observation date →</text><text x=\"90\" y=\"101\" fill=\"#a8b9d0\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Vegetation index</text><path d=\"M 110.00 250.00 L 220.00 200.00 L 330.00 170.00\" fill=\"none\" stroke=\"#69d9d0\" stroke-width=\"3\"/><circle cx=\"110\" cy=\"250\" r=\"4\" fill=\"#69d9d0\"/><circle cx=\"220\" cy=\"200\" r=\"4\" fill=\"#69d9d0\"/><circle cx=\"330\" cy=\"170\" r=\"4\" fill=\"#69d9d0\"/><path d=\"M 550.00 155.00 L 700.00 165.00\" fill=\"none\" stroke=\"#69d9d0\" stroke-width=\"3\"/><circle cx=\"550\" cy=\"155\" r=\"4\" fill=\"#69d9d0\"/><circle cx=\"700\" cy=\"165\" r=\"4\" fill=\"#69d9d0\"/><path d=\"M 432 225 L 448 241 M 432 241 L 448 225\" fill=\"none\" stroke=\"#f69caf\" stroke-width=\"3\"/><text x=\"360\" y=\"285\" fill=\"#f69caf\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">Cloud: masked</text><text x=\"95\" y=\"135\" fill=\"#a8b9d0\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">No line is drawn through the missing value</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">Conceptual model; assumptions and units are explained in the lesson.</text></svg>",
+        "questions": [
+          {
+            "q": "Why should cloud-masked pixels not become measured zeros?",
+            "hint": "Missingness is not a surface property.",
+            "answer": "They contain no usable observation for the statistic. Zero substitution biases summaries and can invent a decline."
+          },
+          {
+            "q": "What is the mean of usable values 0.50, 0.60 and 0.70?",
+            "hint": "Divide by the valid count.",
+            "answer": "The sum is 1.80 across three valid observations, giving 0.60. The cloudy observation stays excluded and documented."
+          }
+        ]
+      },
+      {
+        "id": "remote-ground",
+        "heading": "Design a field check that can contradict the map story",
+        "body": "A map is useful when it changes where and how you collect evidence. Start with competing explanations for a low-index patch: crop stage, poor emergence, wetness, disease, nutrient availability, soil background or an observation artifact. The list should fit the actual crop and time.\n\nVisit both the low-index area and a comparable typical area. Match crop stage, management context and observation timing where possible. Record geolocation, canopy cover, visible symptoms, soil conditions and measurement method. Photographing only the most dramatic spot invites selection bias.\n\nA field observation can weaken a hypothesis. Sparse emergence with more bare soil may explain a low index without demonstrating a current leaf-level nutrient problem. A patch coinciding with cloud shadow in quality data may point to the image rather than the crop.\n\n**Try it:** Write three hypotheses and one discriminating observation for each. Decide in advance what evidence would cause you to stop short of a treatment decision. Scouting findings are not automatically a causal experiment; agronomic prescriptions require appropriate local expertise and additional evidence.",
+        "visual": "Both suspect and comparison locations are marked. Their purpose is matched evidence, not a prescription map.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">Ground checks test competing explanations</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">A conceptual field plan; choose matched checks rather than only extremes.</text><rect x=\"100\" y=\"110\" width=\"600\" height=\"215\" rx=\"6\" fill=\"#253e3b\" stroke=\"#a8b9d0\"/><rect x=\"110\" y=\"120\" width=\"200\" height=\"195\" rx=\"6\" fill=\"#665443\" stroke=\"none\"/><circle cx=\"170\" cy=\"170\" r=\"10\" fill=\"#f8bf70\"/><circle cx=\"230\" cy=\"265\" r=\"10\" fill=\"#f8bf70\"/><circle cx=\"450\" cy=\"170\" r=\"10\" fill=\"#69d9d0\"/><circle cx=\"565\" cy=\"265\" r=\"10\" fill=\"#69d9d0\"/><text x=\"335\" y=\"140\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">Matched crop stage and soil context</text><text x=\"330\" y=\"300\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">Inspect both low and typical index areas</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">Record location, date, crop stage and observations before assigning a cause.</text></svg>",
+        "questions": [
+          {
+            "q": "Why inspect a typical-index area as well as the low patch?",
+            "hint": "You need a comparison with context.",
+            "answer": "A matched typical area helps distinguish patch-specific evidence from field-wide crop stage, soil or observation conditions."
+          },
+          {
+            "q": "What can sparse emergence explain without proving nutrient deficiency?",
+            "hint": "Pixels include background.",
+            "answer": "More visible bare soil changes the mixed spectral signal. The low index may reflect cover rather than a unique leaf-level cause."
+          }
+        ]
+      },
+      {
+        "id": "remote-capstone",
+        "heading": "Capstone: turn a contrast into a scouting plan",
+        "body": "Zone A has near-infrared reflectance 0.60 and red 0.20. Zone B has 0.45 and 0.25. Assume comparable, cloud-screened surface-reflectance measurements aligned to the same field and date.\n\n**Your task:** Calculate both NDVI values, state the strongest justified conclusion, and design two matched ground checks to distinguish reduced crop cover from a wetness-related growth difference. Name a remaining uncertainty.\n\n**Worked solution:** A gives 0.40 / 0.80 = 0.50. B gives 0.20 / 0.70 ≈ 0.286. B has lower red–near-infrared contrast under the stated measurement assumptions. That supports prioritizing B for inspection, not selecting a treatment. Compare cover and emergence at matched A/B sites; also record soil wetness and terrain position after similar weather. Check crop stage and management history before treating the zones as directly comparable.\n\n**Check your work:** Keep the band quantities, numerator, denominator and rounded result. Report quality screening, footprint alignment, valid area and the hypotheses each field observation addresses. If measurements do not distinguish the proposed causes, say so. The useful output is a defensible next observation, not certainty manufactured from a coloured map.",
+        "visual": "The capstone keeps the spectral computation separate from the field diagnosis. The two zones become a scouting comparison rather than a treatment claim.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">From image difference to a scouting decision</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Both fictional zones use comparable, cloud-screened surface reflectance.</text><rect x=\"60\" y=\"120\" width=\"325\" height=\"200\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"76\" y=\"150\" fill=\"#69d9d0\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Zone A</text><text x=\"76\" y=\"182\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Near infrared: 0.60</text><text x=\"76\" y=\"209\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Red: 0.20</text><text x=\"76\" y=\"236\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">NDVI: 0.50</text><text x=\"76\" y=\"263\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Needs field context</text><rect x=\"415\" y=\"120\" width=\"325\" height=\"200\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"431\" y=\"150\" fill=\"#f8bf70\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Zone B</text><text x=\"431\" y=\"182\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Near infrared: 0.45</text><text x=\"431\" y=\"209\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Red: 0.25</text><text x=\"431\" y=\"236\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">NDVI: about 0.286</text><text x=\"431\" y=\"263\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Lower contrast; cause unknown</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">Use the contrast to prioritize a matched field check; it is not a nutrient prescription.</text></svg>",
+        "questions": [
+          {
+            "q": "What is the strongest supported conclusion from the two index values?",
+            "hint": "State what was measured before naming a cause.",
+            "answer": "Zone B has lower red–near-infrared contrast in the comparable screened observations. The cause remains unestablished."
+          },
+          {
+            "q": "Which two checks target the proposed competing explanations?",
+            "hint": "Separate cover from soil-water context.",
+            "answer": "Compare emergence and canopy cover at matched sites, and record soil wetness plus terrain position under comparable conditions."
+          }
+        ]
+      }
+    ]
+  },
+  "quizzes": {
+    "sections": [
+      {
+        "id": "remote-pixels",
+        "questions": [
+          {
+            "q": "A 10 m × 10 m pixel covers what area?",
+            "choices": [
+              "100 m²",
+              "10 m²",
+              "1,000 m²",
+              "1 hectare"
+            ],
+            "answer": 0,
+            "explain": "Area equals 10 × 10 = 100 m²."
+          },
+          {
+            "q": "Which resolution describes how often comparable observations are available?",
+            "choices": [
+              "The map legend font",
+              "Temporal resolution",
+              "Spatial resolution only",
+              "Spectral resolution only"
+            ],
+            "answer": 1,
+            "explain": "Temporal resolution concerns observation timing, though clouds may reduce usable frequency."
+          },
+          {
+            "q": "Why may a narrow path not appear as a clean separate object?",
+            "choices": [
+              "All pixels represent single plants",
+              "Spatial scale has no effect",
+              "Its signal mixes with other surfaces inside the footprint",
+              "Zoom always deletes paths"
+            ],
+            "answer": 2,
+            "explain": "Sub-pixel features contribute to mixed measurements rather than guaranteed distinct objects."
+          }
+        ]
+      },
+      {
+        "id": "remote-spectrum",
+        "questions": [
+          {
+            "q": "What is reflectance in this lesson?",
+            "choices": [
+              "The acquisition date",
+              "A fraction of incident radiation reflected under a stated definition",
+              "The number of display colours",
+              "A direct nutrient concentration"
+            ],
+            "answer": 1,
+            "explain": "Reflectance describes a radiometric surface response, not a diagnosis or display property."
+          },
+          {
+            "q": "Which comparison is most defensible?",
+            "choices": [
+              "A screenshot colour versus a lab concentration without calibration",
+              "Images compared solely by brightness",
+              "Compatible calibrated bands with known scaling and quality screening",
+              "Any two raw integer bands from unrelated products"
+            ],
+            "answer": 2,
+            "explain": "Comparable quantities, scaling and quality are prerequisites to interpretation."
+          },
+          {
+            "q": "What else can alter an optical signal besides crop condition?",
+            "choices": [
+              "Only the filename",
+              "Only the map zoom",
+              "Nothing after launch",
+              "Atmosphere, illumination, soil background and viewing geometry"
+            ],
+            "answer": 3,
+            "explain": "Several observation and background conditions affect the measurement and must be considered."
+          }
+        ]
+      },
+      {
+        "id": "remote-ndvi",
+        "questions": [
+          {
+            "q": "With near infrared 0.30 and red 0.10, what is NDVI?",
+            "choices": [
+              "0.40",
+              "2.0",
+              "0.50",
+              "0.20"
+            ],
+            "answer": 2,
+            "explain": "(0.30 − 0.10) / (0.30 + 0.10) = 0.20 / 0.40 = 0.50."
+          },
+          {
+            "q": "What should happen when the denominator is invalid or zero?",
+            "choices": [
+              "Silently assign healthy vegetation",
+              "Always report zero as a real measurement",
+              "Divide by the acquisition date",
+              "Mark the result invalid with its reason"
+            ],
+            "answer": 3,
+            "explain": "An invalid calculation must remain distinguishable from a valid zero index."
+          },
+          {
+            "q": "What information is lost by reducing two bands to one normalized ratio?",
+            "choices": [
+              "Some absolute band-magnitude information",
+              "Every relationship between the bands",
+              "The fact that it is a ratio",
+              "Nothing; the original pair is uniquely recoverable"
+            ],
+            "answer": 0,
+            "explain": "Different band pairs can give the same ratio, so the index cannot uniquely recover their absolute values."
+          }
+        ]
+      },
+      {
+        "id": "remote-quality",
+        "questions": [
+          {
+            "q": "What mean results from wrongly adding zero to 0.50, 0.60 and 0.70 and dividing by four?",
+            "choices": [
+              "0.60",
+              "0.70",
+              "1.80",
+              "0.45"
+            ],
+            "answer": 3,
+            "explain": "1.80 / 4 = 0.45. This illustrates bias from treating missing cloud data as an observed zero."
+          },
+          {
+            "q": "What should accompany a field mean from a partially cloudy image?",
+            "choices": [
+              "Valid coverage and the masking method",
+              "Only the brightest colour",
+              "A claim that all pixels were observed",
+              "A hidden replacement value"
+            ],
+            "answer": 0,
+            "explain": "Coverage reveals how much ground supports the statistic and whether comparisons use different samples."
+          },
+          {
+            "q": "How can a boundary pixel change without crop change?",
+            "choices": [
+              "Alignment never affects ratios",
+              "Misregistration changes which surfaces enter its footprint",
+              "The crop must be diseased",
+              "Every pixel is an independent plant"
+            ],
+            "answer": 1,
+            "explain": "Spatial shifts can mix different crop, soil or neighbouring-field signals."
+          }
+        ]
+      },
+      {
+        "id": "remote-ground",
+        "questions": [
+          {
+            "q": "Which scouting plan most directly reduces selection bias?",
+            "choices": [
+              "Predefine matched low and typical-area checks",
+              "Photograph only the worst plant",
+              "Choose only locations supporting the first diagnosis",
+              "Ignore location and crop stage"
+            ],
+            "answer": 0,
+            "explain": "A predefined comparison reduces cherry-picking and adds context for interpreting the pattern."
+          },
+          {
+            "q": "A low-index patch matches a cloud-shadow flag. What should you check first?",
+            "choices": [
+              "Change the index formula to force a high value",
+              "Whether the observation is usable before making a crop diagnosis",
+              "Apply a nutrient treatment immediately",
+              "Assume all plants are dead"
+            ],
+            "answer": 1,
+            "explain": "Image quality is a prior requirement; contaminated observations cannot support the same crop inference."
+          },
+          {
+            "q": "What separates a useful hypothesis from a fixed story?",
+            "choices": [
+              "Refusing comparison sites",
+              "A claim that one cause explains every field",
+              "An observation that could weaken or refute it",
+              "A more dramatic map colour"
+            ],
+            "answer": 2,
+            "explain": "A testable hypothesis states what evidence would change the interpretation."
+          }
+        ]
+      },
+      {
+        "id": "remote-capstone",
+        "questions": [
+          {
+            "q": "What is zone B’s NDVI to three decimal places?",
+            "choices": [
+              "0.556",
+              "0.286",
+              "0.200",
+              "0.700"
+            ],
+            "answer": 1,
+            "explain": "(0.45 − 0.25) / (0.45 + 0.25) = 0.20 / 0.70 ≈ 0.286."
+          },
+          {
+            "q": "Which action follows most directly from the available evidence?",
+            "choices": [
+              "Treat the image as a soil test",
+              "Assume A and B have identical crop stage without checking",
+              "Prioritize a matched scouting check in B",
+              "Infer a unique nutrient deficit"
+            ],
+            "answer": 2,
+            "explain": "The contrast supports targeting observation; it does not uniquely identify a cause or treatment."
+          },
+          {
+            "q": "What should the memo say if the field checks cannot distinguish causes?",
+            "choices": [
+              "Choose the original diagnosis regardless",
+              "Delete the typical-area observations",
+              "Report the lower index as proven disease",
+              "The cause remains uncertain and further discriminating evidence is needed"
+            ],
+            "answer": 3,
+            "explain": "An honest unresolved result preserves the limits of the evidence and guides the next measurement."
+          }
+        ]
+      }
+    ]
+  },
+  "slides": {
+    "sections": [
+      {
+        "id": "remote-pixels",
+        "title": "Match the image scale to the question",
+        "bullets": [
+          "Spatial: footprint and resolvable detail",
+          "Spectral: wavelength bands",
+          "Temporal: observation timing"
+        ],
+        "notes": "400 m². It may summarize several surface types within that area. No. Zoom or interpolation changes representation, not the information originally measured.",
+        "visual": "Each cell represents a ground footprint. Colour variation is conceptual and illustrates mixed responses, not crop diagnoses."
+      },
+      {
+        "id": "remote-spectrum",
+        "title": "Distinguish reflectance from brightness",
+        "bullets": [
+          "Signal: depends on surface and observation conditions",
+          "Reflectance: calibrated physical fraction",
+          "Comparability: inspect product scaling and flags"
+        ],
+        "notes": "They may require scale factors and offsets, and the bands must represent compatible quantities before arithmetic is meaningful. Pigments absorb strongly in red while internal leaf structure supports greater near-infrared reflection; the contrast is not a unique diagnosis.",
+        "visual": "The schematic spectrum shows contrasting red and near-infrared responses. It explains band choice without claiming to measure a specific field."
+      },
+      {
+        "id": "remote-ndvi",
+        "title": "Calculate the index, then limit the claim",
+        "bullets": [
+          "Formula: near infrared minus red over their sum",
+          "Interpretation: spectral contrast",
+          "Limit: equal index does not imply equal cause"
+        ],
+        "notes": "(0.60 − 0.20) / (0.60 + 0.20) = 0.40 / 0.80 = 0.50. No. Several crop, background and observation conditions can change the index. A field check must distinguish them.",
+        "visual": "The two bars supply both parts of the NDVI calculation. A valid arithmetic answer still needs a bounded interpretation."
+      },
+      {
+        "id": "remote-quality",
+        "title": "Check timing, clouds and alignment",
+        "bullets": [
+          "Quality: mask invalid observations",
+          "Coverage: report valid area or count",
+          "Alignment: compare the same ground footprint"
+        ],
+        "notes": "They contain no usable observation for the statistic. Zero substitution biases summaries and can invent a decline. The sum is 1.80 across three valid observations, giving 0.60. The cloudy observation stays excluded and documented.",
+        "visual": "The missing cloud observation stays visibly missing. Connecting it to zero would create a false downward event."
+      },
+      {
+        "id": "remote-ground",
+        "title": "Design a field check that can contradict the map story",
+        "bullets": [
+          "Hypotheses: several mechanisms can fit one pattern",
+          "Matched checks: inspect typical and low areas",
+          "Decision: define what evidence would change it"
+        ],
+        "notes": "A matched typical area helps distinguish patch-specific evidence from field-wide crop stage, soil or observation conditions. More visible bare soil changes the mixed spectral signal. The low index may reflect cover rather than a unique leaf-level cause.",
+        "visual": "Both suspect and comparison locations are marked. Their purpose is matched evidence, not a prescription map."
+      },
+      {
+        "id": "remote-capstone",
+        "title": "Capstone: turn a contrast into a scouting plan",
+        "bullets": [
+          "Compute: 0.50 versus about 0.286",
+          "Conclude: spectral difference under stated assumptions",
+          "Act: matched scouting before causal attribution"
+        ],
+        "notes": "Zone B has lower red–near-infrared contrast in the comparable screened observations. The cause remains unestablished. Compare emergence and canopy cover at matched sites, and record soil wetness plus terrain position under comparable conditions.",
+        "visual": "The capstone keeps the spectral computation separate from the field diagnosis. The two zones become a scouting comparison rather than a treatment claim."
+      }
+    ]
+  },
+  "enrichment": {
+    "audioTitle": "Remote Sensing: From Pixels to Field Decisions — reason it through",
+    "turns": [
+      {
+        "speaker": "teacher",
+        "line": "A low vegetation-index patch tells you where to look, but rarely tells you the cause. Connect pixels, reflectance, image quality and field evidence before making a decision."
+      },
+      {
+        "speaker": "student",
+        "line": "What will I make by the end?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Prepare an image-led scouting plan that tests more than one cause"
+      },
+      {
+        "speaker": "student",
+        "line": "What is the area of a 20 m square pixel?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "400 m². It may summarize several surface types within that area."
+      },
+      {
+        "speaker": "student",
+        "line": "Does zooming reveal new independent ground observations?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "No. Zoom or interpolation changes representation, not the information originally measured."
+      },
+      {
+        "speaker": "student",
+        "line": "Why are raw stored band integers not always ready for an index?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "They may require scale factors and offsets, and the bands must represent compatible quantities before arithmetic is meaningful."
+      },
+      {
+        "speaker": "student",
+        "line": "Why does vegetation often contrast between red and near infrared?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Pigments absorb strongly in red while internal leaf structure supports greater near-infrared reflection; the contrast is not a unique diagnosis."
+      },
+      {
+        "speaker": "student",
+        "line": "What NDVI follows from 0.60 near infrared and 0.20 red?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "(0.60 − 0.20) / (0.60 + 0.20) = 0.40 / 0.80 = 0.50."
+      },
+      {
+        "speaker": "student",
+        "line": "Does a lower NDVI prove nitrogen deficiency?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "No. Several crop, background and observation conditions can change the index. A field check must distinguish them."
+      },
+      {
+        "speaker": "student",
+        "line": "Why should cloud-masked pixels not become measured zeros?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "They contain no usable observation for the statistic. Zero substitution biases summaries and can invent a decline."
+      },
+      {
+        "speaker": "student",
+        "line": "What is the mean of usable values 0.50, 0.60 and 0.70?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "The sum is 1.80 across three valid observations, giving 0.60. The cloudy observation stays excluded and documented."
+      },
+      {
+        "speaker": "student",
+        "line": "Why inspect a typical-index area as well as the low patch?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "A matched typical area helps distinguish patch-specific evidence from field-wide crop stage, soil or observation conditions."
+      },
+      {
+        "speaker": "student",
+        "line": "What can sparse emergence explain without proving nutrient deficiency?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "More visible bare soil changes the mixed spectral signal. The low index may reflect cover rather than a unique leaf-level cause."
+      },
+      {
+        "speaker": "student",
+        "line": "What is the strongest supported conclusion from the two index values?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Zone B has lower red–near-infrared contrast in the comparable screened observations. The cause remains unestablished."
+      },
+      {
+        "speaker": "student",
+        "line": "Which two checks target the proposed competing explanations?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Compare emergence and canopy cover at matched sites, and record soil wetness plus terrain position under comparable conditions."
+      }
+    ],
+    "nodes": [
+      {
+        "id": "root",
+        "parent": null,
+        "label": "Remote sensing for agriculture",
+        "note": "A low vegetation-index patch tells you where to look, but rarely tells you the cause. Connect pixels, reflectance, image quality and field evidence before making a decision."
+      },
+      {
+        "id": "remote-pixels",
+        "parent": "root",
+        "label": "Match the image scale to the question",
+        "note": "Spatial: footprint and resolvable detail"
+      },
+      {
+        "id": "remote-pixels-detail-0",
+        "parent": "remote-pixels",
+        "label": "Spectral",
+        "note": "Spectral: wavelength bands"
+      },
+      {
+        "id": "remote-pixels-detail-1",
+        "parent": "remote-pixels",
+        "label": "Temporal",
+        "note": "Temporal: observation timing"
+      },
+      {
+        "id": "remote-spectrum",
+        "parent": "root",
+        "label": "Distinguish reflectance from brightness",
+        "note": "Signal: depends on surface and observation conditions"
+      },
+      {
+        "id": "remote-spectrum-detail-0",
+        "parent": "remote-spectrum",
+        "label": "Reflectance",
+        "note": "Reflectance: calibrated physical fraction"
+      },
+      {
+        "id": "remote-spectrum-detail-1",
+        "parent": "remote-spectrum",
+        "label": "Comparability",
+        "note": "Comparability: inspect product scaling and flags"
+      },
+      {
+        "id": "remote-ndvi",
+        "parent": "root",
+        "label": "Calculate the index, then limit the claim",
+        "note": "Formula: near infrared minus red over their sum"
+      },
+      {
+        "id": "remote-ndvi-detail-0",
+        "parent": "remote-ndvi",
+        "label": "Interpretation",
+        "note": "Interpretation: spectral contrast"
+      },
+      {
+        "id": "remote-ndvi-detail-1",
+        "parent": "remote-ndvi",
+        "label": "Limit",
+        "note": "Limit: equal index does not imply equal cause"
+      },
+      {
+        "id": "remote-quality",
+        "parent": "root",
+        "label": "Check timing, clouds and alignment",
+        "note": "Quality: mask invalid observations"
+      },
+      {
+        "id": "remote-quality-detail-0",
+        "parent": "remote-quality",
+        "label": "Coverage",
+        "note": "Coverage: report valid area or count"
+      },
+      {
+        "id": "remote-quality-detail-1",
+        "parent": "remote-quality",
+        "label": "Alignment",
+        "note": "Alignment: compare the same ground footprint"
+      },
+      {
+        "id": "remote-ground",
+        "parent": "root",
+        "label": "Design a field check that can contradict the map story",
+        "note": "Hypotheses: several mechanisms can fit one pattern"
+      },
+      {
+        "id": "remote-ground-detail-0",
+        "parent": "remote-ground",
+        "label": "Matched checks",
+        "note": "Matched checks: inspect typical and low areas"
+      },
+      {
+        "id": "remote-ground-detail-1",
+        "parent": "remote-ground",
+        "label": "Decision",
+        "note": "Decision: define what evidence would change it"
+      },
+      {
+        "id": "remote-capstone",
+        "parent": "root",
+        "label": "Capstone: turn a contrast into a scouting plan",
+        "note": "Compute: 0.50 versus about 0.286"
+      },
+      {
+        "id": "remote-capstone-detail-0",
+        "parent": "remote-capstone",
+        "label": "Conclude",
+        "note": "Conclude: spectral difference under stated assumptions"
+      },
+      {
+        "id": "remote-capstone-detail-1",
+        "parent": "remote-capstone",
+        "label": "Act",
+        "note": "Act: matched scouting before causal attribution"
+      }
+    ],
+    "mnemonics": []
+  },
+  "sources": [
+    {
+      "title": "NASA — Measuring Vegetation: NDVI and EVI",
+      "url": "https://science.nasa.gov/earth/earth-observatory/measuring-vegetation-ndvi-evi/"
+    },
+    {
+      "title": "USGS — Landsat Surface Reflectance Quality Assessment",
+      "url": "https://www.usgs.gov/landsat-missions/landsat-surface-reflectance-quality-assessment"
+    },
+    {
+      "title": "USGS — NDVI from Other Sensors",
+      "url": "https://www.usgs.gov/special-topics/remote-sensing-phenology/science/ndvi-other-sensors"
+    }
+  ]
+}

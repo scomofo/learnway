@@ -1,0 +1,752 @@
+{
+  "meta": {
+    "title": "Everyday Thermodynamics: Heat, Work & Refrigeration",
+    "topic": "Thermodynamics and heat pumps",
+    "level": "intermediate",
+    "estimatedMinutes": 65,
+    "tags": [
+      "heat",
+      "energy",
+      "thermodynamics",
+      "refrigeration",
+      "heat pumps"
+    ],
+    "createdAt": "2026-10-31T04:00:00.000Z",
+    "interests": "Agriculture, music, space, practical engineering and evidence-based technology",
+    "depth": "standard",
+    "model": "Learnway authored course"
+  },
+  "plan": {
+    "title": "Everyday Thermodynamics: Heat, Work & Refrigeration",
+    "hook": "A heat pump can deliver more heat than its electrical input without creating energy. Follow the boundary and the energy ledger to see why that claim can be physically correct.",
+    "objectives": [
+      "Distinguish temperature, energy, heat transfer and power",
+      "Apply a clearly stated first-law sign convention",
+      "Compare conduction, convection, radiation, engine efficiency and heat-pump COP",
+      "Calculate a heating comparison and state the conditions needed for a fair decision"
+    ],
+    "prerequisites": [
+      "Basic energy units and ratios; no appliance servicing required"
+    ],
+    "sections": [
+      {
+        "id": "heat-temperature",
+        "heading": "Temperature does not count all the energy",
+        "points": [
+          "Temperature: state, not total stored energy",
+          "Sensible energy: mass × specific heat × change",
+          "Power: energy divided by elapsed time"
+        ]
+      },
+      {
+        "id": "heat-firstlaw",
+        "heading": "Write the energy boundary before the equation",
+        "points": [
+          "Boundary: identify the system",
+          "Convention: heat in and work out positive",
+          "Ledger: stored change equals net transfer"
+        ]
+      },
+      {
+        "id": "heat-transfer",
+        "heading": "Identify the path before choosing a remedy",
+        "points": [
+          "Conduction: transfer through matter",
+          "Convection: moving fluid and surfaces",
+          "Radiation: electromagnetic energy transfer"
+        ]
+      },
+      {
+        "id": "heat-engine",
+        "heading": "An engine must account for rejected heat",
+        "points": [
+          "Cycle: no net stored-energy change",
+          "Efficiency: useful work over heat input",
+          "Limit: absolute temperatures and reversibility"
+        ]
+      },
+      {
+        "id": "heat-pump",
+        "heading": "COP can exceed one without creating energy",
+        "points": [
+          "Heating COP: delivered heat divided by work",
+          "Balance: source heat plus work equals output",
+          "Conditions: temperature lift and auxiliaries matter"
+        ]
+      },
+      {
+        "id": "heat-capstone",
+        "heading": "Capstone: compare a heating requirement fairly",
+        "points": [
+          "Same service: 12 kWh delivered",
+          "Inputs: 12 kWh versus 4 kWh",
+          "Scope: stated whole-system COP and interval"
+        ]
+      }
+    ]
+  },
+  "reading": {
+    "sections": [
+      {
+        "id": "heat-temperature",
+        "heading": "Temperature does not count all the energy",
+        "body": "Temperature describes a thermal state; it is not the total energy stored in an object. Two containers of water at the same temperature can contain different amounts of internal energy because their masses differ. Heat is energy transferred because of a temperature difference, rather than a substance sitting inside an object.\n\nFor a material with approximately constant specific heat capacity, energy needed for a temperature change equals mass times specific heat capacity times temperature change. Use 4.18 kJ/(kg·°C) for liquid water in this teaching example. Warming 2 kg of water by 10 °C requires 2 × 4.18 × 10 = 83.6 kJ, ignoring container heating and losses.\n\nThe same energy delivered slowly or quickly gives different power. Supplying 83.6 kJ over 100 s corresponds to 836 W average. Phase changes require a different model because energy can change phase without raising temperature.\n\n**Try it:** Compare one kilogram and ten kilograms of the same liquid warming by the same amount. State what stays equal and what scales with mass. Identify why a melting-ice example cannot use only the temperature-change formula.",
+        "visual": "Equal temperatures do not imply equal total heat capacity. The two masses are the same material, so the capacity scales with mass.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">Temperature and stored energy differ</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Equal-temperature objects can store different thermal energies.</text><rect x=\"65\" y=\"125\" width=\"300\" height=\"190\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"81\" y=\"155\" fill=\"#69d9d0\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Small water mass</text><text x=\"81\" y=\"187\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Mass: 1 kg</text><text x=\"81\" y=\"214\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Temperature: 40 °C</text><text x=\"81\" y=\"241\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Lower total heat capacity</text><rect x=\"435\" y=\"125\" width=\"300\" height=\"190\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"451\" y=\"155\" fill=\"#f8bf70\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Large water mass</text><text x=\"451\" y=\"187\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Mass: 10 kg</text><text x=\"451\" y=\"214\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Temperature: 40 °C</text><text x=\"451\" y=\"241\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Ten times the heat capacity</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">This comparison assumes the same material and heat capacity over the interval.</text></svg>",
+        "questions": [
+          {
+            "q": "Why do equal-temperature water masses need different heating energy for the same rise?",
+            "hint": "The amount of material differs.",
+            "answer": "With the same specific heat and temperature change, energy scales with mass. Ten times the mass needs ten times the energy."
+          },
+          {
+            "q": "What does the 83.6 kJ calculation omit?",
+            "hint": "The chosen boundary only heats liquid water.",
+            "answer": "It omits the container, heat losses, phase changes and variation of heat capacity over conditions."
+          }
+        ]
+      },
+      {
+        "id": "heat-firstlaw",
+        "heading": "Write the energy boundary before the equation",
+        "body": "The first law is energy conservation for a defined system. In this lesson, heat entering the system is positive and work done by the system on its surroundings is positive. The internal-energy change is heat in minus work out: ΔU = Q − W. The symbols represent energy in joules, not power.\n\nIf 500 J enters as heat while the system does 200 J of work, stored internal energy rises by 300 J. If instead 200 J of work is done on the system, W is −200 J and the change is 700 J. Another textbook may choose a different work sign, so state the convention rather than memorizing an isolated minus sign.\n\nFor a complete cycle returning to the same state, internal-energy change is zero. Net work out must then equal net heat in under this convention. For flowing devices, mass carries energy across the boundary too; the closed-system expression alone is incomplete.\n\n**Try it:** Draw a boundary around a piston gas. Label every arrow by direction, amount and transfer type. Check the ledger before substituting numbers.",
+        "visual": "The arrows establish the sign convention before the arithmetic. The stored change is the 500 J input minus 200 J output.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">Choose a boundary and a sign convention</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Heat entering is positive; work done by the system is positive.</text><rect x=\"285\" y=\"140\" width=\"230\" height=\"155\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"301\" y=\"170\" fill=\"#baa6ff\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">System</text><text x=\"301\" y=\"202\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">ΔU = Q − W</text><text x=\"301\" y=\"229\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Stored change: 300 J</text><line x1=\"65\" y1=\"215\" x2=\"275\" y2=\"215\" stroke=\"#f8bf70\" stroke-width=\"3\"/><path d=\"M 267.10 219.31 L 275 215 L 267.10 210.69\" fill=\"none\" stroke=\"#f8bf70\" stroke-width=\"3\"/><text x=\"65\" y=\"185\" fill=\"#f8bf70\" font-size=\"18\" font-family=\"sans-serif\" text-anchor=\"start\">Heat in: 500 J</text><line x1=\"525\" y1=\"215\" x2=\"730\" y2=\"215\" stroke=\"#69d9d0\" stroke-width=\"3\"/><path d=\"M 722.10 219.31 L 730 215 L 722.10 210.69\" fill=\"none\" stroke=\"#69d9d0\" stroke-width=\"3\"/><text x=\"555\" y=\"185\" fill=\"#69d9d0\" font-size=\"18\" font-family=\"sans-serif\" text-anchor=\"start\">Work out: 200 J</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">Conceptual model; assumptions and units are explained in the lesson.</text></svg>",
+        "questions": [
+          {
+            "q": "What is ΔU for 500 J heat in and 200 J work out?",
+            "hint": "Use the convention in the lesson.",
+            "answer": "ΔU = 500 − 200 = +300 J."
+          },
+          {
+            "q": "Why can a sign convention from another text appear different?",
+            "hint": "The physical arrows can match even if symbols change.",
+            "answer": "Some conventions define work done on the system as positive. The ledger is equivalent when definitions and signs are used consistently."
+          }
+        ]
+      },
+      {
+        "id": "heat-transfer",
+        "heading": "Identify the path before choosing a remedy",
+        "body": "Conduction transfers energy through matter along a temperature gradient. Convection involves moving fluid and heat exchange at surfaces. Thermal radiation transfers energy electromagnetically and does not need air. Several mechanisms usually operate together.\n\nInsulation reduces some heat-transfer paths; it does not create heat. A reflective surface can change radiative exchange without being a good barrier to conduction. Moving air may improve convection, but the effect depends on surface temperature, flow and geometry. In vacuum, ordinary ambient-air convection is absent while radiation and conduction through contacts remain possible.\n\nThermal resistance is a simplified relation between temperature difference and heat-transfer rate. If a stated overall resistance is 2 °C/W and the temperature difference is 20 °C, steady heat flow is 10 W. The resistance must describe the actual path and conditions; parallel leaks or changing airflow can invalidate a single-path estimate.\n\n**Try it:** Trace heat leaving a warm room through a window, frame and air leakage. Distinguish heat-transfer mechanisms from the building components. Explain why addressing one path does not prove the total loss is now negligible.",
+        "visual": "The three panels distinguish transfer mechanisms. Actual heat loss can combine several paths at once.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">Three heat-transfer mechanisms</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Each requires different evidence about materials and surroundings.</text><rect x=\"45\" y=\"125\" width=\"220\" height=\"185\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"61\" y=\"155\" fill=\"#f8bf70\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Conduction</text><text x=\"61\" y=\"187\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Through matter</text><text x=\"61\" y=\"214\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Temperature gradient</text><text x=\"61\" y=\"241\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Metal handle warms</text><rect x=\"290\" y=\"125\" width=\"220\" height=\"185\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"306\" y=\"155\" fill=\"#69d9d0\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Convection</text><text x=\"306\" y=\"187\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Moving fluid</text><text x=\"306\" y=\"214\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Bulk transport</text><text x=\"306\" y=\"241\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Air circulates</text><rect x=\"535\" y=\"125\" width=\"220\" height=\"185\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"551\" y=\"155\" fill=\"#baa6ff\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Radiation</text><text x=\"551\" y=\"187\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Electromagnetic</text><text x=\"551\" y=\"214\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">No air required</text><text x=\"551\" y=\"241\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">Sun warms a surface</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">Conceptual model; assumptions and units are explained in the lesson.</text></svg>",
+        "questions": [
+          {
+            "q": "Does insulation create heat?",
+            "hint": "Distinguish source from transfer resistance.",
+            "answer": "No. It changes heat-transfer rates through the paths it affects; maintaining temperature still requires an energy balance."
+          },
+          {
+            "q": "What steady rate follows from 20 °C difference across 2 °C/W resistance?",
+            "hint": "Divide difference by resistance.",
+            "answer": "10 W, if the stated resistance represents the actual steady heat path and boundary conditions."
+          }
+        ]
+      },
+      {
+        "id": "heat-engine",
+        "heading": "An engine must account for rejected heat",
+        "body": "A cyclic heat engine receives heat, delivers work and rejects remaining heat. Because it returns to its initial state each cycle, stored internal energy has no net change over that cycle. Energy received therefore equals work delivered plus heat rejected in the simple model.\n\nIf a fictional engine receives 1,000 J and delivers 300 J of work, it rejects 700 J. Thermal efficiency is useful work divided by heat received: 300 / 1,000 = 30%. A 30% result is not a claim that the other energy vanished.\n\nThe second law places a limit beyond energy bookkeeping. A cyclic engine exchanging heat with reservoirs cannot turn all heat from one reservoir into work without other effects. The ideal reversible efficiency limit between hot and cold reservoirs is one minus cold absolute temperature divided by hot absolute temperature. Absolute temperature uses kelvin, not Celsius.\n\n**Try it:** For 600 K and 300 K reservoirs, the ideal upper bound is 50%. Explain why a real engine with the same reservoir temperatures is not guaranteed to reach it. Friction, finite-rate transfer and other irreversibilities matter.",
+        "visual": "The cyclic ledger divides received heat into work and rejected heat. The geometry is a comparison of amounts, not an engine mechanism.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">An engine divides incoming heat</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Fictional cyclic engine; energy stored returns to its initial value each cycle.</text><text x=\"195\" y=\"152\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"end\">Heat received</text><rect x=\"210\" y=\"130\" width=\"475\" height=\"30\" rx=\"6\" fill=\"none\" stroke=\"#33445e\"/><rect x=\"210\" y=\"130\" width=\"431.8181818181818\" height=\"30\" rx=\"6\" fill=\"#f8bf70\" stroke=\"#f8bf70\"/><text x=\"697\" y=\"152\" fill=\"#f8bf70\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">1000 J</text><text x=\"195\" y=\"217\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"end\">Useful work</text><rect x=\"210\" y=\"195\" width=\"475\" height=\"30\" rx=\"6\" fill=\"none\" stroke=\"#33445e\"/><rect x=\"210\" y=\"195\" width=\"129.54545454545453\" height=\"30\" rx=\"6\" fill=\"#69d9d0\" stroke=\"#69d9d0\"/><text x=\"697\" y=\"217\" fill=\"#69d9d0\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">300 J</text><text x=\"195\" y=\"282\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"end\">Heat rejected</text><rect x=\"210\" y=\"260\" width=\"475\" height=\"30\" rx=\"6\" fill=\"none\" stroke=\"#33445e\"/><rect x=\"210\" y=\"260\" width=\"302.27272727272725\" height=\"30\" rx=\"6\" fill=\"#f69caf\" stroke=\"#f69caf\"/><text x=\"697\" y=\"282\" fill=\"#f69caf\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">700 J</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">Efficiency = 300 / 1,000 = 30%. The rejected 700 J remains part of the energy ledger.</text></svg>",
+        "questions": [
+          {
+            "q": "Where does the 700 J go in the example?",
+            "hint": "Close the cycle’s energy ledger.",
+            "answer": "It is rejected as heat. It has not disappeared, even though it is not useful mechanical output."
+          },
+          {
+            "q": "Why must the reservoir-ratio limit use kelvin?",
+            "hint": "The formula needs an absolute temperature scale.",
+            "answer": "Kelvin measures temperature from absolute zero; using Celsius in the ratio changes the physics and gives an invalid bound."
+          }
+        ]
+      },
+      {
+        "id": "heat-pump",
+        "heading": "COP can exceed one without creating energy",
+        "body": "A heat pump uses work to move heat from a cooler source toward a warmer destination. In heating mode, delivered heat equals extracted source heat plus work input for the simple cyclic energy balance.\n\nThe heating coefficient of performance, or heating COP, is delivered heat divided by work input. If 1 kWh of electricity supplies work and the pump extracts 2 kWh from its source, it delivers 3 kWh of heat. Heating COP is 3. This is not a 300% conversion of electricity into newly created heat; source heat crosses the boundary too.\n\nCooling COP uses heat removed from the cold side as its numerator. For the same ideal balance, heating COP equals cooling COP plus one when both use the same work input and boundary. Actual seasonal system performance includes operating conditions, auxiliaries, defrost and temperature lift.\n\n**Predict:** Will COP stay fixed as outdoor conditions change? Not necessarily. A larger required temperature lift generally makes heat pumping more demanding, and real equipment has condition-dependent limits.\n\n**Try it:** Draw all three energy arrows before comparing a resistance heater with a heat pump. State whether an assumed COP is a single operating point or a measured period average.",
+        "visual": "Two incoming energy contributions add to the delivered heat. The COP uses work input as its denominator, so it can exceed one.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">A heat pump moves heat using work</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Fictional heating mode: delivered heat is the sum of two inputs.</text><rect x=\"50\" y=\"145\" width=\"205\" height=\"130\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"66\" y=\"175\" fill=\"#69d9d0\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Outdoor source</text><text x=\"66\" y=\"207\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">2 kWh heat</text><line x1=\"260\" y1=\"210\" x2=\"300\" y2=\"210\" stroke=\"#69d9d0\" stroke-width=\"3\"/><path d=\"M 292.10 214.31 L 300 210 L 292.10 205.69\" fill=\"none\" stroke=\"#69d9d0\" stroke-width=\"3\"/><rect x=\"305\" y=\"145\" width=\"190\" height=\"130\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"321\" y=\"175\" fill=\"#baa6ff\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Heat pump</text><text x=\"321\" y=\"207\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">1 kWh work</text><line x1=\"500\" y1=\"210\" x2=\"540\" y2=\"210\" stroke=\"#f8bf70\" stroke-width=\"3\"/><path d=\"M 532.10 214.31 L 540 210 L 532.10 205.69\" fill=\"none\" stroke=\"#f8bf70\" stroke-width=\"3\"/><rect x=\"545\" y=\"145\" width=\"205\" height=\"130\" rx=\"6\" fill=\"none\" stroke=\"#a8b9d0\"/><text x=\"561\" y=\"175\" fill=\"#f8bf70\" font-size=\"19\" font-family=\"sans-serif\" text-anchor=\"start\">Indoor space</text><text x=\"561\" y=\"207\" fill=\"#e5edf9\" font-size=\"16\" font-family=\"sans-serif\" text-anchor=\"start\">3 kWh heat</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">Heating COP = 3 / 1 = 3. Energy is moved and supplied, not created.</text></svg>",
+        "questions": [
+          {
+            "q": "How does 1 kWh input yield 3 kWh delivered heat in the example?",
+            "hint": "Include the source-side arrow.",
+            "answer": "The pump also moves 2 kWh from the outdoor source, so 1 + 2 = 3 kWh. Energy is conserved."
+          },
+          {
+            "q": "Why is a single COP value insufficient for a seasonal comparison?",
+            "hint": "Operation occurs across different conditions.",
+            "answer": "Temperature lift, defrost, auxiliaries and operating modes vary; a representative seasonal system boundary and data are needed."
+          }
+        ]
+      },
+      {
+        "id": "heat-capstone",
+        "heading": "Capstone: compare a heating requirement fairly",
+        "body": "A fictional room requires 12 kWh of delivered heat over a fixed interval. Compare an ideal resistance heater with a heat pump operating at a stated whole-system heating COP of 3 for that interval. Ignore stored-energy changes and assume the heat demand is identical.\n\n**Your task:** Calculate electrical inputs, source heat moved by the pump and the difference in electricity. State what measurements would be needed before applying the result to a real winter decision.\n\n**Worked solution:** Ideal resistance heat uses 12 kWh electrical input. The heat pump uses 12 / 3 = 4 kWh of work and moves 12 − 4 = 8 kWh from its source. The electricity difference is 8 kWh under these assumptions. It is not an equipment purchase recommendation or a guarantee at another temperature.\n\nCheck delivered comfort, operating temperature, defrost, auxiliary heat and the actual system boundary. For cost, a real tariff and the same period are also needed; this lesson does not assume a current price.\n\n**Check your work:** Include the three heat-pump energy arrows, define heating COP, preserve kWh as an energy unit and separate the hypothetical result from actual measured performance. A good comparison fixes the service delivered before comparing the resource input.",
+        "visual": "The same heat demand is compared across two systems. The heat pump’s input and moved source heat close the energy ledger.",
+        "diagram": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\"><rect x=\"1\" y=\"1\" width=\"798\" height=\"398\" rx=\"6\" fill=\"#101a2a\" stroke=\"#101a2a\"/><text x=\"30\" y=\"40\" fill=\"#e5edf9\" font-size=\"24\" font-family=\"sans-serif\" text-anchor=\"start\">Compare the same delivered heat requirement</text><text x=\"30\" y=\"70\" fill=\"#a8b9d0\" font-size=\"15\" font-family=\"sans-serif\" text-anchor=\"start\">Fictional 12 kWh heating demand over one fixed interval.</text><text x=\"195\" y=\"152\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"end\">Resistance input</text><rect x=\"210\" y=\"130\" width=\"475\" height=\"30\" rx=\"6\" fill=\"none\" stroke=\"#33445e\"/><rect x=\"210\" y=\"130\" width=\"407.14285714285717\" height=\"30\" rx=\"6\" fill=\"#f8bf70\" stroke=\"#f8bf70\"/><text x=\"697\" y=\"152\" fill=\"#f8bf70\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">12 kWh</text><text x=\"195\" y=\"217\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"end\">Heat-pump input</text><rect x=\"210\" y=\"195\" width=\"475\" height=\"30\" rx=\"6\" fill=\"none\" stroke=\"#33445e\"/><rect x=\"210\" y=\"195\" width=\"135.71428571428572\" height=\"30\" rx=\"6\" fill=\"#69d9d0\" stroke=\"#69d9d0\"/><text x=\"697\" y=\"217\" fill=\"#69d9d0\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">4 kWh</text><text x=\"195\" y=\"282\" fill=\"#e5edf9\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"end\">Outdoor heat moved</text><rect x=\"210\" y=\"260\" width=\"475\" height=\"30\" rx=\"6\" fill=\"none\" stroke=\"#33445e\"/><rect x=\"210\" y=\"260\" width=\"271.42857142857144\" height=\"30\" rx=\"6\" fill=\"#baa6ff\" stroke=\"#baa6ff\"/><text x=\"697\" y=\"282\" fill=\"#baa6ff\" font-size=\"17\" font-family=\"sans-serif\" text-anchor=\"start\">8 kWh</text><text x=\"30\" y=\"377\" fill=\"#a8b9d0\" font-size=\"14\" font-family=\"sans-serif\" text-anchor=\"start\">At a stated heating COP of 3: 4 kWh work + 8 kWh source heat = 12 kWh delivered.</text></svg>",
+        "questions": [
+          {
+            "q": "What electricity difference follows from the stated model?",
+            "hint": "Subtract equal-service input requirements.",
+            "answer": "Resistance uses 12 kWh and the heat pump 4 kWh, a difference of 8 kWh over the same interval."
+          },
+          {
+            "q": "What makes this a fair service comparison?",
+            "hint": "The delivered requirement is held fixed.",
+            "answer": "Both systems deliver the same 12 kWh of heat under the stated boundary. Different comfort or omitted auxiliary loads would change the comparison."
+          }
+        ]
+      }
+    ]
+  },
+  "quizzes": {
+    "sections": [
+      {
+        "id": "heat-temperature",
+        "questions": [
+          {
+            "q": "Using the stated water heat capacity, what warms 1 kg by 10 °C?",
+            "choices": [
+              "4.18 kJ",
+              "418 kJ",
+              "10 kJ",
+              "41.8 kJ"
+            ],
+            "answer": 3,
+            "explain": "1 × 4.18 × 10 = 41.8 kJ under the stated assumptions."
+          },
+          {
+            "q": "Which is a rate rather than an amount of energy?",
+            "choices": [
+              "Watt",
+              "Joule",
+              "Kilowatt-hour",
+              "Kilojoule"
+            ],
+            "answer": 0,
+            "explain": "A watt is one joule per second; the other choices measure energy."
+          },
+          {
+            "q": "Why can melting ice absorb energy without a temperature rise?",
+            "choices": [
+              "Temperature directly measures every internal-energy contribution",
+              "Energy changes phase rather than only sensible temperature",
+              "Energy conservation stops during melting",
+              "Its mass must be zero"
+            ],
+            "answer": 1,
+            "explain": "A phase change needs latent-energy accounting beyond the sensible-heat formula."
+          }
+        ]
+      },
+      {
+        "id": "heat-firstlaw",
+        "questions": [
+          {
+            "q": "Heat input is 300 J and work output is 100 J. What is ΔU?",
+            "choices": [
+              "+200 J",
+              "+400 J",
+              "−200 J",
+              "0 J"
+            ],
+            "answer": 0,
+            "explain": "ΔU = Q − W = 300 − 100 = 200 J."
+          },
+          {
+            "q": "Under this convention, 100 J of work done on the system has what W?",
+            "choices": [
+              "+1 W",
+              "−100 J",
+              "+100 J",
+              "0 J"
+            ],
+            "answer": 1,
+            "explain": "W is defined as work done by the system, so work on it is negative."
+          },
+          {
+            "q": "What must be added when a device has mass flowing across its boundary?",
+            "choices": [
+              "Only a new temperature label",
+              "Nothing; the closed-system expression always suffices",
+              "Energy carried with the mass flow",
+              "A rule that energy no longer conserves"
+            ],
+            "answer": 2,
+            "explain": "An open-system energy balance includes transported energy as well as heat and work."
+          }
+        ]
+      },
+      {
+        "id": "heat-transfer",
+        "questions": [
+          {
+            "q": "Which mechanism can transfer thermal energy across empty space?",
+            "choices": [
+              "Mechanical contact conduction",
+              "Radiation",
+              "Ambient-air convection",
+              "Liquid bulk flow"
+            ],
+            "answer": 1,
+            "explain": "Radiation does not require a material medium."
+          },
+          {
+            "q": "What heat flow follows from 30 °C across 3 °C/W in the stated resistance model?",
+            "choices": [
+              "0.1 W",
+              "27 W",
+              "10 W",
+              "90 W"
+            ],
+            "answer": 2,
+            "explain": "Rate = temperature difference / resistance = 30 / 3 = 10 W."
+          },
+          {
+            "q": "Why might a single insulation calculation underestimate total room loss?",
+            "choices": [
+              "Insulation always generates energy",
+              "All windows have identical resistance",
+              "Temperature differences cannot drive transfer",
+              "Other parallel paths and air leakage remain"
+            ],
+            "answer": 3,
+            "explain": "A model for one path does not include every parallel path or changing boundary condition."
+          }
+        ]
+      },
+      {
+        "id": "heat-engine",
+        "questions": [
+          {
+            "q": "An engine receives 800 J and delivers 200 J. What is thermal efficiency?",
+            "choices": [
+              "400%",
+              "20%",
+              "25%",
+              "75%"
+            ],
+            "answer": 2,
+            "explain": "200 / 800 = 0.25 = 25%."
+          },
+          {
+            "q": "How much heat is rejected in that simple cyclic engine?",
+            "choices": [
+              "1,000 J",
+              "200 J",
+              "0 J",
+              "600 J"
+            ],
+            "answer": 3,
+            "explain": "800 J received − 200 J work = 600 J rejected."
+          },
+          {
+            "q": "What is the ideal reversible upper bound between 600 K and 300 K?",
+            "choices": [
+              "50%",
+              "100%",
+              "200%",
+              "0%"
+            ],
+            "answer": 0,
+            "explain": "1 − 300 / 600 = 0.50. Real devices need not attain this reversible bound."
+          }
+        ]
+      },
+      {
+        "id": "heat-pump",
+        "questions": [
+          {
+            "q": "A heat pump delivers 9 kWh using 3 kWh of work. What is heating COP?",
+            "choices": [
+              "0.333",
+              "6",
+              "12",
+              "3"
+            ],
+            "answer": 3,
+            "explain": "Heating COP = delivered heat / work = 9 / 3 = 3."
+          },
+          {
+            "q": "In that simple balance, how much heat is extracted from the source?",
+            "choices": [
+              "6 kWh",
+              "9 kWh",
+              "3 kWh",
+              "12 kWh"
+            ],
+            "answer": 0,
+            "explain": "Delivered heat 9 minus work input 3 leaves 6 kWh from the source."
+          },
+          {
+            "q": "Why is COP above one compatible with conservation?",
+            "choices": [
+              "Work input is measured in a different physical dimension",
+              "Delivered heat includes transferred source heat",
+              "Electricity creates extra energy",
+              "The source loses no energy"
+            ],
+            "answer": 1,
+            "explain": "Both source heat and work are energy inputs to the delivered-heat balance."
+          }
+        ]
+      },
+      {
+        "id": "heat-capstone",
+        "questions": [
+          {
+            "q": "At heating COP 3, what work input delivers 12 kWh?",
+            "choices": [
+              "4 kWh",
+              "36 kWh",
+              "9 kWh",
+              "12 kW"
+            ],
+            "answer": 0,
+            "explain": "Work = delivered heat / COP = 12 / 3 = 4 kWh."
+          },
+          {
+            "q": "What source heat is moved in the capstone?",
+            "choices": [
+              "16 kWh",
+              "8 kWh",
+              "4 kWh",
+              "12 kWh"
+            ],
+            "answer": 1,
+            "explain": "Delivered 12 kWh equals 4 kWh work plus 8 kWh source heat."
+          },
+          {
+            "q": "What would invalidate applying this result directly to a different winter interval?",
+            "choices": [
+              "Keeping the same boundary",
+              "Defining the delivered service",
+              "A different actual whole-system COP or heat demand",
+              "Writing energy in joules instead of kWh consistently"
+            ],
+            "answer": 2,
+            "explain": "The result is conditional on the specified demand and COP; changed conditions need new evidence."
+          }
+        ]
+      }
+    ]
+  },
+  "slides": {
+    "sections": [
+      {
+        "id": "heat-temperature",
+        "title": "Temperature does not count all the energy",
+        "bullets": [
+          "Temperature: state, not total stored energy",
+          "Sensible energy: mass × specific heat × change",
+          "Power: energy divided by elapsed time"
+        ],
+        "notes": "With the same specific heat and temperature change, energy scales with mass. Ten times the mass needs ten times the energy. It omits the container, heat losses, phase changes and variation of heat capacity over conditions.",
+        "visual": "Equal temperatures do not imply equal total heat capacity. The two masses are the same material, so the capacity scales with mass."
+      },
+      {
+        "id": "heat-firstlaw",
+        "title": "Write the energy boundary before the equation",
+        "bullets": [
+          "Boundary: identify the system",
+          "Convention: heat in and work out positive",
+          "Ledger: stored change equals net transfer"
+        ],
+        "notes": "ΔU = 500 − 200 = +300 J. Some conventions define work done on the system as positive. The ledger is equivalent when definitions and signs are used consistently.",
+        "visual": "The arrows establish the sign convention before the arithmetic. The stored change is the 500 J input minus 200 J output."
+      },
+      {
+        "id": "heat-transfer",
+        "title": "Identify the path before choosing a remedy",
+        "bullets": [
+          "Conduction: transfer through matter",
+          "Convection: moving fluid and surfaces",
+          "Radiation: electromagnetic energy transfer"
+        ],
+        "notes": "No. It changes heat-transfer rates through the paths it affects; maintaining temperature still requires an energy balance. 10 W, if the stated resistance represents the actual steady heat path and boundary conditions.",
+        "visual": "The three panels distinguish transfer mechanisms. Actual heat loss can combine several paths at once."
+      },
+      {
+        "id": "heat-engine",
+        "title": "An engine must account for rejected heat",
+        "bullets": [
+          "Cycle: no net stored-energy change",
+          "Efficiency: useful work over heat input",
+          "Limit: absolute temperatures and reversibility"
+        ],
+        "notes": "It is rejected as heat. It has not disappeared, even though it is not useful mechanical output. Kelvin measures temperature from absolute zero; using Celsius in the ratio changes the physics and gives an invalid bound.",
+        "visual": "The cyclic ledger divides received heat into work and rejected heat. The geometry is a comparison of amounts, not an engine mechanism."
+      },
+      {
+        "id": "heat-pump",
+        "title": "COP can exceed one without creating energy",
+        "bullets": [
+          "Heating COP: delivered heat divided by work",
+          "Balance: source heat plus work equals output",
+          "Conditions: temperature lift and auxiliaries matter"
+        ],
+        "notes": "The pump also moves 2 kWh from the outdoor source, so 1 + 2 = 3 kWh. Energy is conserved. Temperature lift, defrost, auxiliaries and operating modes vary; a representative seasonal system boundary and data are needed.",
+        "visual": "Two incoming energy contributions add to the delivered heat. The COP uses work input as its denominator, so it can exceed one."
+      },
+      {
+        "id": "heat-capstone",
+        "title": "Capstone: compare a heating requirement fairly",
+        "bullets": [
+          "Same service: 12 kWh delivered",
+          "Inputs: 12 kWh versus 4 kWh",
+          "Scope: stated whole-system COP and interval"
+        ],
+        "notes": "Resistance uses 12 kWh and the heat pump 4 kWh, a difference of 8 kWh over the same interval. Both systems deliver the same 12 kWh of heat under the stated boundary. Different comfort or omitted auxiliary loads would change the comparison.",
+        "visual": "The same heat demand is compared across two systems. The heat pump’s input and moved source heat close the energy ledger."
+      }
+    ]
+  },
+  "enrichment": {
+    "audioTitle": "Everyday Thermodynamics: Heat, Work & Refrigeration — reason it through",
+    "turns": [
+      {
+        "speaker": "teacher",
+        "line": "A heat pump can deliver more heat than its electrical input without creating energy. Follow the boundary and the energy ledger to see why that claim can be physically correct."
+      },
+      {
+        "speaker": "student",
+        "line": "What will I make by the end?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Calculate a heating comparison and state the conditions needed for a fair decision"
+      },
+      {
+        "speaker": "student",
+        "line": "Why do equal-temperature water masses need different heating energy for the same rise?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "With the same specific heat and temperature change, energy scales with mass. Ten times the mass needs ten times the energy."
+      },
+      {
+        "speaker": "student",
+        "line": "What does the 83.6 kJ calculation omit?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "It omits the container, heat losses, phase changes and variation of heat capacity over conditions."
+      },
+      {
+        "speaker": "student",
+        "line": "What is ΔU for 500 J heat in and 200 J work out?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "ΔU = 500 − 200 = +300 J."
+      },
+      {
+        "speaker": "student",
+        "line": "Why can a sign convention from another text appear different?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Some conventions define work done on the system as positive. The ledger is equivalent when definitions and signs are used consistently."
+      },
+      {
+        "speaker": "student",
+        "line": "Does insulation create heat?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "No. It changes heat-transfer rates through the paths it affects; maintaining temperature still requires an energy balance."
+      },
+      {
+        "speaker": "student",
+        "line": "What steady rate follows from 20 °C difference across 2 °C/W resistance?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "10 W, if the stated resistance represents the actual steady heat path and boundary conditions."
+      },
+      {
+        "speaker": "student",
+        "line": "Where does the 700 J go in the example?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "It is rejected as heat. It has not disappeared, even though it is not useful mechanical output."
+      },
+      {
+        "speaker": "student",
+        "line": "Why must the reservoir-ratio limit use kelvin?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Kelvin measures temperature from absolute zero; using Celsius in the ratio changes the physics and gives an invalid bound."
+      },
+      {
+        "speaker": "student",
+        "line": "How does 1 kWh input yield 3 kWh delivered heat in the example?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "The pump also moves 2 kWh from the outdoor source, so 1 + 2 = 3 kWh. Energy is conserved."
+      },
+      {
+        "speaker": "student",
+        "line": "Why is a single COP value insufficient for a seasonal comparison?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Temperature lift, defrost, auxiliaries and operating modes vary; a representative seasonal system boundary and data are needed."
+      },
+      {
+        "speaker": "student",
+        "line": "What electricity difference follows from the stated model?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Resistance uses 12 kWh and the heat pump 4 kWh, a difference of 8 kWh over the same interval."
+      },
+      {
+        "speaker": "student",
+        "line": "What makes this a fair service comparison?"
+      },
+      {
+        "speaker": "teacher",
+        "line": "Both systems deliver the same 12 kWh of heat under the stated boundary. Different comfort or omitted auxiliary loads would change the comparison."
+      }
+    ],
+    "nodes": [
+      {
+        "id": "root",
+        "parent": null,
+        "label": "Thermodynamics and heat pumps",
+        "note": "A heat pump can deliver more heat than its electrical input without creating energy. Follow the boundary and the energy ledger to see why that claim can be physically correct."
+      },
+      {
+        "id": "heat-temperature",
+        "parent": "root",
+        "label": "Temperature does not count all the energy",
+        "note": "Temperature: state, not total stored energy"
+      },
+      {
+        "id": "heat-temperature-detail-0",
+        "parent": "heat-temperature",
+        "label": "Sensible energy",
+        "note": "Sensible energy: mass × specific heat × change"
+      },
+      {
+        "id": "heat-temperature-detail-1",
+        "parent": "heat-temperature",
+        "label": "Power",
+        "note": "Power: energy divided by elapsed time"
+      },
+      {
+        "id": "heat-firstlaw",
+        "parent": "root",
+        "label": "Write the energy boundary before the equation",
+        "note": "Boundary: identify the system"
+      },
+      {
+        "id": "heat-firstlaw-detail-0",
+        "parent": "heat-firstlaw",
+        "label": "Convention",
+        "note": "Convention: heat in and work out positive"
+      },
+      {
+        "id": "heat-firstlaw-detail-1",
+        "parent": "heat-firstlaw",
+        "label": "Ledger",
+        "note": "Ledger: stored change equals net transfer"
+      },
+      {
+        "id": "heat-transfer",
+        "parent": "root",
+        "label": "Identify the path before choosing a remedy",
+        "note": "Conduction: transfer through matter"
+      },
+      {
+        "id": "heat-transfer-detail-0",
+        "parent": "heat-transfer",
+        "label": "Convection",
+        "note": "Convection: moving fluid and surfaces"
+      },
+      {
+        "id": "heat-transfer-detail-1",
+        "parent": "heat-transfer",
+        "label": "Radiation",
+        "note": "Radiation: electromagnetic energy transfer"
+      },
+      {
+        "id": "heat-engine",
+        "parent": "root",
+        "label": "An engine must account for rejected heat",
+        "note": "Cycle: no net stored-energy change"
+      },
+      {
+        "id": "heat-engine-detail-0",
+        "parent": "heat-engine",
+        "label": "Efficiency",
+        "note": "Efficiency: useful work over heat input"
+      },
+      {
+        "id": "heat-engine-detail-1",
+        "parent": "heat-engine",
+        "label": "Limit",
+        "note": "Limit: absolute temperatures and reversibility"
+      },
+      {
+        "id": "heat-pump",
+        "parent": "root",
+        "label": "COP can exceed one without creating energy",
+        "note": "Heating COP: delivered heat divided by work"
+      },
+      {
+        "id": "heat-pump-detail-0",
+        "parent": "heat-pump",
+        "label": "Balance",
+        "note": "Balance: source heat plus work equals output"
+      },
+      {
+        "id": "heat-pump-detail-1",
+        "parent": "heat-pump",
+        "label": "Conditions",
+        "note": "Conditions: temperature lift and auxiliaries matter"
+      },
+      {
+        "id": "heat-capstone",
+        "parent": "root",
+        "label": "Capstone: compare a heating requirement fairly",
+        "note": "Same service: 12 kWh delivered"
+      },
+      {
+        "id": "heat-capstone-detail-0",
+        "parent": "heat-capstone",
+        "label": "Inputs",
+        "note": "Inputs: 12 kWh versus 4 kWh"
+      },
+      {
+        "id": "heat-capstone-detail-1",
+        "parent": "heat-capstone",
+        "label": "Scope",
+        "note": "Scope: stated whole-system COP and interval"
+      }
+    ],
+    "mnemonics": []
+  },
+  "sources": [
+    {
+      "title": "OpenStax — First Law of Thermodynamics",
+      "url": "https://openstax.org/books/university-physics-volume-2/pages/3-3-first-law-of-thermodynamics"
+    },
+    {
+      "title": "OpenStax — Refrigerators and Heat Pumps",
+      "url": "https://openstax.org/books/university-physics-volume-2/pages/4-3-refrigerators-and-heat-pumps"
+    },
+    {
+      "title": "OpenStax — Mechanisms of Heat Transfer",
+      "url": "https://openstax.org/books/university-physics-volume-2/pages/1-6-mechanisms-of-heat-transfer"
+    }
+  ]
+}

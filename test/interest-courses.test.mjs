@@ -4,7 +4,8 @@ import { readFile } from 'node:fs/promises';
 import { validateCourse, sanitizeDiagram } from '../pipeline.mjs';
 import { courseToMarkdown, getFlashcards, renderView } from '../views.mjs';
 
-const names = ['precision-agriculture-rtk', 'music-theory-songwriting', 'hybrid-electric-vehicles', 'life-death-stars', 'ai-agents-workflows'];
+const additions = ['soil-water-management', 'hydraulic-systems', 'feedback-control', 'sensors-electronics', 'remote-sensing-fields', 'digital-audio-production', 'spacecraft-systems', 'everyday-thermodynamics', 'experiments-statistics', 'computer-networks'];
+const names = ['precision-agriculture-rtk', 'music-theory-songwriting', 'hybrid-electric-vehicles', 'life-death-stars', 'ai-agents-workflows', ...additions];
 const catalog = JSON.parse(await readFile(new URL('../courses/index.json', import.meta.url)));
 const courses = new Map(await Promise.all(names.map(async name => [name, JSON.parse(await readFile(new URL(`../courses/${name}.json`, import.meta.url)))])));
 
@@ -73,5 +74,38 @@ test('the original eight-bar melody counts every note and rest into complete 4/4
     const durations = [...bar[2].matchAll(/(?:[A-G][#b]?\d\s+)?(dotted half|quarter|half)(?: rest)?/g)];
     assert.ok(durations.length);
     assert.equal(durations.reduce((sum, duration) => sum + values[duration[1]], 0), 4, `bar ${bar[1]} includes its rests`);
+  }
+});
+
+test('new course calculations retain independently computed results and units', () => {
+  const checks = [
+    ['soil-water-management', 'uniform 500 mm', `${((0.28 - 0.10) * 500).toFixed(0)} mm`],
+    ['soil-water-management', 'one hectare', `${0.010 * 10_000} m³`],
+    ['hydraulic-systems', 'At 5 MPa', `${(5e6 * 20e-4).toLocaleString('en-US')} N`],
+    ['hydraulic-systems', 'At 6 L/min', `${(6 * 0.001 / 60) / 0.002} m/s`],
+    ['feedback-control', 'gain 4 percentage', `${4 * 3}%`],
+    ['feedback-control', '0.05 s interval', `${1 / 0.05} Hz`],
+    ['sensors-electronics', '8-bit converter', `${4.096 / (2 ** 8) * 1000} mV`],
+    ['remote-sensing-fields', 'zone B’s NDVI', ((0.45 - 0.25) / (0.45 + 0.25)).toFixed(3)],
+    ['digital-audio-production', '24-bit mono', `${(48_000 * 60 * 3).toLocaleString('en-US')} bytes`],
+    ['digital-audio-production', 'four specified mono', `${(4 * 48_000 * 60 * 3).toLocaleString('en-US')} bytes`],
+    ['spacecraft-systems', 'eclipse energy margin', `${24 - 30 * 35 / 60} Wh`],
+    ['spacecraft-systems', '48,000,000 bits', `${48_000_000 / 8 / 1e6} MB`],
+    ['everyday-thermodynamics', 'COP 3', `${12 / 3} kWh`],
+    ['experiments-statistics', 'mean of the four paired', `${(3 + 2 + 4 + 1) / 4} units`],
+    ['computer-networks', 'serialize 12,000 bits', `${(12_000 / 100e6 * 1000).toFixed(2)} ms`],
+  ];
+  for (const [name, fragment, expected] of checks) assert.equal(answerContaining(name, fragment), expected, `${name}: ${fragment}`);
+});
+
+test('each new capstone includes a task, worked result and acceptance criteria', () => {
+  for (const name of additions) {
+    const course = courses.get(name);
+    const capstone = course.reading.sections.at(-1);
+    assert.match(capstone.heading, /^Capstone:/);
+    for (const marker of ['**Your task:**', '**Worked solution:**', '**Check your work:**']) {
+      assert.ok(capstone.body.includes(marker), `${name} retains ${marker}`);
+    }
+    assert.equal(new Set(course.quizzes.sections.flatMap(s => s.questions.map(q => q.q))).size, 18, `${name} has no duplicated scored prompts`);
   }
 });
